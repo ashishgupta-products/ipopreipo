@@ -25,6 +25,7 @@ import { Badge } from "@/components/common/Badge";
 import { GMPCard } from "@/components/common/GMPCard";
 import { SubscriptionTable } from "@/components/common/SubscriptionTable";
 import { Calculator } from "@/components/common/Calculator";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -52,21 +53,24 @@ export default async function IPODetailPage({ params }: PageProps) {
       {/* Main Corporate Header */}
       <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge status={ipo.status} />
-              <Badge category={ipo.category} />
-              <span className="text-xs text-slate-600 font-semibold px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
-                {ipo.exchange}
-              </span>
-            </div>
+          <div className="flex items-start gap-4">
+            <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="xl" className="shadow-md shrink-0" />
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge status={ipo.status} />
+                <Badge category={ipo.category} />
+                <span className="text-xs text-slate-600 font-semibold px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
+                  {ipo.exchange}
+                </span>
+              </div>
 
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              {ipo.name}
-            </h1>
-            <p className="text-xs text-slate-500">
-              Lead Managers: {ipo.leadManagers.join(", ")} | Registrar: {ipo.registrarName}
-            </p>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                {ipo.name}
+              </h1>
+              <p className="text-xs text-slate-500">
+                Lead Managers: {ipo.leadManagers.join(", ")} | Registrar: {ipo.registrarName}
+              </p>
+            </div>
           </div>
 
           <div className="shrink-0 w-full sm:w-auto">

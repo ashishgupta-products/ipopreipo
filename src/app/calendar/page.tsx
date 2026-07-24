@@ -21,11 +21,13 @@ import {
 } from "lucide-react";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { Badge } from "@/components/common/Badge";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export interface CalendarEvent {
   id: string;
   ipoSlug: string;
   companyName: string;
+  logoUrl?: string;
   category: "mainboard" | "sme";
   eventType: "open" | "close" | "allotment" | "refund" | "listing";
   eventTitle: string;
@@ -72,6 +74,7 @@ export default function IPOCalendarPage() {
           id: `${ipo.id}-open`,
           ipoSlug: ipo.slug,
           companyName: ipo.name,
+          logoUrl: ipo.logoUrl,
           category: ipo.category,
           eventType: "open",
           eventTitle: "Bidding Opens",
@@ -92,6 +95,7 @@ export default function IPOCalendarPage() {
           id: `${ipo.id}-close`,
           ipoSlug: ipo.slug,
           companyName: ipo.name,
+          logoUrl: ipo.logoUrl,
           category: ipo.category,
           eventType: "close",
           eventTitle: "Bidding Closes",
@@ -112,6 +116,7 @@ export default function IPOCalendarPage() {
           id: `${ipo.id}-allotment`,
           ipoSlug: ipo.slug,
           companyName: ipo.name,
+          logoUrl: ipo.logoUrl,
           category: ipo.category,
           eventType: "allotment",
           eventTitle: "Allotment Declaration",
@@ -132,6 +137,7 @@ export default function IPOCalendarPage() {
           id: `${ipo.id}-listing`,
           ipoSlug: ipo.slug,
           companyName: ipo.name,
+          logoUrl: ipo.logoUrl,
           category: ipo.category,
           eventType: "listing",
           eventTitle: "Exchange Listing Day",
@@ -414,16 +420,19 @@ export default function IPOCalendarPage() {
                           </div>
 
                           {/* Company Name */}
-                          <div>
-                            <Link
-                              href={`/ipo/${ev.ipoSlug}`}
-                              className="font-bold text-sm text-slate-900 hover:text-blue-700 transition-colors line-clamp-1 block"
-                            >
-                              {ev.companyName}
-                            </Link>
-                            <span className="text-xs text-slate-500">
-                              Price: <strong className="text-slate-800">{ev.priceBand}</strong>
-                            </span>
+                          <div className="flex items-center gap-2.5">
+                            <CompanyLogo name={ev.companyName} logoUrl={ev.logoUrl} size="sm" />
+                            <div className="flex-1 min-w-0">
+                              <Link
+                                href={`/ipo/${ev.ipoSlug}`}
+                                className="font-bold text-sm text-slate-900 hover:text-blue-700 transition-colors line-clamp-1 block"
+                              >
+                                {ev.companyName}
+                              </Link>
+                              <span className="text-xs text-slate-500">
+                                Price: <strong className="text-slate-800">{ev.priceBand}</strong>
+                              </span>
+                            </div>
                           </div>
 
                           {/* Key Metrics */}

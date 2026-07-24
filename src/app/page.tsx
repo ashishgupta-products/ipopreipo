@@ -19,6 +19,7 @@ import { MOCK_ANCHOR_LOCKINS } from "@/data/mockAnchorLockins";
 import { Badge } from "@/components/common/Badge";
 import { GMPCard } from "@/components/common/GMPCard";
 import { Calculator } from "@/components/common/Calculator";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState<string>("all");
@@ -217,11 +218,16 @@ export default function Home() {
                 {filteredIpos.map((ipo) => (
                   <tr key={ipo.id} className="hover:bg-slate-50">
                     <td className="py-3.5 px-4 font-bold text-slate-900">
-                      <Link href={`/ipo/${ipo.slug}`} className="hover:text-blue-700">
-                        {ipo.name}
-                      </Link>
-                      <div className="mt-0.5">
-                        <Badge status={ipo.status} />
+                      <div className="flex items-center gap-2.5">
+                        <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="sm" />
+                        <div>
+                          <Link href={`/ipo/${ipo.slug}`} className="hover:text-blue-700 block font-bold text-xs sm:text-sm leading-tight">
+                            {ipo.name}
+                          </Link>
+                          <div className="mt-1 flex items-center gap-1">
+                            <Badge status={ipo.status} />
+                          </div>
+                        </div>
                       </div>
                     </td>
 
@@ -273,12 +279,15 @@ export default function Home() {
               >
                 <div className="space-y-3">
                   {/* Header */}
-                  <div className="flex justify-between items-start gap-2">
-                    <div>
-                      <h3 className="font-bold text-base text-slate-900 hover:text-blue-700 transition-colors line-clamp-1">
-                        <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
-                      </h3>
-                      <span className="text-xs text-slate-500">{ipo.exchange}</span>
+                  <div className="flex justify-between items-start gap-3">
+                    <div className="flex items-start gap-3 flex-1 min-w-0">
+                      <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="md" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-base text-slate-900 hover:text-blue-700 transition-colors line-clamp-1">
+                          <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
+                        </h3>
+                        <span className="text-xs text-slate-500">{ipo.exchange}</span>
+                      </div>
                     </div>
                     <div className="flex flex-col items-end gap-1 shrink-0">
                       <Badge status={ipo.status} />

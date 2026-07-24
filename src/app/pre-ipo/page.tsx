@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { MOCK_PRE_IPOS } from "@/data/mockPreIpo";
 import { PreIPOData } from "@/types/ipo";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function PreIPOPage() {
   const [selectedCompany, setSelectedCompany] = useState<PreIPOData | null>(null);
@@ -73,13 +74,16 @@ export default function PreIPOPage() {
           >
             <div className="space-y-3">
               <div className="flex justify-between items-start gap-4">
-                <div>
-                  <h3 className="font-extrabold text-lg text-slate-900">
-                    {company.companyName}
-                  </h3>
-                  <span className="text-xs text-amber-800 font-semibold">{company.sector}</span>
+                <div className="flex items-start gap-3">
+                  <CompanyLogo name={company.companyName} logoUrl={company.logoUrl} size="lg" />
+                  <div>
+                    <h3 className="font-extrabold text-lg text-slate-900 leading-tight">
+                      {company.companyName}
+                    </h3>
+                    <span className="text-xs text-amber-800 font-semibold">{company.sector}</span>
+                  </div>
                 </div>
-                <span className="px-2 py-0.5 rounded text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                <span className="px-2 py-0.5 rounded text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 shrink-0">
                   {company.status}
                 </span>
               </div>

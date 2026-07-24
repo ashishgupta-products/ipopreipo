@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, ExternalLink, Search, Percent, ShieldCheck } from "lucide-react";
 import { MOCK_IPOS } from "@/data/mockIpos";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function AllotmentPage() {
   const [selectedIpoId, setSelectedIpoId] = useState<string>(MOCK_IPOS[0].id);
@@ -75,6 +76,15 @@ export default function AllotmentPage() {
                     </option>
                   ))}
                 </select>
+              </div>
+
+              {/* Selected IPO Logo Card */}
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <CompanyLogo name={selectedIpo.name} logoUrl={selectedIpo.logoUrl} size="md" />
+                <div className="flex-1 min-w-0">
+                  <strong className="text-slate-900 font-extrabold text-xs sm:text-sm block truncate">{selectedIpo.name}</strong>
+                  <span className="text-[11px] text-slate-500 block truncate">Registrar: {selectedIpo.registrarName}</span>
+                </div>
               </div>
 
               <div>

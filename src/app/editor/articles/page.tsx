@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
 import { ArticlePost, ArticleCategory, ArticleStatus } from "@/types/editor";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function ArticlesManagementPage() {
   const [articles, setArticles] = useState<ArticlePost[]>(MOCK_ARTICLES);
@@ -163,10 +164,15 @@ export default function ArticlesManagementPage() {
                   </select>
                 </div>
 
-                <h3 className="font-extrabold text-white text-sm hover:text-emerald-400 transition-colors line-clamp-2">
-                  {art.title}
-                </h3>
-                <p className="text-xs text-slate-400 line-clamp-2">{art.excerpt}</p>
+                <div className="flex items-start gap-3">
+                  <CompanyLogo name={art.title} size="md" className="shrink-0 mt-0.5" />
+                  <div className="space-y-1 flex-1 min-w-0">
+                    <h3 className="font-extrabold text-white text-sm hover:text-emerald-400 transition-colors line-clamp-2">
+                      {art.title}
+                    </h3>
+                    <p className="text-xs text-slate-400 line-clamp-2">{art.excerpt}</p>
+                  </div>
+                </div>
               </div>
 
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
