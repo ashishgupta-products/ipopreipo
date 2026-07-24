@@ -27,11 +27,13 @@ import {
   Bookmark,
   ShieldCheck
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { useAuth } from "@/context/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 
 export const Navbar: React.FC = () => {
+  const router = useRouter();
   const { user, isAuthenticated, logout, switchRole } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [ipoMenuOpen, setIpoMenuOpen] = useState(false);
@@ -83,6 +85,9 @@ export const Navbar: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (megaMenuRef.current && !megaMenuRef.current.contains(event.target as Node)) {
         setIpoMenuOpen(false);
+      }
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target as Node)) {
+        setUserDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -527,10 +532,15 @@ export const Navbar: React.FC = () => {
                     </span>
                     <div className="grid grid-cols-2 gap-1 text-[10px] font-bold">
                       <button
-                        onClick={() => { switchRole("investor"); setUserDropdownOpen(false); }}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          switchRole("investor");
+                          setUserDropdownOpen(false);
+                        }}
                         className={`p-1.5 rounded-lg border text-center transition-all ${
                           user.role === "investor"
-                            ? "bg-blue-700 text-white border-blue-700"
+                            ? "bg-blue-700 text-white border-blue-700 font-extrabold"
                             : "bg-white text-slate-700 border-slate-200 hover:bg-blue-50"
                         }`}
                       >
@@ -538,10 +548,15 @@ export const Navbar: React.FC = () => {
                       </button>
 
                       <button
-                        onClick={() => { switchRole("hni"); setUserDropdownOpen(false); }}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          switchRole("hni");
+                          setUserDropdownOpen(false);
+                        }}
                         className={`p-1.5 rounded-lg border text-center transition-all ${
                           user.role === "hni"
-                            ? "bg-purple-700 text-white border-purple-700"
+                            ? "bg-purple-700 text-white border-purple-700 font-extrabold"
                             : "bg-white text-slate-700 border-slate-200 hover:bg-purple-50"
                         }`}
                       >
@@ -549,10 +564,16 @@ export const Navbar: React.FC = () => {
                       </button>
 
                       <button
-                        onClick={() => { switchRole("editor"); setUserDropdownOpen(false); }}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          switchRole("editor");
+                          setUserDropdownOpen(false);
+                          router.push("/editor");
+                        }}
                         className={`p-1.5 rounded-lg border text-center transition-all ${
                           user.role === "editor"
-                            ? "bg-emerald-700 text-white border-emerald-700"
+                            ? "bg-emerald-700 text-white border-emerald-700 font-extrabold"
                             : "bg-white text-slate-700 border-slate-200 hover:bg-emerald-50"
                         }`}
                       >
@@ -560,10 +581,16 @@ export const Navbar: React.FC = () => {
                       </button>
 
                       <button
-                        onClick={() => { switchRole("admin"); setUserDropdownOpen(false); }}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          switchRole("admin");
+                          setUserDropdownOpen(false);
+                          router.push("/admin");
+                        }}
                         className={`p-1.5 rounded-lg border text-center transition-all ${
                           user.role === "admin"
-                            ? "bg-amber-600 text-white border-amber-600"
+                            ? "bg-amber-600 text-white border-amber-600 font-extrabold"
                             : "bg-white text-slate-700 border-slate-200 hover:bg-amber-50"
                         }`}
                       >

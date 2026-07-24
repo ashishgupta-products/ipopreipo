@@ -18,28 +18,21 @@ body {
 }
 
 /* Controlled Font Resizing System (A-, A, A+) */
-:root {
-  --app-font-scale: 1;
-}
-
 html[data-font-size="small"] {
-  --app-font-scale: 0.88;
+  font-size: 88%;
 }
 
 html[data-font-size="normal"] {
-  --app-font-scale: 1;
+  font-size: 100%;
 }
 
 html[data-font-size="large"] {
-  --app-font-scale: 1.15;
+  font-size: 115%;
 }
 
 /* Smooth visual font transition across main content & body */
-main,
-body,
-.font-scalable {
-  zoom: var(--app-font-scale, 1);
-  transition: zoom 0.25s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+body {
+  transition: font-size 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Minimalist Clean Card */
