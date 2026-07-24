@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { CreditCard, Star, CheckCircle2, XCircle, ExternalLink, ChevronRight } from "lucide-react";
 import { MOCK_CREDIT_CARDS } from "@/data/mockCreditCards";
-import { CardCategory } from "@/types/finance";
+import { CardCategory, CreditCardData } from "@/types/finance";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function CreditCardsPage() {
   const [selectedCategory, setSelectedCategory] = useState<CardCategory>("all");
@@ -106,18 +107,21 @@ export default function CreditCardsPage() {
             <div className="space-y-3">
               {/* Header */}
               <div className="flex justify-between items-start gap-4">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-extrabold text-lg text-slate-900 hover:text-blue-700">
-                      <Link href={`/credit-cards/${card.slug}`}>{card.name}</Link>
-                    </h3>
-                    {card.isPopular && (
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
-                        POPULAR
-                      </span>
-                    )}
+                <div className="flex items-start gap-3">
+                  <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="lg" />
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="font-extrabold text-lg text-slate-900 hover:text-blue-700">
+                        <Link href={`/credit-cards/${card.slug}`}>{card.name}</Link>
+                      </h3>
+                      {card.isPopular && (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                          POPULAR
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xs text-blue-700 font-semibold">{card.issuer}</span>
                   </div>
-                  <span className="text-xs text-blue-700 font-semibold">{card.issuer}</span>
                 </div>
 
                 <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 shrink-0">

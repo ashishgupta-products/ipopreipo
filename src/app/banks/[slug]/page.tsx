@@ -13,7 +13,8 @@ import {
   HelpCircle
 } from "lucide-react";
 import { MOCK_BANKS } from "@/data/mockBanks";
-import UserReviewsSection from "@/components/common/UserReviewsSection";
+import { UserReviewsSection } from "@/components/common/UserReviewsSection";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -41,24 +42,27 @@ export default async function BankDetailPage({ params }: PageProps) {
       {/* Main Header Banner */}
       <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200">
-                {bank.type}
-              </span>
-              <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
-                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                {bank.rating} / 5.0 Rating
+          <div className="flex items-start gap-4">
+            <CompanyLogo name={bank.name} logoUrl={bank.logoUrl} size="xl" className="shadow-md shrink-0" />
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200">
+                  {bank.type}
+                </span>
+                <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
+                  <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                  {bank.rating} / 5.0 Rating
+                </div>
               </div>
+
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                {bank.name} Review
+              </h1>
+
+              <p className="text-slate-600 text-sm leading-relaxed max-w-3xl">
+                {bank.overview}
+              </p>
             </div>
-
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              {bank.name} Review
-            </h1>
-
-            <p className="text-slate-600 text-sm leading-relaxed max-w-3xl">
-              {bank.overview}
-            </p>
           </div>
 
           {/* CTA */}

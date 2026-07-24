@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Briefcase, Star, CheckCircle2, XCircle, ExternalLink, ChevronRight } from "lucide-react";
 import { MOCK_BROKERS } from "@/data/mockBrokers";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function BrokersPage() {
   return (
@@ -29,13 +30,16 @@ export default function BrokersPage() {
           >
             <div className="space-y-3">
               <div className="flex justify-between items-start gap-4">
-                <div>
-                  <h3 className="font-extrabold text-lg text-slate-900 hover:text-blue-700">
-                    <Link href={`/brokers/${broker.slug}`}>{broker.name}</Link>
-                  </h3>
-                  <span className="text-xs text-sky-700 font-semibold">{broker.type}</span>
+                <div className="flex items-start gap-3">
+                  <CompanyLogo name={broker.name} logoUrl={broker.logoUrl} size="lg" />
+                  <div>
+                    <h3 className="font-extrabold text-lg text-slate-900 hover:text-blue-700">
+                      <Link href={`/brokers/${broker.slug}`}>{broker.name}</Link>
+                    </h3>
+                    <span className="text-xs text-sky-700 font-semibold">{broker.type}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
+                <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200 shrink-0">
                   <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
                   {broker.rating} / 5.0
                 </div>

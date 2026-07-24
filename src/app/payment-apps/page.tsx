@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Smartphone, Star, CheckCircle2, XCircle, ExternalLink, Download, ChevronRight } from "lucide-react";
 import { MOCK_PAYMENT_APPS } from "@/data/mockPaymentApps";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function PaymentAppsPage() {
   return (
@@ -30,11 +31,14 @@ export default function PaymentAppsPage() {
             <div className="space-y-3">
               {/* Header */}
               <div className="flex justify-between items-start gap-4">
-                <div>
-                  <h3 className="font-extrabold text-lg text-slate-900 hover:text-emerald-700">
-                    <Link href={`/payment-apps/${app.slug}`}>{app.name}</Link>
-                  </h3>
-                  <span className="text-xs text-slate-500 font-semibold">{app.developer} ({app.downloadsTier})</span>
+                <div className="flex items-start gap-3">
+                  <CompanyLogo name={app.name} logoUrl={app.logoUrl} size="lg" />
+                  <div>
+                    <h3 className="font-extrabold text-lg text-slate-900 hover:text-emerald-700">
+                      <Link href={`/payment-apps/${app.slug}`}>{app.name}</Link>
+                    </h3>
+                    <span className="text-xs text-slate-500 font-semibold">{app.developer} ({app.downloadsTier})</span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 shrink-0">

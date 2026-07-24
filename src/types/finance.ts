@@ -39,6 +39,7 @@ export interface CreditCardData {
   name: string;
   issuer: string;
   issuerLogo?: string;
+  logoUrl?: string;
   category: CardCategory[];
   rating: number; // 1 to 5
   joiningFee: number; // in ₹ (0 for lifetime free)

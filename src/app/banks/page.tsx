@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Building2, Star, CheckCircle2, ExternalLink, ChevronRight } from "lucide-react";
 import { MOCK_BANKS } from "@/data/mockBanks";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function BanksPage() {
   return (
@@ -37,11 +38,16 @@ export default function BanksPage() {
             {MOCK_BANKS.map((bank) => (
               <tr key={bank.id} className="hover:bg-slate-50">
                 <td className="py-4 px-4 font-bold text-slate-900">
-                  <div className="text-base font-extrabold hover:text-blue-700">
-                    <Link href={`/banks/${bank.slug}`}>{bank.name}</Link>
+                  <div className="flex items-center gap-3">
+                    <CompanyLogo name={bank.name} logoUrl={bank.logoUrl} size="md" />
+                    <div>
+                      <div className="text-base font-extrabold hover:text-blue-700">
+                        <Link href={`/banks/${bank.slug}`}>{bank.name}</Link>
+                      </div>
+                      <span className="text-xs text-blue-700 font-medium">{bank.type}</span>
+                      <span className="text-[11px] text-slate-400 block mt-0.5">{bank.branchCount} | {bank.atmCount}</span>
+                    </div>
                   </div>
-                  <span className="text-xs text-blue-700 font-medium">{bank.type}</span>
-                  <span className="text-[11px] text-slate-400 block mt-0.5">{bank.branchCount} | {bank.atmCount}</span>
                 </td>
 
                 <td className="py-4 px-4 font-bold text-emerald-700">

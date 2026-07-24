@@ -15,7 +15,8 @@ import {
   Layers
 } from "lucide-react";
 import { MOCK_CREDIT_CARDS } from "@/data/mockCreditCards";
-import UserReviewsSection from "@/components/common/UserReviewsSection";
+import { UserReviewsSection } from "@/components/common/UserReviewsSection";
+import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -43,24 +44,27 @@ export default async function CreditCardDetailPage({ params }: PageProps) {
       {/* Main Header Banner */}
       <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200">
-                {card.issuer}
-              </span>
-              <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
-                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                {card.rating} / 5.0 Rating
+          <div className="flex items-start gap-4">
+            <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="xl" className="shadow-md shrink-0" />
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200">
+                  {card.issuer}
+                </span>
+                <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
+                  <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                  {card.rating} / 5.0 Rating
+                </div>
               </div>
+
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                {card.name} Review
+              </h1>
+
+              <p className="text-slate-600 text-sm leading-relaxed max-w-3xl">
+                {card.overview}
+              </p>
             </div>
-
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              {card.name} Review
-            </h1>
-
-            <p className="text-slate-600 text-sm leading-relaxed max-w-3xl">
-              {card.overview}
-            </p>
           </div>
 
           {/* CTA */}
