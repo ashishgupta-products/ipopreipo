@@ -43,6 +43,25 @@ export interface PeerComparisonDetail {
   eps?: number;
 }
 
+export interface IPOReservation {
+  category: string;
+  sharesOffered: string;
+  percentage: string;
+  amountCr: string;
+}
+
+export interface IPOKpiDetail {
+  roe?: string;
+  ronw?: string;
+  ebitdaMargin?: string;
+  priceToBookValue?: string;
+  preIpoEps?: string;
+  postIpoEps?: string;
+  preIpoPe?: string;
+  postIpoPe?: string;
+  asOfDate?: string;
+}
+
 export interface IPOData {
   id: string;
   slug: string;
@@ -117,6 +136,8 @@ export interface IPOData {
   financials?: FinancialMetric[];
   peerComparison?: PeerComparisonDetail[];
   anchorInvestors?: AnchorInvestorAlloc[];
+  reservations?: IPOReservation[];
+  kpis?: IPOKpiDetail;
   prospectusUrl?: string;
   drhpUrl?: string;
 }

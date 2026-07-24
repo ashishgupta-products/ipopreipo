@@ -378,6 +378,24 @@ export const MOCK_IPOS: IPOData[] = [
       { companyName: "Mamata Machinery Limited", faceValue: 10, peRatio: 62.07 },
       { companyName: "Jyoti CNC Automation Limited", faceValue: 2, peRatio: 54.60 },
       { companyName: "Windsor Machines Limited", faceValue: 2, peRatio: 2561.00 }
-    ]
+    ],
+    reservations: [
+      { category: "QIB Shares Offered", sharesOffered: "7,73,21,826 Shares", percentage: "45.23%", amountCr: "₹4,438.27 Cr" },
+      { category: "HNI / NII Shares Offered", sharesOffered: "2,31,96,549 Shares", percentage: "13.57%", amountCr: "₹1,331.48 Cr" },
+      { category: "Retail Shares Offered", sharesOffered: "5,41,25,280 Shares", percentage: "31.66%", amountCr: "₹3,106.79 Cr" },
+      { category: "Shareholder Quota", sharesOffered: "1,30,55,629 Shares", percentage: "7.64%", amountCr: "₹749.39 Cr" },
+      { category: "Employee Quota", sharesOffered: "32,57,347 Shares", percentage: "1.60%", amountCr: "₹169.38 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Mar 31, 2026",
+      roe: "43.02%",
+      ronw: "43.02%",
+      ebitdaMargin: "92.46%",
+      priceToBookValue: "19.60",
+      preIpoEps: "15.06",
+      postIpoEps: "15.06",
+      preIpoPe: "38.12",
+      postIpoPe: "38.12"
+    }
   }
 ];

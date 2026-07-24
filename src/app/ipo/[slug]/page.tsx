@@ -17,7 +17,8 @@ import {
   Globe,
   MapPin,
   UserCheck,
-  Briefcase
+  Briefcase,
+  TrendingUp
 } from "lucide-react";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { Badge } from "@/components/common/Badge";
@@ -189,6 +190,176 @@ export default async function IPODetailPage({ params }: PageProps) {
                   </tbody>
                 </table>
               </div>
+            </div>
+          )}
+
+          {/* IPO Reservations & Category Quota Distribution */}
+          {ipo.reservations && (
+            <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <Award className="w-4 h-4 text-purple-700" />
+                  IPO Reservations &amp; Category Quota Distribution
+                </h3>
+                <span className="text-[11px] font-bold text-purple-800 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-full">
+                  Total Issue: ₹{ipo.issueSizeTotalCr} Cr
+                </span>
+              </div>
+
+              {/* Visual Category Distribution Stack */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-[11px] text-slate-500 font-semibold">
+                  <span>Category Quota Breakdown (%)</span>
+                  <span>100% Total Issue Size</span>
+                </div>
+                <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden flex shadow-inner">
+                  {ipo.reservations.map((res, idx) => {
+                    const colors = [
+                      "bg-blue-600",
+                      "bg-purple-600",
+                      "bg-emerald-600",
+                      "bg-amber-500",
+                      "bg-indigo-500"
+                    ];
+                    return (
+                      <div
+                        key={idx}
+                        className={`${colors[idx % colors.length]} transition-all duration-300`}
+                        style={{ width: res.percentage }}
+                        title={`${res.category}: ${res.percentage}`}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                    <tr>
+                      <th className="py-2.5 px-3">Investor Category</th>
+                      <th className="py-2.5 px-3">Shares Offered</th>
+                      <th className="py-2.5 px-3 text-center">Quota Allocation (%)</th>
+                      <th className="py-2.5 px-3 text-right">Reservation Amount (₹)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-slate-800">
+                    {ipo.reservations.map((res, idx) => {
+                      const badgeColors = [
+                        "bg-blue-50 text-blue-800 border-blue-200",
+                        "bg-purple-50 text-purple-800 border-purple-200",
+                        "bg-emerald-50 text-emerald-800 border-emerald-200",
+                        "bg-amber-50 text-amber-800 border-amber-200",
+                        "bg-indigo-50 text-indigo-800 border-indigo-200"
+                      ];
+                      const dotColors = [
+                        "bg-blue-600",
+                        "bg-purple-600",
+                        "bg-emerald-600",
+                        "bg-amber-500",
+                        "bg-indigo-500"
+                      ];
+                      return (
+                        <tr key={idx} className="hover:bg-slate-50">
+                          <td className="py-2.5 px-3 font-bold text-slate-900 flex items-center gap-2">
+                            <span className={`w-2 h-2 rounded-full ${dotColors[idx % dotColors.length]} shrink-0`} />
+                            {res.category}
+                          </td>
+                          <td className="py-2.5 px-3 font-semibold text-slate-800">{res.sharesOffered}</td>
+                          <td className="py-2.5 px-3 text-center font-bold">
+                            <span className={`px-2 py-0.5 rounded-md border text-[11px] font-black ${badgeColors[idx % badgeColors.length]}`}>
+                              {res.percentage}
+                            </span>
+                          </td>
+                          <td className="py-2.5 px-3 text-right font-black text-slate-900">
+                            {res.amountCr}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Key Performance Indicators (KPIs) & Valuation Multiples */}
+          {ipo.kpis && (
+            <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-emerald-700" />
+                  Key Performance Indicators (KPI) &amp; Valuation Metrics
+                </h3>
+                {ipo.kpis.asOfDate && (
+                  <span className="text-[11px] font-bold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
+                    Values as of {ipo.kpis.asOfDate}
+                  </span>
+                )}
+              </div>
+
+              {/* KPI Summary Cards */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                {ipo.kpis.roe && (
+                  <div className="p-3 rounded-xl bg-emerald-50/60 border border-emerald-200/80">
+                    <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">ROE (Return on Equity)</span>
+                    <strong className="text-lg font-black text-emerald-900 block mt-0.5">{ipo.kpis.roe}</strong>
+                  </div>
+                )}
+                {ipo.kpis.ronw && (
+                  <div className="p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
+                    <span className="text-[10px] font-bold text-blue-800 uppercase tracking-wider block">RoNW (Return on Net Worth)</span>
+                    <strong className="text-lg font-black text-blue-900 block mt-0.5">{ipo.kpis.ronw}</strong>
+                  </div>
+                )}
+                {ipo.kpis.ebitdaMargin && (
+                  <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-200/80">
+                    <span className="text-[10px] font-bold text-purple-800 uppercase tracking-wider block">EBITDA Margin</span>
+                    <strong className="text-lg font-black text-purple-900 block mt-0.5">{ipo.kpis.ebitdaMargin}</strong>
+                  </div>
+                )}
+                {ipo.kpis.priceToBookValue && (
+                  <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/80">
+                    <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block">Price to Book (P/B Value)</span>
+                    <strong className="text-lg font-black text-amber-900 block mt-0.5">{ipo.kpis.priceToBookValue}</strong>
+                  </div>
+                )}
+              </div>
+
+              {/* Valuation Pre-IPO vs Post-IPO Comparison Table */}
+              {(ipo.kpis.preIpoEps || ipo.kpis.preIpoPe) && (
+                <div className="pt-2">
+                  <h4 className="text-xs font-bold text-slate-800 mb-2">Valuation Multiples (Pre-IPO vs Post-IPO)</h4>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs">
+                      <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                        <tr>
+                          <th className="py-2.5 px-3">Valuation Metric</th>
+                          <th className="py-2.5 px-3 text-center">Pre-IPO</th>
+                          <th className="py-2.5 px-3 text-right">Post-IPO</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100 text-slate-800 font-semibold">
+                        {ipo.kpis.preIpoEps && (
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2.5 px-3 font-bold text-slate-900">Earnings Per Share (EPS)</td>
+                            <td className="py-2.5 px-3 text-center font-extrabold text-slate-900">₹{ipo.kpis.preIpoEps}</td>
+                            <td className="py-2.5 px-3 text-right font-extrabold text-blue-700">₹{ipo.kpis.postIpoEps || ipo.kpis.preIpoEps}</td>
+                          </tr>
+                        )}
+                        {ipo.kpis.preIpoPe && (
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2.5 px-3 font-bold text-slate-900">Price to Earnings Multiple (P/E x)</td>
+                            <td className="py-2.5 px-3 text-center font-extrabold text-slate-900">{ipo.kpis.preIpoPe}x</td>
+                            <td className="py-2.5 px-3 text-right font-extrabold text-blue-700">{ipo.kpis.postIpoPe || ipo.kpis.preIpoPe}x</td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
