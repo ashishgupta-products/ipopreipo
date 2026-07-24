@@ -45,7 +45,7 @@ export default async function CreditCardDetailPage({ params }: PageProps) {
       <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm space-y-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
           <div className="flex items-start gap-4">
-            <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="xl" className="shadow-md shrink-0" />
+            <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="xl" variant="credit_card" className="shadow-md shrink-0" />
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200">

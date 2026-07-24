@@ -108,7 +108,7 @@ export default function CreditCardsPage() {
               {/* Header */}
               <div className="flex justify-between items-start gap-4">
                 <div className="flex items-start gap-3">
-                  <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="lg" />
+                  <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="lg" variant="credit_card" />
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="font-extrabold text-lg text-slate-900 hover:text-blue-700">
