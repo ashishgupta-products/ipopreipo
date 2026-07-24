@@ -14,7 +14,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { MOCK_BROKERS } from "@/data/mockBrokers";
-import { UserReviewsSection } from "@/components/common/UserReviewsSection";
+import UserReviewsSection from "@/components/common/UserReviewsSection";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 interface PageProps {

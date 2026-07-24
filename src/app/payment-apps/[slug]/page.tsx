@@ -14,7 +14,7 @@ import {
   Layers
 } from "lucide-react";
 import { MOCK_PAYMENT_APPS } from "@/data/mockPaymentApps";
-import { UserReviewsSection } from "@/components/common/UserReviewsSection";
+import UserReviewsSection from "@/components/common/UserReviewsSection";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 interface PageProps {
