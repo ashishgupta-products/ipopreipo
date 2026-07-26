@@ -153,11 +153,11 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
 
   // Size dimensions
   const sizeClasses = {
-    xs: "w-6 h-6 text-[10px] rounded-md",
-    sm: "w-8 h-8 text-xs rounded-lg",
-    md: "w-10 h-10 text-xs font-black rounded-xl",
-    lg: "w-12 h-12 text-sm font-black rounded-xl",
-    xl: "w-16 h-16 text-lg font-black rounded-2xl"
+    xs: "w-8 h-8 text-[10px] rounded-md",
+    sm: "w-10 h-10 text-xs rounded-lg",
+    md: "w-12 h-12 text-xs font-black rounded-xl",
+    lg: "w-16 h-16 text-sm font-black rounded-xl",
+    xl: "w-24 h-24 text-lg font-black rounded-2xl"
   };
 
   // Curated color themes based on name char codes for consistent visual branding

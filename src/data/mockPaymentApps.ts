@@ -6,7 +6,6 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     slug: "phonepe",
     name: "PhonePe UPI & Payments",
     developer: "PhonePe India Pvt. Ltd.",
-    logoUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=120&q=80",
     downloadsTier: "500M+ Downloads",
     playStoreRating: 4.6,
     appStoreRating: 4.7,
@@ -14,6 +13,11 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "Scratch cards, brand discount vouchers, and merchant cashbacks.",
+    cashbackRewardsReality: [
+      { type: "right", text: "Advertised rewards consist of scratch cards and instant merchant cashbacks." },
+      { type: "wrong", text: "In reality, direct cashbacks are extremely rare; rewards are mostly third-party discount vouchers (e.g. Ajio, Dominos)." },
+      { type: "wrong", text: "Platform convenience fees of ₹1 to ₹3 are now charged for mobile recharges and bill payments." }
+    ],
     keyFeatures: [
       "UPI payments & instant bank transfers",
       "RuPay Credit Card linking for merchant UPI payments",
@@ -53,7 +57,6 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     slug: "google-pay",
     name: "Google Pay (GPay)",
     developer: "Google LLC",
-    logoUrl: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=120&q=80",
     downloadsTier: "500M+ Downloads",
     playStoreRating: 4.5,
     appStoreRating: 4.6,
@@ -61,6 +64,11 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "Direct bank transfer cashbacks and rewards cards.",
+    cashbackRewardsReality: [
+      { type: "right", text: "Offers cashbacks directly deposited into linked bank accounts via scratch cards." },
+      { type: "wrong", text: "Most transactions now return brand coupons with high minimum spend limits rather than real cash." },
+      { type: "wrong", text: "Direct cashbacks are mostly restricted to seasonal gamified campaigns (e.g., festival card collections)." }
+    ],
     keyFeatures: [
       "NPCI-backed secure UPI 2.0 transaction engine",
       "RuPay credit card on UPI integration",
@@ -101,6 +109,11 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "CRED coins, cashback on credit card bill payments, and luxury rewards.",
+    cashbackRewardsReality: [
+      { type: "right", text: "Earn 1 CRED coin for every ₹1 of card bill paid." },
+      { type: "wrong", text: "Accumulating coins is easy, but redemption value is extremely low (typically ₹1 to ₹5 cashback on jackpots)." },
+      { type: "wrong", text: "Premium brand vouchers listed on the store often require co-paying additional cash." }
+    ],
     keyFeatures: [
       "Credit card bill management & hidden charge alert detector",
       "CRED Pay UPI with high cashback rewards for high-credit users",
@@ -119,7 +132,7 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     downloadUrl: "https://cred.club",
     overview: "CRED is an exclusive financial platform for high-credit individuals offering credit card bill management, rewards, free credit score analysis, and CRED Pay UPI.",
     feeDetails: [
-      { label: "Membership Fee", value: "₹0 (Free for 750+ Credit Score)" },
+      { label: "UPI Transactions", value: "₹0 (Free)" },
       { label: "Credit Card Bill Payments", value: "₹0 (Free)" }
     ],
     faqs: [
@@ -141,6 +154,11 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "Paytm points, travel discounts, and cashback vouchers.",
+    cashbackRewardsReality: [
+      { type: "right", text: "Earn Paytm points to redeem for subscription gift cards and wallet balances." },
+      { type: "wrong", text: "Points redemption rates are very high (e.g. 10,000 points needed for a basic ₹100 voucher)." },
+      { type: "right", text: "Provides useful travel booking discounts, though basic transaction cashbacks are minimal." }
+    ],
     keyFeatures: [
       "Multi-bank UPI handle integration",
       "FASTag management & NCMC transit cards",

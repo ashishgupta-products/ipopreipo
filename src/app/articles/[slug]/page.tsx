@@ -2,18 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { 
   ArrowLeft, 
   Clock, 
   Eye, 
-  Share2, 
-  BookOpen, 
   Tag, 
-  User, 
-  ExternalLink,
-  ChevronRight,
-  Sparkles
 } from "lucide-react";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
 import ArticleCardComparisonWidget from "@/components/articles/ArticleCardComparisonWidget";
@@ -29,10 +22,10 @@ export default function ArticleDetailPage({ params }: PageProps) {
 
   if (!article) {
     return (
-      <div className="min-h-screen max-w-4xl mx-auto px-4 py-16 text-center space-y-4">
-        <h1 className="text-2xl font-bold text-slate-900">Article Not Found</h1>
-        <p className="text-slate-600 text-sm">The article you requested could not be located in our database.</p>
-        <Link href="/articles" className="inline-flex items-center gap-1 text-xs font-bold text-blue-900 hover:underline">
+      <div className="min-h-screen max-w-4xl mx-auto px-4 py-16 text-center space-y-4 font-sans bg-[#f8fafc]">
+        <h1 className="text-xl font-black text-slate-900">Article Not Found</h1>
+        <p className="text-slate-600 text-xs font-medium">The article you requested could not be located in our database.</p>
+        <Link href="/articles" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0c1220] hover:underline">
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Articles Hub
         </Link>
       </div>
@@ -42,28 +35,28 @@ export default function ArticleDetailPage({ params }: PageProps) {
   const isCreditCardGuide = article.category === "Credit Cards Guide" || article.slug.includes("credit-card");
 
   return (
-    <div className="min-h-screen max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <div className="min-h-screen max-w-4xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
       {/* Navigation Top */}
       <div className="flex items-center justify-between">
         <Link
           href="/articles"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-[#0c1220] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to All Articles
         </Link>
 
-        <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200">
+        <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#eef2ff] text-[#4f46e5] border border-blue-100">
           {article.category}
         </span>
       </div>
 
       {/* Article Header */}
-      <div className="space-y-4 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
+      <div className="space-y-3 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs">
+        <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-tight">
           {article.title}
         </h1>
 
-        <p className="text-slate-600 text-sm leading-relaxed font-medium">
+        <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
           {article.excerpt}
         </p>
 
@@ -77,19 +70,19 @@ export default function ArticleDetailPage({ params }: PageProps) {
                 className="w-9 h-9 rounded-full object-cover border border-slate-200"
               />
             ) : (
-              <div className="w-9 h-9 rounded-full bg-blue-900 text-white font-bold flex items-center justify-center text-xs">
+              <div className="w-9 h-9 rounded-full bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-xs border border-slate-200">
                 {article.author.name[0]}
               </div>
             )}
             <div>
-              <strong className="text-slate-900 block font-bold">{article.author.name}</strong>
-              <span className="text-slate-500 block text-[11px]">{article.author.role}</span>
+              <strong className="text-slate-800 block font-bold">{article.author.name}</strong>
+              <span className="text-slate-400 block text-[10px] font-medium">{article.author.role}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-500 font-medium">
+          <div className="flex items-center gap-4 text-slate-400 font-semibold text-[11px]">
             <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-blue-700" /> {article.readingTimeMins} min read
+              <Clock className="w-3.5 h-3.5" /> {article.readingTimeMins} min read
             </span>
             <span>•</span>
             <span>Published {article.publishDate}</span>
@@ -99,43 +92,43 @@ export default function ArticleDetailPage({ params }: PageProps) {
 
       {/* Featured Banner Image */}
       {article.featuredImage && (
-        <div className="w-full h-64 sm:h-96 rounded-2xl overflow-hidden shadow-md">
-          <img src={article.featuredImage} alt={article.title} className="w-full h-full object-cover" />
+        <div className="w-full h-64 sm:h-96 rounded-2xl overflow-hidden shadow-xs border border-slate-100/80">
+          <img src={article.featuredImage} alt={article.title} className="w-full h-full object-cover hover:scale-[1.01] transition-transform duration-500" />
         </div>
       )}
 
       {/* Embedded Interactive Card Selector Widget (If Credit Card Article) */}
       {isCreditCardGuide && (
-        <div className="my-6">
+        <div className="my-5">
           <ArticleCardComparisonWidget />
         </div>
       )}
 
       {/* Article Body Content */}
-      <div className="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm space-y-6 text-slate-800 text-sm leading-relaxed font-normal">
+      <div className="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200/60 shadow-xs space-y-5 text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
         <div
           className="prose prose-slate max-w-none space-y-4"
           dangerouslySetInnerHTML={{
             __html: article.content
-              .replace(/# (.*)/g, '<h1 class="text-2xl font-black text-slate-900 mt-6 mb-3">$1</h1>')
-              .replace(/## (.*)/g, '<h2 class="text-xl font-bold text-slate-900 mt-5 mb-2 border-b border-slate-200 pb-1">$1</h2>')
-              .replace(/### (.*)/g, '<h3 class="text-base font-bold text-slate-900 mt-4 mb-1">$1</h3>')
-              .replace(/\*\*(.*?)\*\*/g, '<strong class="font-extrabold text-slate-900">$1</strong>')
+              .replace(/# (.*)/g, '<h1 class="text-lg sm:text-xl font-black text-slate-900 mt-6 mb-3">$1</h1>')
+              .replace(/## (.*)/g, '<h2 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-2 border-b border-slate-200 pb-1">$1</h2>')
+              .replace(/### (.*)/g, '<h3 class="text-xs sm:text-sm font-bold text-slate-900 mt-4 mb-1">$1</h3>')
+              .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-800">$1</strong>')
               .replace(/\n\n/g, '<p class="mb-3"></p>')
-              .replace(/- (.*)/g, '<li class="ml-4 list-disc text-slate-700">$1</li>')
+              .replace(/- (.*)/g, '<li class="ml-4 list-disc text-slate-600 font-medium">$1</li>')
           }}
         />
       </div>
 
       {/* Tags & Explore More */}
-      <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+      <div className="p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
         <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
-          <Tag className="w-3.5 h-3.5 text-blue-700" />
+          <Tag className="w-3.5 h-3.5 text-blue-800" />
           Tags &amp; Keywords:
         </div>
         <div className="flex flex-wrap items-center gap-1.5">
           {article.tags.map((t, i) => (
-            <span key={i} className="px-2.5 py-1 rounded bg-white border border-slate-200 text-xs font-semibold text-slate-700">
+            <span key={i} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200/40">
               #{t}
             </span>
           ))}
@@ -143,19 +136,19 @@ export default function ArticleDetailPage({ params }: PageProps) {
       </div>
 
       {/* Cross-Link Call to Action */}
-      <div className="p-6 rounded-2xl bg-blue-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="p-5 rounded-2xl bg-[#0c1220] text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-950/10 shadow-xs">
         <div className="space-y-1 text-center sm:text-left">
-          <h4 className="font-extrabold text-base">Want to Compare All Credit Cards Side-by-Side?</h4>
-          <p className="text-xs text-slate-300">
+          <h4 className="font-bold text-sm sm:text-base tracking-tight">Want to Compare All Credit Cards Side-by-Side?</h4>
+          <p className="text-[11px] text-slate-400 font-medium">
             Use our interactive Cashback &amp; Net Savings Estimator with live monthly spend sliders.
           </p>
         </div>
 
         <Link
           href="/credit-cards"
-          className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs shrink-0 transition-all shadow-md"
+          className="px-4 py-1.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shrink-0 transition-all shadow-xs"
         >
-          Launch Card Comparison Desk →
+          Launch Comparison Desk
         </Link>
       </div>
     </div>

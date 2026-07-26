@@ -108,6 +108,10 @@ export interface PaymentAppData {
   ruPayUpiSupport: boolean;
   creditScoreCheckFree: boolean;
   cashbackPolicy: string;
+  cashbackRewardsReality?: {
+    type: "right" | "wrong";
+    text: string;
+  }[];
   keyFeatures: string[];
   pros: string[];
   cons: string[];
