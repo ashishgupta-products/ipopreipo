@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   keywords: "IPOPreIPO, IPOPreIPO.com, Live IPO GMP, Pre-IPO Shares, Upcoming IPOs 2026, SME IPO List, Anchor Lock-in Expiry, IPO Allotment Status Check",
 };
 
+import { AppShell } from "@/components/layout/AppShell";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,9 +30,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
         <AuthProvider>
-          <Navbar />
-          <main className="flex-1 w-full">{children}</main>
-          <Footer />
+          <AppShell>{children}</AppShell>
         </AuthProvider>
       </body>
     </html>

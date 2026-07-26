@@ -3,6 +3,13 @@ export type CardCategory = "all" | "lifetime_free" | "cashback" | "travel" | "re
 export interface ReviewFeeDetail {
   label: string;
   value: string;
+  category?: "Core & Renewal" | "Transactions & Foreign Use" | "Interest & Penalties";
+  description?: string;
+}
+
+export interface LatePaymentFee {
+  balanceRange: string;
+  charge: string;
 }
 
 export interface ReviewEligibilityDetail {
@@ -33,6 +40,22 @@ export interface UserReview {
   helpfulCount: number;
 }
 
+export interface MccExclusion {
+  category: string;
+  mccCodes: string;
+  explanation: string;
+}
+
+export interface ApplicationStepGroup {
+  mode: "Online Application" | "Offline Application";
+  steps: string[];
+}
+
+export interface RequiredDocumentGroup {
+  category: string;
+  documents: string[];
+}
+
 export interface CreditCardData {
   id: string;
   slug: string;
@@ -57,10 +80,19 @@ export interface CreditCardData {
   // Detailed Review Fields
   overview?: string;
   feeDetails?: ReviewFeeDetail[];
+  latePaymentFees?: LatePaymentFee[];
   eligibility?: ReviewEligibilityDetail[];
   ratingBreakdown?: ReviewRatingCategory[];
   faqs?: ReviewFAQ[];
   userReviews?: UserReview[];
+
+  // Finology Select Complete Sections
+  featuresAndBenefits?: string[];
+  mccExclusions?: MccExclusion[];
+  whoShouldGet?: string[];
+  applicationSteps?: ApplicationStepGroup[];
+  requiredDocuments?: RequiredDocumentGroup[];
+  detailedReview?: string;
 }
 
 export interface PaymentAppData {

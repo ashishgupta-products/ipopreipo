@@ -226,6 +226,7 @@ export interface BrokerData {
 
   // Review Details
   overview?: string;
+  productOfferings?: string[];
   feeDetails?: BrokerFeeDetail[];
   faqs?: BrokerFAQ[];
   userReviews?: UserReview[];

@@ -21,27 +21,39 @@ import { GMPCard } from "@/components/common/GMPCard";
 import { Calculator } from "@/components/common/Calculator";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
-export default function Home() {
+import { useSearchParams, useRouter } from "next/navigation";
+import { Suspense } from "react";
+
+function HomeDashboardContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [selectedTab, setSelectedTab] = useState<string>("all");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
 
-  // Sync filters from URL search params (e.g. from Mega Menu links)
+  // Sync filters from URL search params whenever URL changes
   useEffect(() => {
-    const handleUrlParams = () => {
-      if (typeof window !== "undefined") {
-        const params = new URLSearchParams(window.location.search);
-        const tabParam = params.get("tab");
-        const categoryParam = params.get("category");
-        if (tabParam) setSelectedTab(tabParam);
-        if (categoryParam) setCategoryFilter(categoryParam);
-      }
-    };
+    const tabParam = searchParams.get("tab");
+    const categoryParam = searchParams.get("category");
+    if (tabParam) setSelectedTab(tabParam);
+    if (categoryParam) setCategoryFilter(categoryParam);
+  }, [searchParams]);
 
-    handleUrlParams();
-    window.addEventListener("popstate", handleUrlParams);
-    return () => window.removeEventListener("popstate", handleUrlParams);
-  }, []);
+  const updateFilters = (newTab?: string, newCategory?: string) => {
+    const nextTab = newTab !== undefined ? newTab : selectedTab;
+    const nextCat = newCategory !== undefined ? newCategory : categoryFilter;
+
+    setSelectedTab(nextTab);
+    setCategoryFilter(nextCat);
+
+    const params = new URLSearchParams();
+    if (nextTab !== "all") params.set("tab", nextTab);
+    if (nextCat !== "all") params.set("category", nextCat);
+
+    const queryString = params.toString();
+    router.push(queryString ? `/?${queryString}` : "/");
+  };
 
   // Filtering Logic
   const filteredIpos = MOCK_IPOS.filter((ipo) => {
@@ -111,7 +123,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center gap-2">
             <div className="inline-flex p-1 bg-slate-100 rounded-lg text-xs font-medium border border-slate-200">
               <button
-                onClick={() => setCategoryFilter("all")}
+                onClick={() => updateFilters(undefined, "all")}
                 className={`px-3 py-1.5 rounded ${
                   categoryFilter === "all" ? "bg-white text-slate-900 shadow-sm font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -119,7 +131,7 @@ export default function Home() {
                 All Segments
               </button>
               <button
-                onClick={() => setCategoryFilter("mainboard")}
+                onClick={() => updateFilters(undefined, "mainboard")}
                 className={`px-3 py-1.5 rounded ${
                   categoryFilter === "mainboard" ? "bg-white text-blue-700 shadow-sm font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -127,7 +139,7 @@ export default function Home() {
                 Mainboard
               </button>
               <button
-                onClick={() => setCategoryFilter("sme")}
+                onClick={() => updateFilters(undefined, "sme")}
                 className={`px-3 py-1.5 rounded ${
                   categoryFilter === "sme" ? "bg-white text-amber-700 shadow-sm font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -139,7 +151,7 @@ export default function Home() {
             {/* Status Filter */}
             <div className="inline-flex p-1 bg-slate-100 rounded-lg text-xs font-medium border border-slate-200 overflow-x-auto">
               <button
-                onClick={() => setSelectedTab("all")}
+                onClick={() => updateFilters("all", undefined)}
                 className={`px-3 py-1.5 rounded whitespace-nowrap ${
                   selectedTab === "all" ? "bg-white text-slate-900 shadow-sm font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -147,7 +159,7 @@ export default function Home() {
                 All IPOs
               </button>
               <button
-                onClick={() => setSelectedTab("live")}
+                onClick={() => updateFilters("live", undefined)}
                 className={`px-3 py-1.5 rounded whitespace-nowrap ${
                   selectedTab === "live" ? "bg-emerald-600 text-white font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -155,7 +167,7 @@ export default function Home() {
                 Live Bidding ({liveCount})
               </button>
               <button
-                onClick={() => setSelectedTab("upcoming")}
+                onClick={() => updateFilters("upcoming", undefined)}
                 className={`px-3 py-1.5 rounded whitespace-nowrap ${
                   selectedTab === "upcoming" ? "bg-white text-slate-900 shadow-sm font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -163,15 +175,15 @@ export default function Home() {
                 Upcoming
               </button>
               <button
-                onClick={() => setSelectedTab("high_gmp")}
+                onClick={() => updateFilters("high_gmp", undefined)}
                 className={`px-3 py-1.5 rounded whitespace-nowrap ${
                   selectedTab === "high_gmp" ? "bg-emerald-50 text-emerald-800 font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
-                High GMP (&gt;15%)
+                High GMP (&gt; 15%)
               </button>
               <button
-                onClick={() => setSelectedTab("listed")}
+                onClick={() => updateFilters("listed", undefined)}
                 className={`px-3 py-1.5 rounded whitespace-nowrap ${
                   selectedTab === "listed" ? "bg-white text-slate-900 shadow-sm font-bold" : "text-slate-600 hover:text-slate-900"
                 }`}
@@ -395,8 +407,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Anchor Lock-In & Calculator Grid */}
-      <section className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Anchor Lock-In Section */}
+      <section className="max-w-7xl mx-auto px-4">
         {/* Anchor Lock-In Teaser */}
         <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
           <div className="flex justify-between items-center">
@@ -413,7 +425,7 @@ export default function Home() {
             Monitor institutional anchor lock-in expiration dates (30-day &amp; 90-day) to evaluate post-lock-in share supply.
           </p>
 
-          <div className="space-y-2 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             {MOCK_ANCHOR_LOCKINS.slice(0, 2).map((item) => (
               <div key={item.id} className="p-3 rounded-lg bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
@@ -428,10 +440,16 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        {/* Investment Calculator */}
-        <Calculator />
       </section>
     </div>
   );
 }
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen p-8 text-center text-slate-500 font-bold text-sm">Loading IPO Intelligence Dashboard...</div>}>
+      <HomeDashboardContent />
+    </Suspense>
+  );
+}
+

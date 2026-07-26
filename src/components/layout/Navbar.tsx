@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full flex flex-col bg-white border-b border-slate-200 shadow-sm">
       {/* Top Ticker Bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 border-b border-slate-800 overflow-hidden relative">
+      <div className="bg-slate-900 text-slate-300 text-xs py-1 border-b border-slate-800 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
           {/* Left Ticker */}
           <div className="flex items-center gap-2 overflow-hidden flex-1">
@@ -180,7 +180,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Main Corporate Navigation */}
-      <nav className="max-w-7xl mx-auto w-full px-4 py-3 flex items-center justify-between gap-4">
+      <nav className="max-w-7xl mx-auto w-full px-4 py-2 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
           <div className="w-9 h-9 rounded-lg bg-blue-900 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-800 transition-colors">
@@ -324,37 +324,25 @@ export const Navbar: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Column 3: IPO Reports */}
+                {/* Column 3: IPO Reports & Tools */}
                 <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-100 space-y-2">
                   <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
                     <div className="w-6 h-6 rounded-md bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">
                       <BarChart3 className="w-3.5 h-3.5" />
                     </div>
-                    <span className="font-extrabold text-sm text-slate-900">IPO Reports</span>
+                    <span className="font-extrabold text-sm text-slate-900">IPO Tools &amp; Reports</span>
                   </div>
 
                   <div className="space-y-1">
                     <Link
                       onClick={() => setIpoMenuOpen(false)}
-                      href="/?tab=live"
+                      href="/allotment"
                       className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
                     >
-                      <BarChart3 className="w-4 h-4 text-blue-700 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO Subscription</span>
-                        <span className="text-[11px] text-slate-500">Real-time subscription status</span>
-                      </div>
-                    </Link>
-
-                    <Link
-                      onClick={() => setIpoMenuOpen(false)}
-                      href="/?tab=listed"
-                      className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
-                    >
-                      <TrendingUp className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <div>
-                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO Performance</span>
-                        <span className="text-[11px] text-slate-500">Post-listing performance data</span>
+                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO Allotment Engine</span>
+                        <span className="text-[11px] text-slate-500">Check PAN allotment status</span>
                       </div>
                     </Link>
 
@@ -366,19 +354,43 @@ export const Navbar: React.FC = () => {
                       <Calendar className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
                       <div>
                         <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO Calendar</span>
-                        <span className="text-[11px] text-slate-500">Today&apos;s IPO events &amp; dates</span>
+                        <span className="text-[11px] text-slate-500">Bidding &amp; listing dates</span>
                       </div>
                     </Link>
 
                     <Link
                       onClick={() => setIpoMenuOpen(false)}
-                      href="/?tab=high_gmp"
+                      href="/anchor-lockins"
+                      className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
+                    >
+                      <Zap className="w-4 h-4 text-indigo-700 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">Anchor Lock-Ins Expiry</span>
+                        <span className="text-[11px] text-slate-500">30 &amp; 90-day institutional release</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      onClick={() => setIpoMenuOpen(false)}
+                      href="/buybacks"
+                      className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
+                    >
+                      <TrendingUp className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">Share Buybacks Hub</span>
+                        <span className="text-[11px] text-slate-500">Tender offers &amp; acceptance ratios</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      onClick={() => setIpoMenuOpen(false)}
+                      href="/articles"
                       className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
                     >
                       <Award className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO Review</span>
-                        <span className="text-[11px] text-slate-500">Expert analysis &amp; ratings</span>
+                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO &amp; Card Research</span>
+                        <span className="text-[11px] text-slate-500">Expert DRHP reviews &amp; guides</span>
                       </div>
                     </Link>
                   </div>
@@ -386,25 +398,6 @@ export const Navbar: React.FC = () => {
               </div>
             )}
           </div>
-
-          {/* Subscription with LIVE badge */}
-          <Link
-            href="/?tab=live"
-            className="px-2.5 py-2 rounded-md hover:bg-slate-100 hover:text-blue-700 transition-colors flex items-center gap-1.5"
-          >
-            Subscription
-            <span className="bg-rose-600 text-white font-extrabold text-[10px] px-1.5 py-0.2 rounded uppercase animate-pulse">
-              LIVE
-            </span>
-          </Link>
-
-          <Link
-            href="/calculators"
-            className="px-2.5 py-2 rounded-md hover:bg-blue-50 text-blue-700 font-bold transition-colors flex items-center gap-1"
-          >
-            <BarChart3 className="w-3.5 h-3.5 text-blue-700" />
-            Calculators
-          </Link>
 
           <Link
             href="/brokers"
@@ -428,6 +421,14 @@ export const Navbar: React.FC = () => {
           >
             <CreditCard className="w-3.5 h-3.5 text-blue-700" />
             Credit Cards
+          </Link>
+
+          <Link
+            href="/articles"
+            className="px-2.5 py-2 rounded-md hover:bg-blue-50 text-blue-800 font-bold transition-colors flex items-center gap-1"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            Guides &amp; Blog
           </Link>
 
           <Link

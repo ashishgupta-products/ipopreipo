@@ -1,101 +1,226 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { Briefcase, Star, CheckCircle2, XCircle, ExternalLink, ChevronRight } from "lucide-react";
+import { Briefcase, Star } from "lucide-react";
 import { MOCK_BROKERS } from "@/data/mockBrokers";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function BrokersPage() {
+  const [filterType, setFilterType] = useState<"All" | "Discount Broker" | "Full-Service Broker">("All");
+
+  const brokerFeaturesList = [
+    { key: "Equity", label: "Equity" },
+    { key: "Commodity", label: "Commodity" },
+    { key: "Currency", label: "Currency" },
+    { key: "Futures", label: "Futures" },
+    { key: "Options", label: "Options" }
+  ];
+
+  const filteredBrokers = MOCK_BROKERS.filter((b) => {
+    if (filterType === "All") return true;
+    if (filterType === "Discount Broker") return b.type.includes("Discount");
+    if (filterType === "Full-Service Broker") return b.type.includes("Full-Service");
+    return true;
+  });
+
   return (
-    <div className="min-h-screen max-w-7xl mx-auto px-4 py-8 space-y-6">
-      {/* Banner */}
-      <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-bold bg-sky-50 text-sky-800 border border-sky-200">
-          <Briefcase className="w-3.5 h-3.5" />
-          STOCK BROKER ANALYSIS
-        </span>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          Compare Stock Brokers for IPO Applications
-        </h1>
-        <p className="text-slate-600 text-sm leading-relaxed max-w-3xl">
-          Evaluate brokerage fees, Demat account AMC, UPI 2.0 mandate speeds, and platform reliability across leading Indian stockbrokers.
-        </p>
-      </div>
+    <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
+      {/* Banner & Filter Bar */}
+      <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div className="space-y-1">
+            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 text-blue-800 border border-blue-200/80">
+              <Briefcase className="w-3 h-3" />
+              STOCK BROKER COMPARISON
+            </span>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              Best Stock Brokers in India
+            </h1>
+            <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed max-w-3xl font-medium">
+              Compare brokerage charges, Demat account AMC, account opening fees, and segment availability.
+            </p>
+          </div>
 
-      {/* Broker Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {MOCK_BROKERS.map((broker) => (
-          <div
-            key={broker.id}
-            className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-sky-300 transition-all flex flex-col justify-between space-y-4"
-          >
-            <div className="space-y-3">
-              <div className="flex justify-between items-start gap-4">
-                <div className="flex items-start gap-3">
-                  <CompanyLogo name={broker.name} logoUrl={broker.logoUrl} size="lg" />
-                  <div>
-                    <h3 className="font-extrabold text-lg text-slate-900 hover:text-blue-700">
-                      <Link href={`/brokers/${broker.slug}`}>{broker.name}</Link>
-                    </h3>
-                    <span className="text-xs text-sky-700 font-semibold">{broker.type}</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200 shrink-0">
-                  <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                  {broker.rating} / 5.0
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs">
-                <div>
-                  <span className="text-slate-500 block">Delivery:</span>
-                  <strong className="text-emerald-700 font-bold">{broker.equityDeliveryFee}</strong>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Intraday:</span>
-                  <strong className="text-slate-900 font-bold">{broker.equityIntradayFee}</strong>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Demat AMC:</span>
-                  <strong className="text-slate-900 font-bold">{broker.dematAnualFee}</strong>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Opening:</span>
-                  <strong className="text-slate-900 font-bold">{broker.accountOpeningFee}</strong>
-                </div>
-              </div>
-
-              <div className="space-y-1 text-xs">
-                <span className="font-bold text-emerald-700 flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  Key Advantages:
-                </span>
-                <ul className="space-y-1 text-slate-700 list-disc list-inside">
-                  {broker.pros.slice(0, 2).map((pro, i) => (
-                    <li key={i}>{pro}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="flex gap-2 pt-2 border-t border-slate-100">
-              <Link
-                href={`/brokers/${broker.slug}`}
-                className="flex-1 py-2 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors flex items-center justify-center gap-1"
+          {/* Filter By Broker Type Buttons */}
+          <div className="flex flex-col items-start md:items-end gap-1 shrink-0 w-full md:w-auto">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+              Filter By Brokers Type
+            </span>
+            <div className="flex items-center gap-1.5 bg-slate-100 p-0.5 rounded-lg text-xs font-bold w-full md:w-auto">
+              <button
+                onClick={() => setFilterType("All")}
+                className={`px-3 py-1.5 rounded-md transition-all ${
+                  filterType === "All"
+                    ? "bg-slate-900 text-white shadow-xs"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
               >
-                Detailed Review <ChevronRight className="w-3.5 h-3.5" />
-              </Link>
-              <a
-                href={broker.openAccountUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 rounded-lg bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs transition-colors flex items-center gap-1.5 shrink-0"
+                All Brokers
+              </button>
+              <button
+                onClick={() => setFilterType("Discount Broker")}
+                className={`px-3 py-1.5 rounded-md transition-all ${
+                  filterType === "Discount Broker"
+                    ? "bg-slate-900 text-white shadow-xs"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
               >
-                Open Demat <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                Discount
+              </button>
+              <button
+                onClick={() => setFilterType("Full-Service Broker")}
+                className={`px-3 py-1.5 rounded-md transition-all ${
+                  filterType === "Full-Service Broker"
+                    ? "bg-slate-900 text-white shadow-xs"
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                Full Service
+              </button>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-  );
-}
+
+      {/* Broker Cards List - Compact Ditto Copy-Paste Design */}
+      <div className="space-y-4">
+        {filteredBrokers.map((broker) => {
+          const activeOfferings = broker.productOfferings || ["Equity", "Commodity", "Currency", "Futures", "Options"];
+
+          return (
+            <div
+              key={broker.id}
+              className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center gap-5 relative"
+            >
+              {/* Left Column: Broker Logo */}
+              <CompanyLogo name={broker.name} logoUrl={broker.logoUrl} size="lg" className="shadow-2xs shrink-0 rounded-lg" />
+
+              {/* Center & Matrix Column */}
+              <div className="flex-1 min-w-0 space-y-3.5 w-full">
+                {/* Header Row: Name & Rating */}
+                <div className="flex justify-between items-start gap-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-800 hover:text-blue-700 transition-colors">
+                        <Link href={`/brokers/${broker.slug}`}>{broker.name}</Link>
+                      </h2>
+                      <div className="flex items-center gap-0.5 text-xs font-bold text-amber-500">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-3.5 h-3.5 ${
+                                i < Math.floor(broker.rating)
+                                  ? "fill-amber-400 text-amber-400"
+                                  : "fill-amber-100 text-amber-200"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-slate-400 text-xs font-medium ml-1">({broker.rating})</span>
+                      </div>
+                    </div>
+
+                    {/* Second Row: Purple Type Badge + Inline Features Checklist */}
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#eef2ff] text-[#4f46e5]">
+                        {broker.type}
+                      </span>
+
+                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-slate-700 ml-1">
+                        {brokerFeaturesList.map((feat) => {
+                          const isSupported = activeOfferings.includes(feat.key);
+                          return (
+                            <span key={feat.key} className="flex items-center gap-1.5">
+                              {isSupported ? (
+                                <span className="w-4 h-4 rounded-full bg-[#10b981] text-white flex items-center justify-center shrink-0">
+                                  <svg className="w-2.5 h-2.5 stroke-[4.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                  </svg>
+                                </span>
+                              ) : (
+                                <span className="w-4 h-4 rounded-full bg-slate-300 text-white flex items-center justify-center shrink-0">
+                                  <svg className="w-2 h-2 stroke-[4.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                  </svg>
+                                </span>
+                              )}
+                              <span className={isSupported ? "text-slate-800 font-semibold" : "text-slate-400"}>
+                                {feat.label}
+                              </span>
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dark Pill "Full Details" CTA Button (Far Right) */}
+                  <div className="shrink-0 hidden sm:block">
+                    <Link
+                      href={`/brokers/${broker.slug}`}
+                      className="px-5 py-1.5 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-xs transition-all"
+                    >
+                      Full Details
+                    </Link>
+                  </div>
+                </div>
+
+                {/* 4-Column Rates Matrix - Seamless White Background, No borders! */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div>
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Account Opening</span>
+                    <strong className="text-slate-800 font-bold text-sm sm:text-base block">
+                      {broker.accountOpeningFee}
+                    </strong>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Account AMC</span>
+                    <div className="flex items-center gap-1">
+                      <strong className="text-slate-800 font-bold text-sm sm:text-base">
+                        {broker.dematAnualFee}
+                      </strong>
+                      <span className="text-slate-300 hover:text-slate-500 cursor-pointer text-xs font-bold bg-slate-100 w-3.5 h-3.5 rounded-full flex items-center justify-center">i</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Equity Delivery</span>
+                    <div className="flex items-center gap-1">
+                      <strong className="text-slate-800 font-bold text-sm sm:text-base">
+                        {broker.equityDeliveryFee}
+                      </strong>
+                      <span className="text-slate-300 hover:text-slate-500 cursor-pointer text-xs font-bold bg-slate-100 w-3.5 h-3.5 rounded-full flex items-center justify-center">i</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Equity Intraday</span>
+                    <div className="flex items-center gap-1">
+                      <strong className="text-slate-800 font-bold text-sm sm:text-base">
+                        {broker.equityIntradayFee}
+                      </strong>
+                      <span className="text-slate-300 hover:text-slate-500 cursor-pointer text-xs font-bold bg-slate-100 w-3.5 h-3.5 rounded-full flex items-center justify-center">i</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Full Details Button */}
+              <div className="w-full pt-1.5 sm:hidden">
+                <Link
+                  href={`/brokers/${broker.slug}`}
+                  className="w-full px-5 py-2 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-xs flex items-center justify-center transition-all"
+                >
+                  Full Details
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }

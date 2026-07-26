@@ -15,6 +15,7 @@ export const MOCK_BROKERS: BrokerData[] = [
     ipoApplicationMethod: "UPI 2.0 via Kite App / Web Portal",
     rating: 4.9,
     activeClientsNse: "7.5 Million+",
+    productOfferings: ["Equity", "Commodity", "Currency", "Futures", "Options", "Mutual Funds", "IPOs"],
     pros: [
       "Pioneer of zero-brokerage equity delivery investing in India.",
       "Ultra-fast, reliable Kite trading platform.",
@@ -58,6 +59,7 @@ export const MOCK_BROKERS: BrokerData[] = [
     ipoApplicationMethod: "Instant 1-Click UPI Application",
     rating: 4.8,
     activeClientsNse: "8.2 Million+",
+    productOfferings: ["Equity", "Currency", "Futures", "Options", "Mutual Funds", "IPOs"],
     pros: [
       "100% paperless digital onboarding in under 5 minutes.",
       "Zero account opening fee and zero AMC charges forever.",
@@ -99,6 +101,7 @@ export const MOCK_BROKERS: BrokerData[] = [
     ipoApplicationMethod: "ARQ AI Recommendation + UPI",
     rating: 4.7,
     activeClientsNse: "5.5 Million+",
+    productOfferings: ["Equity", "Commodity", "Currency", "Futures", "Options", "Mutual Funds", "IPOs"],
     pros: [
       "AI-driven ARQ Prime automated stock advisory & research reports.",
       "Free equity delivery brokerage.",
@@ -134,6 +137,7 @@ export const MOCK_BROKERS: BrokerData[] = [
     ipoApplicationMethod: "ASBA via NetBanking / UPI",
     rating: 4.5,
     activeClientsNse: "100k+",
+    productOfferings: ["Equity", "Currency", "Futures", "Options", "IPOs"],
     pros: [
       "Lowest flat fee (₹15/order) or ₹899 unlimited trading plan.",
       "Zero AMC options with refundable deposit.",

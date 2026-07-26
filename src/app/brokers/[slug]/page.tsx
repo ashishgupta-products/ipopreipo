@@ -8,10 +8,10 @@ import {
   XCircle, 
   ExternalLink, 
   ArrowLeft, 
-  ShieldCheck, 
   Layers, 
   HelpCircle,
-  BarChart3
+  BarChart3,
+  PieChart
 } from "lucide-react";
 import { MOCK_BROKERS } from "@/data/mockBrokers";
 import UserReviewsSection from "@/components/common/UserReviewsSection";
@@ -28,6 +28,18 @@ export default async function BrokerDetailPage({ params }: PageProps) {
   if (!broker) {
     notFound();
   }
+
+  const allProductOfferings = [
+    { name: "Equity", desc: "Cash, Delivery & Intraday Stocks" },
+    { name: "Commodity", desc: "MCX Gold, Silver, Crude & Metals" },
+    { name: "Currency", desc: "USD-INR & FX Derivatives" },
+    { name: "Futures", desc: "Index & Stock Futures Contracts" },
+    { name: "Options", desc: "Call & Put Options Trading" },
+    { name: "Mutual Funds", desc: "Direct Mutual Funds & SIPs" },
+    { name: "IPOs", desc: "Mainboard & SME IPO Bidding" }
+  ];
+
+  const activeOfferings = broker.productOfferings || ["Equity", "Commodity", "Currency", "Futures", "Options", "Mutual Funds", "IPOs"];
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-8 space-y-6">
@@ -98,6 +110,52 @@ export default async function BrokerDetailPage({ params }: PageProps) {
             <span className="text-slate-500 block">Account Opening:</span>
             <strong className="text-base font-extrabold text-slate-900">{broker.accountOpeningFee}</strong>
           </div>
+        </div>
+      </div>
+
+      {/* Product Offerings (Product Basket) */}
+      <div className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <h2 className="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+            <PieChart className="w-5 h-5 text-blue-700" />
+            Product Offerings
+          </h2>
+          <p className="text-xs text-slate-600 mt-1">
+            <strong>Product Basket:</strong> The segments in which you can invest (includes Equity, Commodity, Currency, Futures and Options) through this broker.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2">
+          {allProductOfferings.map((prod) => {
+            const isSupported = activeOfferings.includes(prod.name);
+            return (
+              <div
+                key={prod.name}
+                className={`p-3.5 rounded-xl border flex flex-col justify-between space-y-2 transition-all ${
+                  isSupported
+                    ? "bg-emerald-50/60 border-emerald-200 text-emerald-950"
+                    : "bg-slate-50 border-slate-200 text-slate-400 opacity-60"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <strong className="text-sm font-extrabold text-slate-900">{prod.name}</strong>
+                  {isSupported ? (
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  ) : (
+                    <XCircle className="w-4 h-4 text-slate-400 shrink-0" />
+                  )}
+                </div>
+                <span className="text-[11px] text-slate-500 leading-tight">{prod.desc}</span>
+                <span
+                  className={`text-[10px] font-bold px-2 py-0.5 rounded w-fit ${
+                    isSupported ? "bg-emerald-100 text-emerald-800" : "bg-slate-200 text-slate-600"
+                  }`}
+                >
+                  {isSupported ? "Available ✓" : "Not Offered"}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
 
