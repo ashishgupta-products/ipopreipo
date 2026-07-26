@@ -164,13 +164,13 @@ export default function CreditCardsPage() {
                   {/* Right Column: Text Info & 4-Column Metrics Grid */}
                   <div className="flex-1 min-w-0 space-y-3.5 w-full">
                     {/* Header Row: Title, Rating, and CTA */}
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h2 className="text-base sm:text-lg font-bold text-slate-800 hover:text-blue-700 transition-colors">
+                    <div className="flex justify-between items-start gap-4 w-full">
+                      <div className="space-y-2 flex flex-col items-center sm:items-start w-full sm:w-auto">
+                        <div className="flex flex-col sm:flex-row items-center gap-2 flex-wrap justify-center sm:justify-start">
+                          <h2 className="text-base sm:text-lg font-bold text-slate-800 hover:text-blue-700 transition-colors text-center sm:text-left">
                             <Link href={`/credit-cards/${card.slug}`}>{card.name}</Link>
                           </h2>
-                          <div className="flex items-center gap-0.5 text-xs font-bold text-amber-500">
+                          <div className="flex items-center justify-center sm:justify-start gap-0.5 text-xs font-bold text-amber-500">
                             <div className="flex items-center">
                               {[...Array(5)].map((_, i) => (
                                 <Star
@@ -186,9 +186,9 @@ export default function CreditCardsPage() {
                             <span className="text-slate-400 text-xs font-medium ml-1">({card.rating})</span>
                           </div>
                         </div>
-
+ 
                         {/* Badges + Features Checklist */}
-                        <div className="flex flex-wrap items-center gap-3">
+                        <div className="flex flex-wrap items-center gap-3 w-full justify-start">
                           <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#e8f7f0] text-[#10b981]">
                             {cardTier}
                           </span>
