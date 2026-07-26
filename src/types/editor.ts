@@ -5,6 +5,7 @@ export type ArticleCategory =
   | "Pre-IPO Insights" 
   | "Buying Guide" 
   | "Credit Cards Guide"
+  | "Payment Apps Guide"
   | "Regulatory & SEBI";
 
 export type ArticleStatus = "Published" | "Draft" | "In Review" | "Scheduled";

@@ -94,7 +94,7 @@ export default function BrokersPage() {
               className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center gap-5 relative"
             >
               {/* Left Column: Broker Logo */}
-              <CompanyLogo name={broker.name} logoUrl={broker.logoUrl} size="lg" className="shadow-2xs shrink-0 rounded-lg" />
+              <CompanyLogo name={broker.name} logoUrl={broker.logoUrl} size="lg" className="shadow-2xs shrink-0 rounded-lg self-center sm:self-auto" />
 
               {/* Center & Matrix Column */}
               <div className="flex-1 min-w-0 space-y-3.5 w-full">

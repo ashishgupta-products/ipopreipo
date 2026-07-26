@@ -159,7 +159,7 @@ export default function CreditCardsPage() {
                   className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center gap-5 relative"
                 >
                   {/* Left Column: Credit Card Logo */}
-                  <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="lg" variant="credit_card" className="shadow-2xs shrink-0 rounded-lg" />
+                  <CompanyLogo name={card.name} logoUrl={card.logoUrl} size="lg" variant="credit_card" className="shadow-2xs shrink-0 rounded-lg self-center sm:self-auto" />
 
                   {/* Right Column: Text Info & 4-Column Metrics Grid */}
                   <div className="flex-1 min-w-0 space-y-3.5 w-full">

@@ -10,11 +10,14 @@ import {
   HelpCircle,
   Layers,
   Smartphone,
-  Gift
+  Gift,
+  Briefcase,
+  LayoutGrid
 } from "lucide-react";
 import { MOCK_PAYMENT_APPS } from "@/data/mockPaymentApps";
 import UserReviewsSection from "@/components/common/UserReviewsSection";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
+import PaymentAppCompareWidget from "@/components/articles/PaymentAppCompareWidget";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -104,20 +107,29 @@ export default async function PaymentAppDetailPage({ params }: PageProps) {
         {/* Left Col */}
         <div className="lg:col-span-8 space-y-5">
           {/* Key Features */}
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
-            <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-              <Smartphone className="w-4 h-4 text-slate-800" />
-              Supported Ecosystem Features
-            </h2>
-            <ul className="space-y-2 text-xs">
-              {app.keyFeatures.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-slate-600 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0 mt-0.5" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* App Products & Services */}
+          {app.productBasket && app.productBasket.length > 0 && (
+            <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-4">
+              <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Briefcase className="w-4 h-4 text-slate-800" />
+                Products &amp; Services
+              </h2>
+              <p className="text-slate-500 text-xs font-medium">
+                The full range of financial distribution products and utility features available directly inside the {app.name} application:
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {app.productBasket.map((product, i) => (
+                  <div 
+                    key={i} 
+                    className="p-3 bg-slate-50/60 border border-slate-200/50 rounded-xl flex items-center gap-2 text-xs font-bold text-slate-800 shadow-2xs hover:border-slate-350 hover:bg-white transition-all"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                    <span>{product}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Cashback, Rewards & Reality */}
           {app.cashbackRewardsReality && (
@@ -168,6 +180,22 @@ export default async function PaymentAppDetailPage({ params }: PageProps) {
               </div>
             </div>
           )}
+
+          {/* Supported Ecosystem Features */}
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
+            <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Smartphone className="w-4 h-4 text-slate-800" />
+              Supported Ecosystem Features
+            </h2>
+            <ul className="space-y-2 text-xs">
+              {app.keyFeatures.map((f, i) => (
+                <li key={i} className="flex items-start gap-2 text-slate-600 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0 mt-0.5" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* FAQs */}
           {app.faqs && (

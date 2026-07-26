@@ -83,18 +83,18 @@ export default function PaymentAppsPage() {
               className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row sm:items-center gap-5 relative"
             >
               {/* Left Column: App Logo */}
-              <CompanyLogo name={app.name} logoUrl={app.logoUrl} size="lg" className="shadow-2xs shrink-0 rounded-lg" />
+              <CompanyLogo name={app.name} logoUrl={app.logoUrl} size="lg" className="shadow-2xs shrink-0 rounded-lg self-center sm:self-auto" />
 
               {/* Center & Matrix Column */}
-              <div className="flex-1 min-w-0 space-y-3.5 w-full">
+              <div className="flex-1 min-w-0 space-y-3.5 w-full flex flex-col items-center sm:items-start text-center sm:text-left">
                 {/* Header Row: Name & Rating */}
-                <div className="flex justify-between items-start gap-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 flex-wrap">
+                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 w-full">
+                  <div className="space-y-2 flex flex-col items-center sm:items-start w-full">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 flex-wrap justify-center sm:justify-start w-full">
                       <h2 className="text-base sm:text-lg font-bold text-slate-800 hover:text-emerald-700 transition-colors">
                         <Link href={`/payment-apps/${app.slug}`}>{app.name}</Link>
                       </h2>
-                      <div className="flex items-center gap-0.5 text-xs font-bold text-amber-500">
+                      <div className="flex items-center justify-center sm:justify-start gap-0.5 text-xs font-bold text-amber-500">
                         <div className="flex items-center">
                           {[...Array(5)].map((_, i) => (
                             <Star
@@ -110,17 +110,17 @@ export default function PaymentAppsPage() {
                         <span className="text-slate-400 text-xs font-medium ml-1">({app.playStoreRating})</span>
                       </div>
                     </div>
-
+ 
                     {/* Second Row: Indigo Developer Badge & Features Checklist */}
-                    <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 w-full">
                       <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#eef2ff] text-[#4f46e5]">
                         {app.developer}
                       </span>
                       <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200/40">
                         {app.downloadsTier}
                       </span>
-
-                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-slate-700 ml-1">
+ 
+                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 text-xs font-medium text-slate-700 ml-0">
                         <span className="flex items-center gap-1.5">
                           {app.ruPayUpiSupport ? (
                             <span className="w-4 h-4 rounded-full bg-[#10b981] text-white flex items-center justify-center shrink-0">
@@ -171,26 +171,26 @@ export default function PaymentAppsPage() {
                 {/* 4-Column Rates Matrix - Seamless White Background, No borders! */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div>
-                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">P2P Bank Transfers</span>
-                    <strong className="text-emerald-600 font-bold text-sm sm:text-base block">Free</strong>
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Joining Bonus</span>
+                    <strong className="text-slate-800 font-extrabold text-sm sm:text-base block">{app.joiningBonus || "₹0"}</strong>
                   </div>
 
                   <div>
-                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Merchant Payments</span>
-                    <strong className="text-emerald-600 font-bold text-sm sm:text-base block">Free</strong>
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Referral</span>
+                    <strong className="text-slate-850 font-extrabold text-sm sm:text-base block">{app.referralBonus || "₹0"}</strong>
                   </div>
 
                   <div>
-                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">UPI Lite Support</span>
-                    <strong className="text-slate-800 font-bold text-sm sm:text-base block">
-                      {app.upiLiteSupport ? "Active ✓" : "N/A"}
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Mobile Recharge</span>
+                    <strong className={`font-extrabold text-sm sm:text-base block ${app.mobileRechargeFee === "₹0 (Free)" || app.mobileRechargeFee === "₹0" ? "text-emerald-600" : "text-slate-800"}`}>
+                      {app.mobileRechargeFee || "₹0"}
                     </strong>
                   </div>
 
                   <div>
-                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">RuPay Credit on UPI</span>
-                    <strong className="text-slate-800 font-bold text-sm sm:text-base block">
-                      {app.ruPayUpiSupport ? "Enabled ✓" : "Disabled"}
+                    <span className="text-slate-400 text-xs block mb-0.5 font-medium">Welcome Friends Back</span>
+                    <strong className="text-slate-800 font-extrabold text-sm sm:text-base block">
+                      {app.welcomeFriendsBack || "₹0"}
                     </strong>
                   </div>
                 </div>

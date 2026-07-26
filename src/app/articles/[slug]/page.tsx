@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
 import ArticleCardComparisonWidget from "@/components/articles/ArticleCardComparisonWidget";
+import PaymentAppCompareWidget from "@/components/articles/PaymentAppCompareWidget";
 import { use } from "react";
 
 interface PageProps {
@@ -33,6 +34,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
   }
 
   const isCreditCardGuide = article.category === "Credit Cards Guide" || article.slug.includes("credit-card");
+  const isPaymentAppGuide = article.category === "Payment Apps Guide" || article.slug.includes("payment-app") || article.slug.includes("upi");
 
   return (
     <div className="min-h-screen max-w-4xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
@@ -101,6 +103,13 @@ export default function ArticleDetailPage({ params }: PageProps) {
       {isCreditCardGuide && (
         <div className="my-5">
           <ArticleCardComparisonWidget />
+        </div>
+      )}
+
+      {/* Embedded Interactive Payment App Selector Widget (If Payment App Article) */}
+      {isPaymentAppGuide && (
+        <div className="my-5">
+          <PaymentAppCompareWidget />
         </div>
       )}
 

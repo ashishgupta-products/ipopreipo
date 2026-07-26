@@ -12,6 +12,7 @@ export default function PublicArticlesPage() {
   const categories = [
     "All",
     "Credit Cards Guide",
+    "Payment Apps Guide",
     "IPO News",
     "Research Report",
     "Pre-IPO Insights",

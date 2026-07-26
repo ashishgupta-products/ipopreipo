@@ -13,6 +13,22 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "Scratch cards, brand discount vouchers, and merchant cashbacks.",
+    joiningBonus: "₹0",
+    referralBonus: "₹100 / invite",
+    mobileRechargeFee: "₹1 to ₹3 fee",
+    upiSuccessRate: "99.7% (Highest)",
+    welcomeFriendsBack: "₹0",
+    productBasket: [
+      "UPI Transfers", 
+      "Mobile Recharges", 
+      "Utility Bill Payments", 
+      "FASTag Recharges", 
+      "Mutual Funds", 
+      "Insurance Distribution", 
+      "Gold & Silver Investing", 
+      "Personal Loans", 
+      "Credit Card Bills"
+    ],
     cashbackRewardsReality: [
       { type: "right", text: "Advertised rewards consist of scratch cards and instant merchant cashbacks." },
       { type: "wrong", text: "In reality, direct cashbacks are extremely rare; rewards are mostly third-party discount vouchers (e.g. Ajio, Dominos)." },
@@ -48,7 +64,7 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     faqs: [
       {
         question: "How do I setup UPI Lite on PhonePe?",
-        answer: "Go to Profile > UPI Lite > Add Funds (up to ₹2,000) from your bank account to enable instant PIN-less payments up to ₹500."
+        answer: "Go to Profile > UPI Lite > Add Funds (up to ₹2,00,0) from your bank account to enable instant PIN-less payments up to ₹500."
       }
     ]
   },
@@ -64,6 +80,21 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "Direct bank transfer cashbacks and rewards cards.",
+    joiningBonus: "₹21 (1st pay)",
+    referralBonus: "₹51 to ₹201",
+    mobileRechargeFee: "₹0 (Free)",
+    upiSuccessRate: "99.3% (Very High)",
+    welcomeFriendsBack: "₹21",
+    productBasket: [
+      "UPI Bank Transfers", 
+      "Mobile Recharges", 
+      "Utility Bill Payments", 
+      "FASTag Recharges", 
+      "Split Bills & Expense Tracking", 
+      "Personal Loans (Partnered)", 
+      "Gold & Wealth Checking", 
+      "Free Credit Score Tracking"
+    ],
     cashbackRewardsReality: [
       { type: "right", text: "Offers cashbacks directly deposited into linked bank accounts via scratch cards." },
       { type: "wrong", text: "Most transactions now return brand coupons with high minimum spend limits rather than real cash." },
@@ -109,6 +140,21 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "CRED coins, cashback on credit card bill payments, and luxury rewards.",
+    joiningBonus: "₹250 Cashback",
+    referralBonus: "₹250 to ₹1000",
+    mobileRechargeFee: "₹0 (Free)",
+    upiSuccessRate: "99.5% (High)",
+    welcomeFriendsBack: "₹250",
+    productBasket: [
+      "CRED Pay UPI", 
+      "Credit Card Bill Management", 
+      "CRED Cash (Personal Credit Line)", 
+      "CRED Store (Curated Shopping)", 
+      "CRED Escapes (Luxury Travel)", 
+      "RentPay (Rent via Credit Card)", 
+      "Free Credit Score (CIBIL/Experian)", 
+      "CRED Mint (P2P Lending)"
+    ],
     cashbackRewardsReality: [
       { type: "right", text: "Earn 1 CRED coin for every ₹1 of card bill paid." },
       { type: "wrong", text: "Accumulating coins is easy, but redemption value is extremely low (typically ₹1 to ₹5 cashback on jackpots)." },
@@ -154,6 +200,22 @@ export const MOCK_PAYMENT_APPS: PaymentAppData[] = [
     ruPayUpiSupport: true,
     creditScoreCheckFree: true,
     cashbackPolicy: "Paytm points, travel discounts, and cashback vouchers.",
+    joiningBonus: "₹0 (Vouchers)",
+    referralBonus: "₹100 / invite",
+    mobileRechargeFee: "₹1 to ₹3 fee",
+    upiSuccessRate: "98.9% (Average)",
+    welcomeFriendsBack: "₹0",
+    productBasket: [
+      "UPI Transfers", 
+      "Paytm Wallet", 
+      "FASTag & NCMC Transit Cards", 
+      "Mobile Recharges & Bills", 
+      "Movie Ticket Booking", 
+      "Flight & Bus Booking", 
+      "Paytm Soundbox", 
+      "Mutual Funds (Paytm Money)", 
+      "Insurance Distribution"
+    ],
     cashbackRewardsReality: [
       { type: "right", text: "Earn Paytm points to redeem for subscription gift cards and wallet balances." },
       { type: "wrong", text: "Points redemption rates are very high (e.g. 10,000 points needed for a basic ₹100 voucher)." },
