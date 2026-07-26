@@ -86,12 +86,12 @@ export default function PaymentAppsPage() {
               <CompanyLogo name={app.name} logoUrl={app.logoUrl} size="lg" className="shadow-2xs shrink-0 rounded-lg self-center sm:self-auto" />
 
               {/* Center & Matrix Column */}
-              <div className="flex-1 min-w-0 space-y-3.5 w-full flex flex-col items-center sm:items-start text-center sm:text-left">
+              <div className="flex-1 min-w-0 space-y-3.5 w-full">
                 {/* Header Row: Name & Rating */}
-                <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 w-full">
-                  <div className="space-y-2 flex flex-col items-center sm:items-start w-full">
-                    <div className="flex flex-col sm:flex-row items-center gap-2 flex-wrap justify-center sm:justify-start w-full">
-                      <h2 className="text-base sm:text-lg font-bold text-slate-800 hover:text-emerald-700 transition-colors">
+                <div className="flex justify-between items-start gap-4">
+                  <div className="space-y-2 flex flex-col items-center sm:items-start w-full sm:w-auto">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 flex-wrap justify-center sm:justify-start">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-800 hover:text-emerald-700 transition-colors text-center sm:text-left">
                         <Link href={`/payment-apps/${app.slug}`}>{app.name}</Link>
                       </h2>
                       <div className="flex items-center justify-center sm:justify-start gap-0.5 text-xs font-bold text-amber-500">
@@ -112,7 +112,7 @@ export default function PaymentAppsPage() {
                     </div>
  
                     {/* Second Row: Indigo Developer Badge & Features Checklist */}
-                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 w-full">
+                    <div className="flex flex-wrap items-center gap-3 w-full justify-start">
                       <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#eef2ff] text-[#4f46e5]">
                         {app.developer}
                       </span>
@@ -120,7 +120,7 @@ export default function PaymentAppsPage() {
                         {app.downloadsTier}
                       </span>
  
-                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 text-xs font-medium text-slate-700 ml-0">
+                      <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-slate-700 ml-1">
                         <span className="flex items-center gap-1.5">
                           {app.ruPayUpiSupport ? (
                             <span className="w-4 h-4 rounded-full bg-[#10b981] text-white flex items-center justify-center shrink-0">
