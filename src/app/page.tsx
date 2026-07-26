@@ -409,7 +409,6 @@ function HomeDashboardContent() {
             </div>
           </div>
         </div>
-      </section>>
       </section>
 
       {/* Directory Hubs Grid for SEO and Internal Linking */}
