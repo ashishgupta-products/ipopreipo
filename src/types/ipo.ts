@@ -160,6 +160,21 @@ export interface PreIPOData {
   patLastFyCr: number;
   expectedIpoTimeline: string; // e.g. "Q4 2026 / Q1 2027"
   status: "Available" | "High Demand" | "Sold Out";
+  
+  // Fundamentals
+  panNumber?: string;
+  isinNumber?: string;
+  cinNumber?: string;
+  depository?: string;
+  rta?: string;
+  peRatio?: number;
+  pbRatio?: number;
+  deRatio?: number;
+  roePercent?: number;
+  bookValue?: number;
+  totalShares?: number;
+  fiftyTwoWeekHigh?: number;
+  fiftyTwoWeekLow?: number;
 }
 
 export interface AnchorLockInItem {

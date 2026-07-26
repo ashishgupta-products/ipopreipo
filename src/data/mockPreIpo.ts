@@ -17,7 +17,20 @@ export const MOCK_PRE_IPOS: PreIPOData[] = [
     revenueLastFyCr: 18450,
     patLastFyCr: 3150,
     expectedIpoTimeline: "Q4 2026 (Filing DRHP)",
-    status: "High Demand"
+    status: "High Demand",
+    panNumber: "AAACT1234F",
+    isinNumber: "INE306A01011",
+    cinNumber: "U65990MH1991PLC060678",
+    depository: "NSDL & CDSL",
+    rta: "TSR Consultants Private Limited",
+    peRatio: 39.68,
+    pbRatio: 8.42,
+    deRatio: 2.10,
+    roePercent: 21.25,
+    bookValue: 112.80,
+    totalShares: 1315000000,
+    fiftyTwoWeekHigh: 1100,
+    fiftyTwoWeekLow: 820
   },
   {
     id: "p2",
@@ -35,7 +48,20 @@ export const MOCK_PRE_IPOS: PreIPOData[] = [
     revenueLastFyCr: 14800,
     patLastFyCr: 8300,
     expectedIpoTimeline: "H1 2027 (Awaiting SEBI NOC)",
-    status: "High Demand"
+    status: "High Demand",
+    panNumber: "AAACN1797L",
+    isinNumber: "INE721I01024",
+    cinNumber: "U67120MH1992PLC069769",
+    depository: "NSDL & CDSL",
+    rta: "Link Intime India Private Limited",
+    peRatio: 48.26,
+    pbRatio: 15.30,
+    deRatio: 0.00,
+    roePercent: 31.70,
+    bookValue: 129.76,
+    totalShares: 2475000000,
+    fiftyTwoWeekHigh: 6600,
+    fiftyTwoWeekLow: 5800
   },
   {
     id: "p3",
@@ -53,7 +79,20 @@ export const MOCK_PRE_IPOS: PreIPOData[] = [
     revenueLastFyCr: 306800,
     patLastFyCr: 11100,
     expectedIpoTimeline: "Late 2026",
-    status: "Available"
+    status: "Available",
+    panNumber: "AAACR9988C",
+    isinNumber: "INE908D01010",
+    cinNumber: "U51900MH2006PLC162345",
+    depository: "NSDL & CDSL",
+    rta: "KFin Technologies Limited",
+    peRatio: 76.57,
+    pbRatio: 12.18,
+    deRatio: 0.15,
+    roePercent: 15.90,
+    bookValue: 234.00,
+    totalShares: 2982000000,
+    fiftyTwoWeekHigh: 3200,
+    fiftyTwoWeekLow: 2500
   },
   {
     id: "p4",
@@ -71,6 +110,19 @@ export const MOCK_PRE_IPOS: PreIPOData[] = [
     revenueLastFyCr: 3400,
     patLastFyCr: 140,
     expectedIpoTimeline: "Q1 2027",
-    status: "Available"
+    status: "Available",
+    panNumber: "AAACI4433K",
+    isinNumber: "INE00O401014",
+    cinNumber: "U52100MH2013PTC249987",
+    depository: "NSDL & CDSL",
+    rta: "Link Intime India Private Limited",
+    peRatio: 82.14,
+    pbRatio: 14.50,
+    deRatio: 0.45,
+    roePercent: 17.60,
+    bookValue: 46.90,
+    totalShares: 169000000,
+    fiftyTwoWeekHigh: 850,
+    fiftyTwoWeekLow: 590
   }
 ];

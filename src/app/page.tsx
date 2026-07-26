@@ -367,30 +367,35 @@ function HomeDashboardContent() {
           <div className="absolute top-0 right-0 w-48 h-48 bg-amber-50/30 rounded-full blur-2xl -z-10 translate-x-12 -translate-y-12" />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-50 text-amber-800 border border-amber-200/60">
-                <Percent className="w-3.5 h-3.5" />
-                UNLISTED &amp; PRE-IPO SHARES DESK
-              </span>
+              <div className="flex flex-wrap gap-2 items-center">
+                <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-50 text-amber-855 border border-amber-200/60">
+                  <Percent className="w-3.5 h-3.5 animate-pulse" />
+                  UNLISTED &amp; PRE-IPO SHARES DESK
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black bg-amber-600 text-white uppercase tracking-wider">
+                  Coming Soon
+                </span>
+              </div>
               <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-tight">
                 Access Unlisted Pre-IPO Equities Before Public Filings
               </h2>
               <p className="text-slate-500 text-xs sm:text-sm font-semibold leading-relaxed max-w-2xl">
-                Inquire and trade pre-IPO shares in leading Indian conglomerates like Tata Capital, NSE India, Reliance Retail, and boAt Lifestyle. Safe CDSL/NSD demat transfers.
+                We are building a premium portal to inquire and trade pre-IPO shares in leading Indian conglomerates (Tata Capital, NSE India, Reliance Retail, and boAt Lifestyle) with secure CDSL/NSDL demat transfers. Stay tuned!
               </p>
               <div className="pt-1.5">
-                <Link
-                  href="/pre-ipo"
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs transition-all shadow-xs"
-                >
-                  Explore Unlisted Equities
+                <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-400 text-white font-bold text-xs select-none shadow-xs">
+                  Coming Soon
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </span>
               </div>
             </div>
 
-            <div className="lg:col-span-4 space-y-2.5">
+            <div className="lg:col-span-4 space-y-2.5 opacity-60 pointer-events-none select-none relative">
+              <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px] rounded-xl z-10 flex items-center justify-center">
+                <span className="bg-slate-900 text-white font-bold text-[10px] uppercase px-2.5 py-1 rounded shadow-md tracking-wider">Preview Only</span>
+              </div>
               {MOCK_PRE_IPOS.slice(0, 2).map((item) => (
-                <div key={item.id} className="p-3.5 rounded-xl bg-white/80 border border-slate-250/70 backdrop-blur-xs flex justify-between items-center text-xs shadow-2xs hover:border-amber-300 transition-colors">
+                <div key={item.id} className="p-3.5 rounded-xl bg-white/80 border border-slate-250/70 backdrop-blur-xs flex justify-between items-center text-xs shadow-2xs">
                   <div>
                     <strong className="text-slate-800 block font-bold">{item.companyName}</strong>
                     <span className="text-slate-400 font-semibold">{item.sector}</span>
@@ -404,6 +409,7 @@ function HomeDashboardContent() {
             </div>
           </div>
         </div>
+      </section>>
       </section>
 
       {/* Directory Hubs Grid for SEO and Internal Linking */}

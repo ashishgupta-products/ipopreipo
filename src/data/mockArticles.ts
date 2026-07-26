@@ -556,7 +556,7 @@ Yes, you get 4 complimentary domestic airport lounge access visits per calendar 
     isFeatured: false
   },
   {
-    id: "art-7",
+    id: "art-8",
     slug: "best-upi-payment-apps-india-comparison-2026",
     title: "Best UPI & Payment Apps in India (2026): Which Wallet Offers Maximum Value?",
     excerpt: "A detailed comparison of PhonePe, GPay, Paytm, and CRED. We evaluate transaction reliability, mobile recharge hidden fees, and welcome friend bonuses.",

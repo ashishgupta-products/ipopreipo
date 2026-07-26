@@ -142,7 +142,6 @@ export const Navbar: React.FC = () => {
                 ipoMenuOpen ? "bg-blue-50 text-blue-700" : "hover:bg-slate-100 hover:text-blue-700"
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-blue-700" />
               IPO
               <ChevronDown className={`w-3.5 h-3.5 transition-transform ${ipoMenuOpen ? "rotate-180 text-blue-700" : ""}`} />
             </button>
@@ -276,7 +275,7 @@ export const Navbar: React.FC = () => {
                       href="/calendar"
                       className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
                     >
-                      <Calendar className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                      <Calendar className="w-4 h-4 text-indigo-650 shrink-0 mt-0.5" />
                       <div>
                         <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">IPO Calendar</span>
                         <span className="text-[11px] text-slate-500">Bidding &amp; listing dates</span>
@@ -328,15 +327,13 @@ export const Navbar: React.FC = () => {
             href="/pre-ipo"
             className="px-2.5 py-2 rounded-md hover:bg-amber-50 hover:text-amber-800 text-amber-700 font-bold transition-colors flex items-center gap-1"
           >
-            <Percent className="w-3.5 h-3.5 text-amber-650" />
-            Pre-IPO
+            Pre-IPO (Coming Soon)
           </Link>
 
           <Link
             href="/brokers"
             className="px-2.5 py-2 rounded-md hover:bg-slate-100 hover:text-blue-700 transition-colors flex items-center gap-1"
           >
-            <Briefcase className="w-3.5 h-3.5 text-slate-600" />
             Brokers
           </Link>
 
@@ -344,7 +341,6 @@ export const Navbar: React.FC = () => {
             href="/payment-apps"
             className="px-2.5 py-2 rounded-md hover:bg-slate-100 hover:text-blue-700 transition-colors flex items-center gap-1"
           >
-            <Smartphone className="w-3.5 h-3.5 text-emerald-600" />
             Payment Apps
           </Link>
 
@@ -352,7 +348,6 @@ export const Navbar: React.FC = () => {
             href="/credit-cards"
             className="px-2.5 py-2 rounded-md hover:bg-slate-100 hover:text-blue-700 transition-colors flex items-center gap-1"
           >
-            <CreditCard className="w-3.5 h-3.5 text-blue-700" />
             Credit Cards
           </Link>
 
@@ -360,7 +355,6 @@ export const Navbar: React.FC = () => {
             href="/banks"
             className="px-2.5 py-2 rounded-md hover:bg-slate-100 hover:text-blue-700 transition-colors flex items-center gap-1"
           >
-            <Building2 className="w-3.5 h-3.5 text-slate-750" />
             Banks
           </Link>
 
@@ -368,7 +362,6 @@ export const Navbar: React.FC = () => {
             href="/articles"
             className="px-2.5 py-2 rounded-md hover:bg-blue-50 text-blue-800 font-bold transition-colors flex items-center gap-1"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
             Blogs
           </Link>
         </div>
@@ -672,7 +665,7 @@ export const Navbar: React.FC = () => {
 
           <div className="font-bold text-xs uppercase text-slate-400 pt-2 border-t border-slate-200">Financial Hubs</div>
           <Link onClick={() => setMobileMenuOpen(false)} href="/pre-ipo" className="px-3 py-2 rounded-md hover:bg-slate-200 text-amber-700 font-bold">
-            Pre-IPO Shares
+            Pre-IPO (Coming Soon)
           </Link>
           <Link onClick={() => setMobileMenuOpen(false)} href="/brokers" className="px-3 py-2 rounded-md hover:bg-slate-200">
             Broker Comparisons
