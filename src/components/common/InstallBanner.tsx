@@ -23,12 +23,14 @@ export const InstallBanner: React.FC = () => {
       || (window.navigator as any).standalone;
 
     if (isStandalone) {
+      localStorage.setItem("ipopreipo_installed", "true");
       return;
     }
 
-    // Check if dismissed in this browser session
+    // Check if previously installed or dismissed
+    const isInstalled = localStorage.getItem("ipopreipo_installed") === "true";
     const isDismissed = localStorage.getItem("ipopreipo_install_dismissed") === "true";
-    if (isDismissed) {
+    if (isInstalled || isDismissed) {
       return;
     }
 
@@ -43,36 +45,41 @@ export const InstallBanner: React.FC = () => {
     }
 
     const handler = (e: Event) => {
-      // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
-      // Stash the event so it can be triggered later.
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      // Update UI to notify the user they can install
       setIsVisible(true);
     };
 
+    const handleAppInstalled = () => {
+      localStorage.setItem("ipopreipo_installed", "true");
+      setIsVisible(false);
+    };
+
     window.addEventListener("beforeinstallprompt", handler);
+    window.addEventListener("appinstalled", handleAppInstalled);
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
 
   const handleInstallClick = async () => {
     if (isIOS) {
       alert("To install: Tap Safari's Share button (square icon with upward arrow) and select 'Add to Home Screen'.");
+      localStorage.setItem("ipopreipo_installed", "true");
+      setIsVisible(false);
       return;
     }
 
     if (!deferredPrompt) {
       return;
     }
-    // Show the install prompt
     deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
-    // Discard stashed event
+    if (outcome === "accepted") {
+      localStorage.setItem("ipopreipo_installed", "true");
+    }
     setDeferredPrompt(null);
     setIsVisible(false);
   };

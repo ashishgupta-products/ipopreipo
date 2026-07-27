@@ -26,13 +26,19 @@ export const MobileBottomNav: React.FC = () => {
   const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
-    // Check if already installed
     const isStandalone = window.matchMedia("(display-mode: standalone)").matches 
       || (window.navigator as any).standalone;
     
-    setIsStandaloneApp(!!isStandalone);
+    if (isStandalone) {
+      localStorage.setItem("ipopreipo_installed", "true");
+      setIsStandaloneApp(true);
+      return;
+    }
 
-    if (isStandalone) return;
+    const isInstalled = localStorage.getItem("ipopreipo_installed") === "true";
+    setIsStandaloneApp(isInstalled);
+
+    if (isInstalled) return;
 
     // Detect iOS
     const userAgent = window.navigator.userAgent.toLowerCase();
@@ -44,15 +50,25 @@ export const MobileBottomNav: React.FC = () => {
       setDeferredPrompt(e);
     };
 
+    const handleAppInstalled = () => {
+      localStorage.setItem("ipopreipo_installed", "true");
+      setIsStandaloneApp(true);
+    };
+
     window.addEventListener("beforeinstallprompt", handler);
+    window.addEventListener("appinstalled", handleAppInstalled);
+
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
 
   const handleInstallClick = async () => {
     if (isIOS) {
       alert("To install: Tap Safari's Share button (square icon with upward arrow) and select 'Add to Home Screen'.");
+      localStorage.setItem("ipopreipo_installed", "true");
+      setIsStandaloneApp(true);
       return;
     }
 
@@ -63,7 +79,10 @@ export const MobileBottomNav: React.FC = () => {
 
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to prompt: ${outcome}`);
+    if (outcome === "accepted") {
+      localStorage.setItem("ipopreipo_installed", "true");
+      setIsStandaloneApp(true);
+    }
     setDeferredPrompt(null);
   };
 
