@@ -143,7 +143,7 @@ const getSubscriptionDemand = (ipo: any) => {
 
 export default function IPODetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
-  const [activeMobileTab, setActiveMobileTab] = useState<"gmp" | "subscription">("gmp");
+  const [activeMobileTab, setActiveMobileTab] = useState<"overview" | "gmp_sub">("overview");
   const ipo = MOCK_IPOS.find((i) => i.slug === resolvedParams.slug);
 
   if (!ipo) {
@@ -224,165 +224,31 @@ export default function IPODetailPage({ params }: PageProps) {
         {/* Mobile-only Tab Switcher */}
         <div className="lg:hidden w-full bg-slate-100 p-1 rounded-xl border border-slate-200 flex gap-1 text-xs">
           <button
-            onClick={() => setActiveMobileTab("gmp")}
+            onClick={() => setActiveMobileTab("overview")}
             className={`flex-1 py-2 px-3 rounded-lg font-bold transition-all duration-200 flex items-center justify-center gap-1.5 ${
-              activeMobileTab === "gmp"
+              activeMobileTab === "overview"
+                ? "bg-white text-blue-700 shadow-sm border border-slate-200/50"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            Overview
+          </button>
+          <button
+            onClick={() => setActiveMobileTab("gmp_sub")}
+            className={`flex-1 py-2 px-3 rounded-lg font-bold transition-all duration-200 flex items-center justify-center gap-1.5 ${
+              activeMobileTab === "gmp_sub"
                 ? "bg-white text-blue-700 shadow-sm border border-slate-200/50"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <TrendingUp className="w-3.5 h-3.5" />
-            GMP &amp; Overview
+            GMP &amp; Subscription ({ipo.totalSubscription.toFixed(2)}x)
           </button>
-          <button
-            onClick={() => setActiveMobileTab("subscription")}
-            className={`flex-1 py-2 px-3 rounded-lg font-bold transition-all duration-200 flex items-center justify-center gap-1.5 ${
-              activeMobileTab === "subscription"
-                ? "bg-white text-blue-700 shadow-sm border border-slate-200/50"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Users className="w-3.5 h-3.5" />
-            Subscription &amp; Bids ({ipo.totalSubscription.toFixed(2)}x)
-          </button>
-        </div>
-
-        {/* Mobile Switcher Content */}
-        <div className="lg:hidden space-y-4">
-          {activeMobileTab === "gmp" ? (
-            <GMPCard
-              gmp={ipo.gmp}
-              gmpPercent={ipo.gmpPercent}
-              expectedListingPrice={ipo.expectedListingPrice}
-              priceBandMax={ipo.priceBandMax}
-              updatedTime={ipo.gmpUpdatedTime}
-              lotSize={ipo.lotSize}
-            />
-          ) : (
-            <div className="space-y-4">
-              {/* Live Subscription */}
-              <div className="space-y-2">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-blue-700" />
-                  Subscription Detail (No of Shares)
-                </h3>
-                <SubscriptionTable
-                  totalSubscription={ipo.totalSubscription}
-                  qibSubscription={ipo.qibSubscription}
-                  niiSubscription={ipo.niiSubscription}
-                  sNiiSubscription={ipo.sNiiSubscription}
-                  bNiiSubscription={ipo.bNiiSubscription}
-                  retailSubscription={ipo.retailSubscription}
-                  employeeSubscription={ipo.employeeSubscription}
-                  shareholderSubscription={ipo.shareholderSubscription}
-                />
-              </div>
-
-              {/* Application Wise Breakup */}
-              <div className="space-y-2">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-indigo-700" />
-                  Application Wise Breakup (Approx No of Applications)
-                </h3>
-                <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
-                      <tr>
-                        <th className="py-2.5 px-3">Category</th>
-                        <th className="py-2.5 px-3 text-center">Approx. Applications</th>
-                        <th className="py-2.5 px-3 text-right">Subscription (x)</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 text-slate-700">
-                      {(() => {
-                        const data = getApplicationBreakup(ipo);
-                        return (
-                          <>
-                            {data.list.map((item, idx) => (
-                              <tr key={idx} className="hover:bg-slate-50/60 font-medium">
-                                <td className="py-2 px-3 text-slate-800">
-                                  {item.category} <span className="text-[10px] text-slate-400 font-normal">({item.detail})</span>
-                                </td>
-                                <td className="py-2 px-3 text-center font-bold text-slate-900">
-                                  {item.applications > 0 ? item.applications.toLocaleString("en-IN") : "0"}
-                                </td>
-                                <td className="py-2 px-3 text-right font-bold text-slate-750">
-                                  {item.subscription > 0 ? `${item.subscription.toFixed(2)}x` : "0.00x"}
-                                </td>
-                              </tr>
-                            ))}
-                            <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">
-                              <td className="py-2 px-3">{data.total.category}</td>
-                              <td className="py-2 px-3 text-center text-blue-750 font-extrabold">
-                                {data.total.applications > 0 ? data.total.applications.toLocaleString("en-IN") : "0"}
-                              </td>
-                              <td className="py-2 px-3 text-right font-bold text-blue-750">
-                                {data.total.subscription > 0 ? `${data.total.subscription.toFixed(2)}x` : "0.00x"}
-                              </td>
-                            </tr>
-                          </>
-                        );
-                      })()}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Subscription Demand in Crores */}
-              <div className="space-y-2">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-emerald-700" />
-                  Subscription Demand in Crores
-                </h3>
-                <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
-                      <tr>
-                        <th className="py-2.5 px-3">Category</th>
-                        <th className="py-2.5 px-3 text-center">Quota (Cr)</th>
-                        <th className="py-2.5 px-3 text-right">Demand (Cr)</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 text-slate-700">
-                      {(() => {
-                        const data = getSubscriptionDemand(ipo);
-                        return (
-                          <>
-                            {data.list.map((item, idx) => (
-                              <tr key={idx} className="hover:bg-slate-50/60 font-medium">
-                                <td className="py-2 px-3 text-slate-800">
-                                  {item.category}
-                                </td>
-                                <td className="py-2 px-3 text-center text-slate-500">
-                                  ₹{item.quotaCr.toFixed(2)} Cr
-                                </td>
-                                <td className={`py-2 px-3 text-right font-bold ${item.isSub ? "text-slate-700" : "text-slate-900"}`}>
-                                  ₹{item.demandCr.toFixed(2)} Cr
-                                </td>
-                              </tr>
-                            ))}
-                            <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">
-                              <td className="py-2 px-3">{data.total.category}</td>
-                              <td className="py-2 px-3 text-center text-slate-655">
-                                  ₹{data.total.quotaCr.toFixed(2)} Cr
-                              </td>
-                              <td className="py-2 px-3 text-right font-extrabold text-emerald-750">
-                                  ₹{data.total.demandCr.toFixed(2)} Cr
-                              </td>
-                            </tr>
-                          </>
-                        );
-                      })()}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Left Col */}
-        <div className="lg:col-span-8 space-y-6">
+        <div className={`lg:col-span-8 space-y-6 ${activeMobileTab === "overview" ? "block" : "hidden lg:block"}`}>
           {/* Key Dates Table */}
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
             <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
@@ -893,20 +759,18 @@ export default function IPODetailPage({ params }: PageProps) {
         </div>
 
         {/* Right Col */}
-        <div className="lg:col-span-4 space-y-6">
-          <div className="hidden lg:block">
-            <GMPCard
-              gmp={ipo.gmp}
-              gmpPercent={ipo.gmpPercent}
-              expectedListingPrice={ipo.expectedListingPrice}
-              priceBandMax={ipo.priceBandMax}
-              updatedTime={ipo.gmpUpdatedTime}
-              lotSize={ipo.lotSize}
-            />
-          </div>
+        <div className={`lg:col-span-4 space-y-6 ${activeMobileTab === "gmp_sub" ? "block" : "hidden lg:block"}`}>
+          <GMPCard
+            gmp={ipo.gmp}
+            gmpPercent={ipo.gmpPercent}
+            expectedListingPrice={ipo.expectedListingPrice}
+            priceBandMax={ipo.priceBandMax}
+            updatedTime={ipo.gmpUpdatedTime}
+            lotSize={ipo.lotSize}
+          />
 
-          {/* Live Subscription, Application Breakup and Demand (Desktop only, mobile shows via switcher at top) */}
-          <div className="hidden lg:block space-y-6">
+          {/* Live Subscription, Application Breakup and Demand */}
+          <div className="space-y-6">
             {/* Live Subscription */}
             <div className="space-y-2">
               <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
@@ -1022,7 +886,6 @@ export default function IPODetailPage({ params }: PageProps) {
                     })()}
                   </tbody>
                 </table>
-              </div>
             </div>
           </div>
 
