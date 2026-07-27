@@ -769,6 +769,47 @@ export default function IPODetailPage({ params }: PageProps) {
             lotSize={ipo.lotSize}
           />
 
+          {/* Est. Profit per Application (as per GMP) */}
+          {ipo.gmp > 0 && ipo.lotSizes && ipo.lotSizes.length > 0 && (
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-emerald-700" />
+                Est. Profit per Application (as per GMP)
+              </h3>
+              <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                    <tr>
+                      <th className="py-2.5 px-3">Category</th>
+                      <th className="py-2.5 px-3 text-center">Lots / Shares</th>
+                      <th className="py-2.5 px-3 text-right">Est. Profit</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
+                    {ipo.lotSizes
+                      .filter((item) => item.shares > 0 && item.lots > 0)
+                      .map((item, idx) => {
+                        const estProfit = item.shares * ipo.gmp;
+                        return (
+                          <tr key={idx} className="hover:bg-slate-50/60 font-medium">
+                            <td className="py-2 px-3 text-slate-800 font-semibold">
+                              {item.applicationCategory}
+                            </td>
+                            <td className="py-2 px-3 text-center text-slate-500 font-medium">
+                              {item.lots} Lot{item.lots > 1 ? "s" : ""} ({item.shares} sh)
+                            </td>
+                            <td className="py-2 px-3 text-right font-extrabold text-emerald-700 text-xs sm:text-sm">
+                              ₹{estProfit.toLocaleString("en-IN")}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
           {/* Live Subscription, Application Breakup and Demand */}
           <div className="space-y-6">
             {/* Live Subscription */}
