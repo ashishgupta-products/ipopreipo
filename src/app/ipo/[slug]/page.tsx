@@ -187,6 +187,62 @@ export default async function IPODetailPage({ params }: PageProps) {
             </div>
           </div>
 
+          {/* IPO Details & Pricing Structure */}
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-2.5">
+              <Building2 className="w-4 h-4 text-blue-700" />
+              {ipo.name} Details
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-xs">
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">IPO Price Band:</span>
+                <strong className="text-slate-900 font-bold">₹{ipo.priceBandMin} - ₹{ipo.priceBandMax} per share</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">Face Value:</span>
+                <strong className="text-slate-900 font-bold">₹{ipo.faceValue} per share</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">Total Issue Size:</span>
+                <strong className="text-slate-900 font-bold">₹{ipo.issueSizeTotalCr} Cr</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">Fresh Issue Size:</span>
+                <strong className="text-emerald-700 font-bold">₹{ipo.freshIssueCr} Cr</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">Offer for Sale (OFS):</span>
+                <strong className="text-rose-700 font-bold">₹{ipo.ofsCr} Cr</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">IPO Issue Type:</span>
+                <strong className="text-slate-900 font-bold">Book Built Issue IPO</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">Listing Exchange(s):</span>
+                <strong className="text-slate-900 font-bold">{ipo.exchange}</strong>
+              </div>
+              <div className="flex justify-between py-1.5 border-b border-slate-100">
+                <span className="text-slate-500 font-medium">Market Lot Size:</span>
+                <strong className="text-slate-900 font-bold">{ipo.lotSize} Shares</strong>
+              </div>
+            </div>
+            {(ipo.prospectusUrl || ipo.drhpUrl) && (
+              <div className="flex gap-4 pt-1.5 text-xs">
+                {ipo.prospectusUrl && (
+                  <a href={ipo.prospectusUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-bold text-blue-700 hover:underline">
+                    Download Prospectus <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {ipo.drhpUrl && (
+                  <a href={ipo.drhpUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-bold text-slate-600 hover:underline">
+                    Download DRHP <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+
           {/* Live Subscription */}
           <div className="space-y-2">
             <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
