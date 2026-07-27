@@ -81,6 +81,64 @@ const getApplicationBreakup = (ipo: any) => {
   };
 };
 
+const getSubscriptionDemand = (ipo: any) => {
+  const qibReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("qib"));
+  const retailReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("retail"));
+  const niiReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("nii") || r.category.toLowerCase().includes("hni"));
+  const employeeReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("employee"));
+  const shareholderReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("shareholder"));
+
+  const parseCr = (str: string | undefined): number => {
+    if (!str) return 0;
+    const cleaned = str.replace(/[^\d.]/g, "");
+    return parseFloat(cleaned) || 0;
+  };
+
+  const qibQuotaCr = parseCr(qibReservation?.amountCr) || (ipo.issueSizeTotalCr * 0.50);
+  const retailQuotaCr = parseCr(retailReservation?.amountCr) || (ipo.issueSizeTotalCr * 0.35);
+  const niiQuotaCr = parseCr(niiReservation?.amountCr) || (ipo.issueSizeTotalCr * 0.15);
+  const employeeQuotaCr = parseCr(employeeReservation?.amountCr) || 0;
+  const shareholderQuotaCr = parseCr(shareholderReservation?.amountCr) || 0;
+
+  const qibSubscription = ipo.qibSubscription || 0;
+  const retailSubscription = ipo.retailSubscription || 0;
+  const niiSubscription = ipo.niiSubscription || 0;
+  const shniSubscription = ipo.sNiiSubscription || ipo.niiSubscription || 0;
+  const bhniSubscription = ipo.bNiiSubscription || ipo.niiSubscription || 0;
+  const employeeSubscription = ipo.employeeSubscription || 0;
+  const shareholderSubscription = ipo.shareholderSubscription || 0;
+
+  const qibDemand = qibQuotaCr * qibSubscription;
+  const retailDemand = retailQuotaCr * retailSubscription;
+  const niiDemand = niiQuotaCr * niiSubscription;
+  const shniDemand = (niiQuotaCr * 0.33) * shniSubscription;
+  const bhniDemand = (niiQuotaCr * 0.67) * bhniSubscription;
+  const employeeDemand = employeeQuotaCr * employeeSubscription;
+  const shareholderDemand = shareholderQuotaCr * shareholderSubscription;
+
+  const totalDemand = qibDemand + retailDemand + niiDemand + employeeDemand + shareholderDemand;
+
+  const list = [
+    { category: "QIB", quotaCr: qibQuotaCr, subscription: qibSubscription, demandCr: qibDemand },
+    { category: "NIB (Overall)", quotaCr: niiQuotaCr, subscription: niiSubscription, demandCr: niiDemand },
+    { category: "├─ HNI 10L+", quotaCr: niiQuotaCr * 0.67, subscription: bhniSubscription, demandCr: bhniDemand, isSub: true },
+    { category: "└─ HNI 2-10L", quotaCr: niiQuotaCr * 0.33, subscription: shniSubscription, demandCr: shniDemand, isSub: true },
+    { category: "Retail", quotaCr: retailQuotaCr, subscription: retailSubscription, demandCr: retailDemand }
+  ];
+
+  if (employeeQuotaCr > 0 || employeeSubscription > 0) {
+    list.push({ category: "Employees", quotaCr: employeeQuotaCr, subscription: employeeSubscription, demandCr: employeeDemand });
+  }
+  if (shareholderQuotaCr > 0 || shareholderSubscription > 0) {
+    list.push({ category: "Shareholders", quotaCr: shareholderQuotaCr, subscription: shareholderSubscription, demandCr: shareholderDemand });
+  }
+
+  return {
+    list,
+    total: { category: "Total", quotaCr: qibQuotaCr + retailQuotaCr + niiQuotaCr + employeeQuotaCr + shareholderQuotaCr, demandCr: totalDemand }
+  };
+};
+
 export default async function IPODetailPage({ params }: PageProps) {
   const resolvedParams = await params;
   const ipo = MOCK_IPOS.find((i) => i.slug === resolvedParams.slug);
@@ -701,6 +759,56 @@ export default async function IPODetailPage({ params }: PageProps) {
                           </td>
                           <td className="py-2 px-3 text-right font-bold text-blue-750">
                             {data.total.subscription > 0 ? `${data.total.subscription.toFixed(2)}x` : "0.00x"}
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })()}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Subscription Demand in Crores */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-4 h-4 text-emerald-700" />
+              Subscription Demand in Crores
+            </h3>
+            <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                  <tr>
+                    <th className="py-2.5 px-3">Category</th>
+                    <th className="py-2.5 px-3 text-center">Quota (Cr)</th>
+                    <th className="py-2.5 px-3 text-right">Demand (Cr)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  {(() => {
+                    const data = getSubscriptionDemand(ipo);
+                    return (
+                      <>
+                        {data.list.map((item, idx) => (
+                          <tr key={idx} className="hover:bg-slate-50/60 font-medium">
+                            <td className="py-2 px-3 text-slate-800">
+                              {item.category}
+                            </td>
+                            <td className="py-2 px-3 text-center text-slate-500">
+                              ₹{item.quotaCr.toFixed(2)} Cr
+                            </td>
+                            <td className={`py-2 px-3 text-right font-bold ${item.isSub ? "text-slate-700" : "text-slate-900"}`}>
+                              ₹{item.demandCr.toFixed(2)} Cr
+                            </td>
+                          </tr>
+                        ))}
+                        <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">
+                          <td className="py-2 px-3">{data.total.category}</td>
+                          <td className="py-2 px-3 text-center text-slate-650">
+                            ₹{data.total.quotaCr.toFixed(2)} Cr
+                          </td>
+                          <td className="py-2 px-3 text-right font-extrabold text-emerald-700">
+                            ₹{data.total.demandCr.toFixed(2)} Cr
                           </td>
                         </tr>
                       </>
