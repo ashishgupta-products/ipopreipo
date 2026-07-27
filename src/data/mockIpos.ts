@@ -56,7 +56,29 @@ export const MOCK_IPOS: IPOData[] = [
     financials: [
       { year: "FY24", revenue: 45.2, pat: 3.8, netWorth: 18.5, eps: 4.2, ronw: 20.5 },
       { year: "FY25", revenue: 68.4, pat: 6.9, netWorth: 28.2, eps: 6.8, ronw: 24.5 }
-    ]
+    ],
+    peerComparison: [
+      { companyName: "Sangam (India) Limited", faceValue: 10, peRatio: 18.4 },
+      { companyName: "Filatex India Limited", faceValue: 2, peRatio: 14.2 },
+      { companyName: "Banswara Syntex Limited", faceValue: 10, peRatio: 11.5 }
+    ],
+    reservations: [
+      { category: "QIB Shares Offered", sharesOffered: "10,25,000 Shares", percentage: "25.00%", amountCr: "₹7.18 Cr" },
+      { category: "NII (HNI) Shares Offered", sharesOffered: "8,50,000 Shares", percentage: "20.73%", amountCr: "₹5.95 Cr" },
+      { category: "Retail Shares Offered", sharesOffered: "19,80,000 Shares", percentage: "48.29%", amountCr: "₹13.86 Cr" },
+      { category: "Market Maker Shares", sharesOffered: "2,45,000 Shares", percentage: "5.98%", amountCr: "₹1.72 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Mar 31, 2025",
+      roe: "24.50%",
+      ronw: "24.50%",
+      ebitdaMargin: "14.20%",
+      priceToBookValue: "2.48",
+      preIpoEps: "6.80",
+      postIpoEps: "5.10",
+      preIpoPe: "10.29",
+      postIpoPe: "13.73"
+    }
   },
   {
     id: "2",
@@ -112,7 +134,27 @@ export const MOCK_IPOS: IPOData[] = [
     financials: [
       { year: "FY24", revenue: 2150.0, pat: 410.0, netWorth: 8500.0, ronw: 12.1 },
       { year: "FY25", revenue: 2680.0, pat: 540.0, netWorth: 9200.0, ronw: 13.8 }
-    ]
+    ],
+    peerComparison: [
+      { companyName: "IRB InvIT Fund", faceValue: 10, peRatio: 15.6 },
+      { companyName: "National Highways Infra Trust", faceValue: 10, peRatio: 12.8 },
+      { companyName: "India Grid Trust", faceValue: 10, peRatio: 18.2 }
+    ],
+    reservations: [
+      { category: "Institutional Investors", sharesOffered: "24,00,00,000 Units", percentage: "75.00%", amountCr: "₹3,900.00 Cr" },
+      { category: "Non-Institutional Investors", sharesOffered: "8,00,00,000 Units", percentage: "25.00%", amountCr: "₹1,300.00 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Mar 31, 2025",
+      roe: "13.80%",
+      ronw: "13.80%",
+      ebitdaMargin: "65.40%",
+      priceToBookValue: "1.55",
+      preIpoEps: "5.87",
+      postIpoEps: "5.87",
+      preIpoPe: "25.89",
+      postIpoPe: "25.89"
+    }
   },
   {
     id: "3",
@@ -165,7 +207,29 @@ export const MOCK_IPOS: IPOData[] = [
     financials: [
       { year: "FY24", revenue: 32.5, pat: 2.1, netWorth: 12.4, eps: 3.1, ronw: 16.9 },
       { year: "FY25", revenue: 41.8, pat: 3.4, netWorth: 15.8, eps: 4.8, ronw: 21.5 }
-    ]
+    ],
+    peerComparison: [
+      { companyName: "Metalic Forgings India", faceValue: 10, peRatio: 16.5 },
+      { companyName: "Forgewell Limited", faceValue: 10, peRatio: 22.1 },
+      { companyName: "Sona BLW Precision Forgings", faceValue: 10, peRatio: 68.4 }
+    ],
+    reservations: [
+      { category: "QIB Shares Offered", sharesOffered: "6,20,000 Shares", percentage: "26.27%", amountCr: "₹4.77 Cr" },
+      { category: "NII (HNI) Shares Offered", sharesOffered: "4,80,000 Shares", percentage: "20.34%", amountCr: "₹3.70 Cr" },
+      { category: "Retail Shares Offered", sharesOffered: "11,20,000 Shares", percentage: "47.46%", amountCr: "₹8.62 Cr" },
+      { category: "Market Maker Shares", sharesOffered: "1,40,000 Shares", percentage: "5.93%", amountCr: "₹1.08 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Mar 31, 2025",
+      roe: "21.50%",
+      ronw: "21.50%",
+      ebitdaMargin: "11.80%",
+      priceToBookValue: "4.87",
+      preIpoEps: "4.80",
+      postIpoEps: "3.90",
+      preIpoPe: "16.04",
+      postIpoPe: "19.74"
+    }
   },
   {
     id: "4",
@@ -222,7 +286,28 @@ export const MOCK_IPOS: IPOData[] = [
     financials: [
       { year: "FY24", revenue: 890.0, pat: 92.0, netWorth: 410.0, eps: 12.5, ronw: 22.4 },
       { year: "FY25", revenue: 1420.0, pat: 168.0, netWorth: 578.0, eps: 21.0, ronw: 29.1 }
-    ]
+    ],
+    peerComparison: [
+      { companyName: "Sterling & Wilson Renewable Energy", faceValue: 1, peRatio: 48.9 },
+      { companyName: "Waaree Renewable Technologies", faceValue: 2, peRatio: 112.5 },
+      { companyName: "KPI Green Energy Limited", faceValue: 10, peRatio: 58.2 }
+    ],
+    reservations: [
+      { category: "QIB Portion", sharesOffered: "2,17,64,705 Shares", percentage: "50.00%", amountCr: "₹925.00 Cr" },
+      { category: "NII (HNI) Portion", sharesOffered: "6,52,94,117 Shares", percentage: "15.00%", amountCr: "₹277.50 Cr" },
+      { category: "Retail Portion", sharesOffered: "1,52,35,294 Shares", percentage: "35.00%", amountCr: "₹647.50 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Mar 31, 2025",
+      roe: "29.10%",
+      ronw: "29.10%",
+      ebitdaMargin: "18.50%",
+      priceToBookValue: "7.35",
+      preIpoEps: "21.00",
+      postIpoEps: "18.50",
+      preIpoPe: "20.24",
+      postIpoPe: "22.97"
+    }
   },
   {
     id: "5",
@@ -272,7 +357,38 @@ export const MOCK_IPOS: IPOData[] = [
     risks: [
       "Intense competition from Zomato and Zepto.",
       "Cash burn in quick commerce expansion."
-    ]
+    ],
+    lotSizes: [
+      { applicationCategory: "Retail (Min)", lots: 1, shares: 38, amount: 14820 },
+      { applicationCategory: "Retail (Max)", lots: 13, shares: 494, amount: 192660 },
+      { applicationCategory: "S-HNI (Min)", lots: 14, shares: 532, amount: 207480 },
+      { applicationCategory: "S-HNI (Max)", lots: 67, shares: 2546, amount: 992940 },
+      { applicationCategory: "B-HNI (Min)", lots: 68, shares: 2584, amount: 1007760 }
+    ],
+    financials: [
+      { year: "FY23", revenue: 8263.0, pat: -4179.0, netWorth: 9810.0, eps: -12.5, ronw: -42.6 },
+      { year: "FY24", revenue: 11247.0, pat: -2350.0, netWorth: 7650.0, eps: -7.2, ronw: -30.7 },
+      { year: "FY25", revenue: 14500.0, pat: -1420.0, netWorth: 6800.0, eps: -4.1, ronw: -20.9 }
+    ],
+    peerComparison: [
+      { companyName: "Zomato Limited", faceValue: 1, peRatio: 125.4 }
+    ],
+    reservations: [
+      { category: "QIB Portion", sharesOffered: "14,57,69,230 Shares", percentage: "50.00%", amountCr: "₹5,685.00 Cr" },
+      { category: "NII (HNI) Portion", sharesOffered: "4,37,30,769 Shares", percentage: "15.00%", amountCr: "₹1,705.50 Cr" },
+      { category: "Retail Portion", sharesOffered: "10,20,38,461 Shares", percentage: "35.00%", amountCr: "₹3,979.50 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Jun 30, 2025",
+      roe: "-20.90%",
+      ronw: "-20.90%",
+      ebitdaMargin: "-8.40%",
+      priceToBookValue: "5.73",
+      preIpoEps: "-4.10",
+      postIpoEps: "-4.10",
+      preIpoPe: "N/A",
+      postIpoPe: "N/A"
+    }
   },
   {
     id: "6",
@@ -295,7 +411,7 @@ export const MOCK_IPOS: IPOData[] = [
     gmp: 0,
     gmpPercent: 0,
     gmpUpdatedTime: "Listed",
-    expectedListingPrice: 2500,
+    expectedListingPrice: 2550,
     totalSubscription: 76.34,
     qibSubscription: 208.63,
     niiSubscription: 62.49,
@@ -321,7 +437,38 @@ export const MOCK_IPOS: IPOData[] = [
     ],
     risks: [
       "Global solar cell price volatility."
-    ]
+    ],
+    lotSizes: [
+      { applicationCategory: "Retail (Min)", lots: 1, shares: 9, amount: 13527 },
+      { applicationCategory: "Retail (Max)", lots: 14, shares: 126, amount: 189378 },
+      { applicationCategory: "S-HNI (Min)", lots: 15, shares: 135, amount: 202905 },
+      { applicationCategory: "B-HNI (Min)", lots: 74, shares: 666, amount: 1000998 }
+    ],
+    financials: [
+      { year: "FY23", revenue: 6750.0, pat: 500.0, netWorth: 2100.0, eps: 18.5, ronw: 23.8 },
+      { year: "FY24", revenue: 11398.0, pat: 1274.0, netWorth: 4200.0, eps: 46.2, ronw: 30.3 },
+      { year: "FY25", revenue: 14850.0, pat: 1850.0, netWorth: 6200.0, eps: 65.5, ronw: 29.8 }
+    ],
+    peerComparison: [
+      { companyName: "Premier Energies Limited", faceValue: 1, peRatio: 84.5 },
+      { companyName: "Websol Energy System Ltd", faceValue: 10, peRatio: 45.2 }
+    ],
+    reservations: [
+      { category: "QIB Portion", sharesOffered: "1,43,74,584 Shares", percentage: "50.00%", amountCr: "₹2,160.50 Cr" },
+      { category: "NII (HNI) Portion", sharesOffered: "43,12,375 Shares", percentage: "15.00%", amountCr: "₹648.15 Cr" },
+      { category: "Retail Portion", sharesOffered: "1,00,62,209 Shares", percentage: "35.00%", amountCr: "₹1,512.35 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Jun 30, 2025",
+      roe: "29.80%",
+      ronw: "29.80%",
+      ebitdaMargin: "16.40%",
+      priceToBookValue: "6.95",
+      preIpoEps: "65.50",
+      postIpoEps: "65.50",
+      preIpoPe: "22.95",
+      postIpoPe: "22.95"
+    }
   },
   {
     id: "7",
@@ -403,6 +550,94 @@ export const MOCK_IPOS: IPOData[] = [
       postIpoEps: "15.06",
       preIpoPe: "38.12",
       postIpoPe: "38.12"
-    }
+    },
+    financials: [
+      { year: "FY24", revenue: 780.0, pat: 85.0, netWorth: 380.0, eps: 11.2, ronw: 22.4 },
+      { year: "FY25", revenue: 1120.0, pat: 142.0, netWorth: 512.0, eps: 15.1, ronw: 27.7 }
+    ]
+  },
+  {
+    id: "8",
+    slug: "sbi-funds-management",
+    name: "SBI Funds Management Limited IPO",
+    companyName: "SBI Funds Management Limited",
+    logoUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=120&q=80",
+    category: "mainboard",
+    status: "upcoming",
+    exchange: "BSE & NSE",
+    priceBandMin: 880,
+    priceBandMax: 950,
+    lotSize: 15,
+    minInvestment: 14250,
+    issueSizeTotalCr: 8000.0,
+    freshIssueCr: 2000.0,
+    ofsCr: 6000.0,
+    faceValue: 10,
+    gmp: 120,
+    gmpPercent: 12.63,
+    gmpUpdatedTime: "Just now",
+    expectedListingPrice: 1070,
+    totalSubscription: 0,
+    qibSubscription: 0,
+    niiSubscription: 0,
+    retailSubscription: 0,
+    openDate: "2026-08-15",
+    closeDate: "2026-08-18",
+    allotmentDate: "2026-08-19",
+    refundDate: "2026-08-20",
+    dematCreditDate: "2026-08-20",
+    listingDate: "2026-08-21",
+    registrarName: "KFin Technologies Limited",
+    registrarWebsite: "https://www.kfintech.com",
+    registrarCheckUrl: "https://ris.kfintech.com/ipostatus/",
+    registrarPhone: "+91-40-67162222",
+    registrarEmail: "sbifml.ipo@kfintech.com",
+    leadManagers: ["SBI Capital Markets Limited", "Kotak Mahindra Capital", "Citigroup Global Markets"],
+    companyAddress: "SBI LHO Building, BKC, Bandra Kurla Complex, Mumbai - 400051, Maharashtra, India",
+    companyPhone: "+91-22-61793000",
+    companyEmail: "investors@sbimf.com",
+    companyWebsite: "https://www.sbimf.com",
+    recommendation: "Apply for Long Term",
+    rating: 4.7,
+    highlights: [
+      "Largest mutual fund house in India with over ₹10 Lakh Crore in assets under management (AUM).",
+      "Highly profitable asset manager with strong parentage & brand trust of SBI.",
+      "Growing market share in high-margin equity products."
+    ],
+    risks: [
+      "Performance is sensitive to changes in equity market AUM inflows.",
+      "Intense regulatory pressure on mutual fund expense structures by SEBI."
+    ],
+    lotSizes: [
+      { applicationCategory: "Retail (Min)", lots: 1, shares: 15, amount: 14250 },
+      { applicationCategory: "Retail (Max)", lots: 14, shares: 210, amount: 199500 },
+      { applicationCategory: "S-HNI (Min)", lots: 15, shares: 225, amount: 213750 },
+      { applicationCategory: "B-HNI (Min)", lots: 71, shares: 1065, amount: 1011750 }
+    ],
+    peerComparison: [
+      { companyName: "HDFC Asset Management Company Limited", faceValue: 5, peRatio: 36.40 },
+      { companyName: "Nippon Life India Asset Management Limited", faceValue: 10, peRatio: 28.50 },
+      { companyName: "Aditya Birla Sun Life AMC Limited", faceValue: 5, peRatio: 18.20 }
+    ],
+    reservations: [
+      { category: "QIB Portion", sharesOffered: "4,21,05,263 Shares", percentage: "50.00%", amountCr: "₹4,000.00 Cr" },
+      { category: "NII (HNI) Portion", sharesOffered: "1,26,31,578 Shares", percentage: "15.00%", amountCr: "₹1,200.00 Cr" },
+      { category: "Retail Portion", sharesOffered: "2,94,73,684 Shares", percentage: "35.00%", amountCr: "₹2,800.00 Cr" }
+    ],
+    kpis: {
+      asOfDate: "Mar 31, 2026",
+      roe: "32.40%",
+      ronw: "32.40%",
+      ebitdaMargin: "68.20%",
+      priceToBookValue: "11.50",
+      preIpoEps: "34.20",
+      postIpoEps: "34.20",
+      preIpoPe: "27.78",
+      postIpoPe: "27.78"
+    },
+    financials: [
+      { year: "FY24", revenue: 2840.0, pat: 1450.0, netWorth: 4100.0, eps: 28.1, ronw: 30.5 },
+      { year: "FY25", revenue: 3620.0, pat: 1980.0, netWorth: 5800.0, eps: 34.2, ronw: 32.4 }
+    ]
   }
 ];
