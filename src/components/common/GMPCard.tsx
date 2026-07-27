@@ -8,6 +8,7 @@ interface GMPCardProps {
   priceBandMax: number;
   updatedTime?: string;
   compact?: boolean;
+  lotSize?: number;
 }
 
 export const GMPCard: React.FC<GMPCardProps> = ({
@@ -16,7 +17,8 @@ export const GMPCard: React.FC<GMPCardProps> = ({
   expectedListingPrice,
   priceBandMax,
   updatedTime = "Live",
-  compact = false
+  compact = false,
+  lotSize
 }) => {
   const isPositive = gmp > 0;
   const isNeutral = gmp === 0;
@@ -54,24 +56,33 @@ export const GMPCard: React.FC<GMPCardProps> = ({
         <span>Updated: {updatedTime}</span>
       </div>
 
-      <div className="flex items-baseline gap-2">
-        <span
-          className={`text-xl font-extrabold tracking-tight ${
-            isPositive
-              ? "text-emerald-700"
-              : isNeutral
-              ? "text-slate-600"
-              : "text-rose-700"
-          }`}
-        >
-          {isPositive ? `+₹${gmp}` : isNeutral ? "₹0" : `-₹${Math.abs(gmp)}`}
-        </span>
-
-        {isPositive && (
-          <span className="inline-flex items-center text-xs font-bold text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded">
-            <ArrowUpRight className="w-3 h-3 mr-0.5" />
-            +{gmpPercent.toFixed(1)}%
+      <div className="flex items-baseline justify-between">
+        <div className="flex items-baseline gap-2">
+          <span
+            className={`text-xl font-extrabold tracking-tight ${
+              isPositive
+                ? "text-emerald-700"
+                : isNeutral
+                ? "text-slate-600"
+                : "text-rose-700"
+            }`}
+          >
+            {isPositive ? `+₹${gmp}` : isNeutral ? "₹0" : `-₹${Math.abs(gmp)}`}
           </span>
+
+          {isPositive && (
+            <span className="inline-flex items-center text-xs font-bold text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded">
+              <ArrowUpRight className="w-3 h-3 mr-0.5" />
+              +{gmpPercent.toFixed(1)}%
+            </span>
+          )}
+        </div>
+
+        {/* Est. Profit per Lot displayed in line or right next to GMP */}
+        {lotSize && gmp > 0 && (
+          <div className="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+            ₹{(gmp * lotSize).toLocaleString("en-IN")} / Lot Est. Profit
+          </div>
         )}
       </div>
 

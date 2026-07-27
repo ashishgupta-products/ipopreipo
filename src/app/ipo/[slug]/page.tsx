@@ -227,6 +227,7 @@ export default async function IPODetailPage({ params }: PageProps) {
             expectedListingPrice={ipo.expectedListingPrice}
             priceBandMax={ipo.priceBandMax}
             updatedTime={ipo.gmpUpdatedTime}
+            lotSize={ipo.lotSize}
           />
         </div>
 
@@ -750,6 +751,7 @@ export default async function IPODetailPage({ params }: PageProps) {
               expectedListingPrice={ipo.expectedListingPrice}
               priceBandMax={ipo.priceBandMax}
               updatedTime={ipo.gmpUpdatedTime}
+              lotSize={ipo.lotSize}
             />
           </div>
 

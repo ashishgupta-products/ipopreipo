@@ -338,6 +338,7 @@ function HomeDashboardContent() {
                   expectedListingPrice={ipo.expectedListingPrice}
                   priceBandMax={ipo.priceBandMax}
                   updatedTime={ipo.gmpUpdatedTime}
+                  lotSize={ipo.lotSize}
                 />
 
                 <div className="flex justify-between items-center text-[10px] text-slate-400 font-bold pt-1">
