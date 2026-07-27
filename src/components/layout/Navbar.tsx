@@ -33,6 +33,7 @@ import { useRouter } from "next/navigation";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { useAuth } from "@/context/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
+import { DynamicTagline } from "@/components/common/DynamicTagline";
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
@@ -120,8 +121,10 @@ export const Navbar: React.FC = () => {
               </span>
               <span className="text-xs text-blue-700 font-bold">.com</span>
             </div>
-            <span className="text-[10px] text-slate-500 font-medium tracking-wide">
-              Made with <span className="text-rose-500">❤️</span> for consumer benefits
+            <span className="text-[10px] text-slate-500 font-medium tracking-wide flex items-center gap-1">
+              <span>Made with</span>
+              <span className="text-rose-500">❤️</span>
+              <DynamicTagline />
             </span>
           </div>
         </Link>

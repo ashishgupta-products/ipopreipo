@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { TrendingUp, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { DynamicTagline } from "@/components/common/DynamicTagline";
 
 export const Footer: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1 font-semibold">
               <span>Made with</span>
               <span className="text-rose-500 text-xs">❤️</span>
-              <span>for consumer benefits</span>
+              <DynamicTagline />
             </div>
           </div>
 
