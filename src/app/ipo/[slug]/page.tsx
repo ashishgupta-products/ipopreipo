@@ -150,6 +150,17 @@ export default async function IPODetailPage({ params }: PageProps) {
 
       {/* Grid: Details & Tables */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Mobile GMP Card */}
+        <div className="lg:hidden">
+          <GMPCard
+            gmp={ipo.gmp}
+            gmpPercent={ipo.gmpPercent}
+            expectedListingPrice={ipo.expectedListingPrice}
+            priceBandMax={ipo.priceBandMax}
+            updatedTime={ipo.gmpUpdatedTime}
+          />
+        </div>
+
         {/* Left Col */}
         <div className="lg:col-span-8 space-y-6">
           {/* Key Dates Table */}
@@ -280,10 +291,10 @@ export default async function IPODetailPage({ params }: PageProps) {
                     {ipo.lotSizes.map((item, idx) => (
                       <tr key={idx} className="hover:bg-slate-50">
                         <td className="py-2.5 px-3 font-medium text-slate-900">{item.applicationCategory}</td>
-                        <td className="py-2.5 px-3 font-semibold">{item.lots}</td>
-                        <td className="py-2.5 px-3">{item.shares.toLocaleString("en-IN")}</td>
+                        <td className="py-2.5 px-3 font-semibold">{item.lots === 0 ? "No Upper Limit" : item.lots}</td>
+                        <td className="py-2.5 px-3">{item.shares === 0 ? "No Upper Limit" : item.shares.toLocaleString("en-IN")}</td>
                         <td className="py-2.5 px-3 text-right font-bold text-slate-900">
-                          ₹{item.amount.toLocaleString("en-IN")}
+                          {item.amount === 0 ? "No Upper Limit" : `₹${item.amount.toLocaleString("en-IN")}`}
                         </td>
                       </tr>
                     ))}
@@ -728,13 +739,15 @@ export default async function IPODetailPage({ params }: PageProps) {
 
         {/* Right Col */}
         <div className="lg:col-span-4 space-y-6">
-          <GMPCard
-            gmp={ipo.gmp}
-            gmpPercent={ipo.gmpPercent}
-            expectedListingPrice={ipo.expectedListingPrice}
-            priceBandMax={ipo.priceBandMax}
-            updatedTime={ipo.gmpUpdatedTime}
-          />
+          <div className="hidden lg:block">
+            <GMPCard
+              gmp={ipo.gmp}
+              gmpPercent={ipo.gmpPercent}
+              expectedListingPrice={ipo.expectedListingPrice}
+              priceBandMax={ipo.priceBandMax}
+              updatedTime={ipo.gmpUpdatedTime}
+            />
+          </div>
 
           {/* Analyst Scorecard */}
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
@@ -775,8 +788,6 @@ export default async function IPODetailPage({ params }: PageProps) {
               </div>
             )}
           </div>
-
-          <Calculator defaultLotSize={ipo.lotSize} defaultPrice={ipo.priceBandMax} defaultGmp={ipo.gmp} />
         </div>
       </div>
     </div>

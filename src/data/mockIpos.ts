@@ -50,8 +50,12 @@ export const MOCK_IPOS: IPOData[] = [
       "Competitive SME textile sector."
     ],
     lotSizes: [
-      { applicationCategory: "Retail", lots: 1, shares: 2000, amount: 140000 },
-      { applicationCategory: "sHNI (Min)", lots: 2, shares: 4000, amount: 280000 }
+      { applicationCategory: "Retail (Min)", lots: 1, shares: 2000, amount: 140000 },
+      { applicationCategory: "Retail (Max)", lots: 1, shares: 2000, amount: 140000 },
+      { applicationCategory: "S-HNI (Min)", lots: 2, shares: 4000, amount: 280000 },
+      { applicationCategory: "S-HNI (Max)", lots: 7, shares: 14000, amount: 980000 },
+      { applicationCategory: "B-HNI (Min)", lots: 8, shares: 16000, amount: 1120000 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     financials: [
       { year: "FY24", revenue: 45.2, pat: 3.8, netWorth: 18.5, eps: 4.2, ronw: 20.5 },
@@ -127,9 +131,12 @@ export const MOCK_IPOS: IPOData[] = [
       "Traffic growth fluctuations."
     ],
     lotSizes: [
-      { applicationCategory: "Retail", lots: 1, shares: 94, amount: 14288 },
-      { applicationCategory: "sHNI (Min)", lots: 15, shares: 1410, amount: 214320 },
-      { applicationCategory: "bHNI (Min)", lots: 71, shares: 6674, amount: 1014448 }
+      { applicationCategory: "Retail (Min)", lots: 1, shares: 94, amount: 14288 },
+      { applicationCategory: "Retail (Max)", lots: 13, shares: 1222, amount: 185744 },
+      { applicationCategory: "S-HNI (Min)", lots: 15, shares: 1410, amount: 214320 },
+      { applicationCategory: "S-HNI (Max)", lots: 69, shares: 6486, amount: 985872 },
+      { applicationCategory: "B-HNI (Min)", lots: 70, shares: 6580, amount: 1000160 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     financials: [
       { year: "FY24", revenue: 2150.0, pat: 410.0, netWorth: 8500.0, ronw: 12.1 },
@@ -201,8 +208,12 @@ export const MOCK_IPOS: IPOData[] = [
       "Concentrated customer base in auto sector."
     ],
     lotSizes: [
-      { applicationCategory: "Retail", lots: 1, shares: 1600, amount: 123200 },
-      { applicationCategory: "sHNI (Min)", lots: 2, shares: 3200, amount: 246400 }
+      { applicationCategory: "Retail (Min)", lots: 1, shares: 1600, amount: 123200 },
+      { applicationCategory: "Retail (Max)", lots: 1, shares: 1600, amount: 123200 },
+      { applicationCategory: "S-HNI (Min)", lots: 2, shares: 3200, amount: 246400 },
+      { applicationCategory: "S-HNI (Max)", lots: 8, shares: 12800, amount: 985600 },
+      { applicationCategory: "B-HNI (Min)", lots: 9, shares: 14400, amount: 1108800 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     financials: [
       { year: "FY24", revenue: 32.5, pat: 2.1, netWorth: 12.4, eps: 3.1, ronw: 16.9 },
@@ -281,7 +292,8 @@ export const MOCK_IPOS: IPOData[] = [
       { applicationCategory: "Retail (Max)", lots: 13, shares: 455, amount: 193375 },
       { applicationCategory: "S-HNI (Min)", lots: 14, shares: 490, amount: 208250 },
       { applicationCategory: "S-HNI (Max)", lots: 67, shares: 2345, amount: 996625 },
-      { applicationCategory: "B-HNI (Min)", lots: 68, shares: 2380, amount: 1011500 }
+      { applicationCategory: "B-HNI (Min)", lots: 68, shares: 2380, amount: 1011500 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     financials: [
       { year: "FY24", revenue: 890.0, pat: 92.0, netWorth: 410.0, eps: 12.5, ronw: 22.4 },
@@ -363,7 +375,8 @@ export const MOCK_IPOS: IPOData[] = [
       { applicationCategory: "Retail (Max)", lots: 13, shares: 494, amount: 192660 },
       { applicationCategory: "S-HNI (Min)", lots: 14, shares: 532, amount: 207480 },
       { applicationCategory: "S-HNI (Max)", lots: 67, shares: 2546, amount: 992940 },
-      { applicationCategory: "B-HNI (Min)", lots: 68, shares: 2584, amount: 1007760 }
+      { applicationCategory: "B-HNI (Min)", lots: 68, shares: 2584, amount: 1007760 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     financials: [
       { year: "FY23", revenue: 8263.0, pat: -4179.0, netWorth: 9810.0, eps: -12.5, ronw: -42.6 },
@@ -442,7 +455,9 @@ export const MOCK_IPOS: IPOData[] = [
       { applicationCategory: "Retail (Min)", lots: 1, shares: 9, amount: 13527 },
       { applicationCategory: "Retail (Max)", lots: 14, shares: 126, amount: 189378 },
       { applicationCategory: "S-HNI (Min)", lots: 15, shares: 135, amount: 202905 },
-      { applicationCategory: "B-HNI (Min)", lots: 74, shares: 666, amount: 1000998 }
+      { applicationCategory: "S-HNI (Max)", lots: 73, shares: 657, amount: 987471 },
+      { applicationCategory: "B-HNI (Min)", lots: 74, shares: 666, amount: 1000998 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     financials: [
       { year: "FY23", revenue: 6750.0, pat: 500.0, netWorth: 2100.0, eps: 18.5, ronw: 23.8 },
@@ -524,7 +539,9 @@ export const MOCK_IPOS: IPOData[] = [
       { applicationCategory: "Retail (Min)", lots: 1, shares: 60, amount: 14100 },
       { applicationCategory: "Retail (Max)", lots: 14, shares: 840, amount: 197400 },
       { applicationCategory: "S-HNI (Min)", lots: 15, shares: 900, amount: 211500 },
-      { applicationCategory: "B-HNI (Min)", lots: 71, shares: 4260, amount: 1001100 }
+      { applicationCategory: "S-HNI (Max)", lots: 70, shares: 4200, amount: 987000 },
+      { applicationCategory: "B-HNI (Min)", lots: 71, shares: 4260, amount: 1001100 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     peerComparison: [
       { companyName: "Rajoo Engineers Limited", faceValue: 1, peRatio: 18.27 },
@@ -610,9 +627,11 @@ export const MOCK_IPOS: IPOData[] = [
     ],
     lotSizes: [
       { applicationCategory: "Retail (Min)", lots: 1, shares: 15, amount: 14250 },
-      { applicationCategory: "Retail (Max)", lots: 14, shares: 210, amount: 199500 },
+      { applicationCategory: "Retail (Max)", lots: 13, shares: 195, amount: 185250 },
       { applicationCategory: "S-HNI (Min)", lots: 15, shares: 225, amount: 213750 },
-      { applicationCategory: "B-HNI (Min)", lots: 71, shares: 1065, amount: 1011750 }
+      { applicationCategory: "S-HNI (Max)", lots: 70, shares: 1050, amount: 997500 },
+      { applicationCategory: "B-HNI (Min)", lots: 71, shares: 1065, amount: 1011750 },
+      { applicationCategory: "B-HNI (Max)", lots: 0, shares: 0, amount: 0 }
     ],
     peerComparison: [
       { companyName: "HDFC Asset Management Company Limited", faceValue: 5, peRatio: 36.40 },
