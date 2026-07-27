@@ -38,7 +38,6 @@ import { DynamicTagline } from "@/components/common/DynamicTagline";
 export const Navbar: React.FC = () => {
   const router = useRouter();
   const { user, isAuthenticated, logout, switchRole } = useAuth();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [ipoMenuOpen, setIpoMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -639,68 +638,8 @@ export const Navbar: React.FC = () => {
             isOpen={authModalOpen}
             onClose={() => setAuthModalOpen(false)}
           />
-
-          {/* Mobile Hamburger Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-slate-100"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </nav>
-
-      {/* Mobile Dropdown Menu */}
-      {mobileMenuOpen && (
-        <div className="xl:hidden px-4 py-3 border-t border-slate-200 bg-slate-50 flex flex-col gap-2 text-sm text-slate-800">
-          <div className="font-bold text-xs uppercase text-slate-400 pt-1">Mainboard IPOs</div>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/?tab=live&category=mainboard" className="px-3 py-1.5 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Zap className="w-4 h-4 text-emerald-600" />
-            Live Mainboard IPOs
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/?tab=upcoming&category=mainboard" className="px-3 py-1.5 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Clock className="w-4 h-4 text-sky-600" />
-            Upcoming Mainboard IPOs
-          </Link>
-
-          <div className="font-bold text-xs uppercase text-slate-400 pt-2 border-t border-slate-200">SME IPOs</div>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/?tab=live&category=sme" className="px-3 py-1.5 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Zap className="w-4 h-4 text-amber-600" />
-            Live SME IPOs
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/?tab=upcoming&category=sme" className="px-3 py-1.5 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Clock className="w-4 h-4 text-slate-550" />
-            Upcoming SME IPOs
-          </Link>
-
-          <div className="font-bold text-xs uppercase text-slate-400 pt-2 border-t border-slate-200">Financial Hubs</div>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/pre-ipo" className="px-3 py-2 rounded-md hover:bg-slate-200 text-amber-705 font-bold flex items-center gap-2">
-            <Flame className="w-4 h-4 text-amber-600" />
-            Pre-IPO (Coming Soon)
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/brokers" className="px-3 py-2 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Briefcase className="w-4 h-4 text-indigo-600" />
-            Broker Comparisons
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/payment-apps" className="px-3 py-2 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Smartphone className="w-4 h-4 text-purple-600" />
-            UPI &amp; Payment Apps
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/credit-cards" className="px-3 py-2 rounded-md hover:bg-slate-200 text-blue-700 font-bold flex items-center gap-2">
-            <CreditCard className="w-4 h-4 text-blue-600" />
-            Credit Cards Comparison
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/banks" className="px-3 py-2 rounded-md hover:bg-slate-200 flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-emerald-600" />
-            Banks &amp; Savings Accounts
-          </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} href="/articles" className="px-3 py-2 rounded-md hover:bg-slate-200 text-emerald-800 font-bold flex items-center gap-2">
-            <FileText className="w-4 h-4 text-emerald-700" />
-            Blogs &amp; Guides
-          </Link>
-        </div>
-      )}
     </header>
   );
 };
