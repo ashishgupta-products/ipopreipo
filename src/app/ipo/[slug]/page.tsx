@@ -597,7 +597,7 @@ export default async function IPODetailPage({ params }: PageProps) {
           <div className="space-y-2">
             <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
               <Users className="w-4 h-4 text-blue-700" />
-              Live Bidding Subscription Status
+              Subscription Detail (No of Shares)
             </h3>
             <SubscriptionTable
               totalSubscription={ipo.totalSubscription}
@@ -606,6 +606,8 @@ export default async function IPODetailPage({ params }: PageProps) {
               sNiiSubscription={ipo.sNiiSubscription}
               bNiiSubscription={ipo.bNiiSubscription}
               retailSubscription={ipo.retailSubscription}
+              employeeSubscription={ipo.employeeSubscription}
+              shareholderSubscription={ipo.shareholderSubscription}
             />
           </div>
 

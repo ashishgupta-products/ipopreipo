@@ -96,6 +96,8 @@ export interface IPOData {
   sNiiSubscription?: number;
   bNiiSubscription?: number;
   retailSubscription: number;
+  employeeSubscription?: number;
+  shareholderSubscription?: number;
 
   // Key Dates (YYYY-MM-DD)
   openDate: string;
