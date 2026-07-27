@@ -214,22 +214,6 @@ export default async function IPODetailPage({ params }: PageProps) {
             )}
           </div>
 
-          {/* Live Subscription */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-              <Users className="w-4 h-4 text-blue-700" />
-              Live Bidding Subscription Status
-            </h3>
-            <SubscriptionTable
-              totalSubscription={ipo.totalSubscription}
-              qibSubscription={ipo.qibSubscription}
-              niiSubscription={ipo.niiSubscription}
-              sNiiSubscription={ipo.sNiiSubscription}
-              bNiiSubscription={ipo.bNiiSubscription}
-              retailSubscription={ipo.retailSubscription}
-            />
-          </div>
-
           {/* Lot Size Table */}
           {ipo.lotSizes && (
             <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
@@ -606,6 +590,22 @@ export default async function IPODetailPage({ params }: PageProps) {
               expectedListingPrice={ipo.expectedListingPrice}
               priceBandMax={ipo.priceBandMax}
               updatedTime={ipo.gmpUpdatedTime}
+            />
+          </div>
+
+          {/* Live Subscription */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Users className="w-4 h-4 text-blue-700" />
+              Live Bidding Subscription Status
+            </h3>
+            <SubscriptionTable
+              totalSubscription={ipo.totalSubscription}
+              qibSubscription={ipo.qibSubscription}
+              niiSubscription={ipo.niiSubscription}
+              sNiiSubscription={ipo.sNiiSubscription}
+              bNiiSubscription={ipo.bNiiSubscription}
+              retailSubscription={ipo.retailSubscription}
             />
           </div>
 
