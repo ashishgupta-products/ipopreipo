@@ -119,7 +119,7 @@ export const Navbar: React.FC = () => {
               <span className="text-xs text-blue-700 font-bold">.com</span>
             </div>
             <span className="text-[10px] text-slate-500 font-medium tracking-wide">
-              Financial Intelligence &amp; Pre-IPO Hub
+              Made with <span className="text-rose-500">❤️</span>
             </span>
           </div>
         </Link>

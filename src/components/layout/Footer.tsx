@@ -21,9 +21,9 @@ export const Footer: React.FC = () => {
             <p className="text-slate-400 leading-relaxed text-xs">
               <strong>ipopreipo.com</strong> is a comprehensive financial intelligence portal for tracking Indian IPOs, Pre-IPO unlisted shares, credit card offers, payment apps, commercial banks, and stockbroker comparisons.
             </p>
-            <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-1">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              Verified Financial Intelligence
+            <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1 font-semibold">
+              <span>Made with</span>
+              <span className="text-rose-500 text-xs">❤️</span>
             </div>
           </div>
 
