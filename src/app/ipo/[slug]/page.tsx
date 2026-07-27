@@ -18,7 +18,8 @@ import {
   MapPin,
   UserCheck,
   Briefcase,
-  TrendingUp
+  TrendingUp,
+  HelpCircle
 } from "lucide-react";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { Badge } from "@/components/common/Badge";
@@ -684,6 +685,57 @@ export default async function IPODetailPage({ params }: PageProps) {
                     <li key={idx}>{lm}</li>
                   ))}
                 </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Frequently Asked Questions (FAQs) */}
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-2">
+              <HelpCircle className="w-4 h-4 text-blue-700" />
+              Frequently Asked Questions (FAQs)
+            </h3>
+            
+            <div className="space-y-4 divide-y divide-slate-100 text-xs">
+              <div className="pt-2 first:pt-0 space-y-1.5">
+                <h4 className="font-bold text-slate-900">1. How to check {ipo.name} allotment status?</h4>
+                <p className="text-slate-655 leading-relaxed">
+                  You can check the allotment status for {ipo.name} online on the registrar's website ({ipo.registrarName}). 
+                  Go to <a href={ipo.registrarCheckUrl} target="_blank" rel="noreferrer" className="text-blue-700 font-bold hover:underline">{ipo.registrarName} Status Page</a> and enter your PAN card number or Application Number to search for your allotment status.
+                </p>
+              </div>
+
+              {ipo.gmp !== undefined && ipo.gmp > 0 && (
+                <div className="pt-3 space-y-1.5">
+                  <h4 className="font-bold text-slate-900">2. What is the current GMP of {ipo.name}?</h4>
+                  <p className="text-slate-655 leading-relaxed">
+                    The current Grey Market Premium (GMP) for {ipo.name} is <strong>₹{ipo.gmp}</strong>. 
+                    Based on the price band of ₹{ipo.priceBandMin} - ₹{ipo.priceBandMax}, the expected listing price is <strong>₹{ipo.expectedListingPrice}</strong>, reflecting an estimated listing gain of <strong>{ipo.gmpPercent.toFixed(2)}%</strong>.
+                  </p>
+                </div>
+              )}
+
+              <div className="pt-3 space-y-1.5">
+                <h4 className="font-bold text-slate-900">3. What is the lot size and minimum investment required for {ipo.name}?</h4>
+                <p className="text-slate-655 leading-relaxed">
+                  The market lot size for {ipo.name} is <strong>{ipo.lotSize} Shares</strong>. 
+                  A retail investor can apply for a minimum of 1 lot, which requires an investment of <strong>₹{ipo.minInvestment.toLocaleString("en-IN")}</strong>. The maximum application limit for a retail investor is 14 lots (up to ₹2 Lakhs).
+                </p>
+              </div>
+
+              <div className="pt-3 space-y-1.5">
+                <h4 className="font-bold text-slate-900">4. What are the key bidding dates for {ipo.name}?</h4>
+                <p className="text-slate-655 leading-relaxed">
+                  The bidding opens on <strong>{ipo.openDate}</strong> and closes on <strong>{ipo.closeDate}</strong>. 
+                  The allotment will be finalized on <strong>{ipo.allotmentDate}</strong>, demat credits will be processed on <strong>{ipo.dematCreditDate}</strong>, and listing is scheduled for <strong>{ipo.listingDate}</strong> on the exchanges.
+                </p>
+              </div>
+
+              <div className="pt-3 space-y-1.5">
+                <h4 className="font-bold text-slate-900">5. Where will the shares of {ipo.name} be listed?</h4>
+                <p className="text-slate-655 leading-relaxed">
+                  The shares of {ipo.name} are proposed to be listed on the <strong>{ipo.exchange}</strong> exchanges.
+                </p>
               </div>
             </div>
           </div>
