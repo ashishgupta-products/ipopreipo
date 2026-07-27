@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -16,8 +17,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="flex-1 w-full">{children}</main>
+      <main className="flex-1 w-full pb-16 xl:pb-0">{children}</main>
       <Footer />
+      <MobileBottomNav />
     </>
   );
 }
