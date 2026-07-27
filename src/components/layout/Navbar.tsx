@@ -121,7 +121,7 @@ export const Navbar: React.FC = () => {
               <span className="text-xs text-blue-700 font-bold">.com</span>
             </div>
             <span className="text-[10px] text-slate-500 font-medium tracking-wide">
-              Made with <span className="text-rose-500">❤️</span>
+              Made with <span className="text-rose-500">❤️</span> for consumer benefits
             </span>
           </div>
         </Link>
