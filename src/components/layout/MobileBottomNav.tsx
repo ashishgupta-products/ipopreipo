@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -14,12 +14,58 @@ import {
   Briefcase, 
   CreditCard, 
   Smartphone, 
-  FileText 
+  FileText,
+  ArrowDownToLine
 } from "lucide-react";
 
 export const MobileBottomNav: React.FC = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [isStandaloneApp, setIsStandaloneApp] = useState(true);
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    // Check if already installed
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches 
+      || (window.navigator as any).standalone;
+    
+    setIsStandaloneApp(!!isStandalone);
+
+    if (isStandalone) return;
+
+    // Detect iOS
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const ios = /iphone|ipad|ipod/.test(userAgent);
+    setIsIOS(ios);
+
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", handler);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (isIOS) {
+      alert("To install: Tap Safari's Share button (square icon with upward arrow) and select 'Add to Home Screen'.");
+      return;
+    }
+
+    if (!deferredPrompt) {
+      alert("App installation is ready! If this button doesn't trigger, please open your browser menu (three dots) and tap 'Install App' or 'Add to Home Screen'.");
+      return;
+    }
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to prompt: ${outcome}`);
+    setDeferredPrompt(null);
+  };
 
   const navItems = [
     { label: "IPOs", href: "/", icon: TrendingUp },
@@ -50,6 +96,25 @@ export const MobileBottomNav: React.FC = () => {
           </div>
 
           <div className="space-y-4 text-xs">
+            {/* PWA Install Promotion Box */}
+            {!isStandaloneApp && (
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex flex-col gap-2.5 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <Smartphone className="w-4.5 h-4.5 text-blue-300 shrink-0" />
+                  <p className="font-bold leading-tight">
+                    📱 Install IPOPreIPO App for live GMP alerts!
+                  </p>
+                </div>
+                <button
+                  onClick={handleInstallClick}
+                  className="w-full bg-white hover:bg-slate-100 text-blue-900 font-extrabold py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all text-xs shadow-xs active:scale-95"
+                >
+                  <ArrowDownToLine className="w-3.5 h-3.5" />
+                  Add to Home Screen
+                </button>
+              </div>
+            )}
+
             {/* IPO Sub-links */}
             <div className="space-y-1.5">
               <span className="font-black text-[10px] text-slate-400 uppercase tracking-wider block">IPOs &amp; SME Segment</span>
@@ -67,7 +132,7 @@ export const MobileBottomNav: React.FC = () => {
                   Live SME IPOs
                 </Link>
                 <Link onClick={() => setMenuOpen(false)} href="/?tab=upcoming&category=sme" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
-                  <Clock className="w-4 h-4 text-slate-500" />
+                  <Clock className="w-4 h-4 text-slate-550" />
                   Upcoming SME
                 </Link>
               </div>
