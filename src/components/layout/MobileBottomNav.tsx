@@ -23,8 +23,7 @@ export const MobileBottomNav: React.FC = () => {
 
   const navItems = [
     { label: "IPOs", href: "/", icon: TrendingUp },
-    { label: "Pre-IPO", href: "/pre-ipo", icon: Flame },
-    { label: "Banks", href: "/banks", icon: Building2 }
+    { label: "Pre-IPO", href: "/pre-ipo", icon: Flame }
   ];
 
   return (
@@ -90,7 +89,11 @@ export const MobileBottomNav: React.FC = () => {
                   <Smartphone className="w-4 h-4 text-purple-600" />
                   Payment Apps
                 </Link>
-                <Link onClick={() => setMenuOpen(false)} href="/articles" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                <Link onClick={() => setMenuOpen(false)} href="/banks" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <Building2 className="w-4 h-4 text-emerald-600" />
+                  Banks
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/articles" className="col-span-2 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center justify-center gap-2 font-bold text-slate-700">
                   <FileText className="w-4 h-4 text-emerald-700" />
                   Blogs &amp; Guides
                 </Link>
@@ -101,7 +104,7 @@ export const MobileBottomNav: React.FC = () => {
       )}
 
       {/* Main Sticky Bottom Nav */}
-      <div className="xl:hidden fixed bottom-0 left-0 right-0 z-[9999] bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] px-1 py-1 flex items-center justify-around select-none overflow-hidden h-14">
+      <div className="xl:hidden fixed bottom-0 left-0 right-0 z-[9999] bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] px-4 py-1 flex items-center justify-around select-none overflow-hidden h-14">
         {navItems.map((item, idx) => {
           const Icon = item.icon;
           const isActive = pathname === item.href && !menuOpen;
