@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
     : [];
 
   return (
-    <header className="sticky top-0 z-50 w-full flex flex-col bg-white border-b border-slate-200 shadow-sm">
+    <header className="relative xl:sticky top-0 z-50 w-full flex flex-col bg-white border-b border-slate-200 shadow-sm">
 
       {/* Main Corporate Navigation */}
       <nav className="max-w-7xl mx-auto w-full px-4 py-2 flex items-center justify-between gap-4">
