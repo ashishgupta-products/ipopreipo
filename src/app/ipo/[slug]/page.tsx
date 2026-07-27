@@ -40,11 +40,14 @@ const parseShares = (sharesStr: string | undefined): number => {
 const getApplicationBreakup = (ipo: any) => {
   const retailReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("retail"));
   const niiReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("nii") || r.category.toLowerCase().includes("hni"));
+  const employeeReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("employee"));
   
   const retailShares = parseShares(retailReservation?.sharesOffered) || (ipo.issueSizeTotalCr * 10000000 * 0.35) / ipo.priceBandMax;
   const niiShares = parseShares(niiReservation?.sharesOffered) || (ipo.issueSizeTotalCr * 10000000 * 0.15) / ipo.priceBandMax;
+  const employeeShares = parseShares(employeeReservation?.sharesOffered) || 0;
 
   const retailLots = Math.floor(retailShares / ipo.lotSize);
+  const employeeLots = Math.floor(employeeShares / ipo.lotSize);
   
   const shniMin = ipo.lotSizes?.find((l: any) => l.applicationCategory.toLowerCase().includes("s-hni") && l.applicationCategory.toLowerCase().includes("min")) || { lots: 15 };
   const bhniMin = ipo.lotSizes?.find((l: any) => l.applicationCategory.toLowerCase().includes("b-hni") && l.applicationCategory.toLowerCase().includes("min")) || { lots: 71 };
@@ -55,16 +58,27 @@ const getApplicationBreakup = (ipo: any) => {
   const retailSubscription = ipo.retailSubscription || 0;
   const shniSubscription = ipo.sNiiSubscription || ipo.niiSubscription || 0;
   const bhniSubscription = ipo.bNiiSubscription || ipo.niiSubscription || 0;
+  const employeeSubscription = ipo.employeeSubscription || 0;
 
   const retailApps = Math.floor(retailLots * retailSubscription);
   const shniApps = Math.floor(shniLots * shniSubscription);
   const bhniApps = Math.floor(bhniLots * bhniSubscription);
+  const employeeApps = Math.floor(employeeLots * employeeSubscription);
 
-  return [
+  const totalApps = retailApps + shniApps + bhniApps + employeeApps;
+  const avgSubscription = ipo.totalSubscription || 0;
+
+  const list = [
     { category: "Retail", applications: retailApps, subscription: retailSubscription, detail: "1 Lot per App" },
-    { category: "HNI 2-10L", applications: shniApps, subscription: shniSubscription, detail: `${shniMin.lots} Lots` },
-    { category: "HNI 10L+", applications: bhniApps, subscription: bhniSubscription, detail: `${bhniMin.lots} Lots` }
+    { category: "Employees", applications: employeeApps, subscription: employeeSubscription, detail: "1 Lot per App" },
+    { category: "HNI 10L+", applications: bhniApps, subscription: bhniSubscription, detail: `${bhniMin.lots} Lots` },
+    { category: "HNI 2-10L", applications: shniApps, subscription: shniSubscription, detail: `${shniMin.lots} Lots` }
   ];
+
+  return {
+    list,
+    total: { category: "Total", applications: totalApps, subscription: avgSubscription }
+  };
 };
 
 export default async function IPODetailPage({ params }: PageProps) {
@@ -663,19 +677,35 @@ export default async function IPODetailPage({ params }: PageProps) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700">
-                  {getApplicationBreakup(ipo).map((item, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50/60 font-medium">
-                      <td className="py-2 px-3 text-slate-800">
-                        {item.category} <span className="text-[10px] text-slate-400 font-normal">({item.detail})</span>
-                      </td>
-                      <td className="py-2 px-3 text-center font-bold text-slate-900">
-                        {item.applications > 0 ? item.applications.toLocaleString("en-IN") : "0"}
-                      </td>
-                      <td className="py-2 px-3 text-right font-bold text-indigo-700">
-                        {item.subscription > 0 ? `${item.subscription.toFixed(2)}x` : "0.00x"}
-                      </td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const data = getApplicationBreakup(ipo);
+                    return (
+                      <>
+                        {data.list.map((item, idx) => (
+                          <tr key={idx} className="hover:bg-slate-50/60 font-medium">
+                            <td className="py-2 px-3 text-slate-800">
+                              {item.category} <span className="text-[10px] text-slate-400 font-normal">({item.detail})</span>
+                            </td>
+                            <td className="py-2 px-3 text-center font-bold text-slate-900">
+                              {item.applications > 0 ? item.applications.toLocaleString("en-IN") : "0"}
+                            </td>
+                            <td className="py-2 px-3 text-right font-bold text-slate-750">
+                              {item.subscription > 0 ? `${item.subscription.toFixed(2)}x` : "0.00x"}
+                            </td>
+                          </tr>
+                        ))}
+                        <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">
+                          <td className="py-2 px-3">{data.total.category}</td>
+                          <td className="py-2 px-3 text-center text-blue-750 font-extrabold">
+                            {data.total.applications > 0 ? data.total.applications.toLocaleString("en-IN") : "0"}
+                          </td>
+                          <td className="py-2 px-3 text-right font-bold text-blue-750">
+                            {data.total.subscription > 0 ? `${data.total.subscription.toFixed(2)}x` : "0.00x"}
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })()}
                 </tbody>
               </table>
             </div>
