@@ -55,36 +55,35 @@ export const GMPCard: React.FC<GMPCardProps> = ({
         </span>
         <span>Updated: {updatedTime}</span>
       </div>
+      <div className="flex items-baseline gap-2">
+        <span
+          className={`text-xl font-extrabold tracking-tight ${
+            isPositive
+              ? "text-emerald-700"
+              : isNeutral
+              ? "text-slate-600"
+              : "text-rose-700"
+          }`}
+        >
+          {isPositive ? `+₹${gmp}` : isNeutral ? "₹0" : `-₹${Math.abs(gmp)}`}
+        </span>
 
-      <div className="flex items-baseline justify-between">
-        <div className="flex items-baseline gap-2">
-          <span
-            className={`text-xl font-extrabold tracking-tight ${
-              isPositive
-                ? "text-emerald-700"
-                : isNeutral
-                ? "text-slate-600"
-                : "text-rose-700"
-            }`}
-          >
-            {isPositive ? `+₹${gmp}` : isNeutral ? "₹0" : `-₹${Math.abs(gmp)}`}
+        {isPositive && (
+          <span className="inline-flex items-center text-xs font-bold text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded">
+            <ArrowUpRight className="w-3 h-3 mr-0.5" />
+            +{gmpPercent.toFixed(1)}%
           </span>
-
-          {isPositive && (
-            <span className="inline-flex items-center text-xs font-bold text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded">
-              <ArrowUpRight className="w-3 h-3 mr-0.5" />
-              +{gmpPercent.toFixed(1)}%
-            </span>
-          )}
-        </div>
-
-        {/* Est. Profit per Lot displayed in line or right next to GMP */}
-        {lotSize && gmp > 0 && (
-          <div className="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
-            ₹{(gmp * lotSize).toLocaleString("en-IN")} / Lot Est. Profit
-          </div>
         )}
       </div>
+
+      {lotSize && gmp > 0 && (
+        <div className="flex justify-between items-center text-[11px] text-emerald-800 bg-emerald-50/60 border border-emerald-200/50 rounded px-2.5 py-1.5 font-medium">
+          <span>Est. Profit Per Lot (GMP × Lot):</span>
+          <strong className="text-emerald-700 font-extrabold text-sm">
+            ₹{(gmp * lotSize).toLocaleString("en-IN")}
+          </strong>
+        </div>
+      )}
 
       <div className="flex justify-between text-[11px] text-slate-600 pt-1.5 border-t border-slate-200">
         <span>Issue: <strong>₹{priceBandMax}</strong></span>
