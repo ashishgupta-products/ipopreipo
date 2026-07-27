@@ -888,6 +888,7 @@ export default function IPODetailPage({ params }: PageProps) {
                 </table>
             </div>
           </div>
+          </div>
 
           {/* Analyst Scorecard */}
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
