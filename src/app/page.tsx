@@ -37,7 +37,7 @@ function HomeDashboardContent() {
   const searchParams = useSearchParams();
 
   const [selectedTab, setSelectedTab] = useState<string>("live");
-  const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [categoryFilter, setCategoryFilter] = useState<string>("mainboard");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
 
   // Sync filters from URL search params whenever URL changes
@@ -49,7 +49,11 @@ function HomeDashboardContent() {
     } else {
       setSelectedTab("live");
     }
-    if (categoryParam) setCategoryFilter(categoryParam);
+    if (categoryParam) {
+      setCategoryFilter(categoryParam);
+    } else {
+      setCategoryFilter("mainboard");
+    }
   }, [searchParams]);
 
   const updateFilters = (newTab?: string, newCategory?: string) => {
@@ -61,7 +65,7 @@ function HomeDashboardContent() {
 
     const params = new URLSearchParams();
     if (nextTab !== "live") params.set("tab", nextTab);
-    if (nextCat !== "all") params.set("category", nextCat);
+    if (nextCat !== "mainboard") params.set("category", nextCat);
 
     const queryString = params.toString();
     router.push(queryString ? `/?${queryString}` : "/");
@@ -128,14 +132,6 @@ function HomeDashboardContent() {
         {/* Left Segment Filters */}
         <div className="flex flex-wrap items-center gap-2 w-full xl:w-auto">
           <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold w-full sm:w-auto">
-            <button
-              onClick={() => updateFilters(undefined, "all")}
-              className={`px-3 py-1.5 rounded-md transition-all ${
-                categoryFilter === "all" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              All Segments
-            </button>
             <button
               onClick={() => updateFilters(undefined, "mainboard")}
               className={`px-3 py-1.5 rounded-md transition-all ${
