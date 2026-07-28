@@ -100,7 +100,7 @@ function HomeDashboardContent() {
               selectedTab === "live" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            Live Bidding ({liveCount})
+            Live ({liveCount})
           </button>
           <button
             onClick={() => updateFilters("upcoming", undefined)}
