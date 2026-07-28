@@ -91,80 +91,62 @@ function HomeDashboardContent() {
 
 
       {/* Controls Bar */}
-      <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col xl:flex-row justify-between items-start xl:items-center gap-3">
-        {/* Combined Segment and Status Filters Row */}
-        <div className="flex flex-wrap items-center gap-3 w-full xl:w-auto overflow-x-auto pb-1 xl:pb-0">
-          {/* Segment Filter */}
-          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
-            <button
-              onClick={() => updateFilters(undefined, "all")}
-              className={`px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
-                categoryFilter === "all" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              All IPOs
-            </button>
-            <button
-              onClick={() => updateFilters(undefined, "mainboard")}
-              className={`px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
-                categoryFilter === "mainboard" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Mainboard
-            </button>
-            <button
-              onClick={() => updateFilters(undefined, "sme")}
-              className={`px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
-                categoryFilter === "sme" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              SME IPOs
-            </button>
-          </div>
-
-          {/* Status Filter */}
-          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
-            <button
-              onClick={() => updateFilters("live", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-                selectedTab === "live" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Live Bidding ({liveCount})
-            </button>
-            <button
-              onClick={() => updateFilters("upcoming", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-                selectedTab === "upcoming" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Upcoming
-            </button>
-            <button
-              onClick={() => updateFilters("listed", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-                selectedTab === "listed" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Listed
-            </button>
-          </div>
+      <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-row items-center justify-between gap-3 overflow-x-auto">
+        {/* Status Tabs (Left side) */}
+        <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
+          <button
+            onClick={() => updateFilters("live", undefined)}
+            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+              selectedTab === "live" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Live Bidding ({liveCount})
+          </button>
+          <button
+            onClick={() => updateFilters("upcoming", undefined)}
+            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+              selectedTab === "upcoming" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Upcoming
+          </button>
+          <button
+            onClick={() => updateFilters("listed", undefined)}
+            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+              selectedTab === "listed" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Listed
+          </button>
         </div>
 
-        {/* View Switcher (Hidden on mobile) */}
-        <div className="hidden md:flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0 w-full sm:w-auto">
-          <button
-            onClick={() => setViewMode("grid")}
-            className={`flex-1 sm:flex-initial px-3 py-1.5 rounded-md transition-all ${viewMode === "grid" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"}`}
+        {/* Dropdown & View Switcher (Right side) */}
+        <div className="flex items-center gap-3 shrink-0">
+          <select
+            value={categoryFilter}
+            onChange={(e) => updateFilters(undefined, e.target.value)}
+            className="px-3 py-1.5 rounded-lg border border-slate-250 bg-white text-slate-700 font-bold text-xs focus:outline-none focus:border-slate-400 cursor-pointer shadow-3xs"
           >
-            Grid
-          </button>
-          <button
-            onClick={() => setViewMode("table")}
-            className={`flex-1 sm:flex-initial px-3 py-1.5 rounded-md transition-all ${viewMode === "table" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"}`}
-          >
-            Table
-          </button>
+            <option value="all">All IPOs</option>
+            <option value="mainboard">Mainboard</option>
+            <option value="sme">SME IPOs</option>
+          </select>
+          
+          {/* View Switcher (Hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold">
+            <button
+              onClick={() => setViewMode("grid")}
+              className={`px-3 py-1.5 rounded-md transition-all ${viewMode === "grid" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"}`}
+            >
+              Grid
+            </button>
+            <button
+              onClick={() => setViewMode("table")}
+              className={`px-3 py-1.5 rounded-md transition-all ${viewMode === "table" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"}`}
+            >
+              Table
+            </button>
+          </div>
         </div>
       </div>
 
