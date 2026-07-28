@@ -37,7 +37,7 @@ function HomeDashboardContent() {
   const searchParams = useSearchParams();
 
   const [selectedTab, setSelectedTab] = useState<string>("live");
-  const [categoryFilter, setCategoryFilter] = useState<string>("mainboard");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
 
   // Sync filters from URL search params whenever URL changes
@@ -52,7 +52,7 @@ function HomeDashboardContent() {
     if (categoryParam) {
       setCategoryFilter(categoryParam);
     } else {
-      setCategoryFilter("mainboard");
+      setCategoryFilter("all");
     }
   }, [searchParams]);
 
@@ -65,7 +65,7 @@ function HomeDashboardContent() {
 
     const params = new URLSearchParams();
     if (nextTab !== "live") params.set("tab", nextTab);
-    if (nextCat !== "mainboard") params.set("category", nextCat);
+    if (nextCat !== "all") params.set("category", nextCat);
 
     const queryString = params.toString();
     router.push(queryString ? `/?${queryString}` : "/");
@@ -92,12 +92,21 @@ function HomeDashboardContent() {
 
       {/* Controls Bar */}
       <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col xl:flex-row justify-between items-start xl:items-center gap-3">
-        {/* Left Segment Filters */}
-        <div className="flex flex-wrap items-center gap-2 w-full xl:w-auto">
-          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold w-full sm:w-auto">
+        {/* Combined Segment and Status Filters Row */}
+        <div className="flex flex-wrap items-center gap-3 w-full xl:w-auto overflow-x-auto pb-1 xl:pb-0">
+          {/* Segment Filter */}
+          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
+            <button
+              onClick={() => updateFilters(undefined, "all")}
+              className={`px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
+                categoryFilter === "all" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              All IPOs
+            </button>
             <button
               onClick={() => updateFilters(undefined, "mainboard")}
-              className={`px-3 py-1.5 rounded-md transition-all ${
+              className={`px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
                 categoryFilter === "mainboard" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -105,7 +114,7 @@ function HomeDashboardContent() {
             </button>
             <button
               onClick={() => updateFilters(undefined, "sme")}
-              className={`px-3 py-1.5 rounded-md transition-all ${
+              className={`px-3 py-1.5 rounded-md transition-all whitespace-nowrap ${
                 categoryFilter === "sme" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -114,7 +123,7 @@ function HomeDashboardContent() {
           </div>
 
           {/* Status Filter */}
-          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold overflow-x-auto w-full sm:w-auto">
+          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
             <button
               onClick={() => updateFilters("live", undefined)}
               className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
