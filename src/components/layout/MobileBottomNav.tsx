@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
+import {
   TrendingUp, 
   Flame, 
   Building2, 
@@ -15,7 +15,8 @@ import {
   CreditCard, 
   Smartphone, 
   FileText,
-  ArrowDownToLine
+  ArrowDownToLine,
+  Home
 } from "lucide-react";
 
 export const MobileBottomNav: React.FC = () => {
@@ -87,7 +88,8 @@ export const MobileBottomNav: React.FC = () => {
   };
 
   const navItems = [
-    { label: "IPOs", href: "/", icon: TrendingUp },
+    { label: "Home", href: "/", icon: Home },
+    { label: "IPOs", href: "/?tab=live", icon: TrendingUp },
     { label: "Pre-IPO", href: "/pre-ipo", icon: Flame }
   ];
 
