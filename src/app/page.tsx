@@ -36,7 +36,7 @@ function HomeDashboardContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [selectedTab, setSelectedTab] = useState<string>("all");
+  const [selectedTab, setSelectedTab] = useState<string>("live");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
 
@@ -44,7 +44,11 @@ function HomeDashboardContent() {
   useEffect(() => {
     const tabParam = searchParams.get("tab");
     const categoryParam = searchParams.get("category");
-    if (tabParam) setSelectedTab(tabParam);
+    if (tabParam) {
+      setSelectedTab(tabParam);
+    } else {
+      setSelectedTab("live");
+    }
     if (categoryParam) setCategoryFilter(categoryParam);
   }, [searchParams]);
 
@@ -56,7 +60,7 @@ function HomeDashboardContent() {
     setCategoryFilter(nextCat);
 
     const params = new URLSearchParams();
-    if (nextTab !== "all") params.set("tab", nextTab);
+    if (nextTab !== "live") params.set("tab", nextTab);
     if (nextCat !== "all") params.set("category", nextCat);
 
     const queryString = params.toString();
@@ -71,7 +75,6 @@ function HomeDashboardContent() {
     if (selectedTab === "live" && ipo.status !== "live") return false;
     if (selectedTab === "upcoming" && ipo.status !== "upcoming") return false;
     if (selectedTab === "listed" && ipo.status !== "listed") return false;
-    if (selectedTab === "high_gmp" && ipo.gmpPercent < 15) return false;
 
     return true;
   });
@@ -154,14 +157,6 @@ function HomeDashboardContent() {
           {/* Status Filter */}
           <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold overflow-x-auto w-full sm:w-auto">
             <button
-              onClick={() => updateFilters("all", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
-                selectedTab === "all" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              All IPOs
-            </button>
-            <button
               onClick={() => updateFilters("live", undefined)}
               className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
                 selectedTab === "live" ? "bg-[#10b981] text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
@@ -178,20 +173,12 @@ function HomeDashboardContent() {
               Upcoming
             </button>
             <button
-              onClick={() => updateFilters("high_gmp", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
-                selectedTab === "high_gmp" ? "bg-amber-400 text-slate-950 shadow-xs" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              High GMP (&gt; 15%)
-            </button>
-            <button
               onClick={() => updateFilters("listed", undefined)}
               className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
                 selectedTab === "listed" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              Recently Listed
+              Listed
             </button>
           </div>
         </div>
