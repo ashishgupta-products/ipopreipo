@@ -359,6 +359,21 @@ function HomeDashboardContent() {
                     <span className="text-slate-400 block mb-0.5 font-semibold">Live Subscription</span>
                     <strong className="text-blue-700 font-extrabold">{ipo.totalSubscription}x</strong>
                   </div>
+
+                  {/* GMP Metrics Inside Grid */}
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-emerald-700 font-bold block mb-0.5">GMP Rate</span>
+                    <strong className="text-emerald-700 font-extrabold">
+                      {ipo.gmp > 0 ? `+₹${ipo.gmp} (${ipo.gmpPercent}%)` : "₹0 (0.00%)"}
+                    </strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-emerald-700 font-bold block mb-0.5">Est. Profit / Lot</span>
+                    <strong className="text-emerald-700 font-extrabold">
+                      {ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"}
+                    </strong>
+                  </div>
+
                   <div className="border-t border-slate-200/60 pt-2">
                     <span className="text-slate-400 block mb-0.5 font-semibold">Allotment Date</span>
                     <strong className="text-slate-800 font-extrabold">{ipo.allotmentDate}</strong>
@@ -378,16 +393,6 @@ function HomeDashboardContent() {
                     </div>
                   </div>
                 </div>
-
-                {/* GMP card inside */}
-                <GMPCard
-                  gmp={ipo.gmp}
-                  gmpPercent={ipo.gmpPercent}
-                  expectedListingPrice={ipo.expectedListingPrice}
-                  priceBandMax={ipo.priceBandMax}
-                  updatedTime={ipo.gmpUpdatedTime}
-                  lotSize={ipo.lotSize}
-                />
               </div>
 
               {/* Action Button */}
