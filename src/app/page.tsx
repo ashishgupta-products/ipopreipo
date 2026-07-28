@@ -18,7 +18,8 @@ import {
   Smartphone,
   BookOpen,
   Calendar,
-  Clock
+  Clock,
+  Star
 } from "lucide-react";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { MOCK_PRE_IPOS } from "@/data/mockPreIpo";
@@ -304,6 +305,28 @@ function HomeDashboardContent() {
                         </span>
                         <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
                           Close: {ipo.closeDate}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-0.5 mt-2">
+                        {[...Array(10)].map((_, i) => {
+                          const rating10 = ipo.rating * 2;
+                          const isFilled = i < Math.floor(rating10);
+                          const isHalf = !isFilled && (i < rating10);
+                          return (
+                            <Star
+                              key={i}
+                              className={`w-2.5 h-2.5 ${
+                                isFilled 
+                                  ? "text-amber-500 fill-amber-500" 
+                                  : isHalf 
+                                    ? "text-amber-500 fill-amber-500/50" 
+                                    : "text-slate-200"
+                              }`}
+                            />
+                          );
+                        })}
+                        <span className="ml-1 text-slate-400 font-extrabold text-[9px]">
+                          {(ipo.rating * 2).toFixed(1)}/10
                         </span>
                       </div>
                     </div>

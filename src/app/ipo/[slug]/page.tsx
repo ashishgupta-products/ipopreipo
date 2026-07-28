@@ -20,7 +20,8 @@ import {
   UserCheck,
   Briefcase,
   TrendingUp,
-  HelpCircle
+  HelpCircle,
+  Star
 } from "lucide-react";
 import { MOCK_IPOS } from "@/data/mockIpos";
 import { Badge } from "@/components/common/Badge";
@@ -946,9 +947,28 @@ export default function IPODetailPage({ params }: PageProps) {
                 <Award className="w-4 h-4 text-amber-600" />
                 ANALYST RECOMMENDATION
               </span>
-              <span className="font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-800">
-                {ipo.rating} / 5.0
-              </span>
+              <div className="flex items-center gap-0.5">
+                {[...Array(10)].map((_, i) => {
+                  const rating10 = ipo.rating * 2;
+                  const isFilled = i < Math.floor(rating10);
+                  const isHalf = !isFilled && (i < rating10);
+                  return (
+                    <Star
+                      key={i}
+                      className={`w-3.5 h-3.5 ${
+                        isFilled 
+                          ? "text-amber-500 fill-amber-500" 
+                          : isHalf 
+                            ? "text-amber-500 fill-amber-500/50" 
+                            : "text-slate-250"
+                      }`}
+                    />
+                  );
+                })}
+                <span className="ml-1.5 font-bold text-slate-800 text-[11px]">
+                  {(ipo.rating * 2).toFixed(1)}/10
+                </span>
+              </div>
             </div>
 
             <div className="p-2.5 rounded bg-slate-50 border border-slate-200 text-center font-extrabold text-emerald-700">
