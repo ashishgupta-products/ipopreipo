@@ -399,9 +399,9 @@ function HomeDashboardContent() {
             <div className="pt-3.5 border-t border-slate-100">
               <Link
                 href={`/ipo/${ipo.slug}`}
-                className="w-full py-2 px-3 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-1"
+                className="w-full py-2.5 px-3 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-1"
               >
-                View Comprehensive Analysis
+                Full Details | Subscription | Check Allotment
                 <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
