@@ -395,14 +395,25 @@ function HomeDashboardContent() {
               </div>
             </div>
 
-            {/* Action Button */}
-            <div className="pt-3.5 border-t border-slate-100">
+            {/* Action Buttons */}
+            <div className="pt-3.5 border-t border-slate-100 grid grid-cols-3 gap-2">
               <Link
                 href={`/ipo/${ipo.slug}`}
-                className="w-full py-2.5 px-3 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-1"
+                className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-[10px] shadow-2xs transition-all flex items-center justify-center text-center"
               >
-                Full Details | Subscription | Check Allotment
-                <ChevronRight className="w-3.5 h-3.5" />
+                Full Details
+              </Link>
+              <Link
+                href={`/ipo/${ipo.slug}#subscription`}
+                className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-[10px] transition-all flex items-center justify-center text-center"
+              >
+                Subscription
+              </Link>
+              <Link
+                href={`/ipo/${ipo.slug}#allotment`}
+                className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-[10px] transition-all flex items-center justify-center text-center"
+              >
+                Check Allotment
               </Link>
             </div>
           </div>
