@@ -298,7 +298,14 @@ function HomeDashboardContent() {
                       <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
                         <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
                       </h3>
-                      <span className="text-[10px] text-slate-400 font-bold block mt-0.5">{ipo.exchange}</span>
+                      <div className="flex flex-wrap gap-1.5 mt-1.5">
+                        <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                          Open: {ipo.openDate}
+                        </span>
+                        <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                          Close: {ipo.closeDate}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-end gap-1 shrink-0">
