@@ -88,36 +88,7 @@ function HomeDashboardContent() {
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-6 font-sans bg-[#f8fafc] pb-16">
-      {/* Header Banner */}
-      <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-3 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl -z-10 translate-x-20 -translate-y-20" />
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
-          <div className="space-y-1.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 text-blue-800 border border-blue-100">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              INSTITUTIONAL-GRADE FINANCIAL &amp; IPO INTELLIGENCE
-            </span>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-              Indian IPO Bidding, <span className="text-blue-700">Live GMP</span> &amp; Pre-IPO Desk
-            </h1>
-            <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed max-w-3xl font-medium">
-              Real-time tracking for BSE &amp; NSE Mainboard IPOs, SME issues, grey market premiums, anchor lock-in expiry schedules, credit card reviews, and unlisted equity allocations.
-            </p>
-          </div>
 
-          {/* Quick Summary Stat Box */}
-          <div className="grid grid-cols-2 gap-4 shrink-0 bg-slate-50/85 p-3.5 rounded-2xl border border-slate-200/60 text-xs font-bold w-full lg:w-auto shadow-2xs">
-            <div className="text-center px-4">
-              <span className="text-slate-400 text-[9px] uppercase tracking-wider block mb-0.5 font-bold">Live Bidding</span>
-              <strong className="text-emerald-600 text-sm block font-extrabold">{liveCount} Open</strong>
-            </div>
-            <div className="text-center border-l border-slate-200/70 px-4">
-              <span className="text-slate-400 text-[9px] uppercase tracking-wider block mb-0.5 font-bold">Upcoming</span>
-              <strong className="text-slate-800 text-sm block font-extrabold">{upcomingCount} Filings</strong>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Controls Bar */}
       <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col xl:flex-row justify-between items-start xl:items-center gap-3">
