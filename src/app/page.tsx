@@ -146,15 +146,15 @@ function HomeDashboardContent() {
           <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold overflow-x-auto w-full sm:w-auto">
             <button
               onClick={() => updateFilters("live", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
-                selectedTab === "live" ? "bg-[#10b981] text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+                selectedTab === "live" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               Live Bidding ({liveCount})
             </button>
             <button
               onClick={() => updateFilters("upcoming", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
                 selectedTab === "upcoming" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -162,7 +162,7 @@ function HomeDashboardContent() {
             </button>
             <button
               onClick={() => updateFilters("listed", undefined)}
-              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
                 selectedTab === "listed" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -190,7 +190,10 @@ function HomeDashboardContent() {
 
       {/* Main content view */}
       {viewMode === "table" && (
-        <div className="hidden md:block overflow-x-auto rounded-2xl bg-white border border-slate-200/60 shadow-xs">
+        <div 
+          key={`${selectedTab}-${categoryFilter}`}
+          className="hidden md:block overflow-x-auto rounded-2xl bg-white border border-slate-200/60 shadow-xs animate-fade-in"
+        >
           <table className="w-full text-left text-xs sm:text-sm">
             <thead className="bg-slate-50 text-slate-600 font-bold border-b border-slate-200/60 text-[11px]">
               <tr>
@@ -262,7 +265,10 @@ function HomeDashboardContent() {
       )}
 
       {/* Grid View (Active on mobile even if viewMode is table) */}
-      <div className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5`}>
+      <div 
+        key={`${selectedTab}-${categoryFilter}`}
+        className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in`}
+      >
         {filteredIpos.map((ipo) => (
           <div
             key={ipo.id}
