@@ -85,10 +85,6 @@ function HomeDashboardContent() {
 
   const liveCount = MOCK_IPOS.filter((i) => i.status === "live").length;
   const upcomingCount = MOCK_IPOS.filter((i) => i.status === "upcoming").length;
-  const avgGmpGain = (
-    MOCK_IPOS.filter((i) => i.gmpPercent > 0).reduce((acc, i) => acc + i.gmpPercent, 0) /
-    (MOCK_IPOS.filter((i) => i.gmpPercent > 0).length || 1)
-  ).toFixed(1);
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-6 font-sans bg-[#f8fafc] pb-16">
@@ -110,18 +106,14 @@ function HomeDashboardContent() {
           </div>
 
           {/* Quick Summary Stat Box */}
-          <div className="grid grid-cols-3 gap-4 shrink-0 bg-slate-50/85 p-3.5 rounded-2xl border border-slate-200/60 text-xs font-bold w-full lg:w-auto shadow-2xs">
-            <div className="text-center px-1">
+          <div className="grid grid-cols-2 gap-4 shrink-0 bg-slate-50/85 p-3.5 rounded-2xl border border-slate-200/60 text-xs font-bold w-full lg:w-auto shadow-2xs">
+            <div className="text-center px-4">
               <span className="text-slate-400 text-[9px] uppercase tracking-wider block mb-0.5 font-bold">Live Bidding</span>
               <strong className="text-emerald-600 text-sm block font-extrabold">{liveCount} Open</strong>
             </div>
-            <div className="text-center border-x border-slate-200/70 px-3">
+            <div className="text-center border-l border-slate-200/70 px-4">
               <span className="text-slate-400 text-[9px] uppercase tracking-wider block mb-0.5 font-bold">Upcoming</span>
               <strong className="text-slate-800 text-sm block font-extrabold">{upcomingCount} Filings</strong>
-            </div>
-            <div className="text-center px-1">
-              <span className="text-slate-400 text-[9px] uppercase tracking-wider block mb-0.5 font-bold">Avg Gain</span>
-              <strong className="text-blue-700 text-sm block font-extrabold">+{avgGmpGain}%</strong>
             </div>
           </div>
         </div>
