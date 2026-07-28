@@ -226,134 +226,152 @@ function HomeDashboardContent() {
         </div>
       )}
 
-      {/* Grid View (Active on mobile even if viewMode is table) */}
+      {/* Grid/Row View (Active on mobile even if viewMode is table) */}
       <div 
         key={`${selectedTab}-${categoryFilter}`}
-        className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in`}
+        className={`${viewMode === "table" ? "md:hidden" : ""} space-y-4 animate-fade-in`}
       >
         {filteredIpos.map((ipo) => (
           <div
             key={ipo.id}
-            className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4"
+            className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all flex flex-col sm:flex-row items-center sm:items-start gap-5 relative"
           >
-            <div className="space-y-3.5">
-              <div className="flex justify-between items-start gap-3">
-                <div className="flex items-start gap-3 flex-1 min-w-0">
-                  <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="md" className="rounded-lg shadow-2xs" />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
+            {/* Left Column: Logo */}
+            <div className="shrink-0 self-center sm:self-auto">
+              <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="lg" className="rounded-xl shadow-2xs" />
+            </div>
+
+            {/* Right Column: Title, Ratings, Badges, Metrics and CTAs */}
+            <div className="flex-1 min-w-0 space-y-3.5 w-full">
+              {/* Top Row: Title, Dates, Ratings */}
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 w-full">
+                <div className="space-y-1 flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="font-extrabold text-base sm:text-lg text-slate-800 hover:text-blue-750 transition-colors truncate">
                       <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
                     </h3>
-                    <div className="flex flex-wrap gap-1.5 mt-1.5">
-                      <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
-                        Open: {ipo.openDate}
-                      </span>
-                      <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
-                        Close: {ipo.closeDate}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-0.5 mt-2">
-                      {[...Array(10)].map((_, i) => {
-                        const rating10 = ipo.rating * 2;
-                        const isFilled = i < Math.floor(rating10);
-                        const isHalf = !isFilled && (i < rating10);
-                        return (
-                          <Star
-                            key={i}
-                            className={`w-2.5 h-2.5 ${
-                              isFilled 
-                                ? "text-amber-500 fill-amber-500" 
-                                : isHalf 
-                                  ? "text-amber-500 fill-amber-500/50" 
-                                  : "text-slate-200"
-                            }`}
-                          />
-                        );
-                      })}
-                      <span className="ml-1 text-slate-400 font-extrabold text-[9px]">
-                        {(ipo.rating * 2).toFixed(1)}/10
-                      </span>
-                    </div>
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${ipo.category === "mainboard" ? "bg-blue-50 text-blue-800" : "bg-purple-50 text-purple-800"}`}>
+                      {ipo.category === "mainboard" ? "Mainboard" : "SME"}
+                    </span>
                   </div>
+
+                  <div className="flex flex-wrap gap-1.5 mt-1">
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                      Open: {ipo.openDate}
+                    </span>
+                    <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                      Close: {ipo.closeDate}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Rating Stars on Right */}
+                <div className="flex items-center gap-0.5 shrink-0 bg-slate-50 p-1 px-2.5 rounded-lg border border-slate-100">
+                  {[...Array(10)].map((_, i) => {
+                    const rating10 = ipo.rating * 2;
+                    const isFilled = i < Math.floor(rating10);
+                    const isHalf = !isFilled && (i < rating10);
+                    return (
+                      <Star
+                        key={i}
+                        className={`w-3 h-3 ${
+                          isFilled 
+                            ? "text-amber-500 fill-amber-500" 
+                            : isHalf 
+                              ? "text-amber-500 fill-amber-500/50" 
+                              : "text-slate-200"
+                        }`}
+                      />
+                    );
+                  })}
+                  <span className="ml-1.5 text-slate-600 font-extrabold text-[10px]">
+                    {(ipo.rating * 2).toFixed(1)}/10
+                  </span>
                 </div>
               </div>
 
-              {/* Metrics Table */}
-              <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs">
-                {/* Row 1 */}
-                <div>
+              {/* 9-Column / 3-Row Grid (Price Band, Min Lot, Issue Size, dates, etc.) */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs">
+                {/* Price Band */}
+                <div className="col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Price Band</span>
                   <strong className="text-slate-800 font-extrabold text-[11px] block truncate">
                     ₹{ipo.priceBandMin}-{ipo.priceBandMax}
                   </strong>
                 </div>
-                <div>
+                {/* Min Lot Cost */}
+                <div className="col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Min Lot Cost</span>
                   <strong className="text-slate-800 font-extrabold text-[11px] block truncate">
                     ₹{ipo.minInvestment.toLocaleString("en-IN")}
                   </strong>
                 </div>
-                <div>
+                {/* Issue Size */}
+                <div className="col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Issue Size</span>
                   <strong className="text-slate-800 font-extrabold text-[11px] block truncate">
                     ₹{ipo.issueSizeTotalCr} Cr
                   </strong>
                 </div>
 
-                {/* Row 2 */}
-                <div className="border-t border-slate-200/60 pt-2">
+                {/* Allotment */}
+                <div className="border-t sm:border-t-0 md:border-t-0 border-slate-200/60 pt-2 sm:pt-0 md:pt-0 col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Allotment</span>
                   <strong className="text-slate-850 font-extrabold text-[11px] block truncate">{ipo.allotmentDate}</strong>
                 </div>
-                <div className="border-t border-slate-200/60 pt-2">
+                {/* Refund */}
+                <div className="border-t border-slate-200/60 pt-2 sm:pt-0 md:pt-0 col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Refund Init</span>
                   <strong className="text-slate-850 font-extrabold text-[11px] block truncate">{ipo.refundDate}</strong>
                 </div>
-                <div className="border-t border-slate-200/60 pt-2">
+                {/* Listing Date */}
+                <div className="border-t border-slate-200/60 pt-2 sm:pt-0 md:pt-0 col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Listing Date</span>
                   <strong className="text-slate-850 font-extrabold text-[11px] block truncate">{ipo.listingDate}</strong>
                 </div>
 
-                {/* Row 3 */}
-                <div className="border-t border-slate-200/60 pt-2">
+                {/* Live Sub */}
+                <div className="border-t border-slate-200/60 pt-2 col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Live Sub</span>
                   <strong className="text-blue-700 font-extrabold text-[11px] block truncate">{ipo.totalSubscription}x</strong>
                 </div>
-                <div className="border-t border-slate-200/60 pt-2">
+                {/* GMP */}
+                <div className="border-t border-slate-200/60 pt-2 col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-emerald-700 font-bold block mb-0.5 text-[10px]">GMP Rate</span>
                   <strong className="text-emerald-700 font-extrabold text-[11px] block truncate">
                     {ipo.gmp > 0 ? `+₹${ipo.gmp}` : "₹0"}
                   </strong>
                 </div>
-                <div className="border-t border-slate-200/60 pt-2">
+                {/* Est. Profit */}
+                <div className="border-t border-slate-200/60 pt-2 col-span-1 sm:col-span-1 md:col-span-1 min-w-0">
                   <span className="text-emerald-700 font-bold block mb-0.5 text-[10px]">Est. Profit</span>
                   <strong className="text-emerald-700 font-extrabold text-[11px] block truncate">
                     {ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"}
                   </strong>
                 </div>
               </div>
-            </div>
 
-            {/* Action Buttons */}
-            <div className="pt-3.5 border-t border-slate-100 grid grid-cols-3 gap-2">
-              <Link
-                href={`/ipo/${ipo.slug}`}
-                className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-[10px] shadow-2xs transition-all flex items-center justify-center text-center"
-              >
-                Full Details
-              </Link>
-              <Link
-                href={`/ipo/${ipo.slug}#subscription`}
-                className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-[10px] transition-all flex items-center justify-center text-center"
-              >
-                Subscription
-              </Link>
-              <Link
-                href={`/ipo/${ipo.slug}#allotment`}
-                className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-[10px] transition-all flex items-center justify-center text-center"
-              >
-                Check Allotment
-              </Link>
+              {/* Action Buttons */}
+              <div className="pt-3.5 flex flex-wrap gap-2 justify-end">
+                <Link
+                  href={`/ipo/${ipo.slug}`}
+                  className="py-2 px-5 rounded-full bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-2xs transition-all text-center"
+                >
+                  Full Details
+                </Link>
+                <Link
+                  href={`/ipo/${ipo.slug}#subscription`}
+                  className="py-2 px-5 rounded-full border border-slate-250 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-all text-center"
+                >
+                  Subscription
+                </Link>
+                <Link
+                  href={`/ipo/${ipo.slug}#allotment`}
+                  className="py-2 px-5 rounded-full bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all text-center"
+                >
+                  Check Allotment
+                </Link>
+              </div>
             </div>
           </div>
         ))}
