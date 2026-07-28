@@ -91,7 +91,7 @@ function HomeDashboardContent() {
 
 
       {/* Controls Bar */}
-      <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-row items-center justify-between gap-3 overflow-x-auto">
+      <div className="flex flex-row items-center justify-between gap-3 overflow-x-auto py-1">
         {/* Status Tabs (Left side) */}
         <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
           <button
