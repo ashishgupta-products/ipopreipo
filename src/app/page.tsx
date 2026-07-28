@@ -338,7 +338,7 @@ function HomeDashboardContent() {
                 </div>
 
                 {/* Metrics Table */}
-                <div className="grid grid-cols-2 gap-2.5 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs">
+                <div className="grid grid-cols-2 gap-x-2.5 gap-y-2 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs">
                   <div>
                     <span className="text-slate-400 block mb-0.5 font-semibold">Price Band</span>
                     <strong className="text-slate-800 font-extrabold">
@@ -359,6 +359,24 @@ function HomeDashboardContent() {
                     <span className="text-slate-400 block mb-0.5 font-semibold">Live Subscription</span>
                     <strong className="text-blue-700 font-extrabold">{ipo.totalSubscription}x</strong>
                   </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-slate-400 block mb-0.5 font-semibold">Allotment Date</span>
+                    <strong className="text-slate-800 font-extrabold">{ipo.allotmentDate}</strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-slate-400 block mb-0.5 font-semibold">Refund Init</span>
+                    <strong className="text-slate-800 font-extrabold">{ipo.refundDate}</strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2 col-span-2 flex justify-between gap-2.5">
+                    <div>
+                      <span className="text-slate-400 block mb-0.5 font-semibold">Listing Date</span>
+                      <strong className="text-slate-800 font-extrabold">{ipo.listingDate}</strong>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-slate-400 block mb-0.5 font-semibold">Exchange</span>
+                      <strong className="text-slate-800 font-extrabold">{ipo.exchange}</strong>
+                    </div>
+                  </div>
                 </div>
 
                 {/* GMP card inside */}
@@ -370,11 +388,6 @@ function HomeDashboardContent() {
                   updatedTime={ipo.gmpUpdatedTime}
                   lotSize={ipo.lotSize}
                 />
-
-                <div className="flex justify-between items-center text-[10px] text-slate-400 font-bold pt-1">
-                  <span>Bidding: <strong className="text-slate-650">{ipo.openDate} to {ipo.closeDate}</strong></span>
-                  <span>Listing: <strong className="text-slate-650">{ipo.listingDate}</strong></span>
-                </div>
               </div>
 
               {/* Action Button */}
