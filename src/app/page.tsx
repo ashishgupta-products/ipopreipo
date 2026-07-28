@@ -276,10 +276,6 @@ function HomeDashboardContent() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col items-end gap-1 shrink-0">
-                  <Badge status={ipo.status} />
-                  <Badge category={ipo.category} />
-                </div>
               </div>
 
               {/* Metrics Table */}
