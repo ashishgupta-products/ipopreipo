@@ -231,8 +231,19 @@ function HomeDashboardContent() {
         key={`${selectedTab}-${categoryFilter}`}
         className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in`}
       >
-        {filteredIpos.map((ipo) => (
-          <div
+        {filteredIpos.map((ipo) => {
+          let recBadge = { text: "Neutral", bg: "bg-amber-50 text-amber-700 border-amber-250/60" };
+          const rec = ipo.recommendation || "Neutral";
+          if (rec === "Avoid") {
+            recBadge = { text: "Avoid", bg: "bg-rose-50 text-rose-700 border-rose-250/60" };
+          } else if (rec.startsWith("Apply")) {
+            recBadge = { text: "Apply", bg: "bg-emerald-50 text-emerald-700 border-emerald-250/60" };
+          } else if (rec === "Neutral" || rec === "May Apply") {
+            recBadge = { text: "May Apply", bg: "bg-amber-50 text-amber-800 border-amber-250/60" };
+          }
+
+          return (
+            <div
             key={ipo.id}
             className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4"
           >
@@ -252,7 +263,7 @@ function HomeDashboardContent() {
                         Close: {ipo.closeDate}
                       </span>
                     </div>
-                    <div className="flex items-center gap-0.5 mt-2">
+                    <div className="flex items-center gap-1.5 mt-2.5">
                       {[...Array(10)].map((_, i) => {
                         const rating10 = ipo.rating * 2;
                         const isFilled = i < Math.floor(rating10);
@@ -270,8 +281,14 @@ function HomeDashboardContent() {
                           />
                         );
                       })}
-                      <span className="ml-1 text-slate-400 font-extrabold text-[9px]">
+                      <span className="ml-1.5 text-slate-400 font-extrabold text-[10px]">
                         {(ipo.rating * 2).toFixed(1)}/10
+                      </span>
+                    </div>
+                    <div className="mt-2 flex items-center gap-1.5 text-[10px] font-extrabold">
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider text-[9px]">Recommendation:</span>
+                      <span className={`px-2 py-0.5 rounded-md border ${recBadge.bg}`}>
+                        {recBadge.text}
                       </span>
                     </div>
                   </div>
@@ -356,7 +373,8 @@ function HomeDashboardContent() {
               </Link>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Pre-IPO Teaser Section */}
