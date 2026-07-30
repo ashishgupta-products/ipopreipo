@@ -282,52 +282,52 @@ function HomeDashboardContent() {
               <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs">
                 {/* Row 1 */}
                 <div>
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Price Band</span>
-                  <strong className="text-slate-800 font-extrabold text-[11px] block truncate">
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Price Band</span>
+                  <strong className="text-slate-800 font-extrabold text-xs block truncate">
                     ₹{ipo.priceBandMin}-{ipo.priceBandMax}
                   </strong>
                 </div>
                 <div>
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Min Lot Cost</span>
-                  <strong className="text-slate-800 font-extrabold text-[11px] block truncate">
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Min Lot Cost</span>
+                  <strong className="text-slate-800 font-extrabold text-xs block truncate">
                     ₹{ipo.minInvestment.toLocaleString("en-IN")}
                   </strong>
                 </div>
                 <div>
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Issue Size</span>
-                  <strong className="text-slate-800 font-extrabold text-[11px] block truncate">
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Issue Size</span>
+                  <strong className="text-slate-800 font-extrabold text-xs block truncate">
                     ₹{ipo.issueSizeTotalCr} Cr
                   </strong>
                 </div>
 
                 {/* Row 2 */}
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Allotment</span>
-                  <strong className="text-slate-850 font-extrabold text-[11px] block truncate">{ipo.allotmentDate}</strong>
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Allotment</span>
+                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{ipo.allotmentDate}</strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Refund Init</span>
-                  <strong className="text-slate-850 font-extrabold text-[11px] block truncate">{ipo.refundDate}</strong>
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Refund Init</span>
+                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{ipo.refundDate}</strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Listing Date</span>
-                  <strong className="text-slate-850 font-extrabold text-[11px] block truncate">{ipo.listingDate}</strong>
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Listing Date</span>
+                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{ipo.listingDate}</strong>
                 </div>
 
                 {/* Row 3 */}
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[10px]">Live Sub</span>
-                  <strong className="text-blue-700 font-extrabold text-[11px] block truncate">{ipo.totalSubscription}x</strong>
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Live Sub</span>
+                  <strong className="text-blue-700 font-extrabold text-xs block truncate">{ipo.totalSubscription}x</strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-emerald-700 font-bold block mb-0.5 text-[10px]">GMP Rate</span>
-                  <strong className="text-emerald-700 font-extrabold text-[11px] block truncate">
+                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">GMP Rate</span>
+                  <strong className="text-emerald-700 font-extrabold text-xs block truncate">
                     {ipo.gmp > 0 ? `+₹${ipo.gmp}` : "₹0"}
                   </strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-emerald-700 font-bold block mb-0.5 text-[10px]">Est. Profit</span>
-                  <strong className="text-emerald-700 font-extrabold text-[11px] block truncate">
+                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">Est. Profit</span>
+                  <strong className="text-emerald-700 font-extrabold text-xs block truncate">
                     {ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"}
                   </strong>
                 </div>
@@ -338,19 +338,19 @@ function HomeDashboardContent() {
             <div className="pt-3.5 border-t border-slate-100 grid grid-cols-3 gap-2">
               <Link
                 href={`/ipo/${ipo.slug}`}
-                className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-[10px] shadow-2xs transition-all flex items-center justify-center text-center"
+                className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center"
               >
                 Full Details
               </Link>
               <Link
                 href={`/ipo/${ipo.slug}#subscription`}
-                className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-[10px] transition-all flex items-center justify-center text-center"
+                className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-all flex items-center justify-center text-center"
               >
                 Subscription
               </Link>
               <Link
                 href={`/ipo/${ipo.slug}#allotment`}
-                className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-[10px] transition-all flex items-center justify-center text-center"
+                className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all flex items-center justify-center text-center"
               >
                 Check Allotment
               </Link>
