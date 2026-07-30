@@ -56,6 +56,16 @@ function HomeDashboardContent() {
     }
   }, [searchParams]);
 
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    const parts = dateStr.split("-");
+    if (parts.length === 3) {
+      const [year, month, day] = parts;
+      return `${day}-${month}-${year.slice(-2)}`;
+    }
+    return dateStr;
+  };
+
   const updateFilters = (newTab?: string, newCategory?: string) => {
     const nextTab = newTab !== undefined ? newTab : selectedTab;
     const nextCat = newCategory !== undefined ? newCategory : categoryFilter;
@@ -208,7 +218,7 @@ function HomeDashboardContent() {
                   </td>
 
                   <td className="py-3.5 px-3 text-slate-400 text-xs font-semibold">
-                    {ipo.openDate} to {ipo.closeDate}
+                    {formatDate(ipo.openDate)} to {formatDate(ipo.closeDate)}
                   </td>
 
                   <td className="py-3.5 px-3 text-right">
@@ -257,10 +267,10 @@ function HomeDashboardContent() {
                   </h3>
                   <div className="flex flex-wrap gap-1.5 mt-1.5">
                     <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
-                      Open: {ipo.openDate}
+                      Open: {formatDate(ipo.openDate)}
                     </span>
                     <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
-                      Close: {ipo.closeDate}
+                      Close: {formatDate(ipo.closeDate)}
                     </span>
                   </div>
                 </div>
@@ -322,15 +332,15 @@ function HomeDashboardContent() {
                 {/* Row 2 */}
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Allotment</span>
-                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{ipo.allotmentDate}</strong>
+                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.allotmentDate)}</strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Refund Init</span>
-                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{ipo.refundDate}</strong>
+                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.refundDate)}</strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Listing Date</span>
-                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{ipo.listingDate}</strong>
+                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.listingDate)}</strong>
                 </div>
 
                 {/* Row 3 */}
