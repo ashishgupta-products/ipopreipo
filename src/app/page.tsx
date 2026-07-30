@@ -276,6 +276,7 @@ function HomeDashboardContent() {
                     return (
                       <Star
                         key={i}
+                        strokeWidth={1.5}
                         className={`w-3.5 h-3.5 ${
                           isFilled 
                             ? "text-amber-500 fill-amber-500" 
