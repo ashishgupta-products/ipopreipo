@@ -248,48 +248,51 @@ function HomeDashboardContent() {
             className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4"
           >
             <div className="space-y-3.5">
-              <div className="flex justify-between items-start gap-3">
-                <div className="flex items-start gap-3 flex-1 min-w-0">
-                  <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="md" className="rounded-lg shadow-2xs" />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
-                      <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
-                    </h3>
-                    <div className="flex flex-wrap gap-1.5 mt-1.5">
-                      <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
-                        Open: {ipo.openDate}
-                      </span>
-                      <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
-                        Close: {ipo.closeDate}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1.5 mt-2.5">
-                      {[...Array(10)].map((_, i) => {
-                        const rating10 = ipo.rating * 2;
-                        const isFilled = i < Math.floor(rating10);
-                        const isHalf = !isFilled && (i < rating10);
-                        return (
-                          <Star
-                            key={i}
-                            className={`w-2.5 h-2.5 ${
-                              isFilled 
-                                ? "text-amber-500 fill-amber-500" 
-                                : isHalf 
-                                  ? "text-amber-500 fill-amber-500/50" 
-                                  : "text-slate-200"
-                            }`}
-                          />
-                        );
-                      })}
-                      <span className="ml-1.5 text-slate-400 font-extrabold text-[10px]">
-                        {(ipo.rating * 2).toFixed(1)}/10
-                      </span>
-                    </div>
-                    <div className={`mt-2.5 px-3 py-1.5 rounded-xl border ${recBadge.bg} flex items-center justify-between text-xs font-bold w-full`}>
-                      <span className="opacity-85 font-extrabold uppercase tracking-wider text-[9px]">Review</span>
-                      <span className="font-extrabold tracking-wide uppercase text-[10px]">{recBadge.text}</span>
-                    </div>
+              {/* Logo & Title Row */}
+              <div className="flex items-start gap-3">
+                <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="md" className="rounded-lg shadow-2xs" />
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
+                    <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5 mt-1.5">
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                      Open: {ipo.openDate}
+                    </span>
+                    <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                      Close: {ipo.closeDate}
+                    </span>
                   </div>
+                </div>
+              </div>
+
+              {/* Stars & Review Status (Occupying full horizontal width!) */}
+              <div className="space-y-2 pt-0.5">
+                <div className="flex items-center gap-1.5">
+                  {[...Array(10)].map((_, i) => {
+                    const rating10 = ipo.rating * 2;
+                    const isFilled = i < Math.floor(rating10);
+                    const isHalf = !isFilled && (i < rating10);
+                    return (
+                      <Star
+                        key={i}
+                        className={`w-3.5 h-3.5 ${
+                          isFilled 
+                            ? "text-amber-500 fill-amber-500" 
+                            : isHalf 
+                              ? "text-amber-500 fill-amber-500/50" 
+                              : "text-slate-200"
+                        }`}
+                      />
+                    );
+                  })}
+                  <span className="ml-1.5 text-slate-400 font-extrabold text-xs">
+                    {(ipo.rating * 2).toFixed(1)}/10
+                  </span>
+                </div>
+                <div className={`px-3.5 py-2.5 rounded-xl border ${recBadge.bg} flex items-center justify-between text-xs font-bold w-full shadow-3xs`}>
+                  <span className="opacity-85 font-extrabold uppercase tracking-wider text-[9px]">Review</span>
+                  <span className="font-extrabold tracking-wide uppercase text-[10px]">{recBadge.text}</span>
                 </div>
               </div>
 
