@@ -279,7 +279,7 @@ function HomeDashboardContent() {
               </div>
 
               {/* Metrics Table */}
-              <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs">
+              <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 py-3 border-t border-b border-slate-100 text-xs">
                 {/* Row 1 */}
                 <div>
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Price Band</span>
