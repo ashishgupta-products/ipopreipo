@@ -37,7 +37,7 @@ export default function PublicArticlesPage() {
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
       {/* Header Banner */}
-      <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
+      <div className="hidden md:block p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 text-blue-800 border border-blue-200/80">
@@ -54,9 +54,20 @@ export default function PublicArticlesPage() {
         </div>
       </div>
 
+      {/* Mobile Title Header */}
+      <div className="md:hidden pt-2 pb-1 space-y-1">
+        <h1 className="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-blue-700" />
+          Market News &amp; Guides
+        </h1>
+        <p className="text-slate-500 text-[11px] font-semibold leading-relaxed">
+          In-depth decision guides, credit card comparisons &amp; pre-IPO valuations.
+        </p>
+      </div>
+
       {/* Featured Hero Article */}
       {featuredArticle && selectedCategory === "All" && !searchQuery && (
-        <div className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div className="hidden md:grid p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md transition-all duration-300 grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {featuredArticle.featuredImage && (
             <div className="lg:col-span-5 relative h-64 sm:h-72 w-full rounded-xl overflow-hidden shadow-xs border border-slate-100/80">
               <img
@@ -120,9 +131,9 @@ export default function PublicArticlesPage() {
       )}
 
       {/* Filter & Search Bar */}
-      <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+      <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 w-full">
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+        <div className="flex flex-row items-center gap-1.5 text-xs font-bold overflow-x-auto whitespace-nowrap scrollbar-none pb-1 md:pb-0 w-full md:w-auto -mx-4 px-4 md:mx-0 md:px-0">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -130,7 +141,7 @@ export default function PublicArticlesPage() {
               className={`px-3 py-1.5 rounded-lg transition-all ${
                 selectedCategory === cat
                   ? "bg-slate-900 text-white shadow-xs"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-205"
               }`}
             >
               {cat}
@@ -139,20 +150,20 @@ export default function PublicArticlesPage() {
         </div>
 
         {/* Search */}
-        <div className="relative w-full md:w-60">
-          <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2" />
+        <div className="relative w-full md:w-60 shrink-0">
+          <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5 md:top-2" />
           <input
             type="text"
             placeholder="Search articles..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 text-xs placeholder-slate-400 font-medium focus:outline-hidden focus:border-slate-900 focus:bg-white transition-all"
+            className="w-full pl-9 pr-3 py-2 md:py-1.5 rounded-lg border border-slate-200 bg-white md:bg-slate-50 text-slate-900 text-xs placeholder-slate-400 font-medium focus:outline-hidden focus:border-slate-900 focus:bg-white transition-all shadow-3xs md:shadow-none"
           />
         </div>
       </div>
 
-      {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* Articles Desktop Grid */}
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredArticles.map((art) => (
           <div
             key={art.id}
@@ -202,6 +213,39 @@ export default function PublicArticlesPage() {
               </Link>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Mobile News Feed */}
+      <div className="md:hidden divide-y divide-slate-100 bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        {filteredArticles.map((art) => (
+          <Link
+            key={art.id}
+            href={`/articles/${art.slug}`}
+            className="p-4 flex gap-3.5 hover:bg-slate-50/50 transition-colors active:bg-slate-100"
+          >
+            <div className="flex-1 space-y-1.5 min-w-0">
+              <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
+                <span className="text-blue-750 font-extrabold uppercase tracking-wider">{art.category}</span>
+                <span>•</span>
+                <span>{art.publishDate}</span>
+              </div>
+              <h3 className="font-extrabold text-sm text-slate-800 line-clamp-2 leading-snug">
+                {art.title}
+              </h3>
+              <p className="text-[11px] text-slate-500 line-clamp-1 leading-normal font-medium">{art.excerpt}</p>
+              <div className="flex items-center gap-2 text-[10px] text-slate-400 pt-0.5 font-semibold">
+                <span>By {art.author.name}</span>
+                <span>•</span>
+                <span>{art.readingTimeMins} min read</span>
+              </div>
+            </div>
+            {art.featuredImage && (
+              <div className="w-18 h-18 rounded-xl overflow-hidden shrink-0 border border-slate-150 shadow-3xs bg-slate-50">
+                <img src={art.featuredImage} alt={art.title} className="w-full h-full object-cover" />
+              </div>
+            )}
+          </Link>
         ))}
       </div>
     </div>
