@@ -249,17 +249,17 @@ function HomeDashboardContent() {
           >
             <div className="space-y-3.5">
               {/* Logo & Title Row */}
-              <div className="flex items-start gap-3">
-                <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="md" className="rounded-lg shadow-2xs" />
+              <div className="flex items-center gap-3.5">
+                <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="lg" className="rounded-lg shadow-2xs" />
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
                     <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
                   </h3>
                   <div className="flex flex-wrap gap-1.5 mt-1.5">
-                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
                       Open: {ipo.openDate}
                     </span>
-                    <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[9px] font-extrabold whitespace-nowrap">
+                    <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
                       Close: {ipo.closeDate}
                     </span>
                   </div>
