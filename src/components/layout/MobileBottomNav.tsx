@@ -16,7 +16,8 @@ import {
   Smartphone, 
   FileText,
   ArrowDownToLine,
-  Home
+  Home,
+  Newspaper
 } from "lucide-react";
 
 export const MobileBottomNav: React.FC = () => {
@@ -89,8 +90,8 @@ export const MobileBottomNav: React.FC = () => {
 
   const navItems = [
     { label: "Home", href: "/", icon: Home },
-    { label: "IPOs", href: "/?tab=live", icon: TrendingUp },
-    { label: "Pre-IPO", href: "/pre-ipo", icon: Flame }
+    { label: "Pre-IPO", href: "/pre-ipo", icon: Flame },
+    { label: "News", href: "/articles", icon: Newspaper }
   ];
 
   return (
@@ -155,10 +156,6 @@ export const MobileBottomNav: React.FC = () => {
                 <Link onClick={() => setMenuOpen(false)} href="/banks" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
                   <Building2 className="w-4 h-4 text-emerald-600" />
                   Banks
-                </Link>
-                <Link onClick={() => setMenuOpen(false)} href="/articles" className="col-span-2 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center justify-center gap-2 font-bold text-slate-700">
-                  <FileText className="w-4 h-4 text-emerald-700" />
-                  Blogs &amp; Guides
                 </Link>
               </div>
             </div>
