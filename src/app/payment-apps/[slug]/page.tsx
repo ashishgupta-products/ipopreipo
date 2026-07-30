@@ -214,15 +214,6 @@ export default async function PaymentAppDetailPage({ params }: PageProps) {
               </div>
             </div>
           )}
-
-          {/* User Reviews Section */}
-          <UserReviewsSection
-            entityId={app.id}
-            entityName={app.name}
-            entityType="payment_app"
-            initialRating={app.playStoreRating}
-            initialReviews={app.userReviews}
-          />
         </div>
 
         {/* Right Col */}
@@ -260,6 +251,17 @@ export default async function PaymentAppDetailPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* User Reviews Section */}
+      <div className="mt-5">
+        <UserReviewsSection
+          entityId={app.id}
+          entityName={app.name}
+          entityType="payment_app"
+          initialRating={app.playStoreRating}
+          initialReviews={app.userReviews}
+        />
       </div>
     </div>
   );
