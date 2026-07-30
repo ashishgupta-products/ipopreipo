@@ -163,7 +163,7 @@ function HomeDashboardContent() {
       {/* Main content view */}
       {viewMode === "table" && (
         <div 
-          key={`${selectedTab}-${categoryFilter}`}
+          key={`table-${selectedTab}-${categoryFilter}`}
           className="hidden md:block overflow-x-auto rounded-2xl bg-white border border-slate-200/60 shadow-xs animate-fade-in"
         >
           <table className="w-full text-left text-xs sm:text-sm">
@@ -238,7 +238,7 @@ function HomeDashboardContent() {
 
       {/* Grid View (Active on mobile even if viewMode is table) */}
       <div 
-        key={`${selectedTab}-${categoryFilter}`}
+        key={`grid-${selectedTab}-${categoryFilter}`}
         className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in`}
       >
         {filteredIpos.map((ipo) => {
