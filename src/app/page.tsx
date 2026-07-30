@@ -285,11 +285,9 @@ function HomeDashboardContent() {
                         {(ipo.rating * 2).toFixed(1)}/10
                       </span>
                     </div>
-                    <div className="mt-2 flex items-center gap-1.5 text-[10px] font-extrabold">
-                      <span className="text-slate-400 font-semibold uppercase tracking-wider text-[9px]">Recommendation:</span>
-                      <span className={`px-2 py-0.5 rounded-md border ${recBadge.bg}`}>
-                        {recBadge.text}
-                      </span>
+                    <div className={`mt-2.5 px-3 py-1.5 rounded-xl border ${recBadge.bg} flex items-center justify-between text-xs font-bold w-full`}>
+                      <span className="opacity-85 font-extrabold uppercase tracking-wider text-[9px]">Review</span>
+                      <span className="font-extrabold tracking-wide uppercase text-[10px]">{recBadge.text}</span>
                     </div>
                   </div>
                 </div>
