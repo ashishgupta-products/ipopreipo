@@ -20,7 +20,7 @@ function extractTagContent(xml: string, tag: string): string {
 
 export async function GET() {
   try {
-    const feedUrl = "https://www.etnownews.com/feeds/gns-etn-markets";
+    const feedUrl = "https://economictimes.indiatimes.com/rssfeedsdefault.cms";
     const res = await fetch(feedUrl, {
       next: { revalidate: 300 } // Cache feed for 5 minutes on Vercel
     });
