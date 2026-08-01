@@ -420,7 +420,9 @@ function HomeDashboardContent() {
             </div>
 
             {/* Action Buttons */}
-            <div className={`pt-3.5 border-t border-slate-100 grid ${isAlreadyListed(ipo) || selectedTab === "upcoming" ? "grid-cols-2" : "grid-cols-3"} gap-2`}>
+            <div className={`pt-3.5 border-t border-slate-100 grid ${
+              selectedTab === "upcoming" ? "grid-cols-1" : (isAlreadyListed(ipo) ? "grid-cols-2" : "grid-cols-3")
+            } gap-2`}>
               <Link
                 href={`/ipo/${ipo.slug}`}
                 className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center font-semibold"
@@ -445,12 +447,14 @@ function HomeDashboardContent() {
                   Watch Live
                 </a>
               ) : (
-                <Link
-                  href={`/ipo/${ipo.slug}#allotment`}
-                  className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
-                >
-                  Check Allotment
-                </Link>
+                selectedTab !== "upcoming" && (
+                  <Link
+                    href={`/ipo/${ipo.slug}#allotment`}
+                    className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
+                  >
+                    Check Allotment
+                  </Link>
+                )
               )}
             </div>
           </div>
