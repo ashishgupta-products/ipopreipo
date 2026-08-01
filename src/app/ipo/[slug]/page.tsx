@@ -1033,24 +1033,24 @@ export default function IPODetailPage({ params }: PageProps) {
             )}
           </div>
         </div>
+      </div>
 
-        {/* Raw Data Inspector Section */}
-        <div className="mt-8 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
-              <h3 className="font-extrabold text-sm text-slate-800 tracking-tight">Raw API &amp; Database Inspector</h3>
-            </div>
-            <span className="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded border border-slate-200">
-              Developer &amp; Product View
-            </span>
+      {/* Raw Data Inspector Section */}
+      <div className="mt-8 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4 w-full">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+            <h3 className="font-extrabold text-sm text-slate-800 tracking-tight">Raw API &amp; Database Inspector</h3>
           </div>
-          <p className="text-xs text-slate-500 font-medium">
-            This panel shows the exact raw fields returned from the Neon database &amp; Upvaly API. Use this to inspect all available metadata, schedules, and subscription metrics to determine what other fields you want to render in the UI.
-          </p>
-          <div className="bg-slate-950 rounded-xl p-4 overflow-x-auto border border-slate-800 text-[11px] font-mono text-emerald-400 max-h-[500px] shadow-inner leading-relaxed">
-            <pre>{JSON.stringify(ipo, null, 2)}</pre>
-          </div>
+          <span className="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded border border-slate-200">
+            Developer &amp; Product View
+          </span>
+        </div>
+        <p className="text-xs text-slate-500 font-medium">
+          This panel shows the exact raw fields returned from the Neon database &amp; Upvaly API. Use this to inspect all available metadata, schedules, and subscription metrics to determine what other fields you want to render in the UI.
+        </p>
+        <div className="bg-slate-950 rounded-xl p-4 overflow-x-auto border border-slate-800 text-[11px] font-mono text-emerald-400 max-h-[500px] shadow-inner leading-relaxed w-full">
+          <pre>{JSON.stringify(ipo, null, 2)}</pre>
         </div>
       </div>
     </div>
