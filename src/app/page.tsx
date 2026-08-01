@@ -110,10 +110,14 @@ function HomeDashboardContent() {
     return false;
   };
 
-  const isUpcoming = (ipo: any) => {
-    if (ipo.status === "upcoming") return true;
+  const isOngoingOrLive = (ipo: any) => {
+    if (ipo.status === "live") return true;
     if (ipo.status === "closed" && (!ipo.listingDate || ipo.listingDate > todayStr)) return true;
     return false;
+  };
+
+  const isUpcoming = (ipo: any) => {
+    return ipo.status === "upcoming";
   };
 
   // Filtering Logic
@@ -121,14 +125,14 @@ function HomeDashboardContent() {
     if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
     if (categoryFilter === "sme" && ipo.category !== "sme") return false;
 
-    if (selectedTab === "live" && ipo.status !== "live") return false;
+    if (selectedTab === "live" && !isOngoingOrLive(ipo)) return false;
     if (selectedTab === "upcoming" && !isUpcoming(ipo)) return false;
     if (selectedTab === "listed" && !isAlreadyListed(ipo)) return false;
 
     return true;
   });
 
-  const liveCount = ipos.filter((i) => i.status === "live").length;
+  const liveCount = ipos.filter(isOngoingOrLive).length;
   const upcomingCount = ipos.filter(isUpcoming).length;
 
   return (
