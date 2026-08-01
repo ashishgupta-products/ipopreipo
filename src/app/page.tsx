@@ -21,7 +21,6 @@ import {
   Clock,
   Star
 } from "lucide-react";
-import { MOCK_IPOS } from "@/data/mockIpos";
 import { MOCK_PRE_IPOS } from "@/data/mockPreIpo";
 import { MOCK_ANCHOR_LOCKINS } from "@/data/mockAnchorLockins";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
@@ -32,6 +31,8 @@ import { CompanyLogo } from "@/components/common/CompanyLogo";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
 
+import { IPOData } from "@/types/ipo";
+
 function HomeDashboardContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -39,6 +40,26 @@ function HomeDashboardContent() {
   const [selectedTab, setSelectedTab] = useState<string>("live");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
+  const [ipos, setIpos] = useState<IPOData[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Load live IPOs
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setIpos(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch live IPOs, using mock data fallback.", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadIPOs();
+  }, []);
 
   // Sync filters from URL search params whenever URL changes
   useEffect(() => {
@@ -82,7 +103,7 @@ function HomeDashboardContent() {
   };
 
   // Filtering Logic
-  const filteredIpos = MOCK_IPOS.filter((ipo) => {
+  const filteredIpos = ipos.filter((ipo) => {
     if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
     if (categoryFilter === "sme" && ipo.category !== "sme") return false;
 
@@ -93,11 +114,12 @@ function HomeDashboardContent() {
     return true;
   });
 
-  const liveCount = MOCK_IPOS.filter((i) => i.status === "live").length;
-  const upcomingCount = MOCK_IPOS.filter((i) => i.status === "upcoming").length;
+  const liveCount = ipos.filter((i) => i.status === "live").length;
+  const upcomingCount = ipos.filter((i) => i.status === "upcoming").length;
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-6 font-sans bg-[#f8fafc] pb-16">
+
 
 
       {/* Controls Bar */}
@@ -351,7 +373,7 @@ function HomeDashboardContent() {
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">GMP Rate</span>
                   <strong className="text-emerald-700 font-extrabold text-xs block truncate">
-                    {ipo.gmp > 0 ? `+₹${ipo.gmp}` : "₹0"}
+                    {ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"}
                   </strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">

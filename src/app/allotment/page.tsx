@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CheckCircle2, ExternalLink, Search, Percent, ShieldCheck } from "lucide-react";
-import { MOCK_IPOS } from "@/data/mockIpos";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function AllotmentPage() {
-  const [selectedIpoId, setSelectedIpoId] = useState<string>(MOCK_IPOS[0].id);
+  const [ipos, setIpos] = useState<any[]>([]);
+  const [selectedIpoId, setSelectedIpoId] = useState<string>("");
   const [panNumber, setPanNumber] = useState<string>("");
   const [checking, setChecking] = useState<boolean>(false);
   const [result, setResult] = useState<"allotted" | "not_allotted" | null>(null);
@@ -14,7 +14,28 @@ export default function AllotmentPage() {
   const [subTimes, setSubTimes] = useState<number>(3.5);
   const [applicationsSubmitted, setApplicationsSubmitted] = useState<number>(1);
 
-  const selectedIpo = MOCK_IPOS.find((i) => i.id === selectedIpoId) || MOCK_IPOS[0];
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          setIpos(json.data);
+          setSelectedIpoId(json.data[0].id);
+        }
+      } catch (err) {
+        console.error("Failed to load allotment ipos:", err);
+      }
+    }
+    loadIPOs();
+  }, []);
+
+  const selectedIpo = ipos.find((i) => i.id === selectedIpoId) || ipos[0] || {
+    name: "Loading...",
+    logoUrl: "",
+    registrarName: "Loading...",
+    registrarCheckUrl: "#"
+  };
 
   const handleSimulatedCheck = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,7 +91,7 @@ export default function AllotmentPage() {
                   }}
                   className="w-full px-3 py-2 rounded border border-slate-300 bg-white text-slate-900 font-medium focus:outline-none focus:border-purple-600 text-sm"
                 >
-                  {MOCK_IPOS.map((ipo) => (
+                  {ipos.map((ipo) => (
                     <option key={ipo.id} value={ipo.id}>
                       {ipo.name} ({ipo.registrarName})
                     </option>

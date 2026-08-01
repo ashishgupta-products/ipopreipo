@@ -20,8 +20,8 @@ import {
   Award
 } from "lucide-react";
 import { useAuth, UserProfile } from "@/context/AuthContext";
-import { MOCK_IPOS } from "@/data/mockIpos";
 import { Badge } from "@/components/common/Badge";
+import { useEffect } from "react";
 
 export default function ProfilePage() {
   const { user, isAuthenticated, logout, updateProfile, savedWatchlist, toggleWatchlist } = useAuth();
@@ -33,6 +33,22 @@ export default function ProfilePage() {
   const [panNumber, setPanNumber] = useState<string>(user?.panNumber || "ABCDE1234F");
   const [dematDpId, setDematDpId] = useState<string>(user?.dematDpId || "1208160012345678");
   const [category, setCategory] = useState<UserProfile["investorCategory"]>(user?.investorCategory || "Retail");
+  const [ipos, setIpos] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setIpos(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load profile watchlist ipos:", err);
+      }
+    }
+    loadIPOs();
+  }, []);
 
   if (!user && !isAuthenticated) {
     return (
@@ -64,7 +80,7 @@ export default function ProfilePage() {
     setIsEditing(false);
   };
 
-  const watchlistedIpos = MOCK_IPOS.filter((ipo) => savedWatchlist.includes(ipo.slug));
+  const watchlistedIpos = ipos.filter((ipo) => savedWatchlist.includes(ipo.slug));
 
   return (
     <div className="min-h-screen bg-slate-50 pb-16 space-y-8">

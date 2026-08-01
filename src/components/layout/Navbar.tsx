@@ -30,7 +30,6 @@ import {
   FileText
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { MOCK_IPOS } from "@/data/mockIpos";
 import { useAuth } from "@/context/AuthContext";
 import AuthModal from "@/components/auth/AuthModal";
 import { DynamicTagline } from "@/components/common/DynamicTagline";
@@ -45,10 +44,27 @@ export const Navbar: React.FC = () => {
   const [fontToast, setFontToast] = useState<string>("");
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [ipos, setIpos] = useState<any[]>([]);
 
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const userDropdownRef = useRef<HTMLDivElement>(null);
-  const activeIpos = MOCK_IPOS.filter((i) => i.status === "live" || i.gmp > 0);
+
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setIpos(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load navbar ipos:", err);
+      }
+    }
+    loadIPOs();
+  }, []);
+
+  const activeIpos = ipos.filter((i) => i.status === "live" || i.gmp > 0);
 
   const changeFontSize = (size: "small" | "normal" | "large") => {
     setFontSize(size);
@@ -97,7 +113,7 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const searchResults = searchQuery.trim()
-    ? MOCK_IPOS.filter((i) =>
+    ? ipos.filter((i) =>
         i.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         i.companyName.toLowerCase().includes(searchQuery.toLowerCase())
       )

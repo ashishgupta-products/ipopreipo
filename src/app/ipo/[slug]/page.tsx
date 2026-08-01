@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, use } from "react";
+import React, { useState, use, useEffect } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { 
@@ -23,7 +23,6 @@ import {
   HelpCircle,
   Star
 } from "lucide-react";
-import { MOCK_IPOS } from "@/data/mockIpos";
 import { Badge } from "@/components/common/Badge";
 import { GMPCard } from "@/components/common/GMPCard";
 import { SubscriptionTable } from "@/components/common/SubscriptionTable";
@@ -145,7 +144,37 @@ const getSubscriptionDemand = (ipo: any) => {
 export default function IPODetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
   const [activeMobileTab, setActiveMobileTab] = useState<"overview" | "gmp_sub">("overview");
-  const ipo = MOCK_IPOS.find((i) => i.slug === resolvedParams.slug);
+  const [ipo, setIpo] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function loadIPO() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          const found = json.data.find((i: any) => i.slug === resolvedParams.slug);
+          if (found) {
+            setIpo(found);
+            return;
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load live IPO detail.", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadIPO();
+  }, [resolvedParams.slug]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen max-w-7xl mx-auto px-4 py-8 flex items-center justify-center">
+        <div className="text-slate-500 font-semibold animate-pulse text-sm">Loading IPO details...</div>
+      </div>
+    );
+  }
 
   if (!ipo) {
     notFound();
@@ -363,7 +392,7 @@ export default function IPODetailPage({ params }: PageProps) {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-slate-800">
-                      {ipo.lotSizes.map((item, idx) => (
+                      {ipo.lotSizes.map((item: any, idx: number) => (
                         <tr key={idx} className="hover:bg-slate-50">
                           <td className="py-2.5 px-3 font-medium text-slate-900">{item.applicationCategory}</td>
                           <td className="py-2.5 px-3 font-semibold">{item.lots === 0 ? "No Upper Limit" : item.lots}</td>
@@ -401,7 +430,7 @@ export default function IPODetailPage({ params }: PageProps) {
                   <span>100% Total Issue Size</span>
                 </div>
                 <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden flex shadow-inner">
-                  {ipo.reservations.map((res, idx) => {
+                  {ipo.reservations.map((res: any, idx: number) => {
                     const colors = [
                       "bg-blue-600",
                       "bg-purple-600",
@@ -433,7 +462,7 @@ export default function IPODetailPage({ params }: PageProps) {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-slate-800">
-                    {ipo.reservations.map((res, idx) => {
+                    {ipo.reservations.map((res: any, idx: number) => {
                       const badgeColors = [
                         "bg-blue-50 text-blue-800 border-blue-200",
                         "bg-purple-50 text-purple-800 border-purple-200",
@@ -570,7 +599,7 @@ export default function IPODetailPage({ params }: PageProps) {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-slate-800">
-                    {ipo.financials.map((fin, idx) => (
+                    {ipo.financials.map((fin: any, idx: number) => (
                       <tr key={idx} className="hover:bg-slate-50">
                         <td className="py-2.5 px-3 font-bold text-slate-900">{fin.year}</td>
                         <td className="py-2.5 px-3">₹{fin.revenue} Cr</td>
@@ -603,7 +632,7 @@ export default function IPODetailPage({ params }: PageProps) {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-slate-800">
-                    {ipo.peerComparison.map((peer, idx) => (
+                    {ipo.peerComparison.map((peer: any, idx: number) => (
                       <tr key={idx} className="hover:bg-slate-50">
                         <td className="py-2.5 px-3 font-semibold text-slate-500">{idx + 1}</td>
                         <td className="py-2.5 px-3 font-bold text-slate-900">{peer.companyName}</td>
@@ -704,7 +733,7 @@ export default function IPODetailPage({ params }: PageProps) {
                   Lead Manager(s)
                 </h3>
                 <ul className="space-y-1 text-slate-700 list-disc list-inside font-medium">
-                  {ipo.leadManagers.map((lm, idx) => (
+                  {ipo.leadManagers.map((lm: any, idx: number) => (
                     <li key={idx}>{lm}</li>
                   ))}
                 </ul>
@@ -801,8 +830,8 @@ export default function IPODetailPage({ params }: PageProps) {
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-slate-700">
                     {ipo.lotSizes
-                      .filter((item) => item.shares > 0 && item.lots > 0)
-                      .map((item, idx) => {
+                      .filter((item: any) => item.shares > 0 && item.lots > 0)
+                      .map((item: any, idx: number) => {
                         const estProfit = item.shares * ipo.gmp;
                         return (
                           <tr key={idx} className="hover:bg-slate-50/60 font-medium">
@@ -983,7 +1012,7 @@ export default function IPODetailPage({ params }: PageProps) {
             <div className="space-y-1 pt-1">
               <span className="font-bold text-slate-800 block">Key Strengths:</span>
               <ul className="space-y-1 text-slate-600 list-disc list-inside">
-                {ipo.highlights.map((h, i) => (
+                {ipo.highlights.map((h: any, i: number) => (
                   <li key={i}>{h}</li>
                 ))}
               </ul>
@@ -996,7 +1025,7 @@ export default function IPODetailPage({ params }: PageProps) {
                   Key Risks:
                 </span>
                 <ul className="space-y-1 text-slate-600 list-disc list-inside">
-                  {ipo.risks.map((r, i) => (
+                  {ipo.risks.map((r: any, i: number) => (
                     <li key={i}>{r}</li>
                   ))}
                 </ul>

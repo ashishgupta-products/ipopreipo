@@ -19,7 +19,7 @@ import {
   Search,
   Bell
 } from "lucide-react";
-import { MOCK_IPOS } from "@/data/mockIpos";
+import { useEffect } from "react";
 import { Badge } from "@/components/common/Badge";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
@@ -45,12 +45,28 @@ export default function IPOCalendarPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [viewFormat, setViewFormat] = useState<"list" | "grid">("list");
+  const [ipos, setIpos] = useState<any[]>([]);
 
-  // Extract and flatten all IPO events from MOCK_IPOS
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setIpos(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load calendar ipos:", err);
+      }
+    }
+    loadIPOs();
+  }, []);
+
+  // Extract and flatten all IPO events from ipos state
   const allEvents = useMemo(() => {
     const events: CalendarEvent[] = [];
 
-    MOCK_IPOS.forEach((ipo) => {
+    ipos.forEach((ipo) => {
       const priceBandStr = ipo.priceBandMin === ipo.priceBandMax 
         ? `₹${ipo.priceBandMax}` 
         : `₹${ipo.priceBandMin} - ₹${ipo.priceBandMax}`;
@@ -154,7 +170,7 @@ export default function IPOCalendarPage() {
 
     // Sort events by date ascending
     return events.sort((a, b) => a.dateStr.localeCompare(b.dateStr));
-  }, []);
+  }, [ipos]);
 
   // Filter events
   const filteredEvents = useMemo(() => {

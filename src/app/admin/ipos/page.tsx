@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   Sparkles, 
@@ -14,17 +14,31 @@ import {
   ExternalLink,
   Layers
 } from "lucide-react";
-import { MOCK_IPOS } from "@/data/mockIpos";
 import { IPOData } from "@/types/ipo";
 import { Badge } from "@/components/common/Badge";
 
 export default function AdminIposPage() {
-  const [ipos, setIpos] = useState<IPOData[]>(MOCK_IPOS);
+  const [ipos, setIpos] = useState<IPOData[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editingIpo, setEditingIpo] = useState<IPOData | null>(null);
   const [successToast, setSuccessToast] = useState("");
+
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setIpos(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load admin ipos:", err);
+      }
+    }
+    loadIPOs();
+  }, []);
 
   // Form State for Create / Edit
   const [formName, setFormName] = useState("");

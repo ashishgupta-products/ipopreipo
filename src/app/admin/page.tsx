@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   Sparkles, 
@@ -14,14 +14,28 @@ import {
   CheckCircle2, 
   ShieldCheck
 } from "lucide-react";
-import { MOCK_IPOS } from "@/data/mockIpos";
 
 export default function AdminDashboardPage() {
-  const [iposData, setIposData] = useState(MOCK_IPOS);
+  const [iposData, setIposData] = useState<any[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [tempGmp, setTempGmp] = useState<number>(0);
   const [tempSub, setTempSub] = useState<number>(0);
   const [successToast, setSuccessToast] = useState<string>("");
+
+  useEffect(() => {
+    async function loadIPOs() {
+      try {
+        const res = await fetch("/api/ipos");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setIposData(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load admin ipos:", err);
+      }
+    }
+    loadIPOs();
+  }, []);
 
   // Live Control Feature Toggles
   const [controls, setControls] = useState({
