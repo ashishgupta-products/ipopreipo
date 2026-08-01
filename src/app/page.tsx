@@ -109,7 +109,7 @@ function HomeDashboardContent() {
 
     if (selectedTab === "live" && ipo.status !== "live") return false;
     if (selectedTab === "upcoming" && ipo.status !== "upcoming") return false;
-    if (selectedTab === "listed" && ipo.status !== "listed") return false;
+    if (selectedTab === "listed" && ipo.status !== "listed" && ipo.status !== "closed") return false;
 
     return true;
   });

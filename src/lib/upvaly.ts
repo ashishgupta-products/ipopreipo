@@ -135,21 +135,35 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
   }
 
   try {
-    console.log("Fetching live IPO data from Upvaly...");
-    const res = await fetch("https://finapi.upvaly.com/api/ipo", {
-      next: { revalidate: 600 }, // 10 minutes cache on Next.js/Vercel side
-    });
+    console.log("Fetching live and closed IPO data from Upvaly...");
+    const [resActive, resClosed] = await Promise.all([
+      fetch("https://finapi.upvaly.com/api/ipo", {
+        next: { revalidate: 600 },
+      }),
+      fetch("https://finapi.upvaly.com/api/ipo?status=CLOSED", {
+        next: { revalidate: 600 },
+      })
+    ]);
 
-    if (!res.ok) {
-      throw new Error(`Upvaly API returned status ${res.status}`);
+    let apiIPOs: UpvalyIPO[] = [];
+
+    if (resActive.ok) {
+      const json = await resActive.json();
+      if (json.status === "success" && Array.isArray(json.data)) {
+        apiIPOs = apiIPOs.concat(json.data);
+      }
     }
 
-    const json = await res.json();
-    if (json.status !== "success" || !Array.isArray(json.data)) {
-      throw new Error("Invalid API response format");
+    if (resClosed.ok) {
+      const json = await resClosed.json();
+      if (json.status === "success" && Array.isArray(json.data)) {
+        apiIPOs = apiIPOs.concat(json.data);
+      }
     }
 
-    const apiIPOs: UpvalyIPO[] = json.data;
+    if (apiIPOs.length === 0) {
+      throw new Error("Failed to retrieve any data from active or closed endpoints");
+    }
 
     // Map raw API array to database schema and upsert them sequentially
     for (const item of apiIPOs) {
