@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   ArrowLeft, 
@@ -8,7 +8,6 @@ import {
   Eye, 
   Tag, 
 } from "lucide-react";
-import { MOCK_ARTICLES } from "@/data/mockArticles";
 import ArticleCardComparisonWidget from "@/components/articles/ArticleCardComparisonWidget";
 import PaymentAppCompareWidget from "@/components/articles/PaymentAppCompareWidget";
 import { use } from "react";
@@ -19,7 +18,34 @@ interface PageProps {
 
 export default function ArticleDetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
-  const article = MOCK_ARTICLES.find((a) => a.slug === resolvedParams.slug);
+  const [article, setArticle] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadArticle() {
+      try {
+        const res = await fetch(`/api/articles/${resolvedParams.slug}`);
+        const json = await res.json();
+        if (json.success) {
+          setArticle(json.data);
+        }
+      } catch (e) {
+        console.error("Failed to load article details:", e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadArticle();
+  }, [resolvedParams.slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen max-w-4xl mx-auto px-4 py-16 text-center space-y-4 font-sans bg-[#f8fafc] flex flex-col items-center justify-center">
+        <div className="w-8 h-8 rounded-full border-4 border-slate-350 border-t-blue-700 animate-spin"></div>
+        <p className="text-slate-500 text-xs font-semibold">Loading article details...</p>
+      </div>
+    );
+  }
 
   if (!article) {
     return (
@@ -136,7 +162,7 @@ export default function ArticleDetailPage({ params }: PageProps) {
           Tags &amp; Keywords:
         </div>
         <div className="flex flex-wrap items-center gap-1.5">
-          {article.tags.map((t, i) => (
+          {article.tags.map((t: string, i: number) => (
             <span key={i} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200/40">
               #{t}
             </span>

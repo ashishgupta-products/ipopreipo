@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BookOpen, Search, Clock, Eye, ChevronRight, Newspaper, ArrowRight } from "lucide-react";
-import { MOCK_ARTICLES } from "@/data/mockArticles";
 
 export default function PublicArticlesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [news, setNews] = useState<any[]>([]);
   const [newsLoading, setNewsLoading] = useState<boolean>(true);
+  const [articles, setArticles] = useState<any[]>([]);
+  const [isLoadingArticles, setIsLoadingArticles] = useState<boolean>(true);
 
   useEffect(() => {
     async function loadNews() {
@@ -25,7 +26,23 @@ export default function PublicArticlesPage() {
         setNewsLoading(false);
       }
     }
+    
+    async function loadArticles() {
+      try {
+        const res = await fetch("/api/articles");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setArticles(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load articles:", err);
+      } finally {
+        setIsLoadingArticles(false);
+      }
+    }
+
     loadNews();
+    loadArticles();
   }, []);
 
   const categories = [
@@ -38,12 +55,12 @@ export default function PublicArticlesPage() {
     "Regulatory & SEBI",
   ];
 
-  const publishedArticles = MOCK_ARTICLES.filter((a) => a.status === "Published");
+  const publishedArticles = articles;
 
   const filteredArticles = publishedArticles.filter((art) => {
     const matchesSearch =
       art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      art.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      art.tags.some((t: string) => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
       art.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesCategory = selectedCategory === "All" || art.category === selectedCategory;
@@ -244,92 +261,104 @@ export default function PublicArticlesPage() {
         </div>
       </div>
 
-      {/* Articles Desktop Grid */}
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filteredArticles.map((art) => (
-          <div
-            key={art.id}
-            className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md hover:border-slate-300/80 transition-all duration-300 flex flex-col justify-between space-y-4"
-          >
-            <div className="space-y-3">
-              {art.featuredImage && (
-                <div className="h-44 w-full rounded-xl overflow-hidden relative border border-slate-100/80">
-                  <img src={art.featuredImage} alt={art.title} className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300" />
-                  <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-900/90 text-white shadow-xs uppercase tracking-wider">
-                    {art.category}
-                  </span>
-                </div>
-              )}
-
-              <div className="flex items-center gap-3 text-[11px] text-slate-400 font-semibold">
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3 h-3" /> {art.readingTimeMins} min read
-                </span>
-                <span>•</span>
-                <span>{art.publishDate}</span>
-              </div>
-
-              <h3 className="font-bold text-base text-slate-800 hover:text-blue-700 leading-snug transition-colors">
-                <Link href={`/articles/${art.slug}`}>{art.title}</Link>
-              </h3>
-
-              <p className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">{art.excerpt}</p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                {art.tags.slice(0, 3).map((tag, i) => (
-                  <span key={i} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200/40">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
-              <span className="text-slate-400 font-bold">By {art.author.name}</span>
-              <Link
-                href={`/articles/${art.slug}`}
-                className="font-bold text-[#0c1220] hover:text-blue-700 flex items-center gap-1 transition-colors"
+      {isLoadingArticles ? (
+        <div className="py-12 text-center text-xs font-semibold text-slate-400 animate-pulse">
+          Loading articles library...
+        </div>
+      ) : filteredArticles.length === 0 ? (
+        <div className="py-12 text-center text-xs font-semibold text-slate-400">
+          No articles match your selection.
+        </div>
+      ) : (
+        <>
+          {/* Articles Desktop Grid */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filteredArticles.map((art) => (
+              <div
+                key={art.id}
+                className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-xs hover:shadow-md hover:border-slate-300/80 transition-all duration-300 flex flex-col justify-between space-y-4"
               >
-                Read Article <ChevronRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+                <div className="space-y-3">
+                  {art.featuredImage && (
+                    <div className="h-44 w-full rounded-xl overflow-hidden relative border border-slate-100/80">
+                      <img src={art.featuredImage} alt={art.title} className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300" />
+                      <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-900/90 text-white shadow-xs uppercase tracking-wider">
+                        {art.category}
+                      </span>
+                    </div>
+                  )}
 
-      {/* Mobile News Feed */}
-      <div className="md:hidden divide-y divide-slate-100 bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
-        {filteredArticles.map((art) => (
-          <Link
-            key={art.id}
-            href={`/articles/${art.slug}`}
-            className="p-4 flex gap-3.5 hover:bg-slate-50/50 transition-colors active:bg-slate-100"
-          >
-            <div className="flex-1 space-y-1.5 min-w-0">
-              <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
-                <span className="text-blue-750 font-extrabold uppercase tracking-wider">{art.category}</span>
-                <span>•</span>
-                <span>{art.publishDate}</span>
+                  <div className="flex items-center gap-3 text-[11px] text-slate-400 font-semibold">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> {art.readingTimeMins} min read
+                    </span>
+                    <span>•</span>
+                    <span>{art.publishDate}</span>
+                  </div>
+
+                  <h3 className="font-bold text-base text-slate-800 hover:text-blue-700 leading-snug transition-colors">
+                    <Link href={`/articles/${art.slug}`}>{art.title}</Link>
+                  </h3>
+
+                  <p className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">{art.excerpt}</p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                    {art.tags.slice(0, 3).map((tag: string, i: number) => (
+                      <span key={i} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200/40">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                  <span className="text-slate-400 font-bold">By {art.author.name}</span>
+                  <Link
+                    href={`/articles/${art.slug}`}
+                    className="font-bold text-[#0c1220] hover:text-blue-700 flex items-center gap-1 transition-colors"
+                  >
+                    Read Article <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-              <h3 className="font-extrabold text-sm text-slate-800 line-clamp-2 leading-snug">
-                {art.title}
-              </h3>
-              <p className="text-[11px] text-slate-500 line-clamp-1 leading-normal font-medium">{art.excerpt}</p>
-              <div className="flex items-center gap-2 text-[10px] text-slate-400 pt-0.5 font-semibold">
-                <span>By {art.author.name}</span>
-                <span>•</span>
-                <span>{art.readingTimeMins} min read</span>
-              </div>
-            </div>
-            {art.featuredImage && (
-              <div className="w-18 h-18 rounded-xl overflow-hidden shrink-0 border border-slate-150 shadow-3xs bg-slate-50">
-                <img src={art.featuredImage} alt={art.title} className="w-full h-full object-cover" />
-              </div>
-            )}
-          </Link>
-        ))}
-      </div>
+            ))}
+          </div>
+
+          {/* Mobile News Feed */}
+          <div className="md:hidden divide-y divide-slate-100 bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+            {filteredArticles.map((art) => (
+              <Link
+                key={art.id}
+                href={`/articles/${art.slug}`}
+                className="p-4 flex gap-3.5 hover:bg-slate-50/50 transition-colors active:bg-slate-100"
+              >
+                <div className="flex-1 space-y-1.5 min-w-0">
+                  <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
+                    <span className="text-blue-750 font-extrabold uppercase tracking-wider">{art.category}</span>
+                    <span>•</span>
+                    <span>{art.publishDate}</span>
+                  </div>
+                  <h3 className="font-extrabold text-sm text-slate-800 line-clamp-2 leading-snug">
+                    {art.title}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 line-clamp-1 leading-normal font-medium">{art.excerpt}</p>
+                  <div className="flex items-center gap-2 text-[10px] text-slate-400 pt-0.5 font-semibold">
+                    <span>By {art.author.name}</span>
+                    <span>•</span>
+                    <span>{art.readingTimeMins} min read</span>
+                  </div>
+                </div>
+                {art.featuredImage && (
+                  <div className="w-18 h-18 rounded-xl overflow-hidden shrink-0 border border-slate-150 shadow-3xs bg-slate-50">
+                    <img src={art.featuredImage} alt={art.title} className="w-full h-full object-cover" />
+                  </div>
+                )}
+              </Link>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

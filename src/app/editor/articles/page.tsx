@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   FileText,
@@ -18,16 +18,33 @@ import {
   Sparkles,
   ChevronDown
 } from "lucide-react";
-import { MOCK_ARTICLES } from "@/data/mockArticles";
 import { ArticlePost, ArticleCategory, ArticleStatus } from "@/types/editor";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 
 export default function ArticlesManagementPage() {
-  const [articles, setArticles] = useState<ArticlePost[]>(MOCK_ARTICLES);
+  const [articles, setArticles] = useState<ArticlePost[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeStatusTab, setActiveStatusTab] = useState<string>("All");
   const [successToast, setSuccessToast] = useState("");
+
+  useEffect(() => {
+    async function loadArticles() {
+      try {
+        const res = await fetch("/api/articles?all=true");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setArticles(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load editor articles:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadArticles();
+  }, []);
 
   const categories = ["All", "IPO News", "Research Report", "Market Analysis", "Pre-IPO Insights", "Buying Guide", "Regulatory & SEBI"];
   const statusTabs = ["All", "Published", "Draft", "In Review"];
@@ -41,20 +58,43 @@ export default function ArticlesManagementPage() {
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (confirm("Delete this article from database?")) {
-      setArticles((prev) => prev.filter((a) => a.id !== id));
-      setSuccessToast("Article deleted successfully.");
-      setTimeout(() => setSuccessToast(""), 3000);
+      try {
+        // Optimistic UI update
+        setArticles((prev) => prev.filter((a) => a.id !== id));
+        setSuccessToast("Article deleted successfully.");
+        setTimeout(() => setSuccessToast(""), 3000);
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
 
-  const handleStatusChange = (id: string, newStatus: ArticleStatus) => {
-    setArticles((prev) =>
-      prev.map((a) => (a.id === id ? { ...a, status: newStatus } : a))
-    );
-    setSuccessToast(`Article status updated to ${newStatus}`);
-    setTimeout(() => setSuccessToast(""), 3000);
+  const handleStatusChange = async (id: string, newStatus: ArticleStatus) => {
+    const articleToUpdate = articles.find((a) => a.id === id);
+    if (!articleToUpdate) return;
+
+    const updatedArticle = { ...articleToUpdate, status: newStatus };
+
+    try {
+      // Optimistic update
+      setArticles((prev) =>
+        prev.map((a) => (a.id === id ? updatedArticle : a))
+      );
+
+      // Save to database
+      await fetch("/api/articles", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedArticle),
+      });
+
+      setSuccessToast(`Article status updated to ${newStatus}`);
+      setTimeout(() => setSuccessToast(""), 3000);
+    } catch (err) {
+      console.error("Failed to update article status:", err);
+    }
   };
 
   return (

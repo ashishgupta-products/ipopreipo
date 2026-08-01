@@ -24,7 +24,6 @@ import {
 } from "lucide-react";
 import { MOCK_PRE_IPOS } from "@/data/mockPreIpo";
 import { MOCK_ANCHOR_LOCKINS } from "@/data/mockAnchorLockins";
-import { MOCK_ARTICLES } from "@/data/mockArticles";
 import { Badge } from "@/components/common/Badge";
 import { GMPCard } from "@/components/common/GMPCard";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
@@ -45,8 +44,10 @@ function HomeDashboardContent() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [news, setNews] = useState<any[]>([]);
   const [newsLoading, setNewsLoading] = useState<boolean>(true);
+  const [articles, setArticles] = useState<any[]>([]);
+  const [articlesLoading, setArticlesLoading] = useState<boolean>(true);
 
-  // Load news feed
+  // Load news feed & database articles
   useEffect(() => {
     async function loadNews() {
       try {
@@ -61,7 +62,23 @@ function HomeDashboardContent() {
         setNewsLoading(false);
       }
     }
+
+    async function loadArticles() {
+      try {
+        const res = await fetch("/api/articles");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setArticles(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load articles:", err);
+      } finally {
+        setArticlesLoading(false);
+      }
+    }
+
     loadNews();
+    loadArticles();
   }, []);
 
   // Load live IPOs
@@ -698,10 +715,19 @@ function HomeDashboardContent() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {MOCK_ARTICLES.slice(0, 3).map((article) => (
-            <div 
-              key={article.id} 
+        {articlesLoading ? (
+          <div className="col-span-3 py-8 text-center text-xs font-semibold text-slate-400 animate-pulse bg-white rounded-2xl border border-slate-200/60 shadow-2xs">
+            Loading latest research articles...
+          </div>
+        ) : articles.length === 0 ? (
+          <div className="col-span-3 py-8 text-center text-xs font-semibold text-slate-400 bg-white rounded-2xl border border-slate-200/60 shadow-2xs">
+            No research reports published yet.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 col-span-3 w-full">
+            {articles.slice(0, 3).map((article) => (
+              <div 
+                key={article.id} 
               className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs flex flex-col justify-between space-y-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group"
             >
               <div className="space-y-3">
@@ -730,6 +756,7 @@ function HomeDashboardContent() {
             </div>
           ))}
         </div>
+      )}
       </section>
 
       {/* Anchor Lock-In Section */}

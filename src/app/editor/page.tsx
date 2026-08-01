@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   FileText,
@@ -25,14 +25,31 @@ import {
   Quote,
   AlertCircle
 } from "lucide-react";
-import { MOCK_ARTICLES } from "@/data/mockArticles";
 import { ArticlePost, ArticleCategory } from "@/types/editor";
 
 export default function EditorDashboardPage() {
-  const [articles, setArticles] = useState<ArticlePost[]>(MOCK_ARTICLES);
+  const [articles, setArticles] = useState<ArticlePost[]>([]);
+  const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [showComposer, setShowComposer] = useState(false);
   const [successToast, setSuccessToast] = useState("");
+
+  useEffect(() => {
+    async function loadArticles() {
+      try {
+        const res = await fetch("/api/articles?all=true");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setArticles(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load admin dashboard articles:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadArticles();
+  }, []);
 
   // Form State for Quick Article
   const [title, setTitle] = useState("");
@@ -95,6 +112,17 @@ export default function EditorDashboardPage() {
       isBreaking
     };
 
+    // Save to database
+    try {
+      fetch("/api/articles", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newArticle),
+      });
+    } catch (e) {
+      console.error("Failed to save new article to database:", e);
+    }
+
     setArticles([newArticle, ...articles]);
     setShowComposer(false);
     setSuccessToast(
@@ -113,10 +141,24 @@ export default function EditorDashboardPage() {
     }
   };
 
-  const toggleBreaking = (id: string) => {
+  const toggleBreaking = async (id: string) => {
+    const article = articles.find((a) => a.id === id);
+    if (!article) return;
+    const updated = { ...article, isBreaking: !article.isBreaking };
+
     setArticles((prev) =>
-      prev.map((a) => (a.id === id ? { ...a, isBreaking: !a.isBreaking } : a))
+      prev.map((a) => (a.id === id ? updated : a))
     );
+
+    try {
+      await fetch("/api/articles", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updated),
+      });
+    } catch (e) {
+      console.error("Failed to update breaking status:", e);
+    }
   };
 
   return (

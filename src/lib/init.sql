@@ -49,3 +49,27 @@ CREATE TABLE IF NOT EXISTS ipos (
 CREATE INDEX IF NOT EXISTS idx_ipos_slug ON ipos(slug);
 CREATE INDEX IF NOT EXISTS idx_ipos_category ON ipos(category);
 CREATE INDEX IF NOT EXISTS idx_ipos_status ON ipos(status);
+
+CREATE TABLE IF NOT EXISTS articles (
+    id VARCHAR(100) PRIMARY KEY,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    excerpt TEXT NOT NULL,
+    content TEXT NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    tags TEXT[] NOT NULL DEFAULT '{}',
+    published_date VARCHAR(100),
+    reading_time_mins INT NOT NULL DEFAULT 5,
+    views INT NOT NULL DEFAULT 0,
+    status VARCHAR(50) NOT NULL DEFAULT 'Draft',
+    is_featured BOOLEAN NOT NULL DEFAULT FALSE,
+    featured_image VARCHAR(1000),
+    author_name VARCHAR(100) NOT NULL,
+    author_role VARCHAR(100) NOT NULL,
+    author_avatar VARCHAR(1000),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_articles_slug ON articles(slug);
+CREATE INDEX IF NOT EXISTS idx_articles_status ON articles(status);
