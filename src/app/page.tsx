@@ -19,7 +19,8 @@ import {
   BookOpen,
   Calendar,
   Clock,
-  Star
+  Star,
+  Newspaper
 } from "lucide-react";
 import { MOCK_PRE_IPOS } from "@/data/mockPreIpo";
 import { MOCK_ANCHOR_LOCKINS } from "@/data/mockAnchorLockins";
@@ -42,6 +43,26 @@ function HomeDashboardContent() {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [ipos, setIpos] = useState<IPOData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [news, setNews] = useState<any[]>([]);
+  const [newsLoading, setNewsLoading] = useState<boolean>(true);
+
+  // Load news feed
+  useEffect(() => {
+    async function loadNews() {
+      try {
+        const res = await fetch("/api/news");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setNews(json.data);
+        }
+      } catch (err) {
+        console.error("Failed to load news feed:", err);
+      } finally {
+        setNewsLoading(false);
+      }
+    }
+    loadNews();
+  }, []);
 
   // Load live IPOs
   useEffect(() => {
@@ -465,6 +486,69 @@ function HomeDashboardContent() {
           );
         })}
       </div>
+
+      {/* Live Market & IPO News Section */}
+      <section className="pt-2">
+        <div className="p-6 rounded-2xl bg-white border border-slate-200/60 shadow-2xs space-y-5">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-700">
+                <Newspaper className="w-4 h-4" />
+              </div>
+              <div>
+                <h2 className="font-extrabold text-base sm:text-lg text-slate-900 tracking-tight flex items-center gap-1.5">
+                  Live Market &amp; IPO News
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                </h2>
+                <p className="text-[10px] sm:text-xs text-slate-500">
+                  Real-time market insights and financial updates sourced directly from ET Now.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {newsLoading ? (
+            <div className="py-8 text-center text-xs font-semibold text-slate-400 animate-pulse">
+              Loading latest news headlines...
+            </div>
+          ) : news.length === 0 ? (
+            <div className="py-8 text-center text-xs font-semibold text-slate-400">
+              No recent news articles available.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {news.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all duration-300 flex flex-col justify-between space-y-2 cursor-pointer"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold">
+                      <span className="text-blue-700 font-bold uppercase tracking-wider text-[9px]">Market Update</span>
+                      <span>{item.pubDate ? new Date(item.pubDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : ""}</span>
+                    </div>
+                    <h3 className="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-blue-700 transition-colors line-clamp-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="text-[10px] font-bold text-blue-700 flex items-center gap-1.5 pt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Read Article <ArrowRight className="w-3 h-3" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Pre-IPO Teaser Section */}
       <section className="pt-1">
