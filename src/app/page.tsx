@@ -195,8 +195,8 @@ function HomeDashboardContent() {
                 <th className="py-3 px-3">Segment</th>
                 <th className="py-3 px-3">Price Band</th>
                 <th className="py-3 px-3">Min Lot</th>
-                <th className="py-3 px-3">Subscription</th>
-                <th className="py-3 px-3">Live GMP</th>
+                <th className="py-3 px-3">{selectedTab === "listed" ? "Listed Price" : "Subscription"}</th>
+                <th className="py-3 px-3">{selectedTab === "listed" ? "Listing Gain" : "Live GMP"}</th>
                 <th className="py-3 px-3">Bidding Dates</th>
                 <th className="py-3 px-3 text-right">Action</th>
               </tr>
@@ -231,12 +231,16 @@ function HomeDashboardContent() {
                     <span className="text-[10px] text-slate-400 block mt-0.5 font-semibold">{ipo.lotSize} shares</span>
                   </td>
 
-                  <td className="py-3.5 px-3 font-extrabold text-blue-700">
-                    {ipo.totalSubscription}x
+                   <td className={`py-3.5 px-3 font-extrabold ${ipo.status === "listed" || ipo.status === "closed" ? "text-slate-800" : "text-blue-700"}`}>
+                    {ipo.status === "listed" || ipo.status === "closed" ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
                   </td>
 
                   <td className="py-3.5 px-3 font-extrabold text-emerald-600">
-                    +₹{ipo.gmp} (+{ipo.gmpPercent.toFixed(1)}%)
+                    {ipo.status === "listed" || ipo.status === "closed" ? (
+                      `+${(ipo.listingGainPercent !== undefined ? ipo.listingGainPercent : ipo.gmpPercent).toFixed(1)}%`
+                    ) : (
+                      ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"
+                    )}
                   </td>
 
                   <td className="py-3.5 px-3 text-slate-400 text-xs font-semibold">
@@ -367,19 +371,35 @@ function HomeDashboardContent() {
 
                 {/* Row 3 */}
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Live Sub</span>
-                  <strong className="text-blue-700 font-extrabold text-xs block truncate">{ipo.totalSubscription}x</strong>
-                </div>
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">GMP Rate</span>
-                  <strong className="text-emerald-700 font-extrabold text-xs block truncate">
-                    {ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"}
+                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">
+                    {ipo.status === "listed" || ipo.status === "closed" ? "Listed At" : "Live Sub"}
+                  </span>
+                  <strong className={`${ipo.status === "listed" || ipo.status === "closed" ? "text-slate-800" : "text-blue-700"} font-extrabold text-xs block truncate`}>
+                    {ipo.status === "listed" || ipo.status === "closed" ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
                   </strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">Est. Profit</span>
+                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">
+                    {ipo.status === "listed" || ipo.status === "closed" ? "Listing Gain" : "GMP Rate"}
+                  </span>
                   <strong className="text-emerald-700 font-extrabold text-xs block truncate">
-                    {ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"}
+                    {ipo.status === "listed" || ipo.status === "closed" ? (
+                      `+${(ipo.listingGainPercent !== undefined ? ipo.listingGainPercent : ipo.gmpPercent).toFixed(1)}%`
+                    ) : (
+                      ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"
+                    )}
+                  </strong>
+                </div>
+                <div className="border-t border-slate-200/60 pt-2">
+                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">
+                    {ipo.status === "listed" || ipo.status === "closed" ? "Listed Profit" : "Est. Profit"}
+                  </span>
+                  <strong className="text-emerald-700 font-extrabold text-xs block truncate">
+                    {ipo.status === "listed" || ipo.status === "closed" ? (
+                      `₹${(( (ipo.listingPrice || ipo.expectedListingPrice) - ipo.priceBandMax ) * ipo.lotSize).toLocaleString("en-IN")}`
+                    ) : (
+                      ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"
+                    )}
                   </strong>
                 </div>
               </div>
