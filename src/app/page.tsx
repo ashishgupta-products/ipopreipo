@@ -102,20 +102,34 @@ function HomeDashboardContent() {
     router.push(queryString ? `/?${queryString}` : "/");
   };
 
+  const todayStr = new Date().toISOString().split("T")[0];
+
+  const isAlreadyListed = (ipo: any) => {
+    if (ipo.status === "listed") return true;
+    if (ipo.status === "closed" && ipo.listingDate && ipo.listingDate <= todayStr) return true;
+    return false;
+  };
+
+  const isUpcoming = (ipo: any) => {
+    if (ipo.status === "upcoming") return true;
+    if (ipo.status === "closed" && (!ipo.listingDate || ipo.listingDate > todayStr)) return true;
+    return false;
+  };
+
   // Filtering Logic
   const filteredIpos = ipos.filter((ipo) => {
     if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
     if (categoryFilter === "sme" && ipo.category !== "sme") return false;
 
     if (selectedTab === "live" && ipo.status !== "live") return false;
-    if (selectedTab === "upcoming" && ipo.status !== "upcoming") return false;
-    if (selectedTab === "listed" && ipo.status !== "listed" && ipo.status !== "closed") return false;
+    if (selectedTab === "upcoming" && !isUpcoming(ipo)) return false;
+    if (selectedTab === "listed" && !isAlreadyListed(ipo)) return false;
 
     return true;
   });
 
   const liveCount = ipos.filter((i) => i.status === "live").length;
-  const upcomingCount = ipos.filter((i) => i.status === "upcoming").length;
+  const upcomingCount = ipos.filter(isUpcoming).length;
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-6 font-sans bg-[#f8fafc] pb-16">
@@ -231,12 +245,12 @@ function HomeDashboardContent() {
                     <span className="text-[10px] text-slate-400 block mt-0.5 font-semibold">{ipo.lotSize} shares</span>
                   </td>
 
-                   <td className={`py-3.5 px-3 font-extrabold ${ipo.status === "listed" || ipo.status === "closed" ? "text-slate-800" : "text-blue-700"}`}>
-                    {ipo.status === "listed" || ipo.status === "closed" ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
+                   <td className={`py-3.5 px-3 font-extrabold ${isAlreadyListed(ipo) ? "text-slate-800" : "text-blue-700"}`}>
+                    {isAlreadyListed(ipo) ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
                   </td>
 
                   <td className="py-3.5 px-3 font-extrabold text-emerald-600">
-                    {ipo.status === "listed" || ipo.status === "closed" ? (
+                    {isAlreadyListed(ipo) ? (
                       `+${(ipo.listingGainPercent !== undefined ? ipo.listingGainPercent : ipo.gmpPercent).toFixed(1)}%`
                     ) : (
                       ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"
@@ -372,18 +386,18 @@ function HomeDashboardContent() {
                 {/* Row 3 */}
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">
-                    {ipo.status === "listed" || ipo.status === "closed" ? "Listed At" : "Live Sub"}
+                    {isAlreadyListed(ipo) ? "Listed At" : "Live Sub"}
                   </span>
-                  <strong className={`${ipo.status === "listed" || ipo.status === "closed" ? "text-slate-800" : "text-blue-700"} font-extrabold text-xs block truncate`}>
-                    {ipo.status === "listed" || ipo.status === "closed" ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
+                  <strong className={`${isAlreadyListed(ipo) ? "text-slate-800" : "text-blue-700"} font-extrabold text-xs block truncate`}>
+                    {isAlreadyListed(ipo) ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
                   </strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">
-                    {ipo.status === "listed" || ipo.status === "closed" ? "Listing Gain" : "GMP Rate"}
+                    {isAlreadyListed(ipo) ? "Listing Gain" : "GMP Rate"}
                   </span>
                   <strong className="text-emerald-700 font-extrabold text-xs block truncate">
-                    {ipo.status === "listed" || ipo.status === "closed" ? (
+                    {isAlreadyListed(ipo) ? (
                       `+${(ipo.listingGainPercent !== undefined ? ipo.listingGainPercent : ipo.gmpPercent).toFixed(1)}%`
                     ) : (
                       ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"
@@ -392,10 +406,10 @@ function HomeDashboardContent() {
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
                   <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">
-                    {ipo.status === "listed" || ipo.status === "closed" ? "Listed Profit" : "Est. Profit"}
+                    {isAlreadyListed(ipo) ? "Listed Profit" : "Est. Profit"}
                   </span>
                   <strong className="text-emerald-700 font-extrabold text-xs block truncate">
-                    {ipo.status === "listed" || ipo.status === "closed" ? (
+                    {isAlreadyListed(ipo) ? (
                       `₹${(( (ipo.listingPrice || ipo.expectedListingPrice) - ipo.priceBandMax ) * ipo.lotSize).toLocaleString("en-IN")}`
                     ) : (
                       ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"
