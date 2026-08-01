@@ -41,37 +41,7 @@ async function main() {
     }
     console.log("Success: Database initialized successfully!");
 
-    console.log("Seeding initial articles data...");
-    for (const art of MOCK_ARTICLES) {
-      await sql.query(
-        `INSERT INTO articles (
-          id, slug, title, excerpt, content, category, tags, published_date,
-          reading_time_mins, views, status, is_featured, featured_image,
-          author_name, author_role, author_avatar
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
-        ON CONFLICT (id) DO UPDATE SET
-          slug = EXCLUDED.slug,
-          title = EXCLUDED.title,
-          excerpt = EXCLUDED.excerpt,
-          content = EXCLUDED.content,
-          category = EXCLUDED.category,
-          tags = EXCLUDED.tags,
-          published_date = EXCLUDED.published_date,
-          reading_time_mins = EXCLUDED.reading_time_mins,
-          status = EXCLUDED.status,
-          is_featured = EXCLUDED.is_featured,
-          featured_image = EXCLUDED.featured_image,
-          author_name = EXCLUDED.author_name,
-          author_role = EXCLUDED.author_role,
-          author_avatar = EXCLUDED.author_avatar`,
-        [
-          art.id, art.slug, art.title, art.excerpt, art.content, art.category,
-          art.tags, art.publishDate, art.readingTimeMins, art.views, art.status,
-          !!art.isFeatured, art.featuredImage || null, art.author.name, art.author.role, art.author.avatarUrl || null
-        ]
-      );
-    }
-    console.log("Success: Articles seeded successfully!");
+    // Seeding skipped to avoid mock data
   } catch (error) {
     console.error("Database initialization failed:", error);
     process.exit(1);
