@@ -349,29 +349,33 @@ function HomeDashboardContent() {
 
           return (
             <div
-            key={ipo.id}
-            className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4"
-          >
-            <div className="space-y-3.5">
-              {/* Logo & Title Row */}
-              <div className="flex items-center gap-3.5">
-                <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="lg" className="rounded-lg shadow-2xs" />
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
-                    <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
-                  </h3>
-                  <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
-                    <Badge status={ipo.status} />
-                    <Badge category={ipo.category} />
-                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
-                      Open: {formatDate(ipo.openDate)}
-                    </span>
-                    <span className="bg-rose-50 text-rose-700 border border-rose-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
-                      Close: {formatDate(ipo.closeDate)}
-                    </span>
+              key={ipo.id}
+              className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3.5">
+                {/* Top Row: Category (Left) & Status (Right) */}
+                <div className="flex items-center justify-between">
+                  <Badge category={ipo.category} />
+                  <Badge status={ipo.status} />
+                </div>
+
+                {/* Logo & Title Row */}
+                <div className="flex items-center gap-3.5">
+                  <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="lg" className="rounded-lg shadow-2xs" />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
+                      <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                      <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
+                        Open: {formatDate(ipo.openDate)}
+                      </span>
+                      <span className="bg-rose-50 text-rose-700 border border-rose-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
+                        Close: {formatDate(ipo.closeDate)}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
               {/* Stars & Review Status (Left, Center, Right aligned) */}
               <div className="flex items-center justify-between gap-2 pt-0.5 w-full">
