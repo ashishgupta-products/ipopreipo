@@ -481,44 +481,49 @@ function HomeDashboardContent() {
                 </div>
               </div>
 
-            {/* Action Buttons */}
-            <div className={`pt-3.5 border-t border-slate-100 grid ${
-              selectedTab === "upcoming" ? "grid-cols-1" : (isAlreadyListed(ipo) ? "grid-cols-2" : "grid-cols-3")
-            } gap-2`}>
-              <Link
-                href={`/ipo/${ipo.slug}`}
-                className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center font-semibold"
-              >
-                Full Details
-              </Link>
-              {!isAlreadyListed(ipo) && selectedTab !== "upcoming" && (
-                <Link
-                  href={`/ipo/${ipo.slug}#subscription`}
-                  className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
-                >
-                  Subscription
-                </Link>
-              )}
-              {isAlreadyListed(ipo) ? (
-                <a
-                  href={`https://www.google.com/search?q=${encodeURIComponent(ipo.name + " share price")}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="py-2.5 px-1 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center font-semibold"
-                >
-                  Watch Live
-                </a>
-              ) : (
-                selectedTab !== "upcoming" && (
-                  <Link
-                    href={`/ipo/${ipo.slug}#allotment`}
-                    className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
-                  >
-                    Check Allotment
-                  </Link>
-                )
-              )}
-            </div>
+             {/* Action Buttons */}
+             <div className={`pt-3.5 border-t border-slate-100 grid ${
+               selectedTab === "upcoming" 
+                 ? "grid-cols-1" 
+                 : isAlreadyListed(ipo) 
+                   ? "grid-cols-2" 
+                   : ipo.status === "closed" 
+                     ? "grid-cols-3" 
+                     : "grid-cols-2"
+             } gap-2`}>
+               <Link
+                 href={`/ipo/${ipo.slug}`}
+                 className="py-2.5 px-1 rounded-xl bg-[#0c1220] hover:bg-slate-800 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center font-semibold"
+               >
+                 Full Details
+               </Link>
+               {!isAlreadyListed(ipo) && selectedTab !== "upcoming" && (
+                 <Link
+                   href={`/ipo/${ipo.slug}#subscription`}
+                   className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
+                 >
+                   Subscription
+                 </Link>
+               )}
+               {isAlreadyListed(ipo) && (
+                 <a
+                   href={`https://www.google.com/search?q=${encodeURIComponent(ipo.name + " share price")}`}
+                   target="_blank"
+                   rel="noreferrer"
+                   className="py-2.5 px-1 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center font-semibold"
+                 >
+                   Watch Live
+                 </a>
+               )}
+               {!isAlreadyListed(ipo) && selectedTab !== "upcoming" && ipo.status === "closed" && (
+                 <Link
+                   href={`/ipo/${ipo.slug}#allotment`}
+                   className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
+                 >
+                   Check Allotment
+                 </Link>
+               )}
+             </div>
           </div>
         );
       })}
