@@ -356,7 +356,13 @@ function HomeDashboardContent() {
                 {/* Top Row: Category (Left) & Status (Right) */}
                 <div className="flex items-center justify-between">
                   <Badge category={ipo.category} />
-                  <Badge status={ipo.status} />
+                  <Badge 
+                    status={ipo.status} 
+                    openDate={ipo.openDate} 
+                    closeDate={ipo.closeDate} 
+                    allotmentDate={ipo.allotmentDate} 
+                    listingDate={ipo.listingDate} 
+                  />
                 </div>
 
                 {/* Logo & Title Row */}

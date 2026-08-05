@@ -7,6 +7,10 @@ interface BadgeProps {
   category?: IPOCategory;
   customText?: string;
   className?: string;
+  openDate?: string;
+  closeDate?: string;
+  allotmentDate?: string;
+  listingDate?: string;
 }
 
 export const Badge: React.FC<BadgeProps> = ({
@@ -14,7 +18,11 @@ export const Badge: React.FC<BadgeProps> = ({
   status,
   category,
   customText,
-  className = ""
+  className = "",
+  openDate,
+  closeDate,
+  allotmentDate,
+  listingDate
 }) => {
   if (type === "category" || category) {
     const isSme = category === "sme";
@@ -37,7 +45,30 @@ export const Badge: React.FC<BadgeProps> = ({
   }
 
   if (type === "status" || status) {
-    switch (status) {
+    let displayStatus = status || "closed";
+    const todayStr = new Date().toISOString().split("T")[0];
+
+    if (openDate && closeDate) {
+      if (listingDate && listingDate === todayStr) {
+        displayStatus = "listing_today" as any;
+      } else if (listingDate && listingDate < todayStr) {
+        displayStatus = "listed";
+      } else if (allotmentDate && allotmentDate <= todayStr) {
+        displayStatus = "allotted" as any;
+      } else if (closeDate < todayStr) {
+        displayStatus = "awaiting_allotment" as any;
+      } else if (openDate <= todayStr && todayStr <= closeDate) {
+        displayStatus = "live";
+      } else if (openDate > todayStr) {
+        displayStatus = "upcoming";
+      }
+    } else {
+      if (status === "allotment_out") {
+        displayStatus = "allotted" as any;
+      }
+    }
+
+    switch (displayStatus as any) {
       case "live":
         return (
           <span
@@ -55,12 +86,30 @@ export const Badge: React.FC<BadgeProps> = ({
             UPCOMING
           </span>
         );
+      case "awaiting_allotment":
+        return (
+          <span
+            className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-medium bg-amber-50 text-amber-700 border border-amber-200 ${className}`}
+          >
+            AWAITING ALLOTMENT
+          </span>
+        );
+      case "allotted":
       case "allotment_out":
         return (
           <span
             className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-medium bg-purple-50 text-purple-700 border border-purple-200 ${className}`}
           >
-            ALLOTMENT OUT
+            ALLOTTED
+          </span>
+        );
+      case "listing_today":
+        return (
+          <span
+            className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 ${className}`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-ping" />
+            LISTING TODAY
           </span>
         );
       case "listed":
