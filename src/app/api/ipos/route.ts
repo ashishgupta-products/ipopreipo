@@ -12,4 +12,4 @@ export async function GET() {
     );
   }
 }
-export const revalidate = 7200; // Cache on Vercel/Next for 2 hours
+export const dynamic = "force-dynamic";
