@@ -176,6 +176,9 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
 
     // Map raw API array to database schema and upsert them sequentially
     for (const item of apiIPOs) {
+      if (item.type && item.type.toLowerCase() === "sse") {
+        continue;
+      }
       const id = `api-${item.symbol}`;
       let slug = slugify(item.name);
       
