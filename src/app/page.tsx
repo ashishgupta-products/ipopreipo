@@ -159,16 +159,27 @@ function HomeDashboardContent() {
   };
 
   // Filtering Logic
-  const filteredIpos = ipos.filter((ipo) => {
-    if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
-    if (categoryFilter === "sme" && ipo.category !== "sme") return false;
+  const filteredIpos = ipos
+    .filter((ipo) => {
+      if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
+      if (categoryFilter === "sme" && ipo.category !== "sme") return false;
 
-    if (selectedTab === "live" && !isOngoingOrLive(ipo)) return false;
-    if (selectedTab === "upcoming" && !isUpcoming(ipo)) return false;
-    if (selectedTab === "listed" && !isAlreadyListed(ipo)) return false;
+      if (selectedTab === "live" && !isOngoingOrLive(ipo)) return false;
+      if (selectedTab === "upcoming" && !isUpcoming(ipo)) return false;
+      if (selectedTab === "listed" && !isAlreadyListed(ipo)) return false;
 
-    return true;
-  });
+      return true;
+    })
+    .sort((a, b) => {
+      if (selectedTab === "live") {
+        const dateA = a.listingDate || "";
+        const dateB = b.listingDate || "";
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+        return dateA.localeCompare(dateB);
+      }
+      return 0;
+    });
 
   const liveCount = ipos.filter(isOngoingOrLive).length;
   const upcomingCount = ipos.filter(isUpcoming).length;
