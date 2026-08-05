@@ -350,10 +350,10 @@ function HomeDashboardContent() {
                   <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
                     <Badge status={ipo.status} />
                     <Badge category={ipo.category} />
-                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
                       Open: {formatDate(ipo.openDate)}
                     </span>
-                    <span className="bg-rose-50 text-rose-700 border border-rose-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
+                    <span className="bg-rose-50 text-rose-700 border border-rose-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
                       Close: {formatDate(ipo.closeDate)}
                     </span>
                   </div>
