@@ -144,13 +144,13 @@ function HomeDashboardContent() {
 
   const isAlreadyListed = (ipo: any) => {
     if (ipo.status === "listed") return true;
-    if (ipo.status === "closed" && ipo.listingDate && ipo.listingDate <= todayStr) return true;
+    if (ipo.status === "closed" && ipo.listingDate && ipo.listingDate < todayStr) return true;
     return false;
   };
 
   const isOngoingOrLive = (ipo: any) => {
     if (ipo.status === "live") return true;
-    if (ipo.status === "closed" && (!ipo.listingDate || ipo.listingDate > todayStr)) return true;
+    if (ipo.status === "closed" && (!ipo.listingDate || ipo.listingDate >= todayStr)) return true;
     return false;
   };
 
