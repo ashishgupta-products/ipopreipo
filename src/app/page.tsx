@@ -324,14 +324,14 @@ function HomeDashboardContent() {
         className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in`}
       >
         {filteredIpos.map((ipo) => {
-          let recBadge = { text: "Neutral", bg: "bg-amber-50 text-amber-700 border-amber-250/60" };
           const rec = ipo.recommendation || "Neutral";
+          let recBadge = { text: rec, bg: "bg-amber-50 text-amber-700 border-amber-250/60" };
           if (rec === "Avoid") {
-            recBadge = { text: "Avoid", bg: "bg-rose-50 text-rose-700 border-rose-250/60" };
-          } else if (rec.startsWith("Apply")) {
-            recBadge = { text: "Apply", bg: "bg-emerald-50 text-emerald-700 border-emerald-250/60" };
+            recBadge.bg = "bg-rose-50 text-rose-700 border-rose-250/60";
+          } else if (rec.startsWith("Apply") || rec.toLowerCase().includes("apply")) {
+            recBadge.bg = "bg-emerald-50 text-emerald-700 border-emerald-250/60";
           } else if (rec === "Neutral" || rec === "May Apply") {
-            recBadge = { text: "May Apply", bg: "bg-amber-50 text-amber-800 border-amber-250/60" };
+            recBadge.bg = "bg-amber-50 text-amber-800 border-amber-250/60";
           }
 
           return (
@@ -358,13 +358,22 @@ function HomeDashboardContent() {
                 </div>
               </div>
 
-              {/* Stars & Review Status (Occupying full horizontal width!) */}
-              <div className="space-y-2 pt-0.5">
-                <div className="flex items-center gap-1.5">
-                  {[...Array(10)].map((_, i) => {
-                    const rating10 = ipo.rating * 2;
-                    const isFilled = i < Math.floor(rating10);
-                    const isHalf = !isFilled && (i < rating10);
+              {/* Stars & Review Status (Left, Center, Right aligned) */}
+              <div className="flex items-center justify-between gap-2 pt-0.5 w-full">
+                {/* Left: Review + Score */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <span className="opacity-80 font-extrabold uppercase tracking-wider text-[9px] text-slate-400">Review</span>
+                  <span className="text-slate-700 font-extrabold text-xs whitespace-nowrap">
+                    {ipo.rating.toFixed(1)}/5
+                  </span>
+                </div>
+                
+                {/* Center: Stars */}
+                <div className="flex items-center gap-0.5 justify-center flex-1">
+                  {[...Array(5)].map((_, i) => {
+                    const rating = ipo.rating;
+                    const isFilled = i < Math.floor(rating);
+                    const isHalf = !isFilled && (i < rating);
                     return (
                       <Star
                         key={i}
@@ -379,15 +388,14 @@ function HomeDashboardContent() {
                       />
                     );
                   })}
-                  <span className="ml-1.5 text-slate-400 font-extrabold text-xs">
-                    {(ipo.rating * 2).toFixed(1)}/10
-                  </span>
                 </div>
-                <div className={`px-3.5 py-2.5 rounded-xl border ${recBadge.bg} flex items-center justify-between text-xs font-bold w-full shadow-3xs`}>
-                  <span className="opacity-85 font-extrabold uppercase tracking-wider text-[9px]">Review</span>
-                  <span className="font-extrabold tracking-wide uppercase text-[10px]">{recBadge.text}</span>
+
+                {/* Right: Recommendation Badge */}
+                <div className={`px-2 py-0.5 rounded-md border ${recBadge.bg} text-[10px] font-extrabold uppercase tracking-wider shadow-3xs shrink-0 whitespace-nowrap`}>
+                  {recBadge.text}
                 </div>
               </div>
+            </div>
 
               {/* Metrics Table */}
               <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 py-3 border-t border-b border-slate-100 text-xs">
@@ -459,7 +467,6 @@ function HomeDashboardContent() {
                   </strong>
                 </div>
               </div>
-            </div>
 
             {/* Action Buttons */}
             <div className={`pt-3.5 border-t border-slate-100 grid ${
@@ -500,72 +507,9 @@ function HomeDashboardContent() {
               )}
             </div>
           </div>
-          );
-        })}
+        );
+      })}
       </div>
-
-      {/* Live Market & IPO News Section */}
-      <section className="pt-2">
-        <div className="p-6 rounded-2xl bg-white border border-slate-200/60 shadow-2xs space-y-5">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-700">
-                <Newspaper className="w-4 h-4" />
-              </div>
-              <div>
-                <h2 className="font-extrabold text-base sm:text-lg text-slate-900 tracking-tight flex items-center gap-1.5">
-                  Live Market &amp; IPO News
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                </h2>
-                <p className="text-[10px] sm:text-xs text-slate-500">
-                  Real-time market insights and financial updates sourced directly from ET Now.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {newsLoading ? (
-            <div className="py-8 text-center text-xs font-semibold text-slate-400 animate-pulse">
-              Loading latest news headlines...
-            </div>
-          ) : news.length === 0 ? (
-            <div className="py-8 text-center text-xs font-semibold text-slate-400">
-              No recent news articles available.
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {news.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all duration-300 flex flex-col justify-between space-y-2 cursor-pointer"
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold">
-                      <span className="text-blue-700 font-bold uppercase tracking-wider text-[9px]">Market Update</span>
-                      <span>{item.pubDate ? new Date(item.pubDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : ""}</span>
-                    </div>
-                    <h3 className="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-blue-700 transition-colors line-clamp-2 leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                  <div className="text-[10px] font-bold text-blue-700 flex items-center gap-1.5 pt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Read Article <ArrowRight className="w-3 h-3" />
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
 
       {/* Pre-IPO Teaser Section */}
       <section className="pt-1">

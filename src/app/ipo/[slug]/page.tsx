@@ -33,113 +33,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-const parseShares = (sharesStr: string | undefined): number => {
-  if (!sharesStr) return 0;
-  const cleaned = sharesStr.replace(/[^0-9]/g, "");
-  return parseInt(cleaned, 10) || 0;
-};
 
-const getApplicationBreakup = (ipo: any) => {
-  const retailReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("retail"));
-  const niiReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("nii") || r.category.toLowerCase().includes("hni"));
-  const employeeReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("employee"));
-  
-  const retailShares = parseShares(retailReservation?.sharesOffered) || (ipo.issueSizeTotalCr * 10000000 * 0.35) / ipo.priceBandMax;
-  const niiShares = parseShares(niiReservation?.sharesOffered) || (ipo.issueSizeTotalCr * 10000000 * 0.15) / ipo.priceBandMax;
-  const employeeShares = parseShares(employeeReservation?.sharesOffered) || 0;
-
-  const retailLots = Math.floor(retailShares / ipo.lotSize);
-  const employeeLots = Math.floor(employeeShares / ipo.lotSize);
-  
-  const shniMin = ipo.lotSizes?.find((l: any) => l.applicationCategory.toLowerCase().includes("s-hni") && l.applicationCategory.toLowerCase().includes("min")) || { lots: 15 };
-  const bhniMin = ipo.lotSizes?.find((l: any) => l.applicationCategory.toLowerCase().includes("b-hni") && l.applicationCategory.toLowerCase().includes("min")) || { lots: 71 };
-  
-  const shniLots = Math.floor((niiShares * 0.33) / (shniMin.lots * ipo.lotSize));
-  const bhniLots = Math.floor((niiShares * 0.67) / (bhniMin.lots * ipo.lotSize));
-
-  const retailSubscription = ipo.retailSubscription || 0;
-  const shniSubscription = ipo.sNiiSubscription || ipo.niiSubscription || 0;
-  const bhniSubscription = ipo.bNiiSubscription || ipo.niiSubscription || 0;
-  const employeeSubscription = ipo.employeeSubscription || 0;
-
-  const retailApps = Math.floor(retailLots * retailSubscription);
-  const shniApps = Math.floor(shniLots * shniSubscription);
-  const bhniApps = Math.floor(bhniLots * bhniSubscription);
-  const employeeApps = Math.floor(employeeLots * employeeSubscription);
-
-  const totalApps = retailApps + shniApps + bhniApps + employeeApps;
-  const avgSubscription = ipo.totalSubscription || 0;
-
-  const list = [
-    { category: "Retail", applications: retailApps, subscription: retailSubscription, detail: "1 Lot per App" },
-    { category: "Employees", applications: employeeApps, subscription: employeeSubscription, detail: "1 Lot per App" },
-    { category: "HNI 10L+", applications: bhniApps, subscription: bhniSubscription, detail: `${bhniMin.lots} Lots` },
-    { category: "HNI 2-10L", applications: shniApps, subscription: shniSubscription, detail: `${shniMin.lots} Lots` }
-  ];
-
-  return {
-    list,
-    total: { category: "Total", applications: totalApps, subscription: avgSubscription }
-  };
-};
-
-const getSubscriptionDemand = (ipo: any) => {
-  const qibReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("qib"));
-  const retailReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("retail"));
-  const niiReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("nii") || r.category.toLowerCase().includes("hni"));
-  const employeeReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("employee"));
-  const shareholderReservation = ipo.reservations?.find((r: any) => r.category.toLowerCase().includes("shareholder"));
-
-  const parseCr = (str: string | undefined): number => {
-    if (!str) return 0;
-    const cleaned = str.replace(/[^\d.]/g, "");
-    return parseFloat(cleaned) || 0;
-  };
-
-  const qibQuotaCr = parseCr(qibReservation?.amountCr) || (ipo.issueSizeTotalCr * 0.50);
-  const retailQuotaCr = parseCr(retailReservation?.amountCr) || (ipo.issueSizeTotalCr * 0.35);
-  const niiQuotaCr = parseCr(niiReservation?.amountCr) || (ipo.issueSizeTotalCr * 0.15);
-  const employeeQuotaCr = parseCr(employeeReservation?.amountCr) || 0;
-  const shareholderQuotaCr = parseCr(shareholderReservation?.amountCr) || 0;
-
-  const qibSubscription = ipo.qibSubscription || 0;
-  const retailSubscription = ipo.retailSubscription || 0;
-  const niiSubscription = ipo.niiSubscription || 0;
-  const shniSubscription = ipo.sNiiSubscription || ipo.niiSubscription || 0;
-  const bhniSubscription = ipo.bNiiSubscription || ipo.niiSubscription || 0;
-  const employeeSubscription = ipo.employeeSubscription || 0;
-  const shareholderSubscription = ipo.shareholderSubscription || 0;
-
-  const qibDemand = qibQuotaCr * qibSubscription;
-  const retailDemand = retailQuotaCr * retailSubscription;
-  const niiDemand = niiQuotaCr * niiSubscription;
-  const shniDemand = (niiQuotaCr * 0.33) * shniSubscription;
-  const bhniDemand = (niiQuotaCr * 0.67) * bhniSubscription;
-  const employeeDemand = employeeQuotaCr * employeeSubscription;
-  const shareholderDemand = shareholderQuotaCr * shareholderSubscription;
-
-  const totalDemand = qibDemand + retailDemand + niiDemand + employeeDemand + shareholderDemand;
-
-  const list = [
-    { category: "QIB", quotaCr: qibQuotaCr, subscription: qibSubscription, demandCr: qibDemand },
-    { category: "NIB (Overall)", quotaCr: niiQuotaCr, subscription: niiSubscription, demandCr: niiDemand },
-    { category: "├─ HNI 10L+", quotaCr: niiQuotaCr * 0.67, subscription: bhniSubscription, demandCr: bhniDemand, isSub: true },
-    { category: "└─ HNI 2-10L", quotaCr: niiQuotaCr * 0.33, subscription: shniSubscription, demandCr: shniDemand, isSub: true },
-    { category: "Retail", quotaCr: retailQuotaCr, subscription: retailSubscription, demandCr: retailDemand }
-  ];
-
-  if (employeeQuotaCr > 0 || employeeSubscription > 0) {
-    list.push({ category: "Employees", quotaCr: employeeQuotaCr, subscription: employeeSubscription, demandCr: employeeDemand });
-  }
-  if (shareholderQuotaCr > 0 || shareholderSubscription > 0) {
-    list.push({ category: "Shareholders", quotaCr: shareholderQuotaCr, subscription: shareholderSubscription, demandCr: shareholderDemand });
-  }
-
-  return {
-    list,
-    total: { category: "Total", quotaCr: qibQuotaCr + retailQuotaCr + niiQuotaCr + employeeQuotaCr + shareholderQuotaCr, demandCr: totalDemand }
-  };
-};
 
 export default function IPODetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
@@ -279,6 +173,65 @@ export default function IPODetailPage({ params }: PageProps) {
 
         {/* Left Col */}
         <div className={`lg:col-span-8 space-y-6 ${activeMobileTab === "overview" ? "block" : "hidden lg:block"}`}>
+          {/* Analyst Scorecard */}
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-slate-700 flex items-center gap-1">
+                <Award className="w-4 h-4 text-amber-600" />
+                ANALYST RECOMMENDATION
+              </span>
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => {
+                  const rating = ipo.rating;
+                  const isFilled = i < Math.floor(rating);
+                  const isHalf = !isFilled && (i < rating);
+                  return (
+                    <Star
+                      key={i}
+                      className={`w-3.5 h-3.5 ${
+                        isFilled 
+                          ? "text-amber-500 fill-amber-500" 
+                          : isHalf 
+                            ? "text-amber-500 fill-amber-500/50" 
+                            : "text-slate-250"
+                      }`}
+                    />
+                  );
+                })}
+                <span className="ml-1.5 font-bold text-slate-800 text-[11px]">
+                  {ipo.rating.toFixed(1)}/5
+                </span>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded bg-slate-50 border border-slate-200 text-center font-extrabold text-emerald-700">
+              {ipo.recommendation}
+            </div>
+
+            <div className="space-y-1 pt-1">
+              <span className="font-bold text-slate-800 block">Key Strengths:</span>
+              <ul className="space-y-1 text-slate-600 list-disc list-inside">
+                {ipo.highlights.map((h: any, i: number) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ul>
+            </div>
+
+            {ipo.risks && ipo.risks.length > 0 && (
+              <div className="space-y-1 pt-2 border-t border-slate-100">
+                <span className="font-bold text-rose-700 flex items-center gap-1">
+                  <ShieldAlert className="w-3.5 h-3.5" />
+                  Key Risks:
+                </span>
+                <ul className="space-y-1 text-slate-600 list-disc list-inside">
+                  {ipo.risks.map((r: any, i: number) => (
+                    <li key={i}>{r}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
           {/* Key Dates Table */}
           <div className="space-y-2">
             <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 px-1">
@@ -872,166 +825,8 @@ export default function IPODetailPage({ params }: PageProps) {
                 shareholderSubscription={ipo.shareholderSubscription}
               />
             </div>
-
-            {/* Application Wise Breakup */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-700" />
-                Application Wise Breakup (Approx No of Applications)
-              </h3>
-              <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
-                    <tr>
-                      <th className="py-2.5 px-3">Category</th>
-                      <th className="py-2.5 px-3 text-center">Approx. Applications</th>
-                      <th className="py-2.5 px-3 text-right">Subscription (x)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 text-slate-700">
-                    {(() => {
-                      const data = getApplicationBreakup(ipo);
-                      return (
-                        <>
-                          {data.list.map((item, idx) => (
-                            <tr key={idx} className="hover:bg-slate-50/60 font-medium">
-                              <td className="py-2 px-3 text-slate-800">
-                                {item.category} <span className="text-[10px] text-slate-400 font-normal">({item.detail})</span>
-                              </td>
-                              <td className="py-2 px-3 text-center font-bold text-slate-900">
-                                {item.applications > 0 ? item.applications.toLocaleString("en-IN") : "0"}
-                              </td>
-                              <td className="py-2 px-3 text-right font-bold text-slate-750">
-                                {item.subscription > 0 ? `${item.subscription.toFixed(2)}x` : "0.00x"}
-                              </td>
-                            </tr>
-                          ))}
-                          <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">
-                            <td className="py-2 px-3">{data.total.category}</td>
-                            <td className="py-2 px-3 text-center text-blue-750 font-extrabold">
-                              {data.total.applications > 0 ? data.total.applications.toLocaleString("en-IN") : "0"}
-                            </td>
-                            <td className="py-2 px-3 text-right font-bold text-blue-750">
-                              {data.total.subscription > 0 ? `${data.total.subscription.toFixed(2)}x` : "0.00x"}
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })()}
-                  </tbody>
-                </table>
-              </div>
             </div>
 
-            {/* Subscription Demand in Crores */}
-            <div className="space-y-2">
-              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-emerald-700" />
-                Subscription Demand in Crores
-              </h3>
-              <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
-                    <tr>
-                      <th className="py-2.5 px-3">Category</th>
-                      <th className="py-2.5 px-3 text-center">Quota (Cr)</th>
-                      <th className="py-2.5 px-3 text-right">Demand (Cr)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 text-slate-700">
-                    {(() => {
-                      const data = getSubscriptionDemand(ipo);
-                      return (
-                        <>
-                          {data.list.map((item, idx) => (
-                            <tr key={idx} className="hover:bg-slate-50/60 font-medium">
-                              <td className="py-2 px-3 text-slate-800">
-                                {item.category}
-                              </td>
-                              <td className="py-2 px-3 text-center text-slate-500">
-                                ₹{item.quotaCr.toFixed(2)} Cr
-                              </td>
-                              <td className={`py-2 px-3 text-right font-bold ${item.isSub ? "text-slate-700" : "text-slate-900"}`}>
-                                ₹{item.demandCr.toFixed(2)} Cr
-                              </td>
-                            </tr>
-                          ))}
-                          <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">
-                            <td className="py-2 px-3">{data.total.category}</td>
-                            <td className="py-2 px-3 text-center text-slate-650">
-                              ₹{data.total.quotaCr.toFixed(2)} Cr
-                            </td>
-                            <td className="py-2 px-3 text-right font-extrabold text-emerald-700">
-                              ₹{data.total.demandCr.toFixed(2)} Cr
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })()}
-                  </tbody>
-                </table>
-            </div>
-          </div>
-          </div>
-
-          {/* Analyst Scorecard */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
-            <div className="flex justify-between items-center">
-              <span className="font-bold text-slate-700 flex items-center gap-1">
-                <Award className="w-4 h-4 text-amber-600" />
-                ANALYST RECOMMENDATION
-              </span>
-              <div className="flex items-center gap-0.5">
-                {[...Array(10)].map((_, i) => {
-                  const rating10 = ipo.rating * 2;
-                  const isFilled = i < Math.floor(rating10);
-                  const isHalf = !isFilled && (i < rating10);
-                  return (
-                    <Star
-                      key={i}
-                      className={`w-3.5 h-3.5 ${
-                        isFilled 
-                          ? "text-amber-500 fill-amber-500" 
-                          : isHalf 
-                            ? "text-amber-500 fill-amber-500/50" 
-                            : "text-slate-250"
-                      }`}
-                    />
-                  );
-                })}
-                <span className="ml-1.5 font-bold text-slate-800 text-[11px]">
-                  {(ipo.rating * 2).toFixed(1)}/10
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2.5 rounded bg-slate-50 border border-slate-200 text-center font-extrabold text-emerald-700">
-              {ipo.recommendation}
-            </div>
-
-            <div className="space-y-1 pt-1">
-              <span className="font-bold text-slate-800 block">Key Strengths:</span>
-              <ul className="space-y-1 text-slate-600 list-disc list-inside">
-                {ipo.highlights.map((h: any, i: number) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-            </div>
-
-            {ipo.risks && ipo.risks.length > 0 && (
-              <div className="space-y-1 pt-2 border-t border-slate-100">
-                <span className="font-bold text-rose-700 flex items-center gap-1">
-                  <ShieldAlert className="w-3.5 h-3.5" />
-                  Key Risks:
-                </span>
-                <ul className="space-y-1 text-slate-600 list-disc list-inside">
-                  {ipo.risks.map((r: any, i: number) => (
-                    <li key={i}>{r}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
         </div>
       </div>
 

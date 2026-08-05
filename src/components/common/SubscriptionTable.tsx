@@ -58,31 +58,7 @@ export const SubscriptionTable: React.FC<SubscriptionTableProps> = ({
             </td>
           </tr>
 
-          {/* HNI 10L+ (bHNI) */}
-          <tr className="hover:bg-slate-50/60 text-slate-600">
-            <td className="py-1.5 px-3 pl-6 flex items-center gap-1 font-medium text-slate-500">
-              <span className="text-slate-300 font-bold">├─</span> HNI 10L+
-            </td>
-            <td className="py-1.5 px-3 text-center font-semibold text-slate-850">
-              {bNiiSubscription !== undefined ? `${bNiiSubscription.toFixed(2)}x` : niiSubscription > 0 ? `${(niiSubscription * 1.15).toFixed(2)}x` : "0.00x"}
-            </td>
-            <td className="py-1.5 px-3 text-right text-[10px] text-slate-400 font-medium">
-              Big HNI
-            </td>
-          </tr>
 
-          {/* HNI 2-10L (sHNI) */}
-          <tr className="hover:bg-slate-50/60 text-slate-600">
-            <td className="py-1.5 px-3 pl-6 flex items-center gap-1 font-medium text-slate-500">
-              <span className="text-slate-300 font-bold">└─</span> HNI 2-10L
-            </td>
-            <td className="py-1.5 px-3 text-center font-semibold text-slate-850">
-              {sNiiSubscription !== undefined ? `${sNiiSubscription.toFixed(2)}x` : niiSubscription > 0 ? `${(niiSubscription * 0.85).toFixed(2)}x` : "0.00x"}
-            </td>
-            <td className="py-1.5 px-3 text-right text-[10px] text-slate-400 font-medium">
-              Small HNI
-            </td>
-          </tr>
 
           {/* Retail Row */}
           <tr className="hover:bg-slate-50/60 font-medium">
@@ -96,34 +72,6 @@ export const SubscriptionTable: React.FC<SubscriptionTableProps> = ({
               </span>
             </td>
           </tr>
-
-          {/* Employees Row */}
-          <tr className="hover:bg-slate-50/60 font-medium">
-            <td className="py-2 px-3 text-slate-800">Employees</td>
-            <td className="py-2 px-3 text-center font-bold text-slate-900">
-              {employeeSubscription !== undefined ? `${employeeSubscription.toFixed(2)}x` : "0.00x"}
-            </td>
-            <td className="py-2 px-3 text-right">
-              <span className="text-[10px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
-                {employeeSubscription !== undefined && employeeSubscription >= 1 ? "Subscribed" : "Open"}
-              </span>
-            </td>
-          </tr>
-
-          {/* Shareholders Row (Render only if present in data) */}
-          {shareholderSubscription !== undefined && (
-            <tr className="hover:bg-slate-50/60 font-medium">
-              <td className="py-2 px-3 text-slate-800">Shareholders</td>
-              <td className="py-2 px-3 text-center font-bold text-slate-900">
-                {shareholderSubscription.toFixed(2)}x
-              </td>
-              <td className="py-2 px-3 text-right">
-                <span className="text-[10px] text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
-                  {shareholderSubscription >= 1 ? "Subscribed" : "Open"}
-                </span>
-              </td>
-            </tr>
-          )}
 
           {/* Total Row */}
           <tr className="bg-slate-100/70 font-bold border-t border-slate-200 text-slate-900">

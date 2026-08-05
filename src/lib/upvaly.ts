@@ -165,9 +165,24 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
       throw new Error("Failed to retrieve any data from active or closed endpoints");
     }
 
+    // Fetch existing slugs to handle duplicate slug conflicts in memory
+    const existingIpos = await sql`SELECT id, slug FROM ipos`;
+    const slugToIdMap = new Map<string, string>();
+    for (const row of existingIpos) {
+      slugToIdMap.set(row.slug, row.id);
+    }
+
     // Map raw API array to database schema and upsert them sequentially
     for (const item of apiIPOs) {
-      const slug = slugify(item.name);
+      const id = `api-${item.symbol}`;
+      let slug = slugify(item.name);
+      
+      const existingId = slugToIdMap.get(slug);
+      if (existingId && existingId !== id) {
+        // Resolve slug collision by appending the unique symbol
+        slug = `${slug}-${item.symbol.toLowerCase()}`;
+      }
+      slugToIdMap.set(slug, id);
       
       let priceBandMin = 0;
       let priceBandMax = 0;
@@ -253,63 +268,66 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
       }
 
       const rating = Math.min(5, Math.max(1, 3 + Math.round((gmpPercent / 15) * 10) / 10));
-      const id = `api-${item.symbol}`;
 
       // Upsert into Neon PostgreSQL
-      await sql`
-        INSERT INTO ipos (
-          id, slug, name, company_name, logo_url, category, status, exchange,
-          price_band_min, price_band_max, lot_size, min_investment,
-          issue_size_total_cr, fresh_issue_cr, ofs_cr, face_value,
-          gmp, gmp_percent, expected_listing_price,
-          total_subscription, qib_subscription, nii_subscription, retail_subscription,
-          open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
-          registrar_name, registrar_website, registrar_check_url, recommendation, rating,
-          highlights, risks
-        ) VALUES (
-          ${id}, ${slug}, ${item.name}, ${item.name}, ${item.logoUrl || null}, ${category}, ${status}, ${exchange},
-          ${priceBandMin}, ${priceBandMax}, ${lotSize}, ${minInvestment},
-          ${parseNumber(item.issueSize?.totalIssueSize)}, ${parseNumber(item.issueSize?.freshIssue)}, ${parseNumber(item.issueSize?.offerForSale)}, 10,
-          ${gmp}, ${gmpPercent}, ${expectedListingPrice},
-          ${totalSubscription}, ${qibSubscription}, ${niiSubscription}, ${retailSubscription},
-          ${openDate}, ${closeDate}, ${allotmentDate}, ${refundDate}, ${dematCreditDate}, ${listingDate},
-          'Check Website', ${item.detailsUrl || ''}, ${item.detailsUrl || ''}, ${recommendation}, ${rating},
-          ${item.strengths || []}, ${item.risks || []}
-        )
-        ON CONFLICT (id) DO UPDATE SET
-          slug = EXCLUDED.slug,
-          name = EXCLUDED.name,
-          company_name = EXCLUDED.company_name,
-          logo_url = EXCLUDED.logo_url,
-          category = EXCLUDED.category,
-          status = EXCLUDED.status,
-          exchange = EXCLUDED.exchange,
-          price_band_min = EXCLUDED.price_band_min,
-          price_band_max = EXCLUDED.price_band_max,
-          lot_size = EXCLUDED.lot_size,
-          min_investment = EXCLUDED.min_investment,
-          issue_size_total_cr = EXCLUDED.issue_size_total_cr,
-          fresh_issue_cr = EXCLUDED.fresh_issue_cr,
-          ofs_cr = EXCLUDED.ofs_cr,
-          gmp = EXCLUDED.gmp,
-          gmp_percent = EXCLUDED.gmp_percent,
-          expected_listing_price = EXCLUDED.expected_listing_price,
-          total_subscription = EXCLUDED.total_subscription,
-          qib_subscription = EXCLUDED.qib_subscription,
-          nii_subscription = EXCLUDED.nii_subscription,
-          retail_subscription = EXCLUDED.retail_subscription,
-          open_date = EXCLUDED.open_date,
-          close_date = EXCLUDED.close_date,
-          allotment_date = EXCLUDED.allotment_date,
-          refund_date = EXCLUDED.refund_date,
-          demat_credit_date = EXCLUDED.demat_credit_date,
-          listing_date = EXCLUDED.listing_date,
-          recommendation = EXCLUDED.recommendation,
-          rating = EXCLUDED.rating,
-          highlights = EXCLUDED.highlights,
-          risks = EXCLUDED.risks,
-          updated_at = CURRENT_TIMESTAMP;
-      `;
+      try {
+        await sql`
+          INSERT INTO ipos (
+            id, slug, name, company_name, logo_url, category, status, exchange,
+            price_band_min, price_band_max, lot_size, min_investment,
+            issue_size_total_cr, fresh_issue_cr, ofs_cr, face_value,
+            gmp, gmp_percent, expected_listing_price,
+            total_subscription, qib_subscription, nii_subscription, retail_subscription,
+            open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
+            registrar_name, registrar_website, registrar_check_url, recommendation, rating,
+            highlights, risks
+          ) VALUES (
+            ${id}, ${slug}, ${item.name}, ${item.name}, ${item.logoUrl || null}, ${category}, ${status}, ${exchange},
+            ${priceBandMin}, ${priceBandMax}, ${lotSize}, ${minInvestment},
+            ${parseNumber(item.issueSize?.totalIssueSize)}, ${parseNumber(item.issueSize?.freshIssue)}, ${parseNumber(item.issueSize?.offerForSale)}, 10,
+            ${gmp}, ${gmpPercent}, ${expectedListingPrice},
+            ${totalSubscription}, ${qibSubscription}, ${niiSubscription}, ${retailSubscription},
+            ${openDate}, ${closeDate}, ${allotmentDate}, ${refundDate}, ${dematCreditDate}, ${listingDate},
+            'Check Website', ${item.detailsUrl || ''}, ${item.detailsUrl || ''}, ${recommendation}, ${rating},
+            ${item.strengths || []}, ${item.risks || []}
+          )
+          ON CONFLICT (id) DO UPDATE SET
+            slug = EXCLUDED.slug,
+            name = EXCLUDED.name,
+            company_name = EXCLUDED.company_name,
+            logo_url = EXCLUDED.logo_url,
+            category = EXCLUDED.category,
+            status = EXCLUDED.status,
+            exchange = EXCLUDED.exchange,
+            price_band_min = EXCLUDED.price_band_min,
+            price_band_max = EXCLUDED.price_band_max,
+            lot_size = EXCLUDED.lot_size,
+            min_investment = EXCLUDED.min_investment,
+            issue_size_total_cr = EXCLUDED.issue_size_total_cr,
+            fresh_issue_cr = EXCLUDED.fresh_issue_cr,
+            ofs_cr = EXCLUDED.ofs_cr,
+            gmp = EXCLUDED.gmp,
+            gmp_percent = EXCLUDED.gmp_percent,
+            expected_listing_price = EXCLUDED.expected_listing_price,
+            total_subscription = EXCLUDED.total_subscription,
+            qib_subscription = EXCLUDED.qib_subscription,
+            nii_subscription = EXCLUDED.nii_subscription,
+            retail_subscription = EXCLUDED.retail_subscription,
+            open_date = EXCLUDED.open_date,
+            close_date = EXCLUDED.close_date,
+            allotment_date = EXCLUDED.allotment_date,
+            refund_date = EXCLUDED.refund_date,
+            demat_credit_date = EXCLUDED.demat_credit_date,
+            listing_date = EXCLUDED.listing_date,
+            recommendation = EXCLUDED.recommendation,
+            rating = EXCLUDED.rating,
+            highlights = EXCLUDED.highlights,
+            risks = EXCLUDED.risks,
+            updated_at = CURRENT_TIMESTAMP;
+        `;
+      } catch (upsertError) {
+        console.error(`Failed to sync IPO item: ${item.name} (${id})`, upsertError);
+      }
     }
 
     console.log("Successfully synced Upvaly IPOs to Neon PostgreSQL.");
