@@ -37,9 +37,13 @@ export const GMPCard: React.FC<GMPCardProps> = ({
         >
           {isPositive ? `+₹${gmp}` : isNeutral ? "₹0" : `-₹${Math.abs(gmp)}`}
         </span>
-        {isPositive && (
-          <span className="text-[11px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
-            +{gmpPercent.toFixed(1)}%
+        {!isNeutral && (
+          <span className={`text-[11px] px-1.5 py-0.5 rounded border ${
+            isPositive 
+              ? "text-emerald-700 bg-emerald-50 border-emerald-200" 
+              : "text-rose-700 bg-rose-50 border-rose-200"
+          }`}>
+            {isPositive ? "+" : ""}{gmpPercent.toFixed(1)}%
           </span>
         )}
       </div>
@@ -68,26 +72,34 @@ export const GMPCard: React.FC<GMPCardProps> = ({
           {isPositive ? `+₹${gmp}` : isNeutral ? "₹0" : `-₹${Math.abs(gmp)}`}
         </span>
 
-        {isPositive && (
-          <span className="inline-flex items-center text-xs font-bold text-emerald-700 bg-emerald-100/60 px-2 py-0.5 rounded">
-            <ArrowUpRight className="w-3 h-3 mr-0.5" />
-            +{gmpPercent.toFixed(1)}%
+        {!isNeutral && (
+          <span className={`inline-flex items-center text-xs font-bold px-2 py-0.5 rounded ${
+            isPositive 
+              ? "text-emerald-700 bg-emerald-100/60" 
+              : "text-rose-700 bg-rose-100/60"
+          }`}>
+            <ArrowUpRight className={`w-3 h-3 mr-0.5 ${!isPositive && "rotate-90"}`} />
+            {isPositive ? "+" : ""}{gmpPercent.toFixed(1)}%
           </span>
         )}
       </div>
 
-      {lotSize && gmp > 0 && (
-        <div className="flex justify-between items-center text-[11px] text-emerald-800 bg-emerald-50/60 border border-emerald-200/50 rounded px-2.5 py-1.5 font-medium">
-          <span>Est. Profit Per Lot (GMP × Lot):</span>
-          <strong className="text-emerald-700 font-extrabold text-sm">
-            ₹{(gmp * lotSize).toLocaleString("en-IN")}
+      {lotSize && !isNeutral && (
+        <div className={`flex justify-between items-center text-[11px] border rounded px-2.5 py-1.5 font-medium ${
+          isPositive 
+            ? "text-emerald-800 bg-emerald-50/60 border-emerald-200/50" 
+            : "text-rose-800 bg-rose-50/60 border-rose-200/50"
+        }`}>
+          <span>{isPositive ? "Est. Profit Per Lot (GMP × Lot):" : "Est. Loss Per Lot (GMP × Lot):"}</span>
+          <strong className={`font-extrabold text-sm ${isPositive ? "text-emerald-700" : "text-rose-700"}`}>
+            ₹{Math.abs(gmp * lotSize).toLocaleString("en-IN")}
           </strong>
         </div>
       )}
 
       <div className="flex justify-between text-[11px] text-slate-600 pt-1.5 border-t border-slate-200">
         <span>Issue: <strong>₹{priceBandMax}</strong></span>
-        <span>Expected Listing: <strong className="text-emerald-700 font-bold">₹{expectedListingPrice}</strong></span>
+        <span>Expected Listing: <strong className={`${expectedListingPrice < priceBandMax ? "text-rose-700" : "text-emerald-700"} font-bold`}>₹{expectedListingPrice}</strong></span>
       </div>
     </div>
   );

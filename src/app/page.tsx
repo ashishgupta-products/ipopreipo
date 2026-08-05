@@ -302,11 +302,13 @@ function HomeDashboardContent() {
                     {isAlreadyListed(ipo) ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
                   </td>
 
-                  <td className="py-3.5 px-3 font-extrabold text-emerald-600">
+                  <td className={`py-3.5 px-3 font-extrabold ${ipo.gmp < 0 ? "text-rose-600" : "text-emerald-600"}`}>
                     {isAlreadyListed(ipo) ? (
-                      `+${(ipo.listingGainPercent !== undefined ? ipo.listingGainPercent : ipo.gmpPercent).toFixed(1)}%`
+                      `${ipo.listingGainPercent !== undefined ? (ipo.listingGainPercent >= 0 ? "+" : "") + ipo.listingGainPercent.toFixed(1) : (ipo.gmpPercent >= 0 ? "+" : "") + ipo.gmpPercent.toFixed(1)}%`
                     ) : (
-                      ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"
+                      ipo.gmp !== 0 
+                        ? `${ipo.gmp > 0 ? "+" : "-"}₹${Math.abs(ipo.gmp)} (${ipo.gmp > 0 ? "+" : "-"}${Math.abs(ipo.gmpPercent).toFixed(1)}%)` 
+                        : "₹0"
                     )}
                   </td>
 
@@ -456,26 +458,30 @@ function HomeDashboardContent() {
                   </strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">
+                  <span className={`${ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700"} font-bold block mb-0.5 text-[11px]`}>
                     {isAlreadyListed(ipo) ? "Listing Gain" : "GMP Rate"}
                   </span>
-                  <strong className="text-emerald-700 font-extrabold text-xs block truncate">
+                  <strong className={`${ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700"} font-extrabold text-xs block truncate`}>
                     {isAlreadyListed(ipo) ? (
-                      `+${(ipo.listingGainPercent !== undefined ? ipo.listingGainPercent : ipo.gmpPercent).toFixed(1)}%`
+                      `${ipo.listingGainPercent !== undefined ? (ipo.listingGainPercent >= 0 ? "+" : "") + ipo.listingGainPercent.toFixed(1) : (ipo.gmpPercent >= 0 ? "+" : "") + ipo.gmpPercent.toFixed(1)}%`
                     ) : (
-                      ipo.gmp > 0 ? `+₹${ipo.gmp} (+${ipo.gmpPercent.toFixed(1)}%)` : "₹0"
+                      ipo.gmp !== 0 
+                        ? `${ipo.gmp > 0 ? "+" : "-"}₹${Math.abs(ipo.gmp)} (${ipo.gmp > 0 ? "+" : "-"}${Math.abs(ipo.gmpPercent).toFixed(1)}%)` 
+                        : "₹0"
                     )}
                   </strong>
                 </div>
                 <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-emerald-700 font-bold block mb-0.5 text-[11px]">
-                    {isAlreadyListed(ipo) ? "Listed Profit" : "Est. Profit"}
+                  <span className={`${ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700"} font-bold block mb-0.5 text-[11px]`}>
+                    {isAlreadyListed(ipo) 
+                      ? (ipo.listingGainPercent !== undefined && ipo.listingGainPercent < 0 ? "Listed Loss" : "Listed Profit") 
+                      : (ipo.gmp < 0 ? "Est. Loss" : "Est. Profit")}
                   </span>
-                  <strong className="text-emerald-700 font-extrabold text-xs block truncate">
+                  <strong className={`${ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700"} font-extrabold text-xs block truncate`}>
                     {isAlreadyListed(ipo) ? (
-                      `₹${(( (ipo.listingPrice || ipo.expectedListingPrice) - ipo.priceBandMax ) * ipo.lotSize).toLocaleString("en-IN")}`
+                      `₹${Math.abs(( (ipo.listingPrice || ipo.expectedListingPrice) - ipo.priceBandMax ) * ipo.lotSize).toLocaleString("en-IN")}`
                     ) : (
-                      ipo.gmp > 0 ? `₹${(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"
+                      ipo.gmp !== 0 ? `₹${Math.abs(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"
                     )}
                   </strong>
                 </div>

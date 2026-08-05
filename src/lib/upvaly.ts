@@ -73,9 +73,11 @@ function slugify(text: string): string {
 
 function parseNumber(val: string | null | undefined): number {
   if (!val) return 0;
+  const isNegative = val.includes("-") || val.toLowerCase().includes("dis") || val.toLowerCase().includes("minus");
   const cleaned = val.replace(/[^0-9.]/g, "");
   const num = parseFloat(cleaned);
-  return isNaN(num) ? 0 : num;
+  if (isNaN(num)) return 0;
+  return isNegative ? -num : num;
 }
 
 // Maps database row back to IPOData typescript interface
