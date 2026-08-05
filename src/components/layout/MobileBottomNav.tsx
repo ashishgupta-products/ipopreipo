@@ -17,7 +17,9 @@ import {
   FileText,
   ArrowDownToLine,
   Home,
-  Newspaper
+  Newspaper,
+  Award,
+  Calendar
 } from "lucide-react";
 
 export const MobileBottomNav: React.FC = () => {
@@ -137,6 +139,32 @@ export const MobileBottomNav: React.FC = () => {
               </div>
             )}
 
+
+            <div className="space-y-1.5 pt-2 border-t border-slate-100">
+              <span className="font-black text-[10px] text-slate-400 uppercase tracking-wider block">IPO Tools &amp; Utilities</span>
+              <div className="grid grid-cols-2 gap-2">
+                <Link onClick={() => setMenuOpen(false)} href="/allotment" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <Award className="w-4 h-4 text-purple-600" />
+                  Allotment
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/calendar" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <Calendar className="w-4 h-4 text-indigo-650" />
+                  Calendar
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/anchor-lockins" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <Zap className="w-4 h-4 text-indigo-700" />
+                  Anchor Release
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/buybacks" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <TrendingUp className="w-4 h-4 text-emerald-600" />
+                  Buybacks
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/ipo-performance" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-150 border border-slate-150 flex items-center gap-2 font-bold text-slate-700 col-span-2 justify-center">
+                  <Award className="w-4 h-4 text-rose-600" />
+                  Listing Performance Tracker
+                </Link>
+              </div>
+            </div>
 
             <div className="space-y-1.5 pt-2 border-t border-slate-100">
               <span className="font-black text-[10px] text-slate-400 uppercase tracking-wider block">Financial Utilities</span>
