@@ -127,6 +127,8 @@ function mapRowToIPO(row: any): IPOData {
     leadManagers: [],
     highlights: Array.isArray(row.highlights) ? row.highlights : [],
     risks: Array.isArray(row.risks) ? row.risks : [],
+    prospectusUrl: row.prospectus_url || undefined,
+    drhpUrl: row.drhp_url || undefined,
   };
 }
 
@@ -285,7 +287,7 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
             total_subscription, qib_subscription, nii_subscription, retail_subscription,
             open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
             registrar_name, registrar_website, registrar_check_url, recommendation, rating,
-            highlights, risks
+            highlights, risks, drhp_url, prospectus_url
           ) VALUES (
             ${id}, ${slug}, ${item.name}, ${item.name}, ${item.logoUrl || null}, ${category}, ${status}, ${exchange},
             ${priceBandMin}, ${priceBandMax}, ${lotSize}, ${minInvestment},
@@ -294,7 +296,7 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
             ${totalSubscription}, ${qibSubscription}, ${niiSubscription}, ${retailSubscription},
             ${openDate}, ${closeDate}, ${allotmentDate}, ${refundDate}, ${dematCreditDate}, ${listingDate},
             'Check Website', ${item.detailsUrl || ''}, ${item.detailsUrl || ''}, ${recommendation}, ${rating},
-            ${item.strengths || []}, ${item.risks || []}
+            ${item.strengths || []}, ${item.risks || []}, ${item.drhpLink || null}, ${item.rhpLink || null}
           )
           ON CONFLICT (id) DO UPDATE SET
             slug = EXCLUDED.slug,
@@ -328,6 +330,8 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
             rating = EXCLUDED.rating,
             highlights = EXCLUDED.highlights,
             risks = EXCLUDED.risks,
+            drhp_url = EXCLUDED.drhp_url,
+            prospectus_url = EXCLUDED.prospectus_url,
             updated_at = CURRENT_TIMESTAMP;
         `;
       } catch (upsertError) {

@@ -35,6 +35,60 @@ interface PageProps {
 
 
 
+function calculateLotSizes(lotSize: number, priceMax: number) {
+  if (!lotSize || !priceMax) return [];
+  const singleLotCost = lotSize * priceMax;
+  if (singleLotCost <= 0) return [];
+
+  const retailMaxLots = Math.floor(200000 / singleLotCost);
+  const shniMinLots = retailMaxLots + 1;
+  const shniMaxLots = Math.floor(1000000 / singleLotCost);
+  const bhniMinLots = shniMaxLots + 1;
+
+  const list = [
+    {
+      applicationCategory: "Retail (Min)",
+      lots: 1,
+      shares: lotSize,
+      amount: singleLotCost
+    }
+  ];
+
+  if (retailMaxLots > 1) {
+    list.push({
+      applicationCategory: "Retail (Max)",
+      lots: retailMaxLots,
+      shares: retailMaxLots * lotSize,
+      amount: retailMaxLots * singleLotCost
+    });
+  }
+
+  list.push({
+    applicationCategory: "Small HNI (Min)",
+    lots: shniMinLots,
+    shares: shniMinLots * lotSize,
+    amount: shniMinLots * singleLotCost
+  });
+
+  if (shniMaxLots > shniMinLots) {
+    list.push({
+      applicationCategory: "Small HNI (Max)",
+      lots: shniMaxLots,
+      shares: shniMaxLots * lotSize,
+      amount: shniMaxLots * singleLotCost
+    });
+  }
+
+  list.push({
+    applicationCategory: "Big HNI (Min)",
+    lots: bhniMinLots,
+    shares: bhniMinLots * lotSize,
+    amount: bhniMinLots * singleLotCost
+  });
+
+  return list;
+}
+
 export default function IPODetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
   const [activeMobileTab, setActiveMobileTab] = useState<"overview" | "gmp_sub">("overview");
@@ -73,6 +127,10 @@ export default function IPODetailPage({ params }: PageProps) {
   if (!ipo) {
     notFound();
   }
+
+  const computedLotSizes = ipo.lotSizes && ipo.lotSizes.length > 0 
+    ? ipo.lotSizes 
+    : calculateLotSizes(ipo.lotSize, ipo.priceBandMax);
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-8 space-y-6">
@@ -327,7 +385,7 @@ export default function IPODetailPage({ params }: PageProps) {
           </div>
 
           {/* Lot Size Table */}
-          {ipo.lotSizes && (
+          {computedLotSizes && computedLotSizes.length > 0 && (
             <div className="space-y-2">
               <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 px-1">
                 <Layers className="w-4 h-4 text-blue-700" />
@@ -345,7 +403,7 @@ export default function IPODetailPage({ params }: PageProps) {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-slate-800">
-                      {ipo.lotSizes.map((item: any, idx: number) => (
+                      {computedLotSizes.map((item: any, idx: number) => (
                         <tr key={idx} className="hover:bg-slate-50">
                           <td className="py-2.5 px-3 font-medium text-slate-900">{item.applicationCategory}</td>
                           <td className="py-2.5 px-3 font-semibold">{item.lots === 0 ? "No Upper Limit" : item.lots}</td>
@@ -766,7 +824,7 @@ export default function IPODetailPage({ params }: PageProps) {
           />
 
           {/* Est. Profit per Application (as per GMP) */}
-          {ipo.gmp > 0 && ipo.lotSizes && ipo.lotSizes.length > 0 && (
+          {ipo.gmp > 0 && computedLotSizes && computedLotSizes.length > 0 && (
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
               <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-emerald-700" />
@@ -782,7 +840,7 @@ export default function IPODetailPage({ params }: PageProps) {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-slate-700">
-                    {ipo.lotSizes
+                    {computedLotSizes
                       .filter((item: any) => item.shares > 0 && item.lots > 0)
                       .map((item: any, idx: number) => {
                         const estProfit = item.shares * ipo.gmp;
