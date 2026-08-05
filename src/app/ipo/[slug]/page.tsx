@@ -821,6 +821,7 @@ export default function IPODetailPage({ params }: PageProps) {
             priceBandMax={ipo.priceBandMax}
             updatedTime={ipo.gmpUpdatedTime}
             lotSize={ipo.lotSize}
+            gmpTrends={ipo.gmpTrends}
           />
 
           {/* Est. Profit per Application (as per GMP) */}
