@@ -347,7 +347,9 @@ function HomeDashboardContent() {
                   <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
                     <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
                   </h3>
-                  <div className="flex flex-wrap gap-1.5 mt-1.5">
+                  <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                    <Badge status={ipo.status} />
+                    <Badge category={ipo.category} />
                     <span className="bg-emerald-50 text-emerald-700 border border-emerald-100/80 px-2 py-0.5 rounded-md text-[11px] font-extrabold whitespace-nowrap">
                       Open: {formatDate(ipo.openDate)}
                     </span>
