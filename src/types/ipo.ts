@@ -88,6 +88,7 @@ export interface IPOData {
   gmpPercent: number; // in %
   gmpUpdatedTime: string;
   expectedListingPrice: number;
+  gmpTrends?: Array<{ date: string; gmp: string; gain: string }>;
   
   // Live Bidding Multiplier
   totalSubscription: number;

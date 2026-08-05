@@ -864,6 +864,45 @@ export default function IPODetailPage({ params }: PageProps) {
             </div>
           )}
 
+          {/* Everyday GMP Trends */}
+          {ipo.gmpTrends && ipo.gmpTrends.length > 0 && (
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-blue-700" />
+                Everyday GMP Trend
+              </h3>
+              <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                    <tr>
+                      <th className="py-2.5 px-3">Date</th>
+                      <th className="py-2.5 px-3 text-center">GMP</th>
+                      <th className="py-2.5 px-3 text-right">Est. Gain (%)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
+                    {ipo.gmpTrends.map((trend: any, idx: number) => {
+                      const isNegative = trend.gmp?.includes('-') || trend.gain?.includes('-') || trend.gain?.toLowerCase().includes('dis') || trend.gmp?.toLowerCase().includes('dis');
+                      return (
+                        <tr key={idx} className="hover:bg-slate-50/60 font-medium">
+                          <td className="py-2.5 px-3 text-slate-600">
+                            {trend.date}
+                          </td>
+                          <td className={`py-2.5 px-3 text-center font-bold ${isNegative ? 'text-rose-600' : 'text-slate-900'}`}>
+                            {trend.gmp}
+                          </td>
+                          <td className={`py-2.5 px-3 text-right font-extrabold ${isNegative ? 'text-rose-600' : 'text-emerald-700'}`}>
+                            {trend.gain}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
           {/* Live Subscription, Application Breakup and Demand */}
           <div className="space-y-6">
             {/* Live Subscription */}

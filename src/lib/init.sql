@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS ipos (
     risks TEXT[],
     drhp_url VARCHAR(1000),
     prospectus_url VARCHAR(1000),
+    gmp_trends JSONB,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
