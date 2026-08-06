@@ -204,7 +204,7 @@ export default function PublicArticlesPage() {
                     {art.title}
                   </h3>
 
-                  <p className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">
+                  <p className="text-xs text-slate-500 font-medium leading-relaxed line-clamp-5">
                     {art.description}
                   </p>
                 </div>
@@ -378,7 +378,7 @@ export default function PublicArticlesPage() {
                     <h3 className="font-extrabold text-sm text-slate-800 line-clamp-2 leading-snug">
                       {art.title}
                     </h3>
-                    <p className="text-[11px] text-slate-500 line-clamp-1 leading-normal font-medium">{art.description}</p>
+                    <p className="text-[11px] text-slate-500 line-clamp-3 leading-normal font-medium">{art.description}</p>
                     <div className="flex items-center gap-2 text-[10px] text-slate-400 pt-0.5 font-semibold">
                       <span>By ET Now</span>
                       <span>•</span>

@@ -43,7 +43,7 @@ export async function GET() {
       const pubDate = extractTagContent(itemXml, "pubDate");
       const description = extractTagContent(itemXml, "description")
         .replace(/<[^>]*>/g, "") // Strip any HTML tags from description
-        .substring(0, 180) + "...";
+        .substring(0, 400) + "...";
 
       if (title && link) {
         items.push({
