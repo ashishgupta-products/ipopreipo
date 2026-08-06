@@ -231,64 +231,6 @@ export default function IPODetailPage({ params }: PageProps) {
 
         {/* Left Col */}
         <div className={`lg:col-span-8 space-y-6 ${activeMobileTab === "overview" ? "block" : "hidden lg:block"}`}>
-          {/* Analyst Scorecard */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
-            <div className="flex justify-between items-center">
-              <span className="font-bold text-slate-700 flex items-center gap-1">
-                <Award className="w-4 h-4 text-amber-600" />
-                ANALYST RECOMMENDATION
-              </span>
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => {
-                  const rating = ipo.rating;
-                  const isFilled = i < Math.floor(rating);
-                  const isHalf = !isFilled && (i < rating);
-                  return (
-                    <Star
-                      key={i}
-                      className={`w-3.5 h-3.5 ${
-                        isFilled 
-                          ? "text-amber-500 fill-amber-500" 
-                          : isHalf 
-                            ? "text-amber-500 fill-amber-500/50" 
-                            : "text-slate-250"
-                      }`}
-                    />
-                  );
-                })}
-                <span className="ml-1.5 font-bold text-slate-800 text-[11px]">
-                  {ipo.rating.toFixed(1)}/5
-                </span>
-              </div>
-            </div>
-
-            <div className="p-2.5 rounded bg-slate-50 border border-slate-200 text-center font-extrabold text-emerald-700">
-              {ipo.recommendation}
-            </div>
-
-            <div className="space-y-1 pt-1">
-              <span className="font-bold text-slate-800 block">Key Strengths:</span>
-              <ul className="space-y-1 text-slate-600 list-disc list-inside">
-                {ipo.highlights.map((h: any, i: number) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-            </div>
-
-            {ipo.risks && ipo.risks.length > 0 && (
-              <div className="space-y-1 pt-2 border-t border-slate-100">
-                <span className="font-bold text-rose-700 flex items-center gap-1">
-                  <ShieldAlert className="w-3.5 h-3.5" />
-                  Key Risks:
-                </span>
-                <ul className="space-y-1 text-slate-600 list-disc list-inside">
-                  {ipo.risks.map((r: any, i: number) => (
-                    <li key={i}>{r}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
 
           {/* Key Dates Table */}
           <div className="space-y-2">
@@ -419,6 +361,66 @@ export default function IPODetailPage({ params }: PageProps) {
               </div>
             </div>
           )}
+
+          {/* Analyst Scorecard */}
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-slate-700 flex items-center gap-1">
+                <Award className="w-4 h-4 text-amber-600" />
+                ANALYST RECOMMENDATION
+              </span>
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => {
+                  const rating = ipo.rating;
+                  const isFilled = i < Math.floor(rating);
+                  const isHalf = !isFilled && (i < rating);
+                  return (
+                    <Star
+                      key={i}
+                      className={`w-3.5 h-3.5 ${
+                        isFilled 
+                          ? "text-amber-500 fill-amber-500" 
+                          : isHalf 
+                            ? "text-amber-500 fill-amber-500/50" 
+                            : "text-slate-250"
+                      }`}
+                    />
+                  );
+                })}
+                <span className="ml-1.5 font-bold text-slate-800 text-[11px]">
+                  {ipo.rating.toFixed(1)}/5
+                </span>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded bg-slate-50 border border-slate-200 text-center font-extrabold text-emerald-700">
+              {ipo.recommendation}
+            </div>
+
+            <div className="space-y-1 pt-1">
+              <span className="font-bold text-slate-800 block">Key Strengths:</span>
+              <ul className="space-y-1 text-slate-605 list-disc list-inside">
+                {ipo.highlights.map((h: any, i: number) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ul>
+            </div>
+
+            {ipo.risks && ipo.risks.length > 0 && (
+              <div className="space-y-1 pt-2 border-t border-slate-100">
+                <span className="font-bold text-rose-700 flex items-center gap-1">
+                  <ShieldAlert className="w-3.5 h-3.5" />
+                  Key Risks:
+                </span>
+                <ul className="space-y-1 text-slate-605 list-disc list-inside">
+                  {ipo.risks.map((r: any, i: number) => (
+                    <li key={i}>{r}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
 
 
           {/* IPO Reservations & Category Quota Distribution */}
