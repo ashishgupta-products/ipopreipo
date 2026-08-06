@@ -221,21 +221,21 @@ export default function PublicArticlesPage() {
 
           {/* Mobile News Feed - Reels View */}
           {mobileView === "reels" ? (
-            <div className="md:hidden fixed inset-x-0 top-0 bottom-14 z-[9990] bg-[#090d16] flex flex-col select-none">
+            <div className="md:hidden fixed inset-x-0 top-0 bottom-14 z-[9990] bg-[#f8fafc] flex flex-col select-none">
               
               {/* Progress Indicator Bars */}
               <div className="absolute top-2.5 inset-x-4 z-50 flex gap-1">
                 {news.map((_, idx) => (
                   <div
                     key={idx}
-                    className="h-1 flex-1 rounded-full bg-white/25 overflow-hidden"
+                    className="h-1 flex-1 rounded-full bg-slate-200/80 overflow-hidden"
                   >
                     <div
-                      className={`h-full bg-white transition-all duration-300 ${
+                      className={`h-full bg-blue-600 transition-all duration-300 ${
                         idx === activeIndex
                           ? "w-full"
                           : idx < activeIndex
-                          ? "w-full bg-white/70"
+                          ? "w-full bg-blue-600/70"
                           : "w-0"
                       }`}
                     />
@@ -244,17 +244,17 @@ export default function PublicArticlesPage() {
               </div>
 
               {/* Reels Custom Header */}
-              <div className="absolute top-6 inset-x-0 z-45 px-4 flex justify-between items-center bg-gradient-to-b from-black/60 to-transparent pb-8">
+              <div className="absolute top-6 inset-x-0 z-45 px-4 flex justify-between items-center bg-gradient-to-b from-white/90 via-white/40 to-transparent pb-8">
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
                   </span>
-                  <span className="font-black text-xs text-white uppercase tracking-wider">Market Shorts</span>
+                  <span className="font-black text-xs text-slate-800 uppercase tracking-wider">Market Shorts</span>
                 </div>
                 <button
                   onClick={() => setMobileView("list")}
-                  className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-extrabold text-[10px] border border-white/15 flex items-center gap-1"
+                  className="px-2.5 py-1 rounded-full bg-white/80 hover:bg-white backdrop-blur-md text-slate-700 font-extrabold text-[10px] border border-slate-200/80 shadow-xs flex items-center gap-1"
                 >
                   <BookOpen className="w-3 h-3" />
                   List View
@@ -279,39 +279,39 @@ export default function PublicArticlesPage() {
                         <img
                           src={bgImage}
                           alt=""
-                          className="w-full h-full object-cover scale-110 blur-xl opacity-35"
+                          className="w-full h-full object-cover scale-110 blur-xl opacity-20"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-b from-[#090d16]/75 via-[#090d16]/90 to-[#090d16]" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-[#f8fafc]/90 to-[#f8fafc]" />
                       </div>
 
                       {/* Content Section */}
                       <div className="relative z-10 flex-1 flex flex-col justify-center px-4 pt-16 pb-4 max-w-md mx-auto w-full">
                         
                         {/* Featured Graphic Card */}
-                        <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group mb-6 bg-slate-900/60 flex items-center justify-center">
+                        <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 relative group mb-6 bg-white flex items-center justify-center">
                           <img
                             src={bgImage}
                             alt={art.title}
                             className="w-full h-full object-cover"
                           />
-                          <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[9px] font-extrabold bg-[#0d1527]/90 text-blue-300 border border-blue-500/20 uppercase tracking-wider">
+                          <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[9px] font-extrabold bg-blue-50 text-blue-800 border border-blue-200/60 uppercase tracking-wider">
                             ET Now Live Feed
                           </span>
                         </div>
 
                         {/* Title & Metadata */}
                         <div className="space-y-3">
-                          <div className="flex items-center gap-2 text-[10px] font-bold text-blue-400">
-                            <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 uppercase tracking-wider">IPO News</span>
+                          <div className="flex items-center gap-2 text-[10px] font-bold text-blue-700">
+                            <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-850 border border-blue-200/60 uppercase tracking-wider">IPO News</span>
                             <span>•</span>
                             <span>{art.pubDate ? new Date(art.pubDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
                           </div>
 
-                          <h3 className="font-black text-lg text-white leading-snug tracking-tight">
+                          <h3 className="font-black text-base text-slate-900 leading-snug tracking-tight">
                             {art.title}
                           </h3>
 
-                          <p className="text-[12px] text-slate-300 font-medium leading-relaxed">
+                          <p className="text-[12px] text-slate-600 font-medium leading-relaxed">
                             {art.description}
                           </p>
                         </div>
@@ -321,33 +321,33 @@ export default function PublicArticlesPage() {
                       <div className="absolute right-4 bottom-28 z-20 flex flex-col items-center gap-4">
                         <button
                           onClick={() => handleShare(art, index)}
-                          className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center text-white active:scale-90 transition-transform shadow-lg"
+                          className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 active:scale-90 transition-all shadow-md hover:bg-slate-50"
                         >
                           {copiedIndex === index ? (
-                            <span className="text-[10px] text-emerald-400 font-bold">Copied</span>
+                            <span className="text-[10px] text-emerald-600 font-bold">Copied</span>
                           ) : (
                             <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 10.742l4.636-2.278m0 0a3.002 3.002 0 112.166-2.164m-2.166 2.164l-4.636 2.278m0 0A3.002 3.002 0 1012.7 17.3l4.636-2.278" />
                             </svg>
                           )}
                         </button>
-                        <span className="text-[8px] font-extrabold text-slate-400 uppercase tracking-wider">Share</span>
+                        <span className="text-[8px] font-extrabold text-slate-500 uppercase tracking-wider">Share</span>
                       </div>
 
                       {/* Swipe / Action Bar Container */}
-                      <div className="relative z-10 px-4 pb-6 pt-2 bg-gradient-to-t from-[#090d16] via-[#090d16]/80 to-transparent w-full">
+                      <div className="relative z-10 px-4 pb-6 pt-2 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/80 to-transparent w-full">
                         <div className="max-w-md mx-auto flex flex-col gap-3">
                           <a
                             href={art.link}
                             target="_blank"
                             rel="noreferrer"
-                            className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.98] transition-all text-white font-extrabold text-xs shadow-lg flex items-center justify-center gap-1.5 border border-blue-500"
+                            className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.98] transition-all text-white font-extrabold text-xs shadow-md flex items-center justify-center gap-1.5 border border-blue-500"
                           >
                             Read Full Story
                             <ChevronRight className="w-4 h-4" />
                           </a>
                           
-                          <div className="flex justify-center items-center gap-1 text-[9px] font-bold text-slate-500">
+                          <div className="flex justify-center items-center gap-1 text-[9px] font-bold text-slate-550">
                             <span>Swipe up for next story</span>
                             <ChevronRight className="w-3 h-3 rotate-90 animate-bounce" />
                           </div>
