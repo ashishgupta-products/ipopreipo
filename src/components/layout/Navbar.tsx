@@ -42,7 +42,6 @@ export const Navbar: React.FC = () => {
   const [ipos, setIpos] = useState<any[]>([]);
 
   const megaMenuRef = useRef<HTMLDivElement>(null);
-  const userDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function loadIPOs() {
@@ -98,9 +97,6 @@ export const Navbar: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (megaMenuRef.current && !megaMenuRef.current.contains(event.target as Node)) {
         setIpoMenuOpen(false);
-      }
-      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target as Node)) {
-        setUserDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
