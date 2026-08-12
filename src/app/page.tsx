@@ -20,7 +20,8 @@ import {
   Calendar,
   Clock,
   Star,
-  Newspaper
+  Newspaper,
+  X
 } from "lucide-react";
 import { MOCK_PRE_IPOS } from "@/data/mockPreIpo";
 import { MOCK_ANCHOR_LOCKINS } from "@/data/mockAnchorLockins";
@@ -46,6 +47,15 @@ function HomeDashboardContent() {
   const [newsLoading, setNewsLoading] = useState<boolean>(true);
   const [articles, setArticles] = useState<any[]>([]);
   const [articlesLoading, setArticlesLoading] = useState<boolean>(true);
+  const [showWhatsAppBanner, setShowWhatsAppBanner] = useState<boolean>(false);
+
+  // Check if WhatsApp banner was dismissed
+  useEffect(() => {
+    const dismissed = localStorage.getItem("dismissed-whatsapp-banner");
+    if (!dismissed) {
+      setShowWhatsAppBanner(true);
+    }
+  }, []);
 
   // Load news feed & database articles
   useEffect(() => {
@@ -187,7 +197,64 @@ function HomeDashboardContent() {
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-6 font-sans bg-[#f8fafc] pb-16">
 
-
+      {/* WhatsApp Channel Mobile Banner */}
+      {showWhatsAppBanner && (
+        <div className="md:hidden bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-4 rounded-2xl shadow-sm relative overflow-hidden flex flex-col space-y-3 animate-fade-in border border-emerald-500/20">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none" />
+          
+          <div className="flex items-start justify-between gap-3 relative z-10">
+            <div className="flex gap-3">
+              <div className="shrink-0">
+                <svg className="w-10 h-10 drop-shadow-md" viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="22" fill="#25D366" />
+                  <circle cx="24" cy="24" r="20" fill="#25D366" stroke="white" strokeWidth="2" />
+                  <path fillRule="evenodd" clipRule="evenodd" d="M24 12C17.373 12 12 17.373 12 24C12 26.459 12.74 28.746 14.009 30.663L12.539 35.462L17.514 34.037C19.364 35.193 21.605 35.864 24 35.864C30.627 35.864 36 30.491 36 23.864C36 17.237 30.627 12 24 12ZM30.245 28.173C29.965 28.96 28.759 29.604 27.927 29.779C27.354 29.901 26.611 29.993 24.09 28.953C20.868 27.623 18.791 24.343 18.63 24.126C18.476 23.909 17.339 22.404 17.339 20.85C17.339 19.296 18.133 18.541 18.457 18.205C18.72 17.932 19.159 17.802 19.582 17.802C19.719 17.802 19.842 17.809 19.951 17.816C20.271 17.83 20.435 17.844 20.647 18.349C20.913 18.99 21.56 20.57 21.642 20.734C21.724 20.898 21.806 21.116 21.697 21.334C21.594 21.552 21.505 21.661 21.348 21.845C21.191 22.03 21.048 22.173 20.891 22.364C20.748 22.528 20.584 22.706 20.761 23.013C20.939 23.313 21.552 24.315 22.459 25.12C23.632 26.163 24.587 26.497 24.934 26.64C25.262 26.777 25.459 26.743 25.644 26.532C25.869 26.273 26.611 25.401 26.891 24.998C27.171 24.596 27.451 24.658 27.826 24.801C28.208 24.944 30.245 25.947 30.662 26.152C31.078 26.356 31.358 26.459 31.46 26.636C31.562 26.813 31.562 27.393 31.282 28.178L30.245 28.173Z" fill="white" />
+                </svg>
+              </div>
+              <div className="space-y-0.5">
+                <h4 className="font-extrabold text-sm tracking-tight flex items-center gap-1.5">
+                  Join WhatsApp Channel
+                  <span className="bg-white/20 text-[9px] uppercase px-1.5 py-0.5 rounded font-black tracking-wider animate-pulse">Live GMP</span>
+                </h4>
+                <p className="text-[11px] text-emerald-100 font-medium leading-tight">
+                  Get instant grey market premium updates, allotment alerts, and latest IPO news straight to your WhatsApp!
+                </p>
+              </div>
+            </div>
+            
+            <button 
+              onClick={() => {
+                setShowWhatsAppBanner(false);
+                localStorage.setItem("dismissed-whatsapp-banner", "true");
+              }}
+              className="text-white/75 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors shrink-0"
+              aria-label="Dismiss banner"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          
+          <div className="flex gap-2.5 pt-1 relative z-10">
+            <a 
+              href="https://whatsapp.com/channel/0029Vb3ARRK4CrfqyqsTkP1B" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-1 bg-white hover:bg-emerald-50 text-emerald-700 font-extrabold text-xs py-2 rounded-xl text-center shadow-xs transition-colors"
+            >
+              Join Channel
+            </a>
+            <button 
+              onClick={() => {
+                setShowWhatsAppBanner(false);
+                localStorage.setItem("dismissed-whatsapp-banner", "true");
+              }}
+              className="px-4 py-2 border border-white/30 hover:border-white/50 hover:bg-white/10 text-white font-bold text-xs rounded-xl transition-colors"
+            >
+              Maybe Later
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Controls Bar */}
       <div className="flex flex-row items-center justify-between gap-3 overflow-x-auto py-1">
