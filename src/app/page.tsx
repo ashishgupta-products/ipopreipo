@@ -217,7 +217,7 @@ function HomeDashboardContent() {
                   <span className="bg-white/20 text-[9px] uppercase px-1.5 py-0.5 rounded font-black tracking-wider animate-pulse">Live GMP</span>
                 </h4>
                 <p className="text-[11px] text-emerald-100 font-medium leading-tight">
-                  Get instant grey market premium updates, allotment alerts, and latest IPO news straight to your WhatsApp!
+                  Get every update on time straight to your WhatsApp!
                 </p>
               </div>
             </div>
