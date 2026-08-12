@@ -435,8 +435,8 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Search Trigger */}
-          <div className="relative">
+          {/* Search Trigger (Hidden on Mobile) */}
+          <div className="relative hidden sm:block">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
@@ -479,6 +479,19 @@ export const Navbar: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* WhatsApp Channel CTA (Mobile Only - replaces Search) */}
+          <a
+            href="https://whatsapp.com/channel/0029Va9iedA754x7193Fpx1c"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden flex items-center gap-1 bg-[#25D366] hover:bg-[#128C7E] text-white font-extrabold text-[10px] px-2.5 py-1.5 rounded-full transition-colors active:scale-95 shadow-xs"
+          >
+            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.864-9.83 0-2.623-1.01-5.092-2.846-6.93C16.59 1.947 14.136.938 11.99.938c-5.444 0-9.866 4.416-9.87 9.832-.001 1.714.453 3.39 1.313 4.877L2.43 21.139l5.803-1.521c1.558.85 3.125 1.296 4.414 1.296zM17.486 14.4c-.299-.149-1.772-.875-2.046-.975-.275-.1-.475-.149-.675.15-.199.299-.772.975-.948 1.173-.175.199-.35.224-.65.074-1.258-.63-2.11-1.053-2.92-2.456-.215-.369-.215-.599-.074-.74.126-.127.279-.328.419-.492.141-.164.188-.279.281-.463.093-.185.047-.348-.023-.497-.069-.149-.675-1.628-.925-2.228-.243-.584-.49-.505-.675-.514-.175-.008-.375-.01-.575-.01-.2 0-.525.075-.8.375-.274.3-.1.525-1.047 1.42-.947.896-.73 2.193.023 3.394.753 1.2 1.4 2.1 2.9 3.5 1.5 1.4 2.5 2.1 3.5 2.5.83.33 1.48.3 2.03.22.61-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.07-.12-.27-.22-.57-.37z" />
+            </svg>
+            Join WA
+          </a>
         </div>
       </nav>
     </header>
