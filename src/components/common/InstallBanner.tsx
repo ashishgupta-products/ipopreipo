@@ -96,11 +96,11 @@ export const InstallBanner: React.FC = () => {
   return (
     <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-4 py-2.5 flex items-center justify-between shadow-md border-b border-blue-800 text-xs relative z-[10001] animate-in slide-in-from-top duration-300">
       <div className="flex items-center gap-2">
-        <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-          <Smartphone className="w-4 h-4 text-blue-300" />
+        <div className="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+          <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
         </div>
         <p className="font-semibold leading-tight pr-4">
-          📱 Install <strong className="text-white">IPOPreIPO App</strong> for live GMP alerts!
+          📱 Install <strong className="text-white">IPO Preipo App</strong> for live GMP alerts!
         </p>
       </div>
 

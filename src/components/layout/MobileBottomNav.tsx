@@ -123,10 +123,12 @@ export const MobileBottomNav: React.FC = () => {
             {/* PWA Install Promotion Box */}
             {!isStandaloneApp && (
               <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex flex-col gap-2.5 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <Smartphone className="w-4.5 h-4.5 text-blue-300 shrink-0" />
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-lg overflow-hidden shrink-0">
+                    <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
+                  </div>
                   <p className="font-bold leading-tight">
-                    📱 Install IPOPreIPO App for live GMP alerts!
+                    📱 Install IPO Preipo App for live GMP alerts!
                   </p>
                 </div>
                 <button

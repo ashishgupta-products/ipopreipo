@@ -1,6 +1,6 @@
 {
-  "name": "IPOPreIPO.com",
-  "short_name": "IPOPreIPO",
+  "name": "IPO Preipo",
+  "short_name": "IPO Preipo",
   "description": "Professional financial portal for tracking Indian IPOs, Pre-IPO unlisted shares, credit card offers, and banks.",
   "start_url": "/",
   "display": "standalone",
@@ -13,7 +13,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/globe.svg",
+      "src": "/logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
