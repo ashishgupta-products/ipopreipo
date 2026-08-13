@@ -130,7 +130,9 @@ export const Navbar: React.FC = () => {
             <span className="text-[10px] text-slate-500 font-medium tracking-wide flex items-center gap-1">
               <span>Made with</span>
               <span className="text-rose-500">❤️</span>
-              <DynamicTagline />
+              <span className="inline-block min-w-[130px] truncate">
+                <DynamicTagline />
+              </span>
             </span>
           </div>
         </Link>

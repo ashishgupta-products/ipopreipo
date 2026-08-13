@@ -18,6 +18,7 @@ import { MOCK_CREDIT_CARDS } from "@/data/mockCreditCards";
 import { CardCategory } from "@/types/finance";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 import CreditCardRewardCalculator from "@/components/credit-cards/CreditCardRewardCalculator";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 
 const FEE_TIERS = [
   { id: "free", label: "Lifetime Free (₹0)", check: (card: any) => card.annualFee === 0 },
@@ -35,6 +36,7 @@ export default function CreditCardsPage() {
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("popular");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState<boolean>(false);
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState<boolean>(false);
 
   const cardFeaturesList = [
     { key: "Welcome Bonus", label: "Welcome Bonus" },
@@ -240,48 +242,14 @@ export default function CreditCardsPage() {
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
-      {/* Header Banner */}
-      <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 text-blue-800 border border-blue-200/80">
-              <CreditCard className="w-3 h-3" />
-              CREDIT CARD COMPARISON DESK
-            </span>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-              50+ Best Credit Cards in India
-            </h1>
-            <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed max-w-3xl font-medium">
-              Evaluate fees, capping, and reward multipliers.
-            </p>
-          </div>
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs items={[{ label: "Credit Cards" }]} className="mb-2" />
 
-          {/* Main View Mode Switcher */}
-          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/80 shrink-0 text-xs font-bold w-full md:w-auto">
-            <button
-              onClick={() => setActiveTab("catalog")}
-              className={`flex-1 md:flex-initial px-3 py-1.5 rounded-md flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                activeTab === "catalog"
-                  ? "bg-slate-900 text-white shadow-xs"
-                  : "text-slate-700 hover:text-slate-900"
-              }`}
-            >
-              <SlidersHorizontal className="w-3 h-3" />
-              Cards Catalog
-            </button>
-            <button
-              onClick={() => setActiveTab("calculator")}
-              className={`flex-1 md:flex-initial px-3 py-1.5 rounded-md flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                activeTab === "calculator"
-                  ? "bg-slate-900 text-white shadow-xs"
-                  : "text-slate-700 hover:text-slate-900"
-              }`}
-            >
-              <Calculator className="w-3 h-3" />
-              Cashback Estimator
-            </button>
-          </div>
-        </div>
+      {/* Header Banner */}
+      <div className="py-4 text-center">
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          Best Credit Cards in India
+        </h1>
       </div>
 
       {/* Render Calculator view if tab is active */}
@@ -289,87 +257,141 @@ export default function CreditCardsPage() {
         <CreditCardRewardCalculator />
       ) : (
         <>
-          {/* Main Catalog Two-Column Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
-            {/* Desktop Filters Sidebar */}
-            <div className="hidden lg:block lg:col-span-1 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs sticky top-5">
-              {filterSidebarContent}
-            </div>
 
-            {/* Catalog Main Content */}
-            <div className="lg:col-span-3 space-y-4">
-              {/* Filter, Sort & Mobile Filter Trigger Bar */}
-              <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
-                {/* Category Pills */}
-                <div className="flex flex-wrap items-center gap-1.5 text-[11px] sm:text-xs font-bold overflow-x-auto pb-1 sm:pb-0">
-                  <button
-                    onClick={() => setSelectedCategory("all")}
-                    className={`px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                      selectedCategory === "all" ? "bg-slate-900 text-white shadow-xs" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    All Cards ({MOCK_CREDIT_CARDS.length})
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory("cashback")}
-                    className={`px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                      selectedCategory === "cashback" ? "bg-slate-900 text-white shadow-xs" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    Cashback
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory("lifetime_free")}
-                    className={`px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                      selectedCategory === "lifetime_free" ? "bg-slate-900 text-white shadow-xs" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    Lifetime Free
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory("travel")}
-                    className={`px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                      selectedCategory === "travel" ? "bg-slate-900 text-white shadow-xs" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    Travel
-                  </button>
-                  <button
-                    onClick={() => setSelectedCategory("rewards")}
-                    className={`px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                      selectedCategory === "rewards" ? "bg-slate-900 text-white shadow-xs" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    Rewards
-                  </button>
+          {/* Main Catalog - Top Filters Row */}
+          {showAdvancedFilters && (
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs mb-6 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                {/* Search Filter */}
+                <div className="space-y-1.5 col-span-1 md:col-span-1">
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Search</label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="Search card, bank..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full pl-8 pr-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 text-xs placeholder-slate-400 font-semibold focus:outline-hidden focus:border-slate-950 focus:bg-white transition-all"
+                    />
+                    <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  {/* Mobile Filter Button */}
-                  <button
-                    onClick={() => setIsMobileFilterOpen(true)}
-                    className="lg:hidden flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs shadow-2xs cursor-pointer"
-                  >
-                    <SlidersHorizontal className="w-3.5 h-3.5" />
-                    Filters {activeFiltersCount > 0 && `(${activeFiltersCount})`}
-                  </button>
-
-                  {/* Sort By Dropdown */}
-                  <div className="relative flex-1 sm:flex-initial">
+                {/* Bank / Issuer Dropdown Selector */}
+                <div className="space-y-1.5 col-span-1">
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Bank / Issuer</label>
+                  <div className="relative">
                     <select
-                      value={sortBy}
-                      onChange={(e) => setSortBy(e.target.value)}
-                      className="w-full sm:w-44 pl-3 pr-8 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 text-xs font-bold focus:outline-hidden focus:border-slate-950 transition-all appearance-none cursor-pointer"
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (val) {
+                          if (!selectedBanks.includes(val)) {
+                            setSelectedBanks([...selectedBanks, val]);
+                          }
+                        }
+                      }}
+                      value=""
+                      className="w-full pl-3 pr-8 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-950 text-xs font-semibold focus:outline-hidden focus:border-slate-950 transition-all appearance-none cursor-pointer"
                     >
-                      <option value="popular">Popularity</option>
-                      <option value="rating">Rating (High to Low)</option>
-                      <option value="annual_fee_asc">Annual Fee (Low to High)</option>
-                      <option value="joining_fee_asc">Joining Fee (Low to High)</option>
+                      <option value="">Select Banks...</option>
+                      {uniqueBanks.map((bank) => (
+                        <option key={bank} value={bank} disabled={selectedBanks.includes(bank)}>
+                          {bank} {selectedBanks.includes(bank) ? "✓" : ""}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-500 absolute right-2.5 top-2.5 pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Annual Charges Dropdown Selector */}
+                <div className="space-y-1.5 col-span-1">
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Annual Charges</label>
+                  <div className="relative">
+                    <select
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (val) {
+                          if (!selectedFeeTiers.includes(val)) {
+                            setSelectedFeeTiers([...selectedFeeTiers, val]);
+                          }
+                        }
+                      }}
+                      value=""
+                      className="w-full pl-3 pr-8 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-950 text-xs font-semibold focus:outline-hidden focus:border-slate-950 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="">Select Fees...</option>
+                      {FEE_TIERS.map((tier) => (
+                        <option key={tier.id} value={tier.id} disabled={selectedFeeTiers.includes(tier.id)}>
+                          {tier.label} {selectedFeeTiers.includes(tier.id) ? "✓" : ""}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-500 absolute right-2.5 top-2.5 pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Benefits Selector */}
+                <div className="space-y-1.5 col-span-1">
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Benefits</label>
+                  <div className="relative">
+                    <select
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (val) {
+                          if (!selectedFeatures.includes(val)) {
+                            setSelectedFeatures([...selectedFeatures, val]);
+                          }
+                        }
+                      }}
+                      value=""
+                      className="w-full pl-3 pr-8 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-950 text-xs font-semibold focus:outline-hidden focus:border-slate-950 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="">Select Features...</option>
+                      {cardFeaturesList.map((feat) => (
+                        <option key={feat.key} value={feat.key} disabled={selectedFeatures.includes(feat.key)}>
+                          {feat.label} {selectedFeatures.includes(feat.key) ? "✓" : ""}
+                        </option>
+                      ))}
                     </select>
                     <ChevronDown className="w-3.5 h-3.5 text-slate-500 absolute right-2.5 top-2.5 pointer-events-none" />
                   </div>
                 </div>
               </div>
+
+              {/* Quick reset active tags indicator inside filter bar */}
+              {activeFiltersCount > 0 && (
+                <div className="flex items-center justify-between border-t border-slate-100 mt-4 pt-3 text-xs">
+                  <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">Active Filters ({activeFiltersCount})</div>
+                  <button
+                    onClick={handleResetFilters}
+                    className="text-[10px] text-red-650 hover:text-red-750 font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                  >
+                    <RotateCcw className="w-2.5 h-2.5" />
+                    Reset All Filters
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Main Catalog Single-Column List */}
+          <div className="w-full">
+            {/* Simple Filters Toggle Button Bar */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between gap-3 mb-6">
+              <button
+                onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                className="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-805 font-extrabold text-xs shadow-3xs transition-all flex items-center gap-2 cursor-pointer shrink-0"
+              >
+                <SlidersHorizontal className="w-4 h-4" />
+                <span>Filters</span>
+                {activeFiltersCount > 0 && (
+                  <span className="bg-slate-900 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold">
+                    {activeFiltersCount}
+                  </span>
+                )}
+              </button>
+            </div>
 
               {/* Active Filter Tags */}
               {activeFiltersCount > 0 && (
@@ -570,7 +592,6 @@ export default function CreditCardsPage() {
                 )}
               </div>
             </div>
-          </div>
 
           {/* Mobile Filter Slide-over Drawer */}
           {isMobileFilterOpen && (

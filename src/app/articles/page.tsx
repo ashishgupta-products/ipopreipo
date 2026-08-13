@@ -121,7 +121,7 @@ export default function PublicArticlesPage() {
             >
               <div className="lg:col-span-5 relative h-64 sm:h-72 w-full rounded-xl overflow-hidden shadow-xs border border-slate-100/80">
                 <img
-                  src={FALLBACK_IMAGES[0]}
+                  src={featuredArticle.imageUrl || FALLBACK_IMAGES[0]}
                   alt={featuredArticle.title}
                   className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
                 />
@@ -153,11 +153,11 @@ export default function PublicArticlesPage() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 font-extrabold text-xs border border-slate-200">
-                      E
+                    <div className="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center text-white font-extrabold text-xs border border-blue-800">
+                      {featuredArticle.source ? featuredArticle.source.charAt(0) : "N"}
                     </div>
                     <div>
-                      <strong className="text-xs text-slate-800 block font-bold">ET Now</strong>
+                      <strong className="text-xs text-slate-800 block font-bold">{featuredArticle.source || "News Feed"}</strong>
                       <span className="text-[10px] text-slate-400 block font-medium">Editorial Feed</span>
                     </div>
                   </div>
@@ -183,12 +183,12 @@ export default function PublicArticlesPage() {
                 <div className="space-y-3">
                   <div className="h-44 w-full rounded-xl overflow-hidden relative border border-slate-100/80">
                     <img
-                      src={FALLBACK_IMAGES[(index + 1) % FALLBACK_IMAGES.length]}
+                      src={art.imageUrl || FALLBACK_IMAGES[(index + 1) % FALLBACK_IMAGES.length]}
                       alt={art.title}
                       className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
                     />
                     <span className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-900/90 text-white shadow-xs uppercase tracking-wider">
-                      IPO News
+                      {art.title.toLowerCase().includes("ipo") ? "IPO News" : art.title.toLowerCase().includes("pre-ipo") || art.title.toLowerCase().includes("unlisted") ? "Pre-IPO" : "Market News"}
                     </span>
                   </div>
 
@@ -210,7 +210,7 @@ export default function PublicArticlesPage() {
                 </div>
 
                 <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
-                  <span className="text-slate-400 font-bold">By ET Now</span>
+                  <span className="text-slate-400 font-bold">By {art.source || "News Feed"}</span>
                   <span className="font-bold text-[#0c1220] group-hover:text-blue-700 flex items-center gap-1 transition-colors">
                     Read Article <ChevronRight className="w-3.5 h-3.5" />
                   </span>
@@ -290,19 +290,21 @@ export default function PublicArticlesPage() {
                         {/* Featured Graphic Card */}
                         <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 relative group mb-6 bg-white flex items-center justify-center">
                           <img
-                            src={bgImage}
+                            src={art.imageUrl || bgImage}
                             alt={art.title}
                             className="w-full h-full object-cover"
                           />
-                          <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[9px] font-extrabold bg-blue-50 text-blue-800 border border-blue-200/60 uppercase tracking-wider">
-                            ET Now Live Feed
+                          <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[9px] font-extrabold bg-blue-50 text-blue-805 border border-blue-200/60 uppercase tracking-wider">
+                            {art.source || "News Feed"} Live
                           </span>
                         </div>
 
                         {/* Title & Metadata */}
                         <div className="space-y-3">
                           <div className="flex items-center gap-2 text-[10px] font-bold text-blue-700">
-                            <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-850 border border-blue-200/60 uppercase tracking-wider">IPO News</span>
+                            <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-850 border border-blue-200/60 uppercase tracking-wider">
+                              {art.title.toLowerCase().includes("ipo") ? "IPO News" : art.title.toLowerCase().includes("pre-ipo") || art.title.toLowerCase().includes("unlisted") ? "Pre-IPO" : "Market News"}
+                            </span>
                             <span>•</span>
                             <span>{art.pubDate ? new Date(art.pubDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
                           </div>
@@ -371,7 +373,9 @@ export default function PublicArticlesPage() {
                 >
                   <div className="flex-1 space-y-1.5 min-w-0">
                     <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold">
-                      <span className="text-blue-750 font-extrabold uppercase tracking-wider">IPO News</span>
+                      <span className="text-blue-750 font-extrabold uppercase tracking-wider">
+                        {art.title.toLowerCase().includes("ipo") ? "IPO News" : art.title.toLowerCase().includes("pre-ipo") || art.title.toLowerCase().includes("unlisted") ? "Pre-IPO" : "Market News"}
+                      </span>
                       <span>•</span>
                       <span>{art.pubDate ? new Date(art.pubDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : ""}</span>
                     </div>
@@ -380,14 +384,14 @@ export default function PublicArticlesPage() {
                     </h3>
                     <p className="text-[11px] text-slate-500 line-clamp-3 leading-normal font-medium">{art.description}</p>
                     <div className="flex items-center gap-2 text-[10px] text-slate-400 pt-0.5 font-semibold">
-                      <span>By ET Now</span>
+                      <span>By {art.source || "News Feed"}</span>
                       <span>•</span>
                       <span>3 min read</span>
                     </div>
                   </div>
                   <div className="w-18 h-18 rounded-xl overflow-hidden shrink-0 border border-slate-150 shadow-3xs bg-slate-50">
                     <img
-                      src={FALLBACK_IMAGES[index % FALLBACK_IMAGES.length]}
+                      src={art.imageUrl || FALLBACK_IMAGES[index % FALLBACK_IMAGES.length]}
                       alt={art.title}
                       className="w-full h-full object-cover"
                     />

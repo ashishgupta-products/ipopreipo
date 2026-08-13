@@ -28,6 +28,7 @@ import { GMPCard } from "@/components/common/GMPCard";
 import { SubscriptionTable } from "@/components/common/SubscriptionTable";
 import { Calculator } from "@/components/common/Calculator";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -134,6 +135,9 @@ export default function IPODetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-8 space-y-6">
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs items={[{ label: "IPOs", href: "/" }, { label: ipo.name }]} className="mb-2" />
+
       {/* Back Button */}
       <Link
         href="/"

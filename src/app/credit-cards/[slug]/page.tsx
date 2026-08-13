@@ -24,6 +24,7 @@ import {
 import { MOCK_CREDIT_CARDS } from "@/data/mockCreditCards";
 import UserReviewsSection from "@/components/common/UserReviewsSection";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -51,16 +52,16 @@ export default async function CreditCardDetailPage({ params }: PageProps) {
 
   const activeFeatures = card.featuresAndBenefits || ["Welcome Bonus", "Travel", "Fuel", "Rewards", "Shopping", "Cashback", "Dining", "Insurance", "Interest"];
 
+  const breadcrumbsItems = [
+    { label: "Credit Cards", href: "/credit-cards" },
+    { label: card.name }
+  ];
+
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
-      {/* Back Button */}
-      <Link
-        href="/credit-cards"
-        className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-[#0c1220] transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Back to Credit Cards Catalog
-      </Link>
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs items={breadcrumbsItems} className="mb-2" />
+
 
       {/* Main Header Banner */}
       <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-5">

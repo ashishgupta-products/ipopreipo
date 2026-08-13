@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Smartphone, Star, ChevronRight, CheckCircle2, XCircle } from "lucide-react";
 import { MOCK_PAYMENT_APPS } from "@/data/mockPaymentApps";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 
 export default function PaymentAppsPage() {
   const [filterType, setFilterType] = useState<"All" | "RuPay Enabled" | "UPI Lite">("All");
@@ -17,31 +18,22 @@ export default function PaymentAppsPage() {
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-5 font-sans bg-[#f8fafc]">
-      {/* Banner & Filter Bar */}
-      <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-4">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div className="space-y-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 text-blue-800 border border-blue-200/80">
-              <Smartphone className="w-3.5 h-3.5" />
-              UPI &amp; PAYMENT APPS DESK
-            </span>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-              Best UPI &amp; Payment Apps in India
-            </h1>
-            <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed max-w-3xl font-medium">
-              Compare top UPI apps by RuPay credit card linking, UPI Lite PIN-less payments, and cashback rewards.
-            </p>
-          </div>
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs items={[{ label: "Payment Apps" }]} className="mb-2" />
 
-          {/* Filter Bar */}
-          <div className="flex flex-col items-start md:items-end gap-1 shrink-0 w-full md:w-auto">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-              Filter By Features
-            </span>
-            <div className="flex items-center gap-1.5 bg-slate-100 p-0.5 rounded-lg text-xs font-bold w-full md:w-auto">
+      {/* Banner & Filter Bar */}
+      <div className="py-4 text-center">
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          Best UPI and Payments App in India
+        </h1>
+      </div>
+
+          {/* Simplified Filter Bar */}
+          <div className="flex items-center justify-center gap-1.5 py-2">
+            <div className="flex items-center gap-1.5 bg-slate-100 p-0.5 rounded-lg text-xs font-bold shadow-3xs">
               <button
                 onClick={() => setFilterType("All")}
-                className={`px-3 py-1.5 rounded-md transition-all ${
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
                   filterType === "All"
                     ? "bg-slate-900 text-white shadow-xs"
                     : "text-slate-600 hover:text-slate-900"
@@ -51,7 +43,7 @@ export default function PaymentAppsPage() {
               </button>
               <button
                 onClick={() => setFilterType("RuPay Enabled")}
-                className={`px-3 py-1.5 rounded-md transition-all ${
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
                   filterType === "RuPay Enabled"
                     ? "bg-slate-900 text-white shadow-xs"
                     : "text-slate-600 hover:text-slate-900"
@@ -61,7 +53,7 @@ export default function PaymentAppsPage() {
               </button>
               <button
                 onClick={() => setFilterType("UPI Lite")}
-                className={`px-3 py-1.5 rounded-md transition-all ${
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
                   filterType === "UPI Lite"
                     ? "bg-slate-900 text-white shadow-xs"
                     : "text-slate-600 hover:text-slate-900"
@@ -71,8 +63,6 @@ export default function PaymentAppsPage() {
               </button>
             </div>
           </div>
-        </div>
-      </div>
 
       {/* Payment Apps Cards Catalog */}
       <div className="space-y-4">
