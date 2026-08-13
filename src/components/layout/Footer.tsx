@@ -11,8 +11,8 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand Info */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-blue-700 flex items-center justify-center text-white font-bold">
-                <TrendingUp className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-extrabold text-lg text-white">
                 IPO<span className="text-blue-400">PREIPO</span>

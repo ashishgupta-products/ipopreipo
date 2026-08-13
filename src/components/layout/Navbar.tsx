@@ -117,8 +117,8 @@ export const Navbar: React.FC = () => {
       <nav className="max-w-7xl mx-auto w-full px-4 py-2 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-          <div className="w-9 h-9 rounded-lg bg-blue-900 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-800 transition-colors">
-            <TrendingUp className="w-5 h-5 text-blue-400" />
+          <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center shadow-sm group-hover:opacity-90 transition-opacity">
+            <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col">
             <div className="flex items-baseline gap-0.5">
