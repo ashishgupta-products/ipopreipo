@@ -1,64 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <!-- Background Gradient -->
+    <!-- Premium background gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0f19" />
-      <stop offset="100%" stop-color="#1e3a8a" />
+      <stop offset="0%" stop-color="#070a13" />
+      <stop offset="100%" stop-color="#0f172a" />
     </linearGradient>
-    <!-- Accent Gradient (Gold/Green) -->
-    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10b981" />
-      <stop offset="100%" stop-color="#34d399" />
-    </linearGradient>
-    <!-- Glow Effect -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="16" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
   </defs>
 
-  <!-- Rounded Background -->
+  <!-- Rounded Background Square -->
   <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
 
-  <!-- Graph grid lines (Subtle) -->
-  <g opacity="0.1" stroke="#ffffff" stroke-width="2">
-    <line x1="64" y1="128" x2="448" y2="128" />
-    <line x1="64" y1="224" x2="448" y2="224" />
-    <line x1="64" y1="320" x2="448" y2="320" />
-    <line x1="64" y1="416" x2="448" y2="416" />
-    <line x1="128" y1="64" x2="128" y2="448" />
-    <line x1="224" y1="64" x2="224" y2="448" />
-    <line x1="320" y1="64" x2="320" y2="448" />
-    <line x1="416" y1="64" x2="416" y2="448" />
-  </g>
-
-  <!-- Group for Logo Icon -->
-  <g transform="translate(64, 40)" filter="url(#glow)">
-    <!-- Upward Trend Line Chart & Candlesticks/Bars -->
-    <rect x="64" y="240" width="32" height="80" rx="6" fill="#475569" opacity="0.5" />
-    <rect x="128" y="180" width="32" height="140" rx="6" fill="#475569" opacity="0.7" />
-    <rect x="192" y="120" width="32" height="200" rx="6" fill="url(#accentGrad)" />
-    <rect x="256" y="60" width="32" height="260" rx="6" fill="url(#accentGrad)" />
-
-    <!-- Overlaid Shiny Upward Arrow -->
-    <path d="M 48 280 L 144 190 L 224 130 L 320 40 L 320 120 M 320 40 L 240 40" 
-          fill="none" 
-          stroke="#ffffff" 
-          stroke-width="20" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" />
-          
-    <circle cx="320" cy="40" r="16" fill="#ffffff" />
-  </g>
-
-  <!-- Text "IPO Preipo" -->
-  <text x="256" y="445" 
-        font-family="system-ui, -apple-system, sans-serif" 
-        font-weight="900" 
-        font-size="48" 
+  <!-- Clean, extremely sharp typographic layout taking full space -->
+  <!-- "IPO" in massive, brilliant sharp white -->
+  <text x="256" y="245" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-weight="950" 
+        font-size="160" 
         fill="#ffffff" 
         text-anchor="middle" 
-        letter-spacing="2">
-    IPO PREIPO
+        letter-spacing="-2">
+    IPO
+  </text>
+  
+  <!-- "PREIPO" in massive, brilliant sharp white -->
+  <text x="256" y="380" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-weight="950" 
+        font-size="105" 
+        fill="#ffffff" 
+        text-anchor="middle" 
+        letter-spacing="-1">
+    PREIPO
   </text>
 </svg>

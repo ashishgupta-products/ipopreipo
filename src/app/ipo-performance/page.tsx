@@ -168,6 +168,24 @@ export default function IPOPerformancePage() {
     ? [...ipos].sort((a, b) => b.listingGainPercent - a.listingGainPercent)[0] 
     : null;
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 font-sans">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-lg flex items-center justify-center animate-pulse">
+            <img src="/logo.svg" alt="IPO Preipo Logo" className="w-12 h-12 object-contain" />
+          </div>
+          <div className="flex gap-1.5 py-1">
+            <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-bounce" />
+            <div className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-bounce [animation-delay:0.2s]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-bounce [animation-delay:0.4s]" />
+          </div>
+          <p className="text-xs text-slate-500 font-bold animate-pulse">Fetching Live Listing Day Returns...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-8 space-y-6 bg-slate-50 font-sans">
       {/* Breadcrumbs / Header */}
@@ -322,11 +340,7 @@ export default function IPOPerformancePage() {
 
       {/* Performance Grid / Table */}
       <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
-        {isLoading ? (
-          <div className="py-20 text-center">
-            <div className="text-slate-500 font-bold animate-pulse text-xs">Loading listing performance data...</div>
-          </div>
-        ) : filtered.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="py-16 text-center space-y-2">
             <Layers className="w-8 h-8 text-slate-300 mx-auto" />
             <p className="text-slate-500 font-bold text-xs">No listed IPOs matched your filter.</p>

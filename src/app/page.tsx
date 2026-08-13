@@ -194,6 +194,24 @@ function HomeDashboardContent() {
   const liveCount = ipos.filter(isOngoingOrLive).length;
   const upcomingCount = ipos.filter(isUpcoming).length;
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 font-sans">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-lg flex items-center justify-center animate-pulse">
+            <img src="/logo.svg" alt="IPO Preipo Logo" className="w-12 h-12 object-contain" />
+          </div>
+          <div className="flex gap-1.5 py-1">
+            <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-bounce" />
+            <div className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-bounce [animation-delay:0.2s]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-bounce [animation-delay:0.4s]" />
+          </div>
+          <p className="text-xs text-slate-500 font-bold animate-pulse">Fetching Live Grey Market Premiums...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 space-y-6 font-sans bg-[#f8fafc] pb-16">
 

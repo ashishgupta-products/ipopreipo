@@ -1,6 +1,6 @@
 {
-  "name": "IPO Preipo",
-  "short_name": "IPO Preipo",
+  "name": "IPO Preipo - Stockmarket",
+  "short_name": "IPO Preipo - Stockmarket",
   "description": "Professional financial portal for tracking Indian IPOs, Pre-IPO unlisted shares, credit card offers, and banks.",
   "start_url": "/",
   "display": "standalone",
