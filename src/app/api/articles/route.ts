@@ -80,6 +80,13 @@ export async function POST(request: Request) {
     const body = await request.json();
     const sql = getSql();
 
+    if (!sql) {
+      return NextResponse.json(
+        { success: false, error: "Database connection not configured" },
+        { status: 503 }
+      );
+    }
+
     const {
       id,
       slug,
