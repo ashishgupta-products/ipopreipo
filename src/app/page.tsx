@@ -39,7 +39,8 @@ function HomeDashboardContent() {
   const searchParams = useSearchParams();
 
   const [selectedTab, setSelectedTab] = useState<string>("live");
-  const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [showMainboard, setShowMainboard] = useState<boolean>(true);
+  const [showSme, setShowSme] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [ipos, setIpos] = useState<IPOData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -118,10 +119,17 @@ function HomeDashboardContent() {
     } else {
       setSelectedTab("live");
     }
-    if (categoryParam) {
-      setCategoryFilter(categoryParam);
+
+    if (categoryParam === "sme") {
+      setShowMainboard(false);
+      setShowSme(true);
+    } else if (categoryParam === "all" || categoryParam === "both") {
+      setShowMainboard(true);
+      setShowSme(true);
     } else {
-      setCategoryFilter("all");
+      // Default: mainboard
+      setShowMainboard(true);
+      setShowSme(false);
     }
   }, [searchParams]);
 
@@ -135,17 +143,38 @@ function HomeDashboardContent() {
     return dateStr;
   };
 
-  const updateFilters = (newTab?: string, newCategory?: string) => {
-    const nextTab = newTab !== undefined ? newTab : selectedTab;
-    const nextCat = newCategory !== undefined ? newCategory : categoryFilter;
+  const updateTab = (newTab: string) => {
+    setSelectedTab(newTab);
+    const params = new URLSearchParams();
+    if (newTab !== "live") params.set("tab", newTab);
+    if (showMainboard && showSme) {
+      params.set("category", "all");
+    } else if (!showMainboard && showSme) {
+      params.set("category", "sme");
+    }
+    const queryString = params.toString();
+    router.push(queryString ? `/?${queryString}` : "/");
+  };
 
-    setSelectedTab(nextTab);
-    setCategoryFilter(nextCat);
+  const updateCategoryCheckboxes = (newMainboard: boolean, newSme: boolean) => {
+    if (!newMainboard && !newSme) {
+      // If user unchecks the active one, flip to the other so it's never empty
+      if (showMainboard) {
+        newSme = true;
+      } else {
+        newMainboard = true;
+      }
+    }
+    setShowMainboard(newMainboard);
+    setShowSme(newSme);
 
     const params = new URLSearchParams();
-    if (nextTab !== "live") params.set("tab", nextTab);
-    if (nextCat !== "all") params.set("category", nextCat);
-
+    if (selectedTab !== "live") params.set("tab", selectedTab);
+    if (newMainboard && newSme) {
+      params.set("category", "all");
+    } else if (!newMainboard && newSme) {
+      params.set("category", "sme");
+    }
     const queryString = params.toString();
     router.push(queryString ? `/?${queryString}` : "/");
   };
@@ -190,8 +219,10 @@ function HomeDashboardContent() {
   // Filtering Logic
   const filteredIpos = ipos
     .filter((ipo) => {
-      if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
-      if (categoryFilter === "sme" && ipo.category !== "sme") return false;
+      // Category checkbox filters
+      if (showMainboard && !showSme && ipo.category !== "mainboard") return false;
+      if (showSme && !showMainboard && ipo.category !== "sme") return false;
+      if (!showMainboard && !showSme) return false;
 
       if (selectedTab === "live" && !isLive(ipo)) return false;
       if (selectedTab === "allotment" && !isAllotment(ipo)) return false;
@@ -231,6 +262,17 @@ function HomeDashboardContent() {
   const allotmentCount = ipos.filter(isAllotment).length;
   const upcomingCount = ipos.filter(isUpcoming).length;
   const listedCount = ipos.filter(isAlreadyListed).length;
+
+  // Counts for the current active tab
+  const currentTabIpos = ipos.filter((ipo) => {
+    if (selectedTab === "live") return isLive(ipo);
+    if (selectedTab === "allotment") return isAllotment(ipo);
+    if (selectedTab === "upcoming") return isUpcoming(ipo);
+    if (selectedTab === "listed") return isAlreadyListed(ipo);
+    return true;
+  });
+  const tabMainboardCount = currentTabIpos.filter((i) => i.category === "mainboard").length;
+  const tabSmeCount = currentTabIpos.filter((i) => i.category === "sme").length;
 
   if (isLoading) {
     return (
@@ -313,57 +355,47 @@ function HomeDashboardContent() {
       )}
 
       {/* Controls Bar */}
-      <div className="flex flex-row items-center justify-between gap-3 overflow-x-auto py-1">
-        {/* Status Tabs (Left side) */}
-        <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
-          <button
-            onClick={() => updateFilters("live", undefined)}
-            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-              selectedTab === "live" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Live ({liveCount})
-          </button>
-          <button
-            onClick={() => updateFilters("allotment", undefined)}
-            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-              selectedTab === "allotment" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Allotment ({allotmentCount})
-          </button>
-          <button
-            onClick={() => updateFilters("upcoming", undefined)}
-            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-              selectedTab === "upcoming" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Upcoming ({upcomingCount})
-          </button>
-          <button
-            onClick={() => updateFilters("listed", undefined)}
-            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
-              selectedTab === "listed" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            Listed
-          </button>
-        </div>
+      <div className="space-y-3">
+        {/* Top Controls Row: Status Tabs + View Switcher */}
+        <div className="flex flex-row items-center justify-between gap-3 overflow-x-auto py-1">
+          {/* Status Tabs (Left side) */}
+          <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
+            <button
+              onClick={() => updateTab("live")}
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+                selectedTab === "live" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Live ({liveCount})
+            </button>
+            <button
+              onClick={() => updateTab("allotment")}
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+                selectedTab === "allotment" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Allotment ({allotmentCount})
+            </button>
+            <button
+              onClick={() => updateTab("upcoming")}
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+                selectedTab === "upcoming" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Upcoming ({upcomingCount})
+            </button>
+            <button
+              onClick={() => updateTab("listed")}
+              className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+                selectedTab === "listed" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Listed ({listedCount})
+            </button>
+          </div>
 
-        {/* Dropdown & View Switcher (Right side) */}
-        <div className="flex items-center gap-3 shrink-0">
-          <select
-            value={categoryFilter}
-            onChange={(e) => updateFilters(undefined, e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-slate-250 bg-white text-slate-700 font-bold text-xs focus:outline-none focus:border-slate-400 cursor-pointer shadow-3xs"
-          >
-            <option value="all">All IPOs</option>
-            <option value="mainboard">Mainboard</option>
-            <option value="sme">SME IPOs</option>
-          </select>
-          
           {/* View Switcher (Hidden on mobile) */}
-          <div className="hidden md:flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold">
+          <div className="hidden md:flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200/60 text-xs font-bold shrink-0">
             <button
               onClick={() => setViewMode("grid")}
               className={`px-3 py-1.5 rounded-md transition-all ${viewMode === "grid" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"}`}
@@ -378,12 +410,49 @@ function HomeDashboardContent() {
             </button>
           </div>
         </div>
+
+        {/* Checkboxes Row (Below Live / Tabs) */}
+        <div className="flex items-center gap-3 py-0.5">
+          <label className={`inline-flex items-center gap-2 cursor-pointer select-none text-xs font-bold transition-all px-3 py-1.5 rounded-xl border ${
+            showMainboard 
+              ? "bg-blue-50/70 border-blue-200 text-blue-900 shadow-3xs" 
+              : "bg-white border-slate-200/80 text-slate-600 hover:border-slate-300"
+          }`}>
+            <input
+              type="checkbox"
+              checked={showMainboard}
+              onChange={(e) => updateCategoryCheckboxes(e.target.checked, showSme)}
+              className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-0 cursor-pointer accent-blue-600"
+            />
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-blue-600" />
+              Mainboard ({tabMainboardCount})
+            </span>
+          </label>
+
+          <label className={`inline-flex items-center gap-2 cursor-pointer select-none text-xs font-bold transition-all px-3 py-1.5 rounded-xl border ${
+            showSme 
+              ? "bg-amber-50/70 border-amber-200 text-amber-900 shadow-3xs" 
+              : "bg-white border-slate-200/80 text-slate-600 hover:border-slate-300"
+          }`}>
+            <input
+              type="checkbox"
+              checked={showSme}
+              onChange={(e) => updateCategoryCheckboxes(showMainboard, e.target.checked)}
+              className="w-4 h-4 rounded border-slate-300 text-amber-600 focus:ring-amber-500 focus:ring-offset-0 cursor-pointer accent-amber-600"
+            />
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
+              SME ({tabSmeCount})
+            </span>
+          </label>
+        </div>
       </div>
 
       {/* Main content view */}
       {viewMode === "table" && (
         <div 
-          key={`table-${selectedTab}-${categoryFilter}`}
+          key={`table-${selectedTab}-${showMainboard}-${showSme}`}
           className="hidden md:block overflow-x-auto rounded-2xl bg-white border border-slate-200/60 shadow-xs animate-fade-in"
         >
           <table className="w-full text-left text-xs sm:text-sm">
@@ -493,7 +562,7 @@ function HomeDashboardContent() {
 
       {/* Grid View (Active on mobile even if viewMode is table) */}
       <div 
-        key={`grid-${selectedTab}-${categoryFilter}`}
+        key={`grid-${selectedTab}-${showMainboard}-${showSme}`}
         className={`${viewMode === "table" ? "md:hidden" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in`}
       >
         {filteredIpos.map((ipo) => {
