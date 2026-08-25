@@ -154,18 +154,37 @@ function HomeDashboardContent() {
 
   const isAlreadyListed = (ipo: any) => {
     if (ipo.status === "listed") return true;
-    if (ipo.status === "closed" && ipo.listingDate && ipo.listingDate < todayStr) return true;
+    if (ipo.listingDate && ipo.listingDate < todayStr) return true;
     return false;
   };
 
-  const isOngoingOrLive = (ipo: any) => {
-    if (ipo.status === "live") return true;
-    if (ipo.status === "closed" && (!ipo.listingDate || ipo.listingDate >= todayStr)) return true;
+  const isLive = (ipo: any) => {
+    if (isAlreadyListed(ipo)) return false;
+    if (ipo.status === "live") {
+      if (ipo.closeDate && ipo.closeDate < todayStr) return false;
+      return true;
+    }
+    if (ipo.openDate && ipo.closeDate && ipo.openDate <= todayStr && todayStr <= ipo.closeDate) {
+      return true;
+    }
     return false;
   };
 
   const isUpcoming = (ipo: any) => {
-    return ipo.status === "upcoming";
+    if (isAlreadyListed(ipo) || isLive(ipo)) return false;
+    if (ipo.status === "upcoming") {
+      if (ipo.openDate && ipo.openDate <= todayStr) return false;
+      return true;
+    }
+    if (ipo.openDate && ipo.openDate > todayStr) return true;
+    return false;
+  };
+
+  const isAllotment = (ipo: any) => {
+    if (isAlreadyListed(ipo) || isLive(ipo) || isUpcoming(ipo)) return false;
+    if (ipo.status === "closed" || ipo.status === "allotment_out") return true;
+    if (ipo.closeDate && ipo.closeDate < todayStr && (!ipo.listingDate || ipo.listingDate >= todayStr)) return true;
+    return false;
   };
 
   // Filtering Logic
@@ -174,7 +193,8 @@ function HomeDashboardContent() {
       if (categoryFilter === "mainboard" && ipo.category !== "mainboard") return false;
       if (categoryFilter === "sme" && ipo.category !== "sme") return false;
 
-      if (selectedTab === "live" && !isOngoingOrLive(ipo)) return false;
+      if (selectedTab === "live" && !isLive(ipo)) return false;
+      if (selectedTab === "allotment" && !isAllotment(ipo)) return false;
       if (selectedTab === "upcoming" && !isUpcoming(ipo)) return false;
       if (selectedTab === "listed" && !isAlreadyListed(ipo)) return false;
 
@@ -182,17 +202,35 @@ function HomeDashboardContent() {
     })
     .sort((a, b) => {
       if (selectedTab === "live") {
-        const dateA = a.listingDate || "";
-        const dateB = b.listingDate || "";
-        if (!dateA) return 1;
-        if (!dateB) return -1;
-        return dateA.localeCompare(dateB);
+        const closeA = a.closeDate || "";
+        const closeB = b.closeDate || "";
+        if (closeA && closeB) return closeA.localeCompare(closeB);
+        return (b.gmpPercent || 0) - (a.gmpPercent || 0);
+      }
+      if (selectedTab === "allotment") {
+        const altA = a.allotmentDate || a.closeDate || "";
+        const altB = b.allotmentDate || b.closeDate || "";
+        return altB.localeCompare(altA);
+      }
+      if (selectedTab === "upcoming") {
+        const openA = a.openDate || "";
+        const openB = b.openDate || "";
+        if (!openA) return 1;
+        if (!openB) return -1;
+        return openA.localeCompare(openB);
+      }
+      if (selectedTab === "listed") {
+        const listA = a.listingDate || "";
+        const listB = b.listingDate || "";
+        return listB.localeCompare(listA);
       }
       return 0;
     });
 
-  const liveCount = ipos.filter(isOngoingOrLive).length;
+  const liveCount = ipos.filter(isLive).length;
+  const allotmentCount = ipos.filter(isAllotment).length;
   const upcomingCount = ipos.filter(isUpcoming).length;
+  const listedCount = ipos.filter(isAlreadyListed).length;
 
   if (isLoading) {
     return (
@@ -287,12 +325,20 @@ function HomeDashboardContent() {
             Live ({liveCount})
           </button>
           <button
+            onClick={() => updateFilters("allotment", undefined)}
+            className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
+              selectedTab === "allotment" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Allotment ({allotmentCount})
+          </button>
+          <button
             onClick={() => updateFilters("upcoming", undefined)}
             className={`px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
               selectedTab === "upcoming" ? "bg-slate-900 text-white shadow-xs" : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            Upcoming
+            Upcoming ({upcomingCount})
           </button>
           <button
             onClick={() => updateFilters("listed", undefined)}
@@ -347,9 +393,9 @@ function HomeDashboardContent() {
                 <th className="py-3 px-3">Segment</th>
                 <th className="py-3 px-3">Price Band</th>
                 <th className="py-3 px-3">Min Lot</th>
-                <th className="py-3 px-3">{selectedTab === "listed" ? "Listed Price" : "Subscription"}</th>
+                <th className="py-3 px-3">{selectedTab === "listed" ? "Listed Price" : selectedTab === "allotment" ? "Allotment Date" : "Subscription"}</th>
                 <th className="py-3 px-3">{selectedTab === "listed" ? "Listing Gain" : "Live GMP"}</th>
-                <th className="py-3 px-3">Bidding Dates</th>
+                <th className="py-3 px-3">{selectedTab === "allotment" ? "Listing Date" : selectedTab === "upcoming" ? "Opens On" : selectedTab === "listed" ? "Listing Date" : "Bidding Dates"}</th>
                 <th className="py-3 px-3 text-right">Action</th>
               </tr>
             </thead>
@@ -364,7 +410,13 @@ function HomeDashboardContent() {
                           {ipo.name}
                         </Link>
                         <div className="mt-1 flex items-center gap-1">
-                          <Badge status={ipo.status} />
+                          <Badge 
+                            status={ipo.status} 
+                            openDate={ipo.openDate} 
+                            closeDate={ipo.closeDate} 
+                            allotmentDate={ipo.allotmentDate} 
+                            listingDate={ipo.listingDate} 
+                          />
                         </div>
                       </div>
                     </div>
@@ -383,8 +435,12 @@ function HomeDashboardContent() {
                     <span className="text-[10px] text-slate-400 block mt-0.5 font-semibold">{ipo.lotSize} shares</span>
                   </td>
 
-                   <td className={`py-3.5 px-3 font-extrabold ${isAlreadyListed(ipo) ? "text-slate-800" : "text-blue-700"}`}>
-                    {isAlreadyListed(ipo) ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
+                   <td className={`py-3.5 px-3 font-extrabold ${isAlreadyListed(ipo) ? "text-slate-800" : selectedTab === "allotment" ? "text-purple-700" : "text-blue-700"}`}>
+                    {isAlreadyListed(ipo) 
+                      ? (ipo.listingPrice || ipo.expectedListingPrice ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : "--") 
+                      : selectedTab === "allotment"
+                        ? (formatDate(ipo.allotmentDate) || "Awaiting")
+                        : `${ipo.totalSubscription || 0}x`}
                   </td>
 
                   <td className={`py-3.5 px-3 font-extrabold ${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-400 font-medium" : (ipo.gmp < 0 ? "text-rose-600" : "text-emerald-600")}`}>
@@ -401,17 +457,32 @@ function HomeDashboardContent() {
                     )}
                   </td>
 
-                  <td className="py-3.5 px-3 text-slate-400 text-xs font-semibold">
-                    {formatDate(ipo.openDate)} to {formatDate(ipo.closeDate)}
+                  <td className="py-3.5 px-3 text-slate-500 text-xs font-semibold">
+                    {selectedTab === "allotment" 
+                      ? (formatDate(ipo.listingDate) || "--")
+                      : selectedTab === "upcoming"
+                        ? formatDate(ipo.openDate)
+                        : isAlreadyListed(ipo)
+                          ? (formatDate(ipo.listingDate) || "--")
+                          : `${formatDate(ipo.openDate)} to ${formatDate(ipo.closeDate)}`}
                   </td>
 
                   <td className="py-3.5 px-3 text-right">
-                    <Link
-                      href={`/ipo/${ipo.slug}`}
-                      className="inline-flex items-center gap-1 font-bold text-xs text-slate-800 hover:text-[#4f46e5] transition-colors"
-                    >
-                      Details <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
+                    {selectedTab === "allotment" ? (
+                      <Link
+                        href={`/allotment?ipo=${ipo.id}`}
+                        className="inline-flex items-center gap-1 font-bold text-xs text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-2.5 py-1 rounded-md border border-purple-200 transition-colors"
+                      >
+                        Check Allotment <ChevronRight className="w-3.5 h-3.5" />
+                      </Link>
+                    ) : (
+                      <Link
+                        href={`/ipo/${ipo.slug}`}
+                        className="inline-flex items-center gap-1 font-bold text-xs text-slate-800 hover:text-[#4f46e5] transition-colors"
+                      >
+                        Details <ChevronRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -454,145 +525,103 @@ function HomeDashboardContent() {
                   />
                 </div>
 
-                {/* Logo & Title Row */}
-                <div className="flex items-center gap-3.5">
-                  <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="lg" className="rounded-lg shadow-2xs" />
+                {/* Company Logo, Name & Price Band */}
+                <div className="flex items-start gap-3">
+                  <CompanyLogo name={ipo.name} logoUrl={ipo.logoUrl} size="md" className="rounded-xl shadow-2xs shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-base text-slate-800 hover:text-blue-750 transition-colors line-clamp-1">
-                      <Link href={`/ipo/${ipo.slug}`}>{ipo.name}</Link>
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
-                      <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
-                        Open: {formatDate(ipo.openDate)}
-                      </span>
-                      <span className="bg-rose-50 text-rose-700 border border-rose-200 px-2.5 py-0.5 rounded text-[11px] font-bold whitespace-nowrap">
-                        Close: {formatDate(ipo.closeDate)}
-                      </span>
-                    </div>
+                    <Link href={`/ipo/${ipo.slug}`} className="hover:text-blue-750 transition-colors">
+                      <h3 className="font-extrabold text-slate-850 text-sm sm:text-base leading-tight truncate">
+                        {ipo.name}
+                      </h3>
+                    </Link>
+                    <p className="text-xs text-slate-500 font-bold mt-1">
+                      ₹{ipo.priceBandMin} - ₹{ipo.priceBandMax}
+                    </p>
                   </div>
                 </div>
-
-              {/* Stars & Review Status (Left, Center, Right aligned) */}
-              <div className="flex items-center justify-between gap-2 pt-0.5 w-full">
-                {/* Left: Review + Score */}
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <span className="opacity-80 font-extrabold uppercase tracking-wider text-[9px] text-slate-400">Review</span>
-                  <span className="text-slate-700 font-extrabold text-xs whitespace-nowrap">
-                    {ipo.rating.toFixed(1)}/5
-                  </span>
-                </div>
-                
-                {/* Center: Stars */}
-                <div className="flex items-center gap-0.5 justify-center flex-1">
-                  {[...Array(5)].map((_, i) => {
-                    const rating = ipo.rating;
-                    const isFilled = i < Math.floor(rating);
-                    const isHalf = !isFilled && (i < rating);
-                    return (
-                      <Star
-                        key={i}
-                        strokeWidth={1.5}
-                        className={`w-3.5 h-3.5 ${
-                          isFilled 
-                            ? "text-amber-500 fill-amber-500" 
-                            : isHalf 
-                              ? "text-amber-500 fill-amber-500/50" 
-                              : "text-slate-200"
-                        }`}
-                      />
-                    );
-                  })}
-                </div>
-
-                {/* Right: Recommendation Badge */}
-                <div className={`px-2 py-0.5 rounded-md border ${recBadge.bg} text-[10px] font-extrabold uppercase tracking-wider shadow-3xs shrink-0 whitespace-nowrap`}>
-                  {recBadge.text}
-                </div>
               </div>
-            </div>
 
-              {/* Metrics Table */}
-              <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 py-3 border-t border-b border-slate-100 text-xs">
-                {/* Row 1 */}
-                <div>
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Price Band</span>
-                  <strong className="text-slate-800 font-extrabold text-xs block truncate">
-                    ₹{ipo.priceBandMin}-{ipo.priceBandMax}
-                  </strong>
-                </div>
-                <div>
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Min Lot Cost</span>
-                  <strong className="text-slate-800 font-extrabold text-xs block truncate">
-                    ₹{ipo.minInvestment.toLocaleString("en-IN")}
-                  </strong>
-                </div>
-                <div>
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Issue Size</span>
-                  <strong className="text-slate-800 font-extrabold text-xs block truncate">
-                    ₹{ipo.issueSizeTotalCr} Cr
-                  </strong>
-                </div>
+              {/* Key Metrics Grid */}
+              <div className="grid grid-cols-3 gap-2 text-xs bg-slate-50/80 p-3 rounded-xl border border-slate-100">
+                  <div>
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Price Band</span>
+                    <strong className="text-slate-800 font-extrabold text-xs block truncate">
+                      ₹{ipo.priceBandMin}-{ipo.priceBandMax}
+                    </strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Min Lot Cost</span>
+                    <strong className="text-slate-800 font-extrabold text-xs block truncate">
+                      ₹{ipo.minInvestment.toLocaleString("en-IN")}
+                    </strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Issue Size</span>
+                    <strong className="text-slate-800 font-extrabold text-xs block truncate">
+                      ₹{ipo.issueSizeTotalCr} Cr
+                    </strong>
+                  </div>
 
-                {/* Row 2 */}
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Allotment</span>
-                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.allotmentDate)}</strong>
-                </div>
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Refund Init</span>
-                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.refundDate)}</strong>
-                </div>
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Listing Date</span>
-                  <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.listingDate)}</strong>
-                </div>
+                  {/* Row 2 */}
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Allotment</span>
+                    <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.allotmentDate)}</strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Refund Init</span>
+                    <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.refundDate)}</strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">Listing Date</span>
+                    <strong className="text-slate-850 font-extrabold text-xs block truncate">{formatDate(ipo.listingDate)}</strong>
+                  </div>
 
-                {/* Row 3 */}
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">
-                    {isAlreadyListed(ipo) ? "Listed At" : "Live Sub"}
-                  </span>
-                  <strong className={`${isAlreadyListed(ipo) ? "text-slate-800" : "text-blue-700"} font-extrabold text-xs block truncate`}>
-                    {isAlreadyListed(ipo) ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : `${ipo.totalSubscription}x`}
-                  </strong>
-                </div>
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-400 font-semibold" : (ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700 font-bold")} block mb-0.5 text-[11px]`}>
-                    {isAlreadyListed(ipo) ? "Listing Gain" : "GMP Rate"}
-                  </span>
-                  <strong className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-500 font-bold" : (ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700")} font-extrabold text-xs block truncate`}>
-                    {isAlreadyListed(ipo) ? (
-                      `${ipo.listingGainPercent !== undefined ? (ipo.listingGainPercent >= 0 ? "+" : "") + ipo.listingGainPercent.toFixed(1) : (ipo.gmpPercent >= 0 ? "+" : "") + ipo.gmpPercent.toFixed(1)}%`
-                    ) : (
-                      ipo.gmpTrends && ipo.gmpTrends.length > 0 ? (
-                        ipo.gmp !== 0 
-                          ? `${ipo.gmp > 0 ? "+" : "-"}₹${Math.abs(ipo.gmp)} (${ipo.gmp > 0 ? "+" : "-"}${Math.abs(ipo.gmpPercent).toFixed(1)}%)` 
-                          : "₹0"
+                  {/* Row 3 */}
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className="text-slate-400 block mb-0.5 font-semibold text-[11px]">
+                      {isAlreadyListed(ipo) ? "Listed At" : selectedTab === "allotment" ? "Allotment Date" : "Live Sub"}
+                    </span>
+                    <strong className={`${isAlreadyListed(ipo) ? "text-slate-800" : selectedTab === "allotment" ? "text-purple-700" : "text-blue-700"} font-extrabold text-xs block truncate`}>
+                      {isAlreadyListed(ipo) ? `₹${ipo.listingPrice || ipo.expectedListingPrice}` : selectedTab === "allotment" ? (formatDate(ipo.allotmentDate) || "Awaiting") : `${ipo.totalSubscription}x`}
+                    </strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-400 font-semibold" : (ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700 font-bold")} block mb-0.5 text-[11px]`}>
+                      {isAlreadyListed(ipo) ? "Listing Gain" : "GMP Rate"}
+                    </span>
+                    <strong className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-500 font-bold" : (ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700")} font-extrabold text-xs block truncate`}>
+                      {isAlreadyListed(ipo) ? (
+                        `${ipo.listingGainPercent !== undefined ? (ipo.listingGainPercent >= 0 ? "+" : "") + ipo.listingGainPercent.toFixed(1) : (ipo.gmpPercent >= 0 ? "+" : "") + ipo.gmpPercent.toFixed(1)}%`
                       ) : (
-                        "--"
-                      )
-                    )}
-                  </strong>
-                </div>
-                <div className="border-t border-slate-200/60 pt-2">
-                  <span className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-400 font-semibold" : (ipo.gmp < 0 ? "text-rose-700 font-bold" : "text-emerald-700 font-bold")} block mb-0.5 text-[11px]`}>
-                    {isAlreadyListed(ipo) 
-                      ? (ipo.listingGainPercent !== undefined && ipo.listingGainPercent < 0 ? "Listed Loss" : "Listed Profit") 
-                      : (ipo.gmpTrends && ipo.gmpTrends.length > 0 ? (ipo.gmp < 0 ? "Est. Loss" : "Est. Profit") : "Est. Gain")}
-                  </span>
-                  <strong className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-500 font-bold" : (ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700")} font-extrabold text-xs block truncate`}>
-                    {isAlreadyListed(ipo) ? (
-                      `₹${Math.abs(( (ipo.listingPrice || ipo.expectedListingPrice) - ipo.priceBandMax ) * ipo.lotSize).toLocaleString("en-IN")}`
-                    ) : (
-                      ipo.gmpTrends && ipo.gmpTrends.length > 0 ? (
-                        ipo.gmp !== 0 ? `₹${Math.abs(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"
+                        ipo.gmpTrends && ipo.gmpTrends.length > 0 ? (
+                          ipo.gmp !== 0 
+                            ? `${ipo.gmp > 0 ? "+" : "-"}₹${Math.abs(ipo.gmp)} (${ipo.gmp > 0 ? "+" : "-"}${Math.abs(ipo.gmpPercent).toFixed(1)}%)` 
+                            : "₹0"
+                        ) : (
+                          "--"
+                        )
+                      )}
+                    </strong>
+                  </div>
+                  <div className="border-t border-slate-200/60 pt-2">
+                    <span className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-400 font-semibold" : (ipo.gmp < 0 ? "text-rose-700 font-bold" : "text-emerald-700 font-bold")} block mb-0.5 text-[11px]`}>
+                      {isAlreadyListed(ipo) 
+                        ? (ipo.listingGainPercent !== undefined && ipo.listingGainPercent < 0 ? "Listed Loss" : "Listed Profit") 
+                        : (ipo.gmpTrends && ipo.gmpTrends.length > 0 ? (ipo.gmp < 0 ? "Est. Loss" : "Est. Profit") : "Est. Gain")}
+                    </span>
+                    <strong className={`${!isAlreadyListed(ipo) && (!ipo.gmpTrends || ipo.gmpTrends.length === 0) ? "text-slate-500 font-bold" : (ipo.gmp < 0 ? "text-rose-700" : "text-emerald-700")} font-extrabold text-xs block truncate`}>
+                      {isAlreadyListed(ipo) ? (
+                        `₹${Math.abs(( (ipo.listingPrice || ipo.expectedListingPrice) - ipo.priceBandMax ) * ipo.lotSize).toLocaleString("en-IN")}`
                       ) : (
-                        "--"
-                      )
-                    )}
-                  </strong>
+                        ipo.gmpTrends && ipo.gmpTrends.length > 0 ? (
+                          ipo.gmp !== 0 ? `₹${Math.abs(ipo.gmp * ipo.lotSize).toLocaleString("en-IN")}` : "₹0"
+                        ) : (
+                          "--"
+                        )
+                      )}
+                    </strong>
+                  </div>
                 </div>
-              </div>
 
              {/* Action Buttons */}
              <div className={`pt-3.5 border-t border-slate-100 grid ${
@@ -600,8 +629,8 @@ function HomeDashboardContent() {
                  ? "grid-cols-1" 
                  : isAlreadyListed(ipo) 
                    ? "grid-cols-2" 
-                   : ipo.status === "closed" 
-                     ? "grid-cols-3" 
+                   : (selectedTab === "allotment" || isAllotment(ipo))
+                     ? "grid-cols-2"
                      : "grid-cols-2"
              } gap-2`}>
                <Link
@@ -610,15 +639,21 @@ function HomeDashboardContent() {
                >
                  Full Details
                </Link>
-               {!isAlreadyListed(ipo) && selectedTab !== "upcoming" && (
+               {selectedTab === "allotment" || isAllotment(ipo) ? (
+                 <Link
+                   href={`/allotment?ipo=${ipo.id}`}
+                   className="py-2.5 px-1 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center text-center font-semibold gap-1"
+                 >
+                   Check Allotment
+                 </Link>
+               ) : !isAlreadyListed(ipo) && selectedTab !== "upcoming" ? (
                  <Link
                    href={`/ipo/${ipo.slug}#subscription`}
                    className="py-2.5 px-1 rounded-xl border border-slate-205 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
                  >
                    Subscription
                  </Link>
-               )}
-               {isAlreadyListed(ipo) && (
+               ) : isAlreadyListed(ipo) ? (
                  <a
                    href={`https://www.google.com/search?q=${encodeURIComponent(ipo.name + " share price")}`}
                    target="_blank"
@@ -627,15 +662,7 @@ function HomeDashboardContent() {
                  >
                    Watch Live
                  </a>
-               )}
-               {!isAlreadyListed(ipo) && selectedTab !== "upcoming" && ipo.status === "closed" && (
-                 <Link
-                   href={`/ipo/${ipo.slug}#allotment`}
-                   className="py-2.5 px-1 rounded-xl bg-blue-50 border border-blue-100 hover:bg-blue-100 text-blue-700 font-bold text-xs transition-all flex items-center justify-center text-center font-semibold"
-                 >
-                   Check Allotment
-                 </Link>
-               )}
+               ) : null}
              </div>
           </div>
         );
