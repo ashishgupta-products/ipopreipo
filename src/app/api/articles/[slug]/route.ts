@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
+import { MOCK_ARTICLES } from "@/data/mockArticles";
 
 export const dynamic = "force-dynamic";
 
@@ -7,7 +8,7 @@ const databaseUrl = process.env.DATABASE_URL;
 
 function getSql() {
   if (!databaseUrl) {
-    throw new Error("DATABASE_URL is not configured");
+    return null;
   }
   return neon(databaseUrl);
 }
@@ -45,12 +46,27 @@ export async function GET(
     const resolvedParams = await params;
     const sql = getSql();
 
+    if (!sql) {
+      const found = MOCK_ARTICLES.find((a) => a.slug === resolvedParams.slug);
+      if (found) {
+        return NextResponse.json({ success: true, data: found });
+      }
+      return NextResponse.json(
+        { success: false, error: "Article not found" },
+        { status: 404 }
+      );
+    }
+
     const rows = await sql.query(
       "SELECT * FROM articles WHERE slug = $1 LIMIT 1",
       [resolvedParams.slug]
     );
 
     if (!rows || rows.length === 0) {
+      const found = MOCK_ARTICLES.find((a) => a.slug === resolvedParams.slug);
+      if (found) {
+        return NextResponse.json({ success: true, data: found });
+      }
       return NextResponse.json(
         { success: false, error: "Article not found" },
         { status: 404 }

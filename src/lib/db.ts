@@ -1,7 +1,4 @@
 import { neon } from "@neondatabase/serverless";
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is not defined in environment variables");
-}
+export const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
 
-export const sql = neon(process.env.DATABASE_URL);

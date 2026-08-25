@@ -19,7 +19,8 @@ import {
   Home,
   Newspaper,
   Award,
-  Calendar
+  Calendar,
+  CheckCircle2
 } from "lucide-react";
 
 export const MobileBottomNav: React.FC = () => {
@@ -92,6 +93,7 @@ export const MobileBottomNav: React.FC = () => {
 
   const navItems = [
     { label: "Home", href: "/", icon: Home },
+    { label: "Allotment", href: "/allotment", icon: CheckCircle2 },
     { label: "Pre-IPO", href: "/pre-ipo", icon: Flame },
     { label: "News", href: "/articles", icon: Newspaper }
   ];

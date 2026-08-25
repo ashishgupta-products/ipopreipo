@@ -150,19 +150,30 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
       })
     ]);
 
-    let apiIPOs: UpvalyIPO[] = [];
+    const seenSymbols = new Set<string>();
+    const apiIPOs: UpvalyIPO[] = [];
+
+    const addItems = (items: UpvalyIPO[]) => {
+      for (const item of items) {
+        const symKey = ((item.symbol || item.name || "") + "_" + (item.type || "")).trim().toUpperCase();
+        if (!symKey || !seenSymbols.has(symKey)) {
+          if (symKey) seenSymbols.add(symKey);
+          apiIPOs.push(item);
+        }
+      }
+    };
 
     if (resActive.ok) {
       const json = await resActive.json();
       if (json.status === "success" && Array.isArray(json.data)) {
-        apiIPOs = apiIPOs.concat(json.data);
+        addItems(json.data);
       }
     }
 
     if (resClosed.ok) {
       const json = await resClosed.json();
       if (json.status === "success" && Array.isArray(json.data)) {
-        apiIPOs = apiIPOs.concat(json.data);
+        addItems(json.data);
       }
     }
 
@@ -171,25 +182,44 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
     }
 
     // Fetch existing slugs to handle duplicate slug conflicts in memory
-    const existingIpos = await sql`SELECT id, slug FROM ipos`;
     const slugToIdMap = new Map<string, string>();
-    for (const row of existingIpos) {
-      slugToIdMap.set(row.slug, row.id);
+    if (sql) {
+      try {
+        const existingIpos = await sql`SELECT id, slug FROM ipos`;
+        for (const row of existingIpos) {
+          slugToIdMap.set(row.slug, row.id);
+        }
+      } catch (dbReadErr) {
+        console.warn("Could not read existing ipos from database:", dbReadErr);
+      }
     }
 
-    // Map raw API array to database schema and upsert them sequentially
+    const inMemoryIPOs: IPOData[] = [];
+    const seenIds = new Set<string>();
+    const seenSlugs = new Set<string>();
+
+    // Map raw API array to standard IPOData objects
     for (const item of apiIPOs) {
       if (item.type && item.type.toLowerCase() === "sse") {
         continue;
       }
-      const id = `api-${item.symbol}`;
-      let slug = slugify(item.name);
-      
-      const existingId = slugToIdMap.get(slug);
-      if (existingId && existingId !== id) {
-        // Resolve slug collision by appending the unique symbol
-        slug = `${slug}-${item.symbol.toLowerCase()}`;
+      const rawSymbol = (item.symbol || slugify(item.name) || "ipo").trim();
+      const baseId = `api-${rawSymbol}`;
+      let id = baseId;
+      let idCounter = 1;
+      while (seenIds.has(id)) {
+        id = `${baseId}-${idCounter++}`;
       }
+      seenIds.add(id);
+
+      let baseSlug = slugify(item.name);
+      if (!baseSlug) baseSlug = `ipo-${rawSymbol.toLowerCase()}`;
+      let slug = baseSlug;
+      let slugCounter = 1;
+      while (seenSlugs.has(slug)) {
+        slug = `${baseSlug}-${slugCounter++}`;
+      }
+      seenSlugs.add(slug);
       slugToIdMap.set(slug, id);
       
       let priceBandMin = 0;
@@ -209,13 +239,13 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
       const minInvestment = priceBandMax * lotSize;
 
       let category: IPOCategory = "mainboard";
-      const typeLower = item.type.toLowerCase();
+      const typeLower = (item.type || "").toLowerCase();
       if (typeLower.includes("sme")) {
         category = "sme";
       }
 
       let status: IPOStatus = "upcoming";
-      const statusLower = item.status.toLowerCase();
+      const statusLower = (item.status || "").toLowerCase();
       if (statusLower === "live") {
         status = "live";
       } else if (statusLower === "closed") {
@@ -224,7 +254,7 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
         status = "listed";
       }
 
-      let exchange = "BSE & NSE";
+      let exchange: IPOData["exchange"] = "BSE & NSE";
       if (item.exchanges) {
         const exLower = item.exchanges.toLowerCase();
         if (exLower.includes("bse sme")) {
@@ -266,7 +296,7 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
       const niiSubscription = parseNumber(item.subscriptionNumbers?.nii?.subscription);
       const retailSubscription = parseNumber(item.subscriptionNumbers?.retail?.subscription);
 
-      let recommendation = "Neutral";
+      let recommendation: IPOData["recommendation"] = "Neutral";
       if (gmpPercent > 20) {
         recommendation = "Apply for Listing Gain";
       } else if (gmpPercent > 10) {
@@ -277,100 +307,165 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
 
       const rating = Math.min(5, Math.max(1, 3 + Math.round((gmpPercent / 15) * 10) / 10));
 
-      // Upsert into Neon PostgreSQL
-      try {
-        await sql`
-          INSERT INTO ipos (
-            id, slug, name, company_name, logo_url, category, status, exchange,
-            price_band_min, price_band_max, lot_size, min_investment,
-            issue_size_total_cr, fresh_issue_cr, ofs_cr, face_value,
-            gmp, gmp_percent, expected_listing_price,
-            total_subscription, qib_subscription, nii_subscription, retail_subscription,
-            open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
-            registrar_name, registrar_website, registrar_check_url, recommendation, rating,
-            highlights, risks, drhp_url, prospectus_url, gmp_trends
-          ) VALUES (
-            ${id}, ${slug}, ${item.name}, ${item.name}, ${item.logoUrl || null}, ${category}, ${status}, ${exchange},
-            ${priceBandMin}, ${priceBandMax}, ${lotSize}, ${minInvestment},
-            ${parseNumber(item.issueSize?.totalIssueSize)}, ${parseNumber(item.issueSize?.freshIssue)}, ${parseNumber(item.issueSize?.offerForSale)}, 10,
-            ${gmp}, ${gmpPercent}, ${expectedListingPrice},
-            ${totalSubscription}, ${qibSubscription}, ${niiSubscription}, ${retailSubscription},
-            ${openDate}, ${closeDate}, ${allotmentDate}, ${refundDate}, ${dematCreditDate}, ${listingDate},
-            'Check Website', ${item.detailsUrl || ''}, ${item.detailsUrl || ''}, ${recommendation}, ${rating},
-            ${item.strengths || []}, ${item.risks || []}, ${item.drhpLink || null}, ${item.rhpLink || null}, ${JSON.stringify(item.greyMarketPremium?.gmpTrends || null)}
-          )
-          ON CONFLICT (id) DO UPDATE SET
-            slug = EXCLUDED.slug,
-            name = EXCLUDED.name,
-            company_name = EXCLUDED.company_name,
-            logo_url = EXCLUDED.logo_url,
-            category = EXCLUDED.category,
-            status = EXCLUDED.status,
-            exchange = EXCLUDED.exchange,
-            price_band_min = EXCLUDED.price_band_min,
-            price_band_max = EXCLUDED.price_band_max,
-            lot_size = EXCLUDED.lot_size,
-            min_investment = EXCLUDED.min_investment,
-            issue_size_total_cr = EXCLUDED.issue_size_total_cr,
-            fresh_issue_cr = EXCLUDED.fresh_issue_cr,
-            ofs_cr = EXCLUDED.ofs_cr,
-            gmp = EXCLUDED.gmp,
-            gmp_percent = EXCLUDED.gmp_percent,
-            expected_listing_price = EXCLUDED.expected_listing_price,
-            total_subscription = EXCLUDED.total_subscription,
-            qib_subscription = EXCLUDED.qib_subscription,
-            nii_subscription = EXCLUDED.nii_subscription,
-            retail_subscription = EXCLUDED.retail_subscription,
-            open_date = EXCLUDED.open_date,
-            close_date = EXCLUDED.close_date,
-            allotment_date = EXCLUDED.allotment_date,
-            refund_date = EXCLUDED.refund_date,
-            demat_credit_date = EXCLUDED.demat_credit_date,
-            listing_date = EXCLUDED.listing_date,
-            recommendation = EXCLUDED.recommendation,
-            rating = EXCLUDED.rating,
-            highlights = EXCLUDED.highlights,
-            risks = EXCLUDED.risks,
-            drhp_url = EXCLUDED.drhp_url,
-            prospectus_url = EXCLUDED.prospectus_url,
-            gmp_trends = EXCLUDED.gmp_trends,
-            updated_at = CURRENT_TIMESTAMP;
-        `;
-      } catch (upsertError) {
-        console.error(`Failed to sync IPO item: ${item.name} (${id})`, upsertError);
+      const parsedIPO: IPOData = {
+        id,
+        slug,
+        name: item.name,
+        companyName: item.name,
+        logoUrl: item.logoUrl || undefined,
+        category,
+        status,
+        exchange,
+        priceBandMin,
+        priceBandMax,
+        lotSize,
+        minInvestment,
+        issueSizeTotalCr: parseNumber(item.issueSize?.totalIssueSize),
+        freshIssueCr: parseNumber(item.issueSize?.freshIssue),
+        ofsCr: parseNumber(item.issueSize?.offerForSale),
+        faceValue: 10,
+        gmp,
+        gmpPercent,
+        gmpUpdatedTime: "Live",
+        expectedListingPrice,
+        totalSubscription,
+        qibSubscription,
+        niiSubscription,
+        retailSubscription,
+        openDate,
+        closeDate,
+        allotmentDate,
+        refundDate,
+        dematCreditDate,
+        listingDate,
+        registrarName: "Check Website",
+        registrarWebsite: item.detailsUrl || "",
+        registrarCheckUrl: item.detailsUrl || "",
+        recommendation,
+        rating,
+        leadManagers: [],
+        highlights: item.strengths || [],
+        risks: item.risks || [],
+        drhpUrl: item.drhpLink || undefined,
+        prospectusUrl: item.rhpLink || undefined,
+        gmpTrends: item.greyMarketPremium?.gmpTrends || undefined,
+      };
+
+      inMemoryIPOs.push(parsedIPO);
+
+      // Upsert into Neon PostgreSQL if database connection is configured
+      if (sql) {
+        try {
+          await sql`
+            INSERT INTO ipos (
+              id, slug, name, company_name, logo_url, category, status, exchange,
+              price_band_min, price_band_max, lot_size, min_investment,
+              issue_size_total_cr, fresh_issue_cr, ofs_cr, face_value,
+              gmp, gmp_percent, expected_listing_price,
+              total_subscription, qib_subscription, nii_subscription, retail_subscription,
+              open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
+              registrar_name, registrar_website, registrar_check_url, recommendation, rating,
+              highlights, risks, drhp_url, prospectus_url, gmp_trends
+            ) VALUES (
+              ${id}, ${slug}, ${item.name}, ${item.name}, ${item.logoUrl || null}, ${category}, ${status}, ${exchange},
+              ${priceBandMin}, ${priceBandMax}, ${lotSize}, ${minInvestment},
+              ${parseNumber(item.issueSize?.totalIssueSize)}, ${parseNumber(item.issueSize?.freshIssue)}, ${parseNumber(item.issueSize?.offerForSale)}, 10,
+              ${gmp}, ${gmpPercent}, ${expectedListingPrice},
+              ${totalSubscription}, ${qibSubscription}, ${niiSubscription}, ${retailSubscription},
+              ${openDate}, ${closeDate}, ${allotmentDate}, ${refundDate}, ${dematCreditDate}, ${listingDate},
+              'Check Website', ${item.detailsUrl || ''}, ${item.detailsUrl || ''}, ${recommendation}, ${rating},
+              ${item.strengths || []}, ${item.risks || []}, ${item.drhpLink || null}, ${item.rhpLink || null}, ${JSON.stringify(item.greyMarketPremium?.gmpTrends || null)}
+            )
+            ON CONFLICT (id) DO UPDATE SET
+              slug = EXCLUDED.slug,
+              name = EXCLUDED.name,
+              company_name = EXCLUDED.company_name,
+              logo_url = EXCLUDED.logo_url,
+              category = EXCLUDED.category,
+              status = EXCLUDED.status,
+              exchange = EXCLUDED.exchange,
+              price_band_min = EXCLUDED.price_band_min,
+              price_band_max = EXCLUDED.price_band_max,
+              lot_size = EXCLUDED.lot_size,
+              min_investment = EXCLUDED.min_investment,
+              issue_size_total_cr = EXCLUDED.issue_size_total_cr,
+              fresh_issue_cr = EXCLUDED.fresh_issue_cr,
+              ofs_cr = EXCLUDED.ofs_cr,
+              gmp = EXCLUDED.gmp,
+              gmp_percent = EXCLUDED.gmp_percent,
+              expected_listing_price = EXCLUDED.expected_listing_price,
+              total_subscription = EXCLUDED.total_subscription,
+              qib_subscription = EXCLUDED.qib_subscription,
+              nii_subscription = EXCLUDED.nii_subscription,
+              retail_subscription = EXCLUDED.retail_subscription,
+              open_date = EXCLUDED.open_date,
+              close_date = EXCLUDED.close_date,
+              allotment_date = EXCLUDED.allotment_date,
+              refund_date = EXCLUDED.refund_date,
+              demat_credit_date = EXCLUDED.demat_credit_date,
+              listing_date = EXCLUDED.listing_date,
+              recommendation = EXCLUDED.recommendation,
+              rating = EXCLUDED.rating,
+              highlights = EXCLUDED.highlights,
+              risks = EXCLUDED.risks,
+              drhp_url = EXCLUDED.drhp_url,
+              prospectus_url = EXCLUDED.prospectus_url,
+              gmp_trends = EXCLUDED.gmp_trends,
+              updated_at = CURRENT_TIMESTAMP;
+          `;
+        } catch (upsertError) {
+          console.error(`Failed to sync IPO item: ${item.name} (${id})`, upsertError);
+        }
       }
     }
 
-    console.log("Successfully synced Upvaly IPOs to Neon PostgreSQL.");
-    
-    // Retrieve all active and upcoming records from the DB to serve as the unified source of truth
-    const rows = await sql`
-      SELECT * FROM ipos 
-      ORDER BY 
-        CASE status 
-          WHEN 'live' THEN 1 
-          WHEN 'upcoming' THEN 2 
-          ELSE 3 
-        END,
-        open_date DESC;
-    `;
-    const dbIPOs = rows.map(mapRowToIPO);
+    if (sql) {
+      try {
+        const rows = await sql`
+          SELECT * FROM ipos 
+          ORDER BY 
+            CASE status 
+              WHEN 'live' THEN 1 
+              WHEN 'upcoming' THEN 2 
+              ELSE 3 
+            END,
+            open_date DESC;
+        `;
+        const dbIPOs = rows.map(mapRowToIPO);
+        localCache = dbIPOs;
+        localCacheTimestamp = now;
+        return localCache;
+      } catch (dbQueryErr) {
+        console.warn("Falling back to in-memory parsed IPO list:", dbQueryErr);
+      }
+    }
 
-    localCache = dbIPOs;
+    // Return in-memory mapped IPO list
+    inMemoryIPOs.sort((a, b) => {
+      const orderA = a.status === "live" ? 1 : a.status === "upcoming" ? 2 : 3;
+      const orderB = b.status === "live" ? 1 : b.status === "upcoming" ? 2 : 3;
+      if (orderA !== orderB) return orderA - orderB;
+      return (b.openDate || "").localeCompare(a.openDate || "");
+    });
+
+    localCache = inMemoryIPOs;
     localCacheTimestamp = now;
     return localCache;
   } catch (error) {
-    console.error("Database sync failed. Serving cached fallback if available...", error);
-    try {
-      // Offline fallback: try getting whatever is currently inside Postgres
-      const rows = await sql`SELECT * FROM ipos ORDER BY open_date DESC`;
-      if (rows && rows.length > 0) {
-        return rows.map(mapRowToIPO);
-      }
-    } catch (dbError) {
-      console.error("Local database query failed as well.", dbError);
+    console.error("Upvaly API / DB sync error:", error);
+    if (localCache && localCache.length > 0) {
+      return localCache;
     }
-    // Hard fallback to empty array
+    if (sql) {
+      try {
+        const rows = await sql`SELECT * FROM ipos ORDER BY open_date DESC`;
+        if (rows && rows.length > 0) {
+          return rows.map(mapRowToIPO);
+        }
+      } catch (dbError) {
+        console.error("Local database query fallback failed.", dbError);
+      }
+    }
     return [];
   }
 }

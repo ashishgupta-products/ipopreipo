@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
+import { MOCK_ARTICLES } from "@/data/mockArticles";
 
 export const dynamic = "force-dynamic";
 
@@ -7,7 +8,7 @@ const databaseUrl = process.env.DATABASE_URL;
 
 function getSql() {
   if (!databaseUrl) {
-    throw new Error("DATABASE_URL is not configured");
+    return null;
   }
   return neon(databaseUrl);
 }
@@ -43,6 +44,16 @@ export async function GET(request: Request) {
     const all = searchParams.get("all") === "true";
     const sql = getSql();
 
+    if (!sql) {
+      const filtered = all
+        ? MOCK_ARTICLES
+        : MOCK_ARTICLES.filter((a) => a.status === "Published");
+      return NextResponse.json({
+        success: true,
+        data: filtered,
+      });
+    }
+
     let rows;
     if (all) {
       rows = await sql.query("SELECT * FROM articles ORDER BY created_at DESC");
@@ -56,10 +67,11 @@ export async function GET(request: Request) {
     });
   } catch (error: any) {
     console.error("GET /api/articles error:", error);
-    return NextResponse.json(
-      { success: false, error: error.message || "Failed to load articles" },
-      { status: 500 }
-    );
+    const filtered = MOCK_ARTICLES.filter((a) => a.status === "Published");
+    return NextResponse.json({
+      success: true,
+      data: filtered,
+    });
   }
 }
 
