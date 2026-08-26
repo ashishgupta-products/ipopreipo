@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { fetchUpvalyIPOs } from "@/lib/upvaly";
+import { fetchIPOs } from "@/lib/ipo-service";
 
 // Revalidate every 60 seconds (Incremental Static Regeneration & Edge Caching)
 export const revalidate = 60;
 
 export async function GET() {
   try {
-    const ipos = await fetchUpvalyIPOs();
+    const ipos = await fetchIPOs();
     return NextResponse.json(
       { success: true, data: ipos },
       {

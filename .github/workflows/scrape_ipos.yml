@@ -1,0 +1,62 @@
+name: Automated IPO & GMP Scraper
+
+on:
+  schedule:
+    # 1. Every 30 minutes during Indian Stock Market hours (9:30 AM - 4:30 PM IST / 04:00 - 11:00 UTC) Mon-Fri
+    - cron: '*/30 4-11 * * 1-5'
+    # 2. Daily Master Catalog refresh at 8:30 PM IST (15:00 UTC)
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Scrape Mode'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - gmp
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'scraper/requirements.txt'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scraper/requirements.txt
+
+      - name: Run Scraper & Database Sync
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "gmp" ]; then
+            python -m scraper.main --gmp
+          else
+            python -m scraper.main --all
+          fi
+
+      - name: Commit and Push Updated Data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(data): auto-update IPO & GMP data [skip ci]"
+          file_pattern: "public/data/ipos.json src/data/ipos.json"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
