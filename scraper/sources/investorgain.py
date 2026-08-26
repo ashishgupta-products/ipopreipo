@@ -100,7 +100,7 @@ class InvestorGainScraper:
                     "gmpPercent": gmp_percent,
                     "expectedListingPrice": expected_listing_price,
                     "gmpUpdatedTime": updated_time_str,
-                    "gmpTrends": [t.dict() for t in trends],
+                    "gmpTrends": [t.model_dump() if hasattr(t, "model_dump") else t.dict() for t in trends],
                 }
 
             logger.info(f"Successfully parsed GMP for {len(gmp_map)} IPOs")

@@ -59,6 +59,10 @@ function mapRowToIPO(row: any): IPOData {
     gmpTrends: row.gmp_trends || undefined,
     financials: row.financials || undefined,
     lotSizes: row.lot_sizes || undefined,
+    subscriptionBreakdown: row.subscription_breakdown || undefined,
+    peerComparison: row.peer_comparison || undefined,
+    reservations: row.reservations || undefined,
+    kpis: row.kpis || undefined,
   };
 }
 

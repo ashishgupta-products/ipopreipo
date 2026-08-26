@@ -25,9 +25,14 @@ export default function ArticleDetailPage({ params }: PageProps) {
     async function loadArticle() {
       try {
         const res = await fetch(`/api/articles/${resolvedParams.slug}`);
-        const json = await res.json();
-        if (json.success) {
-          setArticle(json.data);
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success) {
+              setArticle(json.data);
+            }
+          }
         }
       } catch (e) {
         console.error("Failed to load article details:", e);

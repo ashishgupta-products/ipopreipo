@@ -7,6 +7,12 @@ from .sources.chittorgarh import ChittorgarhScraper
 from .sources.investorgain import InvestorGainScraper
 from .db_sync import save_to_json, sync_to_postgres
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",

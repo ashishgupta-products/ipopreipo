@@ -14,6 +14,8 @@ from ..models import (
     LotSizeDetail,
     IPOReservation,
     IPOKpiDetail,
+    SubscriptionDetail,
+    PeerComparisonDetail,
     GMPTrend,
     slugify,
     parse_number,
@@ -150,10 +152,15 @@ class ChittorgarhScraper:
             raw_h1 = h1.get_text(strip=True)
             company_name = re.sub(r"\s+IPO.*$", "", raw_h1, flags=re.IGNORECASE).strip()
 
-        img_tag = soup.find("img", class_=re.compile(r"img-thumbnail|company-logo", re.I))
+        # Find dedicated IPO company logo image
+        img_tag = (
+            soup.find("img", alt=lambda x: x and "ipo logo" in x.lower())
+            or soup.find("img", title=lambda x: x and "ipo logo" in x.lower())
+            or soup.find("img", class_=re.compile(r"img-thumbnail|company-logo", re.I))
+        )
         if img_tag and img_tag.get("src"):
             src = img_tag["src"]
-            if "chittorgarh-logo" not in src:
+            if "chittorgarh-logo" not in src and not any(b in src.lower() for b in ["zerodha", "angel", "prostocks", "fyers", "upstox", "kotak", "paytm", "broker"]):
                 logo_url = urljoin(self.BASE_URL, src)
 
         # 2. Extract All 2-Column Key-Value Tables
@@ -204,22 +211,32 @@ class ChittorgarhScraper:
         else:
             exchange_formatted = "BSE & NSE" if category == "mainboard" else "NSE Emerge"
 
-        # 4. Dates
+        # 4. Dates & Timetable Extraction (from ul.top-ratios & kv_pairs)
+        timetable_dict: Dict[str, str] = {}
+        for li in soup.find_all("li"):
+            text = li.get_text(" ", strip=True).lower()
+            if any(k in text for k in ["open", "close", "allotment", "refund", "credit", "listing"]):
+                spans = li.find_all("span")
+                if len(spans) >= 2:
+                    k = spans[0].get_text(" ", strip=True).lower()
+                    v = spans[1].get_text(" ", strip=True)
+                    timetable_dict[k] = v
+
         raw_date_range = kv_pairs.get("ipo date", kv_pairs.get("issue date", ""))
         open_date, close_date = parse_date_range(raw_date_range)
         if not open_date:
-            open_date = parse_date_str(kv_pairs.get("ipo open date", kv_pairs.get("open date", "")))
+            open_date = parse_date_str(timetable_dict.get("ipo open", timetable_dict.get("ipo open date", kv_pairs.get("ipo open date", kv_pairs.get("open date", "")))))
         if not close_date:
-            close_date = parse_date_str(kv_pairs.get("ipo close date", kv_pairs.get("close date", "")))
+            close_date = parse_date_str(timetable_dict.get("ipo close", timetable_dict.get("ipo close date", kv_pairs.get("ipo close date", kv_pairs.get("close date", "")))))
 
-        allotment_date = parse_date_str(kv_pairs.get("basis of allotment", kv_pairs.get("allotment date", "")))
-        refund_date = parse_date_str(kv_pairs.get("initiation of refunds", kv_pairs.get("refund date", "")))
-        demat_credit_date = parse_date_str(kv_pairs.get("credit of shares to demat", kv_pairs.get("demat transfer", "")))
+        allotment_date = parse_date_str(timetable_dict.get("allotment", timetable_dict.get("tentative allotment", kv_pairs.get("basis of allotment", kv_pairs.get("allotment date", "")))))
+        refund_date = parse_date_str(timetable_dict.get("refund", timetable_dict.get("initiation of refunds", kv_pairs.get("initiation of refunds", kv_pairs.get("refund date", "")))))
+        demat_credit_date = parse_date_str(timetable_dict.get("credit of shares", timetable_dict.get("credit of shares to demat", kv_pairs.get("credit of shares to demat", kv_pairs.get("demat transfer", "")))))
         
-        raw_listing_date = kv_pairs.get("listing date", "").replace(" T", "").strip()
+        raw_listing_date = timetable_dict.get("listing", timetable_dict.get("tentative listing date", kv_pairs.get("listing date", ""))).replace(" T", "").strip()
         listing_date = parse_date_str(raw_listing_date)
 
-        listing_price_val = int(parse_number(kv_pairs.get("listing price", ""))) or None
+        listing_price_val = int(parse_number(kv_pairs.get("listing price", kv_pairs.get("final issue price", "")))) or None
         listing_gain = parse_number(kv_pairs.get("listing gain", "")) or None
 
         # 5. Extract GMP if present in text/review
@@ -231,74 +248,112 @@ class ChittorgarhScraper:
             if price_max > 0:
                 gmp_percent = round((gmp_val / price_max) * 100, 2)
 
-        # 6. Registrar & Lead Managers
-        reg_name = kv_pairs.get("registrar", kv_pairs.get("registrar name", "Check Website"))
+        # 6. Registrar & Contact Info
+        reg_name = "Check Website"
+        reg_tag = soup.find("a", class_="registrar-name") or soup.find(lambda t: t.name in ["h2", "h3", "h4"] and "registrar" in t.get_text().lower())
+        if reg_tag:
+            if reg_tag.name == "a":
+                reg_name = reg_tag.get_text(strip=True)
+            else:
+                p_next = reg_tag.find_next(["p", "a", "div"])
+                if p_next:
+                    reg_name = p_next.get_text(strip=True).split("\n")[0].strip()
+        if reg_name == "Check Website":
+            reg_name = kv_pairs.get("registrar", kv_pairs.get("registrar name", "Check Website"))
+
+        # Map known registrar allotment portals & contact
+        reg_website = ""
+        reg_check_url = ""
+        reg_lower = reg_name.lower()
+        if "link" in reg_lower or "mufg" in reg_lower or "intime" in reg_lower:
+            reg_website = "https://linkintime.co.in"
+            reg_check_url = "https://linkintime.co.in/initial_offer/public-issues.html"
+        elif "kfin" in reg_lower:
+            reg_website = "https://kfintech.com"
+            reg_check_url = "https://ris.kfintech.com/ipostatus/"
+        elif "bigshare" in reg_lower:
+            reg_website = "https://bigshareonline.com"
+            reg_check_url = "https://www.bigshareonline.com/ipo_Allotment.html"
+        elif "skyline" in reg_lower:
+            reg_website = "https://www.skylinerta.com"
+            reg_check_url = "https://www.skylinerta.com/ipo.php"
+        elif "cameo" in reg_lower:
+            reg_website = "https://cameoindia.com"
+            reg_check_url = "https://ipo.cameoindia.com/"
+        elif "purva" in reg_lower:
+            reg_website = "https://purvashare.com"
+            reg_check_url = "https://www.purvashare.com/queries/"
+        elif "maashitla" in reg_lower:
+            reg_website = "https://maashitla.com"
+            reg_check_url = "https://maashitla.com/allotment-status/"
+
         reg_phone = kv_pairs.get("phone", None)
         reg_email = kv_pairs.get("email", None)
-        reg_website = kv_pairs.get("website", "")
-        if not reg_website and reg_name:
-            reg_lower = reg_name.lower()
-            if "link" in reg_lower:
-                reg_website = "https://linkintime.co.in"
-            elif "kfin" in reg_lower:
-                reg_website = "https://kfintech.com"
-            elif "bigshare" in reg_lower:
-                reg_website = "https://bigshareonline.com"
-            elif "cameo" in reg_lower:
-                reg_website = "https://cameoindia.com"
-            elif "maashitla" in reg_lower:
-                reg_website = "https://maashitla.com"
 
-        # 7. Financials Table
+        # 7. Lead Managers
+        lead_managers: List[str] = []
+        lm_tag = soup.find(lambda t: t.name in ["h2", "h3", "h4"] and "lead manager" in t.get_text().lower())
+        if lm_tag:
+            ol = lm_tag.find_next(["ol", "ul"])
+            if ol:
+                lead_managers = [
+                    li.get_text(strip=True) 
+                    for li in ol.find_all("li") 
+                    if li.get_text(strip=True) and "summary" not in li.get_text(strip=True).lower() and "tracker" not in li.get_text(strip=True).lower()
+                ]
+
+        # 8. Financials Table Extraction
         financials_list: List[FinancialMetric] = []
         lot_sizes_list: List[LotSizeDetail] = []
+        reservations_list: List[IPOReservation] = []
+        subscription_breakdown_list: List[SubscriptionDetail] = []
+        peer_comparison_list: List[PeerComparisonDetail] = []
+        kpis_obj: Optional[IPOKpiDetail] = None
+
+        total_sub = 0.0
+        qib_sub = 0.0
+        nii_sub = 0.0
+        retail_sub = 0.0
 
         for table in soup.find_all("table"):
-            headers = [th.get_text(strip=True).lower() for th in table.find_all("th")]
+            table_text = table.get_text().lower()
             
             # Financials Table
-            if any("period ended" in h or "financial" in h for h in headers) and any("assets" in h or "revenue" in h or "profit" in h or "pat" in h for h in headers):
+            if "period ended" in table_text and ("assets" in table_text or "revenue" in table_text or "total income" in table_text or "profit after tax" in table_text):
                 rows = table.find_all("tr")
                 if len(rows) > 1:
                     header_cols = [c.get_text(strip=True) for c in rows[0].find_all(["th", "td"])]
                     periods = header_cols[1:]
                     
-                    data_dict: Dict[str, List[float]] = {}
+                    data_dict: Dict[str, List[str]] = {}
                     for r in rows[1:]:
-                        tds = [td.get_text(strip=True) for td in r.find_all("td")]
+                        tds = [td.get_text(strip=True) for td in r.find_all(["td", "th"])]
                         if len(tds) > 1:
                             metric_name = tds[0].lower()
-                            values = [parse_number(v) for v in tds[1:]]
-                            data_dict[metric_name] = values
+                            data_dict[metric_name] = tds[1:]
 
                     for idx, period in enumerate(periods):
-                        if not period or idx >= len(periods):
+                        if not period or idx >= len(periods) or "amount" in period.lower() or "standalone" in period.lower():
                             continue
                         
-                        rev = 0.0
+                        rev = pat = nw = 0.0
                         for k, vals in data_dict.items():
-                            if "revenue" in k or "total income" in k:
-                                if idx < len(vals): rev = vals[idx]
-                        
-                        pat = 0.0
-                        for k, vals in data_dict.items():
-                            if "profit after tax" in k or "pat" in k:
-                                if idx < len(vals): pat = vals[idx]
+                            if idx < len(vals):
+                                num_val = parse_number(vals[idx])
+                                if "revenue" in k or "total income" in k: rev = num_val
+                                elif "profit after tax" in k or "pat" in k: pat = num_val
+                                elif "net worth" in k: nw = num_val
 
-                        nw = 0.0
-                        for k, vals in data_dict.items():
-                            if "net worth" in k:
-                                if idx < len(vals): nw = vals[idx]
-
-                        financials_list.append(FinancialMetric(
-                            year=period,
-                            revenue=rev,
-                            pat=pat,
-                            netWorth=nw,
-                        ))
+                        if period not in [f.year for f in financials_list]:
+                            financials_list.append(FinancialMetric(
+                                year=period,
+                                revenue=rev,
+                                pat=pat,
+                                netWorth=nw,
+                            ))
 
             # Lot Size Table
-            if any("application" in h for h in headers) and any("lots" in h for h in headers) and any("shares" in h for h in headers):
+            if "application" in table_text and ("lots" in table_text or "shares" in table_text) and "amount" in table_text:
                 for tr in table.find_all("tr")[1:]:
                     tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
                     if len(tds) >= 4:
@@ -309,7 +364,75 @@ class ChittorgarhScraper:
                             amount=int(parse_number(tds[3])),
                         ))
 
-        # 8. DRHP / Prospectus Links
+            # Reservations Table
+            if "investor category" in table_text and "shares offered" in table_text:
+                for tr in table.find_all("tr")[1:]:
+                    tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                    if len(tds) >= 3 and tds[0]:
+                        cat_clean = tds[0].replace("\u2212", "-").replace("−", "-").strip()
+                        reservations_list.append(IPOReservation(
+                            category=cat_clean,
+                            sharesOffered=tds[1],
+                            percentage=tds[2] if len(tds) > 2 else "",
+                            amountCr=tds[3] if len(tds) > 3 else ""
+                        ))
+
+            # Subscription Details Table
+            if "subscription" in table_text and ("qib" in table_text or "retail" in table_text or "total" in table_text):
+                for tr in table.find_all("tr")[1:]:
+                    tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                    if len(tds) >= 2:
+                        cat_name = tds[0].strip()
+                        sub_times = parse_number(tds[1])
+                        if "total" in cat_name.lower():
+                            total_sub = sub_times
+                        elif "qib" in cat_name.lower():
+                            qib_sub = sub_times
+                        elif "nii" in cat_name.lower() or "hni" in cat_name.lower():
+                            nii_sub = sub_times
+                        elif "retail" in cat_name.lower():
+                            retail_sub = sub_times
+                        
+                        if cat_name:
+                            subscription_breakdown_list.append(SubscriptionDetail(
+                                category=cat_name,
+                                subscriptionTimes=sub_times,
+                                sharesOffered=parse_number(tds[2]) if len(tds) > 2 else 0.0,
+                                bidsReceived=parse_number(tds[3]) if len(tds) > 3 else 0.0,
+                            ))
+
+            # KPI Table
+            if ("roe" in table_text or "roce" in table_text or "debt/equity" in table_text or "pat margin" in table_text) and "expense" not in table_text:
+                kpi_map: Dict[str, str] = {}
+                for tr in table.find_all("tr"):
+                    tds = [c.get_text(strip=True) for c in tr.find_all(["th", "td"])]
+                    if len(tds) == 2:
+                        kpi_map[tds[0].lower()] = tds[1]
+                
+                if kpi_map:
+                    kpis_obj = IPOKpiDetail(
+                        roe=kpi_map.get("roe"),
+                        ronw=kpi_map.get("ronw"),
+                        ebitdaMargin=kpi_map.get("ebitda margin"),
+                        priceToBookValue=kpi_map.get("price to book value", kpi_map.get("p/bv")),
+                        preIpoEps=kpi_map.get("eps (rs)"),
+                        preIpoPe=kpi_map.get("p/e (x)"),
+                    )
+
+            # Peer Comparison Table
+            if "pe ratio" in table_text and ("company" in table_text or "listing day" in table_text or "issue price" in table_text):
+                for tr in table.find_all("tr")[1:]:
+                    tds = [c.get_text(strip=True) for c in tr.find_all(["th", "td"])]
+                    if len(tds) >= 4 and tds[0]:
+                        peer_comparison_list.append(PeerComparisonDetail(
+                            companyName=tds[0],
+                            faceValue=10.0,
+                            peRatio=parse_number(tds[4]) if len(tds) > 4 else parse_number(tds[3]),
+                            ronw=None,
+                            eps=None
+                        ))
+
+        # 9. DRHP / Prospectus Links
         drhp_url = None
         prospectus_url = None
         for a in soup.find_all("a", href=True):
@@ -320,17 +443,21 @@ class ChittorgarhScraper:
             elif "rhp" in a_text or "prospectus" in a_text or "rhp" in href.lower():
                 prospectus_url = urljoin(self.BASE_URL, href)
 
-        # 9. Highlights & Risks
+        # 10. Highlights & Risks
         highlights: List[str] = []
         risks: List[str] = []
         for ul in soup.find_all("ul"):
             prev = ul.find_previous(["h2", "h3", "h4", "strong", "p"])
             if prev:
                 prev_text = prev.get_text().lower()
-                if "strength" in prev_text or "highlight" in prev_text:
-                    highlights = [li.get_text(strip=True) for li in ul.find_all("li")]
+                if "strength" in prev_text or "highlight" in prev_text or "object" in prev_text:
+                    items = [li.get_text(strip=True) for li in ul.find_all("li") if len(li.get_text(strip=True)) > 5]
+                    if items:
+                        highlights.extend(items)
                 elif "risk" in prev_text or "concern" in prev_text:
-                    risks = [li.get_text(strip=True) for li in ul.find_all("li")]
+                    items = [li.get_text(strip=True) for li in ul.find_all("li") if len(li.get_text(strip=True)) > 5]
+                    if items:
+                        risks.extend(items)
 
         # Determine Status
         status = self.determine_status(open_date, close_date, listing_date, listing_price_val)
@@ -357,6 +484,10 @@ class ChittorgarhScraper:
             gmp=gmp_val,
             gmpPercent=gmp_percent,
             expectedListingPrice=expected_listing,
+            totalSubscription=total_sub,
+            qibSubscription=qib_sub,
+            niiSubscription=nii_sub,
+            retailSubscription=retail_sub,
             openDate=open_date,
             closeDate=close_date,
             allotmentDate=allotment_date,
@@ -367,16 +498,50 @@ class ChittorgarhScraper:
             listingGainPercent=listing_gain,
             registrarName=reg_name,
             registrarWebsite=reg_website,
-            registrarCheckUrl=reg_website,
+            registrarCheckUrl=reg_check_url or reg_website,
             registrarPhone=reg_phone,
             registrarEmail=reg_email,
+            leadManagers=lead_managers,
             highlights=highlights[:5],
             risks=risks[:5],
             financials=financials_list if financials_list else None,
             lotSizes=lot_sizes_list if lot_sizes_list else None,
+            subscriptionBreakdown=subscription_breakdown_list if subscription_breakdown_list else None,
+            peerComparison=peer_comparison_list if peer_comparison_list else None,
+            reservations=reservations_list if reservations_list else None,
+            kpis=kpis_obj,
             drhpUrl=drhp_url,
             prospectusUrl=prospectus_url,
         )
+
+    def enrich_performance_tracker(self, ipos: List[IPOData]) -> List[IPOData]:
+        """Fetches listing gains and market performance from Chittorgarh Perf Tracker"""
+        url = f"{self.BASE_URL}/ipo/ipo_perf_tracker.asp"
+        logger.info(f"Enriching performance data from {url}...")
+        soup = self.fetch_page(url)
+        if not soup:
+            return ipos
+
+        tables = soup.find_all("table")
+        if len(tables) > 1:
+            t = tables[1]
+            perf_map: Dict[str, float] = {}
+            for row in t.find_all("tr")[1:]:
+                cols = [c.get_text(strip=True) for c in row.find_all(["td", "th"])]
+                if len(cols) >= 2:
+                    c_name = re.sub(r"\s+(?:Ltd\.?|Limited)$", "", cols[0], flags=re.IGNORECASE).strip()
+                    c_slug = slugify(c_name)
+                    listing_gain = parse_number(cols[1])
+                    perf_map[c_slug] = listing_gain
+
+            for ipo in ipos:
+                if ipo.listingGainPercent is None or ipo.listingGainPercent == 0:
+                    clean_slug = ipo.slug.replace("-ltd", "").replace("-limited", "")
+                    for p_slug, gain in perf_map.items():
+                        if clean_slug in p_slug or p_slug in clean_slug:
+                            ipo.listingGainPercent = gain
+                            break
+        return ipos
 
     def scrape_all(self, limit_per_category: int = 15) -> List[IPOData]:
         """Scrapes both Mainboard and SME IPOs with details"""
@@ -397,5 +562,8 @@ class ChittorgarhScraper:
                 except Exception as e:
                     logger.error(f"Error scraping detail for {item['name']}: {e}")
                     
+        # Enrich performance metrics
+        all_ipos = self.enrich_performance_tracker(all_ipos)
+
         logger.info(f"Total Chittorgarh IPOs successfully scraped: {len(all_ipos)}")
         return all_ipos

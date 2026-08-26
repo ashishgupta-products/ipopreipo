@@ -100,12 +100,17 @@ export default function IPODetailPage({ params }: PageProps) {
     async function loadIPO() {
       try {
         const res = await fetch("/api/ipos");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
-          const found = json.data.find((i: any) => i.slug === resolvedParams.slug);
-          if (found) {
-            setIpo(found);
-            return;
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              const found = json.data.find((i: any) => i.slug === resolvedParams.slug);
+              if (found) {
+                setIpo(found);
+                return;
+              }
+            }
           }
         }
       } catch (err) {

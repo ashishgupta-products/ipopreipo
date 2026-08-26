@@ -54,36 +54,41 @@ function AllotmentContent() {
     async function loadIPOs() {
       try {
         const res = await fetch("/api/ipos");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
-          const allData: IPOData[] = json.data;
-          
-          // Sort so allotment-active & recent IPOs appear at the top
-          const sorted = [...allData].sort((a, b) => {
-            const isAltA = isAllotmentPhase(a) ? 1 : 0;
-            const isAltB = isAllotmentPhase(b) ? 1 : 0;
-            if (isAltA !== isAltB) return isAltB - isAltA;
-            return (b.allotmentDate || b.closeDate || "").localeCompare(a.allotmentDate || a.closeDate || "");
-          });
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+              const allData: IPOData[] = json.data;
+              
+              // Sort so allotment-active & recent IPOs appear at the top
+              const sorted = [...allData].sort((a, b) => {
+                const isAltA = isAllotmentPhase(a) ? 1 : 0;
+                const isAltB = isAllotmentPhase(b) ? 1 : 0;
+                if (isAltA !== isAltB) return isAltB - isAltA;
+                return (b.allotmentDate || b.closeDate || "").localeCompare(a.allotmentDate || a.closeDate || "");
+              });
 
-          setIpos(sorted);
+              setIpos(sorted);
 
-          // Check if URL specified an IPO id or slug
-          const paramIpo = searchParams.get("ipo") || searchParams.get("slug");
-          if (paramIpo) {
-            const found = sorted.find(i => i.id === paramIpo || i.slug === paramIpo);
-            if (found) {
-              setSelectedIpoId(found.id);
-              return;
+              // Check if URL specified an IPO id or slug
+              const paramIpo = searchParams.get("ipo") || searchParams.get("slug");
+              if (paramIpo) {
+                const found = sorted.find(i => i.id === paramIpo || i.slug === paramIpo);
+                if (found) {
+                  setSelectedIpoId(found.id);
+                  return;
+                }
+              }
+
+              // Default to first allotment-active IPO, or first in list
+              const firstAllotment = sorted.find(isAllotmentPhase);
+              setSelectedIpoId(firstAllotment ? firstAllotment.id : sorted[0].id);
             }
           }
-
-          // Default to first allotment-active IPO, or first in list
-          const firstAllotment = sorted.find(isAllotmentPhase);
-          setSelectedIpoId(firstAllotment ? firstAllotment.id : sorted[0].id);
         }
       } catch (err) {
-        console.error("Failed to load allotment ipos:", err);
+        console.error("Failed to load allotment IPOs:", err);
       }
     }
     loadIPOs();

@@ -47,9 +47,14 @@ export const Navbar: React.FC = () => {
     async function loadIPOs() {
       try {
         const res = await fetch("/api/ipos");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
-          setIpos(json.data);
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              setIpos(json.data);
+            }
+          }
         }
       } catch (err) {
         console.error("Failed to load navbar ipos:", err);

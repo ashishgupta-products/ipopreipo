@@ -63,9 +63,14 @@ function HomeDashboardContent() {
     async function loadNews() {
       try {
         const res = await fetch("/api/news");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
-          setNews(json.data);
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              setNews(json.data);
+            }
+          }
         }
       } catch (err) {
         console.error("Failed to load news feed:", err);
@@ -77,9 +82,14 @@ function HomeDashboardContent() {
     async function loadArticles() {
       try {
         const res = await fetch("/api/articles");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
-          setArticles(json.data);
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              setArticles(json.data);
+            }
+          }
         }
       } catch (err) {
         console.error("Failed to load articles:", err);
@@ -97,9 +107,14 @@ function HomeDashboardContent() {
     async function loadIPOs() {
       try {
         const res = await fetch("/api/ipos");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
-          setIpos(json.data);
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              setIpos(json.data);
+            }
+          }
         }
       } catch (err) {
         console.error("Failed to fetch live IPOs, using mock data fallback.", err);
@@ -109,75 +124,6 @@ function HomeDashboardContent() {
     }
     loadIPOs();
   }, []);
-
-  // Sync filters from URL search params whenever URL changes
-  useEffect(() => {
-    const tabParam = searchParams.get("tab");
-    const categoryParam = searchParams.get("category");
-    if (tabParam) {
-      setSelectedTab(tabParam);
-    } else {
-      setSelectedTab("live");
-    }
-
-    if (categoryParam === "sme") {
-      setShowMainboard(false);
-      setShowSme(true);
-    } else if (categoryParam === "all" || categoryParam === "both") {
-      setShowMainboard(true);
-      setShowSme(true);
-    } else {
-      // Default: mainboard
-      setShowMainboard(true);
-      setShowSme(false);
-    }
-  }, [searchParams]);
-
-  const formatDate = (dateStr: string) => {
-    if (!dateStr) return "";
-    const parts = dateStr.split("-");
-    if (parts.length === 3) {
-      const [year, month, day] = parts;
-      return `${day}-${month}-${year.slice(-2)}`;
-    }
-    return dateStr;
-  };
-
-  const updateTab = (newTab: string) => {
-    setSelectedTab(newTab);
-    const params = new URLSearchParams();
-    if (newTab !== "live") params.set("tab", newTab);
-    if (showMainboard && showSme) {
-      params.set("category", "all");
-    } else if (!showMainboard && showSme) {
-      params.set("category", "sme");
-    }
-    const queryString = params.toString();
-    router.push(queryString ? `/?${queryString}` : "/");
-  };
-
-  const updateCategoryCheckboxes = (newMainboard: boolean, newSme: boolean) => {
-    if (!newMainboard && !newSme) {
-      // If user unchecks the active one, flip to the other so it's never empty
-      if (showMainboard) {
-        newSme = true;
-      } else {
-        newMainboard = true;
-      }
-    }
-    setShowMainboard(newMainboard);
-    setShowSme(newSme);
-
-    const params = new URLSearchParams();
-    if (selectedTab !== "live") params.set("tab", selectedTab);
-    if (newMainboard && newSme) {
-      params.set("category", "all");
-    } else if (!newMainboard && newSme) {
-      params.set("category", "sme");
-    }
-    const queryString = params.toString();
-    router.push(queryString ? `/?${queryString}` : "/");
-  };
 
   const todayStr = new Date().toISOString().split("T")[0];
 
@@ -214,6 +160,91 @@ function HomeDashboardContent() {
     if (ipo.status === "closed" || ipo.status === "allotment_out") return true;
     if (ipo.closeDate && ipo.closeDate < todayStr && (!ipo.listingDate || ipo.listingDate >= todayStr)) return true;
     return false;
+  };
+
+  // Sync filters from URL search params whenever URL or data changes
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    const categoryParam = searchParams.get("category");
+    
+    if (tabParam) {
+      setSelectedTab(tabParam);
+    } else if (ipos.length > 0) {
+      // Smart tab default: if no Live IPOs, switch to first tab with active listings
+      const hasLive = ipos.some(isLive);
+      if (!hasLive && ipos.some(isUpcoming)) {
+        setSelectedTab("upcoming");
+      } else if (!hasLive && ipos.some(isAllotment)) {
+        setSelectedTab("allotment");
+      } else if (!hasLive && ipos.some(isAlreadyListed)) {
+        setSelectedTab("listed");
+      } else {
+        setSelectedTab("live");
+      }
+    } else {
+      setSelectedTab("live");
+    }
+
+    if (categoryParam === "sme") {
+      setShowMainboard(false);
+      setShowSme(true);
+    } else if (categoryParam === "mainboard") {
+      setShowMainboard(true);
+      setShowSme(false);
+    } else {
+      // Default: show both Mainboard & SME for complete market view
+      setShowMainboard(true);
+      setShowSme(true);
+    }
+  }, [searchParams, ipos]);
+
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    const parts = dateStr.split("-");
+    if (parts.length === 3) {
+      const [year, month, day] = parts;
+      return `${day}-${month}-${year.slice(-2)}`;
+    }
+    return dateStr;
+  };
+
+  const updateTab = (newTab: string) => {
+    setSelectedTab(newTab);
+    const params = new URLSearchParams();
+    params.set("tab", newTab);
+    if (showMainboard && showSme) {
+      params.set("category", "all");
+    } else if (!showMainboard && showSme) {
+      params.set("category", "sme");
+    } else if (showMainboard && !showSme) {
+      params.set("category", "mainboard");
+    }
+    const queryString = params.toString();
+    router.push(queryString ? `/?${queryString}` : "/");
+  };
+
+  const updateCategoryCheckboxes = (newMainboard: boolean, newSme: boolean) => {
+    if (!newMainboard && !newSme) {
+      if (showMainboard) {
+        newSme = true;
+      } else {
+        newMainboard = true;
+      }
+    }
+    setShowMainboard(newMainboard);
+    setShowSme(newSme);
+
+    const params = new URLSearchParams();
+    if (selectedTab !== "live") params.set("tab", selectedTab);
+    if (newMainboard && newSme) {
+      params.set("category", "all");
+    } else if (!newMainboard && newSme) {
+      params.set("category", "sme");
+    } else if (newMainboard && !newSme) {
+      params.set("category", "mainboard");
+    }
+    const queryString = params.toString();
+    router.push(queryString ? `/?${queryString}` : "/");
   };
 
   // Filtering Logic
@@ -737,6 +768,33 @@ function HomeDashboardContent() {
         );
       })}
       </div>
+
+      {/* Empty State Banner if no IPOs match */}
+      {filteredIpos.length === 0 && (
+        <div className="p-8 sm:p-12 rounded-2xl bg-white border border-slate-200/80 shadow-2xs text-center flex flex-col items-center justify-center space-y-4 my-2">
+          <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+            <Calendar className="w-7 h-7" />
+          </div>
+          <div className="space-y-1">
+            <h3 className="text-base sm:text-lg font-black text-slate-900">
+              No {selectedTab === "live" ? "Live Bidding" : selectedTab === "allotment" ? "Allotment Phase" : selectedTab === "upcoming" ? "Upcoming" : "Listed"} IPOs Found
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-500 max-w-md font-medium leading-relaxed">
+              {selectedTab === "live" && upcomingCount > 0 
+                ? `There are no IPOs actively open for bidding today, but ${upcomingCount} upcoming IPOs are scheduled to open soon.`
+                : "No IPO records match the currently selected status and segment filters."}
+            </p>
+          </div>
+          {selectedTab === "live" && upcomingCount > 0 && (
+            <button
+              onClick={() => updateTab("upcoming")}
+              className="px-5 py-2.5 bg-[#0c1220] hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-2"
+            >
+              View Upcoming IPOs ({upcomingCount}) <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Pre-IPO Teaser Section */}
       <section className="pt-1">

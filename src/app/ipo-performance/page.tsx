@@ -48,9 +48,12 @@ export default function IPOPerformancePage() {
     async function loadPerformanceData() {
       try {
         const res = await fetch("/api/ipos");
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
-          const todayStr = new Date().toISOString().split("T")[0];
+        if (res.ok) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const json = await res.json();
+            if (json.success && Array.isArray(json.data)) {
+              const todayStr = new Date().toISOString().split("T")[0];
 
           // Filter for listed IPOs (either status listed, or closed with a past listing date)
           const listedIPOs = json.data
@@ -97,17 +100,19 @@ export default function IPOPerformancePage() {
               };
             });
 
-          setIpos(listedIPOs);
+            setIpos(listedIPOs);
+          }
         }
-      } catch (err) {
-        console.error("Failed to load listed IPO performance.", err);
-      } finally {
-        setIsLoading(false);
       }
+    } catch (err) {
+      console.error("Failed to load listed IPO performance.", err);
+    } finally {
+      setIsLoading(false);
     }
+  }
 
-    loadPerformanceData();
-  }, []);
+  loadPerformanceData();
+}, []);
 
   // Filter & Sorting Logic
   const filtered = ipos

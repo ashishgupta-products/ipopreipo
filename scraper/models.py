@@ -32,12 +32,15 @@ def parse_number(val: Any) -> float:
         return 0.0
 
 def parse_date_str(val: str) -> str:
-    """Parses various date formats e.g. 'Aug 26, 2026', '26-Aug-2026', '26/08/2026' into 'YYYY-MM-DD'"""
+    """Parses various date formats e.g. 'Aug 26, 2026', 'Tue, Sep 1, 2026', '26-Aug-2026', '26/08/2026' into 'YYYY-MM-DD'"""
     if not val or not isinstance(val, str):
         return ""
     val = val.strip()
     if not val or val == "-" or val.lower() == "na":
         return ""
+    
+    # Remove day of week like 'Tue, ' or 'Friday '
+    val = re.sub(r'^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)[,\s]+', '', val, flags=re.I).strip()
     
     # Common formats
     date_formats = [
@@ -49,6 +52,9 @@ def parse_date_str(val: str) -> str:
         "%B %d, %Y",
         "%d %b %Y",
         "%d %B %Y",
+        "%d %b, %Y",
+        "%d %B, %Y",
+        "%b %d %Y",
     ]
     for fmt in date_formats:
         try:

@@ -159,7 +159,7 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
                 "risks": ipo.risks,
                 "drhp_url": ipo.drhpUrl,
                 "prospectus_url": ipo.prospectusUrl,
-                "gmp_trends": json.dumps([t.dict() for t in ipo.gmpTrends]) if ipo.gmpTrends else None,
+                "gmp_trends": json.dumps([t.model_dump() if hasattr(t, "model_dump") else t.dict() for t in ipo.gmpTrends]) if ipo.gmpTrends else None,
             }
             cursor.execute(upsert_sql, params)
 
