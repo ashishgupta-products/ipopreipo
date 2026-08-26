@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
 
-export const dynamic = "force-dynamic";
+// Revalidate every 60 seconds (Incremental Static Regeneration & Edge Caching)
+export const revalidate = 60;
 
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -48,10 +49,17 @@ export async function GET(request: Request) {
       const filtered = all
         ? MOCK_ARTICLES
         : MOCK_ARTICLES.filter((a) => a.status === "Published");
-      return NextResponse.json({
-        success: true,
-        data: filtered,
-      });
+      return NextResponse.json(
+        {
+          success: true,
+          data: filtered,
+        },
+        {
+          headers: {
+            "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+          },
+        }
+      );
     }
 
     let rows;
@@ -61,10 +69,17 @@ export async function GET(request: Request) {
       rows = await sql.query("SELECT * FROM articles WHERE status = 'Published' ORDER BY published_date DESC");
     }
 
-    return NextResponse.json({
-      success: true,
-      data: rows.map(mapRowToArticle),
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: rows.map(mapRowToArticle),
+      },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+        },
+      }
+    );
   } catch (error: any) {
     console.error("GET /api/articles error:", error);
     const filtered = MOCK_ARTICLES.filter((a) => a.status === "Published");

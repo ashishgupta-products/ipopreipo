@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
+// Revalidate news feed every 5 minutes (Incremental Static Regeneration & Edge Caching)
+export const revalidate = 300;
 
 function extractTagContent(xml: string, tag: string): string {
   const match = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\/${tag}>`));
@@ -140,10 +141,17 @@ export async function GET() {
     // Sort items by date descending (newest first)
     allItems.sort((a, b) => b.timestamp - a.timestamp);
 
-    return NextResponse.json({
-      success: true,
-      data: allItems.slice(0, 15) // Return top 15 aggregated articles
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: allItems.slice(0, 15), // Return top 15 aggregated articles
+      },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=900",
+        },
+      }
+    );
   } catch (error: any) {
     console.error("News aggregation error:", error);
     return NextResponse.json(

@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
 
-export const dynamic = "force-dynamic";
+// Revalidate every 60 seconds (Incremental Static Regeneration & Edge Caching)
+export const revalidate = 60;
 
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -49,7 +50,14 @@ export async function GET(
     if (!sql) {
       const found = MOCK_ARTICLES.find((a) => a.slug === resolvedParams.slug);
       if (found) {
-        return NextResponse.json({ success: true, data: found });
+        return NextResponse.json(
+          { success: true, data: found },
+          {
+            headers: {
+              "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+            },
+          }
+        );
       }
       return NextResponse.json(
         { success: false, error: "Article not found" },
@@ -65,7 +73,14 @@ export async function GET(
     if (!rows || rows.length === 0) {
       const found = MOCK_ARTICLES.find((a) => a.slug === resolvedParams.slug);
       if (found) {
-        return NextResponse.json({ success: true, data: found });
+        return NextResponse.json(
+          { success: true, data: found },
+          {
+            headers: {
+              "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+            },
+          }
+        );
       }
       return NextResponse.json(
         { success: false, error: "Article not found" },
@@ -73,24 +88,26 @@ export async function GET(
       );
     }
 
-    // Increment view count asynchronously in background
-    try {
-      await sql.query(
-        "UPDATE articles SET views = views + 1 WHERE id = $1",
-        [rows[0].id]
-      );
-    } catch (e) {
+    // Increment view count asynchronously in background without blocking response
+    sql.query("UPDATE articles SET views = views + 1 WHERE id = $1", [rows[0].id]).catch((e) => {
       console.error("Failed to increment article views:", e);
-    }
+    });
 
     const article = mapRowToArticle(rows[0]);
     // Simulate increment locally so it reflects on first load
     article.views += 1;
 
-    return NextResponse.json({
-      success: true,
-      data: article,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: article,
+      },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+        },
+      }
+    );
   } catch (error: any) {
     console.error("GET /api/articles/[slug] error:", error);
     return NextResponse.json(

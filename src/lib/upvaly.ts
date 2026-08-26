@@ -200,9 +200,10 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
 
     // Map raw API array to standard IPOData objects
     for (const item of apiIPOs) {
-      if (item.type && item.type.toLowerCase() === "sse") {
-        continue;
-      }
+      try {
+        if (item.type && item.type.toLowerCase() === "sse") {
+          continue;
+        }
       const rawSymbol = (item.symbol || slugify(item.name) || "ipo").trim();
       const baseId = `api-${rawSymbol}`;
       let id = baseId;
@@ -351,12 +352,18 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
         gmpTrends: item.greyMarketPremium?.gmpTrends || undefined,
       };
 
-      inMemoryIPOs.push(parsedIPO);
+        inMemoryIPOs.push(parsedIPO);
+      } catch (parseItemErr) {
+        console.error(`Error parsing IPO item ${item.name}:`, parseItemErr);
+      }
+    }
 
-      // Upsert into Neon PostgreSQL if database connection is configured
-      if (sql) {
+    // Background async batch sync to Neon PostgreSQL without blocking HTTP response
+    const db = sql;
+    if (db && inMemoryIPOs.length > 0) {
+      const upsertPromises = inMemoryIPOs.map(async (parsedIPO) => {
         try {
-          await sql`
+          await db`
             INSERT INTO ipos (
               id, slug, name, company_name, logo_url, category, status, exchange,
               price_band_min, price_band_max, lot_size, min_investment,
@@ -367,14 +374,14 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
               registrar_name, registrar_website, registrar_check_url, recommendation, rating,
               highlights, risks, drhp_url, prospectus_url, gmp_trends
             ) VALUES (
-              ${id}, ${slug}, ${item.name}, ${item.name}, ${item.logoUrl || null}, ${category}, ${status}, ${exchange},
-              ${priceBandMin}, ${priceBandMax}, ${lotSize}, ${minInvestment},
-              ${parseNumber(item.issueSize?.totalIssueSize)}, ${parseNumber(item.issueSize?.freshIssue)}, ${parseNumber(item.issueSize?.offerForSale)}, 10,
-              ${gmp}, ${gmpPercent}, ${expectedListingPrice},
-              ${totalSubscription}, ${qibSubscription}, ${niiSubscription}, ${retailSubscription},
-              ${openDate}, ${closeDate}, ${allotmentDate}, ${refundDate}, ${dematCreditDate}, ${listingDate},
-              'Check Website', ${item.detailsUrl || ''}, ${item.detailsUrl || ''}, ${recommendation}, ${rating},
-              ${item.strengths || []}, ${item.risks || []}, ${item.drhpLink || null}, ${item.rhpLink || null}, ${JSON.stringify(item.greyMarketPremium?.gmpTrends || null)}
+              ${parsedIPO.id}, ${parsedIPO.slug}, ${parsedIPO.name}, ${parsedIPO.companyName}, ${parsedIPO.logoUrl || null}, ${parsedIPO.category}, ${parsedIPO.status}, ${parsedIPO.exchange},
+              ${parsedIPO.priceBandMin}, ${parsedIPO.priceBandMax}, ${parsedIPO.lotSize}, ${parsedIPO.minInvestment},
+              ${parsedIPO.issueSizeTotalCr}, ${parsedIPO.freshIssueCr}, ${parsedIPO.ofsCr}, 10,
+              ${parsedIPO.gmp}, ${parsedIPO.gmpPercent}, ${parsedIPO.expectedListingPrice},
+              ${parsedIPO.totalSubscription}, ${parsedIPO.qibSubscription}, ${parsedIPO.niiSubscription}, ${parsedIPO.retailSubscription},
+              ${parsedIPO.openDate}, ${parsedIPO.closeDate}, ${parsedIPO.allotmentDate}, ${parsedIPO.refundDate}, ${parsedIPO.dematCreditDate}, ${parsedIPO.listingDate},
+              'Check Website', ${parsedIPO.registrarWebsite || ''}, ${parsedIPO.registrarCheckUrl || ''}, ${parsedIPO.recommendation}, ${parsedIPO.rating},
+              ${parsedIPO.highlights}, ${parsedIPO.risks}, ${parsedIPO.drhpUrl || null}, ${parsedIPO.prospectusUrl || null}, ${JSON.stringify(parsedIPO.gmpTrends || null)}
             )
             ON CONFLICT (id) DO UPDATE SET
               slug = EXCLUDED.slug,
@@ -414,33 +421,17 @@ export async function fetchUpvalyIPOs(): Promise<IPOData[]> {
               updated_at = CURRENT_TIMESTAMP;
           `;
         } catch (upsertError) {
-          console.error(`Failed to sync IPO item: ${item.name} (${id})`, upsertError);
+          console.error(`Failed to sync IPO item: ${parsedIPO.name} (${parsedIPO.id})`, upsertError);
         }
-      }
+      });
+
+      // Execute batch sync concurrently in background without blocking response
+      Promise.allSettled(upsertPromises).catch(err => {
+        console.error("Background Neon DB sync batch error:", err);
+      });
     }
 
-    if (sql) {
-      try {
-        const rows = await sql`
-          SELECT * FROM ipos 
-          ORDER BY 
-            CASE status 
-              WHEN 'live' THEN 1 
-              WHEN 'upcoming' THEN 2 
-              ELSE 3 
-            END,
-            open_date DESC;
-        `;
-        const dbIPOs = rows.map(mapRowToIPO);
-        localCache = dbIPOs;
-        localCacheTimestamp = now;
-        return localCache;
-      } catch (dbQueryErr) {
-        console.warn("Falling back to in-memory parsed IPO list:", dbQueryErr);
-      }
-    }
-
-    // Return in-memory mapped IPO list
+    // Sort and immediately serve in-memory parsed IPO list with zero latency delay
     inMemoryIPOs.sort((a, b) => {
       const orderA = a.status === "live" ? 1 : a.status === "upcoming" ? 2 : 3;
       const orderB = b.status === "live" ? 1 : b.status === "upcoming" ? 2 : 3;
