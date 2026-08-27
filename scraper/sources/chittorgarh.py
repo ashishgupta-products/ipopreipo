@@ -17,6 +17,7 @@ from ..models import (
     IPOKpiDetail,
     SubscriptionDetail,
     PeerComparisonDetail,
+    BrokerReviewSummary,
     GMPTrend,
     slugify,
     parse_number,
@@ -489,6 +490,39 @@ class ChittorgarhScraper:
                             eps=None
                         ))
 
+        # 8I. Broker & Member Recommendations Table
+        broker_reviews: Optional[BrokerReviewSummary] = None
+        member_reviews: Optional[BrokerReviewSummary] = None
+        for table in soup.find_all("table"):
+            table_text = table.get_text(" ", strip=True).lower()
+            if "review by" in table_text and ("subscribe" in table_text or "apply" in table_text) and "avoid" in table_text:
+                for tr in table.find_all("tr"):
+                    tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                    if len(tds) >= 5:
+                        row_lbl = tds[0].lower()
+                        if "broker" in row_lbl:
+                            sub_c = int(parse_number(tds[1]))
+                            may_c = int(parse_number(tds[2]))
+                            neu_c = int(parse_number(tds[3]))
+                            avo_c = int(parse_number(tds[4]))
+                            broker_reviews = BrokerReviewSummary(
+                                subscribe=sub_c,
+                                mayApply=may_c,
+                                neutral=neu_c,
+                                avoid=avo_c
+                            )
+                        elif "member" in row_lbl:
+                            sub_c = int(parse_number(tds[1]))
+                            may_c = int(parse_number(tds[2]))
+                            neu_c = int(parse_number(tds[3]))
+                            avo_c = int(parse_number(tds[4]))
+                            member_reviews = BrokerReviewSummary(
+                                subscribe=sub_c,
+                                mayApply=may_c,
+                                neutral=neu_c,
+                                avoid=avo_c
+                            )
+
         # Auto-compute YoY growth and RoNW for financials
         for idx in range(len(financials_list)):
             if idx + 1 < len(financials_list):
@@ -528,6 +562,70 @@ class ChittorgarhScraper:
                     items = [li.get_text(strip=True) for li in ul.find_all("li") if len(li.get_text(strip=True)) > 5]
                     if items:
                         risks.extend(items)
+
+        # 11. Compute Dynamic Composite Review Score (0-100) & Analyst Rating
+        base_score = 65
+        
+        # GMP Factor (-20 to +20)
+        if gmp_percent >= 50:
+            base_score += 18
+        elif gmp_percent >= 25:
+            base_score += 12
+        elif gmp_percent >= 10:
+            base_score += 6
+        elif gmp_percent < 0:
+            base_score -= 15
+            
+        # Subscription Demand Factor (0 to +10)
+        if total_sub >= 20:
+            base_score += 10
+        elif total_sub >= 5:
+            base_score += 5
+        elif total_sub >= 2:
+            base_score += 2
+            
+        # Financial Performance Factor (-10 to +15)
+        if financials_list and len(financials_list) > 0:
+            latest_fin = financials_list[0]
+            if latest_fin.patGrowthYoY and latest_fin.patGrowthYoY > 25:
+                base_score += 6
+            elif latest_fin.patGrowthYoY and latest_fin.patGrowthYoY < 0:
+                base_score -= 6
+                
+            if latest_fin.revenueGrowthYoY and latest_fin.revenueGrowthYoY > 20:
+                base_score += 5
+            elif latest_fin.revenueGrowthYoY and latest_fin.revenueGrowthYoY < 0:
+                base_score -= 4
+                
+            if latest_fin.ronw and latest_fin.ronw > 18:
+                base_score += 4
+
+        # Broker Recommendations Sentiment
+        if broker_reviews and (broker_reviews.subscribe + broker_reviews.avoid + broker_reviews.mayApply) > 0:
+            tot_b = broker_reviews.subscribe + broker_reviews.mayApply + broker_reviews.neutral + broker_reviews.avoid
+            pos_ratio = (broker_reviews.subscribe + broker_reviews.mayApply * 0.5) / tot_b
+            base_score += int((pos_ratio - 0.5) * 15)
+
+        review_score = max(25, min(96, base_score))
+        
+        # Determine Recommendation & Rating
+        if review_score >= 80:
+            recommendation = "Apply for Long Term" if (financials_list and financials_list[0].pat > 0) else "Apply for Listing Gain"
+            rating = round(4.0 + (review_score - 80) * 0.05, 1)
+        elif review_score >= 68:
+            recommendation = "Apply for Listing Gain" if gmp_percent > 15 else "May Apply"
+            rating = round(3.5 + (review_score - 68) * 0.04, 1)
+        elif review_score >= 55:
+            recommendation = "May Apply"
+            rating = round(3.0 + (review_score - 55) * 0.03, 1)
+        elif review_score >= 45:
+            recommendation = "Neutral"
+            rating = round(2.5 + (review_score - 45) * 0.05, 1)
+        else:
+            recommendation = "Avoid"
+            rating = round(1.5 + (review_score - 25) * 0.05, 1)
+            
+        rating = max(1.0, min(5.0, rating))
 
         # Determine Status
         status = self.determine_status(open_date, close_date, listing_date, listing_price_val)
@@ -572,6 +670,11 @@ class ChittorgarhScraper:
             registrarPhone=reg_phone,
             registrarEmail=reg_email,
             leadManagers=lead_managers,
+            recommendation=recommendation,
+            rating=rating,
+            reviewScore=review_score,
+            brokerReviews=broker_reviews,
+            memberReviews=member_reviews,
             highlights=highlights[:5],
             risks=risks[:5],
             financials=financials_list if financials_list else None,

@@ -44,8 +44,11 @@
       "Emkay Global Financial Services Ltd.",
       "Valmiki Leela Capital Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.0,
+    "reviewScore": 80,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Strong presence in southern market",
       "Diverse product portfolio with varied weight ranges, designs and specialisation in vadannam and CNC machine cutbangles",
@@ -270,7 +273,10 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.3,
+    "reviewScore": 64,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [],
     "risks": [],
     "financials": [
@@ -477,7 +483,10 @@
       "IIFL Capital Services Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.1,
+    "reviewScore": 59,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Multi-brand omni-channel luxury platform with a wide portfolio of products and strong designer relationships.",
       "Omni-channel business model focused on operational efficiency.",
@@ -686,7 +695,10 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.0,
+    "reviewScore": 55,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Diversified product portfolio with strong design capabilities",
       "Integrated manufacturing facility in Mumbai",
@@ -928,7 +940,10 @@
       "Monarch Networth Capital Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [],
     "risks": [],
     "financials": [
@@ -1123,8 +1138,11 @@
     "leadManagers": [
       "Mefcom Capital Markets Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.0,
+    "reviewScore": 80,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Engineering, procurement and commissioning projects with special focus on underground and overhead utilities infrastructure",
       "Project management with integrated execution capabilities",
@@ -1420,7 +1438,10 @@
       "Nomura Financial Advisory & Securities (India) Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.3,
+    "reviewScore": 65,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Global leadership in corticosteroid and steroidal hormone APIs.",
       "Long-standing relationships with domestic and international customers.",
@@ -1675,6 +1696,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
+    "reviewScore": 69,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Integrated operations and product development capabilities.",
       "Diversified customer base with wide market reach.",
@@ -1898,8 +1922,21 @@
       "Shannon Advisors Pvt.Ltd.",
       "Dolat Finserv Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.1,
+    "reviewScore": 82,
+    "brokerReviews": {
+      "subscribe": 2,
+      "mayApply": 0,
+      "neutral": 1,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 1,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Over four decades of experience in the freight forwarding and logistics industry.",
       "No. 1 Air Freight Forwarder by AWBs generated for four consecutive years, as per World ACD.",
@@ -2145,8 +2182,21 @@
       "JM Financial Ltd.",
       "Motilal Oswal Investment Advisors Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.6,
+    "reviewScore": 92,
+    "brokerReviews": {
+      "subscribe": 6,
+      "mayApply": 0,
+      "neutral": 3,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 1,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Integrated gold and silver platform with a diversified business model.",
       "Strong presence across both online and offline channels.",
@@ -2422,8 +2472,21 @@
       "ICICI Securities Ltd.",
       "JM Financial Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.0,
+    "reviewScore": 81,
+    "brokerReviews": {
+      "subscribe": 12,
+      "mayApply": 1,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 2,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Largest Manufacturer of Contact and Non-Contact Temperature Sensors in India in Terms of Revenue and One of the Largest Manufacturers of Electrical Heaters in India (Source: F&S Report) with a Focus on Indigenisation resulting in High Entry Barriers.",
       "Diversified Business Model with Broad Product Portfolio, Wide Industry Coverage, and Balanced Mix of Projects and MRO Revenue.",
@@ -2664,8 +2727,21 @@
       "JM Financial Ltd.",
       "IIFL Capital Services Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
+    "reviewScore": 91,
+    "brokerReviews": {
+      "subscribe": 11,
+      "mayApply": 1,
+      "neutral": 1,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Well-established alternative asset management company with over 20 years of experience.",
       "Proven track record of consistent performance across Gaja Capital Funds.",
@@ -2897,7 +2973,20 @@
       "Smart Horizon Capital Advisors Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.9,
+    "reviewScore": 77,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 2,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Strong historical financial performance.",
       "Long-term relationships with local jobworkers for handcrafted gold jewellery manufacturing.",
@@ -3167,7 +3256,20 @@
       "GYR Capital Advisors Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.9,
+    "reviewScore": 77,
+    "brokerReviews": {
+      "subscribe": 4,
+      "mayApply": 0,
+      "neutral": 1,
+      "avoid": 1
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Experienced Promoters supported by Senior Management team",
       "Established Track Record and long-standing relationships in the industry",
@@ -3379,7 +3481,20 @@
       "360 One WAM Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.3,
+    "reviewScore": 66,
+    "brokerReviews": {
+      "subscribe": 4,
+      "mayApply": 0,
+      "neutral": 2,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 1,
+      "avoid": 0
+    },
     "highlights": [
       "Largest player with premium-quality offerings strategically located across prime markets, including in-city locations with a fully integrated platform.",
       "Well-positioned to benefit from strong industry tailwinds; Our business is derivative of India’s manufacturing, consumption, and e-commerce tailwinds.",
@@ -3595,8 +3710,21 @@
       "Anand Rathi Advisors Ltd.",
       "Equirus Capital Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.8,
+    "reviewScore": 95,
+    "brokerReviews": {
+      "subscribe": 10,
+      "mayApply": 0,
+      "neutral": 2,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Strong regional presence with deep penetration in high-growth South Indian markets.",
       "Brand catering to the mass and value-conscious segment with own manufacturing.",
@@ -3866,8 +3994,21 @@
       "Emkay Global Financial Services Ltd.",
       "Systematix Corporate Services Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.2,
+    "reviewScore": 85,
+    "brokerReviews": {
+      "subscribe": 9,
+      "mayApply": 1,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Long standing relationships with a large number of customers spread across a wide array of end-user industries",
       "Diversified product portfolio catering to varied application industries",
@@ -4145,7 +4286,20 @@
       "Kotak Mahindra Capital Co.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": {
+      "subscribe": 5,
+      "mayApply": 0,
+      "neutral": 3,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [],
     "risks": [],
     "financials": [
@@ -4439,8 +4593,21 @@
       "Axis Capital Ltd.",
       "IIFL Capital Services Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.7,
+    "reviewScore": 93,
+    "brokerReviews": {
+      "subscribe": 4,
+      "mayApply": 1,
+      "neutral": 1,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "One of India's fastest-growing packaged food companies with strong brand recognition in value-added dairy products.",
       "Diversified portfolio of premium dairy, frozen foods, RTE, RTC products, and chocolates.",
@@ -4668,8 +4835,21 @@
       "SBI Capital Markets Ltd.",
       "360 One WAM Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.3,
+    "reviewScore": 86,
+    "brokerReviews": {
+      "subscribe": 12,
+      "mayApply": 1,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 1,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Established leadership in India's 2W and 3W wiring harness market with a comprehensive product portfolio.",
       "Well-positioned to capitalize on EV adoption, premiumization, automation, and connected vehicle trends.",
@@ -4950,7 +5130,10 @@
       "Socradamus Capital Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.3,
+    "reviewScore": 65,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [],
     "risks": [],
     "financials": [
@@ -5169,7 +5352,10 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [],
     "risks": [],
     "financials": [
@@ -5329,7 +5515,10 @@
       "Vivro Financial Services Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.0,
+    "reviewScore": 55,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Growing international presence: The company sells its products in several overseas markets, reducing its dependence on the domestic market.",
       "Diversified customer base:It has established relationships with customers across multiple industries, which helps reduce dependence on any single sector.",
@@ -5561,7 +5750,10 @@
       "Hem Securities Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Wide range of products serving diverse applications in the roto moulding industry.",
       "In-house manufacturing facility with equipped machinery and processes.",
@@ -5802,7 +5994,10 @@
       "Smart Horizon Capital Advisors Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.6,
+    "reviewScore": 71,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Exclusive Distributorship for Brunswick Bowling Products in India",
       "Comprehensive End-to-End Amusement and Entertainment Solutions Platform with Integrated Consultancy and Operations Management Capabilities",
@@ -5966,7 +6161,10 @@
       "Horizon Management Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Deep expertise in NGT-compliant environmental solutions and DG sets.",
       "Strong track record in managing 7,500+ telecom sites.",
@@ -6206,8 +6404,11 @@
     "leadManagers": [
       "Corporate Capital Ventures Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.0,
+    "reviewScore": 80,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "End-to-end forensic science and evidence-management solutions.",
       "Diversified portfolio covering physical, digital, cyber and DNA forensics.",
@@ -6369,7 +6570,10 @@
       "GYR Capital Advisors Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Experienced Promoters, management and operating team",
       "Comprehensive Product Range",
@@ -6581,6 +6785,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
+    "reviewScore": 69,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Vertically integrated manufacturing operations",
       "Advanced machinery and manufacturing infrastructure",
@@ -6843,6 +7050,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
+    "reviewScore": 69,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
       "Doctor led professional management team with proven execution capabilities",
       "Best quality clinical care by attracting and retaining experienced and renowned clinicians",
@@ -7098,7 +7308,10 @@
     "registrarEmail": null,
     "leadManagers": [],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.3,
+    "reviewScore": 65,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [],
     "risks": [],
     "financials": null,
@@ -7156,7 +7369,20 @@
       "Khandwala Securities Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.8,
+    "reviewScore": 75,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Presence at Multiple Geographical Locations",
       "Online Order Management Platform",
@@ -7367,8 +7593,21 @@
     "leadManagers": [
       "Rarever Financial Advisors Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
+    "reviewScore": 90,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Experience across industries, installed base and diversified customer base",
       "Indigenous design and in-house fabrication with cost and schedule control",
@@ -7616,8 +7855,21 @@
     "leadManagers": [
       "Corporate Makers Capital Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.6,
+    "reviewScore": 92,
+    "brokerReviews": {
+      "subscribe": 1,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Experienced management with technology and industry expertise.",
       "Established relationships with a diverse client base.",
@@ -7891,7 +8143,20 @@
       "Finshore Management Services Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.6,
+    "reviewScore": 71,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [],
     "risks": [],
     "financials": [
@@ -8229,6 +8494,19 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
+    "reviewScore": 69,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 1,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Integrated healthcare logistics, workforce and diagnostic support platform.",
       "Pan-India operational reach serving diverse healthcare institutions.",
@@ -8486,6 +8764,19 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
+    "reviewScore": 68,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 1
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Established \"American Bakers\" brand in the regional bakery market.",
       "Modern ISO 22000:2018 & HACCP-certified manufacturing facility.",
@@ -8693,8 +8984,21 @@
     "leadManagers": [
       "Smart Horizon Capital Advisors Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
+    "reviewScore": 89,
+    "brokerReviews": {
+      "subscribe": 1,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Establishing a strategic presence across various states of India.",
       "Strengthening its network through diversified business models.",
@@ -8933,7 +9237,20 @@
       "Navigant Corporate Advisors Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.9,
+    "reviewScore": 77,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "In-house manufacturing facility supported by technology driven process",
       "Extensive and well-developed pan-India sales and distribution network",
@@ -9124,7 +9441,20 @@
       "Affinity Global Capital Market Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
+    "rating": 3.7,
+    "reviewScore": 73,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 1
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Integrated end-to-end manufacturing capabilities",
       "Wide product range with customization options",

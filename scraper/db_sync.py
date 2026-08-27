@@ -52,7 +52,7 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
             listing_price, listing_gain_percent, current_market_price,
             registrar_name, registrar_website, registrar_check_url, registrar_phone, registrar_email,
-            recommendation, rating, highlights, risks, drhp_url, prospectus_url, gmp_trends,
+            recommendation, rating, review_score, broker_reviews, member_reviews, highlights, risks, drhp_url, prospectus_url, gmp_trends,
             financials, lot_sizes, subscription_breakdown, peer_comparison, reservations, kpis, objects_of_issue, updated_at
         ) VALUES (
             %(id)s, %(slug)s, %(name)s, %(company_name)s, %(logo_url)s, %(category)s, %(status)s, %(exchange)s,
@@ -63,7 +63,7 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             %(open_date)s, %(close_date)s, %(allotment_date)s, %(refund_date)s, %(demat_credit_date)s, %(listing_date)s,
             %(listing_price)s, %(listing_gain_percent)s, %(current_market_price)s,
             %(registrar_name)s, %(registrar_website)s, %(registrar_check_url)s, %(registrar_phone)s, %(registrar_email)s,
-            %(recommendation)s, %(rating)s, %(highlights)s, %(risks)s, %(drhp_url)s, %(prospectus_url)s, %(gmp_trends)s,
+            %(recommendation)s, %(rating)s, %(review_score)s, %(broker_reviews)s, %(member_reviews)s, %(highlights)s, %(risks)s, %(drhp_url)s, %(prospectus_url)s, %(gmp_trends)s,
             %(financials)s, %(lot_sizes)s, %(subscription_breakdown)s, %(peer_comparison)s, %(reservations)s, %(kpis)s, %(objects_of_issue)s, CURRENT_TIMESTAMP
         )
         ON CONFLICT (slug) DO UPDATE SET
@@ -106,6 +106,9 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             registrar_email = COALESCE(EXCLUDED.registrar_email, ipos.registrar_email),
             recommendation = EXCLUDED.recommendation,
             rating = EXCLUDED.rating,
+            review_score = EXCLUDED.review_score,
+            broker_reviews = EXCLUDED.broker_reviews,
+            member_reviews = EXCLUDED.member_reviews,
             highlights = EXCLUDED.highlights,
             risks = EXCLUDED.risks,
             drhp_url = COALESCE(EXCLUDED.drhp_url, ipos.drhp_url),
@@ -164,6 +167,9 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
                 "registrar_email": ipo.registrarEmail,
                 "recommendation": ipo.recommendation,
                 "rating": ipo.rating,
+                "review_score": ipo.reviewScore,
+                "broker_reviews": json.dumps(ipo.brokerReviews.model_dump() if hasattr(ipo.brokerReviews, "model_dump") else ipo.brokerReviews.dict()) if ipo.brokerReviews else None,
+                "member_reviews": json.dumps(ipo.memberReviews.model_dump() if hasattr(ipo.memberReviews, "model_dump") else ipo.memberReviews.dict()) if ipo.memberReviews else None,
                 "highlights": ipo.highlights,
                 "risks": ipo.risks,
                 "drhp_url": ipo.drhpUrl,

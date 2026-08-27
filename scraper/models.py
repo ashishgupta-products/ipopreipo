@@ -130,6 +130,12 @@ class GMPTrend(BaseModel):
     gmp: str
     gain: str
 
+class BrokerReviewSummary(BaseModel):
+    subscribe: int = 0
+    mayApply: int = 0
+    neutral: int = 0
+    avoid: int = 0
+
 class IPOData(BaseModel):
     id: str
     slug: str
@@ -185,9 +191,12 @@ class IPOData(BaseModel):
     registrarEmail: Optional[str] = None
     leadManagers: List[str] = Field(default_factory=list)
     
-    # Insights
+    # Insights & Review Score
     recommendation: str = "May Apply"
     rating: float = 3.5
+    reviewScore: Optional[int] = None
+    brokerReviews: Optional[BrokerReviewSummary] = None
+    memberReviews: Optional[BrokerReviewSummary] = None
     highlights: List[str] = Field(default_factory=list)
     risks: List[str] = Field(default_factory=list)
     

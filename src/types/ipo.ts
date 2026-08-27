@@ -77,6 +77,13 @@ export interface IPOKpiDetail {
   asOfDate?: string;
 }
 
+export interface BrokerReviewSummary {
+  subscribe: number;
+  mayApply: number;
+  neutral: number;
+  avoid: number;
+}
+
 export interface IPOData {
   id: string;
   slug: string;
@@ -142,9 +149,12 @@ export interface IPOData {
   companyEmail?: string;
   companyWebsite?: string;
 
-  // Strategic Insights
+  // Strategic Insights & Review Score
   recommendation: "May Apply" | "Apply for Listing Gain" | "Apply for Long Term" | "Avoid" | "Neutral";
   rating: number; // 1 to 5
+  reviewScore?: number; // 0 to 100
+  brokerReviews?: BrokerReviewSummary;
+  memberReviews?: BrokerReviewSummary;
   highlights: string[];
   risks: string[];
 

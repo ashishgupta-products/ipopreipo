@@ -195,7 +195,7 @@ export default function IPODetailPage({ params }: PageProps) {
         </div>
 
         {/* Quick Metrics Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100 text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 pt-4 border-t border-slate-100 text-xs">
           <div>
             <span className="text-slate-500 block">Price Band:</span>
             <strong className="text-base font-extrabold text-slate-900">₹{ipo.priceBandMin} - ₹{ipo.priceBandMax}</strong>
@@ -211,6 +211,21 @@ export default function IPODetailPage({ params }: PageProps) {
           <div>
             <span className="text-slate-500 block">Subscription:</span>
             <strong className="text-base font-extrabold text-blue-700">{ipo.totalSubscription}x Total</strong>
+          </div>
+          <div>
+            <span className="text-slate-500 block">Review Score:</span>
+            <div className="flex items-center gap-1.5 mt-0.5">
+              <span className="text-base font-black text-emerald-700">{ipo.reviewScore || Math.round(((ipo.rating || 3.5) / 5) * 100)}/100</span>
+              <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded border ${
+                ipo.recommendation === "Apply for Long Term" || ipo.recommendation === "Apply for Listing Gain"
+                  ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                  : ipo.recommendation === "Avoid"
+                  ? "bg-rose-50 text-rose-800 border-rose-200"
+                  : "bg-amber-50 text-amber-800 border-amber-200"
+              }`}>
+                {ipo.recommendation || "May Apply"}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -376,59 +391,156 @@ export default function IPODetailPage({ params }: PageProps) {
             </div>
           )}
 
-          {/* Analyst Scorecard */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3 text-xs">
-            <div className="flex justify-between items-center">
-              <span className="font-bold text-slate-700 flex items-center gap-1">
-                <Award className="w-4 h-4 text-amber-600" />
-                ANALYST RECOMMENDATION
-              </span>
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => {
-                  const rating = ipo.rating;
-                  const isFilled = i < Math.floor(rating);
-                  const isHalf = !isFilled && (i < rating);
-                  return (
-                    <Star
-                      key={i}
-                      className={`w-3.5 h-3.5 ${
-                        isFilled 
-                          ? "text-amber-500 fill-amber-500" 
-                          : isHalf 
-                            ? "text-amber-500 fill-amber-500/50" 
-                            : "text-slate-250"
-                      }`}
-                    />
-                  );
-                })}
-                <span className="ml-1.5 font-bold text-slate-800 text-[11px]">
-                  {ipo.rating.toFixed(1)}/5
+          {/* Analyst Review & Recommendation Scorecard */}
+          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-5 text-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">
+                  Overall Expert Assessment
                 </span>
+                <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                  <Award className="w-5 h-5 text-amber-500" />
+                  IPO Review Score &amp; Rating
+                </h3>
+              </div>
+
+              {/* Big Score Badge & Stars */}
+              <div className="flex items-center gap-4 bg-slate-50 border border-slate-200/80 px-4 py-2.5 rounded-xl">
+                <div className="text-center">
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Review Score</span>
+                  <span className="text-2xl font-black text-slate-900 leading-none">
+                    {ipo.reviewScore || Math.round(((ipo.rating || 3.5) / 5) * 100)}
+                    <span className="text-xs text-slate-400 font-semibold">/100</span>
+                  </span>
+                </div>
+                <div className="h-8 w-[1px] bg-slate-200" />
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Analyst Rating</span>
+                  <div className="flex items-center gap-1 mt-0.5">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, i) => {
+                        const r = ipo.rating || 3.5;
+                        const isFilled = i < Math.floor(r);
+                        const isHalf = !isFilled && i < r;
+                        return (
+                          <Star
+                            key={i}
+                            className={`w-3.5 h-3.5 ${
+                              isFilled
+                                ? "text-amber-400 fill-amber-400"
+                                : isHalf
+                                ? "text-amber-400 fill-amber-400/50"
+                                : "text-slate-200"
+                            }`}
+                          />
+                        );
+                      })}
+                    </div>
+                    <span className="font-extrabold text-slate-800 text-xs ml-1">
+                      {(ipo.rating || 3.5).toFixed(1)}/5
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="p-2.5 rounded bg-slate-50 border border-slate-200 text-center font-extrabold text-emerald-700">
-              {ipo.recommendation}
+            {/* Recommendation Consensus Banner */}
+            <div className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+              ipo.recommendation === "Apply for Long Term" || ipo.recommendation === "Apply for Listing Gain"
+                ? "bg-emerald-50/70 border-emerald-200 text-emerald-900"
+                : ipo.recommendation === "Avoid"
+                ? "bg-rose-50/70 border-rose-200 text-rose-900"
+                : "bg-amber-50/70 border-amber-200 text-amber-900"
+            }`}>
+              <div className="flex items-center gap-2.5">
+                <span className="text-lg">🎯</span>
+                <div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider block opacity-75">
+                    Consensus Recommendation
+                  </span>
+                  <strong className="text-sm font-black tracking-tight block">
+                    {ipo.recommendation || "May Apply"}
+                  </strong>
+                </div>
+              </div>
+              <span className={`text-[11px] font-extrabold px-3 py-1 rounded-lg border self-start sm:self-auto ${
+                ipo.recommendation === "Apply for Long Term" || ipo.recommendation === "Apply for Listing Gain"
+                  ? "bg-emerald-600 text-white border-emerald-700"
+                  : ipo.recommendation === "Avoid"
+                  ? "bg-rose-600 text-white border-rose-700"
+                  : "bg-amber-600 text-white border-amber-700"
+              }`}>
+                {ipo.recommendation === "Apply for Long Term"
+                  ? "High Conviction Growth"
+                  : ipo.recommendation === "Apply for Listing Gain"
+                  ? "Listing Pop Opportunity"
+                  : ipo.recommendation === "Avoid"
+                  ? "High Risk / Caution"
+                  : "Neutral / Moderate Risk"}
+              </span>
             </div>
 
-            <div className="space-y-1 pt-1">
-              <span className="font-bold text-slate-800 block">Key Strengths:</span>
-              <ul className="space-y-1 text-slate-605 list-disc list-inside">
-                {ipo.highlights.map((h: any, i: number) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-            </div>
+            {/* Broker Sentiment Breakdown (if available) */}
+            {ipo.brokerReviews && (ipo.brokerReviews.subscribe + ipo.brokerReviews.mayApply + ipo.brokerReviews.neutral + ipo.brokerReviews.avoid) > 0 && (
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2.5">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="font-bold text-slate-800">Broker Sentiment Breakdown</span>
+                  <span className="text-[11px] text-slate-500 font-medium">
+                    {(ipo.brokerReviews.subscribe + ipo.brokerReviews.mayApply + ipo.brokerReviews.neutral + ipo.brokerReviews.avoid)} Broker Calls
+                  </span>
+                </div>
+                <div className="grid grid-cols-4 gap-2 text-center text-xs">
+                  <div className="p-2 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <span className="text-[10px] text-emerald-800 font-bold block">Subscribe</span>
+                    <strong className="text-sm font-black text-emerald-900">{ipo.brokerReviews.subscribe}</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-teal-50 border border-teal-200">
+                    <span className="text-[10px] text-teal-800 font-bold block">May Apply</span>
+                    <strong className="text-sm font-black text-teal-900">{ipo.brokerReviews.mayApply}</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-slate-100 border border-slate-200">
+                    <span className="text-[10px] text-slate-700 font-bold block">Neutral</span>
+                    <strong className="text-sm font-black text-slate-800">{ipo.brokerReviews.neutral}</strong>
+                  </div>
+                  <div className="p-2 rounded-lg bg-rose-50 border border-rose-200">
+                    <span className="text-[10px] text-rose-800 font-bold block">Avoid</span>
+                    <strong className="text-sm font-black text-rose-900">{ipo.brokerReviews.avoid}</strong>
+                  </div>
+                </div>
+              </div>
+            )}
 
-            {ipo.risks && ipo.risks.length > 0 && (
-              <div className="space-y-1 pt-2 border-t border-slate-100">
-                <span className="font-bold text-rose-700 flex items-center gap-1">
-                  <ShieldAlert className="w-3.5 h-3.5" />
-                  Key Risks:
+            {/* Key Strengths */}
+            {ipo.highlights && ipo.highlights.length > 0 && (
+              <div className="space-y-2 pt-1">
+                <span className="font-extrabold text-slate-900 text-xs block flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  Key Strengths &amp; Growth Drivers:
                 </span>
-                <ul className="space-y-1 text-slate-605 list-disc list-inside">
-                  {ipo.risks.map((r: any, i: number) => (
-                    <li key={i}>{r}</li>
+                <ul className="space-y-1.5 text-slate-600 pl-1">
+                  {ipo.highlights.map((h: string, i: number) => (
+                    <li key={i} className="flex items-start gap-2 text-xs leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Key Risks */}
+            {ipo.risks && ipo.risks.length > 0 && (
+              <div className="space-y-2 pt-2 border-t border-slate-100">
+                <span className="font-extrabold text-rose-700 text-xs block flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-rose-600 shrink-0" />
+                  Key Investment Risks:
+                </span>
+                <ul className="space-y-1.5 text-slate-600 pl-1">
+                  {ipo.risks.map((r: string, i: number) => (
+                    <li key={i} className="flex items-start gap-2 text-xs leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0" />
+                      <span>{r}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
