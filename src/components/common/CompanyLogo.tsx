@@ -218,20 +218,26 @@ function getSectorTheme(name: string): SectorTheme {
   };
 }
 
+function getProxiedLogoUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  if (url.startsWith("/") || url.startsWith("data:")) return url;
+  return `/api/proxy-image?url=${encodeURIComponent(url)}`;
+}
+
 interface CreditCardGraphicProps {
   name: string;
-  issuer?: string;
   logoUrl?: string;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   className?: string;
+  issuer?: string;
 }
 
 export const CreditCardGraphic: React.FC<CreditCardGraphicProps> = ({
   name,
-  issuer,
   logoUrl,
   size = "md",
-  className = ""
+  className = "",
+  issuer
 }) => {
   const [imgError, setImgError] = useState(false);
 
@@ -239,12 +245,13 @@ export const CreditCardGraphic: React.FC<CreditCardGraphicProps> = ({
     setImgError(false);
   }, [logoUrl]);
 
+  // Dimension classes
   const sizeClasses = {
-    xs: "w-10 h-6 rounded-xs p-1 text-[7px]",
-    sm: "w-14 h-9 rounded-sm p-1 text-[8px]",
-    md: "w-20 h-13 rounded-md p-1.5 text-[10px]",
-    lg: "w-28 h-18 rounded-lg p-2 text-xs",
-    xl: "w-40 h-25 sm:w-48 sm:h-30 rounded-xl p-3 text-xs sm:text-sm"
+    xs: "w-12 h-8 rounded-md p-1",
+    sm: "w-16 h-10 rounded-lg p-1.5",
+    md: "w-20 h-13 rounded-xl p-2",
+    lg: "w-28 h-18 rounded-2xl p-2.5",
+    xl: "w-36 h-23 rounded-2xl p-3"
   };
 
   const nameLower = name.toLowerCase();
@@ -279,13 +286,14 @@ export const CreditCardGraphic: React.FC<CreditCardGraphicProps> = ({
     .replace(/(Credit Card|Card|Bank)/gi, "")
     .trim();
 
-  if (logoUrl && !imgError) {
+  const proxiedCardUrl = getProxiedLogoUrl(logoUrl);
+
+  if (proxiedCardUrl && !imgError) {
     return (
       <div className={`relative shrink-0 overflow-hidden bg-slate-900 border border-slate-700/50 shadow-md ${sizeClasses[size]} ${className}`}>
         <img
-          src={logoUrl}
+          src={proxiedCardUrl}
           alt={`${name} Card`}
-          referrerPolicy="no-referrer"
           loading="lazy"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover rounded"
@@ -380,14 +388,15 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
     xl: "w-10 h-10 sm:w-12 sm:h-12"
   };
 
-  // If a valid external logo image is available and hasn't failed, show it
-  if (logoUrl && !imageError) {
+  // If a valid external logo image is available and hasn't failed, show it via the same-origin edge proxy
+  const proxiedUrl = getProxiedLogoUrl(logoUrl);
+
+  if (proxiedUrl && !imageError) {
     return (
       <div className={`relative shrink-0 overflow-hidden bg-white border border-slate-200 shadow-2xs flex items-center justify-center p-1.5 ${sizeClasses[size]} ${className}`}>
         <img
-          src={logoUrl}
+          src={proxiedUrl}
           alt={`${name} Logo`}
-          referrerPolicy="no-referrer"
           loading="lazy"
           onError={() => setImageError(true)}
           className="w-full h-full object-contain rounded"
