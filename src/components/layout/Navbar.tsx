@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { DynamicTagline } from "@/components/common/DynamicTagline";
+import { UserDropdown } from "@/components/auth/UserDropdown";
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
@@ -485,6 +486,11 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
             )}
+          </div>
+
+          {/* User Profile / Auth Action */}
+          <div className="border-l border-slate-200 pl-2 ml-1">
+            <UserDropdown />
           </div>
         </div>
       </nav>

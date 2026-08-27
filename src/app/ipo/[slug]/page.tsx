@@ -34,6 +34,7 @@ import { SubscriptionTable } from "@/components/common/SubscriptionTable";
 import { Calculator } from "@/components/common/Calculator";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
+import { WatchlistButton } from "@/components/auth/WatchlistButton";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -180,15 +181,21 @@ export default function IPODetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="shrink-0 w-full sm:w-auto">
+          <div className="shrink-0 w-full sm:w-auto flex items-center gap-2">
+            <WatchlistButton
+              ipoSlug={ipo.slug}
+              ipoId={ipo.id}
+              ipoName={ipo.name}
+              variant="button"
+            />
             <a
               href={ipo.registrarCheckUrl}
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2 transition-all"
+              className="flex-1 sm:flex-initial px-4 py-2.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2 transition-all"
             >
               <CheckCircle2 className="w-4 h-4" />
-              Check Allotment Status
+              <span>Check Allotment</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>

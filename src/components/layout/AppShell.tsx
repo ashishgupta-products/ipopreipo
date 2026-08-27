@@ -6,6 +6,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { InstallBanner } from "@/components/common/InstallBanner";
+import { AuthProvider } from "@/context/AuthContext";
+import { AuthModal } from "@/components/auth/AuthModal";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -23,16 +25,22 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   if (isAdminOrEditor) {
-    return <main className="min-h-screen w-full bg-slate-950 text-slate-100">{children}</main>;
+    return (
+      <AuthProvider>
+        <AuthModal />
+        <main className="min-h-screen w-full bg-slate-950 text-slate-100">{children}</main>
+      </AuthProvider>
+    );
   }
 
   return (
-    <>
+    <AuthProvider>
       <InstallBanner />
       <Navbar />
       <main className="flex-1 w-full pb-16 xl:pb-0">{children}</main>
       <Footer />
       <MobileBottomNav />
-    </>
+      <AuthModal />
+    </AuthProvider>
   );
 }

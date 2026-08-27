@@ -13,19 +13,19 @@
     "issuePrice": 177,
     "lotSize": 84,
     "minInvestment": 14868,
-    "issueSizeTotalCr": 460.0,
-    "freshIssueCr": 250.0,
-    "ofsCr": 210.0,
+    "issueSizeTotalCr": 460,
+    "freshIssueCr": 250,
+    "ofsCr": 210,
     "faceValue": 2,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 177,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-09-01",
     "closeDate": "2026-09-03",
     "allotmentDate": "2026-09-04",
@@ -45,7 +45,7 @@
       "Valmiki Leela Capital Pvt.Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.0,
+    "rating": 4,
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
@@ -136,63 +136,63 @@
     "peerComparison": [
       {
         "companyName": "Shankesh Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.24,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Lalithaa Jewellery Mart Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.95,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Advit Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.41,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "PNGS Reva Diamond Jewellery Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shringar House of Mangalsutra Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SMR Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.01,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yaashvi Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 5.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Grover Jewells Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Luxury Time Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.57,
         "ronw": null,
         "eps": null
@@ -218,7 +218,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Funding long-term working capital requirements towards procurement, maintenance and scaling up of inventory by the Company",
-        "amountCr": 215.0
+        "amountCr": 215
       },
       {
         "purpose": "General corporate purposes",
@@ -242,19 +242,19 @@
     "issuePrice": 239,
     "lotSize": 62,
     "minInvestment": 14818,
-    "issueSizeTotalCr": 125.0,
-    "freshIssueCr": 125.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 125,
+    "freshIssueCr": 125,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 239,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-09-01",
     "closeDate": "2026-09-03",
     "allotmentDate": "2026-09-04",
@@ -315,7 +315,7 @@
         "netWorth": 5.78,
         "assets": 12.89,
         "reserves": 5.47,
-        "borrowing": 0.0,
+        "borrowing": 0,
         "ebitda": null,
         "eps": null,
         "ronw": 14.71,
@@ -329,7 +329,7 @@
         "netWorth": 23.76,
         "assets": 46.49,
         "reserves": 8.29,
-        "borrowing": 4.0,
+        "borrowing": 4,
         "ebitda": null,
         "eps": null,
         "ronw": 5.68,
@@ -373,7 +373,7 @@
     "peerComparison": [
       {
         "companyName": "Safecure Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.66,
         "ronw": null,
         "eps": null
@@ -451,19 +451,19 @@
     "issuePrice": 575,
     "lotSize": 26,
     "minInvestment": 14950,
-    "issueSizeTotalCr": 680.0,
-    "freshIssueCr": 680.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 680,
+    "freshIssueCr": 680,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 575,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -512,7 +512,7 @@
       },
       {
         "year": "31 Mar 2025",
-        "revenue": 494.0,
+        "revenue": 494,
         "pat": -188.38,
         "netWorth": 117.5,
         "assets": 497.05,
@@ -575,42 +575,42 @@
     "peerComparison": [
       {
         "companyName": "Shree Balaji (Mala) Textiles Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 8.62,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Riyaasat Lifestyle Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.2,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Rajnandini Fashion India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Kiaasa Retail Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Fractal Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.99,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Vashishtha Luxury Fashion Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.14,
         "ronw": null,
         "eps": null
@@ -664,19 +664,19 @@
     "issuePrice": 200,
     "lotSize": 75,
     "minInvestment": 15000,
-    "issueSizeTotalCr": 92.0,
-    "freshIssueCr": 92.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 92,
+    "freshIssueCr": 92,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 200,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-28",
     "closeDate": "2026-09-01",
     "allotmentDate": "2026-09-02",
@@ -695,7 +695,7 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.0,
+    "rating": 3,
     "reviewScore": 55,
     "brokerReviews": null,
     "memberReviews": null,
@@ -801,63 +801,63 @@
     "peerComparison": [
       {
         "companyName": "Shankesh Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.24,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Lalithaa Jewellery Mart Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.95,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Advit Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.41,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "PNGS Reva Diamond Jewellery Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shringar House of Mangalsutra Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SMR Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.01,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yaashvi Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 5.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Grover Jewells Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Luxury Time Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.57,
         "ronw": null,
         "eps": null
@@ -883,7 +883,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Repayment / pre-payment, in full or in part, of certain borrowings availed by Company",
-        "amountCr": 75.0
+        "amountCr": 75
       },
       {
         "purpose": "General Corporate Purposes",
@@ -907,19 +907,19 @@
     "issuePrice": 82,
     "lotSize": 182,
     "minInvestment": 14924,
-    "issueSizeTotalCr": 700.0,
-    "freshIssueCr": 500.0,
-    "ofsCr": 200.0,
+    "issueSizeTotalCr": 700,
+    "freshIssueCr": 500,
+    "ofsCr": 200,
     "faceValue": 5,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 82,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-27",
     "closeDate": "2026-08-31",
     "allotmentDate": "2026-09-01",
@@ -950,7 +950,7 @@
       {
         "year": "31 Mar 2026",
         "revenue": 2089.31,
-        "pat": 160.0,
+        "pat": 160,
         "netWorth": 729.58,
         "assets": 2174.88,
         "reserves": 606.16,
@@ -1026,35 +1026,35 @@
     "peerComparison": [
       {
         "companyName": "Laser Power & Infra Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.24,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Susan Electricals India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.85,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Systematic Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.75,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Prime Cable Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "JD Cables Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.66,
         "ronw": null,
         "eps": null
@@ -1080,7 +1080,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Prepayment or re-payment, in full or in part,of certain outstanding borrowings availed by Company",
-        "amountCr": 337.0
+        "amountCr": 337
       },
       {
         "purpose": "Capital expenditure by Company for purchase of equipment and machinery, civil works and interior development of an existing manufacturing facility",
@@ -1108,19 +1108,19 @@
     "issuePrice": 99,
     "lotSize": 151,
     "minInvestment": 14949,
-    "issueSizeTotalCr": 175.0,
-    "freshIssueCr": 175.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 175,
+    "freshIssueCr": 175,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 99,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-25",
     "closeDate": "2026-08-28",
     "allotmentDate": "2026-08-31",
@@ -1139,7 +1139,7 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.0,
+    "rating": 4,
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
@@ -1231,126 +1231,126 @@
     "peerComparison": [
       {
         "companyName": "Technocraft Ventures Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.73,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Om Power Transmission Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 21.13,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Solarworld Energy Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 33.77,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "GK Energy Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 20.29,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Vikran Engineering Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 22.88,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Oneindig Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.53,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Leapfrog Engineering Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.19,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Safety Controls & Devices Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.3,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Srinibas Pradhan Constructions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.15,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "GRE Renew Enertech Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.72,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "E to E Transportation Infrastructure Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.44,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Valplast Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.75,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Chiraharit Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.95,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Telge Projects Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.04,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Karbonsteel Engineering Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Goel Construction Co.Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 7.8,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Oval Projects Engineering Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.91,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Current Infraprojects Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.78,
         "ronw": null,
         "eps": null
@@ -1380,7 +1380,7 @@
       },
       {
         "purpose": "Funding working capital requirements of the Company",
-        "amountCr": 115.0
+        "amountCr": 115
       },
       {
         "purpose": "General Corporate Purposes",
@@ -1404,19 +1404,19 @@
     "issuePrice": 988,
     "lotSize": 15,
     "minInvestment": 14820,
-    "issueSizeTotalCr": 1757.0,
-    "freshIssueCr": 150.0,
-    "ofsCr": 1607.0,
+    "issueSizeTotalCr": 1757,
+    "freshIssueCr": 150,
+    "ofsCr": 1607,
     "faceValue": 2,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 988,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1530,91 +1530,91 @@
     "peerComparison": [
       {
         "companyName": "Hexagon Nutrition Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 22.69,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sai Parenteral's Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 72.19,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Corona Remedies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 43.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Rubicon Research Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 55.75,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Amanta Healthcare Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 34.59,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Anlon Healthcare Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.67,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Bio Medica Laboratories Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.03,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Goldline Pharmaceutical Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Speciality Medicines Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.27,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Accretion Nutraveda Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 26.27,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "KRM Ayurveda Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.32,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Curis Lifesciences Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.44,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Aptus Pharma Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.29,
         "ronw": null,
         "eps": null
@@ -1664,19 +1664,19 @@
     "issuePrice": 53,
     "lotSize": 283,
     "minInvestment": 14999,
-    "issueSizeTotalCr": 136.0,
-    "freshIssueCr": 60.0,
-    "ofsCr": 76.0,
+    "issueSizeTotalCr": 136,
+    "freshIssueCr": 60,
+    "ofsCr": 76,
     "faceValue": 5,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 53,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1787,56 +1787,56 @@
     "peerComparison": [
       {
         "companyName": "Behari Lal Engineering Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.21,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Rajputana Stainless Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 21.1,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "VMS TMT Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 22.24,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Anubhav Plast Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.67,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Kasturi Metal Composite Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.59,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shri Kanha Stainless Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.23,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Mittal Sections Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 31.15,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "M P K Steels (I) Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.04,
         "ronw": null,
         "eps": null
@@ -1866,7 +1866,7 @@
       },
       {
         "purpose": "Prepayment or repayment, in full or in part, of certain outstanding borrowings availed by the Company",
-        "amountCr": 16.0
+        "amountCr": 16
       },
       {
         "purpose": "General Corporate Purposes",
@@ -1890,19 +1890,19 @@
     "issuePrice": 138,
     "lotSize": 100,
     "minInvestment": 13800,
-    "issueSizeTotalCr": 583.0,
-    "freshIssueCr": 399.0,
-    "ofsCr": 184.0,
+    "issueSizeTotalCr": 583,
+    "freshIssueCr": 399,
+    "ofsCr": 184,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 138,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -2025,77 +2025,77 @@
     "peerComparison": [
       {
         "companyName": "Shiprocket Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": -77.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shadowfax Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 1017.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Om Freight Forwarders Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.56,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Glottis Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.38,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sampark India Logistics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 8.65,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Global Ocean Logistics India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.07,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Neptune Logitek Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.76,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shipwaves Online Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.3,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Jayesh Logistics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.75,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sunsky Logistics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Dhillon Freight Carrier Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.49,
         "ronw": null,
         "eps": null
@@ -2125,7 +2125,7 @@
       },
       {
         "purpose": "Funding incremental working capital requirements of the Company.",
-        "amountCr": 130.0
+        "amountCr": 130
       },
       {
         "purpose": "General Corporate Purposes",
@@ -2149,12 +2149,12 @@
     "issuePrice": 788,
     "lotSize": 19,
     "minInvestment": 14972,
-    "issueSizeTotalCr": 825.0,
-    "freshIssueCr": 620.0,
-    "ofsCr": 205.0,
+    "issueSizeTotalCr": 825,
+    "freshIssueCr": 620,
+    "ofsCr": 205,
     "faceValue": 5,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 788,
     "gmpTrends": null,
@@ -2285,113 +2285,113 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 2083757.0,
-        "bidsReceived": 496889976.0,
+        "sharesOffered": 2083757,
+        "bidsReceived": 496889976,
         "subscriptionTimes": 238.46
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 1562817.0,
-        "bidsReceived": 199461829.0,
+        "sharesOffered": 1562817,
+        "bidsReceived": 199461829,
         "subscriptionTimes": 127.63
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1041878.0,
-        "bidsReceived": 138939951.0,
+        "sharesOffered": 1041878,
+        "bidsReceived": 138939951,
         "subscriptionTimes": 133.36
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 520939.0,
-        "bidsReceived": 60521878.0,
+        "sharesOffered": 520939,
+        "bidsReceived": 60521878,
         "subscriptionTimes": 116.18
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 3646575.0,
-        "bidsReceived": 119020522.0,
+        "sharesOffered": 3646575,
+        "bidsReceived": 119020522,
         "subscriptionTimes": 32.64
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 50759.0,
-        "bidsReceived": 1127631.0,
+        "sharesOffered": 50759,
+        "bidsReceived": 1127631,
         "subscriptionTimes": 22.22
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 7343908.0,
-        "bidsReceived": 816499958.0,
+        "sharesOffered": 7343908,
+        "bidsReceived": 816499958,
         "subscriptionTimes": 111.18
       }
     ],
     "peerComparison": [
       {
         "companyName": "Shankesh Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.24,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Lalithaa Jewellery Mart Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.95,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Advit Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.41,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "PNGS Reva Diamond Jewellery Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shringar House of Mangalsutra Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SMR Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.01,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yaashvi Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 5.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Grover Jewells Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Luxury Time Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.57,
         "ronw": null,
         "eps": null
@@ -2417,7 +2417,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Funding future working capital requirements towards procurement, maintenance and scaling up of inventory and funding advance margin requirements for procurement of inventory by the Company",
-        "amountCr": 465.0
+        "amountCr": 465
       },
       {
         "purpose": "General corporate purposes",
@@ -2441,19 +2441,19 @@
     "issuePrice": 300,
     "lotSize": 50,
     "minInvestment": 15000,
-    "issueSizeTotalCr": 650.0,
-    "freshIssueCr": 95.0,
-    "ofsCr": 555.0,
+    "issueSizeTotalCr": 650,
+    "freshIssueCr": 95,
+    "ofsCr": 555,
     "faceValue": 4,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 300,
     "gmpTrends": null,
     "totalSubscription": 184.22,
     "qibSubscription": 302.88,
     "niiSubscription": 280.66,
-    "retailSubscription": 61.0,
+    "retailSubscription": 61,
     "openDate": "2026-08-20",
     "closeDate": "2026-08-24",
     "allotmentDate": "2026-08-25",
@@ -2473,7 +2473,7 @@
       "JM Financial Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.0,
+    "rating": 4,
     "reviewScore": 81,
     "brokerReviews": {
       "subscribe": 12,
@@ -2574,71 +2574,71 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 4323335.0,
-        "bidsReceived": 1309462300.0,
+        "sharesOffered": 4323335,
+        "bidsReceived": 1309462300,
         "subscriptionTimes": 302.88
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 3242500.0,
-        "bidsReceived": 1019583800.0,
+        "sharesOffered": 3242500,
+        "bidsReceived": 1019583800,
         "subscriptionTimes": 314.44
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 2161667.0,
-        "bidsReceived": 716241200.0,
+        "sharesOffered": 2161667,
+        "bidsReceived": 716241200,
         "subscriptionTimes": 331.34
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1080833.0,
-        "bidsReceived": 303342600.0,
+        "sharesOffered": 1080833,
+        "bidsReceived": 303342600,
         "subscriptionTimes": 280.66
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 7565833.0,
-        "bidsReceived": 461526600.0,
-        "subscriptionTimes": 61.0
+        "sharesOffered": 7565833,
+        "bidsReceived": 461526600,
+        "subscriptionTimes": 61
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 50000.0,
-        "bidsReceived": 6247300.0,
+        "sharesOffered": 50000,
+        "bidsReceived": 6247300,
         "subscriptionTimes": 124.95
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 15181668.0,
-        "bidsReceived": 2796820000.0,
+        "sharesOffered": 15181668,
+        "bidsReceived": 2796820000,
         "subscriptionTimes": 184.22
       }
     ],
     "peerComparison": [
       {
         "companyName": "Mopshop Distribution Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 22.22,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Safecure Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "NIS Management Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.13,
         "ronw": null,
         "eps": null
@@ -2668,7 +2668,7 @@
       },
       {
         "purpose": "Pre-payment or scheduled re-payment, in full or in part, of certain outstanding borrowings availed by the Company",
-        "amountCr": 55.0
+        "amountCr": 55
       },
       {
         "purpose": "General Corporate Purposes",
@@ -2696,12 +2696,12 @@
     "issuePrice": 160,
     "lotSize": 93,
     "minInvestment": 14880,
-    "issueSizeTotalCr": 550.0,
-    "freshIssueCr": 450.0,
-    "ofsCr": 100.0,
+    "issueSizeTotalCr": 550,
+    "freshIssueCr": 450,
+    "ofsCr": 100,
     "faceValue": 5,
-    "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmp": 3,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 160,
     "gmpTrends": null,
@@ -2772,7 +2772,7 @@
         "netWorth": 388.97,
         "assets": 451.87,
         "reserves": 381.75,
-        "borrowing": 4.0,
+        "borrowing": 4,
         "ebitda": null,
         "eps": null,
         "ronw": 15.93,
@@ -2830,64 +2830,64 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 6875000.0,
-        "bidsReceived": 315382716.0,
+        "sharesOffered": 6875000,
+        "bidsReceived": 315382716,
         "subscriptionTimes": 45.87
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 5156250.0,
-        "bidsReceived": 338415375.0,
+        "sharesOffered": 5156250,
+        "bidsReceived": 338415375,
         "subscriptionTimes": 65.63
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 3437500.0,
-        "bidsReceived": 261336138.0,
+        "sharesOffered": 3437500,
+        "bidsReceived": 261336138,
         "subscriptionTimes": 76.03
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1718750.0,
-        "bidsReceived": 77079237.0,
+        "sharesOffered": 1718750,
+        "bidsReceived": 77079237,
         "subscriptionTimes": 44.85
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 12031250.0,
-        "bidsReceived": 139736127.0,
+        "sharesOffered": 12031250,
+        "bidsReceived": 139736127,
         "subscriptionTimes": 11.61
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 24062500.0,
-        "bidsReceived": 793534218.0,
+        "sharesOffered": 24062500,
+        "bidsReceived": 793534218,
         "subscriptionTimes": 32.98
       }
     ],
     "peerComparison": [
       {
         "companyName": "SBI Funds Management Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 38.12,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "ICICI Prudential Asset Management Co.Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 40.37,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Canara Robeco Asset Management Co.Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 27.82,
         "ronw": null,
         "eps": null
@@ -2913,7 +2913,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Investing towards Sponsor Commitments to certain existing funds, new funds and for repayment of the Bridge Loan Amount as follows: (a) investing towards balance Sponsor Commitment to the following constituent funds of Fund IV and Bridge Loan Amount (i) Gaja Capital India Fund 2020 LLP; (ii) Gaja Capital India Fund 2020 (iii) Bridge Loan Amount (b) investing towards Sponsor Commitment to the proposed Fund V (c) investing towards Sponsor Commitment to the Secondaries Fund",
-        "amountCr": 372.0
+        "amountCr": 372
       },
       {
         "purpose": "General Corporate Purposes",
@@ -2941,12 +2941,12 @@
     "issuePrice": 93,
     "lotSize": 160,
     "minInvestment": 14880,
-    "issueSizeTotalCr": 367.0,
-    "freshIssueCr": 274.0,
-    "ofsCr": 93.0,
+    "issueSizeTotalCr": 367,
+    "freshIssueCr": 274,
+    "ofsCr": 93,
     "faceValue": 5,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 93,
     "gmpTrends": null,
@@ -3075,99 +3075,99 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 7897000.0,
-        "bidsReceived": 10392160.0,
+        "sharesOffered": 7897000,
+        "bidsReceived": 10392160,
         "subscriptionTimes": 1.32
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 5922300.0,
-        "bidsReceived": 33616960.0,
+        "sharesOffered": 5922300,
+        "bidsReceived": 33616960,
         "subscriptionTimes": 5.68
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 3948200.0,
-        "bidsReceived": 20869120.0,
+        "sharesOffered": 3948200,
+        "bidsReceived": 20869120,
         "subscriptionTimes": 5.29
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1974100.0,
-        "bidsReceived": 12747840.0,
+        "sharesOffered": 1974100,
+        "bidsReceived": 12747840,
         "subscriptionTimes": 6.46
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 13818700.0,
-        "bidsReceived": 33429120.0,
+        "sharesOffered": 13818700,
+        "bidsReceived": 33429120,
         "subscriptionTimes": 2.42
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 27638000.0,
-        "bidsReceived": 77438240.0,
+        "sharesOffered": 27638000,
+        "bidsReceived": 77438240,
         "subscriptionTimes": 2.8
       }
     ],
     "peerComparison": [
       {
         "companyName": "Lalithaa Jewellery Mart Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.95,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Advit Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.41,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "PNGS Reva Diamond Jewellery Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shringar House of Mangalsutra Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SMR Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.01,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yaashvi Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 5.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Grover Jewells Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Luxury Time Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.57,
         "ronw": null,
         "eps": null
@@ -3193,11 +3193,11 @@
     "objectsOfIssue": [
       {
         "purpose": "Repayment/pre-payment, in full or part, of certain borrowings",
-        "amountCr": 158.0
+        "amountCr": 158
       },
       {
         "purpose": "Funding working capital requirements of the Company",
-        "amountCr": 38.0
+        "amountCr": 38
       },
       {
         "purpose": "General Corporate Purposes",
@@ -3225,12 +3225,12 @@
     "issuePrice": 360,
     "lotSize": 41,
     "minInvestment": 14760,
-    "issueSizeTotalCr": 282.0,
-    "freshIssueCr": 173.0,
-    "ofsCr": 109.0,
+    "issueSizeTotalCr": 282,
+    "freshIssueCr": 173,
+    "ofsCr": 109,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 360,
     "gmpTrends": null,
@@ -3357,43 +3357,43 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 1567436.0,
-        "bidsReceived": 193602041.0,
+        "sharesOffered": 1567436,
+        "bidsReceived": 193602041,
         "subscriptionTimes": 123.52
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 1175592.0,
-        "bidsReceived": 231634994.0,
+        "sharesOffered": 1175592,
+        "bidsReceived": 231634994,
         "subscriptionTimes": 197.04
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 783728.0,
-        "bidsReceived": 155509269.0,
+        "sharesOffered": 783728,
+        "bidsReceived": 155509269,
         "subscriptionTimes": 198.42
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 391864.0,
-        "bidsReceived": 76125725.0,
+        "sharesOffered": 391864,
+        "bidsReceived": 76125725,
         "subscriptionTimes": 194.27
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 2743023.0,
-        "bidsReceived": 155253347.0,
+        "sharesOffered": 2743023,
+        "bidsReceived": 155253347,
         "subscriptionTimes": 56.6
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 5486051.0,
-        "bidsReceived": 580490382.0,
+        "sharesOffered": 5486051,
+        "bidsReceived": 580490382,
         "subscriptionTimes": 105.81
       }
     ],
@@ -3446,12 +3446,12 @@
     "issuePrice": 60,
     "lotSize": 250,
     "minInvestment": 15000,
-    "issueSizeTotalCr": 2600.0,
-    "freshIssueCr": 2600.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 2600,
+    "freshIssueCr": 2600,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 60,
     "gmpTrends": null,
@@ -3522,7 +3522,7 @@
         "year": "31 Mar 2025",
         "revenue": 439.35,
         "pat": -178.78,
-        "netWorth": 122.0,
+        "netWorth": 122,
         "assets": 9851.54,
         "reserves": -530.09,
         "borrowing": 7009.11,
@@ -3583,50 +3583,50 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 129806819.0,
-        "bidsReceived": 252166000.0,
+        "sharesOffered": 129806819,
+        "bidsReceived": 252166000,
         "subscriptionTimes": 1.94
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 64886363.0,
-        "bidsReceived": 66605000.0,
+        "sharesOffered": 64886363,
+        "bidsReceived": 66605000,
         "subscriptionTimes": 1.03
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 43257576.0,
-        "bidsReceived": 51501250.0,
+        "sharesOffered": 43257576,
+        "bidsReceived": 51501250,
         "subscriptionTimes": 1.19
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 21628788.0,
-        "bidsReceived": 15103750.0,
+        "sharesOffered": 21628788,
+        "bidsReceived": 15103750,
         "subscriptionTimes": 0.7
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 43257576.0,
-        "bidsReceived": 43912250.0,
+        "sharesOffered": 43257576,
+        "bidsReceived": 43912250,
         "subscriptionTimes": 1.02
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 833332.0,
-        "bidsReceived": 1364500.0,
+        "sharesOffered": 833332,
+        "bidsReceived": 1364500,
         "subscriptionTimes": 1.64
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 238784090.0,
-        "bidsReceived": 364047750.0,
+        "sharesOffered": 238784090,
+        "bidsReceived": 364047750,
         "subscriptionTimes": 1.52
       }
     ],
@@ -3651,7 +3651,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Repayment and/or prepayment, in part or full, of certain borrowings availed by the company and Certain wholly owned Subsidiaries of Company, namely Bagur Logistics Park Pvt.Ltd., Embassy Industrial Park Hosur Pvt.Ltd., Farukhnagar Logistics Parks LLP, FRK II Industrial Park Pvt.Ltd., Goodluck Buildtech Pvt.Ltd., ILV Distripark Pvt.Ltd., ILV Distripark (MWC) Pvt.Ltd., Jindpur Industrial Park Pvt.Ltd., Kalina Warehousing Pvt.Ltd., Lakshmi",
-        "amountCr": 2250.0
+        "amountCr": 2250
       },
       {
         "purpose": "General Corporate Purposes",
@@ -3679,12 +3679,12 @@
     "issuePrice": 201,
     "lotSize": 74,
     "minInvestment": 14874,
-    "issueSizeTotalCr": 1700.0,
-    "freshIssueCr": 1200.0,
-    "ofsCr": 500.0,
+    "issueSizeTotalCr": 1700,
+    "freshIssueCr": 1200,
+    "ofsCr": 500,
     "faceValue": 5,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 201,
     "gmpTrends": null,
@@ -3813,99 +3813,99 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 16855722.0,
-        "bidsReceived": 2592436894.0,
+        "sharesOffered": 16855722,
+        "bidsReceived": 2592436894,
         "subscriptionTimes": 153.8
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 12641791.0,
-        "bidsReceived": 988254312.0,
+        "sharesOffered": 12641791,
+        "bidsReceived": 988254312,
         "subscriptionTimes": 78.17
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 8427861.0,
-        "bidsReceived": 762426736.0,
+        "sharesOffered": 8427861,
+        "bidsReceived": 762426736,
         "subscriptionTimes": 90.47
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 4213930.0,
-        "bidsReceived": 225827576.0,
+        "sharesOffered": 4213930,
+        "bidsReceived": 225827576,
         "subscriptionTimes": 53.59
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 29497512.0,
-        "bidsReceived": 368936620.0,
+        "sharesOffered": 29497512,
+        "bidsReceived": 368936620,
         "subscriptionTimes": 12.51
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 329670.0,
-        "bidsReceived": 3000848.0,
+        "sharesOffered": 329670,
+        "bidsReceived": 3000848,
         "subscriptionTimes": 9.1
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 59324695.0,
-        "bidsReceived": 3952628674.0,
+        "sharesOffered": 59324695,
+        "bidsReceived": 3952628674,
         "subscriptionTimes": 66.63
       }
     ],
     "peerComparison": [
       {
         "companyName": "Advit Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.41,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "PNGS Reva Diamond Jewellery Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shringar House of Mangalsutra Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SMR Jewels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.01,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yaashvi Jewellers Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 5.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Grover Jewells Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Luxury Time Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.57,
         "ronw": null,
         "eps": null
@@ -3963,12 +3963,12 @@
     "issuePrice": 285,
     "lotSize": 52,
     "minInvestment": 14820,
-    "issueSizeTotalCr": 302.0,
-    "freshIssueCr": 93.0,
-    "ofsCr": 209.0,
+    "issueSizeTotalCr": 302,
+    "freshIssueCr": 93,
+    "ofsCr": 209,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 285,
     "gmpTrends": null,
@@ -4097,92 +4097,92 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 1516633.0,
-        "bidsReceived": 336752156.0,
+        "sharesOffered": 1516633,
+        "bidsReceived": 336752156,
         "subscriptionTimes": 222.04
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 1587474.0,
-        "bidsReceived": 266613412.0,
+        "sharesOffered": 1587474,
+        "bidsReceived": 266613412,
         "subscriptionTimes": 167.95
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1058316.0,
-        "bidsReceived": 171757300.0,
+        "sharesOffered": 1058316,
+        "bidsReceived": 171757300,
         "subscriptionTimes": 162.29
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 529158.0,
-        "bidsReceived": 94856112.0,
+        "sharesOffered": 529158,
+        "bidsReceived": 94856112,
         "subscriptionTimes": 179.26
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 3704105.0,
-        "bidsReceived": 200462756.0,
+        "sharesOffered": 3704105,
+        "bidsReceived": 200462756,
         "subscriptionTimes": 54.12
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 6808212.0,
-        "bidsReceived": 803828324.0,
+        "sharesOffered": 6808212,
+        "bidsReceived": 803828324,
         "subscriptionTimes": 118.07
       }
     ],
     "peerComparison": [
       {
         "companyName": "Rajputana Stainless Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 21.1,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "VMS TMT Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 22.24,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Anubhav Plast Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.67,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Kasturi Metal Composite Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.59,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shri Kanha Stainless Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.23,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Mittal Sections Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 31.15,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "M P K Steels (I) Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.04,
         "ronw": null,
         "eps": null
@@ -4252,12 +4252,12 @@
     "issuePrice": 97,
     "lotSize": 154,
     "minInvestment": 14938,
-    "issueSizeTotalCr": 1617.0,
-    "freshIssueCr": 886.0,
-    "ofsCr": 732.0,
+    "issueSizeTotalCr": 1617,
+    "freshIssueCr": 886,
+    "ofsCr": 732,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 97,
     "gmpTrends": null,
@@ -4382,120 +4382,120 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 49994385.0,
-        "bidsReceived": 6259338316.0,
+        "sharesOffered": 49994385,
+        "bidsReceived": 6259338316,
         "subscriptionTimes": 125.2
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 24997191.0,
-        "bidsReceived": 2314357892.0,
+        "sharesOffered": 24997191,
+        "bidsReceived": 2314357892,
         "subscriptionTimes": 92.58
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 16664794.0,
-        "bidsReceived": 1719535048.0,
+        "sharesOffered": 16664794,
+        "bidsReceived": 1719535048,
         "subscriptionTimes": 103.18
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 8332397.0,
-        "bidsReceived": 594822844.0,
+        "sharesOffered": 8332397,
+        "bidsReceived": 594822844,
         "subscriptionTimes": 71.39
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 16664794.0,
-        "bidsReceived": 806167208.0,
+        "sharesOffered": 16664794,
+        "bidsReceived": 806167208,
         "subscriptionTimes": 48.38
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 113636.0,
-        "bidsReceived": 6687450.0,
+        "sharesOffered": 113636,
+        "bidsReceived": 6687450,
         "subscriptionTimes": 58.85
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 91770006.0,
-        "bidsReceived": 9386550866.0,
+        "sharesOffered": 91770006,
+        "bidsReceived": 9386550866,
         "subscriptionTimes": 102.28
       }
     ],
     "peerComparison": [
       {
         "companyName": "Shadowfax Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 1017.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Om Freight Forwarders Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.56,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Glottis Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.38,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sampark India Logistics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 8.65,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Global Ocean Logistics India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.07,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Neptune Logitek Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.76,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shipwaves Online Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.3,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Jayesh Logistics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.75,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sunsky Logistics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.6,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Dhillon Freight Carrier Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.49,
         "ronw": null,
         "eps": null
@@ -4533,7 +4533,7 @@
       },
       {
         "purpose": "Repayment / prepayment, in full or in part, of certain borrowings availed of by the Company including payment of the interest accrued thereon",
-        "amountCr": 210.0
+        "amountCr": 210
       },
       {
         "purpose": "Funding inorganic growth through unidentified acquisitions and general corporate purposes",
@@ -4561,12 +4561,12 @@
     "issuePrice": 140,
     "lotSize": 107,
     "minInvestment": 14980,
-    "issueSizeTotalCr": 1553.0,
-    "freshIssueCr": 1428.0,
-    "ofsCr": 125.0,
+    "issueSizeTotalCr": 1553,
+    "freshIssueCr": 1428,
+    "ofsCr": 125,
     "faceValue": 2,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 140,
     "gmpTrends": null,
@@ -4621,7 +4621,7 @@
         "year": "31 Mar 2026",
         "revenue": 3145.01,
         "pat": 127.01,
-        "netWorth": 378.0,
+        "netWorth": 378,
         "assets": 2676.46,
         "reserves": 333.55,
         "borrowing": 1671.85,
@@ -4696,50 +4696,50 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 22157144.0,
-        "bidsReceived": 3634517685.0,
+        "sharesOffered": 22157144,
+        "bidsReceived": 3634517685,
         "subscriptionTimes": 164.03
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 16617857.0,
-        "bidsReceived": 610743267.0,
+        "sharesOffered": 16617857,
+        "bidsReceived": 610743267,
         "subscriptionTimes": 36.75
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 11078571.0,
-        "bidsReceived": 433028037.0,
+        "sharesOffered": 11078571,
+        "bidsReceived": 433028037,
         "subscriptionTimes": 39.09
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 5539286.0,
-        "bidsReceived": 177715230.0,
+        "sharesOffered": 5539286,
+        "bidsReceived": 177715230,
         "subscriptionTimes": 32.08
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 38775000.0,
-        "bidsReceived": 343470321.0,
+        "sharesOffered": 38775000,
+        "bidsReceived": 343470321,
         "subscriptionTimes": 8.86
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 157480.0,
-        "bidsReceived": 2071199.0,
+        "sharesOffered": 157480,
+        "bidsReceived": 2071199,
         "subscriptionTimes": 13.15
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 77707481.0,
-        "bidsReceived": 4590802472.0,
+        "sharesOffered": 77707481,
+        "bidsReceived": 4590802472,
         "subscriptionTimes": 59.08
       }
     ],
@@ -4800,12 +4800,12 @@
     "issuePrice": 871,
     "lotSize": 17,
     "minInvestment": 14807,
-    "issueSizeTotalCr": 3067.0,
-    "freshIssueCr": 1400.0,
-    "ofsCr": 1667.0,
+    "issueSizeTotalCr": 3067,
+    "freshIssueCr": 1400,
+    "ofsCr": 1667,
     "faceValue": 2,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 871,
     "gmpTrends": null,
@@ -4938,106 +4938,106 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 7028439.0,
-        "bidsReceived": 1469058281.0,
+        "sharesOffered": 7028439,
+        "bidsReceived": 1469058281,
         "subscriptionTimes": 209.02
       },
       {
         "category": "NII",
         "subCategory": null,
-        "sharesOffered": 5271330.0,
-        "bidsReceived": 280059292.0,
+        "sharesOffered": 5271330,
+        "bidsReceived": 280059292,
         "subscriptionTimes": 53.13
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 3514220.0,
-        "bidsReceived": 208793082.0,
+        "sharesOffered": 3514220,
+        "bidsReceived": 208793082,
         "subscriptionTimes": 59.41
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1757110.0,
-        "bidsReceived": 71266210.0,
+        "sharesOffered": 1757110,
+        "bidsReceived": 71266210,
         "subscriptionTimes": 40.56
       },
       {
         "category": "Retail",
         "subCategory": null,
-        "sharesOffered": 12299768.0,
-        "bidsReceived": 102358122.0,
+        "sharesOffered": 12299768,
+        "bidsReceived": 102358122,
         "subscriptionTimes": 8.32
       },
       {
         "category": "Employee",
         "subCategory": null,
-        "sharesOffered": 75853.0,
-        "bidsReceived": 652392.0,
+        "sharesOffered": 75853,
+        "bidsReceived": 652392,
         "subscriptionTimes": 8.6
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 24675390.0,
-        "bidsReceived": 1852128087.0,
+        "sharesOffered": 24675390,
+        "bidsReceived": 1852128087,
         "subscriptionTimes": 75.06
       }
     ],
     "peerComparison": [
       {
         "companyName": "SEDEMAC Mechatronics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 126.91,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Tenneco Clean Air India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 28.97,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Studds Accessories Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 33.06,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "LAPL Automotive Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.91,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Poojaa Precision Engg.Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.25,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Happy Steels Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.76,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Autofurnish Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.64,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Gallard Steel Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.31,
         "ronw": null,
         "eps": null
@@ -5071,7 +5071,7 @@
       },
       {
         "purpose": "Setting up of a new wiring harness manufacturing plant of the Company at (i) Sector 11, Jhajjar, Haryana, India; and (ii) Shoolagiri, Hosur, Tamil Nadu, India",
-        "amountCr": 150.0
+        "amountCr": 150
       },
       {
         "purpose": "Funding inorganic growth through unidentified acquisitions and general corporate purposes(1)",
@@ -5099,19 +5099,19 @@
     "issuePrice": 59,
     "lotSize": 2000,
     "minInvestment": 118000,
-    "issueSizeTotalCr": 32.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 32,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 59,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-09-01",
     "closeDate": "2026-09-03",
     "allotmentDate": "2026-09-04",
@@ -5204,70 +5204,70 @@
     "peerComparison": [
       {
         "companyName": "Dhanwel Hybrid Seeds Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.37,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Adon Agro Commodities Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.22,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "M R Maniveni Foods Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.11,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "NFP Sampoorna Foods Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.81,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Stanbik Agro Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 5.9,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Unisem Agritech Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.21,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shreeji Global FMCG Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.42,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "BharatRohan Airborne Innovations Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.38,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Amir Chand Jagdish Kumar (Exports) Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 28.86,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Trualt Bioenergy Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.89,
         "ronw": null,
         "eps": null
@@ -5293,7 +5293,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Funding incremental working capital requirements",
-        "amountCr": 23.0
+        "amountCr": 23
       },
       {
         "purpose": "General Corporate Purposes",
@@ -5321,19 +5321,19 @@
     "issuePrice": 92,
     "lotSize": 1200,
     "minInvestment": 110400,
-    "issueSizeTotalCr": 56.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 56,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 92,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -5460,7 +5460,7 @@
       },
       {
         "purpose": "Repayment/pre-payment, in full or in part, of certain borrowings availed by Company",
-        "amountCr": 20.0
+        "amountCr": 20
       },
       {
         "purpose": "General Corporate Purposes",
@@ -5484,19 +5484,19 @@
     "issuePrice": 83,
     "lotSize": 1600,
     "minInvestment": 132800,
-    "issueSizeTotalCr": 47.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 47,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 83,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -5515,7 +5515,7 @@
       "Vivro Financial Services Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.0,
+    "rating": 3,
     "reviewScore": 55,
     "brokerReviews": null,
     "memberReviews": null,
@@ -5534,7 +5534,7 @@
         "netWorth": 50.74,
         "assets": 110.73,
         "reserves": 39.18,
-        "borrowing": 0.0,
+        "borrowing": 0,
         "ebitda": null,
         "eps": null,
         "ronw": 4.93,
@@ -5548,7 +5548,7 @@
         "netWorth": 48.24,
         "assets": 97.04,
         "reserves": 36.68,
-        "borrowing": 0.0,
+        "borrowing": 0,
         "ebitda": null,
         "eps": null,
         "ronw": 21.19,
@@ -5620,56 +5620,56 @@
     "peerComparison": [
       {
         "companyName": "Devson Catalyst Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Vahh Chemicals Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 7.15,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Biopol Chemicals Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.73,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Neochem Bio Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 15.85,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Speb Adhesives Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.73,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SK Minerals & Additives Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.45,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shlokka Dyes Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.69,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sudeep Pharma Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 47.61,
         "ronw": null,
         "eps": null
@@ -5695,7 +5695,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Part funding the capital expenditure towards setting up a new facility for manufacturing of sodium meta bisulphite, sodium bisulphite powder and ammonium bisulphite situated at Bavla, Ahmedabad, Gujarat;",
-        "amountCr": 43.0
+        "amountCr": 43
       },
       {
         "purpose": "General Corporate Purposes",
@@ -5719,19 +5719,19 @@
     "issuePrice": 54,
     "lotSize": 2000,
     "minInvestment": 108000,
-    "issueSizeTotalCr": 15.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 15,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 54,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -5842,70 +5842,70 @@
     "peerComparison": [
       {
         "companyName": "Prodocs Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.72,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Exato Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.19,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Infinity Infoway Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.81,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Praruh Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Matrix Geo Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.02,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "TechD Cybersecurity Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 32.51,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Optivalue Tek Consulting Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.93,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Xtranet Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.21,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Amagi Media Labs Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": -101.78,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Excelsoft Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 34.62,
         "ronw": null,
         "eps": null
@@ -5963,19 +5963,19 @@
     "issuePrice": 135,
     "lotSize": 1000,
     "minInvestment": 135000,
-    "issueSizeTotalCr": 75.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 75,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 135,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-28",
     "closeDate": "2026-09-01",
     "allotmentDate": "2026-09-02",
@@ -6011,7 +6011,7 @@
         "year": "31 Mar 2026",
         "revenue": 118.76,
         "pat": 18.18,
-        "netWorth": 0.0,
+        "netWorth": 0,
         "assets": 83.26,
         "reserves": 27.71,
         "borrowing": 8.99,
@@ -6025,7 +6025,7 @@
         "year": "31 Mar 2025",
         "revenue": 111.42,
         "pat": 11.41,
-        "netWorth": 0.0,
+        "netWorth": 0,
         "assets": 69.78,
         "reserves": 24.57,
         "borrowing": 2.19,
@@ -6072,7 +6072,7 @@
     "peerComparison": [
       {
         "companyName": "Safecure Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.66,
         "ronw": null,
         "eps": null
@@ -6130,19 +6130,19 @@
     "issuePrice": 48,
     "lotSize": 3000,
     "minInvestment": 144000,
-    "issueSizeTotalCr": 33.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 33,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 48,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-28",
     "closeDate": "2026-09-01",
     "allotmentDate": "2026-09-02",
@@ -6253,70 +6253,70 @@
     "peerComparison": [
       {
         "companyName": "Prodocs Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.72,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Exato Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.19,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Infinity Infoway Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.81,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Praruh Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Matrix Geo Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.02,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "TechD Cybersecurity Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 32.51,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Optivalue Tek Consulting Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.93,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Xtranet Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.21,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Amagi Media Labs Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": -101.78,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Excelsoft Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 34.62,
         "ronw": null,
         "eps": null
@@ -6342,7 +6342,7 @@
     "objectsOfIssue": [
       {
         "purpose": "Funding capital expenditure towards the purchase of new Ready-Mix Concrete (RMC) machinery and DG sets",
-        "amountCr": 10.0
+        "amountCr": 10
       },
       {
         "purpose": "Pre-payment/ re-payment, in part or full, of certain outstanding borrowings availed by the Company",
@@ -6350,7 +6350,7 @@
       },
       {
         "purpose": "Funding the working capital requirements of the Company",
-        "amountCr": 10.0
+        "amountCr": 10
       },
       {
         "purpose": "General corporate purposes",
@@ -6374,19 +6374,19 @@
     "issuePrice": 90,
     "lotSize": 1600,
     "minInvestment": 144000,
-    "issueSizeTotalCr": 51.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 10.0,
+    "issueSizeTotalCr": 51,
+    "freshIssueCr": 0,
+    "ofsCr": 10,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 90,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-27",
     "closeDate": "2026-08-31",
     "allotmentDate": "2026-09-01",
@@ -6405,7 +6405,7 @@
       "Corporate Capital Ventures Pvt.Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.0,
+    "rating": 4,
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
@@ -6425,7 +6425,7 @@
         "netWorth": 41.41,
         "assets": 60.53,
         "reserves": 24.53,
-        "borrowing": 0.0,
+        "borrowing": 0,
         "ebitda": null,
         "eps": null,
         "ronw": 32.62,
@@ -6539,19 +6539,19 @@
     "issuePrice": 101,
     "lotSize": 1200,
     "minInvestment": 121200,
-    "issueSizeTotalCr": 53.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 10.0,
+    "issueSizeTotalCr": 53,
+    "freshIssueCr": 0,
+    "ofsCr": 10,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 101,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-25",
     "closeDate": "2026-08-28",
     "allotmentDate": "2026-08-31",
@@ -6616,7 +6616,7 @@
         "revenue": 131.54,
         "pat": 7.43,
         "netWorth": 38.86,
-        "assets": 54.0,
+        "assets": 54,
         "reserves": 36.77,
         "borrowing": 6.43,
         "ebitda": null,
@@ -6674,28 +6674,28 @@
     "peerComparison": [
       {
         "companyName": "Technocrats Plasma Systems Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.38,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Liotech Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.13,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Narmadesh Brass Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.63,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Abril Paper Tech Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 24.96,
         "ronw": null,
         "eps": null
@@ -6729,7 +6729,7 @@
       },
       {
         "purpose": "Funding working capital requirements of the company",
-        "amountCr": 12.0
+        "amountCr": 12
       },
       {
         "purpose": "General corporate purposes",
@@ -6753,19 +6753,19 @@
     "issuePrice": 100,
     "lotSize": 1200,
     "minInvestment": 120000,
-    "issueSizeTotalCr": 53.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 53,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 100,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -6876,91 +6876,91 @@
     "peerComparison": [
       {
         "companyName": "Fascinate Textiles Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.33,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shreedhar Spinners Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.44,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Harikanta Overseas Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yajur Fibres Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.49,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "K K Silk Mills Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.12,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Game Changers Texfab Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.58,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sihora Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.14,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Siddhi Cotspin Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.06,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Rachit Prints Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.85,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Alpine Texworld Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.68,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Kusumgar Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 44.8,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Aastha Spintex Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.78,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shree Ram Twistex Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 38.21,
         "ronw": null,
         "eps": null
@@ -7018,19 +7018,19 @@
     "issuePrice": 102,
     "lotSize": 1200,
     "minInvestment": 122400,
-    "issueSizeTotalCr": 35.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 35,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 102,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -7141,91 +7141,91 @@
     "peerComparison": [
       {
         "companyName": "Bio Medica Laboratories Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.03,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Goldline Pharmaceutical Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Speciality Medicines Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.27,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Accretion Nutraveda Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 26.27,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "KRM Ayurveda Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.32,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Curis Lifesciences Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.44,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Aptus Pharma Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.29,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Hexagon Nutrition Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 22.69,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sai Parenteral's Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 72.19,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Corona Remedies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 43.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Rubicon Research Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 55.75,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Amanta Healthcare Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 34.59,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Anlon Healthcare Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.67,
         "ronw": null,
         "eps": null
@@ -7251,11 +7251,11 @@
     "objectsOfIssue": [
       {
         "purpose": "Repayment / prepayment, in part or full, of certain of borrowings",
-        "amountCr": 17.0
+        "amountCr": 17
       },
       {
         "purpose": "Funding working capital requirements",
-        "amountCr": 5.0
+        "amountCr": 5
       },
       {
         "purpose": "Funding inorganic growth through unidentified acquisitions and general corporate purposes (collectively referred to as Objects)",
@@ -7279,19 +7279,19 @@
     "issuePrice": null,
     "lotSize": 1,
     "minInvestment": 0,
-    "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 0,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 0,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 0,
+    "qibSubscription": 0,
+    "niiSubscription": 0,
+    "retailSubscription": 0,
     "openDate": "",
     "closeDate": "",
     "allotmentDate": "",
@@ -7338,19 +7338,19 @@
     "issuePrice": 138,
     "lotSize": 1000,
     "minInvestment": 138000,
-    "issueSizeTotalCr": 27.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 5.0,
+    "issueSizeTotalCr": 27,
+    "freshIssueCr": 0,
+    "ofsCr": 5,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 138,
     "gmpTrends": null,
     "totalSubscription": 1.59,
-    "qibSubscription": 0.0,
+    "qibSubscription": 0,
     "niiSubscription": 0.27,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-19",
     "closeDate": "2026-08-21",
     "allotmentDate": "2026-08-24",
@@ -7407,7 +7407,7 @@
       },
       {
         "year": "31 Mar 2025",
-        "revenue": 42.0,
+        "revenue": 42,
         "pat": 3.48,
         "netWorth": 6.74,
         "assets": 23.64,
@@ -7472,36 +7472,36 @@
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 938000.0,
-        "bidsReceived": 257000.0,
+        "sharesOffered": 938000,
+        "bidsReceived": 257000,
         "subscriptionTimes": 0.27
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 938000.0,
-        "bidsReceived": 2730000.0,
+        "sharesOffered": 938000,
+        "bidsReceived": 2730000,
         "subscriptionTimes": 2.91
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 1876000.0,
-        "bidsReceived": 2987000.0,
+        "sharesOffered": 1876000,
+        "bidsReceived": 2987000,
         "subscriptionTimes": 1.59
       }
     ],
     "peerComparison": [
       {
         "companyName": "Safecure Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "NIS Management Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.13,
         "ronw": null,
         "eps": null
@@ -7563,19 +7563,19 @@
     "issuePrice": 132,
     "lotSize": 1000,
     "minInvestment": 132000,
-    "issueSizeTotalCr": 61.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 61,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 132,
     "gmpTrends": null,
     "totalSubscription": 203.36,
     "qibSubscription": 169.54,
     "niiSubscription": 186.74,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-14",
     "closeDate": "2026-08-18",
     "allotmentDate": "2026-08-19",
@@ -7696,78 +7696,78 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 877000.0,
-        "bidsReceived": 148683000.0,
+        "sharesOffered": 877000,
+        "bidsReceived": 148683000,
         "subscriptionTimes": 169.54
       },
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 660000.0,
-        "bidsReceived": 205903000.0,
+        "sharesOffered": 660000,
+        "bidsReceived": 205903000,
         "subscriptionTimes": 311.97
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 440000.0,
-        "bidsReceived": 164821000.0,
+        "sharesOffered": 440000,
+        "bidsReceived": 164821000,
         "subscriptionTimes": 374.59
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 220000.0,
-        "bidsReceived": 41082000.0,
+        "sharesOffered": 220000,
+        "bidsReceived": 41082000,
         "subscriptionTimes": 186.74
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 1538000.0,
-        "bidsReceived": 270758000.0,
+        "sharesOffered": 1538000,
+        "bidsReceived": 270758000,
         "subscriptionTimes": 176.05
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 3075000.0,
-        "bidsReceived": 625344000.0,
+        "sharesOffered": 3075000,
+        "bidsReceived": 625344000,
         "subscriptionTimes": 203.36
       }
     ],
     "peerComparison": [
       {
         "companyName": "Liotech Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.13,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Narmadesh Brass Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.63,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Abril Paper Tech Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 24.96,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Classic Electrodes (India) Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.33,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "ARC Insulation & Insulators Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.58,
         "ronw": null,
         "eps": null
@@ -7797,7 +7797,7 @@
       },
       {
         "purpose": "Funding towards long-term working capital requirements",
-        "amountCr": 40.0
+        "amountCr": 40
       },
       {
         "purpose": "General Corporate Purposes",
@@ -7825,19 +7825,19 @@
     "issuePrice": 92,
     "lotSize": 1200,
     "minInvestment": 110400,
-    "issueSizeTotalCr": 33.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 33,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 92,
     "gmpTrends": null,
     "totalSubscription": 13.11,
     "qibSubscription": 9.44,
     "niiSubscription": 14.97,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-14",
     "closeDate": "2026-08-18",
     "allotmentDate": "2026-08-19",
@@ -7900,7 +7900,7 @@
         "netWorth": 10.04,
         "assets": 20.24,
         "reserves": 7.33,
-        "borrowing": 0.0,
+        "borrowing": 0,
         "ebitda": null,
         "eps": null,
         "ronw": 36.85,
@@ -7914,7 +7914,7 @@
         "netWorth": 1.9,
         "assets": 3.35,
         "reserves": 1.87,
-        "borrowing": 0.0,
+        "borrowing": 0,
         "ebitda": null,
         "eps": null,
         "ronw": 47.37,
@@ -7958,99 +7958,99 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 684000.0,
-        "bidsReceived": 6454800.0,
+        "sharesOffered": 684000,
+        "bidsReceived": 6454800,
         "subscriptionTimes": 9.44
       },
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 513600.0,
-        "bidsReceived": 11756400.0,
+        "sharesOffered": 513600,
+        "bidsReceived": 11756400,
         "subscriptionTimes": 22.89
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 342000.0,
-        "bidsReceived": 9188400.0,
+        "sharesOffered": 342000,
+        "bidsReceived": 9188400,
         "subscriptionTimes": 26.87
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 171600.0,
-        "bidsReceived": 2568000.0,
+        "sharesOffered": 171600,
+        "bidsReceived": 2568000,
         "subscriptionTimes": 14.97
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 1197600.0,
-        "bidsReceived": 13197600.0,
+        "sharesOffered": 1197600,
+        "bidsReceived": 13197600,
         "subscriptionTimes": 11.02
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 2395200.0,
-        "bidsReceived": 31408800.0,
+        "sharesOffered": 2395200,
+        "bidsReceived": 31408800,
         "subscriptionTimes": 13.11
       }
     ],
     "peerComparison": [
       {
         "companyName": "Kratikal Tech Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.94,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Genxai Analytics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.41,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Methodhub Software Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 24.19,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Logiciel Solutions Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 20.35,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Workmates Core2Cloud Solution Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Austere Systems Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.48,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "CSM Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 31.05,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Fractal Analytics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 65.5,
         "ronw": null,
         "eps": null
@@ -8112,19 +8112,19 @@
     "issuePrice": 77,
     "lotSize": 1600,
     "minInvestment": 123200,
-    "issueSizeTotalCr": 23.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 23,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 77,
     "gmpTrends": null,
     "totalSubscription": 2.04,
     "qibSubscription": 1.06,
     "niiSubscription": 1.31,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-14",
     "closeDate": "2026-08-18",
     "allotmentDate": "2026-08-19",
@@ -8193,7 +8193,7 @@
         "revenue": 44.15,
         "pat": 1.35,
         "netWorth": 11.1,
-        "assets": 26.0,
+        "assets": 26,
         "reserves": 10.48,
         "borrowing": 3.9,
         "ebitda": null,
@@ -8239,176 +8239,176 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 28800.0,
-        "bidsReceived": 30400.0,
+        "sharesOffered": 28800,
+        "bidsReceived": 30400,
         "subscriptionTimes": 1.06
       },
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 1372800.0,
-        "bidsReceived": 987200.0,
+        "sharesOffered": 1372800,
+        "bidsReceived": 987200,
         "subscriptionTimes": 0.72
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 915200.0,
-        "bidsReceived": 385600.0,
+        "sharesOffered": 915200,
+        "bidsReceived": 385600,
         "subscriptionTimes": 0.42
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 457600.0,
-        "bidsReceived": 601600.0,
+        "sharesOffered": 457600,
+        "bidsReceived": 601600,
         "subscriptionTimes": 1.31
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 1395200.0,
-        "bidsReceived": 4691200.0,
+        "sharesOffered": 1395200,
+        "bidsReceived": 4691200,
         "subscriptionTimes": 3.36
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 2796800.0,
-        "bidsReceived": 5708800.0,
+        "sharesOffered": 2796800,
+        "bidsReceived": 5708800,
         "subscriptionTimes": 2.04
       }
     ],
     "peerComparison": [
       {
         "companyName": "Merritronix Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.83,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Adisoft Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.82,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Highness Microelectronics Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.7,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Tipco Engineering India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 8.73,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Gabion Technologies India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.18,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Admach Systems Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 19.56,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Apollo Techno Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.43,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "HRS Aluglaze Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 26.07,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Purple Wave Infocom Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.33,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shining Tools Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.18,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "True Colors Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "L.T.Elevator Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.31,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Airfloa Rail Technology Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 9.57,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Taurian MPS Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.29,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "MV Electrosystems Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": -68.88,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Indo-MIM Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 44.01,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Lohia Corp Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.21,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Omnitech Engineering Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 54.47,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Epack Prefab Technologies Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 29.49,
         "ronw": null,
         "eps": null
@@ -8462,19 +8462,19 @@
     "issuePrice": 189,
     "lotSize": 600,
     "minInvestment": 113400,
-    "issueSizeTotalCr": 94.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 94,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 189,
     "gmpTrends": null,
     "totalSubscription": 153.13,
     "qibSubscription": 130.4,
     "niiSubscription": 139.76,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-13",
     "closeDate": "2026-08-17",
     "allotmentDate": "2026-08-18",
@@ -8595,78 +8595,78 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 948000.0,
-        "bidsReceived": 123615600.0,
+        "sharesOffered": 948000,
+        "bidsReceived": 123615600,
         "subscriptionTimes": 130.4
       },
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 708000.0,
-        "bidsReceived": 153615000.0,
+        "sharesOffered": 708000,
+        "bidsReceived": 153615000,
         "subscriptionTimes": 216.97
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 472000.0,
-        "bidsReceived": 120632400.0,
+        "sharesOffered": 472000,
+        "bidsReceived": 120632400,
         "subscriptionTimes": 255.58
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 236000.0,
-        "bidsReceived": 32982600.0,
+        "sharesOffered": 236000,
+        "bidsReceived": 32982600,
         "subscriptionTimes": 139.76
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 1656000.0,
-        "bidsReceived": 229952400.0,
+        "sharesOffered": 1656000,
+        "bidsReceived": 229952400,
         "subscriptionTimes": 138.86
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 3312000.0,
-        "bidsReceived": 507183000.0,
+        "sharesOffered": 3312000,
+        "bidsReceived": 507183000,
         "subscriptionTimes": 153.13
       }
     ],
     "peerComparison": [
       {
         "companyName": "Pramodini Medicare Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.34,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Modern Diagnostic & Research Centre Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.04,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Invicta Diagnostic Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.51,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Gaudium IVF & Women Health Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 25.36,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Nephrocare Health Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 63.52,
         "ronw": null,
         "eps": null
@@ -8696,15 +8696,15 @@
       },
       {
         "purpose": "Investment in the wholly owned subsidiary, Credent Healthcare Private Limited to finance its capital expenditure requirements for machinery",
-        "amountCr": 3.0
+        "amountCr": 3
       },
       {
         "purpose": "To meet Working Capital Requirements",
-        "amountCr": 37.0
+        "amountCr": 37
       },
       {
         "purpose": "Repayment and/or repayment, in full or part, of borrowing availed by the Company",
-        "amountCr": 6.0
+        "amountCr": 6
       },
       {
         "purpose": "General corporate purposes",
@@ -8732,19 +8732,19 @@
     "issuePrice": 115,
     "lotSize": 1200,
     "minInvestment": 138000,
-    "issueSizeTotalCr": 26.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 26,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 115,
     "gmpTrends": null,
     "totalSubscription": 1.42,
-    "qibSubscription": 0.0,
+    "qibSubscription": 0,
     "niiSubscription": 0.2,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-12",
     "closeDate": "2026-08-14",
     "allotmentDate": "2026-08-17",
@@ -8853,50 +8853,50 @@
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 1083600.0,
-        "bidsReceived": 218400.0,
+        "sharesOffered": 1083600,
+        "bidsReceived": 218400,
         "subscriptionTimes": 0.2
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 1083600.0,
-        "bidsReceived": 2865600.0,
+        "sharesOffered": 1083600,
+        "bidsReceived": 2865600,
         "subscriptionTimes": 2.64
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 2167200.0,
-        "bidsReceived": 3084000.0,
+        "sharesOffered": 2167200,
+        "bidsReceived": 3084000,
         "subscriptionTimes": 1.42
       }
     ],
     "peerComparison": [
       {
         "companyName": "Crazy Snacks Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.9,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Astron Multigrain Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 17.09,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "SSMD Agrotech India Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.16,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Ganesh Consumer Products Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 33.06,
         "ronw": null,
         "eps": null
@@ -8954,19 +8954,19 @@
     "issuePrice": 118,
     "lotSize": 1200,
     "minInvestment": 141600,
-    "issueSizeTotalCr": 69.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 6.0,
+    "issueSizeTotalCr": 69,
+    "freshIssueCr": 0,
+    "ofsCr": 6,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 118,
     "gmpTrends": null,
     "totalSubscription": 3.87,
     "qibSubscription": 3.66,
     "niiSubscription": 4.82,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-12",
     "closeDate": "2026-08-14",
     "allotmentDate": "2026-08-17",
@@ -9087,71 +9087,71 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 1171200.0,
-        "bidsReceived": 4282800.0,
+        "sharesOffered": 1171200,
+        "bidsReceived": 4282800,
         "subscriptionTimes": 3.66
       },
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 960000.0,
-        "bidsReceived": 4759200.0,
+        "sharesOffered": 960000,
+        "bidsReceived": 4759200,
         "subscriptionTimes": 4.96
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 639600.0,
-        "bidsReceived": 3216000.0,
+        "sharesOffered": 639600,
+        "bidsReceived": 3216000,
         "subscriptionTimes": 5.03
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 320400.0,
-        "bidsReceived": 1543200.0,
+        "sharesOffered": 320400,
+        "bidsReceived": 1543200,
         "subscriptionTimes": 4.82
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 2023200.0,
-        "bidsReceived": 7053600.0,
+        "sharesOffered": 2023200,
+        "bidsReceived": 7053600,
         "subscriptionTimes": 3.49
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 4154400.0,
-        "bidsReceived": 16095600.0,
+        "sharesOffered": 4154400,
+        "bidsReceived": 16095600,
         "subscriptionTimes": 3.87
       }
     ],
     "peerComparison": [
       {
         "companyName": "Modern Diagnostic & Research Centre Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.04,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Invicta Diagnostic Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.51,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Gaudium IVF & Women Health Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 25.36,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Nephrocare Health Services Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 63.52,
         "ronw": null,
         "eps": null
@@ -9205,19 +9205,19 @@
     "issuePrice": 130,
     "lotSize": 1000,
     "minInvestment": 130000,
-    "issueSizeTotalCr": 40.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 40,
+    "freshIssueCr": 0,
+    "ofsCr": 0,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 130,
     "gmpTrends": null,
     "totalSubscription": 2.4,
-    "qibSubscription": 0.0,
+    "qibSubscription": 0,
     "niiSubscription": 2.17,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-11",
     "closeDate": "2026-08-13",
     "allotmentDate": "2026-08-14",
@@ -9327,36 +9327,36 @@
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 1479000.0,
-        "bidsReceived": 3210000.0,
+        "sharesOffered": 1479000,
+        "bidsReceived": 3210000,
         "subscriptionTimes": 2.17
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 1479000.0,
-        "bidsReceived": 3874000.0,
+        "sharesOffered": 1479000,
+        "bidsReceived": 3874000,
         "subscriptionTimes": 2.62
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 2958000.0,
-        "bidsReceived": 7091000.0,
+        "sharesOffered": 2958000,
+        "bidsReceived": 7091000,
         "subscriptionTimes": 2.4
       }
     ],
     "peerComparison": [
       {
         "companyName": "Wakefit Innovations Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": -171.29,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Euro Pratik Sales Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 33.02,
         "ronw": null,
         "eps": null
@@ -9410,19 +9410,19 @@
     "issuePrice": 151,
     "lotSize": 800,
     "minInvestment": 120800,
-    "issueSizeTotalCr": 65.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 13.0,
+    "issueSizeTotalCr": 65,
+    "freshIssueCr": 0,
+    "ofsCr": 13,
     "faceValue": 10,
     "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmpPercent": 0,
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 151,
     "gmpTrends": null,
     "totalSubscription": 1.48,
     "qibSubscription": 22.74,
     "niiSubscription": 0.54,
-    "retailSubscription": 0.0,
+    "retailSubscription": 0,
     "openDate": "2026-08-11",
     "closeDate": "2026-08-19",
     "allotmentDate": "2026-08-20",
@@ -9543,127 +9543,127 @@
       {
         "category": "QIB (Ex Anchor)",
         "subCategory": null,
-        "sharesOffered": 43200.0,
-        "bidsReceived": 982400.0,
+        "sharesOffered": 43200,
+        "bidsReceived": 982400,
         "subscriptionTimes": 22.74
       },
       {
         "category": "NII*",
         "subCategory": null,
-        "sharesOffered": 1616000.0,
-        "bidsReceived": 1718400.0,
+        "sharesOffered": 1616000,
+        "bidsReceived": 1718400,
         "subscriptionTimes": 1.06
       },
       {
         "category": "bNII (> ₹10L)",
         "subCategory": null,
-        "sharesOffered": 1078400.0,
-        "bidsReceived": 1428000.0,
+        "sharesOffered": 1078400,
+        "bidsReceived": 1428000,
         "subscriptionTimes": 1.32
       },
       {
         "category": "sNII (< ₹10L)",
         "subCategory": null,
-        "sharesOffered": 537600.0,
-        "bidsReceived": 290400.0,
+        "sharesOffered": 537600,
+        "bidsReceived": 290400,
         "subscriptionTimes": 0.54
       },
       {
         "category": "Individual Investor",
         "subCategory": null,
-        "sharesOffered": 2419200.0,
-        "bidsReceived": 3323200.0,
+        "sharesOffered": 2419200,
+        "bidsReceived": 3323200,
         "subscriptionTimes": 1.37
       },
       {
         "category": "Total",
         "subCategory": null,
-        "sharesOffered": 4078400.0,
-        "bidsReceived": 6024000.0,
+        "sharesOffered": 4078400,
+        "bidsReceived": 6024000,
         "subscriptionTimes": 1.48
       }
     ],
     "peerComparison": [
       {
         "companyName": "Shreedhar Spinners Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.44,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Harikanta Overseas Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 14.66,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Yajur Fibres Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 23.49,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "K K Silk Mills Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.12,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Game Changers Texfab Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 10.58,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Sihora Industries Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 13.14,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Siddhi Cotspin Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 16.06,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Rachit Prints Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 11.85,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Alpine Texworld Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 12.68,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Kusumgar Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 44.8,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Aastha Spintex Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 18.78,
         "ronw": null,
         "eps": null
       },
       {
         "companyName": "Shree Ram Twistex Ltd.",
-        "faceValue": 10.0,
+        "faceValue": 10,
         "peRatio": 38.21,
         "ronw": null,
         "eps": null

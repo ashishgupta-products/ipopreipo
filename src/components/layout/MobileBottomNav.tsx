@@ -20,7 +20,8 @@ import {
   Newspaper,
   Award,
   Calendar,
-  CheckCircle2
+  CheckCircle2,
+  User
 } from "lucide-react";
 
 export const MobileBottomNav: React.FC = () => {
@@ -95,7 +96,7 @@ export const MobileBottomNav: React.FC = () => {
     { label: "Home", href: "/", icon: Home },
     { label: "Allotment", href: "/allotment", icon: CheckCircle2 },
     { label: "Pre-IPO", href: "/pre-ipo", icon: Flame },
-    { label: "News", href: "/articles", icon: Newspaper }
+    { label: "Account", href: "/profile", icon: User }
   ];
 
   return (
@@ -143,6 +144,28 @@ export const MobileBottomNav: React.FC = () => {
               </div>
             )}
 
+
+            <div className="space-y-1.5 pt-1">
+              <span className="font-black text-[10px] text-slate-400 uppercase tracking-wider block">Investor Account & Watchlist</span>
+              <div className="grid grid-cols-2 gap-2">
+                <Link onClick={() => setMenuOpen(false)} href="/profile?tab=watchlist" className="p-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200/80 flex items-center gap-2 font-bold text-amber-900">
+                  <Flame className="w-4 h-4 text-amber-600" />
+                  My Watchlist
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/profile?tab=applications" className="p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 border border-indigo-200/80 flex items-center gap-2 font-bold text-indigo-900">
+                  <Award className="w-4 h-4 text-indigo-600" />
+                  My IPO Bids
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/profile" className="p-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200/80 flex items-center gap-2 font-bold text-blue-900">
+                  <User className="w-4 h-4 text-blue-600" />
+                  Investor Profile
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/articles" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <Newspaper className="w-4 h-4 text-slate-600" />
+                  News & Blogs
+                </Link>
+              </div>
+            </div>
 
             <div className="space-y-1.5 pt-2 border-t border-slate-100">
               <span className="font-black text-[10px] text-slate-400 uppercase tracking-wider block">IPO Tools &amp; Utilities</span>

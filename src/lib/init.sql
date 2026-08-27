@@ -86,3 +86,52 @@ CREATE TABLE IF NOT EXISTS articles (
 
 CREATE INDEX IF NOT EXISTS idx_articles_slug ON articles(slug);
 CREATE INDEX IF NOT EXISTS idx_articles_status ON articles(status);
+
+CREATE TABLE IF NOT EXISTS users (
+    id VARCHAR(100) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    avatar_url VARCHAR(1000),
+    role VARCHAR(50) NOT NULL DEFAULT 'user',
+    investor_type VARCHAR(50) NOT NULL DEFAULT 'Retail',
+    phone VARCHAR(50),
+    pan_masked VARCHAR(50),
+    bio TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+
+CREATE TABLE IF NOT EXISTS user_watchlists (
+    id VARCHAR(100) PRIMARY KEY,
+    user_id VARCHAR(100) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    ipo_id VARCHAR(100) NOT NULL,
+    ipo_slug VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (user_id, ipo_slug)
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_watchlists_user_id ON user_watchlists(user_id);
+
+CREATE TABLE IF NOT EXISTS user_applications (
+    id VARCHAR(100) PRIMARY KEY,
+    user_id VARCHAR(100) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    ipo_id VARCHAR(100) NOT NULL,
+    ipo_slug VARCHAR(255) NOT NULL,
+    ipo_name VARCHAR(255) NOT NULL,
+    category VARCHAR(50) NOT NULL DEFAULT 'Retail',
+    lots_applied INT NOT NULL DEFAULT 1,
+    lot_size INT NOT NULL DEFAULT 1,
+    bid_price INT NOT NULL DEFAULT 0,
+    total_amount INT NOT NULL DEFAULT 0,
+    pan_masked VARCHAR(50),
+    application_number VARCHAR(100),
+    status VARCHAR(50) NOT NULL DEFAULT 'Applied',
+    allotted_lots INT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_applications_user_id ON user_applications(user_id);
+

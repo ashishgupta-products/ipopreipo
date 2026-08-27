@@ -28,6 +28,7 @@ import { MOCK_ANCHOR_LOCKINS } from "@/data/mockAnchorLockins";
 import { Badge } from "@/components/common/Badge";
 import { GMPCard } from "@/components/common/GMPCard";
 import { CompanyLogo } from "@/components/common/CompanyLogo";
+import { WatchlistButton } from "@/components/auth/WatchlistButton";
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
@@ -568,21 +569,24 @@ function HomeDashboardContent() {
                   </td>
 
                   <td className="py-3.5 px-3 text-right">
-                    {selectedTab === "allotment" ? (
-                      <Link
-                        href={`/allotment?ipo=${ipo.id}`}
-                        className="inline-flex items-center gap-1 font-bold text-xs text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-2.5 py-1 rounded-md border border-purple-200 transition-colors"
-                      >
-                        Check Allotment <ChevronRight className="w-3.5 h-3.5" />
-                      </Link>
-                    ) : (
-                      <Link
-                        href={`/ipo/${ipo.slug}`}
-                        className="inline-flex items-center gap-1 font-bold text-xs text-slate-800 hover:text-[#4f46e5] transition-colors"
-                      >
-                        Details <ChevronRight className="w-3.5 h-3.5" />
-                      </Link>
-                    )}
+                    <div className="inline-flex items-center gap-1.5 justify-end">
+                      <WatchlistButton ipoSlug={ipo.slug} ipoId={ipo.id} ipoName={ipo.name} />
+                      {selectedTab === "allotment" ? (
+                        <Link
+                          href={`/allotment?ipo=${ipo.id}`}
+                          className="inline-flex items-center gap-1 font-bold text-xs text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-2.5 py-1 rounded-md border border-purple-200 transition-colors"
+                        >
+                          Check Allotment <ChevronRight className="w-3.5 h-3.5" />
+                        </Link>
+                      ) : (
+                        <Link
+                          href={`/ipo/${ipo.slug}`}
+                          className="inline-flex items-center gap-1 font-bold text-xs text-slate-800 hover:text-[#4f46e5] transition-colors"
+                        >
+                          Details <ChevronRight className="w-3.5 h-3.5" />
+                        </Link>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -613,16 +617,19 @@ function HomeDashboardContent() {
               className="p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3.5">
-                {/* Top Row: Category (Left) & Status (Right) */}
+                {/* Top Row: Category (Left), Status & Watchlist (Right) */}
                 <div className="flex items-center justify-between">
                   <Badge category={ipo.category} />
-                  <Badge 
-                    status={ipo.status} 
-                    openDate={ipo.openDate} 
-                    closeDate={ipo.closeDate} 
-                    allotmentDate={ipo.allotmentDate} 
-                    listingDate={ipo.listingDate} 
-                  />
+                  <div className="flex items-center gap-1.5">
+                    <Badge 
+                      status={ipo.status} 
+                      openDate={ipo.openDate} 
+                      closeDate={ipo.closeDate} 
+                      allotmentDate={ipo.allotmentDate} 
+                      listingDate={ipo.listingDate} 
+                    />
+                    <WatchlistButton ipoSlug={ipo.slug} ipoId={ipo.id} ipoName={ipo.name} />
+                  </div>
                 </div>
 
                 {/* Company Logo, Name & Price Band */}
