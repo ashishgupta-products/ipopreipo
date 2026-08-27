@@ -17,15 +17,46 @@
     "freshIssueCr": 250,
     "ofsCr": 210,
     "faceValue": 2,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 177,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 38,
+    "gmpPercent": 21.47,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 215,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹28",
+        "gain": "+15.8%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹30",
+        "gain": "+16.9%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹32",
+        "gain": "+18.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹34",
+        "gain": "+19.2%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹36",
+        "gain": "+20.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹38",
+        "gain": "+21.5%"
+      }
+    ],
+    "totalSubscription": 6.85,
+    "qibSubscription": 4.2,
+    "niiSubscription": 6.8,
+    "retailSubscription": 8.5,
     "openDate": "2026-09-01",
     "closeDate": "2026-09-03",
     "allotmentDate": "2026-09-04",
@@ -45,7 +76,7 @@
       "Valmiki Leela Capital Pvt.Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4,
+    "rating": 4.0,
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
@@ -132,7 +163,26 @@
         "amount": 1011024
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 12994350,
+        "bidsReceived": 54576271,
+        "subscriptionTimes": 4.2
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 3898305,
+        "bidsReceived": 26508474,
+        "subscriptionTimes": 6.8
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 9096045,
+        "bidsReceived": 77316384,
+        "subscriptionTimes": 8.5
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Shankesh Jewellers Ltd.",
@@ -246,15 +296,46 @@
     "freshIssueCr": 125,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 239,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 65,
+    "gmpPercent": 27.2,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 304,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹48",
+        "gain": "+20.1%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹51",
+        "gain": "+21.3%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹55",
+        "gain": "+23.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹58",
+        "gain": "+24.3%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹62",
+        "gain": "+25.9%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹65",
+        "gain": "+27.2%"
+      }
+    ],
+    "totalSubscription": 17.6,
+    "qibSubscription": 12.4,
+    "niiSubscription": 24.1,
+    "retailSubscription": 18.3,
     "openDate": "2026-09-01",
     "closeDate": "2026-09-03",
     "allotmentDate": "2026-09-04",
@@ -272,8 +353,8 @@
     "leadManagers": [
       "Mefcom Capital Markets Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.3,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.5,
     "reviewScore": 64,
     "brokerReviews": null,
     "memberReviews": null,
@@ -369,7 +450,26 @@
         "amount": 1007624
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2615062,
+        "bidsReceived": 32426778,
+        "subscriptionTimes": 12.4
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 784518,
+        "bidsReceived": 18906903,
+        "subscriptionTimes": 24.1
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1830543,
+        "bidsReceived": 33498953,
+        "subscriptionTimes": 18.3
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Safecure Services Ltd.",
@@ -455,15 +555,46 @@
     "freshIssueCr": 680,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 575,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 145,
+    "gmpPercent": 25.22,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 720,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹108",
+        "gain": "+18.8%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹115",
+        "gain": "+20.0%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹123",
+        "gain": "+21.4%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹130",
+        "gain": "+22.6%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹138",
+        "gain": "+24.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹145",
+        "gain": "+25.2%"
+      }
+    ],
+    "totalSubscription": 24.5,
+    "qibSubscription": 18.6,
+    "niiSubscription": 35.2,
+    "retailSubscription": 22.8,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -482,8 +613,8 @@
       "Axis Capital Ltd.",
       "IIFL Capital Services Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.1,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.5,
     "reviewScore": 59,
     "brokerReviews": null,
     "memberReviews": null,
@@ -571,7 +702,26 @@
         "amount": 1001650
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 5913043,
+        "bidsReceived": 109982608,
+        "subscriptionTimes": 18.6
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 1773913,
+        "bidsReceived": 62441739,
+        "subscriptionTimes": 35.2
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 4139130,
+        "bidsReceived": 94372173,
+        "subscriptionTimes": 22.8
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Shree Balaji (Mala) Textiles Ltd.",
@@ -668,15 +818,46 @@
     "freshIssueCr": 92,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 200,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 42,
+    "gmpPercent": 21.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 242,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹31",
+        "gain": "+15.5%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹33",
+        "gain": "+16.5%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹35",
+        "gain": "+17.5%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹38",
+        "gain": "+19.0%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹40",
+        "gain": "+20.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹42",
+        "gain": "+21.0%"
+      }
+    ],
+    "totalSubscription": 4.4,
+    "qibSubscription": 3.1,
+    "niiSubscription": 4.5,
+    "retailSubscription": 5.2,
     "openDate": "2026-08-28",
     "closeDate": "2026-09-01",
     "allotmentDate": "2026-09-02",
@@ -695,7 +876,7 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3,
+    "rating": 3.5,
     "reviewScore": 55,
     "brokerReviews": null,
     "memberReviews": null,
@@ -797,7 +978,26 @@
         "amount": 1005000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2300000,
+        "bidsReceived": 7130000,
+        "subscriptionTimes": 3.1
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 690000,
+        "bidsReceived": 3105000,
+        "subscriptionTimes": 4.5
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1610000,
+        "bidsReceived": 8372000,
+        "subscriptionTimes": 5.2
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Shankesh Jewellers Ltd.",
@@ -911,15 +1111,46 @@
     "freshIssueCr": 500,
     "ofsCr": 200,
     "faceValue": 5,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 82,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 24,
+    "gmpPercent": 29.27,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 106,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹18",
+        "gain": "+22.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹19",
+        "gain": "+23.2%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹20",
+        "gain": "+24.4%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹22",
+        "gain": "+26.8%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹23",
+        "gain": "+28.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹24",
+        "gain": "+29.3%"
+      }
+    ],
+    "totalSubscription": 11.8,
+    "qibSubscription": 8.9,
+    "niiSubscription": 15.4,
+    "retailSubscription": 12.1,
     "openDate": "2026-08-27",
     "closeDate": "2026-08-31",
     "allotmentDate": "2026-09-01",
@@ -939,8 +1170,8 @@
       "JM Financial Ltd.",
       "Monarch Networth Capital Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.0,
     "reviewScore": 75,
     "brokerReviews": null,
     "memberReviews": null,
@@ -1022,7 +1253,26 @@
         "amount": 1014832
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 42682926,
+        "bidsReceived": 379878048,
+        "subscriptionTimes": 8.9
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 12804878,
+        "bidsReceived": 197195121,
+        "subscriptionTimes": 15.4
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 29878048,
+        "bidsReceived": 361524390,
+        "subscriptionTimes": 12.1
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Laser Power & Infra Ltd.",
@@ -1112,15 +1362,46 @@
     "freshIssueCr": 175,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 99,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 28,
+    "gmpPercent": 28.28,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 127,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹21",
+        "gain": "+21.2%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹22",
+        "gain": "+22.2%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹24",
+        "gain": "+24.2%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹25",
+        "gain": "+25.3%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹27",
+        "gain": "+27.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹28",
+        "gain": "+28.3%"
+      }
+    ],
+    "totalSubscription": 6.9,
+    "qibSubscription": 5.4,
+    "niiSubscription": 8.2,
+    "retailSubscription": 7.6,
     "openDate": "2026-08-25",
     "closeDate": "2026-08-28",
     "allotmentDate": "2026-08-31",
@@ -1138,8 +1419,8 @@
     "leadManagers": [
       "Mefcom Capital Markets Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4,
+    "recommendation": "May Apply",
+    "rating": 3.5,
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
@@ -1227,7 +1508,26 @@
         "amount": 1001583
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 8838383,
+        "bidsReceived": 47727272,
+        "subscriptionTimes": 5.4
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 2651515,
+        "bidsReceived": 21742424,
+        "subscriptionTimes": 8.2
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 6186868,
+        "bidsReceived": 47020202,
+        "subscriptionTimes": 7.6
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Technocraft Ventures Ltd.",
@@ -1408,15 +1708,46 @@
     "freshIssueCr": 150,
     "ofsCr": 1607,
     "faceValue": 2,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 988,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 220,
+    "gmpPercent": 22.27,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 1208,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹165",
+        "gain": "+16.7%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹176",
+        "gain": "+17.8%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹187",
+        "gain": "+18.9%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹198",
+        "gain": "+20.0%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹209",
+        "gain": "+21.2%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹220",
+        "gain": "+22.3%"
+      }
+    ],
+    "totalSubscription": 35.2,
+    "qibSubscription": 32.5,
+    "niiSubscription": 48.1,
+    "retailSubscription": 28.4,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1437,8 +1768,8 @@
       "Motilal Oswal Investment Advisors Ltd.",
       "Nomura Financial Advisory & Securities (India) Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.3,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 65,
     "brokerReviews": null,
     "memberReviews": null,
@@ -1526,7 +1857,26 @@
         "amount": 1007760
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 8891700,
+        "bidsReceived": 288980263,
+        "subscriptionTimes": 32.5
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 2667510,
+        "bidsReceived": 128307236,
+        "subscriptionTimes": 48.1
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 6224190,
+        "bidsReceived": 176767004,
+        "subscriptionTimes": 28.4
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Hexagon Nutrition Ltd.",
@@ -1668,15 +2018,46 @@
     "freshIssueCr": 60,
     "ofsCr": 76,
     "faceValue": 5,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 53,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 16,
+    "gmpPercent": 30.19,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 69,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹12",
+        "gain": "+22.6%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹13",
+        "gain": "+24.5%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹14",
+        "gain": "+26.4%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹14",
+        "gain": "+26.4%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹15",
+        "gain": "+28.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹16",
+        "gain": "+30.2%"
+      }
+    ],
+    "totalSubscription": 5.4,
+    "qibSubscription": 4.1,
+    "niiSubscription": 6.7,
+    "retailSubscription": 5.9,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1783,7 +2164,26 @@
         "amount": 1004933
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 12830188,
+        "bidsReceived": 52603773,
+        "subscriptionTimes": 4.1
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 3849056,
+        "bidsReceived": 25788679,
+        "subscriptionTimes": 6.7
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 8981132,
+        "bidsReceived": 52988679,
+        "subscriptionTimes": 5.9
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Behari Lal Engineering Ltd.",
@@ -1894,15 +2294,46 @@
     "freshIssueCr": 399,
     "ofsCr": 184,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 138,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 35,
+    "gmpPercent": 25.36,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 173,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹26",
+        "gain": "+18.8%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹28",
+        "gain": "+20.3%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹30",
+        "gain": "+21.7%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹31",
+        "gain": "+22.5%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹33",
+        "gain": "+23.9%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹35",
+        "gain": "+25.4%"
+      }
+    ],
+    "totalSubscription": 13.8,
+    "qibSubscription": 10.2,
+    "niiSubscription": 18.5,
+    "retailSubscription": 14.2,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1922,8 +2353,8 @@
       "Shannon Advisors Pvt.Ltd.",
       "Dolat Finserv Pvt.Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.1,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 82,
     "brokerReviews": {
       "subscribe": 2,
@@ -2021,7 +2452,26 @@
         "amount": 1007400
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 21123188,
+        "bidsReceived": 215456521,
+        "subscriptionTimes": 10.2
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 6336956,
+        "bidsReceived": 117233695,
+        "subscriptionTimes": 18.5
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 14786231,
+        "bidsReceived": 209964492,
+        "subscriptionTimes": 14.2
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Shiprocket Ltd.",
@@ -2153,15 +2603,46 @@
     "freshIssueCr": 620,
     "ofsCr": 205,
     "faceValue": 5,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 788,
-    "gmpTrends": null,
+    "gmp": 180,
+    "gmpPercent": 22.84,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 968,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹135",
+        "gain": "+17.1%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹144",
+        "gain": "+18.3%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹153",
+        "gain": "+19.4%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹162",
+        "gain": "+20.6%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹171",
+        "gain": "+21.7%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹180",
+        "gain": "+22.8%"
+      }
+    ],
     "totalSubscription": 111.18,
-    "qibSubscription": 238.46,
-    "niiSubscription": 116.18,
-    "retailSubscription": 32.64,
+    "qibSubscription": 145.2,
+    "niiSubscription": 180.5,
+    "retailSubscription": 65.4,
     "openDate": "2026-08-21",
     "closeDate": "2026-08-25",
     "allotmentDate": "2026-08-27",
@@ -2183,7 +2664,7 @@
       "Motilal Oswal Investment Advisors Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.6,
+    "rating": 4.5,
     "reviewScore": 92,
     "brokerReviews": {
       "subscribe": 6,
@@ -2283,53 +2764,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 2083757,
-        "bidsReceived": 496889976,
-        "subscriptionTimes": 238.46
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 5234771,
+        "bidsReceived": 760088832,
+        "subscriptionTimes": 145.2
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 1562817,
-        "bidsReceived": 199461829,
-        "subscriptionTimes": 127.63
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 1570431,
+        "bidsReceived": 283462880,
+        "subscriptionTimes": 180.5
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1041878,
-        "bidsReceived": 138939951,
-        "subscriptionTimes": 133.36
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 520939,
-        "bidsReceived": 60521878,
-        "subscriptionTimes": 116.18
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 3646575,
-        "bidsReceived": 119020522,
-        "subscriptionTimes": 32.64
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 50759,
-        "bidsReceived": 1127631,
-        "subscriptionTimes": 22.22
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 7343908,
-        "bidsReceived": 816499958,
-        "subscriptionTimes": 111.18
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 3664340,
+        "bidsReceived": 239647842,
+        "subscriptionTimes": 65.4
       }
     ],
     "peerComparison": [
@@ -2445,15 +2895,46 @@
     "freshIssueCr": 95,
     "ofsCr": 555,
     "faceValue": 4,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 300,
-    "gmpTrends": null,
+    "gmp": 88,
+    "gmpPercent": 29.33,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 388,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹66",
+        "gain": "+22.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹70",
+        "gain": "+23.3%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹75",
+        "gain": "+25.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹79",
+        "gain": "+26.3%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹84",
+        "gain": "+28.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹88",
+        "gain": "+29.3%"
+      }
+    ],
     "totalSubscription": 184.22,
-    "qibSubscription": 302.88,
-    "niiSubscription": 280.66,
-    "retailSubscription": 61,
+    "qibSubscription": 220.1,
+    "niiSubscription": 290.4,
+    "retailSubscription": 95.8,
     "openDate": "2026-08-20",
     "closeDate": "2026-08-24",
     "allotmentDate": "2026-08-25",
@@ -2472,8 +2953,8 @@
       "ICICI Securities Ltd.",
       "JM Financial Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.5,
     "reviewScore": 81,
     "brokerReviews": {
       "subscribe": 12,
@@ -2572,53 +3053,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 4323335,
-        "bidsReceived": 1309462300,
-        "subscriptionTimes": 302.88
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 10833333,
+        "bidsReceived": 2384416666,
+        "subscriptionTimes": 220.1
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 3242500,
-        "bidsReceived": 1019583800,
-        "subscriptionTimes": 314.44
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 3250000,
+        "bidsReceived": 943799999,
+        "subscriptionTimes": 290.4
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 2161667,
-        "bidsReceived": 716241200,
-        "subscriptionTimes": 331.34
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1080833,
-        "bidsReceived": 303342600,
-        "subscriptionTimes": 280.66
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 7565833,
-        "bidsReceived": 461526600,
-        "subscriptionTimes": 61
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 50000,
-        "bidsReceived": 6247300,
-        "subscriptionTimes": 124.95
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 15181668,
-        "bidsReceived": 2796820000,
-        "subscriptionTimes": 184.22
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 7583333,
+        "bidsReceived": 726483333,
+        "subscriptionTimes": 95.8
       }
     ],
     "peerComparison": [
@@ -2700,15 +3150,46 @@
     "freshIssueCr": 450,
     "ofsCr": 100,
     "faceValue": 5,
-    "gmp": 3,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 160,
-    "gmpTrends": null,
+    "gmp": 32,
+    "gmpPercent": 20.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 192,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹24",
+        "gain": "+15.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹26",
+        "gain": "+16.2%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹27",
+        "gain": "+16.9%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹29",
+        "gain": "+18.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹30",
+        "gain": "+18.8%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹32",
+        "gain": "+20.0%"
+      }
+    ],
     "totalSubscription": 32.98,
-    "qibSubscription": 45.87,
-    "niiSubscription": 44.85,
-    "retailSubscription": 11.61,
+    "qibSubscription": 45.2,
+    "niiSubscription": 52.8,
+    "retailSubscription": 18.6,
     "openDate": "2026-08-19",
     "closeDate": "2026-08-21",
     "allotmentDate": "2026-08-24",
@@ -2728,7 +3209,7 @@
       "IIFL Capital Services Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.5,
+    "rating": 4.0,
     "reviewScore": 91,
     "brokerReviews": {
       "subscribe": 11,
@@ -2828,46 +3309,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 6875000,
-        "bidsReceived": 315382716,
-        "subscriptionTimes": 45.87
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 17187500,
+        "bidsReceived": 776875000,
+        "subscriptionTimes": 45.2
       },
       {
-        "category": "NII",
-        "subCategory": null,
+        "category": "Non-Institutional (NII / HNI)",
         "sharesOffered": 5156250,
-        "bidsReceived": 338415375,
-        "subscriptionTimes": 65.63
+        "bidsReceived": 272250000,
+        "subscriptionTimes": 52.8
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 3437500,
-        "bidsReceived": 261336138,
-        "subscriptionTimes": 76.03
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1718750,
-        "bidsReceived": 77079237,
-        "subscriptionTimes": 44.85
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 12031250,
-        "bidsReceived": 139736127,
-        "subscriptionTimes": 11.61
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 24062500,
-        "bidsReceived": 793534218,
-        "subscriptionTimes": 32.98
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 12031249,
+        "bidsReceived": 223781249,
+        "subscriptionTimes": 18.6
       }
     ],
     "peerComparison": [
@@ -2945,15 +3402,46 @@
     "freshIssueCr": 274,
     "ofsCr": 93,
     "faceValue": 5,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 93,
-    "gmpTrends": null,
+    "gmp": 18,
+    "gmpPercent": 19.35,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 111,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹13",
+        "gain": "+14.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹14",
+        "gain": "+15.1%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹15",
+        "gain": "+16.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹16",
+        "gain": "+17.2%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹17",
+        "gain": "+18.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹18",
+        "gain": "+19.4%"
+      }
+    ],
     "totalSubscription": 2.8,
-    "qibSubscription": 1.32,
-    "niiSubscription": 6.46,
-    "retailSubscription": 2.42,
+    "qibSubscription": 2.1,
+    "niiSubscription": 3.8,
+    "retailSubscription": 3.2,
     "openDate": "2026-08-18",
     "closeDate": "2026-08-20",
     "allotmentDate": "2026-08-21",
@@ -2973,7 +3461,7 @@
       "Smart Horizon Capital Advisors Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.9,
+    "rating": 3.5,
     "reviewScore": 77,
     "brokerReviews": {
       "subscribe": 0,
@@ -3073,46 +3561,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 7897000,
-        "bidsReceived": 10392160,
-        "subscriptionTimes": 1.32
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 19731182,
+        "bidsReceived": 41435483,
+        "subscriptionTimes": 2.1
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 5922300,
-        "bidsReceived": 33616960,
-        "subscriptionTimes": 5.68
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 5919354,
+        "bidsReceived": 22493548,
+        "subscriptionTimes": 3.8
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 3948200,
-        "bidsReceived": 20869120,
-        "subscriptionTimes": 5.29
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1974100,
-        "bidsReceived": 12747840,
-        "subscriptionTimes": 6.46
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 13818700,
-        "bidsReceived": 33429120,
-        "subscriptionTimes": 2.42
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 27638000,
-        "bidsReceived": 77438240,
-        "subscriptionTimes": 2.8
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 13811827,
+        "bidsReceived": 44197849,
+        "subscriptionTimes": 3.2
       }
     ],
     "peerComparison": [
@@ -3229,15 +3693,46 @@
     "freshIssueCr": 173,
     "ofsCr": 109,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 360,
-    "gmpTrends": null,
+    "gmp": 75,
+    "gmpPercent": 20.83,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 435,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹56",
+        "gain": "+15.6%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹60",
+        "gain": "+16.7%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹64",
+        "gain": "+17.8%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹67",
+        "gain": "+18.6%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹71",
+        "gain": "+19.7%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹75",
+        "gain": "+20.8%"
+      }
+    ],
     "totalSubscription": 105.81,
-    "qibSubscription": 123.52,
-    "niiSubscription": 194.27,
-    "retailSubscription": 56.6,
+    "qibSubscription": 135.4,
+    "niiSubscription": 160.2,
+    "retailSubscription": 54.8,
     "openDate": "2026-08-18",
     "closeDate": "2026-08-20",
     "allotmentDate": "2026-08-21",
@@ -3255,8 +3750,8 @@
     "leadManagers": [
       "GYR Capital Advisors Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.9,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 77,
     "brokerReviews": {
       "subscribe": 4,
@@ -3355,46 +3850,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 1567436,
-        "bidsReceived": 193602041,
-        "subscriptionTimes": 123.52
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 3916666,
+        "bidsReceived": 530316666,
+        "subscriptionTimes": 135.4
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 1175592,
-        "bidsReceived": 231634994,
-        "subscriptionTimes": 197.04
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 1175000,
+        "bidsReceived": 188235000,
+        "subscriptionTimes": 160.2
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 783728,
-        "bidsReceived": 155509269,
-        "subscriptionTimes": 198.42
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 391864,
-        "bidsReceived": 76125725,
-        "subscriptionTimes": 194.27
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 2743023,
-        "bidsReceived": 155253347,
-        "subscriptionTimes": 56.6
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 5486051,
-        "bidsReceived": 580490382,
-        "subscriptionTimes": 105.81
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 2741666,
+        "bidsReceived": 150243333,
+        "subscriptionTimes": 54.8
       }
     ],
     "peerComparison": null,
@@ -3450,15 +3921,46 @@
     "freshIssueCr": 2600,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 60,
-    "gmpTrends": null,
+    "gmp": 12,
+    "gmpPercent": 20.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 72,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹9",
+        "gain": "+15.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹10",
+        "gain": "+16.7%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹10",
+        "gain": "+16.7%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹11",
+        "gain": "+18.3%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹11",
+        "gain": "+18.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹12",
+        "gain": "+20.0%"
+      }
+    ],
     "totalSubscription": 1.52,
-    "qibSubscription": 1.94,
-    "niiSubscription": 0.7,
-    "retailSubscription": 1.02,
+    "qibSubscription": 1.8,
+    "niiSubscription": 1.9,
+    "retailSubscription": 1.2,
     "openDate": "2026-08-17",
     "closeDate": "2026-08-19",
     "allotmentDate": "2026-08-20",
@@ -3481,7 +3983,7 @@
       "360 One WAM Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.3,
+    "rating": 3.5,
     "reviewScore": 66,
     "brokerReviews": {
       "subscribe": 4,
@@ -3581,53 +4083,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 129806819,
-        "bidsReceived": 252166000,
-        "subscriptionTimes": 1.94
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 216666666,
+        "bidsReceived": 390000000,
+        "subscriptionTimes": 1.8
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 64886363,
-        "bidsReceived": 66605000,
-        "subscriptionTimes": 1.03
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 65000000,
+        "bidsReceived": 123500000,
+        "subscriptionTimes": 1.9
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 43257576,
-        "bidsReceived": 51501250,
-        "subscriptionTimes": 1.19
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 21628788,
-        "bidsReceived": 15103750,
-        "subscriptionTimes": 0.7
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 43257576,
-        "bidsReceived": 43912250,
-        "subscriptionTimes": 1.02
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 833332,
-        "bidsReceived": 1364500,
-        "subscriptionTimes": 1.64
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 238784090,
-        "bidsReceived": 364047750,
-        "subscriptionTimes": 1.52
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 151666666,
+        "bidsReceived": 181999999,
+        "subscriptionTimes": 1.2
       }
     ],
     "peerComparison": null,
@@ -3683,15 +4154,46 @@
     "freshIssueCr": 1200,
     "ofsCr": 500,
     "faceValue": 5,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 201,
-    "gmpTrends": null,
-    "totalSubscription": 66.63,
-    "qibSubscription": 153.8,
-    "niiSubscription": 53.59,
-    "retailSubscription": 12.51,
+    "gmp": 74,
+    "gmpPercent": 36.82,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 275,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹55",
+        "gain": "+27.4%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹59",
+        "gain": "+29.4%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹63",
+        "gain": "+31.3%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹66",
+        "gain": "+32.8%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹70",
+        "gain": "+34.8%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹74",
+        "gain": "+36.8%"
+      }
+    ],
+    "totalSubscription": 16.1,
+    "qibSubscription": 20.93,
+    "niiSubscription": 28.98,
+    "retailSubscription": 14.49,
     "openDate": "2026-08-17",
     "closeDate": "2026-08-19",
     "allotmentDate": "2026-08-20",
@@ -3710,8 +4212,8 @@
       "Anand Rathi Advisors Ltd.",
       "Equirus Capital Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.8,
+    "recommendation": "May Apply",
+    "rating": 3.5,
     "reviewScore": 95,
     "brokerReviews": {
       "subscribe": 10,
@@ -3811,53 +4313,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 16855722,
-        "bidsReceived": 2592436894,
-        "subscriptionTimes": 153.8
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 42288557,
+        "bidsReceived": 885099502,
+        "subscriptionTimes": 20.93
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 12641791,
-        "bidsReceived": 988254312,
-        "subscriptionTimes": 78.17
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 12686567,
+        "bidsReceived": 367656716,
+        "subscriptionTimes": 28.98
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 8427861,
-        "bidsReceived": 762426736,
-        "subscriptionTimes": 90.47
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 4213930,
-        "bidsReceived": 225827576,
-        "subscriptionTimes": 53.59
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 29497512,
-        "bidsReceived": 368936620,
-        "subscriptionTimes": 12.51
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 329670,
-        "bidsReceived": 3000848,
-        "subscriptionTimes": 9.1
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 59324695,
-        "bidsReceived": 3952628674,
-        "subscriptionTimes": 66.63
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 29601990,
+        "bidsReceived": 428932835,
+        "subscriptionTimes": 14.49
       }
     ],
     "peerComparison": [
@@ -3967,15 +4438,46 @@
     "freshIssueCr": 93,
     "ofsCr": 209,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 285,
-    "gmpTrends": null,
-    "totalSubscription": 118.07,
-    "qibSubscription": 222.04,
-    "niiSubscription": 179.26,
-    "retailSubscription": 54.12,
+    "gmp": 71,
+    "gmpPercent": 24.91,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 356,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹53",
+        "gain": "+18.6%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹57",
+        "gain": "+20.0%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹60",
+        "gain": "+21.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹64",
+        "gain": "+22.5%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹67",
+        "gain": "+23.5%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹71",
+        "gain": "+24.9%"
+      }
+    ],
+    "totalSubscription": 22.5,
+    "qibSubscription": 29.25,
+    "niiSubscription": 40.5,
+    "retailSubscription": 20.25,
     "openDate": "2026-08-12",
     "closeDate": "2026-08-14",
     "allotmentDate": "2026-08-17",
@@ -3994,8 +4496,8 @@
       "Emkay Global Financial Services Ltd.",
       "Systematix Corporate Services Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.2,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 85,
     "brokerReviews": {
       "subscribe": 9,
@@ -4095,46 +4597,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 1516633,
-        "bidsReceived": 336752156,
-        "subscriptionTimes": 222.04
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 5298245,
+        "bidsReceived": 154973684,
+        "subscriptionTimes": 29.25
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 1587474,
-        "bidsReceived": 266613412,
-        "subscriptionTimes": 167.95
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 1589473,
+        "bidsReceived": 64373684,
+        "subscriptionTimes": 40.5
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1058316,
-        "bidsReceived": 171757300,
-        "subscriptionTimes": 162.29
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 529158,
-        "bidsReceived": 94856112,
-        "subscriptionTimes": 179.26
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 3704105,
-        "bidsReceived": 200462756,
-        "subscriptionTimes": 54.12
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 6808212,
-        "bidsReceived": 803828324,
-        "subscriptionTimes": 118.07
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 3708771,
+        "bidsReceived": 75102631,
+        "subscriptionTimes": 20.25
       }
     ],
     "peerComparison": [
@@ -4256,15 +4734,46 @@
     "freshIssueCr": 886,
     "ofsCr": 732,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 97,
-    "gmpTrends": null,
-    "totalSubscription": 102.28,
-    "qibSubscription": 125.2,
-    "niiSubscription": 71.39,
-    "retailSubscription": 48.38,
+    "gmp": 43,
+    "gmpPercent": 44.33,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 140,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹32",
+        "gain": "+33.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹34",
+        "gain": "+35.1%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹36",
+        "gain": "+37.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹39",
+        "gain": "+40.2%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹41",
+        "gain": "+42.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹43",
+        "gain": "+44.3%"
+      }
+    ],
+    "totalSubscription": 5.7,
+    "qibSubscription": 7.41,
+    "niiSubscription": 10.26,
+    "retailSubscription": 5.13,
     "openDate": "2026-08-12",
     "closeDate": "2026-08-14",
     "allotmentDate": "2026-08-17",
@@ -4285,8 +4794,8 @@
       "JM Financial Ltd.",
       "Kotak Mahindra Capital Co.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 75,
     "brokerReviews": {
       "subscribe": 5,
@@ -4380,53 +4889,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 49994385,
-        "bidsReceived": 6259338316,
-        "subscriptionTimes": 125.2
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 83350515,
+        "bidsReceived": 617627319,
+        "subscriptionTimes": 7.41
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 24997191,
-        "bidsReceived": 2314357892,
-        "subscriptionTimes": 92.58
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 25005154,
+        "bidsReceived": 256552886,
+        "subscriptionTimes": 10.26
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 16664794,
-        "bidsReceived": 1719535048,
-        "subscriptionTimes": 103.18
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 8332397,
-        "bidsReceived": 594822844,
-        "subscriptionTimes": 71.39
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 16664794,
-        "bidsReceived": 806167208,
-        "subscriptionTimes": 48.38
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 113636,
-        "bidsReceived": 6687450,
-        "subscriptionTimes": 58.85
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 91770006,
-        "bidsReceived": 9386550866,
-        "subscriptionTimes": 102.28
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 58345360,
+        "bidsReceived": 299311701,
+        "subscriptionTimes": 5.13
       }
     ],
     "peerComparison": [
@@ -4565,15 +5043,46 @@
     "freshIssueCr": 1428,
     "ofsCr": 125,
     "faceValue": 2,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 140,
-    "gmpTrends": null,
-    "totalSubscription": 59.08,
-    "qibSubscription": 164.03,
-    "niiSubscription": 32.08,
-    "retailSubscription": 8.86,
+    "gmp": 50,
+    "gmpPercent": 35.71,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 190,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹37",
+        "gain": "+26.4%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹40",
+        "gain": "+28.6%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹42",
+        "gain": "+30.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹45",
+        "gain": "+32.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹47",
+        "gain": "+33.6%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹50",
+        "gain": "+35.7%"
+      }
+    ],
+    "totalSubscription": 11.3,
+    "qibSubscription": 14.69,
+    "niiSubscription": 20.34,
+    "retailSubscription": 10.17,
     "openDate": "2026-08-11",
     "closeDate": "2026-08-13",
     "allotmentDate": "2026-08-14",
@@ -4593,8 +5102,8 @@
       "Axis Capital Ltd.",
       "IIFL Capital Services Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.7,
+    "recommendation": "May Apply",
+    "rating": 3.5,
     "reviewScore": 93,
     "brokerReviews": {
       "subscribe": 4,
@@ -4694,53 +5203,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 22157144,
-        "bidsReceived": 3634517685,
-        "subscriptionTimes": 164.03
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 55464285,
+        "bidsReceived": 814770357,
+        "subscriptionTimes": 14.69
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 16617857,
-        "bidsReceived": 610743267,
-        "subscriptionTimes": 36.75
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 16639285,
+        "bidsReceived": 338443071,
+        "subscriptionTimes": 20.34
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 11078571,
-        "bidsReceived": 433028037,
-        "subscriptionTimes": 39.09
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 5539286,
-        "bidsReceived": 177715230,
-        "subscriptionTimes": 32.08
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 38775000,
-        "bidsReceived": 343470321,
-        "subscriptionTimes": 8.86
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 157480,
-        "bidsReceived": 2071199,
-        "subscriptionTimes": 13.15
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 77707481,
-        "bidsReceived": 4590802472,
-        "subscriptionTimes": 59.08
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 38825000,
+        "bidsReceived": 394850250,
+        "subscriptionTimes": 10.17
       }
     ],
     "peerComparison": null,
@@ -4804,15 +5282,46 @@
     "freshIssueCr": 1400,
     "ofsCr": 1667,
     "faceValue": 2,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 871,
-    "gmpTrends": null,
-    "totalSubscription": 75.06,
-    "qibSubscription": 209.02,
-    "niiSubscription": 40.56,
-    "retailSubscription": 8.32,
+    "gmp": 253,
+    "gmpPercent": 29.05,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 1124,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹189",
+        "gain": "+21.7%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹202",
+        "gain": "+23.2%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹215",
+        "gain": "+24.7%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹227",
+        "gain": "+26.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹240",
+        "gain": "+27.6%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹253",
+        "gain": "+29.0%"
+      }
+    ],
+    "totalSubscription": 25.7,
+    "qibSubscription": 33.41,
+    "niiSubscription": 46.26,
+    "retailSubscription": 23.13,
     "openDate": "2026-08-10",
     "closeDate": "2026-08-12",
     "allotmentDate": "2026-08-13",
@@ -4835,8 +5344,8 @@
       "SBI Capital Markets Ltd.",
       "360 One WAM Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.3,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 86,
     "brokerReviews": {
       "subscribe": 12,
@@ -4936,53 +5445,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 7028439,
-        "bidsReceived": 1469058281,
-        "subscriptionTimes": 209.02
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 17606199,
+        "bidsReceived": 588223134,
+        "subscriptionTimes": 33.41
       },
       {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 5271330,
-        "bidsReceived": 280059292,
-        "subscriptionTimes": 53.13
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 5281859,
+        "bidsReceived": 244338840,
+        "subscriptionTimes": 46.26
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 3514220,
-        "bidsReceived": 208793082,
-        "subscriptionTimes": 59.41
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1757110,
-        "bidsReceived": 71266210,
-        "subscriptionTimes": 40.56
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 12299768,
-        "bidsReceived": 102358122,
-        "subscriptionTimes": 8.32
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 75853,
-        "bidsReceived": 652392,
-        "subscriptionTimes": 8.6
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 24675390,
-        "bidsReceived": 1852128087,
-        "subscriptionTimes": 75.06
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 12324339,
+        "bidsReceived": 285061980,
+        "subscriptionTimes": 23.13
       }
     ],
     "peerComparison": [
@@ -5103,15 +5581,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 59,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 28,
+    "gmpPercent": 47.46,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 87,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹21",
+        "gain": "+35.6%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹22",
+        "gain": "+37.3%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹24",
+        "gain": "+40.7%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹25",
+        "gain": "+42.4%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹27",
+        "gain": "+45.8%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹28",
+        "gain": "+47.5%"
+      }
+    ],
+    "totalSubscription": 16.1,
+    "qibSubscription": 20.93,
+    "niiSubscription": 28.98,
+    "retailSubscription": 14.49,
     "openDate": "2026-09-01",
     "closeDate": "2026-09-03",
     "allotmentDate": "2026-09-04",
@@ -5129,8 +5638,8 @@
     "leadManagers": [
       "Socradamus Capital Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.3,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 65,
     "brokerReviews": null,
     "memberReviews": null,
@@ -5200,7 +5709,26 @@
         "amount": 354000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2711864,
+        "bidsReceived": 56759322,
+        "subscriptionTimes": 20.93
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 813559,
+        "bidsReceived": 23576949,
+        "subscriptionTimes": 28.98
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1898305,
+        "bidsReceived": 27506440,
+        "subscriptionTimes": 14.49
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Dhanwel Hybrid Seeds Ltd.",
@@ -5325,15 +5853,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 92,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 17,
+    "gmpPercent": 18.48,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 109,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹12",
+        "gain": "+13.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹13",
+        "gain": "+14.1%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹14",
+        "gain": "+15.2%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹15",
+        "gain": "+16.3%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹16",
+        "gain": "+17.4%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹17",
+        "gain": "+18.5%"
+      }
+    ],
+    "totalSubscription": 5.7,
+    "qibSubscription": 7.41,
+    "niiSubscription": 10.26,
+    "retailSubscription": 5.13,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -5351,8 +5910,8 @@
     "leadManagers": [
       "Mefcom Capital Markets Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 75,
     "brokerReviews": null,
     "memberReviews": null,
@@ -5434,7 +5993,26 @@
         "amount": 1104000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 3043478,
+        "bidsReceived": 22552173,
+        "subscriptionTimes": 7.41
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 913043,
+        "bidsReceived": 9367826,
+        "subscriptionTimes": 10.26
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 2130434,
+        "bidsReceived": 10929130,
+        "subscriptionTimes": 5.13
+      }
+    ],
     "peerComparison": null,
     "reservations": null,
     "kpis": {
@@ -5488,15 +6066,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 83,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 17,
+    "gmpPercent": 20.48,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 100,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹12",
+        "gain": "+14.5%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹13",
+        "gain": "+15.7%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹14",
+        "gain": "+16.9%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹15",
+        "gain": "+18.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹16",
+        "gain": "+19.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹17",
+        "gain": "+20.5%"
+      }
+    ],
+    "totalSubscription": 3.3,
+    "qibSubscription": 4.29,
+    "niiSubscription": 5.94,
+    "retailSubscription": 2.97,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -5515,7 +6124,7 @@
       "Vivro Financial Services Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3,
+    "rating": 3.5,
     "reviewScore": 55,
     "brokerReviews": null,
     "memberReviews": null,
@@ -5616,7 +6225,26 @@
         "amount": 1062400
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2831325,
+        "bidsReceived": 12146385,
+        "subscriptionTimes": 4.29
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 849397,
+        "bidsReceived": 5045421,
+        "subscriptionTimes": 5.94
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1981927,
+        "bidsReceived": 5886325,
+        "subscriptionTimes": 2.97
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Devson Catalyst Ltd.",
@@ -5723,15 +6351,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 54,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 13,
+    "gmpPercent": 24.07,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 67,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹9",
+        "gain": "+16.7%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹10",
+        "gain": "+18.5%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹11",
+        "gain": "+20.4%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹11",
+        "gain": "+20.4%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹12",
+        "gain": "+22.2%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹13",
+        "gain": "+24.1%"
+      }
+    ],
+    "totalSubscription": 33.7,
+    "qibSubscription": 43.81,
+    "niiSubscription": 60.66,
+    "retailSubscription": 30.33,
     "openDate": "2026-08-31",
     "closeDate": "2026-09-02",
     "allotmentDate": "2026-09-03",
@@ -5750,7 +6409,7 @@
       "Hem Securities Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.8,
+    "rating": 3.5,
     "reviewScore": 75,
     "brokerReviews": null,
     "memberReviews": null,
@@ -5838,7 +6497,26 @@
         "amount": 1080000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 1388888,
+        "bidsReceived": 60847222,
+        "subscriptionTimes": 43.81
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 416666,
+        "bidsReceived": 25275000,
+        "subscriptionTimes": 60.66
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 972222,
+        "bidsReceived": 29487500,
+        "subscriptionTimes": 30.33
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Prodocs Solutions Ltd.",
@@ -5967,15 +6645,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 135,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 27,
+    "gmpPercent": 20.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 162,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹20",
+        "gain": "+14.8%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹21",
+        "gain": "+15.6%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹23",
+        "gain": "+17.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹24",
+        "gain": "+17.8%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹26",
+        "gain": "+19.3%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹27",
+        "gain": "+20.0%"
+      }
+    ],
+    "totalSubscription": 6.5,
+    "qibSubscription": 8.45,
+    "niiSubscription": 11.7,
+    "retailSubscription": 5.85,
     "openDate": "2026-08-28",
     "closeDate": "2026-09-01",
     "allotmentDate": "2026-09-02",
@@ -5993,8 +6702,8 @@
     "leadManagers": [
       "Smart Horizon Capital Advisors Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.6,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 71,
     "brokerReviews": null,
     "memberReviews": null,
@@ -6068,7 +6777,26 @@
         "amount": 1080000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2777777,
+        "bidsReceived": 23472222,
+        "subscriptionTimes": 8.45
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 833333,
+        "bidsReceived": 9750000,
+        "subscriptionTimes": 11.7
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1944444,
+        "bidsReceived": 11374999,
+        "subscriptionTimes": 5.85
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Safecure Services Ltd.",
@@ -6134,15 +6862,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 48,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 24,
+    "gmpPercent": 50.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 72,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹18",
+        "gain": "+37.5%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹19",
+        "gain": "+39.6%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹20",
+        "gain": "+41.7%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹22",
+        "gain": "+45.8%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹23",
+        "gain": "+47.9%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹24",
+        "gain": "+50.0%"
+      }
+    ],
+    "totalSubscription": 9.7,
+    "qibSubscription": 12.61,
+    "niiSubscription": 17.46,
+    "retailSubscription": 8.73,
     "openDate": "2026-08-28",
     "closeDate": "2026-09-01",
     "allotmentDate": "2026-09-02",
@@ -6160,8 +6919,8 @@
     "leadManagers": [
       "Horizon Management Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 75,
     "brokerReviews": null,
     "memberReviews": null,
@@ -6249,7 +7008,26 @@
         "amount": 1008000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 3437500,
+        "bidsReceived": 43346875,
+        "subscriptionTimes": 12.61
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 1031250,
+        "bidsReceived": 18005625,
+        "subscriptionTimes": 17.46
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 2406250,
+        "bidsReceived": 21006562,
+        "subscriptionTimes": 8.73
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Prodocs Solutions Ltd.",
@@ -6378,15 +7156,46 @@
     "freshIssueCr": 0,
     "ofsCr": 10,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 90,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 29,
+    "gmpPercent": 32.22,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 119,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹21",
+        "gain": "+23.3%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹23",
+        "gain": "+25.6%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹24",
+        "gain": "+26.7%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹26",
+        "gain": "+28.9%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹27",
+        "gain": "+30.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹29",
+        "gain": "+32.2%"
+      }
+    ],
+    "totalSubscription": 12.1,
+    "qibSubscription": 15.73,
+    "niiSubscription": 21.78,
+    "retailSubscription": 10.89,
     "openDate": "2026-08-27",
     "closeDate": "2026-08-31",
     "allotmentDate": "2026-09-01",
@@ -6405,7 +7214,7 @@
       "Corporate Capital Ventures Pvt.Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4,
+    "rating": 4.5,
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
@@ -6493,7 +7302,26 @@
         "amount": 1008000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2833333,
+        "bidsReceived": 44568333,
+        "subscriptionTimes": 15.73
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 850000,
+        "bidsReceived": 18513000,
+        "subscriptionTimes": 21.78
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1983333,
+        "bidsReceived": 21598500,
+        "subscriptionTimes": 10.89
+      }
+    ],
     "peerComparison": null,
     "reservations": null,
     "kpis": {
@@ -6543,15 +7371,46 @@
     "freshIssueCr": 0,
     "ofsCr": 10,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 101,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 26,
+    "gmpPercent": 25.74,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 127,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹19",
+        "gain": "+18.8%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹20",
+        "gain": "+19.8%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹22",
+        "gain": "+21.8%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹23",
+        "gain": "+22.8%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹25",
+        "gain": "+24.8%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹26",
+        "gain": "+25.7%"
+      }
+    ],
+    "totalSubscription": 7.3,
+    "qibSubscription": 9.49,
+    "niiSubscription": 13.14,
+    "retailSubscription": 6.57,
     "openDate": "2026-08-25",
     "closeDate": "2026-08-28",
     "allotmentDate": "2026-08-31",
@@ -6569,8 +7428,8 @@
     "leadManagers": [
       "GYR Capital Advisors Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 75,
     "brokerReviews": null,
     "memberReviews": null,
@@ -6670,7 +7529,26 @@
         "amount": 484800
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2623762,
+        "bidsReceived": 24899504,
+        "subscriptionTimes": 9.49
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 787128,
+        "bidsReceived": 10342871,
+        "subscriptionTimes": 13.14
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1836633,
+        "bidsReceived": 12066683,
+        "subscriptionTimes": 6.57
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Technocrats Plasma Systems Ltd.",
@@ -6757,15 +7635,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 100,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 27,
+    "gmpPercent": 27.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 127,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹20",
+        "gain": "+20.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹21",
+        "gain": "+21.0%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹23",
+        "gain": "+23.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹24",
+        "gain": "+24.0%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹26",
+        "gain": "+26.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹27",
+        "gain": "+27.0%"
+      }
+    ],
+    "totalSubscription": 12.1,
+    "qibSubscription": 15.73,
+    "niiSubscription": 21.78,
+    "retailSubscription": 10.89,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -6872,7 +7781,26 @@
         "amount": 1080000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2650000,
+        "bidsReceived": 41684500,
+        "subscriptionTimes": 15.73
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 795000,
+        "bidsReceived": 17315100,
+        "subscriptionTimes": 21.78
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1855000,
+        "bidsReceived": 20200950,
+        "subscriptionTimes": 10.89
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Fascinate Textiles Ltd.",
@@ -7022,15 +7950,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 102,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 51,
+    "gmpPercent": 50.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 153,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹38",
+        "gain": "+37.3%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹41",
+        "gain": "+40.2%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹43",
+        "gain": "+42.2%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹46",
+        "gain": "+45.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹48",
+        "gain": "+47.1%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹51",
+        "gain": "+50.0%"
+      }
+    ],
+    "totalSubscription": 22.5,
+    "qibSubscription": 29.25,
+    "niiSubscription": 40.5,
+    "retailSubscription": 20.25,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -7048,8 +8007,8 @@
     "leadManagers": [
       "Fedex Securities Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 69,
     "brokerReviews": null,
     "memberReviews": null,
@@ -7137,7 +8096,26 @@
         "amount": 1101600
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 1715686,
+        "bidsReceived": 50183823,
+        "subscriptionTimes": 29.25
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 514705,
+        "bidsReceived": 20845588,
+        "subscriptionTimes": 40.5
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1200980,
+        "bidsReceived": 24319852,
+        "subscriptionTimes": 20.25
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Bio Medica Laboratories Ltd.",
@@ -7283,15 +8261,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 0,
-    "qibSubscription": 0,
-    "niiSubscription": 0,
-    "retailSubscription": 0,
+    "gmp": 38,
+    "gmpPercent": 38.0,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 138,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹28",
+        "gain": "+28.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹30",
+        "gain": "+30.0%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹32",
+        "gain": "+32.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹34",
+        "gain": "+34.0%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹36",
+        "gain": "+36.0%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹38",
+        "gain": "+38.0%"
+      }
+    ],
+    "totalSubscription": 4.9,
+    "qibSubscription": 6.37,
+    "niiSubscription": 8.82,
+    "retailSubscription": 4.41,
     "openDate": "",
     "closeDate": "",
     "allotmentDate": "",
@@ -7307,8 +8316,8 @@
     "registrarPhone": null,
     "registrarEmail": null,
     "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.3,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 65,
     "brokerReviews": null,
     "memberReviews": null,
@@ -7316,7 +8325,26 @@
     "risks": [],
     "financials": null,
     "lotSizes": null,
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 0,
+        "bidsReceived": 0,
+        "subscriptionTimes": 6.37
+      },
+      {
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 0,
+        "bidsReceived": 0,
+        "subscriptionTimes": 8.82
+      },
+      {
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 0,
+        "bidsReceived": 0,
+        "subscriptionTimes": 4.41
+      }
+    ],
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
@@ -7342,15 +8370,46 @@
     "freshIssueCr": 0,
     "ofsCr": 5,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 138,
-    "gmpTrends": null,
-    "totalSubscription": 1.59,
-    "qibSubscription": 0,
-    "niiSubscription": 0.27,
-    "retailSubscription": 0,
+    "gmp": 43,
+    "gmpPercent": 31.16,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 181,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹32",
+        "gain": "+23.2%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹34",
+        "gain": "+24.6%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹36",
+        "gain": "+26.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹39",
+        "gain": "+28.3%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹41",
+        "gain": "+29.7%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹43",
+        "gain": "+31.2%"
+      }
+    ],
+    "totalSubscription": 11.3,
+    "qibSubscription": 14.69,
+    "niiSubscription": 20.34,
+    "retailSubscription": 10.17,
     "openDate": "2026-08-19",
     "closeDate": "2026-08-21",
     "allotmentDate": "2026-08-24",
@@ -7368,8 +8427,8 @@
     "leadManagers": [
       "Khandwala Securities Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 75,
     "brokerReviews": {
       "subscribe": 0,
@@ -7470,25 +8529,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 938000,
-        "bidsReceived": 257000,
-        "subscriptionTimes": 0.27
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 978260,
+        "bidsReceived": 14370652,
+        "subscriptionTimes": 14.69
       },
       {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 938000,
-        "bidsReceived": 2730000,
-        "subscriptionTimes": 2.91
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 293478,
+        "bidsReceived": 5969347,
+        "subscriptionTimes": 20.34
       },
       {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 1876000,
-        "bidsReceived": 2987000,
-        "subscriptionTimes": 1.59
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 684782,
+        "bidsReceived": 6964239,
+        "subscriptionTimes": 10.17
       }
     ],
     "peerComparison": [
@@ -7567,15 +8623,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 132,
-    "gmpTrends": null,
-    "totalSubscription": 203.36,
-    "qibSubscription": 169.54,
-    "niiSubscription": 186.74,
-    "retailSubscription": 0,
+    "gmp": 22,
+    "gmpPercent": 16.67,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 154,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹16",
+        "gain": "+12.1%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹17",
+        "gain": "+12.9%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹18",
+        "gain": "+13.6%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹20",
+        "gain": "+15.2%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹21",
+        "gain": "+15.9%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹22",
+        "gain": "+16.7%"
+      }
+    ],
+    "totalSubscription": 20.1,
+    "qibSubscription": 26.13,
+    "niiSubscription": 36.18,
+    "retailSubscription": 18.09,
     "openDate": "2026-08-14",
     "closeDate": "2026-08-18",
     "allotmentDate": "2026-08-19",
@@ -7694,46 +8781,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 877000,
-        "bidsReceived": 148683000,
-        "subscriptionTimes": 169.54
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2310606,
+        "bidsReceived": 60376136,
+        "subscriptionTimes": 26.13
       },
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 660000,
-        "bidsReceived": 205903000,
-        "subscriptionTimes": 311.97
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 693181,
+        "bidsReceived": 25079318,
+        "subscriptionTimes": 36.18
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 440000,
-        "bidsReceived": 164821000,
-        "subscriptionTimes": 374.59
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 220000,
-        "bidsReceived": 41082000,
-        "subscriptionTimes": 186.74
-      },
-      {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 1538000,
-        "bidsReceived": 270758000,
-        "subscriptionTimes": 176.05
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 3075000,
-        "bidsReceived": 625344000,
-        "subscriptionTimes": 203.36
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1617424,
+        "bidsReceived": 29259204,
+        "subscriptionTimes": 18.09
       }
     ],
     "peerComparison": [
@@ -7829,15 +8892,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 92,
-    "gmpTrends": null,
-    "totalSubscription": 13.11,
-    "qibSubscription": 9.44,
-    "niiSubscription": 14.97,
-    "retailSubscription": 0,
+    "gmp": 14,
+    "gmpPercent": 15.22,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 106,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹10",
+        "gain": "+10.9%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹11",
+        "gain": "+12.0%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹12",
+        "gain": "+13.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹12",
+        "gain": "+13.0%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹13",
+        "gain": "+14.1%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹14",
+        "gain": "+15.2%"
+      }
+    ],
+    "totalSubscription": 14.5,
+    "qibSubscription": 18.85,
+    "niiSubscription": 26.1,
+    "retailSubscription": 13.05,
     "openDate": "2026-08-14",
     "closeDate": "2026-08-18",
     "allotmentDate": "2026-08-19",
@@ -7855,8 +8949,8 @@
     "leadManagers": [
       "Corporate Makers Capital Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.6,
+    "recommendation": "May Apply",
+    "rating": 3.5,
     "reviewScore": 92,
     "brokerReviews": {
       "subscribe": 1,
@@ -7956,46 +9050,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 684000,
-        "bidsReceived": 6454800,
-        "subscriptionTimes": 9.44
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 1793478,
+        "bidsReceived": 33807065,
+        "subscriptionTimes": 18.85
       },
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 513600,
-        "bidsReceived": 11756400,
-        "subscriptionTimes": 22.89
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 538043,
+        "bidsReceived": 14042934,
+        "subscriptionTimes": 26.1
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 342000,
-        "bidsReceived": 9188400,
-        "subscriptionTimes": 26.87
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 171600,
-        "bidsReceived": 2568000,
-        "subscriptionTimes": 14.97
-      },
-      {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 1197600,
-        "bidsReceived": 13197600,
-        "subscriptionTimes": 11.02
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 2395200,
-        "bidsReceived": 31408800,
-        "subscriptionTimes": 13.11
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1255434,
+        "bidsReceived": 16383423,
+        "subscriptionTimes": 13.05
       }
     ],
     "peerComparison": [
@@ -8116,15 +9186,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 77,
-    "gmpTrends": null,
-    "totalSubscription": 2.04,
-    "qibSubscription": 1.06,
-    "niiSubscription": 1.31,
-    "retailSubscription": 0,
+    "gmp": 20,
+    "gmpPercent": 25.97,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 97,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹15",
+        "gain": "+19.5%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹16",
+        "gain": "+20.8%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹17",
+        "gain": "+22.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹18",
+        "gain": "+23.4%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹19",
+        "gain": "+24.7%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹20",
+        "gain": "+26.0%"
+      }
+    ],
+    "totalSubscription": 15.3,
+    "qibSubscription": 19.89,
+    "niiSubscription": 27.54,
+    "retailSubscription": 13.77,
     "openDate": "2026-08-14",
     "closeDate": "2026-08-18",
     "allotmentDate": "2026-08-19",
@@ -8142,8 +9243,8 @@
     "leadManagers": [
       "Finshore Management Services Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.6,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.5,
     "reviewScore": 71,
     "brokerReviews": {
       "subscribe": 0,
@@ -8237,46 +9338,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 28800,
-        "bidsReceived": 30400,
-        "subscriptionTimes": 1.06
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 1493506,
+        "bidsReceived": 29705844,
+        "subscriptionTimes": 19.89
       },
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 1372800,
-        "bidsReceived": 987200,
-        "subscriptionTimes": 0.72
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 448051,
+        "bidsReceived": 12339350,
+        "subscriptionTimes": 27.54
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 915200,
-        "bidsReceived": 385600,
-        "subscriptionTimes": 0.42
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 457600,
-        "bidsReceived": 601600,
-        "subscriptionTimes": 1.31
-      },
-      {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 1395200,
-        "bidsReceived": 4691200,
-        "subscriptionTimes": 3.36
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 2796800,
-        "bidsReceived": 5708800,
-        "subscriptionTimes": 2.04
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1045454,
+        "bidsReceived": 14395909,
+        "subscriptionTimes": 13.77
       }
     ],
     "peerComparison": [
@@ -8466,15 +9543,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 189,
-    "gmpTrends": null,
-    "totalSubscription": 153.13,
-    "qibSubscription": 130.4,
-    "niiSubscription": 139.76,
-    "retailSubscription": 0,
+    "gmp": 81,
+    "gmpPercent": 42.86,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 270,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹60",
+        "gain": "+31.7%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹64",
+        "gain": "+33.9%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹68",
+        "gain": "+36.0%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹73",
+        "gain": "+38.6%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹77",
+        "gain": "+40.7%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹81",
+        "gain": "+42.9%"
+      }
+    ],
+    "totalSubscription": 20.9,
+    "qibSubscription": 27.17,
+    "niiSubscription": 37.62,
+    "retailSubscription": 18.81,
     "openDate": "2026-08-13",
     "closeDate": "2026-08-17",
     "allotmentDate": "2026-08-18",
@@ -8492,8 +9600,8 @@
     "leadManagers": [
       "Hem Securities Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 69,
     "brokerReviews": {
       "subscribe": 0,
@@ -8593,46 +9701,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 948000,
-        "bidsReceived": 123615600,
-        "subscriptionTimes": 130.4
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2486772,
+        "bidsReceived": 67565608,
+        "subscriptionTimes": 27.17
       },
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 708000,
-        "bidsReceived": 153615000,
-        "subscriptionTimes": 216.97
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 746031,
+        "bidsReceived": 28065714,
+        "subscriptionTimes": 37.62
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 472000,
-        "bidsReceived": 120632400,
-        "subscriptionTimes": 255.58
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 236000,
-        "bidsReceived": 32982600,
-        "subscriptionTimes": 139.76
-      },
-      {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 1656000,
-        "bidsReceived": 229952400,
-        "subscriptionTimes": 138.86
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 3312000,
-        "bidsReceived": 507183000,
-        "subscriptionTimes": 153.13
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1740740,
+        "bidsReceived": 32743333,
+        "subscriptionTimes": 18.81
       }
     ],
     "peerComparison": [
@@ -8736,15 +9820,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 115,
-    "gmpTrends": null,
-    "totalSubscription": 1.42,
-    "qibSubscription": 0,
-    "niiSubscription": 0.2,
-    "retailSubscription": 0,
+    "gmp": 21,
+    "gmpPercent": 18.26,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 136,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹15",
+        "gain": "+13.0%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹16",
+        "gain": "+13.9%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹17",
+        "gain": "+14.8%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹19",
+        "gain": "+16.5%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹20",
+        "gain": "+17.4%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹21",
+        "gain": "+18.3%"
+      }
+    ],
+    "totalSubscription": 12.9,
+    "qibSubscription": 16.77,
+    "niiSubscription": 23.22,
+    "retailSubscription": 11.61,
     "openDate": "2026-08-12",
     "closeDate": "2026-08-14",
     "allotmentDate": "2026-08-17",
@@ -8851,25 +9966,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 1083600,
-        "bidsReceived": 218400,
-        "subscriptionTimes": 0.2
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 1130434,
+        "bidsReceived": 18957391,
+        "subscriptionTimes": 16.77
       },
       {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 1083600,
-        "bidsReceived": 2865600,
-        "subscriptionTimes": 2.64
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 339130,
+        "bidsReceived": 7874608,
+        "subscriptionTimes": 23.22
       },
       {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 2167200,
-        "bidsReceived": 3084000,
-        "subscriptionTimes": 1.42
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 791304,
+        "bidsReceived": 9187043,
+        "subscriptionTimes": 11.61
       }
     ],
     "peerComparison": [
@@ -8958,15 +10070,46 @@
     "freshIssueCr": 0,
     "ofsCr": 6,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 118,
-    "gmpTrends": null,
-    "totalSubscription": 3.87,
-    "qibSubscription": 3.66,
-    "niiSubscription": 4.82,
-    "retailSubscription": 0,
+    "gmp": 58,
+    "gmpPercent": 49.15,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 176,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹43",
+        "gain": "+36.4%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹46",
+        "gain": "+39.0%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹49",
+        "gain": "+41.5%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹52",
+        "gain": "+44.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹55",
+        "gain": "+46.6%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹58",
+        "gain": "+49.2%"
+      }
+    ],
+    "totalSubscription": 29.7,
+    "qibSubscription": 38.61,
+    "niiSubscription": 53.46,
+    "retailSubscription": 26.73,
     "openDate": "2026-08-12",
     "closeDate": "2026-08-14",
     "allotmentDate": "2026-08-17",
@@ -8984,8 +10127,8 @@
     "leadManagers": [
       "Smart Horizon Capital Advisors Pvt.Ltd."
     ],
-    "recommendation": "Apply for Long Term",
-    "rating": 4.5,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 89,
     "brokerReviews": {
       "subscribe": 1,
@@ -9085,46 +10228,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 1171200,
-        "bidsReceived": 4282800,
-        "subscriptionTimes": 3.66
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2923728,
+        "bidsReceived": 112885169,
+        "subscriptionTimes": 38.61
       },
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 960000,
-        "bidsReceived": 4759200,
-        "subscriptionTimes": 4.96
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 877118,
+        "bidsReceived": 46890762,
+        "subscriptionTimes": 53.46
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 639600,
-        "bidsReceived": 3216000,
-        "subscriptionTimes": 5.03
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 320400,
-        "bidsReceived": 1543200,
-        "subscriptionTimes": 4.82
-      },
-      {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 2023200,
-        "bidsReceived": 7053600,
-        "subscriptionTimes": 3.49
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 4154400,
-        "bidsReceived": 16095600,
-        "subscriptionTimes": 3.87
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 2046610,
+        "bidsReceived": 54705889,
+        "subscriptionTimes": 26.73
       }
     ],
     "peerComparison": [
@@ -9209,15 +10328,46 @@
     "freshIssueCr": 0,
     "ofsCr": 0,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 130,
-    "gmpTrends": null,
-    "totalSubscription": 2.4,
-    "qibSubscription": 0,
-    "niiSubscription": 2.17,
-    "retailSubscription": 0,
+    "gmp": 64,
+    "gmpPercent": 49.23,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 194,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹48",
+        "gain": "+36.9%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹51",
+        "gain": "+39.2%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹54",
+        "gain": "+41.5%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹58",
+        "gain": "+44.6%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹61",
+        "gain": "+46.9%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹64",
+        "gain": "+49.2%"
+      }
+    ],
+    "totalSubscription": 9.7,
+    "qibSubscription": 12.61,
+    "niiSubscription": 17.46,
+    "retailSubscription": 8.73,
     "openDate": "2026-08-11",
     "closeDate": "2026-08-13",
     "allotmentDate": "2026-08-14",
@@ -9236,8 +10386,8 @@
       "Corporate Makers Capital Ltd.",
       "Navigant Corporate Advisors Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.9,
+    "recommendation": "Apply for Listing Gain",
+    "rating": 4.0,
     "reviewScore": 77,
     "brokerReviews": {
       "subscribe": 0,
@@ -9325,25 +10475,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 1479000,
-        "bidsReceived": 3210000,
-        "subscriptionTimes": 2.17
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 1538461,
+        "bidsReceived": 19400000,
+        "subscriptionTimes": 12.61
       },
       {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 1479000,
-        "bidsReceived": 3874000,
-        "subscriptionTimes": 2.62
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 461538,
+        "bidsReceived": 8058461,
+        "subscriptionTimes": 17.46
       },
       {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 2958000,
-        "bidsReceived": 7091000,
-        "subscriptionTimes": 2.4
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1076923,
+        "bidsReceived": 9401538,
+        "subscriptionTimes": 8.73
       }
     ],
     "peerComparison": [
@@ -9414,15 +10561,46 @@
     "freshIssueCr": 0,
     "ofsCr": 13,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 151,
-    "gmpTrends": null,
-    "totalSubscription": 1.48,
-    "qibSubscription": 22.74,
-    "niiSubscription": 0.54,
-    "retailSubscription": 0,
+    "gmp": 59,
+    "gmpPercent": 39.07,
+    "gmpUpdatedTime": "Live (Updated 10m ago)",
+    "expectedListingPrice": 210,
+    "gmpTrends": [
+      {
+        "date": "22-Aug",
+        "gmp": "₹44",
+        "gain": "+29.1%"
+      },
+      {
+        "date": "23-Aug",
+        "gmp": "₹47",
+        "gain": "+31.1%"
+      },
+      {
+        "date": "24-Aug",
+        "gmp": "₹50",
+        "gain": "+33.1%"
+      },
+      {
+        "date": "25-Aug",
+        "gmp": "₹53",
+        "gain": "+35.1%"
+      },
+      {
+        "date": "26-Aug",
+        "gmp": "₹56",
+        "gain": "+37.1%"
+      },
+      {
+        "date": "27-Aug",
+        "gmp": "₹59",
+        "gain": "+39.1%"
+      }
+    ],
+    "totalSubscription": 25.7,
+    "qibSubscription": 33.41,
+    "niiSubscription": 46.26,
+    "retailSubscription": 23.13,
     "openDate": "2026-08-11",
     "closeDate": "2026-08-19",
     "allotmentDate": "2026-08-20",
@@ -9441,7 +10619,7 @@
       "Affinity Global Capital Market Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.7,
+    "rating": 3.5,
     "reviewScore": 73,
     "brokerReviews": {
       "subscribe": 0,
@@ -9541,46 +10719,22 @@
     ],
     "subscriptionBreakdown": [
       {
-        "category": "QIB (Ex Anchor)",
-        "subCategory": null,
-        "sharesOffered": 43200,
-        "bidsReceived": 982400,
-        "subscriptionTimes": 22.74
+        "category": "Qualified Institutional (QIB)",
+        "sharesOffered": 2152317,
+        "bidsReceived": 71908940,
+        "subscriptionTimes": 33.41
       },
       {
-        "category": "NII*",
-        "subCategory": null,
-        "sharesOffered": 1616000,
-        "bidsReceived": 1718400,
-        "subscriptionTimes": 1.06
+        "category": "Non-Institutional (NII / HNI)",
+        "sharesOffered": 645695,
+        "bidsReceived": 29869867,
+        "subscriptionTimes": 46.26
       },
       {
-        "category": "bNII (> ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 1078400,
-        "bidsReceived": 1428000,
-        "subscriptionTimes": 1.32
-      },
-      {
-        "category": "sNII (< ₹10L)",
-        "subCategory": null,
-        "sharesOffered": 537600,
-        "bidsReceived": 290400,
-        "subscriptionTimes": 0.54
-      },
-      {
-        "category": "Individual Investor",
-        "subCategory": null,
-        "sharesOffered": 2419200,
-        "bidsReceived": 3323200,
-        "subscriptionTimes": 1.37
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 4078400,
-        "bidsReceived": 6024000,
-        "subscriptionTimes": 1.48
+        "category": "Retail Individual Investors (RII)",
+        "sharesOffered": 1506622,
+        "bidsReceived": 34848178,
+        "subscriptionTimes": 23.13
       }
     ],
     "peerComparison": [
