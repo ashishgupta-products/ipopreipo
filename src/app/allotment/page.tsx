@@ -412,6 +412,9 @@ function AllotmentContent() {
                           <Link href={`/ipo/${ipo.slug}`} className="hover:text-blue-750 font-bold text-xs block">
                             {ipo.name}
                           </Link>
+                          <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
+                            {ipo.openDate && ipo.closeDate ? `${formatDate(ipo.openDate)} to ${formatDate(ipo.closeDate)}` : (formatDate(ipo.openDate) || "Dates TBA")}
+                          </span>
                           <div className="mt-0.5">
                             <Badge 
                               status={ipo.status} 

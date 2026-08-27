@@ -335,7 +335,7 @@ export default function AdminIPOsPage() {
                         <span className="text-[10px] font-mono text-slate-400 font-normal">({ipo.slug})</span>
                       </div>
                       <span className="text-[11px] text-slate-500 block font-normal mt-0.5">
-                        Issue: ₹{ipo.issueSizeTotalCr} Cr | Lot: {ipo.lotSize}
+                        {ipo.openDate && ipo.closeDate ? `Dates: ${ipo.openDate} to ${ipo.closeDate}` : (ipo.openDate || "Dates TBA")} | Issue: ₹{ipo.issueSizeTotalCr} Cr
                       </span>
                     </td>
 

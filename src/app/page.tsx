@@ -209,6 +209,15 @@ function HomeDashboardContent() {
     return dateStr;
   };
 
+  const formatDateRange = (open?: string, close?: string) => {
+    if (open && close) {
+      return `${formatDate(open)} to ${formatDate(close)}`;
+    }
+    if (open) return `Opens: ${formatDate(open)}`;
+    if (close) return `Closes: ${formatDate(close)}`;
+    return "Dates TBA";
+  };
+
   const updateTab = (newTab: string) => {
     setSelectedTab(newTab);
     const params = new URLSearchParams();
@@ -510,6 +519,9 @@ function HomeDashboardContent() {
                         <Link href={`/ipo/${ipo.slug}`} className="hover:text-blue-750 block font-bold text-xs sm:text-sm leading-tight transition-colors">
                           {ipo.name}
                         </Link>
+                        <div className="text-[11px] text-slate-500 font-medium mt-0.5 flex items-center gap-1">
+                          <span>{formatDateRange(ipo.openDate, ipo.closeDate)}</span>
+                        </div>
                         <div className="mt-1 flex items-center gap-1">
                           <Badge 
                             status={ipo.status} 
@@ -641,6 +653,9 @@ function HomeDashboardContent() {
                         {ipo.name}
                       </h3>
                     </Link>
+                    <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
+                      {formatDateRange(ipo.openDate, ipo.closeDate)}
+                    </span>
                     <p className="text-xs text-slate-500 font-bold mt-1">
                       ₹{ipo.priceBandMin} - ₹{ipo.priceBandMax}
                     </p>

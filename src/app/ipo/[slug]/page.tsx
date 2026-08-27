@@ -175,6 +175,10 @@ export default function IPODetailPage({ params }: PageProps) {
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 {ipo.name}
               </h1>
+              <div className="flex items-center gap-1.5 text-xs text-slate-600 font-semibold bg-slate-50 border border-slate-200/80 px-2.5 py-1 rounded-lg w-fit">
+                <Calendar className="w-3.5 h-3.5 text-blue-600" />
+                <span>Bidding Dates: <strong className="text-slate-900">{ipo.openDate} to {ipo.closeDate}</strong></span>
+              </div>
               <p className="text-xs text-slate-500">
                 Lead Managers: {ipo.leadManagers.join(", ")} | Registrar: {ipo.registrarName}
               </p>
