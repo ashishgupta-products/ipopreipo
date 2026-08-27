@@ -33,6 +33,10 @@ CREATE TABLE IF NOT EXISTS ipos (
     listing_price INT,
     listing_gain_percent NUMERIC(6, 2),
     current_market_price INT,
+    company_address TEXT,
+    company_phone VARCHAR(50),
+    company_email VARCHAR(100),
+    company_website VARCHAR(555),
     registrar_name VARCHAR(255),
     registrar_website VARCHAR(555),
     registrar_check_url VARCHAR(555),
@@ -58,6 +62,26 @@ CREATE TABLE IF NOT EXISTS ipos (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Schema Migrations for existing deployments:
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_address TEXT;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_phone VARCHAR(50);
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_email VARCHAR(100);
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_website VARCHAR(555);
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS gmp_trends JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS financials JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS lot_sizes JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS subscription_breakdown JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS peer_comparison JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS reservations JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS kpis JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS objects_of_issue JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS broker_reviews JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS member_reviews JSONB;
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS highlights TEXT[];
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS risks TEXT[];
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS drhp_url VARCHAR(1000);
+ALTER TABLE ipos ADD COLUMN IF NOT EXISTS prospectus_url VARCHAR(1000);
 
 CREATE INDEX IF NOT EXISTS idx_ipos_slug ON ipos(slug);
 CREATE INDEX IF NOT EXISTS idx_ipos_category ON ipos(category);

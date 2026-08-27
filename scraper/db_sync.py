@@ -42,6 +42,34 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
         conn = psycopg2.connect(DATABASE_URL)
         cursor = conn.cursor()
 
+        # Ensure columns exist
+        migration_sqls = [
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_address TEXT;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_phone VARCHAR(50);",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_email VARCHAR(100);",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS company_website VARCHAR(555);",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS gmp_trends JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS financials JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS lot_sizes JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS subscription_breakdown JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS peer_comparison JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS reservations JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS kpis JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS objects_of_issue JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS broker_reviews JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS member_reviews JSONB;",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS highlights TEXT[];",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS risks TEXT[];",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS drhp_url VARCHAR(1000);",
+            "ALTER TABLE ipos ADD COLUMN IF NOT EXISTS prospectus_url VARCHAR(1000);",
+        ]
+        for m in migration_sqls:
+            try:
+                cursor.execute(m)
+            except Exception:
+                pass
+        conn.commit()
+
         upsert_sql = """
         INSERT INTO ipos (
             id, slug, name, company_name, logo_url, category, status, exchange,
@@ -51,6 +79,7 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             total_subscription, qib_subscription, nii_subscription, retail_subscription,
             open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
             listing_price, listing_gain_percent, current_market_price,
+            company_address, company_phone, company_email, company_website,
             registrar_name, registrar_website, registrar_check_url, registrar_phone, registrar_email,
             recommendation, rating, review_score, broker_reviews, member_reviews, highlights, risks, drhp_url, prospectus_url, gmp_trends,
             financials, lot_sizes, subscription_breakdown, peer_comparison, reservations, kpis, objects_of_issue, updated_at
@@ -62,6 +91,7 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             %(total_subscription)s, %(qib_subscription)s, %(nii_subscription)s, %(retail_subscription)s,
             %(open_date)s, %(close_date)s, %(allotment_date)s, %(refund_date)s, %(demat_credit_date)s, %(listing_date)s,
             %(listing_price)s, %(listing_gain_percent)s, %(current_market_price)s,
+            %(company_address)s, %(company_phone)s, %(company_email)s, %(company_website)s,
             %(registrar_name)s, %(registrar_website)s, %(registrar_check_url)s, %(registrar_phone)s, %(registrar_email)s,
             %(recommendation)s, %(rating)s, %(review_score)s, %(broker_reviews)s, %(member_reviews)s, %(highlights)s, %(risks)s, %(drhp_url)s, %(prospectus_url)s, %(gmp_trends)s,
             %(financials)s, %(lot_sizes)s, %(subscription_breakdown)s, %(peer_comparison)s, %(reservations)s, %(kpis)s, %(objects_of_issue)s, CURRENT_TIMESTAMP
@@ -99,6 +129,10 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             listing_price = COALESCE(EXCLUDED.listing_price, ipos.listing_price),
             listing_gain_percent = COALESCE(EXCLUDED.listing_gain_percent, ipos.listing_gain_percent),
             current_market_price = COALESCE(EXCLUDED.current_market_price, ipos.current_market_price),
+            company_address = COALESCE(EXCLUDED.company_address, ipos.company_address),
+            company_phone = COALESCE(EXCLUDED.company_phone, ipos.company_phone),
+            company_email = COALESCE(EXCLUDED.company_email, ipos.company_email),
+            company_website = COALESCE(EXCLUDED.company_website, ipos.company_website),
             registrar_name = EXCLUDED.registrar_name,
             registrar_website = EXCLUDED.registrar_website,
             registrar_check_url = EXCLUDED.registrar_check_url,
@@ -160,6 +194,10 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
                 "listing_price": ipo.listingPrice,
                 "listing_gain_percent": ipo.listingGainPercent,
                 "current_market_price": ipo.currentMarketPrice,
+                "company_address": getattr(ipo, "companyAddress", None),
+                "company_phone": getattr(ipo, "companyPhone", None),
+                "company_email": getattr(ipo, "companyEmail", None),
+                "company_website": getattr(ipo, "companyWebsite", None),
                 "registrar_name": ipo.registrarName,
                 "registrar_website": ipo.registrarWebsite,
                 "registrar_check_url": ipo.registrarCheckUrl,
