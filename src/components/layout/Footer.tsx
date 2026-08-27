@@ -12,15 +12,15 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-                <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
+                <img src="/logo.svg" alt="ipo preipo Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-extrabold text-lg text-white">
-                IPO<span className="text-blue-400">PREIPO</span>
+              <span className="font-extrabold text-lg text-white lowercase">
+                ipo <span className="text-blue-400">preipo</span>
                 <span className="text-xs text-blue-400 font-bold">.com</span>
               </span>
             </div>
             <p className="text-slate-400 leading-relaxed text-xs">
-              <strong>ipopreipo.com</strong> is a comprehensive financial intelligence portal for tracking Indian IPOs, Pre-IPO unlisted shares, credit card offers, payment apps, commercial banks, and stockbroker comparisons.
+              <strong>ipo preipo.com</strong> is a comprehensive financial intelligence portal for tracking Indian IPOs, Pre-IPO unlisted shares, credit card offers, payment apps, commercial banks, and stockbroker comparisons.
             </p>
             <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1 font-semibold">
               <span>Made with</span>
@@ -59,44 +59,39 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/anchor-lockins" className="hover:text-white transition-colors">
-                  Anchor Lock-In Expiry Tracker
-                </Link>
-              </li>
-              <li>
-                <Link href="/allotment" className="hover:text-white transition-colors">
-                  Check Allotment Status
+                <Link href="/anchor-lockins" className="hover:text-white text-purple-400 transition-colors">
+                  Anchor Lock-in Expiry
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Banking & Products */}
+          {/* Col 3: Financial Products */}
           <div>
-            <h4 className="font-bold text-white mb-3 text-sm">Financial Products</h4>
-            <ul className="space-y-2 text-slate-400">
+            <h4 className="font-bold text-white mb-3 text-sm">Fintech &amp; Products</h4>
+            <ul className="space-y-2">
               <li>
-                <Link href="/credit-cards" className="hover:text-white text-blue-400 font-semibold">
-                  Best Credit Cards in India
+                <Link href="/brokers" className="hover:text-white transition-colors">
+                  Top Stock Brokers
                 </Link>
               </li>
               <li>
-                <Link href="/payment-apps" className="hover:text-white">
+                <Link href="/payment-apps" className="hover:text-white transition-colors">
                   UPI &amp; Payment Apps
                 </Link>
               </li>
               <li>
-                <Link href="/banks" className="hover:text-white">
-                  Top Savings &amp; Commercial Banks
+                <Link href="/credit-cards" className="hover:text-white transition-colors">
+                  Best Credit Cards
                 </Link>
               </li>
               <li>
-                <Link href="/brokers" className="hover:text-white">
-                  Stock Broker Comparison
+                <Link href="/banks" className="hover:text-white transition-colors">
+                  Top Commercial Banks
                 </Link>
               </li>
               <li>
-                <Link href="/buybacks" className="hover:text-white">
+                <Link href="/buybacks" className="hover:text-white text-emerald-400 transition-colors">
                   Share Buybacks Calendar
                 </Link>
               </li>
@@ -105,7 +100,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Newsletter */}
           <div>
-            <h4 className="font-bold text-white mb-3 text-sm">Subscribe to ipopreipo.com</h4>
+            <h4 className="font-bold text-white mb-3 text-sm">Subscribe to ipo preipo.com</h4>
             <p className="text-slate-400 mb-3">
               Get instant GMP updates, bidding alerts, credit card deals, and allotment notices directly to your inbox.
             </p>
@@ -125,10 +120,10 @@ export const Footer: React.FC = () => {
         {/* Disclaimer */}
         <div className="pt-6 text-[11px] text-slate-400 space-y-2 leading-relaxed">
           <p>
-            <strong>Disclaimer:</strong> Financial product comparison and IPO data provided on <strong>ipopreipo.com</strong> is purely informational. Credit card approval and banking terms depend on individual bank eligibility criteria. Always consult a certified financial advisor before making investment or loan commitments.
+            <strong>Disclaimer:</strong> Financial product comparison and IPO data provided on <strong>ipo preipo.com</strong> is purely informational. Credit card approval and banking terms depend on individual bank eligibility criteria. Always consult a certified financial advisor before making investment or loan commitments.
           </p>
           <p className="text-center text-slate-500 pt-4">
-            © {new Date().getFullYear()} <strong>ipopreipo.com</strong>. All rights reserved.
+            © {new Date().getFullYear()} <strong>ipo preipo.com</strong>. All rights reserved.
           </p>
         </div>
       </div>

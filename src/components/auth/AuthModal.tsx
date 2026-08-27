@@ -115,7 +115,7 @@ export const AuthModal: React.FC = () => {
             <span className="p-1.5 bg-blue-500/30 rounded-lg border border-blue-400/30">
               <TrendingUp className="w-4 h-4 text-blue-200" />
             </span>
-            <span className="text-xs font-bold tracking-wider text-blue-200 uppercase">IPOPreIPO Investor Hub</span>
+            <span className="text-xs font-bold tracking-wider text-blue-200 lowercase">ipo preipo.com investor hub</span>
           </div>
 
           <h2 className="text-xl font-black tracking-tight">

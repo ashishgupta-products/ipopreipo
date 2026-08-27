@@ -131,7 +131,7 @@ export const MobileBottomNav: React.FC = () => {
                     <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
                   </div>
                   <p className="font-bold leading-tight">
-                    📱 Install IPO Preipo App for live GMP alerts!
+                    📱 Install ipo preipo.com App for live GMP alerts!
                   </p>
                 </div>
                 <button

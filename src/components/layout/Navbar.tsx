@@ -127,9 +127,9 @@ export const Navbar: React.FC = () => {
             <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col">
-            <div className="flex items-baseline gap-0.5">
+            <div className="flex items-baseline gap-0.5 lowercase">
               <span className="font-black text-xl tracking-tight text-slate-900 font-sans">
-                IPO<span className="text-blue-700">PREIPO</span>
+                ipo <span className="text-blue-700">preipo</span>
               </span>
               <span className="text-xs text-blue-700 font-bold">.com</span>
             </div>

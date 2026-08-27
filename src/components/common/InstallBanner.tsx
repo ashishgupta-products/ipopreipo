@@ -100,7 +100,7 @@ export const InstallBanner: React.FC = () => {
           <img src="/logo.svg" alt="IPO Preipo Logo" className="w-full h-full object-cover" />
         </div>
         <p className="font-semibold leading-tight pr-4">
-          📱 Install <strong className="text-white">IPO Preipo App</strong> for live GMP alerts!
+          📱 Install <strong className="text-white">ipo preipo.com App</strong> for live GMP alerts!
         </p>
       </div>
 

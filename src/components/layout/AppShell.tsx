@@ -28,7 +28,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     return (
       <AuthProvider>
         <AuthModal />
-        <main className="min-h-screen w-full bg-slate-950 text-slate-100">{children}</main>
+        <main className="min-h-screen w-full bg-slate-50 text-slate-900">{children}</main>
       </AuthProvider>
     );
   }

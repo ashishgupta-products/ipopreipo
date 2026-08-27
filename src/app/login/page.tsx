@@ -74,7 +74,7 @@ export default function LoginPage() {
               <span className="p-2 bg-blue-500/20 border border-blue-400/30 rounded-xl text-blue-300">
                 <TrendingUp className="w-5 h-5" />
               </span>
-              <span className="font-black text-lg tracking-tight">IPOPreIPO.com</span>
+              <span className="font-black text-lg tracking-tight lowercase">ipo preipo.com</span>
             </div>
 
             <h1 className="text-2xl font-black tracking-tight leading-snug">

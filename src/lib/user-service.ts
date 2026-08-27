@@ -51,7 +51,7 @@ const demoUsers: Array<{ user: User; passwordHash: string }> = [
       role: "admin",
       investorType: "General",
       phone: "+91 80000 00000",
-      bio: "IPOPreIPO Platform Administrator & Market Research Desk.",
+      bio: "ipo preipo.com Platform Administrator & Market Research Desk.",
       createdAt: new Date().toISOString(),
     },
     passwordHash: DEMO_PASSWORD_HASH,

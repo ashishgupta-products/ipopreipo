@@ -80,21 +80,21 @@ export default function AdminArticlesPage() {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black tracking-tight text-white">Articles &amp; Research CMS</h1>
-          <p className="text-xs text-slate-400 mt-1">Publish market reports, IPO review notes, and educational guides.</p>
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">Articles &amp; Research CMS</h1>
+          <p className="text-xs text-slate-500 mt-1">Publish market reports, IPO review notes, and educational guides.</p>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             onClick={loadArticles}
-            className="p-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs border border-slate-800"
+            className="p-2 bg-white hover:bg-slate-50 text-slate-600 rounded-xl text-xs border border-slate-200 shadow-xs"
             title="Reload articles"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
           <Link
             href="/admin/articles/new"
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-xs shadow-md flex items-center gap-1.5 transition-all active:scale-98"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-xs shadow-xs flex items-center gap-1.5 transition-all active:scale-98"
           >
             <Plus className="w-4 h-4" />
             <span>Write New Article</span>
@@ -103,33 +103,33 @@ export default function AdminArticlesPage() {
       </div>
 
       {feedbackMsg && (
-        <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-2xl text-xs font-mono">
+        <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl text-xs font-bold font-mono">
           {feedbackMsg}
         </div>
       )}
 
       {/* KPI Bar */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
-          <span className="text-[10px] font-mono text-slate-400 uppercase block">Total Articles</span>
-          <span className="text-xl font-black text-white">{articles.length}</span>
+        <div className="p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs">
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Total Articles</span>
+          <span className="text-xl font-black text-slate-900">{articles.length}</span>
         </div>
-        <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
-          <span className="text-[10px] font-mono text-slate-400 uppercase block">Published Live</span>
-          <span className="text-xl font-black text-emerald-400">{publishedCount}</span>
+        <div className="p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs">
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Published Live</span>
+          <span className="text-xl font-black text-emerald-600">{publishedCount}</span>
         </div>
-        <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
-          <span className="text-[10px] font-mono text-slate-400 uppercase block">Drafts</span>
-          <span className="text-xl font-black text-amber-400">{articles.length - publishedCount}</span>
+        <div className="p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs">
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Drafts</span>
+          <span className="text-xl font-black text-amber-600">{articles.length - publishedCount}</span>
         </div>
-        <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-2xl">
-          <span className="text-[10px] font-mono text-slate-400 uppercase block">Total Reader Views</span>
-          <span className="text-xl font-black text-blue-400">{totalViews.toLocaleString("en-IN")}</span>
+        <div className="p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs">
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Total Reader Views</span>
+          <span className="text-xl font-black text-blue-600">{totalViews.toLocaleString("en-IN")}</span>
         </div>
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+      <div className="p-4 bg-white border border-slate-200/90 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
         <div className="relative w-full sm:w-80">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
           <input
@@ -137,14 +137,14 @@ export default function AdminArticlesPage() {
             placeholder="Search articles by title or keyword..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+            className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all"
           />
         </div>
 
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
-          className="w-full sm:w-auto px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-300 focus:outline-none focus:border-blue-500"
+          className="w-full sm:w-auto px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 font-bold focus:bg-white focus:outline-none focus:border-blue-600"
         >
           <option value="ALL">All Categories</option>
           <option value="IPO News">IPO News</option>
@@ -156,11 +156,11 @@ export default function AdminArticlesPage() {
       </div>
 
       {/* Articles Table */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
+      <div className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse font-sans">
             <thead>
-              <tr className="border-b border-slate-800 bg-slate-950/80 text-slate-400 text-[10px] uppercase font-mono">
+              <tr className="border-b border-slate-100 bg-slate-50/80 text-slate-500 text-[11px] uppercase font-bold">
                 <th className="py-3 px-4">Article Title</th>
                 <th className="py-3 px-3">Category</th>
                 <th className="py-3 px-3">Author</th>
@@ -170,37 +170,37 @@ export default function AdminArticlesPage() {
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="py-8 text-center text-slate-400">
+                  <td colSpan={7} className="py-12 text-center text-slate-400">
                     No articles found. Click &quot;Write New Article&quot; to publish your first post.
                   </td>
                 </tr>
               ) : (
                 filtered.map((art) => (
-                  <tr key={art.id} className="hover:bg-slate-800/40 transition-colors">
-                    <td className="py-3.5 px-4 font-bold text-white max-w-sm">
+                  <tr key={art.id} className="hover:bg-slate-50/80 transition-colors">
+                    <td className="py-3.5 px-4 font-bold text-slate-900 max-w-sm">
                       <Link
                         href={`/articles/${art.slug}`}
                         target="_blank"
-                        className="hover:text-blue-400 line-clamp-1 flex items-center gap-1.5"
+                        className="hover:text-blue-600 line-clamp-1 flex items-center gap-1.5"
                       >
                         <span>{art.title}</span>
-                        <ExternalLink className="w-3 h-3 text-slate-500 shrink-0" />
+                        <ExternalLink className="w-3 h-3 text-slate-400 shrink-0" />
                       </Link>
-                      <span className="text-[10px] text-slate-500 font-mono block mt-0.5">
+                      <span className="text-[10px] text-slate-400 font-mono block mt-0.5 font-normal">
                         /{art.slug}
                       </span>
                     </td>
 
                     <td className="py-3.5 px-3">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
                         {art.category}
                       </span>
                     </td>
 
-                    <td className="py-3.5 px-3 text-slate-300 text-xs">
+                    <td className="py-3.5 px-3 text-slate-700 text-xs font-medium">
                       {art.author?.name || "Editor Desk"}
                     </td>
 
@@ -208,19 +208,19 @@ export default function AdminArticlesPage() {
                       <span
                         className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                           art.status === "Published"
-                            ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-                            : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                            ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                            : "bg-amber-50 text-amber-800 border border-amber-200"
                         }`}
                       >
                         {art.status}
                       </span>
                     </td>
 
-                    <td className="py-3.5 px-3 text-right font-mono text-slate-300">
+                    <td className="py-3.5 px-3 text-right font-mono text-slate-700 font-semibold">
                       {art.views || 0}
                     </td>
 
-                    <td className="py-3.5 px-3 text-[11px] text-slate-400">
+                    <td className="py-3.5 px-3 text-[11px] text-slate-500">
                       {art.publishDate || "Recent"}
                     </td>
 
@@ -229,14 +229,14 @@ export default function AdminArticlesPage() {
                         <Link
                           href={`/articles/${art.slug}`}
                           target="_blank"
-                          className="p-1.5 text-slate-400 hover:text-blue-400 hover:bg-slate-800 rounded-lg transition-colors"
+                          className="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                           title="View on public site"
                         >
                           <Eye className="w-3.5 h-3.5" />
                         </Link>
                         <button
                           onClick={() => handleDeleteArticle(art.slug, art.title)}
-                          className="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition-colors"
+                          className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
                           title="Delete article"
                         >
                           <Trash2 className="w-3.5 h-3.5" />

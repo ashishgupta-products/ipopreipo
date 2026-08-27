@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "IPOPreIPO.com | Live IPO GMP, Bidding & Pre-IPO Analytics",
-  description: "Professional financial portal for tracking Indian Mainboard IPOs, SME IPOs, real-time exchange bidding, grey market premiums (GMP), anchor lock-in dates, and unlisted pre-IPO equities.",
-  keywords: "IPOPreIPO, IPOPreIPO.com, Live IPO GMP, Pre-IPO Shares, Upcoming IPOs 2026, SME IPO List, Anchor Lock-in Expiry, IPO Allotment Status Check",
+  title: "ipo preipo.com | Live IPO GMP, Bidding & Pre-IPO Analytics",
+  description: "Professional financial portal for tracking Indian Mainboard IPOs, SME IPOs, real-time exchange bidding, grey market premiums (GMP), anchor lock-in dates, and unlisted pre-IPO equities on ipo preipo.com.",
+  keywords: "ipo preipo, ipo preipo.com, live ipo gmp, pre-ipo shares, upcoming ipos 2026, sme ipo list, anchor lock-in expiry, ipo allotment status check",
   manifest: "/manifest.json"
 };
 
