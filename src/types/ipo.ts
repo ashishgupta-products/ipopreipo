@@ -18,12 +18,22 @@ export interface LotSizeDetail {
 
 export interface FinancialMetric {
   year: string;
-  revenue: number; // In ₹ Crores
+  revenue: number; // In ₹ Crores (Total Income / Revenue)
   pat: number; // Profit After Tax in ₹ Crores
   netWorth: number; // In ₹ Crores
+  assets?: number; // In ₹ Crores (Total Assets)
+  reserves?: number; // In ₹ Crores (Reserves & Surplus)
+  borrowing?: number; // In ₹ Crores (Total Borrowings / Debt)
   ebitda?: number;
   eps?: number; // In ₹
   ronw?: number; // Return on Net Worth %
+  revenueGrowthYoY?: number; // YoY %
+  patGrowthYoY?: number; // YoY %
+}
+
+export interface IssueObject {
+  purpose: string;
+  amountCr?: number;
 }
 
 export interface AnchorInvestorAlloc {
@@ -52,13 +62,18 @@ export interface IPOReservation {
 
 export interface IPOKpiDetail {
   roe?: string;
+  roce?: string;
   ronw?: string;
+  debtEquity?: string;
+  patMargin?: string;
   ebitdaMargin?: string;
+  nav?: string;
   priceToBookValue?: string;
   preIpoEps?: string;
   postIpoEps?: string;
   preIpoPe?: string;
   postIpoPe?: string;
+  marketCapUpperBand?: string;
   asOfDate?: string;
 }
 
@@ -141,6 +156,7 @@ export interface IPOData {
   anchorInvestors?: AnchorInvestorAlloc[];
   reservations?: IPOReservation[];
   kpis?: IPOKpiDetail;
+  objectsOfIssue?: IssueObject[];
   prospectusUrl?: string;
   drhpUrl?: string;
 }

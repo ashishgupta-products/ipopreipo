@@ -21,7 +21,12 @@ import {
   Briefcase,
   TrendingUp,
   HelpCircle,
-  Star
+  Star,
+  Target,
+  ArrowUpRight,
+  ArrowDownRight,
+  Sparkles,
+  Percent
 } from "lucide-react";
 import { Badge } from "@/components/common/Badge";
 import { GMPCard } from "@/components/common/GMPCard";
@@ -526,48 +531,84 @@ export default function IPODetailPage({ params }: PageProps) {
           {/* Key Performance Indicators (KPIs) & Valuation Multiples */}
           {ipo.kpis && (
             <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
                 <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-emerald-700" />
                   Key Performance Indicators (KPI) &amp; Valuation Metrics
                 </h3>
-                {ipo.kpis.asOfDate && (
-                  <span className="text-[11px] font-bold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
-                    Values as of {ipo.kpis.asOfDate}
-                  </span>
-                )}
+                <div className="flex items-center gap-2">
+                  {ipo.kpis.marketCapUpperBand && (
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                      M-Cap: {ipo.kpis.marketCapUpperBand}
+                    </span>
+                  )}
+                  {ipo.kpis.asOfDate && (
+                    <span className="text-[11px] font-bold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
+                      Values as of {ipo.kpis.asOfDate}
+                    </span>
+                  )}
+                </div>
               </div>
 
-              {/* KPI Summary Cards */}
+              {/* KPI Summary Cards Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                 {ipo.kpis.roe && (
-                  <div className="p-3 rounded-xl bg-emerald-50/60 border border-emerald-200/80">
+                  <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200/90">
                     <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block">ROE (Return on Equity)</span>
-                    <strong className="text-lg font-black text-emerald-900 block mt-0.5">{ipo.kpis.roe}</strong>
+                    <strong className="text-lg font-black text-emerald-950 block mt-0.5">{ipo.kpis.roe}</strong>
+                  </div>
+                )}
+                {ipo.kpis.roce && (
+                  <div className="p-3 rounded-xl bg-teal-50/70 border border-teal-200/90">
+                    <span className="text-[10px] font-bold text-teal-800 uppercase tracking-wider block">ROCE (Capital Employed)</span>
+                    <strong className="text-lg font-black text-teal-950 block mt-0.5">{ipo.kpis.roce}</strong>
                   </div>
                 )}
                 {ipo.kpis.ronw && (
-                  <div className="p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
+                  <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-200/90">
                     <span className="text-[10px] font-bold text-blue-800 uppercase tracking-wider block">RoNW (Return on Net Worth)</span>
-                    <strong className="text-lg font-black text-blue-900 block mt-0.5">{ipo.kpis.ronw}</strong>
+                    <strong className="text-lg font-black text-blue-950 block mt-0.5">{ipo.kpis.ronw}</strong>
+                  </div>
+                )}
+                {ipo.kpis.patMargin && (
+                  <div className="p-3 rounded-xl bg-indigo-50/70 border border-indigo-200/90">
+                    <span className="text-[10px] font-bold text-indigo-800 uppercase tracking-wider block">PAT Profit Margin</span>
+                    <strong className="text-lg font-black text-indigo-950 block mt-0.5">{ipo.kpis.patMargin}</strong>
                   </div>
                 )}
                 {ipo.kpis.ebitdaMargin && (
-                  <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-200/80">
+                  <div className="p-3 rounded-xl bg-purple-50/70 border border-purple-200/90">
                     <span className="text-[10px] font-bold text-purple-800 uppercase tracking-wider block">EBITDA Margin</span>
-                    <strong className="text-lg font-black text-purple-900 block mt-0.5">{ipo.kpis.ebitdaMargin}</strong>
+                    <strong className="text-lg font-black text-purple-950 block mt-0.5">{ipo.kpis.ebitdaMargin}</strong>
+                  </div>
+                )}
+                {ipo.kpis.debtEquity && (
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">Debt / Equity Ratio</span>
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                      <strong className="text-lg font-black text-slate-900">{ipo.kpis.debtEquity}</strong>
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${parseFloat(ipo.kpis.debtEquity) < 1.0 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}`}>
+                        {parseFloat(ipo.kpis.debtEquity) < 1.0 ? 'Low Leverage' : 'Moderate Debt'}
+                      </span>
+                    </div>
                   </div>
                 )}
                 {ipo.kpis.priceToBookValue && (
-                  <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/80">
-                    <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block">Price to Book (P/B Value)</span>
-                    <strong className="text-lg font-black text-amber-900 block mt-0.5">{ipo.kpis.priceToBookValue}</strong>
+                  <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200/90">
+                    <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block">Price to Book (P/BV)</span>
+                    <strong className="text-lg font-black text-amber-950 block mt-0.5">{ipo.kpis.priceToBookValue}x</strong>
+                  </div>
+                )}
+                {ipo.kpis.nav && (
+                  <div className="p-3 rounded-xl bg-sky-50/70 border border-sky-200/90">
+                    <span className="text-[10px] font-bold text-sky-800 uppercase tracking-wider block">NAV Per Share</span>
+                    <strong className="text-lg font-black text-sky-950 block mt-0.5">₹{ipo.kpis.nav}</strong>
                   </div>
                 )}
               </div>
 
               {/* Valuation Pre-IPO vs Post-IPO Comparison Table */}
-              {(ipo.kpis.preIpoEps || ipo.kpis.preIpoPe) && (
+              {(ipo.kpis.preIpoEps || ipo.kpis.preIpoPe || ipo.kpis.marketCapUpperBand) && (
                 <div className="pt-2">
                   <h4 className="text-xs font-bold text-slate-800 mb-2">Valuation Multiples (Pre-IPO vs Post-IPO)</h4>
                   <div className="overflow-x-auto">
@@ -576,7 +617,7 @@ export default function IPODetailPage({ params }: PageProps) {
                         <tr>
                           <th className="py-2.5 px-3">Valuation Metric</th>
                           <th className="py-2.5 px-3 text-center">Pre-IPO</th>
-                          <th className="py-2.5 px-3 text-right">Post-IPO</th>
+                          <th className="py-2.5 px-3 text-right">Post-IPO / Issue</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100 text-slate-800 font-semibold">
@@ -587,11 +628,18 @@ export default function IPODetailPage({ params }: PageProps) {
                             <td className="py-2.5 px-3 text-right font-extrabold text-blue-700">₹{ipo.kpis.postIpoEps || ipo.kpis.preIpoEps}</td>
                           </tr>
                         )}
-                        {ipo.kpis.preIpoPe && (
+                        {(ipo.kpis.preIpoPe || ipo.kpis.postIpoPe) && (
                           <tr className="hover:bg-slate-50">
                             <td className="py-2.5 px-3 font-bold text-slate-900">Price to Earnings Multiple (P/E x)</td>
-                            <td className="py-2.5 px-3 text-center font-extrabold text-slate-900">{ipo.kpis.preIpoPe}x</td>
-                            <td className="py-2.5 px-3 text-right font-extrabold text-blue-700">{ipo.kpis.postIpoPe || ipo.kpis.preIpoPe}x</td>
+                            <td className="py-2.5 px-3 text-center font-extrabold text-slate-900">{ipo.kpis.preIpoPe ? `${ipo.kpis.preIpoPe}x` : "-"}</td>
+                            <td className="py-2.5 px-3 text-right font-extrabold text-blue-700">{ipo.kpis.postIpoPe ? `${ipo.kpis.postIpoPe}x` : (ipo.kpis.preIpoPe ? `${ipo.kpis.preIpoPe}x` : "-")}</td>
+                          </tr>
+                        )}
+                        {ipo.kpis.marketCapUpperBand && (
+                          <tr className="hover:bg-slate-50">
+                            <td className="py-2.5 px-3 font-bold text-slate-900">Market Cap at Upper Band</td>
+                            <td className="py-2.5 px-3 text-center font-medium text-slate-500">-</td>
+                            <td className="py-2.5 px-3 text-right font-extrabold text-emerald-700">{ipo.kpis.marketCapUpperBand}</td>
                           </tr>
                         )}
                       </tbody>
@@ -603,35 +651,124 @@ export default function IPODetailPage({ params }: PageProps) {
           )}
 
           {/* Financials Table */}
-          {ipo.financials && (
-            <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-emerald-700" />
-                Financial Performance Trends
-              </h3>
+          {ipo.financials && ipo.financials.length > 0 && (
+            <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <Building2 className="w-4 h-4 text-emerald-700" />
+                    Financial Performance Trends
+                  </h3>
+                  <p className="text-[11px] text-slate-600 mt-0.5">
+                    Restated consolidated financial figures in ₹ Crores from official filing.
+                  </p>
+                </div>
+                <span className="text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                  Multi-Year Financial Audit
+                </span>
+              </div>
+
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
                     <tr>
-                      <th className="py-2.5 px-3">Financial Year</th>
-                      <th className="py-2.5 px-3">Revenue (₹ Cr)</th>
-                      <th className="py-2.5 px-3">Profit After Tax (₹ Cr)</th>
-                      <th className="py-2.5 px-3">Net Worth (₹ Cr)</th>
-                      <th className="py-2.5 px-3 text-right">RONW (%)</th>
+                      <th className="py-2.5 px-3">Period Ended</th>
+                      <th className="py-2.5 px-3">Total Revenue</th>
+                      <th className="py-2.5 px-3">Profit After Tax (PAT)</th>
+                      <th className="py-2.5 px-3">Net Worth</th>
+                      {ipo.financials.some((f: any) => f.assets !== null && f.assets !== undefined) && (
+                        <th className="py-2.5 px-3">Total Assets</th>
+                      )}
+                      {ipo.financials.some((f: any) => f.reserves !== null && f.reserves !== undefined) && (
+                        <th className="py-2.5 px-3">Reserves &amp; Surplus</th>
+                      )}
+                      {ipo.financials.some((f: any) => f.borrowing !== null && f.borrowing !== undefined) && (
+                        <th className="py-2.5 px-3">Borrowings / Debt</th>
+                      )}
+                      <th className="py-2.5 px-3 text-right">RoNW (%)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-slate-800">
                     {ipo.financials.map((fin: any, idx: number) => (
-                      <tr key={idx} className="hover:bg-slate-50">
-                        <td className="py-2.5 px-3 font-bold text-slate-900">{fin.year}</td>
-                        <td className="py-2.5 px-3">₹{fin.revenue} Cr</td>
-                        <td className="py-2.5 px-3 text-emerald-700 font-bold">₹{fin.pat} Cr</td>
-                        <td className="py-2.5 px-3">₹{fin.netWorth} Cr</td>
-                        <td className="py-2.5 px-3 text-right font-semibold">{fin.ronw}%</td>
+                      <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-3 px-3 font-bold text-slate-900 whitespace-nowrap">{fin.year}</td>
+                        <td className="py-3 px-3 whitespace-nowrap">
+                          <div className="font-bold text-slate-900">₹{fin.revenue.toLocaleString("en-IN")} Cr</div>
+                          {fin.revenueGrowthYoY !== null && fin.revenueGrowthYoY !== undefined && (
+                            <span className={`inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.2 rounded mt-0.5 ${
+                              fin.revenueGrowthYoY >= 0 ? "text-emerald-700 bg-emerald-50" : "text-rose-700 bg-rose-50"
+                            }`}>
+                              {fin.revenueGrowthYoY >= 0 ? "+" : ""}{fin.revenueGrowthYoY}% YoY
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-3 px-3 whitespace-nowrap">
+                          <div className={`font-bold ${fin.pat >= 0 ? "text-emerald-700" : "text-rose-700"}`}>
+                            ₹{fin.pat.toLocaleString("en-IN")} Cr
+                          </div>
+                          {fin.patGrowthYoY !== null && fin.patGrowthYoY !== undefined && (
+                            <span className={`inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.2 rounded mt-0.5 ${
+                              fin.patGrowthYoY >= 0 ? "text-emerald-700 bg-emerald-50" : "text-rose-700 bg-rose-50"
+                            }`}>
+                              {fin.patGrowthYoY >= 0 ? "+" : ""}{fin.patGrowthYoY}% YoY
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-3 px-3 font-medium whitespace-nowrap">₹{fin.netWorth.toLocaleString("en-IN")} Cr</td>
+                        {ipo.financials.some((f: any) => f.assets !== null && f.assets !== undefined) && (
+                          <td className="py-3 px-3 text-slate-700 whitespace-nowrap">
+                            {fin.assets ? `₹${fin.assets.toLocaleString("en-IN")} Cr` : "-"}
+                          </td>
+                        )}
+                        {ipo.financials.some((f: any) => f.reserves !== null && f.reserves !== undefined) && (
+                          <td className="py-3 px-3 text-slate-700 whitespace-nowrap">
+                            {fin.reserves ? `₹${fin.reserves.toLocaleString("en-IN")} Cr` : "-"}
+                          </td>
+                        )}
+                        {ipo.financials.some((f: any) => f.borrowing !== null && f.borrowing !== undefined) && (
+                          <td className="py-3 px-3 text-slate-700 whitespace-nowrap">
+                            {fin.borrowing ? `₹${fin.borrowing.toLocaleString("en-IN")} Cr` : "-"}
+                          </td>
+                        )}
+                        <td className="py-3 px-3 text-right font-bold text-slate-900 whitespace-nowrap">
+                          {fin.ronw !== null && fin.ronw !== undefined ? `${fin.ronw}%` : "-"}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          )}
+
+          {/* Objects of the Issue (Fund Utilization) */}
+          {ipo.objectsOfIssue && ipo.objectsOfIssue.length > 0 && (
+            <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <Target className="w-4 h-4 text-emerald-700" />
+                  Objects of the Issue (Fund Utilization)
+                </h3>
+                <span className="text-[11px] font-bold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full">
+                  {ipo.objectsOfIssue.length} Strategic Objectives
+                </span>
+              </div>
+              <div className="space-y-2.5 pt-1">
+                {ipo.objectsOfIssue.map((obj: any, idx: number) => (
+                  <div key={idx} className="flex items-start justify-between gap-3 p-3 rounded-lg bg-slate-50/70 border border-slate-200/80 hover:bg-slate-50 transition-colors">
+                    <div className="flex items-start gap-2.5 text-xs text-slate-800">
+                      <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                        {idx + 1}
+                      </span>
+                      <p className="font-medium leading-relaxed">{obj.purpose}</p>
+                    </div>
+                    {obj.amountCr && (
+                      <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-md shrink-0 whitespace-nowrap">
+                        ₹{obj.amountCr} Cr
+                      </span>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           )}
@@ -951,7 +1088,7 @@ export default function IPODetailPage({ params }: PageProps) {
           </span>
         </div>
         <p className="text-xs text-slate-500 font-medium">
-          This panel shows the exact raw fields returned from the Neon database &amp; Upvaly API. Use this to inspect all available metadata, schedules, and subscription metrics to determine what other fields you want to render in the UI.
+          This panel shows the exact raw fields returned from the Python Scraper &amp; Neon Database / JSON cache. Use this to inspect all available financials, valuation ratios, schedules, and subscription metrics in real time.
         </p>
         <div className="bg-slate-950 rounded-xl p-4 overflow-x-auto border border-slate-800 text-[11px] font-mono text-emerald-400 max-h-[500px] shadow-inner leading-relaxed w-full">
           <pre>{JSON.stringify(ipo, null, 2)}</pre>

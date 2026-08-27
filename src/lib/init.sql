@@ -45,6 +45,13 @@ CREATE TABLE IF NOT EXISTS ipos (
     drhp_url VARCHAR(1000),
     prospectus_url VARCHAR(1000),
     gmp_trends JSONB,
+    financials JSONB,
+    lot_sizes JSONB,
+    subscription_breakdown JSONB,
+    peer_comparison JSONB,
+    reservations JSONB,
+    kpis JSONB,
+    objects_of_issue JSONB,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

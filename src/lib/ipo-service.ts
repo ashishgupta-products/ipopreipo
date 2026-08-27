@@ -56,13 +56,14 @@ function mapRowToIPO(row: any): IPOData {
     risks: Array.isArray(row.risks) ? row.risks : [],
     prospectusUrl: row.prospectus_url || undefined,
     drhpUrl: row.drhp_url || undefined,
-    gmpTrends: row.gmp_trends || undefined,
+    gmpTrends: row.gmp_trends || row.gmpTrends || undefined,
     financials: row.financials || undefined,
     lotSizes: row.lot_sizes || undefined,
     subscriptionBreakdown: row.subscription_breakdown || undefined,
     peerComparison: row.peer_comparison || undefined,
     reservations: row.reservations || undefined,
     kpis: row.kpis || undefined,
+    objectsOfIssue: row.objects_of_issue || row.objectsOfIssue || undefined,
   };
 }
 

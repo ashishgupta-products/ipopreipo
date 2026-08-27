@@ -13,6 +13,7 @@ from ..models import (
     FinancialMetric,
     LotSizeDetail,
     IPOReservation,
+    IssueObject,
     IPOKpiDetail,
     SubscriptionDetail,
     PeerComparisonDetail,
@@ -302,12 +303,13 @@ class ChittorgarhScraper:
                     if li.get_text(strip=True) and "summary" not in li.get_text(strip=True).lower() and "tracker" not in li.get_text(strip=True).lower()
                 ]
 
-        # 8. Financials Table Extraction
+        # 8. Financials, KPIs, Valuations & Tables Extraction
         financials_list: List[FinancialMetric] = []
         lot_sizes_list: List[LotSizeDetail] = []
         reservations_list: List[IPOReservation] = []
         subscription_breakdown_list: List[SubscriptionDetail] = []
         peer_comparison_list: List[PeerComparisonDetail] = []
+        objects_of_issue_list: List[IssueObject] = []
         kpis_obj: Optional[IPOKpiDetail] = None
 
         total_sub = 0.0
@@ -318,7 +320,7 @@ class ChittorgarhScraper:
         for table in soup.find_all("table"):
             table_text = table.get_text().lower()
             
-            # Financials Table
+            # 8A. Financials Table
             if "period ended" in table_text and ("assets" in table_text or "revenue" in table_text or "total income" in table_text or "profit after tax" in table_text):
                 rows = table.find_all("tr")
                 if len(rows) > 1:
@@ -337,12 +339,23 @@ class ChittorgarhScraper:
                             continue
                         
                         rev = pat = nw = 0.0
+                        assets_val = reserves_val = debt_val = None
+
                         for k, vals in data_dict.items():
                             if idx < len(vals):
                                 num_val = parse_number(vals[idx])
-                                if "revenue" in k or "total income" in k: rev = num_val
-                                elif "profit after tax" in k or "pat" in k: pat = num_val
-                                elif "net worth" in k: nw = num_val
+                                if "revenue" in k or "total income" in k:
+                                    rev = num_val
+                                elif "profit after tax" in k or "pat" in k or "net profit" in k:
+                                    pat = num_val
+                                elif "net worth" in k or "networth" in k or "shareholders" in k:
+                                    nw = num_val
+                                elif "asset" in k:
+                                    assets_val = num_val
+                                elif "reserve" in k:
+                                    reserves_val = num_val
+                                elif "borrowing" in k or "debt" in k:
+                                    debt_val = num_val
 
                         if period not in [f.year for f in financials_list]:
                             financials_list.append(FinancialMetric(
@@ -350,9 +363,12 @@ class ChittorgarhScraper:
                                 revenue=rev,
                                 pat=pat,
                                 netWorth=nw,
+                                assets=assets_val,
+                                reserves=reserves_val,
+                                borrowing=debt_val,
                             ))
 
-            # Lot Size Table
+            # 8B. Lot Size Table
             if "application" in table_text and ("lots" in table_text or "shares" in table_text) and "amount" in table_text:
                 for tr in table.find_all("tr")[1:]:
                     tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
@@ -364,7 +380,7 @@ class ChittorgarhScraper:
                             amount=int(parse_number(tds[3])),
                         ))
 
-            # Reservations Table
+            # 8C. Reservations Table
             if "investor category" in table_text and "shares offered" in table_text:
                 for tr in table.find_all("tr")[1:]:
                     tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
@@ -377,7 +393,7 @@ class ChittorgarhScraper:
                             amountCr=tds[3] if len(tds) > 3 else ""
                         ))
 
-            # Subscription Details Table
+            # 8D. Subscription Details Table
             if "subscription" in table_text and ("qib" in table_text or "retail" in table_text or "total" in table_text):
                 for tr in table.find_all("tr")[1:]:
                     tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
@@ -401,8 +417,8 @@ class ChittorgarhScraper:
                                 bidsReceived=parse_number(tds[3]) if len(tds) > 3 else 0.0,
                             ))
 
-            # KPI Table
-            if ("roe" in table_text or "roce" in table_text or "debt/equity" in table_text or "pat margin" in table_text) and "expense" not in table_text:
+            # 8E. KPI Table
+            if ("roe" in table_text or "roce" in table_text or "debt/equity" in table_text or "pat margin" in table_text) and "expense" not in table_text and "valuation metric" not in table_text:
                 kpi_map: Dict[str, str] = {}
                 for tr in table.find_all("tr"):
                     tds = [c.get_text(strip=True) for c in tr.find_all(["th", "td"])]
@@ -410,16 +426,57 @@ class ChittorgarhScraper:
                         kpi_map[tds[0].lower()] = tds[1]
                 
                 if kpi_map:
-                    kpis_obj = IPOKpiDetail(
-                        roe=kpi_map.get("roe"),
-                        ronw=kpi_map.get("ronw"),
-                        ebitdaMargin=kpi_map.get("ebitda margin"),
-                        priceToBookValue=kpi_map.get("price to book value", kpi_map.get("p/bv")),
-                        preIpoEps=kpi_map.get("eps (rs)"),
-                        preIpoPe=kpi_map.get("p/e (x)"),
-                    )
+                    if not kpis_obj:
+                        kpis_obj = IPOKpiDetail()
+                    if "roe" in kpi_map: kpis_obj.roe = kpi_map.get("roe")
+                    if "roce" in kpi_map: kpis_obj.roce = kpi_map.get("roce")
+                    if "ronw" in kpi_map: kpis_obj.ronw = kpi_map.get("ronw")
+                    if "debt/equity" in kpi_map or "debt to equity" in kpi_map:
+                        kpis_obj.debtEquity = kpi_map.get("debt/equity", kpi_map.get("debt to equity"))
+                    if "pat margin" in kpi_map: kpis_obj.patMargin = kpi_map.get("pat margin")
+                    if "ebitda margin" in kpi_map: kpis_obj.ebitdaMargin = kpi_map.get("ebitda margin")
+                    if "nav" in kpi_map: kpis_obj.nav = kpi_map.get("nav")
+                    if "price to book value" in kpi_map or "p/bv" in kpi_map:
+                        kpis_obj.priceToBookValue = kpi_map.get("price to book value", kpi_map.get("p/bv"))
+                    if "eps (rs)" in kpi_map and not kpis_obj.preIpoEps:
+                        kpis_obj.preIpoEps = kpi_map.get("eps (rs)")
+                    if "p/e (x)" in kpi_map and not kpis_obj.preIpoPe:
+                        kpis_obj.preIpoPe = kpi_map.get("p/e (x)")
 
-            # Peer Comparison Table
+            # 8F. Valuation Metrics Table (Pre IPO vs Post IPO)
+            if "valuation metric" in table_text and ("pre ipo" in table_text or "post ipo" in table_text):
+                for tr in table.find_all("tr"):
+                    tds = [c.get_text(strip=True) for c in tr.find_all(["td", "th"])]
+                    if len(tds) >= 3:
+                        lbl = tds[0].lower()
+                        pre_val = tds[1]
+                        post_val = tds[2]
+                        if not kpis_obj:
+                            kpis_obj = IPOKpiDetail()
+                        if "eps" in lbl:
+                            kpis_obj.preIpoEps = pre_val
+                            kpis_obj.postIpoEps = post_val
+                        elif "p/e" in lbl or "pe" in lbl:
+                            kpis_obj.preIpoPe = pre_val
+                            kpis_obj.postIpoPe = post_val
+                        elif "market cap" in lbl:
+                            kpis_obj.marketCapUpperBand = post_val
+
+            # 8G. Objects of the Issue Table
+            if "issue objects" in table_text or "objects of the issue" in table_text or "object of the issue" in table_text:
+                for tr in table.find_all("tr")[1:]:
+                    tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                    if len(tds) >= 2:
+                        purpose = tds[1] if len(tds) >= 3 else tds[0]
+                        amt_str = tds[2] if len(tds) >= 3 else (tds[1] if len(tds) == 2 else "")
+                        amt = parse_number(amt_str) if amt_str else None
+                        if purpose and len(purpose) > 3 and not purpose.isdigit() and "total" not in purpose.lower():
+                            objects_of_issue_list.append(IssueObject(
+                                purpose=purpose,
+                                amountCr=amt if amt and amt > 0 else None
+                            ))
+
+            # 8H. Peer Comparison Table
             if "pe ratio" in table_text and ("company" in table_text or "listing day" in table_text or "issue price" in table_text):
                 for tr in table.find_all("tr")[1:]:
                     tds = [c.get_text(strip=True) for c in tr.find_all(["th", "td"])]
@@ -431,6 +488,19 @@ class ChittorgarhScraper:
                             ronw=None,
                             eps=None
                         ))
+
+        # Auto-compute YoY growth and RoNW for financials
+        for idx in range(len(financials_list)):
+            if idx + 1 < len(financials_list):
+                prior = financials_list[idx + 1]
+                if prior.revenue > 0:
+                    diff_rev = financials_list[idx].revenue - prior.revenue
+                    financials_list[idx].revenueGrowthYoY = round((diff_rev / prior.revenue) * 100, 2)
+                if prior.pat != 0:
+                    diff_pat = financials_list[idx].pat - prior.pat
+                    financials_list[idx].patGrowthYoY = round((diff_pat / abs(prior.pat)) * 100, 2)
+            if financials_list[idx].netWorth > 0 and financials_list[idx].pat != 0 and financials_list[idx].ronw is None:
+                financials_list[idx].ronw = round((financials_list[idx].pat / financials_list[idx].netWorth) * 100, 2)
 
         # 9. DRHP / Prospectus Links
         drhp_url = None
@@ -510,6 +580,7 @@ class ChittorgarhScraper:
             peerComparison=peer_comparison_list if peer_comparison_list else None,
             reservations=reservations_list if reservations_list else None,
             kpis=kpis_obj,
+            objectsOfIssue=objects_of_issue_list if objects_of_issue_list else None,
             drhpUrl=drhp_url,
             prospectusUrl=prospectus_url,
         )

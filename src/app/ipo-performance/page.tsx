@@ -25,6 +25,7 @@ interface PerformanceItem {
   name: string;
   symbol: string;
   slug: string;
+  logoUrl?: string;
   category: "mainboard" | "sme";
   listingDate: string;
   priceBandMax: number;
@@ -89,6 +90,7 @@ export default function IPOPerformancePage() {
                 name: ipo.name,
                 symbol: ipo.symbol || ipo.name.substring(0, 4).toUpperCase(),
                 slug: ipo.slug,
+                logoUrl: ipo.logoUrl,
                 category: ipo.category,
                 listingDate: ipo.listingDate || "",
                 priceBandMax: issuePrice,
@@ -385,7 +387,7 @@ export default function IPOPerformancePage() {
 
                         {/* Title & Symbol */}
                         <div className="flex items-center gap-3.5">
-                          <CompanyLogo name={item.name} size="md" className="rounded-xl shadow-3xs group-hover:scale-105 transition-transform duration-300" />
+                          <CompanyLogo name={item.name} logoUrl={item.logoUrl} size="md" className="rounded-xl shadow-3xs group-hover:scale-105 transition-transform duration-300" />
                           <div className="min-w-0 flex-1">
                             <h3 className="font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-blue-750 transition-colors line-clamp-1 leading-snug">
                               <Link href={`/ipo/${item.slug}`}>
@@ -543,7 +545,7 @@ export default function IPOPerformancePage() {
                           {/* Name */}
                           <td className="py-3.5 px-4">
                             <div className="flex items-center gap-3">
-                              <CompanyLogo name={item.name} size="sm" className="shadow-2xs rounded-lg shrink-0" />
+                              <CompanyLogo name={item.name} logoUrl={item.logoUrl} size="sm" className="shadow-2xs rounded-lg shrink-0" />
                               <div className="min-w-0">
                                 <Link 
                                   href={`/ipo/${item.slug}`} 
@@ -621,7 +623,7 @@ export default function IPOPerformancePage() {
                       {/* Top Row: Logo, Name & Badge */}
                       <div className="flex items-center justify-between gap-3">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <CompanyLogo name={item.name} size="sm" className="shadow-2xs rounded-lg shrink-0" />
+                          <CompanyLogo name={item.name} logoUrl={item.logoUrl} size="sm" className="shadow-2xs rounded-lg shrink-0" />
                           <div className="min-w-0">
                             <Link 
                               href={`/ipo/${item.slug}`} 

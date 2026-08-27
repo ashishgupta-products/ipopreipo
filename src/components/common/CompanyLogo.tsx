@@ -285,6 +285,8 @@ export const CreditCardGraphic: React.FC<CreditCardGraphicProps> = ({
         <img
           src={logoUrl}
           alt={`${name} Card`}
+          referrerPolicy="no-referrer"
+          loading="lazy"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover rounded"
         />
@@ -385,6 +387,8 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
         <img
           src={logoUrl}
           alt={`${name} Logo`}
+          referrerPolicy="no-referrer"
+          loading="lazy"
           onError={() => setImageError(true)}
           className="w-full h-full object-contain rounded"
         />

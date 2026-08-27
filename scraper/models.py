@@ -80,12 +80,17 @@ class LotSizeDetail(BaseModel):
 
 class FinancialMetric(BaseModel):
     year: str
-    revenue: float = 0.0 # in ₹ Cr
-    pat: float = 0.0 # in ₹ Cr
+    revenue: float = 0.0 # in ₹ Cr (Total Income / Revenue)
+    pat: float = 0.0 # in ₹ Cr (Profit After Tax)
     netWorth: float = 0.0 # in ₹ Cr
+    assets: Optional[float] = None # in ₹ Cr (Total Assets)
+    reserves: Optional[float] = None # in ₹ Cr (Reserves & Surplus)
+    borrowing: Optional[float] = None # in ₹ Cr (Total Borrowings / Debt)
     ebitda: Optional[float] = None
     eps: Optional[float] = None
-    ronw: Optional[float] = None
+    ronw: Optional[float] = None # Return on Net Worth %
+    revenueGrowthYoY: Optional[float] = None # YoY %
+    patGrowthYoY: Optional[float] = None # YoY %
 
 class PeerComparisonDetail(BaseModel):
     companyName: str
@@ -100,15 +105,24 @@ class IPOReservation(BaseModel):
     percentage: str = ""
     amountCr: str = ""
 
+class IssueObject(BaseModel):
+    purpose: str
+    amountCr: Optional[float] = None
+
 class IPOKpiDetail(BaseModel):
     roe: Optional[str] = None
+    roce: Optional[str] = None
     ronw: Optional[str] = None
+    debtEquity: Optional[str] = None
+    patMargin: Optional[str] = None
     ebitdaMargin: Optional[str] = None
+    nav: Optional[str] = None
     priceToBookValue: Optional[str] = None
     preIpoEps: Optional[str] = None
     postIpoEps: Optional[str] = None
     preIpoPe: Optional[str] = None
     postIpoPe: Optional[str] = None
+    marketCapUpperBand: Optional[str] = None
     asOfDate: Optional[str] = None
 
 class GMPTrend(BaseModel):
@@ -184,5 +198,6 @@ class IPOData(BaseModel):
     peerComparison: Optional[List[PeerComparisonDetail]] = None
     reservations: Optional[List[IPOReservation]] = None
     kpis: Optional[IPOKpiDetail] = None
+    objectsOfIssue: Optional[List[IssueObject]] = None
     prospectusUrl: Optional[str] = None
     drhpUrl: Optional[str] = None

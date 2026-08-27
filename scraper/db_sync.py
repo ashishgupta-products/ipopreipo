@@ -52,7 +52,8 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             open_date, close_date, allotment_date, refund_date, demat_credit_date, listing_date,
             listing_price, listing_gain_percent, current_market_price,
             registrar_name, registrar_website, registrar_check_url, registrar_phone, registrar_email,
-            recommendation, rating, highlights, risks, drhp_url, prospectus_url, gmp_trends, updated_at
+            recommendation, rating, highlights, risks, drhp_url, prospectus_url, gmp_trends,
+            financials, lot_sizes, subscription_breakdown, peer_comparison, reservations, kpis, objects_of_issue, updated_at
         ) VALUES (
             %(id)s, %(slug)s, %(name)s, %(company_name)s, %(logo_url)s, %(category)s, %(status)s, %(exchange)s,
             %(price_band_min)s, %(price_band_max)s, %(issue_price)s, %(lot_size)s, %(min_investment)s,
@@ -62,7 +63,8 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             %(open_date)s, %(close_date)s, %(allotment_date)s, %(refund_date)s, %(demat_credit_date)s, %(listing_date)s,
             %(listing_price)s, %(listing_gain_percent)s, %(current_market_price)s,
             %(registrar_name)s, %(registrar_website)s, %(registrar_check_url)s, %(registrar_phone)s, %(registrar_email)s,
-            %(recommendation)s, %(rating)s, %(highlights)s, %(risks)s, %(drhp_url)s, %(prospectus_url)s, %(gmp_trends)s, CURRENT_TIMESTAMP
+            %(recommendation)s, %(rating)s, %(highlights)s, %(risks)s, %(drhp_url)s, %(prospectus_url)s, %(gmp_trends)s,
+            %(financials)s, %(lot_sizes)s, %(subscription_breakdown)s, %(peer_comparison)s, %(reservations)s, %(kpis)s, %(objects_of_issue)s, CURRENT_TIMESTAMP
         )
         ON CONFLICT (slug) DO UPDATE SET
             name = EXCLUDED.name,
@@ -109,6 +111,13 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
             drhp_url = COALESCE(EXCLUDED.drhp_url, ipos.drhp_url),
             prospectus_url = COALESCE(EXCLUDED.prospectus_url, ipos.prospectus_url),
             gmp_trends = COALESCE(EXCLUDED.gmp_trends, ipos.gmp_trends),
+            financials = COALESCE(EXCLUDED.financials, ipos.financials),
+            lot_sizes = COALESCE(EXCLUDED.lot_sizes, ipos.lot_sizes),
+            subscription_breakdown = COALESCE(EXCLUDED.subscription_breakdown, ipos.subscription_breakdown),
+            peer_comparison = COALESCE(EXCLUDED.peer_comparison, ipos.peer_comparison),
+            reservations = COALESCE(EXCLUDED.reservations, ipos.reservations),
+            kpis = COALESCE(EXCLUDED.kpis, ipos.kpis),
+            objects_of_issue = COALESCE(EXCLUDED.objects_of_issue, ipos.objects_of_issue),
             updated_at = CURRENT_TIMESTAMP;
         """
 
@@ -160,6 +169,13 @@ def sync_to_postgres(ipos: List[IPOData]) -> bool:
                 "drhp_url": ipo.drhpUrl,
                 "prospectus_url": ipo.prospectusUrl,
                 "gmp_trends": json.dumps([t.model_dump() if hasattr(t, "model_dump") else t.dict() for t in ipo.gmpTrends]) if ipo.gmpTrends else None,
+                "financials": json.dumps([f.model_dump() if hasattr(f, "model_dump") else f.dict() for f in ipo.financials]) if ipo.financials else None,
+                "lot_sizes": json.dumps([l.model_dump() if hasattr(l, "model_dump") else l.dict() for l in ipo.lotSizes]) if ipo.lotSizes else None,
+                "subscription_breakdown": json.dumps([s.model_dump() if hasattr(s, "model_dump") else s.dict() for s in ipo.subscriptionBreakdown]) if ipo.subscriptionBreakdown else None,
+                "peer_comparison": json.dumps([p.model_dump() if hasattr(p, "model_dump") else p.dict() for p in ipo.peerComparison]) if ipo.peerComparison else None,
+                "reservations": json.dumps([r.model_dump() if hasattr(r, "model_dump") else r.dict() for r in ipo.reservations]) if ipo.reservations else None,
+                "kpis": json.dumps(ipo.kpis.model_dump() if hasattr(ipo.kpis, "model_dump") else ipo.kpis.dict()) if ipo.kpis else None,
+                "objects_of_issue": json.dumps([o.model_dump() if hasattr(o, "model_dump") else o.dict() for o in ipo.objectsOfIssue]) if ipo.objectsOfIssue else None,
             }
             cursor.execute(upsert_sql, params)
 
