@@ -1312,10 +1312,10 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 99,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 2.93,
+    "qibSubscription": 1.72,
+    "niiSubscription": 4.48,
+    "retailSubscription": 2.68,
     "openDate": "2026-08-25",
     "closeDate": "2026-08-28",
     "allotmentDate": "2026-08-31",
@@ -1334,8 +1334,8 @@
       "Mefcom Capital Markets Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.0,
-    "reviewScore": 80,
+    "rating": 4.1,
+    "reviewScore": 82,
     "brokerReviews": null,
     "memberReviews": null,
     "highlights": [
@@ -1422,7 +1422,50 @@
         "amount": 1001583
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 1768300.0,
+        "bidsReceived": 3044764.0,
+        "subscriptionTimes": 1.72
+      },
+      {
+        "category": "NII",
+        "subCategory": null,
+        "sharesOffered": 7073200.0,
+        "bidsReceived": 25118246.0,
+        "subscriptionTimes": 3.55
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 4716056.0,
+        "bidsReceived": 14569235.0,
+        "subscriptionTimes": 3.09
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 2357144.0,
+        "bidsReceived": 10549011.0,
+        "subscriptionTimes": 4.48
+      },
+      {
+        "category": "Retail",
+        "subCategory": null,
+        "sharesOffered": 8841500.0,
+        "bidsReceived": 23681481.0,
+        "subscriptionTimes": 2.68
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 17683000.0,
+        "bidsReceived": 51844491.0,
+        "subscriptionTimes": 2.93
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Technocraft Ventures Ltd.",
@@ -6591,9 +6634,9 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 101,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
+    "totalSubscription": 162.94,
+    "qibSubscription": 121.28,
+    "niiSubscription": 180.9,
     "retailSubscription": 0.0,
     "openDate": "2026-08-25",
     "closeDate": "2026-08-28",
@@ -6612,9 +6655,9 @@
     "leadManagers": [
       "GYR Capital Advisors Pvt.Ltd."
     ],
-    "recommendation": "May Apply",
-    "rating": 3.8,
-    "reviewScore": 75,
+    "recommendation": "Apply for Long Term",
+    "rating": 4.2,
+    "reviewScore": 85,
     "brokerReviews": null,
     "memberReviews": null,
     "highlights": [
@@ -6713,7 +6756,50 @@
         "amount": 484800
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 974400.0,
+        "bidsReceived": 118178400.0,
+        "subscriptionTimes": 121.28
+      },
+      {
+        "category": "NII*",
+        "subCategory": null,
+        "sharesOffered": 727200.0,
+        "bidsReceived": 196852800.0,
+        "subscriptionTimes": 270.7
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 484800.0,
+        "bidsReceived": 153002400.0,
+        "subscriptionTimes": 315.6
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 242400.0,
+        "bidsReceived": 43850400.0,
+        "subscriptionTimes": 180.9
+      },
+      {
+        "category": "Individual Investor",
+        "subCategory": null,
+        "sharesOffered": 1692000.0,
+        "bidsReceived": 268994400.0,
+        "subscriptionTimes": 158.98
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 3585600.0,
+        "bidsReceived": 584228400.0,
+        "subscriptionTimes": 162.94
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Technocrats Plasma Systems Ltd.",
