@@ -2796,7 +2796,7 @@
     "dematCreditDate": "2026-08-27",
     "listingDate": "2026-08-28",
     "listingPrice": null,
-    "listingGainPercent": null,
+    "listingGainPercent": 0.0,
     "currentMarketPrice": null,
     "registrarName": "Kfin Technologies Ltd.",
     "registrarWebsite": "https://kfintech.com",
