@@ -664,7 +664,7 @@
     "companyName": "Priority Jewels",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/priority_jewels_logo.jpg",
     "category": "mainboard",
-    "status": "upcoming",
+    "status": "live",
     "exchange": "BSE & NSE",
     "priceBandMin": 190,
     "priceBandMax": 200,
@@ -907,7 +907,7 @@
     "companyName": "ESDS Software Solution",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/esds-solution-logo.png",
     "category": "mainboard",
-    "status": "upcoming",
+    "status": "live",
     "exchange": "BSE & NSE",
     "priceBandMin": 408,
     "priceBandMax": 429,
@@ -1592,7 +1592,7 @@
     "companyName": "Symbiotec Pharmalab",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/symbiotec-ipo-logo.jpg",
     "category": "mainboard",
-    "status": "live",
+    "status": "closed",
     "exchange": "BSE & NSE",
     "priceBandMin": 938,
     "priceBandMax": 988,
@@ -1608,10 +1608,10 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 988,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 75.08,
+    "qibSubscription": 181.2,
+    "niiSubscription": 58.01,
+    "retailSubscription": 13.69,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1633,8 +1633,8 @@
       "Nomura Financial Advisory & Securities (India) Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.3,
-    "reviewScore": 65,
+    "rating": 3.8,
+    "reviewScore": 75,
     "brokerReviews": null,
     "memberReviews": null,
     "highlights": [
@@ -1721,7 +1721,57 @@
         "amount": 1007760
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 3550608.0,
+        "bidsReceived": 643359195.0,
+        "subscriptionTimes": 181.2
+      },
+      {
+        "category": "NII",
+        "subCategory": null,
+        "sharesOffered": 2662955.0,
+        "bidsReceived": 206535120.0,
+        "subscriptionTimes": 77.56
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 1775303.0,
+        "bidsReceived": 155046495.0,
+        "subscriptionTimes": 87.34
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 887652.0,
+        "bidsReceived": 51488625.0,
+        "subscriptionTimes": 58.01
+      },
+      {
+        "category": "Retail",
+        "subCategory": null,
+        "sharesOffered": 6213562.0,
+        "bidsReceived": 85046805.0,
+        "subscriptionTimes": 13.69
+      },
+      {
+        "category": "Employee",
+        "subCategory": null,
+        "sharesOffered": 33408.0,
+        "bidsReceived": 545055.0,
+        "subscriptionTimes": 16.32
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 12460533.0,
+        "bidsReceived": 935486175.0,
+        "subscriptionTimes": 75.08
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Hexagon Nutrition Ltd.",
@@ -1852,7 +1902,7 @@
     "companyName": "Hy-Tech Engineers",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/hytech-ipo-logo.png",
     "category": "mainboard",
-    "status": "live",
+    "status": "closed",
     "exchange": "BSE & NSE",
     "priceBandMin": 50,
     "priceBandMax": 53,
@@ -1868,10 +1918,10 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 53,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 247.39,
+    "qibSubscription": 249.71,
+    "niiSubscription": 556.48,
+    "retailSubscription": 175.1,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -1890,8 +1940,8 @@
       "New Berry Capitals Pvt.Ltd."
     ],
     "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 69,
+    "rating": 3.9,
+    "reviewScore": 79,
     "brokerReviews": null,
     "memberReviews": null,
     "highlights": [
@@ -1978,7 +2028,50 @@
         "amount": 1004933
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 5122042.0,
+        "bidsReceived": 1279002086.0,
+        "subscriptionTimes": 249.71
+      },
+      {
+        "category": "NII",
+        "subCategory": null,
+        "sharesOffered": 3841531.0,
+        "bidsReceived": 1586394988.0,
+        "subscriptionTimes": 412.96
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 2561020.0,
+        "bidsReceived": 873818534.0,
+        "subscriptionTimes": 341.2
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 1280510.0,
+        "bidsReceived": 712576454.0,
+        "subscriptionTimes": 556.48
+      },
+      {
+        "category": "Retail",
+        "subCategory": null,
+        "sharesOffered": 8963571.0,
+        "bidsReceived": 1569538659.0,
+        "subscriptionTimes": 175.1
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 17927144.0,
+        "bidsReceived": 4434935733.0,
+        "subscriptionTimes": 247.39
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Behari Lal Engineering Ltd.",
@@ -2078,7 +2171,7 @@
     "companyName": "Skyways Air Services",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/sls_logo.png",
     "category": "mainboard",
-    "status": "live",
+    "status": "closed",
     "exchange": "BSE & NSE",
     "priceBandMin": 131,
     "priceBandMax": 138,
@@ -2094,10 +2187,10 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 138,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
+    "totalSubscription": 71.25,
+    "qibSubscription": 139.69,
+    "niiSubscription": 79.04,
+    "retailSubscription": 25.4,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
     "allotmentDate": "2026-08-28",
@@ -2118,8 +2211,8 @@
       "Dolat Finserv Pvt.Ltd."
     ],
     "recommendation": "Apply for Long Term",
-    "rating": 4.1,
-    "reviewScore": 82,
+    "rating": 4.6,
+    "reviewScore": 92,
     "brokerReviews": {
       "subscribe": 2,
       "mayApply": 0,
@@ -2216,7 +2309,50 @@
         "amount": 1007400
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 8432000.0,
+        "bidsReceived": 1177854000.0,
+        "subscriptionTimes": 139.69
+      },
+      {
+        "category": "NII",
+        "subCategory": null,
+        "sharesOffered": 6351600.0,
+        "bidsReceived": 554086200.0,
+        "subscriptionTimes": 87.24
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 4234400.0,
+        "bidsReceived": 386745500.0,
+        "subscriptionTimes": 91.33
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 2117200.0,
+        "bidsReceived": 167340700.0,
+        "subscriptionTimes": 79.04
+      },
+      {
+        "category": "Retail",
+        "subCategory": null,
+        "sharesOffered": 14800000.0,
+        "bidsReceived": 375970500.0,
+        "subscriptionTimes": 25.4
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 29583600.0,
+        "bidsReceived": 2107910700.0,
+        "subscriptionTimes": 71.25
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Shiprocket Ltd.",
@@ -2633,7 +2769,7 @@
     "companyName": "Tempsens Instruments (India)",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/tempens-ipo-logo.jpg",
     "category": "mainboard",
-    "status": "closed",
+    "status": "listed",
     "exchange": "BSE & NSE",
     "priceBandMin": 285,
     "priceBandMax": 300,
@@ -5856,7 +5992,7 @@
     "companyName": "Complete Sports & Management India",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/csml-ipo-logo.jpg",
     "category": "sme",
-    "status": "upcoming",
+    "status": "live",
     "exchange": "BSE SME",
     "priceBandMin": 128,
     "priceBandMax": 135,
@@ -6030,7 +6166,7 @@
     "companyName": "Paluck Technologies",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/paluck-technologies-logo.png",
     "category": "sme",
-    "status": "upcoming",
+    "status": "live",
     "exchange": "BSE SME",
     "priceBandMin": 46,
     "priceBandMax": 48,
@@ -6653,7 +6789,7 @@
     "companyName": "Madhur Knit Crafts",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/madhur-knit-ipo-logo.png",
     "category": "sme",
-    "status": "live",
+    "status": "closed",
     "exchange": "NSE Emerge",
     "priceBandMin": 95,
     "priceBandMax": 100,
@@ -6669,9 +6805,9 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 100,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
+    "totalSubscription": 1.5,
+    "qibSubscription": 1.01,
+    "niiSubscription": 0.8,
     "retailSubscription": 0.0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
@@ -6779,7 +6915,50 @@
         "amount": 1080000
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 202800.0,
+        "bidsReceived": 204000.0,
+        "subscriptionTimes": 1.01
+      },
+      {
+        "category": "NII*",
+        "subCategory": null,
+        "sharesOffered": 2277600.0,
+        "bidsReceived": 1687200.0,
+        "subscriptionTimes": 0.74
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 1252000.0,
+        "bidsReceived": 1082400.0,
+        "subscriptionTimes": 0.86
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 759200.0,
+        "bidsReceived": 604800.0,
+        "subscriptionTimes": 0.8
+      },
+      {
+        "category": "Individual Investor",
+        "subCategory": null,
+        "sharesOffered": 2277600.0,
+        "bidsReceived": 5241600.0,
+        "subscriptionTimes": 2.3
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 4758000.0,
+        "bidsReceived": 7132800.0,
+        "subscriptionTimes": 1.5
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Fascinate Textiles Ltd.",
@@ -6918,7 +7097,7 @@
     "companyName": "ABH Healthcare",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/abh-healthcare-logo.png",
     "category": "sme",
-    "status": "live",
+    "status": "closed",
     "exchange": "NSE Emerge",
     "priceBandMin": 96,
     "priceBandMax": 102,
@@ -6934,9 +7113,9 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 102,
     "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
+    "totalSubscription": 1.44,
+    "qibSubscription": 8.37,
+    "niiSubscription": 0.55,
     "retailSubscription": 0.0,
     "openDate": "2026-08-24",
     "closeDate": "2026-08-27",
@@ -7044,7 +7223,50 @@
         "amount": 1101600
       }
     ],
-    "subscriptionBreakdown": null,
+    "subscriptionBreakdown": [
+      {
+        "category": "QIB (Ex Anchor)",
+        "subCategory": null,
+        "sharesOffered": 199200.0,
+        "bidsReceived": 1666800.0,
+        "subscriptionTimes": 8.37
+      },
+      {
+        "category": "NII*",
+        "subCategory": null,
+        "sharesOffered": 1528800.0,
+        "bidsReceived": 436800.0,
+        "subscriptionTimes": 0.29
+      },
+      {
+        "category": "bNII (> ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 1018800.0,
+        "bidsReceived": 156000.0,
+        "subscriptionTimes": 0.15
+      },
+      {
+        "category": "sNII (< ₹10L)",
+        "subCategory": null,
+        "sharesOffered": 510000.0,
+        "bidsReceived": 280800.0,
+        "subscriptionTimes": 0.55
+      },
+      {
+        "category": "Individual Investor",
+        "subCategory": null,
+        "sharesOffered": 1528800.0,
+        "bidsReceived": 2577600.0,
+        "subscriptionTimes": 1.69
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 3256800.0,
+        "bidsReceived": 4681200.0,
+        "subscriptionTimes": 1.44
+      }
+    ],
     "peerComparison": [
       {
         "companyName": "Bio Medica Laboratories Ltd.",
