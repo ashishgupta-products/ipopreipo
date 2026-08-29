@@ -1296,7 +1296,7 @@
     "companyName": "Annu Projects",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/annu-projects-logo1.png",
     "category": "mainboard",
-    "status": "live",
+    "status": "closed",
     "exchange": "BSE & NSE",
     "priceBandMin": 94,
     "priceBandMax": 99,
@@ -3001,23 +3001,142 @@
     ],
     "peerComparison": [
       {
-        "companyName": "Mopshop Distribution Ltd.",
+        "companyName": "MV Electrosystems Ltd.",
         "faceValue": 10.0,
-        "peRatio": 22.22,
+        "peRatio": -68.88,
         "ronw": null,
         "eps": null
       },
       {
-        "companyName": "Safecure Services Ltd.",
+        "companyName": "Indo-MIM Ltd.",
         "faceValue": 10.0,
-        "peRatio": 11.66,
+        "peRatio": 44.01,
         "ronw": null,
         "eps": null
       },
       {
-        "companyName": "NIS Management Ltd.",
+        "companyName": "Lohia Corp Ltd.",
         "faceValue": 10.0,
-        "peRatio": 9.13,
+        "peRatio": 23.21,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Omnitech Engineering Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 54.47,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Epack Prefab Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 29.49,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Skytech Infinite Platform Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 0.0,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Merritronix Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.83,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Adisoft Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.82,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Highness Microelectronics Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 16.7,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Tipco Engineering India Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 8.73,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Gabion Technologies India Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.18,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Admach Systems Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 19.56,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Apollo Techno Industries Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.43,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "HRS Aluglaze Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 26.07,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Purple Wave Infocom Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.33,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Shining Tools Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 16.18,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "True Colors Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.66,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "L.T.Elevator Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.31,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Airfloa Rail Technology Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.57,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Taurian MPS Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.29,
         "ronw": null,
         "eps": null
       }
@@ -6618,7 +6737,7 @@
     "companyName": "Sumax Engineering",
     "logoUrl": "https://www.chittorgarh.net/images/ipo/sumax-ipo-logo.jpg",
     "category": "sme",
-    "status": "live",
+    "status": "closed",
     "exchange": "NSE Emerge",
     "priceBandMin": 95,
     "priceBandMax": 101,
