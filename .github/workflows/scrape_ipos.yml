@@ -46,11 +46,7 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          if [ "${{ github.event.inputs.mode }}" = "gmp" ]; then
-            python -m scraper.main --gmp
-          else
-            python -m scraper.main --all
-          fi
+          python -m scraper.main --all
 
       - name: Commit and Push Updated Data
         uses: stefanzweifel/git-auto-commit-action@v5

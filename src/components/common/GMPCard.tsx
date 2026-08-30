@@ -22,9 +22,9 @@ export const GMPCard: React.FC<GMPCardProps> = ({
   lotSize,
   gmpTrends
 }) => {
-  const hasData = gmpTrends && gmpTrends.length > 0;
+  const hasData = gmp > 0 || (gmpTrends && gmpTrends.length > 0);
   const isPositive = gmp > 0;
-  const isNeutral = gmp === 0;
+  const isNeutral = gmp === 0 && !hasData;
 
   if (compact) {
     if (!hasData) {
