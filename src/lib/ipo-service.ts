@@ -1,7 +1,6 @@
 import { IPOData, IPOCategory, IPOStatus } from "@/types/ipo";
 import { sql } from "@/lib/db";
-import fs from "fs";
-import path from "path";
+import defaultIPOs from "@/data/ipos.json";
 
 let localCache: IPOData[] | null = null;
 let localCacheTimestamp = 0;
@@ -75,26 +74,8 @@ function mapRowToIPO(row: any): IPOData {
 }
 
 function loadLocalJSON(): IPOData[] {
-  try {
-    const srcJsonPath = path.join(process.cwd(), "src", "data", "ipos.json");
-    if (fs.existsSync(srcJsonPath)) {
-      const content = fs.readFileSync(srcJsonPath, "utf-8");
-      const parsed = JSON.parse(content);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
-      }
-    }
-
-    const publicJsonPath = path.join(process.cwd(), "public", "data", "ipos.json");
-    if (fs.existsSync(publicJsonPath)) {
-      const content = fs.readFileSync(publicJsonPath, "utf-8");
-      const parsed = JSON.parse(content);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
-      }
-    }
-  } catch (err) {
-    console.warn("Could not load local ipos.json file:", err);
+  if (Array.isArray(defaultIPOs) && defaultIPOs.length > 0) {
+    return defaultIPOs as IPOData[];
   }
   return [];
 }
@@ -123,6 +104,18 @@ async function ensureDbMigrations() {
     await sql`ALTER TABLE ipos ADD COLUMN IF NOT EXISTS risks TEXT[];`;
     await sql`ALTER TABLE ipos ADD COLUMN IF NOT EXISTS drhp_url VARCHAR(1000);`;
     await sql`ALTER TABLE ipos ADD COLUMN IF NOT EXISTS prospectus_url VARCHAR(1000);`;
+
+    // Backfill missing logos in database from static baseline
+    const staticList = loadLocalJSON();
+    for (const item of staticList) {
+      if (item.logoUrl) {
+        await sql`
+          UPDATE ipos 
+          SET logo_url = ${item.logoUrl} 
+          WHERE slug = ${item.slug} AND (logo_url IS NULL OR logo_url = '');
+        `.catch(() => {});
+      }
+    }
   } catch (e) {
     console.warn("Auto-migration notice (columns may already exist):", e);
   }
@@ -155,7 +148,7 @@ export async function fetchIPOs(): Promise<IPOData[]> {
       if (rows && rows.length > 0) {
         const dbIpos = rows.map(mapRowToIPO);
         
-        // Merge with local baseline dataset so missing DB fields (e.g. empty GMP/sub) are seamlessly enriched
+        // Merge with local baseline dataset so missing DB fields (e.g. empty GMP/sub/logo) are seamlessly enriched
         const mergedIPOs: IPOData[] = dbIpos.map((dbIpo) => {
           const base = baselineMap.get(dbIpo.slug);
           if (!base) return dbIpo;
