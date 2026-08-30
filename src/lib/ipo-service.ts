@@ -162,7 +162,8 @@ export async function fetchIPOs(): Promise<IPOData[]> {
           return {
             ...base,
             ...dbIpo,
-            // Fall back to baseline for rich objects if DB field is empty or 0
+            // Fall back to baseline for rich objects if DB field is empty or null
+            logoUrl: dbIpo.logoUrl || base.logoUrl,
             gmp: dbIpo.gmp || base.gmp || 0,
             gmpPercent: dbIpo.gmpPercent || base.gmpPercent || 0,
             gmpTrends: dbIpo.gmpTrends && dbIpo.gmpTrends.length > 0 ? dbIpo.gmpTrends : base.gmpTrends,
@@ -179,6 +180,12 @@ export async function fetchIPOs(): Promise<IPOData[]> {
             objectsOfIssue: dbIpo.objectsOfIssue && dbIpo.objectsOfIssue.length > 0 ? dbIpo.objectsOfIssue : base.objectsOfIssue,
             highlights: dbIpo.highlights && dbIpo.highlights.length > 0 ? dbIpo.highlights : base.highlights,
             risks: dbIpo.risks && dbIpo.risks.length > 0 ? dbIpo.risks : base.risks,
+            leadManagers: dbIpo.leadManagers && dbIpo.leadManagers.length > 0 ? dbIpo.leadManagers : base.leadManagers,
+            registrarName: (dbIpo.registrarName && dbIpo.registrarName !== "Check Website" && dbIpo.registrarName !== "Check Registrar") ? dbIpo.registrarName : (base.registrarName || dbIpo.registrarName),
+            registrarWebsite: dbIpo.registrarWebsite || base.registrarWebsite,
+            registrarCheckUrl: dbIpo.registrarCheckUrl || base.registrarCheckUrl,
+            prospectusUrl: dbIpo.prospectusUrl || base.prospectusUrl,
+            drhpUrl: dbIpo.drhpUrl || base.drhpUrl,
             companyAddress: dbIpo.companyAddress || base.companyAddress,
             companyWebsite: dbIpo.companyWebsite || base.companyWebsite,
             companyPhone: dbIpo.companyPhone || base.companyPhone,
