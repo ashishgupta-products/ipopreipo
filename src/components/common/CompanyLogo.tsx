@@ -218,12 +218,6 @@ function getSectorTheme(name: string): SectorTheme {
   };
 }
 
-function getProxiedLogoUrl(url?: string): string | undefined {
-  if (!url) return undefined;
-  if (url.startsWith("/") || url.startsWith("data:")) return url;
-  return `/api/proxy-image?url=${encodeURIComponent(url)}`;
-}
-
 interface CreditCardGraphicProps {
   name: string;
   logoUrl?: string;
@@ -286,15 +280,14 @@ export const CreditCardGraphic: React.FC<CreditCardGraphicProps> = ({
     .replace(/(Credit Card|Card|Bank)/gi, "")
     .trim();
 
-  const proxiedCardUrl = getProxiedLogoUrl(logoUrl);
-
-  if (proxiedCardUrl && !imgError) {
+  if (logoUrl && !imgError) {
     return (
       <div className={`relative shrink-0 overflow-hidden bg-slate-900 border border-slate-700/50 shadow-md ${sizeClasses[size]} ${className}`}>
         <img
-          src={proxiedCardUrl}
+          src={logoUrl}
           alt={`${name} Card`}
           loading="lazy"
+          referrerPolicy="no-referrer"
           onError={() => setImgError(true)}
           className="w-full h-full object-cover rounded"
         />
@@ -388,16 +381,15 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
     xl: "w-10 h-10 sm:w-12 sm:h-12"
   };
 
-  // If a valid external logo image is available and hasn't failed, show it via the same-origin edge proxy
-  const proxiedUrl = getProxiedLogoUrl(logoUrl);
-
-  if (proxiedUrl && !imageError) {
+  // Direct CDN image loading with no-referrer to bypass hotlink & proxy blocks
+  if (logoUrl && !imageError) {
     return (
       <div className={`relative shrink-0 overflow-hidden bg-white border border-slate-200 shadow-2xs flex items-center justify-center p-1.5 ${sizeClasses[size]} ${className}`}>
         <img
-          src={proxiedUrl}
+          src={logoUrl}
           alt={`${name} Logo`}
           loading="lazy"
+          referrerPolicy="no-referrer"
           onError={() => setImageError(true)}
           className="w-full h-full object-contain rounded"
         />
