@@ -51,7 +51,7 @@ export const GMPCard: React.FC<GMPCardProps> = ({
               ? "text-emerald-700 bg-emerald-50 border-emerald-200" 
               : "text-rose-700 bg-rose-50 border-rose-200"
           }`}>
-            {isPositive ? "+" : ""}{gmpPercent.toFixed(1)}%
+            {isPositive ? "+" : ""}{(Number(gmpPercent) || 0).toFixed(1)}%
           </span>
         )}
       </div>
@@ -89,7 +89,7 @@ export const GMPCard: React.FC<GMPCardProps> = ({
               : "text-rose-700 bg-rose-100/60"
           }`}>
             <ArrowUpRight className={`w-3 h-3 mr-0.5 ${!isPositive && "rotate-90"}`} />
-            {isPositive ? "+" : ""}{gmpPercent.toFixed(1)}%
+            {isPositive ? "+" : ""}{(Number(gmpPercent) || 0).toFixed(1)}%
           </span>
         )}
         {!hasData && (

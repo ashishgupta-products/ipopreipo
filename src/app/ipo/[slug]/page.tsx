@@ -251,13 +251,13 @@ export default function IPODetailPage({ params }: PageProps) {
           <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-100">
             <span className="text-blue-700 font-medium block">Live Subscription</span>
             <strong className="text-sm sm:text-base font-extrabold text-blue-900 block mt-0.5">
-              {ipo.totalSubscription > 0 ? `${ipo.totalSubscription.toFixed(2)}x` : "Open / TBA"}
+              {ipo.totalSubscription && Number(ipo.totalSubscription) > 0 ? `${Number(ipo.totalSubscription).toFixed(2)}x` : "Open / TBA"}
             </strong>
           </div>
           <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100">
             <span className="text-emerald-800 font-medium block">Current GMP</span>
             <strong className="text-sm sm:text-base font-extrabold text-emerald-900 block mt-0.5">
-              {ipo.gmp > 0 ? `+₹${ipo.gmp} (${ipo.gmpPercent.toFixed(1)}%)` : "TBA / ₹0"}
+              {ipo.gmp > 0 ? `+₹${ipo.gmp} (${(Number(ipo.gmpPercent) || 0).toFixed(1)}%)` : "TBA / ₹0"}
             </strong>
           </div>
         </div>
@@ -287,7 +287,7 @@ export default function IPODetailPage({ params }: PageProps) {
             }`}
           >
             <TrendingUp className="w-3.5 h-3.5 inline mr-1" />
-            GMP &amp; Subscription ({ipo.totalSubscription.toFixed(2)}x)
+            GMP &amp; Subscription ({ipo.totalSubscription && Number(ipo.totalSubscription) > 0 ? `${Number(ipo.totalSubscription).toFixed(2)}x` : "Open"})
           </button>
         </div>
 
@@ -373,7 +373,7 @@ export default function IPODetailPage({ params }: PageProps) {
                 <div className="p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-800/60">
                   <span className="text-[11px] text-emerald-300 font-medium block">Estimated Gain (at current GMP)</span>
                   <strong className="text-base sm:text-lg font-black text-emerald-400 block mt-0.5">
-                    {ipo.gmp > 0 ? `+₹${calcProfit.toLocaleString("en-IN")} (${ipo.gmpPercent.toFixed(1)}%)` : "₹0 (GMP Pending)"}
+                    {ipo.gmp > 0 ? `+₹${calcProfit.toLocaleString("en-IN")} (${(Number(ipo.gmpPercent) || 0).toFixed(1)}%)` : "₹0 (GMP Pending)"}
                   </strong>
                 </div>
 

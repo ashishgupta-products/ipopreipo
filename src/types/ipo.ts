@@ -275,3 +275,33 @@ export interface BrokerData {
   faqs?: BrokerFAQ[];
   userReviews?: UserReview[];
 }
+
+export type OFSStatus = "Live (Retail Day)" | "Live (Non-Retail)" | "Upcoming" | "Closed" | "Allotted";
+
+export interface OFSData {
+  id: string;
+  companyName: string;
+  symbol: string;
+  slug: string;
+  exchange: "NSE" | "BSE" | "NSE & BSE";
+  sellerName: string; // e.g. "Promoter / Govt of India"
+  sector?: string;
+  floorPrice: number;
+  currentMarketPrice: number;
+  discountPercent: number; // Discount of Floor Price to CMP
+  retailDiscountPercent?: number; // Additional retail discount if offered (e.g. 5%)
+  issueSizeCr: number;
+  sharesOffered: number;
+  greenShoeShares?: number;
+  promoterPreHoldingPercent: number;
+  promoterPostHoldingPercent: number;
+  retailQuotaPercent: number; // usually 10% or 20%
+  nonRetailDate: string; // T-Day (Institutional)
+  retailDate: string; // T+1 Day (Retail)
+  nonRetailSubscriptionTimes?: number;
+  settlementDate?: string;
+  indicativeClearingPrice?: number;
+  status: OFSStatus;
+  overview?: string;
+}
+

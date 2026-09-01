@@ -75,7 +75,7 @@ function mapRowToIPO(row: any): IPOData {
 
 function loadLocalJSON(): IPOData[] {
   if (Array.isArray(defaultIPOs) && defaultIPOs.length > 0) {
-    return defaultIPOs as IPOData[];
+    return defaultIPOs as unknown as IPOData[];
   }
   return [];
 }

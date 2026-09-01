@@ -269,7 +269,7 @@ export default function IPOPerformancePage() {
               <div className="min-w-0 flex-1">
                 <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">Top Performer</span>
                 <strong className="text-slate-900 text-xs font-extrabold truncate block">{topPerformer.name}</strong>
-                <span className="text-emerald-600 text-xs font-bold font-sans">+{topPerformer.listingGainPercent.toFixed(1)}%</span>
+                <span className="text-emerald-600 text-xs font-bold font-sans">+{(Number(topPerformer.listingGainPercent) || 0).toFixed(1)}%</span>
               </div>
             ) : (
               <div>
@@ -405,7 +405,7 @@ export default function IPOPerformancePage() {
                             <span className="text-slate-400 font-extrabold uppercase tracking-wider text-[9px] block">Listing Day Gain</span>
                             <div className="flex items-baseline gap-1">
                               <span className={`text-sm sm:text-base font-black ${isListingProfit ? "text-emerald-700" : "text-rose-600"}`}>
-                                {isListingProfit ? "+" : ""}{item.listingGainPercent.toFixed(1)}%
+                                {isListingProfit ? "+" : ""}{(Number(item.listingGainPercent) || 0).toFixed(1)}%
                               </span>
                               {isListingProfit ? (
                                 <TrendingUp className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -421,7 +421,7 @@ export default function IPOPerformancePage() {
                             <span className="text-slate-400 font-extrabold uppercase tracking-wider text-[9px] block">Total Return</span>
                             <div className="flex items-baseline gap-1">
                               <span className={`text-sm sm:text-base font-black ${isTotalProfit ? "text-emerald-700" : "text-rose-600"}`}>
-                                {isTotalProfit ? "+" : ""}{item.totalGainPercent.toFixed(1)}%
+                                {isTotalProfit ? "+" : ""}{(Number(item.totalGainPercent) || 0).toFixed(1)}%
                               </span>
                               {isTotalProfit ? (
                                 <TrendingUp className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -579,7 +579,7 @@ export default function IPOPerformancePage() {
 
                           {/* Listing Gain */}
                           <td className={`py-3.5 px-4 font-extrabold ${isListingProfit ? "text-emerald-700" : "text-rose-600"}`}>
-                            {isListingProfit ? "+" : ""}{item.listingGainPercent.toFixed(1)}%
+                            {isListingProfit ? "+" : ""}{(Number(item.listingGainPercent) || 0).toFixed(1)}%
                           </td>
 
                           {/* CMP */}
@@ -595,7 +595,7 @@ export default function IPOPerformancePage() {
                               ) : (
                                 <TrendingDown className="w-3.5 h-3.5 shrink-0" />
                               )}
-                              <span>{isTotalProfit ? "+" : ""}{item.totalGainPercent.toFixed(1)}%</span>
+                              <span>{isTotalProfit ? "+" : ""}{(Number(item.totalGainPercent) || 0).toFixed(1)}%</span>
                             </div>
                           </td>
 
@@ -646,7 +646,7 @@ export default function IPOPerformancePage() {
                             : "bg-rose-50 text-rose-800 border-rose-250"
                         }`}>
                           {isTotalProfit ? <TrendingUp className="w-3 h-3 text-emerald-700" /> : <TrendingDown className="w-3 h-3 text-rose-600" />}
-                          {isTotalProfit ? "+" : ""}{item.totalGainPercent.toFixed(1)}%
+                          {isTotalProfit ? "+" : ""}{(Number(item.totalGainPercent) || 0).toFixed(1)}%
                         </div>
                       </div>
 
@@ -675,7 +675,7 @@ export default function IPOPerformancePage() {
                         <div className="flex items-center gap-1.5">
                           <span>Listing Gain:</span>
                           <span className={`font-black ${isListingProfit ? "text-emerald-700" : "text-rose-600"}`}>
-                            {isListingProfit ? "+" : ""}{item.listingGainPercent.toFixed(1)}%
+                            {isListingProfit ? "+" : ""}{(Number(item.listingGainPercent) || 0).toFixed(1)}%
                           </span>
                         </div>
                       </div>

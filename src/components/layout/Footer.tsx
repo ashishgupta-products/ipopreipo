@@ -63,6 +63,11 @@ export const Footer: React.FC = () => {
                   Anchor Lock-in Expiry
                 </Link>
               </li>
+              <li>
+                <Link href="/ofs" className="hover:text-white text-amber-400 font-semibold transition-colors">
+                  Listed OFS Tracker
+                </Link>
+              </li>
             </ul>
           </div>
 

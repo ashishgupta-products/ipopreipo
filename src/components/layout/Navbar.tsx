@@ -327,6 +327,18 @@ export const Navbar: React.FC = () => {
 
                     <Link
                       onClick={() => setIpoMenuOpen(false)}
+                      href="/ofs"
+                      className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
+                    >
+                      <Zap className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold text-xs text-slate-800 group-hover:text-blue-700 block">Listed OFS Tracker</span>
+                        <span className="text-[11px] text-slate-500">Promoter &amp; PSU stake sales</span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      onClick={() => setIpoMenuOpen(false)}
                       href="/ipo-performance"
                       className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all"
                     >

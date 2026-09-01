@@ -186,6 +186,10 @@ export const MobileBottomNav: React.FC = () => {
                   <TrendingUp className="w-4 h-4 text-emerald-600" />
                   Buybacks
                 </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/ofs" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 flex items-center gap-2 font-bold text-slate-700">
+                  <Zap className="w-4 h-4 text-amber-500" />
+                  OFS Tracker
+                </Link>
                 <Link onClick={() => setMenuOpen(false)} href="/ipo-performance" className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-150 border border-slate-150 flex items-center gap-2 font-bold text-slate-700 col-span-2 justify-center">
                   <Award className="w-4 h-4 text-rose-600" />
                   Listing Performance Tracker
