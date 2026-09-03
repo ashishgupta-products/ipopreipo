@@ -3,6 +3,7 @@ import { getSessionUser } from "@/lib/auth";
 import { fetchIPOs } from "@/lib/ipo-service";
 import { sql } from "@/lib/db";
 import { MOCK_ARTICLES } from "@/data/mockArticles";
+import { getTotalUserCount, getTotalApplicationCount } from "@/lib/user-service";
 
 export async function GET() {
   try {
@@ -21,9 +22,9 @@ export async function GET() {
     const listedCount = ipos.filter((i) => (i.status as string)?.toLowerCase() === "listed").length;
     const positiveGmpCount = ipos.filter((i) => (i.gmp || 0) > 0).length;
 
-    let totalUsers = 3; // Fallback demo users count
+    let totalUsers = await getTotalUserCount();
     let totalArticles = MOCK_ARTICLES.length;
-    let totalApplications = 0;
+    let totalApplications = await getTotalApplicationCount();
 
     if (sql) {
       try {

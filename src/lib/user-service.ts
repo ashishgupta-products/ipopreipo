@@ -1,17 +1,16 @@
 import { sql } from "@/lib/db";
 import { User, UserProfileUpdate, WatchlistItem, IPOApplication, InvestorType, UserRole } from "@/types/auth";
 import crypto from "crypto";
+import fs from "fs";
+import path from "path";
 
-// Fallback in-memory store for local testing without active DB credentials
-const fallbackUsers: Map<string, { user: User; passwordHash: string }> = new Map();
-const fallbackWatchlists: Map<string, WatchlistItem[]> = new Map();
-const fallbackApplications: Map<string, IPOApplication[]> = new Map();
+// File path for persistent local authentication data
+const LOCAL_STORE_PATH = path.join(process.cwd(), "src", "data", "local_auth_store.json");
 
-// Initialize demo users in fallback store (Password: "Demo@1234")
-// Hash for Demo@1234: "$2a$10$QjL7VlhjQ32qVzDcr8dYfe8gW0K71R2H2d68.tZ2fA635c1n3n246"
-const DEMO_PASSWORD_HASH = "$2a$10$jWq/5rJk3o7qZ5T7s3Hw.eW9g8bWk07zG2F9V4P3Y.2s5b3a1a6";
+// Valid bcrypt hash for password "Demo@1234"
+export const DEMO_PASSWORD_HASH = "$2b$10$WDMLNpAGbYtl2TcF2vGWy.qz3zpqoNwE94d5/GBB56dS6ceYN/xGO";
 
-const demoUsers: Array<{ user: User; passwordHash: string }> = [
+export const initialDemoUsers: Array<{ user: User; passwordHash: string }> = [
   {
     user: {
       id: "usr_demo_retail",
@@ -23,7 +22,7 @@ const demoUsers: Array<{ user: User; passwordHash: string }> = [
       phone: "+91 98765 43210",
       panMasked: "ABCDE1234F",
       bio: "Active Indian stock market & IPO retail investor. Tracking GMP and listing gains daily.",
-      createdAt: new Date().toISOString(),
+      createdAt: "2026-08-01T10:00:00.000Z",
     },
     passwordHash: DEMO_PASSWORD_HASH,
   },
@@ -38,7 +37,7 @@ const demoUsers: Array<{ user: User; passwordHash: string }> = [
       phone: "+91 91234 56789",
       panMasked: "XYZPQ9876R",
       bio: "High net-worth investor focused on Mainboard IPOs and Pre-IPO unlisted equity opportunities.",
-      createdAt: new Date().toISOString(),
+      createdAt: "2026-08-05T10:00:00.000Z",
     },
     passwordHash: DEMO_PASSWORD_HASH,
   },
@@ -52,16 +51,125 @@ const demoUsers: Array<{ user: User; passwordHash: string }> = [
       investorType: "General",
       phone: "+91 80000 00000",
       bio: "ipo preipo.com Platform Administrator & Market Research Desk.",
-      createdAt: new Date().toISOString(),
+      createdAt: "2026-08-01T10:00:00.000Z",
     },
     passwordHash: DEMO_PASSWORD_HASH,
   }
 ];
 
-demoUsers.forEach((demo) => {
-  fallbackUsers.set(demo.user.email.toLowerCase(), demo);
-  fallbackUsers.set(demo.user.id, demo);
-});
+// Attach persistent in-memory maps to globalThis to survive Next.js module re-evaluations
+interface GlobalAuthStore {
+  fallbackUsers?: Map<string, { user: User; passwordHash: string }>;
+  fallbackWatchlists?: Map<string, WatchlistItem[]>;
+  fallbackApplications?: Map<string, IPOApplication[]>;
+  isInitialized?: boolean;
+}
+
+const globalForAuth = globalThis as unknown as GlobalAuthStore;
+
+if (!globalForAuth.fallbackUsers) {
+  globalForAuth.fallbackUsers = new Map();
+}
+if (!globalForAuth.fallbackWatchlists) {
+  globalForAuth.fallbackWatchlists = new Map();
+}
+if (!globalForAuth.fallbackApplications) {
+  globalForAuth.fallbackApplications = new Map();
+}
+
+const fallbackUsers = globalForAuth.fallbackUsers;
+const fallbackWatchlists = globalForAuth.fallbackWatchlists;
+const fallbackApplications = globalForAuth.fallbackApplications;
+
+/**
+ * Load persisted data from JSON file into memory
+ */
+function loadFromDisk() {
+  try {
+    if (fs.existsSync(LOCAL_STORE_PATH)) {
+      const raw = fs.readFileSync(LOCAL_STORE_PATH, "utf-8");
+      const parsed = JSON.parse(raw);
+
+      if (Array.isArray(parsed.users)) {
+        parsed.users.forEach((item: { user: User; passwordHash: string }) => {
+          if (item?.user?.email) {
+            fallbackUsers.set(item.user.email.toLowerCase(), item);
+            fallbackUsers.set(item.user.id, item);
+          }
+        });
+      }
+
+      if (parsed.watchlists && typeof parsed.watchlists === "object") {
+        Object.entries(parsed.watchlists).forEach(([userId, items]) => {
+          if (Array.isArray(items)) {
+            fallbackWatchlists.set(userId, items as WatchlistItem[]);
+          }
+        });
+      }
+
+      if (parsed.applications && typeof parsed.applications === "object") {
+        Object.entries(parsed.applications).forEach(([userId, items]) => {
+          if (Array.isArray(items)) {
+            fallbackApplications.set(userId, items as IPOApplication[]);
+          }
+        });
+      }
+      return;
+    }
+  } catch (err) {
+    console.warn("Failed to read local_auth_store.json:", err);
+  }
+
+  // Seed with default demo users if file didn't exist
+  initialDemoUsers.forEach((demo) => {
+    fallbackUsers.set(demo.user.email.toLowerCase(), demo);
+    fallbackUsers.set(demo.user.id, demo);
+  });
+  saveToDisk();
+}
+
+/**
+ * Save current state to JSON file for persistent storage across restarts
+ */
+function saveToDisk() {
+  try {
+    const userMap = new Map<string, { user: User; passwordHash: string }>();
+    fallbackUsers.forEach((val) => {
+      userMap.set(val.user.id, val);
+    });
+
+    const watchlistsObj: Record<string, WatchlistItem[]> = {};
+    fallbackWatchlists.forEach((items, userId) => {
+      watchlistsObj[userId] = items;
+    });
+
+    const applicationsObj: Record<string, IPOApplication[]> = {};
+    fallbackApplications.forEach((items, userId) => {
+      applicationsObj[userId] = items;
+    });
+
+    const payload = {
+      users: Array.from(userMap.values()),
+      watchlists: watchlistsObj,
+      applications: applicationsObj,
+      lastUpdated: new Date().toISOString(),
+    };
+
+    const dir = path.dirname(LOCAL_STORE_PATH);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+
+    fs.writeFileSync(LOCAL_STORE_PATH, JSON.stringify(payload, null, 2), "utf-8");
+  } catch (err) {
+    console.warn("Failed to write to local_auth_store.json:", err);
+  }
+}
+
+if (!globalForAuth.isInitialized) {
+  loadFromDisk();
+  globalForAuth.isInitialized = true;
+}
 
 // Helper to ensure tables exist in Neon DB
 let tablesInitialized = false;
@@ -183,6 +291,54 @@ export async function findUserById(id: string): Promise<User | null> {
   return fallback ? fallback.user : null;
 }
 
+export async function getAllUsers(): Promise<User[]> {
+  await ensureTables();
+
+  if (sql) {
+    try {
+      const rows = await sql`
+        SELECT * FROM users ORDER BY created_at DESC
+      `;
+      if (rows && rows.length > 0) {
+        return rows.map(mapRowToUser);
+      }
+    } catch (err) {
+      console.warn("DB query getAllUsers failed, falling back to local store:", err);
+    }
+  }
+
+  const userMap = new Map<string, User>();
+  fallbackUsers.forEach((val) => {
+    userMap.set(val.user.id, val.user);
+  });
+  return Array.from(userMap.values());
+}
+
+export async function updateUserRole(id: string, role: UserRole): Promise<boolean> {
+  await ensureTables();
+  const now = new Date().toISOString();
+
+  if (sql) {
+    try {
+      await sql`
+        UPDATE users SET role = ${role}, updated_at = ${now} WHERE id = ${id}
+      `;
+    } catch (err) {
+      console.warn("DB updateUserRole failed:", err);
+    }
+  }
+
+  const existing = fallbackUsers.get(id);
+  if (existing) {
+    const updatedUser: User = { ...existing.user, role, updatedAt: now };
+    fallbackUsers.set(id, { ...existing, user: updatedUser });
+    fallbackUsers.set(updatedUser.email.toLowerCase(), { ...existing, user: updatedUser });
+    saveToDisk();
+    return true;
+  }
+  return false;
+}
+
 export async function createUser(params: {
   email: string;
   passwordHash: string;
@@ -214,7 +370,6 @@ export async function createUser(params: {
         INSERT INTO users (id, email, password_hash, name, avatar_url, role, investor_type, created_at, updated_at)
         VALUES (${id}, ${cleanEmail}, ${params.passwordHash}, ${params.name}, ${params.avatarUrl || null}, ${role}, ${investorType}, ${now}, ${now})
       `;
-      return user;
     } catch (err) {
       console.warn("DB insert createUser failed, saving to fallback store:", err);
     }
@@ -222,6 +377,7 @@ export async function createUser(params: {
 
   fallbackUsers.set(cleanEmail, { user, passwordHash: params.passwordHash });
   fallbackUsers.set(id, { user, passwordHash: params.passwordHash });
+  saveToDisk();
   return user;
 }
 
@@ -266,6 +422,7 @@ export async function updateUserProfile(id: string, updates: UserProfileUpdate):
     };
     fallbackUsers.set(id, { ...existing, user: updatedUser });
     fallbackUsers.set(updatedUser.email.toLowerCase(), { ...existing, user: updatedUser });
+    saveToDisk();
     return updatedUser;
   }
 
@@ -325,6 +482,7 @@ export async function addToWatchlist(userId: string, ipoId: string, ipoSlug: str
   if (!list.some((w) => w.ipoSlug === ipoSlug)) {
     list.unshift(item);
     fallbackWatchlists.set(userId, list);
+    saveToDisk();
   }
   return item;
 }
@@ -346,6 +504,7 @@ export async function removeFromWatchlist(userId: string, ipoSlug: string): Prom
   const list = fallbackWatchlists.get(userId) || [];
   const filtered = list.filter((w) => w.ipoSlug !== ipoSlug);
   fallbackWatchlists.set(userId, filtered);
+  saveToDisk();
   return true;
 }
 
@@ -420,6 +579,7 @@ export async function createApplication(
   const list = fallbackApplications.get(userId) || [];
   list.unshift(application);
   fallbackApplications.set(userId, list);
+  saveToDisk();
   return application;
 }
 
@@ -440,5 +600,27 @@ export async function deleteApplication(userId: string, appId: string): Promise<
   const list = fallbackApplications.get(userId) || [];
   const filtered = list.filter((a) => a.id !== appId);
   fallbackApplications.set(userId, filtered);
+  saveToDisk();
   return true;
+}
+
+export async function getTotalUserCount(): Promise<number> {
+  const users = await getAllUsers();
+  return users.length;
+}
+
+export async function getTotalApplicationCount(): Promise<number> {
+  if (sql) {
+    try {
+      const rows = await sql`SELECT COUNT(*) as count FROM user_applications`;
+      if (rows && rows[0]) return Number(rows[0].count);
+    } catch (err) {
+      // Fallback
+    }
+  }
+  let count = 0;
+  fallbackApplications.forEach((apps) => {
+    count += apps.length;
+  });
+  return count;
 }

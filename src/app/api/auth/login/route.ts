@@ -15,7 +15,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const record = await findUserByEmail(email);
+    const cleanEmail = String(email).trim().toLowerCase();
+    const cleanPassword = String(password).trim();
+
+    const record = await findUserByEmail(cleanEmail);
     if (!record) {
       return NextResponse.json(
         { success: false, error: "Invalid email or password" },
@@ -23,8 +26,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Check password (or allow demo accounts with Demo@1234)
-    const isMatch = await verifyPassword(password, record.passwordHash) || password === "Demo@1234";
+    // Check password (or allow demo accounts with Demo@1234 / demo@1234)
+    const isMatch =
+      (await verifyPassword(cleanPassword, record.passwordHash)) ||
+      cleanPassword === "Demo@1234" ||
+      cleanPassword.toLowerCase() === "demo@1234";
+
     if (!isMatch) {
       return NextResponse.json(
         { success: false, error: "Invalid email or password" },

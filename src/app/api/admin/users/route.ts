@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/auth";
 import { sql } from "@/lib/db";
-import { mapRowToUser } from "@/lib/user-service";
+import { mapRowToUser, getAllUsers, updateUserRole } from "@/lib/user-service";
 
 export async function GET() {
   try {
@@ -20,44 +20,12 @@ export async function GET() {
         const users = rows.map((r: any) => mapRowToUser(r));
         return NextResponse.json({ success: true, users });
       } catch (err) {
-        console.warn("Neon DB getUsers failed, returning mock users:", err);
+        console.warn("Neon DB getUsers failed, returning fallback users:", err);
       }
     }
 
-    // Default demo users fallback
-    const fallbackUsers = [
-      {
-        id: "usr_demo_admin",
-        email: "admin@ipopreipo.com",
-        name: "Admin Team",
-        role: "admin",
-        investorType: "General",
-        phone: "+91 80000 00000",
-        createdAt: new Date().toISOString(),
-      },
-      {
-        id: "usr_demo_retail",
-        email: "rahul.investor@gmail.com",
-        name: "Rahul Sharma",
-        role: "user",
-        investorType: "Retail",
-        phone: "+91 98765 43210",
-        panMasked: "ABCDE1234F",
-        createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-      },
-      {
-        id: "usr_demo_hni",
-        email: "priya.hni@finance.in",
-        name: "Priya Patel",
-        role: "user",
-        investorType: "sHNI",
-        phone: "+91 91234 56789",
-        panMasked: "XYZPQ9876R",
-        createdAt: new Date(Date.now() - 86400000 * 5).toISOString(),
-      },
-    ];
-
-    return NextResponse.json({ success: true, users: fallbackUsers });
+    const users = await getAllUsers();
+    return NextResponse.json({ success: true, users });
   } catch (err: any) {
     console.error("Admin get users error:", err);
     return NextResponse.json(
@@ -89,9 +57,11 @@ export async function PUT(req: NextRequest) {
       }
     }
 
+    await updateUserRole(userId, role);
+
     return NextResponse.json({
       success: true,
-      message: `User ${userId} promoted to ${role}`,
+      message: `User ${userId} updated to ${role}`,
     });
   } catch (err: any) {
     console.error("Admin update user error:", err);

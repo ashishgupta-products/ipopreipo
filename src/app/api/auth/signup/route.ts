@@ -8,28 +8,32 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { name, email, password, investorType } = body;
 
-    if (!name || !name.trim()) {
+    const cleanName = String(name || "").trim();
+    const cleanEmail = String(email || "").trim().toLowerCase();
+    const cleanPassword = String(password || "").trim();
+
+    if (!cleanName) {
       return NextResponse.json({ success: false, error: "Full Name is required" }, { status: 400 });
     }
 
-    if (!email || !email.includes("@")) {
+    if (!cleanEmail || !cleanEmail.includes("@")) {
       return NextResponse.json({ success: false, error: "Valid email address is required" }, { status: 400 });
     }
 
-    if (!password || password.length < 6) {
+    if (!cleanPassword || cleanPassword.length < 6) {
       return NextResponse.json({ success: false, error: "Password must be at least 6 characters" }, { status: 400 });
     }
 
     // Check if user already exists
-    const existing = await findUserByEmail(email);
+    const existing = await findUserByEmail(cleanEmail);
     if (existing) {
       return NextResponse.json({ success: false, error: "An account with this email already exists" }, { status: 409 });
     }
 
-    const passwordHash = await hashPassword(password);
+    const passwordHash = await hashPassword(cleanPassword);
     const user = await createUser({
-      name,
-      email,
+      name: cleanName,
+      email: cleanEmail,
       passwordHash,
       investorType: investorType || "Retail",
     });

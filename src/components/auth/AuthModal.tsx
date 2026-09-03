@@ -47,6 +47,19 @@ export const AuthModal: React.FC = () => {
     setShowPassword(false);
   }, [authModalOpen, authModalView]);
 
+  // Handle ESC key to dismiss
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeAuthModal();
+      }
+    };
+    if (authModalOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [authModalOpen, closeAuthModal]);
+
   if (!authModalOpen) return null;
 
   const handleLoginSubmit = async (e: React.FormEvent) => {
@@ -96,7 +109,10 @@ export const AuthModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={closeAuthModal}
+    >
       <div 
         className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
@@ -269,6 +285,9 @@ export const AuthModal: React.FC = () => {
                     <span className="text-[10px] text-slate-500">Full Access</span>
                   </button>
                 </div>
+                <p className="text-[10px] text-center text-slate-400 mt-2 font-medium">
+                  Standard Password for all accounts: <strong className="text-slate-600 font-mono">Demo@1234</strong>
+                </p>
               </div>
             </form>
           )}
