@@ -23,6 +23,11 @@
     "expectedListingPrice": 182,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 55",
+        "gain": "43.31%"
+      },
+      {
         "date": "05 Sep 2026",
         "gmp": "₹ 55",
         "gain": "43.31%"
@@ -355,6 +360,11 @@
     "expectedListingPrice": 63,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 3",
+        "gain": "5.00%"
+      },
+      {
         "date": "05 Sep 2026",
         "gmp": "₹ 3",
         "gain": "5.00%"
@@ -621,11 +631,16 @@
     "freshIssueCr": 315.6,
     "ofsCr": 35.43,
     "faceValue": 10,
-    "gmp": 41,
-    "gmpPercent": 33.06,
+    "gmp": 44,
+    "gmpPercent": 35.48,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 165,
+    "expectedListingPrice": 168,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 44",
+        "gain": "35.48%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 41",
@@ -850,11 +865,16 @@
     "freshIssueCr": 60.0,
     "ofsCr": 367.89,
     "faceValue": 10,
-    "gmp": 50,
-    "gmpPercent": 27.47,
+    "gmp": 35,
+    "gmpPercent": 19.23,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 232,
+    "expectedListingPrice": 217,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 35",
+        "gain": "19.23%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 50",
@@ -1026,6 +1046,13 @@
         "eps": null
       },
       {
+        "companyName": "Paluck Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 6.95,
+        "ronw": null,
+        "eps": null
+      },
+      {
         "companyName": "Oneindig Technologies Ltd.",
         "faceValue": 10.0,
         "peRatio": 18.53,
@@ -1163,11 +1190,16 @@
     "freshIssueCr": 300.0,
     "ofsCr": 755.74,
     "faceValue": 10,
-    "gmp": 190,
-    "gmpPercent": 30.06,
+    "gmp": 205,
+    "gmpPercent": 32.44,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 822,
+    "expectedListingPrice": 837,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 205",
+        "gain": "32.44%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 190",
@@ -1410,11 +1442,16 @@
     "freshIssueCr": 80.0,
     "ofsCr": 420.0,
     "faceValue": 10,
-    "gmp": 125,
-    "gmpPercent": 18.49,
+    "gmp": 115,
+    "gmpPercent": 17.01,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 801,
+    "expectedListingPrice": 791,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 115",
+        "gain": "17.01%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 125",
@@ -1679,6 +1716,11 @@
     "expectedListingPrice": 369,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 30",
+        "gain": "8.85%"
+      },
+      {
         "date": "05 Sep 2026",
         "gmp": "₹ 30",
         "gain": "8.85%"
@@ -1893,11 +1935,16 @@
     "freshIssueCr": 150.0,
     "ofsCr": 1105.57,
     "faceValue": 10,
-    "gmp": 155,
-    "gmpPercent": 38.37,
+    "gmp": 149,
+    "gmpPercent": 36.88,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 559,
+    "expectedListingPrice": 553,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 149",
+        "gain": "36.88%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 155",
@@ -2384,12 +2431,7 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "The company is one of the largest independent power producers in Uttar Pradesh with long-term, regulated PPAs with a take-or-pay feature.",
-      "It is well-positioned to capitalize on the growth and demand of Uttar Pradesh’s power industry. As per CRISIL’s report, over 14 million households in Uttar Pradesh are not connected to power over Fiscals 2019 to 2022.",
-      "It has a successful track record of developing, financing, and operating thermal power plants.",
-      "It has a secured long-term fuel supply agreement with Central Coal Fields Limited, which is a subsidiary of Coal India Limited (CIL)"
-    ],
+    "highlights": [],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -2398,7 +2440,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/apr-2019/bajaj-energy-limited_42638.html",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -2448,18 +2490,8 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "CarDekho offers extensive services, making it a one-stop solution for car buyers and sellers.",
-      "It has a strong reputation as a leading platform in India’s automotive market.",
-      "Diversified revenue streams reduce dependency on any single service area.",
-      "Technology-driven solutions enhance user experience and streamline transactions."
-    ],
-    "risks": [
-      "High competition from platforms like OLX Autos and Cars24 affects market share.",
-      "Revenue is impacted by economic downturns and the auto industry’s health.",
-      "Saturation or slowed demand in the used car market may hinder growth.",
-      "Maintaining quality in vehicle inspections is essential for customer trust."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
@@ -2467,7 +2499,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -2517,53 +2549,16 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Category creator and leader in India’s fitness services market with a focus on accessibility and innovation.",
-      "An asset-light franchise model supports the scalable expansion of fitness centres.",
-      "Technology platform improves customer experience and operational efficiency.",
-      "Strong Cult.fit brand with omnichannel distribution across fitness services and products.",
-      "Integrated business creates synergies between fitness services and fitness products."
-    ],
-    "risks": [
-      "The business depends on continued demand for fitness services and fitness products in India.",
-      "The business is seasonal, so quarterly performance may not reflect full-year results.",
-      "Delays or cost overruns in planned expansion could affect business performance and results.",
-      "Any change in the planned use of IPO proceeds requires shareholder approval and regulatory compliance.",
-      "The company’s financial statements are prepared under Ind AS, which differs from IFRS and U.S. GAAP"
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Set up new Cult Centres",
-        "amountCr": null
-      },
-      {
-        "purpose": "Lease, rent and licence payments for existing fitness centres",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repay or prepay certain borrowings",
-        "amountCr": 12012.6
-      },
-      {
-        "purpose": "Brand marketing, advertising and business promotion",
-        "amountCr": 757.9
-      },
-      {
-        "purpose": "Invest in Cultsport Private Limited to set up new Exclusive Brand Outlets (EBOs)",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": 237.525
-      }
-    ],
-    "prospectusUrl": "https://www.bseindia.com/corporates/download/323123/IPO%20Prior/DRHP_20260707090553.pdf",
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -2613,45 +2608,16 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Established brand with over four decades of operating history.",
-      "Vertically integrated manufacturing with in-house foam and mattress production.",
-      "Diversified product portfolio across sleep and comfort categories.",
-      "Omni-channel distribution including COCO stores, trade, and online channels.",
-      "House-of-brands strategy addressing multiple consumer segments."
-    ],
-    "risks": [
-      "High dependence on mattress and branded foam categories for revenue.",
-      "Business performance is closely linked to brand strength and reputation.",
-      "Manufacturing disruptions could materially impact operations and cash flows.",
-      "Rising raw material costs may affect margins due to limited long-term supplier contracts.",
-      "Lease dependence for COCO stores exposes the company to rental and renewal risks."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Setting up new COCO stores",
-        "amountCr": 50.4427
-      },
-      {
-        "purpose": "Lease, sub-lease and license fees for existing COCO stores and Facility VII",
-        "amountCr": null
-      },
-      {
-        "purpose": "Marketing and brand visibility",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/oct-2025/duroflex-limited_97438.html",
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -3078,9 +3044,7 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "The Coca-Cola Company, headquartered in Atlanta, is one of the world’s largest beverage companies, offering over 500 brands globally."
-    ],
+    "highlights": [],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -3089,7 +3053,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -3139,9 +3103,7 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Founded in 2002, Innoviti is a fintech company specialising in payments processing, credit distribution, and payments management software solutions. Serving industries such as retail, mobile, lifestyle, and more, Innoviti offers products like uniPAY for unified payment management and quickEMI for installment payments on credit cards."
-    ],
+    "highlights": [],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -3150,7 +3112,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -3176,6 +3138,11 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 0,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ -10",
+        "gain": "-1.74%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ -5",
@@ -3215,11 +3182,6 @@
         "date": "29 Aug 2026",
         "gmp": "₹ 34",
         "gain": "5.91%"
-      },
-      {
-        "date": "28 Aug 2026",
-        "gmp": "₹ 30",
-        "gain": "5.22%"
       }
     ],
     "totalSubscription": 0.0,
@@ -3249,9 +3211,7 @@
     "reviewScore": 59,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Kuku, operated by parent company Mebigo Labs, is an Indian audio content platform (earlier branded as Kuku FM) focused on audiobooks, stories, and knowledge content in multiple Indian languages. Positioned as a vernacular audio OTT “soonicorn”, it targets the fast‑growing regional‑language user base across Tier‑2 and Tier‑3 cities, building a large subscription‑driven and freemium audience. The company has raised venture funding over the years, and by mid‑2025, its private‑market valuation was reported to be around 500 million dollars, reflecting strong traction and revenue growth, though this is distinct from any eventual IPO pricing."
-    ],
+    "highlights": [],
     "risks": [],
     "financials": [
       {
@@ -3418,7 +3378,7 @@
       "asOfDate": null
     },
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -3439,11 +3399,16 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 50,
-    "gmpPercent": 27.47,
+    "gmp": 35,
+    "gmpPercent": 19.23,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 50,
+    "expectedListingPrice": 35,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 35",
+        "gain": "19.23%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 50",
@@ -3487,20 +3452,8 @@
     "reviewScore": 80,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Strong commitment to innovation addressing real-world challenges.",
-      "Diverse product portfolio includes water purifiers and fans.",
-      "Extensive brand-building through multifaceted marketing strategies.",
-      "Robust, multi-channel distribution network across India and internationally.",
-      "Experienced leadership ensures strategic growth opportunities."
-    ],
-    "risks": [
-      "Manufacturing involves hazards that could suspend operations unexpectedly.",
-      "Patent infringement suits could affect operational capabilities significantly.",
-      "Dependency on approvals/licenses may disrupt business continuity.",
-      "Product defects could lead to significant liability issues.",
-      "Exchange rate fluctuations may impact financial performance and value."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": [
       {
         "year": "31 Mar 2026",
@@ -3615,6 +3568,13 @@
         "eps": null
       },
       {
+        "companyName": "Paluck Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 6.95,
+        "ronw": null,
+        "eps": null
+      },
+      {
         "companyName": "Oneindig Technologies Ltd.",
         "faceValue": 10.0,
         "peRatio": 18.53,
@@ -3722,7 +3682,7 @@
       "asOfDate": null
     },
     "objectsOfIssue": null,
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jan-2025/kent-r-o-systems-limited_91156.html",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -4108,9 +4068,7 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Founded in 2011 by Nitin Gupta and Shailaz Nag, PayU India is a leading payment solution provider for over 500,000 businesses, enabling online and offline transactions through more than 150 payment options, including credit and debit cards, net banking, EMIs, BNPL, QR, UPI, and wallets. Originally started as Pagosonline in Colombia in 2002, PayU launched its Indian payment gateway with Ibibo to focus on e-commerce businesses. PayU is owned by Prosus’ Naspers Group."
-    ],
+    "highlights": [],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -4119,7 +4077,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -4462,9 +4420,7 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Zetwerk is a Bengaluru-based B2B manufacturing platform connecting suppliers and customers in sectors such as consumer electronics, home appliances, and aircraft engine components.Operating in the growing contract manufacturing space, it competes with companies like Moglix and OfBusiness."
-    ],
+    "highlights": [],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -4473,7 +4429,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -4494,15 +4450,20 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 47,
-    "gmpPercent": 51.09,
+    "gmp": 56,
+    "gmpPercent": 60.87,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 139,
+    "expectedListingPrice": 148,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 56",
+        "gain": "60.87%"
+      },
+      {
         "date": "05 Sep 2026",
-        "gmp": "₹ 47",
-        "gain": "51.09%"
+        "gmp": "₹ 50",
+        "gain": "54.35%"
       },
       {
         "date": "04 Sep 2026",
@@ -4536,11 +4497,6 @@
       },
       {
         "date": "29 Aug 2026",
-        "gmp": "₹ 37",
-        "gain": "40.22%"
-      },
-      {
-        "date": "28 Aug 2026",
         "gmp": "₹ 37",
         "gain": "40.22%"
       }
@@ -4697,11 +4653,16 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 19,
-    "gmpPercent": 10.73,
+    "gmp": 21,
+    "gmpPercent": 12.15,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 196,
+    "expectedListingPrice": 198,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 21.5",
+        "gain": "12.15%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 19",
@@ -4741,11 +4702,6 @@
         "date": "29 Aug 2026",
         "gmp": "₹ 53",
         "gain": "29.94%"
-      },
-      {
-        "date": "28 Aug 2026",
-        "gmp": "₹ 47",
-        "gain": "26.55%"
       }
     ],
     "totalSubscription": 0.0,
@@ -4990,9 +4946,14 @@
     "expectedListingPrice": 109,
     "gmpTrends": [
       {
-        "date": "05 Sep 2026",
+        "date": "06 Sep 2026",
         "gmp": "₹ 50",
         "gain": "84.75%"
+      },
+      {
+        "date": "05 Sep 2026",
+        "gmp": "₹ 47",
+        "gain": "79.66%"
       },
       {
         "date": "04 Sep 2026",
@@ -5228,6 +5189,11 @@
     "expectedListingPrice": 103,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 1",
+        "gain": "0.98%"
+      },
+      {
         "date": "05 Sep 2026",
         "gmp": "₹ 1",
         "gain": "0.98%"
@@ -5439,6 +5405,11 @@
     "expectedListingPrice": 55,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 1",
+        "gain": "1.85%"
+      },
+      {
         "date": "05 Sep 2026",
         "gmp": "₹ 1",
         "gain": "1.85%"
@@ -5475,11 +5446,6 @@
       },
       {
         "date": "29 Aug 2026",
-        "gmp": "₹ 3",
-        "gain": "5.56%"
-      },
-      {
-        "date": "28 Aug 2026",
         "gmp": "₹ 3",
         "gain": "5.56%"
       }
@@ -5657,6 +5623,11 @@
     "expectedListingPrice": 0,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ -10",
+        "gain": "-1.74%"
+      },
+      {
         "date": "05 Sep 2026",
         "gmp": "₹ -5",
         "gain": "-0.87%"
@@ -5695,11 +5666,6 @@
         "date": "29 Aug 2026",
         "gmp": "₹ 34",
         "gain": "5.91%"
-      },
-      {
-        "date": "28 Aug 2026",
-        "gmp": "₹ 30",
-        "gain": "5.22%"
       }
     ],
     "totalSubscription": 0.0,
@@ -5917,15 +5883,20 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 7,
-    "gmpPercent": 2.93,
+    "gmp": 20,
+    "gmpPercent": 8.37,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 246,
+    "expectedListingPrice": 259,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 20",
+        "gain": "8.37%"
+      },
+      {
         "date": "05 Sep 2026",
-        "gmp": "₹ 7",
-        "gain": "2.93%"
+        "gmp": "₹ 10",
+        "gain": "4.18%"
       },
       {
         "date": "04 Sep 2026",
@@ -5961,11 +5932,6 @@
         "date": "29 Aug 2026",
         "gmp": "₹ 26",
         "gain": "10.88%"
-      },
-      {
-        "date": "28 Aug 2026",
-        "gmp": "₹ 29",
-        "gain": "12.13%"
       }
     ],
     "totalSubscription": 0.0,
@@ -6147,11 +6113,16 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 47,
-    "gmpPercent": 56.63,
+    "gmp": 54,
+    "gmpPercent": 65.06,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 130,
+    "expectedListingPrice": 137,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 54",
+        "gain": "65.06%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 47",
@@ -6189,11 +6160,6 @@
       },
       {
         "date": "29 Aug 2026",
-        "gmp": "₹ 31",
-        "gain": "37.35%"
-      },
-      {
-        "date": "28 Aug 2026",
         "gmp": "₹ 31",
         "gain": "37.35%"
       }
@@ -6412,6 +6378,11 @@
     "gmpUpdatedTime": "Live",
     "expectedListingPrice": 124,
     "gmpTrends": [
+      {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 25",
+        "gain": "17.12%"
+      },
       {
         "date": "05 Sep 2026",
         "gmp": "₹ 25",
@@ -7780,15 +7751,20 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 47,
-    "gmpPercent": 18.5,
+    "gmp": 55,
+    "gmpPercent": 21.65,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 148,
+    "expectedListingPrice": 156,
     "gmpTrends": [
       {
+        "date": "06 Sep 2026",
+        "gmp": "₹ 55",
+        "gain": "21.65%"
+      },
+      {
         "date": "05 Sep 2026",
-        "gmp": "₹ 47",
-        "gain": "18.50%"
+        "gmp": "₹ 55",
+        "gain": "21.65%"
       },
       {
         "date": "04 Sep 2026",
