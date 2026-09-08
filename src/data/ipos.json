@@ -381,15 +381,15 @@
     "freshIssueCr": 34.14,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 7,
-    "gmpPercent": 12.5,
+    "gmp": 5,
+    "gmpPercent": 8.33,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 67,
+    "expectedListingPrice": 65,
     "gmpTrends": [
       {
         "date": "08 Sep 2026",
-        "gmp": "₹ 7.5",
-        "gain": "12.50%"
+        "gmp": "₹ 5",
+        "gain": "8.33%"
       },
       {
         "date": "07 Sep 2026",
@@ -700,15 +700,15 @@
     "freshIssueCr": 315.6,
     "ofsCr": 35.43,
     "faceValue": 10,
-    "gmp": 41,
-    "gmpPercent": 33.06,
+    "gmp": 43,
+    "gmpPercent": 34.68,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 165,
+    "expectedListingPrice": 167,
     "gmpTrends": [
       {
         "date": "08 Sep 2026",
-        "gmp": "₹ 41",
-        "gain": "33.06%"
+        "gmp": "₹ 43",
+        "gain": "34.68%"
       },
       {
         "date": "07 Sep 2026",
@@ -1009,9 +1009,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
-    "reviewScore": 80,
+    "reviewScore": 82,
     "brokerReviews": {
-      "subscribe": 1,
+      "subscribe": 2,
       "mayApply": 0,
       "neutral": 1,
       "avoid": 0
@@ -1556,15 +1556,15 @@
     "freshIssueCr": 80.0,
     "ofsCr": 420.0,
     "faceValue": 10,
-    "gmp": 50,
-    "gmpPercent": 7.4,
+    "gmp": 30,
+    "gmpPercent": 4.44,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 726,
+    "expectedListingPrice": 706,
     "gmpTrends": [
       {
         "date": "08 Sep 2026",
-        "gmp": "₹ 50",
-        "gain": "7.40%"
+        "gmp": "₹ 30",
+        "gain": "4.44%"
       },
       {
         "date": "07 Sep 2026",
@@ -1615,9 +1615,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
-    "reviewScore": 83,
+    "reviewScore": 84,
     "brokerReviews": {
-      "subscribe": 4,
+      "subscribe": 6,
       "mayApply": 1,
       "neutral": 1,
       "avoid": 0
@@ -2257,11 +2257,11 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
-    "reviewScore": 70,
+    "reviewScore": 68,
     "brokerReviews": {
       "subscribe": 1,
       "mayApply": 0,
-      "neutral": 1,
+      "neutral": 2,
       "avoid": 0
     },
     "memberReviews": {
@@ -2756,9 +2756,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
-    "reviewScore": 80,
+    "reviewScore": 83,
     "brokerReviews": {
-      "subscribe": 1,
+      "subscribe": 3,
       "mayApply": 0,
       "neutral": 1,
       "avoid": 0
@@ -3386,11 +3386,11 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
-    "reviewScore": 81,
+    "reviewScore": 80,
     "brokerReviews": {
-      "subscribe": 3,
+      "subscribe": 4,
       "mayApply": 0,
-      "neutral": 2,
+      "neutral": 4,
       "avoid": 0
     },
     "memberReviews": {
@@ -3734,15 +3734,15 @@
     "freshIssueCr": 42.83,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 8,
-    "gmpPercent": 8.51,
+    "gmp": 15,
+    "gmpPercent": 15.96,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 102,
+    "expectedListingPrice": 109,
     "gmpTrends": [
       {
         "date": "08 Sep 2026",
-        "gmp": "₹ 8",
-        "gain": "8.51%"
+        "gmp": "₹ 15",
+        "gain": "15.96%"
       },
       {
         "date": "07 Sep 2026",
@@ -4019,8 +4019,18 @@
     "recommendation": "May Apply",
     "rating": 3.5,
     "reviewScore": 80,
-    "brokerReviews": null,
-    "memberReviews": null,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Broad product portfolio of stainless-steel kitchenware and household items.",
       "Pan-India distribution network with 101 distributors across multiple states.",
@@ -4230,8 +4240,18 @@
     "recommendation": "May Apply",
     "rating": 3.5,
     "reviewScore": 69,
-    "brokerReviews": null,
-    "memberReviews": null,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Manufactures precision moulds for diverse industrial sectors.",
       "Expanding product portfolio with forward integration into B2C.",
@@ -4531,11 +4551,17 @@
     "freshIssueCr": 120.47,
     "ofsCr": 30.03,
     "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
+    "gmp": 25,
+    "gmpPercent": 9.16,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
+    "expectedListingPrice": 298,
+    "gmpTrends": [
+      {
+        "date": "08 Sep 2026",
+        "gmp": "₹ 25",
+        "gain": "9.16%"
+      }
+    ],
     "totalSubscription": 0.0,
     "qibSubscription": 0.0,
     "niiSubscription": 0.0,
@@ -4560,8 +4586,18 @@
     "recommendation": "May Apply",
     "rating": 3.5,
     "reviewScore": 75,
-    "brokerReviews": null,
-    "memberReviews": null,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
     "highlights": [
       "Established in-house manufacturing operations for varied transformer capacities.",
       "Robust order book demonstrating strong demand and future revenue visibility.",
@@ -4753,15 +4789,15 @@
     "freshIssueCr": 210.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 30,
-    "gmpPercent": 21.43,
+    "gmp": 33,
+    "gmpPercent": 23.57,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 170,
+    "expectedListingPrice": 173,
     "gmpTrends": [
       {
         "date": "08 Sep 2026",
-        "gmp": "₹ 30",
-        "gain": "21.43%"
+        "gmp": "₹ 33",
+        "gain": "23.57%"
       },
       {
         "date": "07 Sep 2026",
@@ -4824,7 +4860,7 @@
     "rating": 3.5,
     "reviewScore": 83,
     "brokerReviews": {
-      "subscribe": 1,
+      "subscribe": 2,
       "mayApply": 0,
       "neutral": 0,
       "avoid": 0
@@ -5289,8 +5325,18 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "CarDekho offers extensive services, making it a one-stop solution for car buyers and sellers.",
+      "It has a strong reputation as a leading platform in India’s automotive market.",
+      "Diversified revenue streams reduce dependency on any single service area.",
+      "Technology-driven solutions enhance user experience and streamline transactions."
+    ],
+    "risks": [
+      "High competition from platforms like OLX Autos and Cars24 affects market share.",
+      "Revenue is impacted by economic downturns and the auto industry’s health.",
+      "Saturation or slowed demand in the used car market may hinder growth.",
+      "Maintaining quality in vehicle inspections is essential for customer trust."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
@@ -5298,7 +5344,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -5348,19 +5394,78 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "duroflex",
+    "slug": "duroflex",
+    "name": "Duroflex",
+    "companyName": "Duroflex",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/02/duroflex_400x400_logo-300x300.png",
+    "category": "mainboard",
+    "status": "upcoming",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 0,
+    "priceBandMax": 0,
+    "issuePrice": null,
+    "lotSize": 1,
+    "minInvestment": 0,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "–",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
     "highlights": [
-      "Category creator and leader in India’s fitness services market with a focus on accessibility and innovation.",
-      "An asset-light franchise model supports the scalable expansion of fitness centres.",
-      "Technology platform improves customer experience and operational efficiency.",
-      "Strong Cult.fit brand with omnichannel distribution across fitness services and products.",
-      "Integrated business creates synergies between fitness services and fitness products."
+      "Established brand with over four decades of operating history.",
+      "Vertically integrated manufacturing with in-house foam and mattress production.",
+      "Diversified product portfolio across sleep and comfort categories.",
+      "Omni-channel distribution including COCO stores, trade, and online channels.",
+      "House-of-brands strategy addressing multiple consumer segments."
     ],
     "risks": [
-      "The business depends on continued demand for fitness services and fitness products in India.",
-      "The business is seasonal, so quarterly performance may not reflect full-year results.",
-      "Delays or cost overruns in planned expansion could affect business performance and results.",
-      "Any change in the planned use of IPO proceeds requires shareholder approval and regulatory compliance.",
-      "The company’s financial statements are prepared under Ind AS, which differs from IFRS and U.S. GAAP"
+      "High dependence on mattress and branded foam categories for revenue.",
+      "Business performance is closely linked to brand strength and reputation.",
+      "Manufacturing disruptions could materially impact operations and cash flows.",
+      "Rising raw material costs may affect margins due to limited long-term supplier contracts.",
+      "Lease dependence for COCO stores exposes the company to rental and renewal risks."
     ],
     "financials": null,
     "lotSizes": null,
@@ -5370,39 +5475,31 @@
     "kpis": null,
     "objectsOfIssue": [
       {
-        "purpose": "Set up new Cult Centres",
+        "purpose": "Setting up new COCO stores",
+        "amountCr": 50.4427
+      },
+      {
+        "purpose": "Lease, sub-lease and license fees for existing COCO stores and Facility VII",
         "amountCr": null
       },
       {
-        "purpose": "Lease, rent and licence payments for existing fitness centres",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repay or prepay certain borrowings",
-        "amountCr": 12012.6
-      },
-      {
-        "purpose": "Brand marketing, advertising and business promotion",
-        "amountCr": 757.9
-      },
-      {
-        "purpose": "Invest in Cultsport Private Limited to set up new Exclusive Brand Outlets (EBOs)",
+        "purpose": "Marketing and brand visibility",
         "amountCr": null
       },
       {
         "purpose": "General corporate purposes",
-        "amountCr": 237.525
+        "amountCr": null
       }
     ],
-    "prospectusUrl": "https://www.bseindia.com/corporates/download/323123/IPO%20Prior/DRHP_20260707090553.pdf",
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/oct-2025/duroflex-limited_97438.html",
     "drhpUrl": null
   },
   {
-    "id": "duroflex",
-    "slug": "duroflex",
-    "name": "Duroflex",
-    "companyName": "Duroflex",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/02/duroflex_400x400_logo-300x300.png",
+    "id": "eaaa-india-alternatives",
+    "slug": "eaaa-india-alternatives",
+    "name": "EAAA India Alternatives",
+    "companyName": "EAAA India Alternatives",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/EAAA-300x300.png",
     "category": "mainboard",
     "status": "upcoming",
     "exchange": "BSE & NSE",
@@ -5457,77 +5554,6 @@
     "drhpUrl": null
   },
   {
-    "id": "eaaa-india-alternatives",
-    "slug": "eaaa-india-alternatives",
-    "name": "EAAA India Alternatives",
-    "companyName": "EAAA India Alternatives",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/EAAA-300x300.png",
-    "category": "mainboard",
-    "status": "upcoming",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 0,
-    "priceBandMax": 0,
-    "issuePrice": null,
-    "lotSize": 1,
-    "minInvestment": 0,
-    "issueSizeTotalCr": 1500.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 1500.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
-    "openDate": "",
-    "closeDate": "",
-    "allotmentDate": "",
-    "refundDate": "",
-    "dematCreditDate": "",
-    "listingDate": "–",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Over 15 years of experience in alternative asset management",
-      "Backed by the established Edelweiss Group",
-      "Diversified platform across real assets and private credit",
-      "Asset-light, scalable, fee-based business model",
-      "Experienced leadership with strong investment expertise"
-    ],
-    "risks": [
-      "Revenue depends on fund performance and capital commitments",
-      "Fund underperformance may impact profitability and fundraising",
-      "Subject to complex and evolving regulatory requirements",
-      "Asset valuations involve judgment and estimation risk",
-      "Competitive pressure may affect fees and growth"
-    ],
-    "financials": null,
-    "lotSizes": null,
-    "subscriptionBreakdown": null,
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
-    "drhpUrl": null
-  },
-  {
     "id": "fabindia",
     "slug": "fabindia",
     "name": "FabIndia",
@@ -5574,41 +5600,16 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Fabindia has a strong brand in the ethnic and handicraft retail market with over 360 stores, giving it a well-established market position.",
-      "The company has diversified its revenue by including more products from Organic India (herbal and ayurvedic items), which has helped its growth.",
-      "Fabindia’s core operations (excluding subsidiaries) are efficient, with healthy profit margins expected to improve through cost-saving measures and a well-managed supply chain.",
-      "Despite current debt challenges, the company has a strong financial base and plans to raise funds through private investors to improve its financial position.",
-      "Expansion in retail footprint and stores under the Company-Owned Franchise-Operated (COFO) model is forecasted to drive significant revenue growth in the medium term."
-    ],
-    "risks": [
-      "Organic India (a part of Fabindia) has experienced significant losses and write-downs, which have impacted Fabindia’s overall performance.",
-      "Fabindia’s debt has increased due to borrowing to acquire more shares in Organic India and higher working capital needs, which is putting pressure on its finances.",
-      "The company earns about 70% of its revenue from the apparel segment, which is highly competitive, making it risky to rely on just one source of income.",
-      "Higher inventory levels due to changes in the store model have led to increased borrowing for working capital, which will need to be managed carefully.",
-      "Fabindia’s sales are sensitive to economic downturns,. During tough financial times, people may cut back on spending which could impact the company’s performance."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Voluntary redemption of Non-Convertible Debentures (NCDs) issued by the Company, along with the accrued interest (NCD Redemption)",
-        "amountCr": 250.0
-      },
-      {
-        "purpose": "Prepayment or scheduled repayment of a portion of specific outstanding borrowings availed by the Company, including accrued interest",
-        "amountCr": 125.0
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jan-2022/fabindia-limited_55532.html",
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -5687,8 +5688,8 @@
     "lotSize": 1,
     "minInvestment": 0,
     "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 2100.0,
-    "ofsCr": 1568.13,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
     "faceValue": 10,
     "gmp": 0,
     "gmpPercent": 0.0,
@@ -5719,34 +5720,16 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "The company benefits significantly from the strong track record and reputation associated with the long-standing “Hero” brand.",
-      "The company’s overall customer base is over 11.80 million customers, which includes 5 million active retail customers, 29,060 active MSME customers, and 360 active CIF customers, as of March 31, 2024.",
-      "The company is a strong liability franchise and has access to low-cost borrowing, and strong credit ratings of “AA+ with stable outlook” from CRISIL, ICRA, and CARE, and its commercial papers are rated “A1+” by CRISIL, CARE, and ICRA as at March 31, 2024.",
-      "As of March 31, 2024, The company had a positive asset liability management on a cumulative basis across the majority of the time buckets, with a surplus of 3.17 times.",
-      "The company has a well-integrated technology platform across functions and data-driven operations. Constant digital innovation has led to a significant improvement in its non-cash collections rate from 76.00% in Fiscal 2022 to 83.31% in Fiscal 2024."
-    ],
-    "risks": [
-      "The company sourced 99% of its two-wheeler loans from its Promoter, Hero MotoCorp’s two-wheeler dealership. Any decline in demand for Hero two-wheelers may adversely affect the business.",
-      "Changes in interest rates may affect its treasury operations, causing net interest income to decline.",
-      "The company extends fixed-rate and floating-rate loans to customers, and any adverse change in interest rates could cause net interest income to decline and adversely affect the business.",
-      "Unsecured loans comprised 39% of total assets under management, respectively. If the company is unable to recover such receivables promptly or at all, the business may be adversely affected",
-      "The company may face asset-liability mismatches, which could adversely affect its liquidity and consequently affect its profitability and financial condition.",
-      "The Indian financial services industry in which the company operates is highly competitive and the growth of the business depends on its ability to compete effectively."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Building Tier – I capital base to meet future business requirements",
-        "amountCr": 2100100.0
-      }
-    ],
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/aug-2024/hero-fincorp-limited_85465.html",
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -5763,9 +5746,9 @@
     "issuePrice": null,
     "lotSize": 1,
     "minInvestment": 0,
-    "issueSizeTotalCr": 1200.0,
-    "freshIssueCr": 800.0,
-    "ofsCr": 400.0,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
     "faceValue": 10,
     "gmp": 0,
     "gmpPercent": 0.0,
@@ -5796,41 +5779,16 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Strong promoter backing with long-standing experience in the automotive sector.",
-      "Diversified portfolio across EV and ICE powertrain solutions and metal components.",
-      "Established relationships with global OEM customers.",
-      "Integrated capabilities across design, engineering and manufacturing.",
-      "Positioned to benefit from vehicle electrification and mobility trends."
-    ],
-    "risks": [
-      "High revenue dependence on a limited number of key customers.",
-      "Exposure to cyclical demand in the automotive industry.",
-      "Significant reliance on international, especially European, markets.",
-      "Vulnerability to raw material price volatility and supply disruptions.",
-      "Execution risks in capacity expansion and EV transition strategy."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Repayment/prepayment of borrowings",
-        "amountCr": 28535.63
-      },
-      {
-        "purpose": "Capital expenditure for capacity expansion (U.P. facility)",
-        "amountCr": 23729.63
-      },
-      {
-        "purpose": "Inorganic growth, strategic initiatives & general corporate purposes",
-        "amountCr": 27834.74
-      }
-    ],
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jul-2025/hero-motors-limited_95172.html",
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -5939,7 +5897,9 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
+    "highlights": [
+      "Founded in 2002, Innoviti is a fintech company specialising in payments processing, credit distribution, and payments management software solutions. Serving industries such as retail, mobile, lifestyle, and more, Innoviti offers products like uniPAY for unified payment management and quickEMI for installment payments on credit cards."
+    ],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -5948,7 +5908,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -6011,9 +5971,7 @@
       "neutral": 0,
       "avoid": 0
     },
-    "highlights": [
-      "Kuku, operated by parent company Mebigo Labs, is an Indian audio content platform (earlier branded as Kuku FM) focused on audiobooks, stories, and knowledge content in multiple Indian languages. Positioned as a vernacular audio OTT “soonicorn”, it targets the fast‑growing regional‑language user base across Tier‑2 and Tier‑3 cities, building a large subscription‑driven and freemium audience. The company has raised venture funding over the years, and by mid‑2025, its private‑market valuation was reported to be around 500 million dollars, reflecting strong traction and revenue growth, though this is distinct from any eventual IPO pricing."
-    ],
+    "highlights": [],
     "risks": [],
     "financials": [
       {
@@ -6087,7 +6045,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://scores.sebi.gov.in/",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -6168,9 +6126,9 @@
     ],
     "recommendation": "May Apply",
     "rating": 3.5,
-    "reviewScore": 80,
+    "reviewScore": 82,
     "brokerReviews": {
-      "subscribe": 1,
+      "subscribe": 2,
       "mayApply": 0,
       "neutral": 1,
       "avoid": 0
@@ -6181,20 +6139,8 @@
       "neutral": 0,
       "avoid": 0
     },
-    "highlights": [
-      "Strong commitment to innovation addressing real-world challenges.",
-      "Diverse product portfolio includes water purifiers and fans.",
-      "Extensive brand-building through multifaceted marketing strategies.",
-      "Robust, multi-channel distribution network across India and internationally.",
-      "Experienced leadership ensures strategic growth opportunities."
-    ],
-    "risks": [
-      "Manufacturing involves hazards that could suspend operations unexpectedly.",
-      "Patent infringement suits could affect operational capabilities significantly.",
-      "Dependency on approvals/licenses may disrupt business continuity.",
-      "Product defects could lead to significant liability issues.",
-      "Exchange rate fluctuations may impact financial performance and value."
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": [
       {
         "year": "31 Mar 2026",
@@ -6389,7 +6335,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jan-2025/kent-r-o-systems-limited_91156.html",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -6771,20 +6717,8 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [
-      "Leading digital payments platform with a large and active user base",
-      "Strong brand recall supported by the PhonePe app ecosystem",
-      "Diversified offerings across UPI, wallets, insurance, wealth, and merchant services",
-      "Deep integration with merchants and financial institutions across India",
-      "Backed by experienced promoters and strong technology capabilities"
-    ],
-    "risks": [
-      "Continued losses and negative cash flows may persist in the near term",
-      "Highly competitive fintech and digital payments market",
-      "Heavy dependence on UPI transaction volumes and regulatory framework",
-      "Data security and technology failures could impact trust and operations",
-      "Regulatory changes may affect business model and monetization"
-    ],
+    "highlights": [],
+    "risks": [],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
@@ -6792,7 +6726,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": "https://www.phonepe.com/apollo/investor-relations/phonepe-limited-draft-red-herring-prospectus.pdf",
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -6913,7 +6847,9 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
+    "highlights": [
+      "Upstox is one of India’s leading online trading platforms, backed by prominent investors including Tiger Global Management, Stride Ventures, and the late Ratan Tata. The company achieved unicorn status in 2021 following a funding round that valued it at $3.5 billion. Upstox has raised approximately $220 million across 6 funding rounds to date."
+    ],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -6922,7 +6858,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -7074,6 +7010,234 @@
     "kpis": null,
     "objectsOfIssue": null,
     "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "rays-of-belief",
+    "slug": "rays-of-belief",
+    "name": "Rays of Belief",
+    "companyName": "Rays of Belief",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/moms_belief_logo-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 227,
+    "priceBandMax": 239,
+    "issuePrice": 239,
+    "lotSize": 62,
+    "minInvestment": 14818,
+    "issueSizeTotalCr": 125.0,
+    "freshIssueCr": 125.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 107.71,
+    "qibSubscription": 9.06,
+    "niiSubscription": 279.11,
+    "retailSubscription": 195.86,
+    "openDate": "2026-09-01",
+    "closeDate": "2026-09-03",
+    "allotmentDate": "2026-09-04",
+    "refundDate": "2026-09-07",
+    "dematCreditDate": "2026-09-07",
+    "listingDate": "2026-09-08",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Kfin Technologies Ltd.",
+    "registrarWebsite": "https://kfintech.com",
+    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Mefcom Capital Markets Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 74,
+    "brokerReviews": {
+      "subscribe": 2,
+      "mayApply": 0,
+      "neutral": 2,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [
+      "Largest Indian For-Profit Social Enterprise for neurodevelopmental disorders by centre count.",
+      "Scalable, asset-light business model using leased premises and professional partnerships.",
+      "Specialized multidisciplinary team of over 337 full-time clinical professionals.",
+      "Diversified revenue from domestic centres, online therapy, and international service exports.",
+      "Established presence in 57 Indian cities with a growing international footprint in the US."
+    ],
+    "risks": [
+      "Short-term leases create relocation risks and potential unrecoverable capital expenditure losses.",
+      "High dependence on skilled clinical staff leads to significant employee benefit expenses.",
+      "High revenue concentration with newly acquired US centres driving over half of FY25 revenue.",
+      "Disagreements or early terminations with licensed professional partners could force centre closures.",
+      "Rising trade receivables and delayed client payments could negatively impact operating cash flows."
+    ],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 82.06,
+        "pat": 4.96,
+        "netWorth": 30.81,
+        "assets": 50.89,
+        "reserves": 15.22,
+        "borrowing": 3.61,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 16.1,
+        "revenueGrowthYoY": 124.58,
+        "patGrowthYoY": -15.65
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 36.54,
+        "pat": 5.88,
+        "netWorth": 15.02,
+        "assets": 26.12,
+        "reserves": 14.7,
+        "borrowing": 4.36,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 39.15,
+        "revenueGrowthYoY": 18.79,
+        "patGrowthYoY": 591.76
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 30.76,
+        "pat": 0.85,
+        "netWorth": 5.78,
+        "assets": 12.89,
+        "reserves": 5.47,
+        "borrowing": 0.0,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 14.71,
+        "revenueGrowthYoY": -28.91,
+        "patGrowthYoY": -37.04
+      },
+      {
+        "year": "30 Sep 2025",
+        "revenue": 43.27,
+        "pat": 1.35,
+        "netWorth": 23.76,
+        "assets": 46.49,
+        "reserves": 8.29,
+        "borrowing": 4.0,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 5.68,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": [
+      {
+        "applicationCategory": "Retail (Min)",
+        "lots": 1,
+        "shares": 62,
+        "amount": 14818
+      }
+    ],
+    "subscriptionBreakdown": [
+      {
+        "category": "Institutional",
+        "subCategory": null,
+        "sharesOffered": 18.3,
+        "bidsReceived": 165.77,
+        "subscriptionTimes": 9.06
+      },
+      {
+        "category": "NII",
+        "subCategory": null,
+        "sharesOffered": 7.84,
+        "bidsReceived": 2189.65,
+        "subscriptionTimes": 279.11
+      },
+      {
+        "category": "Retail",
+        "subCategory": null,
+        "sharesOffered": 5.23,
+        "bidsReceived": 1024.36,
+        "subscriptionTimes": 195.86
+      },
+      {
+        "category": "Total",
+        "subCategory": null,
+        "sharesOffered": 31.38,
+        "bidsReceived": 3379.78,
+        "subscriptionTimes": 107.71
+      }
+    ],
+    "peerComparison": [
+      {
+        "companyName": "Mopshop Distribution Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 22.22,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Safecure Services Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.66,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Company Learning Centres and Company Learning Centres in partnership with Licensed Professionals",
+        "amountCr": null
+      },
+      {
+        "purpose": "School Collaboration Centres",
+        "amountCr": null
+      },
+      {
+        "purpose": "Centre for Excellence and Research",
+        "amountCr": null
+      },
+      {
+        "purpose": "Upskilling Academy",
+        "amountCr": null
+      },
+      {
+        "purpose": "Technology (hardware) costs",
+        "amountCr": null
+      },
+      {
+        "purpose": "Expenditure for lease payments for existing centres in India",
+        "amountCr": null
+      },
+      {
+        "purpose": "Investment in Subsidiary, Moms Belief US Inc., for making lease/license payments for existing centres in the USA",
+        "amountCr": null
+      },
+      {
+        "purpose": "Expenditure for brand awareness and inclusive outreach programs",
+        "amountCr": null
+      },
+      {
+        "purpose": "General corporate purposes",
+        "amountCr": null
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/aug-2026/rays-of-belief-limited-rhp_103782.html",
     "drhpUrl": null
   },
   {
@@ -7717,149 +7881,6 @@
         "companyName": "Mehul Telecom Ltd.",
         "faceValue": 10.0,
         "peRatio": 13.02,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
-    "drhpUrl": null
-  },
-  {
-    "id": "rays-of-belief",
-    "slug": "rays-of-belief",
-    "name": "Rays of Belief",
-    "companyName": "Rays of Belief",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/moms_belief_logo-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 227,
-    "priceBandMax": 239,
-    "issuePrice": 239,
-    "lotSize": 1,
-    "minInvestment": 239,
-    "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 0.0,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.0,
-    "retailSubscription": 0.0,
-    "openDate": "",
-    "closeDate": "2026-09-08",
-    "allotmentDate": "",
-    "refundDate": "",
-    "dematCreditDate": "",
-    "listingDate": "2026-09-08",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Kfin Technologies Ltd.",
-    "registrarWebsite": "https://kfintech.com",
-    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Mefcom Capital Markets Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 74,
-    "brokerReviews": {
-      "subscribe": 2,
-      "mayApply": 0,
-      "neutral": 2,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [],
-    "risks": [],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 82.06,
-        "pat": 4.96,
-        "netWorth": 30.81,
-        "assets": 50.89,
-        "reserves": 15.22,
-        "borrowing": 3.61,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 16.1,
-        "revenueGrowthYoY": 124.58,
-        "patGrowthYoY": -15.65
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 36.54,
-        "pat": 5.88,
-        "netWorth": 15.02,
-        "assets": 26.12,
-        "reserves": 14.7,
-        "borrowing": 4.36,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 39.15,
-        "revenueGrowthYoY": 18.79,
-        "patGrowthYoY": 591.76
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 30.76,
-        "pat": 0.85,
-        "netWorth": 5.78,
-        "assets": 12.89,
-        "reserves": 5.47,
-        "borrowing": 0.0,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 14.71,
-        "revenueGrowthYoY": -28.91,
-        "patGrowthYoY": -37.04
-      },
-      {
-        "year": "30 Sep 2025",
-        "revenue": 43.27,
-        "pat": 1.35,
-        "netWorth": 23.76,
-        "assets": 46.49,
-        "reserves": 8.29,
-        "borrowing": 4.0,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 5.68,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": null,
-    "subscriptionBreakdown": null,
-    "peerComparison": [
-      {
-        "companyName": "Mopshop Distribution Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 22.22,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Safecure Services Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.66,
         "ronw": null,
         "eps": null
       }
