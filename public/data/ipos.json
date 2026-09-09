@@ -313,15 +313,15 @@
     "freshIssueCr": 315.6,
     "ofsCr": 35.43,
     "faceValue": 10,
-    "gmp": 38,
-    "gmpPercent": 30.65,
+    "gmp": 40,
+    "gmpPercent": 32.26,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 162,
+    "expectedListingPrice": 164,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 38",
-        "gain": "30.65%"
+        "gmp": "₹ 40",
+        "gain": "32.26%"
       },
       {
         "date": "08 Sep 2026",
@@ -567,15 +567,15 @@
     "freshIssueCr": 60.0,
     "ofsCr": 367.89,
     "faceValue": 10,
-    "gmp": 62,
-    "gmpPercent": 34.07,
+    "gmp": 66,
+    "gmpPercent": 36.26,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 244,
+    "expectedListingPrice": 248,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 62",
-        "gain": "34.07%"
+        "gmp": "₹ 66",
+        "gain": "36.26%"
       },
       {
         "date": "08 Sep 2026",
@@ -2158,15 +2158,15 @@
     "freshIssueCr": 675.0,
     "ofsCr": 200.0,
     "faceValue": 10,
-    "gmp": 72,
-    "gmpPercent": 28.35,
+    "gmp": 75,
+    "gmpPercent": 29.53,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 326,
+    "expectedListingPrice": 329,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 72",
-        "gain": "28.35%"
+        "gmp": "₹ 75",
+        "gain": "29.53%"
       },
       {
         "date": "08 Sep 2026",
@@ -2765,15 +2765,15 @@
     "freshIssueCr": 320.0,
     "ofsCr": 485.0,
     "faceValue": 10,
-    "gmp": 10,
-    "gmpPercent": 2.95,
+    "gmp": 8,
+    "gmpPercent": 2.36,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 349,
+    "expectedListingPrice": 347,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 10",
-        "gain": "2.95%"
+        "gmp": "₹ 8",
+        "gain": "2.36%"
       },
       {
         "date": "08 Sep 2026",
@@ -3087,7 +3087,7 @@
     "rating": 3.5,
     "reviewScore": 80,
     "brokerReviews": {
-      "subscribe": 4,
+      "subscribe": 5,
       "mayApply": 0,
       "neutral": 4,
       "avoid": 0
@@ -3503,15 +3503,15 @@
     "freshIssueCr": 42.83,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 15,
-    "gmpPercent": 15.96,
+    "gmp": 20,
+    "gmpPercent": 21.28,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 109,
+    "expectedListingPrice": 114,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 15",
-        "gain": "15.96%"
+        "gmp": "₹ 20",
+        "gain": "21.28%"
       },
       {
         "date": "08 Sep 2026",
@@ -4781,15 +4781,15 @@
     "freshIssueCr": 210.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 15,
-    "gmpPercent": 10.71,
+    "gmp": 24,
+    "gmpPercent": 17.14,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 155,
+    "expectedListingPrice": 164,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 15",
-        "gain": "10.71%"
+        "gmp": "₹ 24",
+        "gain": "17.14%"
       },
       {
         "date": "08 Sep 2026",
@@ -5390,15 +5390,15 @@
     "freshIssueCr": 92.5,
     "ofsCr": 33.0,
     "faceValue": 10,
-    "gmp": 17,
-    "gmpPercent": 39.53,
+    "gmp": 13,
+    "gmpPercent": 30.23,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 60,
+    "expectedListingPrice": 56,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 17",
-        "gain": "39.53%"
+        "gmp": "₹ 13",
+        "gain": "30.23%"
       },
       {
         "date": "08 Sep 2026",
@@ -5622,9 +5622,9 @@
     "issuePrice": null,
     "lotSize": 1,
     "minInvestment": 0,
-    "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 650.0,
+    "freshIssueCr": 600.0,
+    "ofsCr": 50.0,
     "faceValue": 10,
     "gmp": 0,
     "gmpPercent": 0.0,
@@ -5655,16 +5655,45 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Integrated operations with a diverse and complementary product portfolio.",
+      "Strategically located manufacturing units in southern India.",
+      "Established relationships with a broad customer base.",
+      "Consistent and strong financial performance.",
+      "Experienced promoters and a skilled management team."
+    ],
+    "risks": [
+      "The business is susceptible to the cyclical nature of the steel industry.",
+      "Fluctuations in the cost and availability of raw materials and energy can impact profitability.",
+      "The company operates in a highly competitive market.",
+      "Dependence on a few key customers for a significant portion of revenue.",
+      "Ongoing legal proceedings involving the company and its promoters could have adverse outcomes."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Investment in Vanya Steels Pvt. Ltd. for facility expansion",
+        "amountCr": null
+      },
+      {
+        "purpose": "Investment in Vanya Steels Pvt. Ltd. for solar energy procurement",
+        "amountCr": 406.67
+      },
+      {
+        "purpose": "Pre-payment or partial repayment of outstanding borrowings",
+        "amountCr": 10016.67
+      },
+      {
+        "purpose": "General corporate purposes",
+        "amountCr": null
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jan-2025/a-one-steels-india-limited_90677.html",
     "drhpUrl": null
   },
   {
@@ -5714,7 +5743,9 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
+    "highlights": [
+      "Acko is a Bengaluru-based digital-first insurance company founded in 2016 by Varun Dua. It operates as a direct-to-consumer insurer offering motor, health, travel, and other insurance products through a fully online platform, bypassing traditional agents. The company has positioned itself as a technology-led insurtech player with a strong focus on simplifying policy purchase and claims experience. Backed by investors such as General Atlantic, Accel, and CPP Investments, Acko has raised over $580 million to date and has built scale through embedded distribution partnerships and digital channels."
+    ],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -5723,7 +5754,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -5740,9 +5771,9 @@
     "issuePrice": null,
     "lotSize": 1,
     "minInvestment": 0,
-    "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "issueSizeTotalCr": 1500.0,
+    "freshIssueCr": 500.0,
+    "ofsCr": 1000.0,
     "faceValue": 10,
     "gmp": 0,
     "gmpPercent": 0.0,
@@ -5773,16 +5804,41 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Strong brand recall among young, digitally native consumers.",
+      "Asset-light, digital-first business model with scalable operations.",
+      "Diversified product portfolio across audio, wearables, and accessories.",
+      "Omni-channel distribution with strong online and growing offline presence.",
+      "Data-driven product design and marketing capabilities."
+    ],
+    "risks": [
+      "High dependence on third-party manufacturers and suppliers.",
+      "Intense competition in the consumer electronics and wearables market.",
+      "Profitability sensitive to marketing spend and working capital needs.",
+      "Exposure to rapid changes in consumer preferences and technology.",
+      "Significant reliance on online sales platforms for revenue."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Working capital requirements",
+        "amountCr": 22545.0
+      },
+      {
+        "purpose": "Brand and marketing expenses",
+        "amountCr": 15030.0
+      },
+      {
+        "purpose": "General corporate purposes",
+        "amountCr": 12525.0
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/oct-2025/imagine-marketing-limited-udrhp_97510.html",
     "drhpUrl": null
   },
   {
@@ -6035,9 +6091,9 @@
     "issuePrice": null,
     "lotSize": 1,
     "minInvestment": 0,
-    "issueSizeTotalCr": 0.0,
+    "issueSizeTotalCr": 1500.0,
     "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "ofsCr": 1500.0,
     "faceValue": 10,
     "gmp": 0,
     "gmpPercent": 0.0,
@@ -6068,8 +6124,20 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Over 15 years of experience in alternative asset management",
+      "Backed by the established Edelweiss Group",
+      "Diversified platform across real assets and private credit",
+      "Asset-light, scalable, fee-based business model",
+      "Experienced leadership with strong investment expertise"
+    ],
+    "risks": [
+      "Revenue depends on fund performance and capital commitments",
+      "Fund underperformance may impact profitability and fundraising",
+      "Subject to complex and evolving regulatory requirements",
+      "Asset valuations involve judgment and estimation risk",
+      "Competitive pressure may affect fees and growth"
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
@@ -6077,7 +6145,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -6127,16 +6195,41 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Fabindia has a strong brand in the ethnic and handicraft retail market with over 360 stores, giving it a well-established market position.",
+      "The company has diversified its revenue by including more products from Organic India (herbal and ayurvedic items), which has helped its growth.",
+      "Fabindia’s core operations (excluding subsidiaries) are efficient, with healthy profit margins expected to improve through cost-saving measures and a well-managed supply chain.",
+      "Despite current debt challenges, the company has a strong financial base and plans to raise funds through private investors to improve its financial position.",
+      "Expansion in retail footprint and stores under the Company-Owned Franchise-Operated (COFO) model is forecasted to drive significant revenue growth in the medium term."
+    ],
+    "risks": [
+      "Organic India (a part of Fabindia) has experienced significant losses and write-downs, which have impacted Fabindia’s overall performance.",
+      "Fabindia’s debt has increased due to borrowing to acquire more shares in Organic India and higher working capital needs, which is putting pressure on its finances.",
+      "The company earns about 70% of its revenue from the apparel segment, which is highly competitive, making it risky to rely on just one source of income.",
+      "Higher inventory levels due to changes in the store model have led to increased borrowing for working capital, which will need to be managed carefully.",
+      "Fabindia’s sales are sensitive to economic downturns,. During tough financial times, people may cut back on spending which could impact the company’s performance."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Voluntary redemption of Non-Convertible Debentures (NCDs) issued by the Company, along with the accrued interest (NCD Redemption)",
+        "amountCr": 250.0
+      },
+      {
+        "purpose": "Prepayment or scheduled repayment of a portion of specific outstanding borrowings availed by the Company, including accrued interest",
+        "amountCr": 125.0
+      },
+      {
+        "purpose": "General corporate purposes",
+        "amountCr": null
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jan-2022/fabindia-limited_55532.html",
     "drhpUrl": null
   },
   {
@@ -6186,7 +6279,9 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
+    "highlights": [
+      "Flipkart Private Limited, founded in 2007 by Sachin Bansal and Binny Bansal, is an Indian e-commerce company headquartered in Bengaluru. It offers products across categories such as groceries, electronics, fashion, home, and lifestyle. Over the years, Flipkart has expanded through acquisitions including Myntra, Jabong, and eBay India. In 2018, Walmart acquired a majority stake in the company. Flipkart serves a wide customer base across India and operates branch offices in Delhi and Mumbai. The company is in the process of shifting its headquarters from Singapore back to India ahead of its planned public listing."
+    ],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -6195,7 +6290,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -6213,8 +6308,8 @@
     "lotSize": 1,
     "minInvestment": 0,
     "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 0.0,
-    "ofsCr": 0.0,
+    "freshIssueCr": 2100.0,
+    "ofsCr": 1568.13,
     "faceValue": 10,
     "gmp": 0,
     "gmpPercent": 0.0,
@@ -6245,16 +6340,34 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "The company benefits significantly from the strong track record and reputation associated with the long-standing “Hero” brand.",
+      "The company’s overall customer base is over 11.80 million customers, which includes 5 million active retail customers, 29,060 active MSME customers, and 360 active CIF customers, as of March 31, 2024.",
+      "The company is a strong liability franchise and has access to low-cost borrowing, and strong credit ratings of “AA+ with stable outlook” from CRISIL, ICRA, and CARE, and its commercial papers are rated “A1+” by CRISIL, CARE, and ICRA as at March 31, 2024.",
+      "As of March 31, 2024, The company had a positive asset liability management on a cumulative basis across the majority of the time buckets, with a surplus of 3.17 times.",
+      "The company has a well-integrated technology platform across functions and data-driven operations. Constant digital innovation has led to a significant improvement in its non-cash collections rate from 76.00% in Fiscal 2022 to 83.31% in Fiscal 2024."
+    ],
+    "risks": [
+      "The company sourced 99% of its two-wheeler loans from its Promoter, Hero MotoCorp’s two-wheeler dealership. Any decline in demand for Hero two-wheelers may adversely affect the business.",
+      "Changes in interest rates may affect its treasury operations, causing net interest income to decline.",
+      "The company extends fixed-rate and floating-rate loans to customers, and any adverse change in interest rates could cause net interest income to decline and adversely affect the business.",
+      "Unsecured loans comprised 39% of total assets under management, respectively. If the company is unable to recover such receivables promptly or at all, the business may be adversely affected",
+      "The company may face asset-liability mismatches, which could adversely affect its liquidity and consequently affect its profitability and financial condition.",
+      "The Indian financial services industry in which the company operates is highly competitive and the growth of the business depends on its ability to compete effectively."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Building Tier – I capital base to meet future business requirements",
+        "amountCr": 2100100.0
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/aug-2024/hero-fincorp-limited_85465.html",
     "drhpUrl": null
   },
   {
@@ -6589,15 +6702,15 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 62,
-    "gmpPercent": 34.07,
+    "gmp": 66,
+    "gmpPercent": 36.26,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 62,
+    "expectedListingPrice": 66,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 62",
-        "gain": "34.07%"
+        "gmp": "₹ 66",
+        "gain": "36.26%"
       },
       {
         "date": "08 Sep 2026",
@@ -6913,7 +7026,9 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
+    "highlights": [
+      "MakeMyTrip Limited is India’s leading online travel platform, offering services across flights, hotels, holiday packages, rail, bus, and cab bookings through its brands—MakeMyTrip, Goibibo, and redBus. The company is listed on Nasdaq and operates primarily through its Indian subsidiaries, catering to both retail and corporate travel segments. Over the years, it has built a dominant position in India’s online travel market, supported by a wide inventory, strong brand recall, and increasing adoption of digital travel services."
+    ],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -6922,7 +7037,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -7010,8 +7125,8 @@
     "issuePrice": null,
     "lotSize": 1,
     "minInvestment": 0,
-    "issueSizeTotalCr": 0.0,
-    "freshIssueCr": 0.0,
+    "issueSizeTotalCr": 6650.0,
+    "freshIssueCr": 6650.0,
     "ofsCr": 0.0,
     "faceValue": 10,
     "gmp": 0,
@@ -7043,16 +7158,37 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Asset-light business model enables expansion with limited ownership of hotel properties.",
+      "Diversified hospitality portfolio spans hotels, vacation homes, and property listing businesses.",
+      "Technology platform supports pricing, distribution, partner operations, and customer experience.",
+      "Presence across multiple countries reduces dependence on a single market.",
+      "Revenue comes from multiple streams, including revenue sharing, commissions, subscriptions, and franchise royalties."
+    ],
+    "risks": [
+      "The company has incurred losses in the past and may not sustain profitability in the future.",
+      "A significant portion of the IPO proceeds will be used to repay borrowings of its subsidiary.",
+      "The business depends on maintaining relationships with hotel owners, property partners, and franchisees.",
+      "Any technology failure, cyberattack, or data security breach could disrupt operations and affect the business.",
+      "The company is involved in legal and regulatory proceedings that could adversely affect its business, financial condition, and reputation."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Investment in subsidiary Oravel Stays Singapore Pte. Ltd. to repay or prepay its borrowings",
+        "amountCr": 4987.5075
+      },
+      {
+        "purpose": "General corporate purposes",
+        "amountCr": 1662.5025
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jun-2026/oravel-stays-limited-udrhp-i_102455.html",
     "drhpUrl": null
   },
   {
@@ -7102,7 +7238,9 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
+    "highlights": [
+      "Parle Products is one of India’s largest and oldest fast-moving consumer goods (FMCG) companies, founded in 1929 by the Chauhan family in Mumbai. It is best known for its flagship brand Parle-G, widely regarded as the world’s top-selling biscuit. Over decades, the company has built a diversified portfolio including brands such as Monaco, KrackJack, Hide & Seek, Melody, and Mango Bite. With a strong rural and urban distribution network and presence across multiple price segments, Parle remains a dominant player in India’s biscuit and confectionery market."
+    ],
     "risks": [],
     "financials": null,
     "lotSizes": null,
@@ -7111,7 +7249,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://scores.sebi.gov.in/",
     "drhpUrl": null
   },
   {
@@ -7220,8 +7358,20 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Leading digital payments platform with a large and active user base",
+      "Strong brand recall supported by the PhonePe app ecosystem",
+      "Diversified offerings across UPI, wallets, insurance, wealth, and merchant services",
+      "Deep integration with merchants and financial institutions across India",
+      "Backed by experienced promoters and strong technology capabilities"
+    ],
+    "risks": [
+      "Continued losses and negative cash flows may persist in the near term",
+      "Highly competitive fintech and digital payments market",
+      "Heavy dependence on UPI transaction volumes and regulatory framework",
+      "Data security and technology failures could impact trust and operations",
+      "Regulatory changes may affect business model and monetization"
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
@@ -7229,7 +7379,7 @@
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "prospectusUrl": "https://www.phonepe.com/apollo/investor-relations/phonepe-limited-draft-red-herring-prospectus.pdf",
     "drhpUrl": null
   },
   {
@@ -7409,16 +7559,49 @@
     "reviewScore": null,
     "brokerReviews": null,
     "memberReviews": null,
-    "highlights": [],
-    "risks": [],
+    "highlights": [
+      "Fastest-growing quick commerce platform in India by order volume among scaled players between Fiscal 2024 and Fiscal 2026.",
+      "Significant increase in market share of quick commerce orders, rising from about 26% to 35% during the period.",
+      "Operates a technology-driven quick commerce model supported by dark stores and optimised delivery networks.",
+      "Generates revenue from multiple streams including product sales, advertising solutions, Zepto Café, and supply chain services.",
+      "Uses in-house technology systems to manage operations, fulfilment, delivery, and user engagement."
+    ],
+    "risks": [
+      "The company has incurred losses in recent years and may not achieve or sustain profitability in the future.",
+      "Intense competition in the quick commerce sector could affect growth, market share, and profitability.",
+      "Negative publicity, including social media commentary, could harm the company’s reputation and business.",
+      "Failure to ensure product quality, quantity, or accuracy could lead to recalls, refunds, and reputational damage.",
+      "Food safety, hygiene, and quality issues related to Zepto Café could adversely impact operations and brand image."
+    ],
     "financials": null,
     "lotSizes": null,
     "subscriptionBreakdown": null,
     "peerComparison": null,
     "reservations": null,
     "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": null,
+    "objectsOfIssue": [
+      {
+        "purpose": "Expand dark store network",
+        "amountCr": null
+      },
+      {
+        "purpose": "Lease payments for existing dark stores",
+        "amountCr": null
+      },
+      {
+        "purpose": "Invest in technology and cloud infrastructure",
+        "amountCr": null
+      },
+      {
+        "purpose": "Marketing and brand-building initiatives",
+        "amountCr": 5206.49
+      },
+      {
+        "purpose": "Inorganic growth opportunities and general corporate purposes",
+        "amountCr": null
+      }
+    ],
+    "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/jun-2026/zepto-limited-udrhp1_101929.html",
     "drhpUrl": null
   },
   {
@@ -7498,15 +7681,15 @@
     "freshIssueCr": 0.0,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 65,
-    "gmpPercent": 51.18,
+    "gmp": 80,
+    "gmpPercent": 62.99,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 192,
+    "expectedListingPrice": 207,
     "gmpTrends": [
       {
         "date": "09 Sep 2026",
-        "gmp": "₹ 65",
-        "gain": "51.18%"
+        "gmp": "₹ 80",
+        "gain": "62.99%"
       },
       {
         "date": "08 Sep 2026",
