@@ -335,15 +335,15 @@
     "freshIssueCr": 99.89,
     "ofsCr": 24.99,
     "faceValue": 10,
-    "gmp": 31,
-    "gmpPercent": 33.33,
+    "gmp": 26,
+    "gmpPercent": 28.49,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 124,
+    "expectedListingPrice": 119,
     "gmpTrends": [
       {
         "date": "18 Sep 2026",
-        "gmp": "₹ 31",
-        "gain": "33.33%"
+        "gmp": "₹ 26.5",
+        "gain": "28.49%"
       },
       {
         "date": "17 Sep 2026",
@@ -647,15 +647,15 @@
     "freshIssueCr": 360.0,
     "ofsCr": 140.0,
     "faceValue": 10,
-    "gmp": 144,
-    "gmpPercent": 33.96,
+    "gmp": 145,
+    "gmpPercent": 34.2,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 568,
+    "expectedListingPrice": 569,
     "gmpTrends": [
       {
         "date": "18 Sep 2026",
-        "gmp": "₹ 144",
-        "gain": "33.96%"
+        "gmp": "₹ 145",
+        "gain": "34.20%"
       },
       {
         "date": "17 Sep 2026",
@@ -900,15 +900,15 @@
     "freshIssueCr": 46.44,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 10,
-    "gmpPercent": 9.9,
+    "gmp": 7,
+    "gmpPercent": 6.93,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 111,
+    "expectedListingPrice": 108,
     "gmpTrends": [
       {
         "date": "18 Sep 2026",
-        "gmp": "₹ 10",
-        "gain": "9.90%"
+        "gmp": "₹ 7",
+        "gain": "6.93%"
       },
       {
         "date": "17 Sep 2026",
@@ -2165,15 +2165,15 @@
     "freshIssueCr": 600.0,
     "ofsCr": 50.0,
     "faceValue": 10,
-    "gmp": 57,
-    "gmpPercent": 14.07,
+    "gmp": 60,
+    "gmpPercent": 14.81,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 57,
+    "expectedListingPrice": 60,
     "gmpTrends": [
       {
         "date": "18 Sep 2026",
-        "gmp": "₹ 57",
-        "gain": "14.07%"
+        "gmp": "₹ 60",
+        "gain": "14.81%"
       },
       {
         "date": "17 Sep 2026",
@@ -3975,15 +3975,15 @@
     "freshIssueCr": 92.5,
     "ofsCr": 33.0,
     "faceValue": 10,
-    "gmp": 2,
-    "gmpPercent": 4.65,
+    "gmp": 1,
+    "gmpPercent": 3.72,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 45,
+    "expectedListingPrice": 44,
     "gmpTrends": [
       {
         "date": "18 Sep 2026",
-        "gmp": "₹ 2",
-        "gain": "4.65%"
+        "gmp": "₹ 1.6",
+        "gain": "3.72%"
       },
       {
         "date": "17 Sep 2026",
@@ -4528,15 +4528,15 @@
     "freshIssueCr": 26.93,
     "ofsCr": 0.0,
     "faceValue": 10,
-    "gmp": 6,
-    "gmpPercent": 10.17,
+    "gmp": 5,
+    "gmpPercent": 8.47,
     "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 65,
+    "expectedListingPrice": 64,
     "gmpTrends": [
       {
         "date": "18 Sep 2026",
-        "gmp": "₹ 6",
-        "gain": "10.17%"
+        "gmp": "₹ 5",
+        "gain": "8.47%"
       },
       {
         "date": "17 Sep 2026",
@@ -4994,2970 +4994,6 @@
     "drhpUrl": null
   },
   {
-    "id": "pranav-constructions",
-    "slug": "pranav-constructions",
-    "name": "Pranav Constructions",
-    "companyName": "Pranav Constructions",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/04/pcpllogo-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 118,
-    "priceBandMax": 124,
-    "issuePrice": 124,
-    "lotSize": 120,
-    "minInvestment": 14880,
-    "issueSizeTotalCr": 351.03,
-    "freshIssueCr": 315.6,
-    "ofsCr": 35.43,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 121.0,
-    "qibSubscription": 258.71,
-    "niiSubscription": 208.21,
-    "retailSubscription": 43.32,
-    "openDate": "2026-09-07",
-    "closeDate": "2026-09-09",
-    "allotmentDate": "2026-09-10",
-    "refundDate": "2026-09-11",
-    "dematCreditDate": "2026-09-11",
-    "listingDate": "2026-09-15",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Leading real estate redeveloper in Mumbai’s Western Suburbs.",
-      "Consistent track record of procuring housing society projects.",
-      "Demonstrated history of timely project completion.",
-      "Efficient model utilizing pre-sales for working capital.",
-      "Strong brand recall in key micro-markets."
-    ],
-    "risks": [
-      "Revenue is highly concentrated in Mumbai’s Western Suburbs.",
-      "Project delays can lead to penalties and compensation costs.",
-      "Highly dependent on limited third-party suppliers and contractors.",
-      "Escalating property prices could reduce affordability and sales.",
-      "Liquidity risks exist if pre-sales or financing decline."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 120,
-        "amount": 14880
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 47.02,
-        "bidsReceived": 12163.22,
-        "subscriptionTimes": 258.71
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 44.4,
-        "bidsReceived": 9245.45,
-        "subscriptionTimes": 208.21
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 133.21,
-        "bidsReceived": 5771.01,
-        "subscriptionTimes": 43.32
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 224.63,
-        "bidsReceived": 27179.69,
-        "subscriptionTimes": 121.0
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Approvals, FSI, and displacement compensation",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repayment of company borrowings",
-        "amountCr": null
-      },
-      {
-        "purpose": "Future acquisitions and general corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://www.centrum.co.in/sites/default/files/product_equity/Pranav%20Constructions%20Limited%20-%20RHP.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "glass-wall-systems-india",
-    "slug": "glass-wall-systems-india",
-    "name": "Glass Wall Systems (India)",
-    "companyName": "Glass Wall Systems (India)",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Glasswall_logo-300x150.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 172,
-    "priceBandMax": 182,
-    "issuePrice": 182,
-    "lotSize": 82,
-    "minInvestment": 14924,
-    "issueSizeTotalCr": 427.89,
-    "freshIssueCr": 60.0,
-    "ofsCr": 367.89,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 81.65,
-    "qibSubscription": 167.93,
-    "niiSubscription": 79.71,
-    "retailSubscription": 33.18,
-    "openDate": "2026-09-08",
-    "closeDate": "2026-09-10",
-    "allotmentDate": "2026-09-11",
-    "refundDate": "2026-09-15",
-    "dematCreditDate": "2026-09-15",
-    "listingDate": "2026-09-16",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Proven track record in executing complex façade engineering projects.",
-      "Diversified revenue across domestic, global, and luxury fenestration markets.",
-      "Fully integrated in-house manufacturing and execution capabilities.",
-      "Strategic backward integration to optimize costs and supply chain control.",
-      "High repeat order rate from major domestic and international developers."
-    ],
-    "risks": [
-      "Top ten clients account for a massive 86.40% of total revenue.",
-      "Complete reliance on a single manufacturing facility in Maharashtra.",
-      "High vulnerability to raw material price volatility without long-term contracts.",
-      "Outstanding tax demands and contingent liabilities totaling ₹33.41 crores.",
-      "Financial performance is highly sensitive to real estate market cycles."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 82,
-        "amount": 14924
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 47.02,
-        "bidsReceived": 7896.08,
-        "subscriptionTimes": 167.93
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 35.27,
-        "bidsReceived": 2811.15,
-        "subscriptionTimes": 79.71
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 82.28,
-        "bidsReceived": 2730.05,
-        "subscriptionTimes": 33.18
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 164.57,
-        "bidsReceived": 13437.27,
-        "subscriptionTimes": 81.65
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Funding capital expenditure for setting up a GPU Project at Vile Bhagad",
-        "amountCr": 5083.33
-      },
-      {
-        "purpose": "General Corporate Purposes",
-        "amountCr": 1016.67
-      }
-    ],
-    "prospectusUrl": "https://www.iiflcapital.com/institutional-equities/Upload/InvestmentBanking/Prospects/Glass_Walls_Systems_(India)_Limited_RHP.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "kanohar-electricals",
-    "slug": "kanohar-electricals",
-    "name": "Kanohar Electricals",
-    "companyName": "Kanohar Electricals",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/kANOHAR_logo-300x150.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 601,
-    "priceBandMax": 632,
-    "issuePrice": 632,
-    "lotSize": 23,
-    "minInvestment": 14536,
-    "issueSizeTotalCr": 1055.74,
-    "freshIssueCr": 300.0,
-    "ofsCr": 755.74,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 90.59,
-    "qibSubscription": 215.37,
-    "niiSubscription": 87.74,
-    "retailSubscription": 20.51,
-    "openDate": "2026-09-08",
-    "closeDate": "2026-09-10",
-    "allotmentDate": "2026-09-11",
-    "refundDate": "2026-09-15",
-    "dematCreditDate": "2026-09-15",
-    "listingDate": "2026-09-16",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "MUFG Intime India Pvt.Ltd.",
-    "registrarWebsite": "https://linkintime.co.in",
-    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Nuvama Wealth Management Ltd.",
-      "IIFL Capital Services Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 95,
-    "brokerReviews": {
-      "subscribe": 2,
-      "mayApply": 1,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Strong order book standing at ₹1818.32 crores as of March 31, 2026.",
-      "Proven track record of executing large-scale turnkey EPC projects for government entities.",
-      "Comprehensive in-house manufacturing capabilities at the Rithani and Gangol facilities.",
-      "Specialized product portfolio catering to high-growth sectors like railways and renewable energy.",
-      "Successful development and short-circuit testing of advanced 500 MVA and Scott transformers"
-    ],
-    "risks": [
-      "High customer concentration with the top 10 clients contributing 93.16% of total revenue.",
-      "Heavy reliance on government tenders exposes the business to disqualification and blacklisting risks.",
-      "Business operations are geographically concentrated around the Meerut manufacturing facilities.",
-      "The absence of long-term contracts with raw material suppliers exposes the company to pricing volatility.",
-      "History of negative cash flows from operating, investing, and financing activities."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 662.86,
-        "pat": 129.73,
-        "netWorth": 372.84,
-        "assets": 613.93,
-        "reserves": 357.95,
-        "borrowing": 39.04,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 34.8,
-        "revenueGrowthYoY": 44.95,
-        "patGrowthYoY": 99.22
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 457.3,
-        "pat": 65.12,
-        "netWorth": 243.13,
-        "assets": 432.07,
-        "reserves": 239.12,
-        "borrowing": 32.27,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 26.78,
-        "revenueGrowthYoY": 62.67,
-        "patGrowthYoY": 266.67
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 281.12,
-        "pat": 17.76,
-        "netWorth": 178.12,
-        "assets": 322.86,
-        "reserves": 174.11,
-        "borrowing": 42.08,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 9.97,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 23,
-        "amount": 14536
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 33.41,
-        "bidsReceived": 7195.4,
-        "subscriptionTimes": 215.37
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 25.06,
-        "bidsReceived": 2198.49,
-        "subscriptionTimes": 87.74
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 58.47,
-        "bidsReceived": 1198.99,
-        "subscriptionTimes": 20.51
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 116.93,
-        "bidsReceived": 10592.88,
-        "subscriptionTimes": 90.59
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Powerica Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 24.45,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Atlanta Electricals Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 46.33,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Anawil Wire & Engineering Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.53,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Accord Transformer & Switchgear Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.41,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Avana Electrosystems Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.4,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Funding the capital expenditure requirements",
-        "amountCr": null
-      },
-      {
-        "purpose": "Funding the incremental working capital requirements",
-        "amountCr": 15551.67
-      },
-      {
-        "purpose": "General Corporate Purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://www.iiflcapital.com/institutional-equities/upload/investmentbanking/prospects/kanohar_electricals_limited_-_rhp.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "prasol-chemicals",
-    "slug": "prasol-chemicals",
-    "name": "Prasol Chemicals",
-    "companyName": "Prasol Chemicals",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/Prasol_logo-300x200.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 643,
-    "priceBandMax": 676,
-    "issuePrice": 676,
-    "lotSize": 22,
-    "minInvestment": 14872,
-    "issueSizeTotalCr": 500.0,
-    "freshIssueCr": 80.0,
-    "ofsCr": 420.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 3.3,
-    "qibSubscription": 7.22,
-    "niiSubscription": 1.8,
-    "retailSubscription": 3.07,
-    "openDate": "2026-09-08",
-    "closeDate": "2026-09-10",
-    "allotmentDate": "2026-09-11",
-    "refundDate": "2026-09-15",
-    "dematCreditDate": "2026-09-15",
-    "listingDate": "2026-09-16",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Forward-integrated manufacturer offering over 150 specialty chemicals.",
-      "Diversified revenue streams across five major application industries.",
-      "Global operational scale with exports reaching 69 countries.",
-      "Strong R&D capabilities with a pipeline of 40 new formulations.",
-      "Facilities meet stringent international regulatory and quality standards."
-    ],
-    "risks": [
-      "Dependent on two facilities vulnerable to regulatory shutdowns.",
-      "Handling hazardous raw materials exposes operations to accident liabilities.",
-      "Significant reliance on a limited number of raw material suppliers.",
-      "A substantial portion of revenue is concentrated among the top 10 customers.",
-      "Historical fluctuations in net operating cash flows raise liquidity risks."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 22,
-        "amount": 14872
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 15.55,
-        "bidsReceived": 112.28,
-        "subscriptionTimes": 7.22
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 11.66,
-        "bidsReceived": 20.95,
-        "subscriptionTimes": 1.8
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 27.22,
-        "bidsReceived": 11.93,
-        "subscriptionTimes": 3.07
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 54.43,
-        "bidsReceived": 179.62,
-        "subscriptionTimes": 3.3
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Repayment / pre-payment of borrowings",
-        "amountCr": 6075.0
-      },
-      {
-        "purpose": "General Corporate Purposes",
-        "amountCr": 2025.0
-      }
-    ],
-    "prospectusUrl": "https://www.damcapital.in/files/pdf/639239827470702392_Prasol_Chemicals_Limited_-_RHP.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "amtech-esters",
-    "slug": "amtech-esters",
-    "name": "Amtech Esters",
-    "companyName": "Amtech Esters",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/amtech-ipo-logo-300x82.jpg",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 71,
-    "priceBandMax": 75,
-    "issuePrice": 75,
-    "lotSize": 1600,
-    "minInvestment": 120000,
-    "issueSizeTotalCr": 17.88,
-    "freshIssueCr": 17.88,
-    "ofsCr": 0.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 23.97,
-    "qibSubscription": 15.07,
-    "niiSubscription": 24.17,
-    "retailSubscription": 28.93,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Broad product portfolio of unsaturated polyester resins and complementary chemicals.",
-      "Established a vertically integrated business model with its subsidiary Croda Pigments.",
-      "Upcoming capacity expansion with a new manufacturing facility in Asoda, Haryana.",
-      "Strong quality assurance ensures consistent and standardized product excellence.",
-      "Experienced promoter group and senior management with deep industry expertise."
-    ],
-    "risks": [
-      "High revenue dependence on unsaturated polyester resins exposes the business to concentration risk.",
-      "Operations are heavily concentrated in a single geographical region in Haryana.",
-      "Subject to stringent environmental and safety regulations regarding hazardous chemicals.",
-      "Delays in the subsidiary’s capital expenditure plans could adversely impact expected financial growth.",
-      "Any inability to generate adequate demand for the new Asoda facility may affect profitability."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 1600,
-        "amount": 120000
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 4.53,
-        "bidsReceived": 68.22,
-        "subscriptionTimes": 15.07
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 4.61,
-        "bidsReceived": 111.36,
-        "subscriptionTimes": 24.17
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 7.94,
-        "bidsReceived": 229.57,
-        "subscriptionTimes": 28.93
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 17.07,
-        "bidsReceived": 409.15,
-        "subscriptionTimes": 23.97
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Funding capital expenditure for a wholly owned subsidiary",
-        "amountCr": null
-      },
-      {
-        "purpose": "Meeting the working capital requirements of a wholly owned subsidiary",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repayment or prepayment of certain borrowings",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://credorapartners.com/wp-content/uploads/2026/08/Amtech-Esters-Limited-RHP.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "asset-reconstruction-co-india",
-    "slug": "asset-reconstruction-co-india",
-    "name": "Asset Reconstruction Co. (India)",
-    "companyName": "Asset Reconstruction Co. (India)",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/09/ARCILlogo-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 132,
-    "priceBandMax": 139,
-    "issuePrice": 139,
-    "lotSize": 107,
-    "minInvestment": 14873,
-    "issueSizeTotalCr": 732.97,
-    "freshIssueCr": 0.0,
-    "ofsCr": 732.97,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 20.1,
-    "qibSubscription": 52.65,
-    "niiSubscription": 15.69,
-    "retailSubscription": 3.39,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "MUFG Intime India Pvt.Ltd.",
-    "registrarWebsite": "https://linkintime.co.in",
-    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "IIFL Capital Services Ltd.",
-      "IDBI Capital Markets & Securities Ltd.",
-      "JM Financial Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 82,
-    "brokerReviews": {
-      "subscribe": 7,
-      "mayApply": 0,
-      "neutral": 3,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 1,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Expertise in acquiring stressed assets and investing in security receipts.",
-      "Uses structured data consolidation and credit assessment for acquisitions.",
-      "Leverages data analytics and scorecards for risk and recovery prediction.",
-      "Employs multiple IBC and SARFAESI Act resolution strategies.",
-      "Strong strategic partnerships with banks, NBFCs, and fintech platforms."
-    ],
-    "risks": [
-      "Revenues heavily depend on the value and composition of managed assets.",
-      "Failure to timely recover outstanding stressed asset amounts impacts cash flows.",
-      "Non-compliance with RBI inspection observations exposes the company to penalties.",
-      "Inability to acquire sufficient stressed assets at appropriate prices limits growth.",
-      "High reliance on third-party collection agents exposes the company to fraud risks."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 785.08,
-        "pat": 407.84,
-        "netWorth": 3079.39,
-        "assets": 4460.85,
-        "reserves": 2751.18,
-        "borrowing": 1205.5,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 13.24,
-        "revenueGrowthYoY": 25.94,
-        "patGrowthYoY": 14.78
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 623.4,
-        "pat": 355.32,
-        "netWorth": 2767.8,
-        "assets": 3263.82,
-        "reserves": 2439.19,
-        "borrowing": 305.93,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 12.84,
-        "revenueGrowthYoY": 8.59,
-        "patGrowthYoY": 16.37
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 574.11,
-        "pat": 305.34,
-        "netWorth": 2462.51,
-        "assets": 2795.34,
-        "reserves": 2135.2,
-        "borrowing": 149.95,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 12.4,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 107,
-        "amount": 14873
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 105.46,
-        "bidsReceived": 5552.44,
-        "subscriptionTimes": 52.65
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 79.1,
-        "bidsReceived": 1240.96,
-        "subscriptionTimes": 15.69
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 184.56,
-        "bidsReceived": 626.34,
-        "subscriptionTimes": 3.39
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 369.12,
-        "bidsReceived": 7419.75,
-        "subscriptionTimes": 20.1
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "OnEMI Technology Solutions Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.65,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": null,
-    "prospectusUrl": "https://www.arcil.co.in/sites/default/files/2026-09/Arcil-RHP-01-09-26.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "infrax-renewable",
-    "slug": "infrax-renewable",
-    "name": "Infrax Renewable",
-    "companyName": "Infrax Renewable",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Infrax_logo-300x196.png",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 104,
-    "priceBandMax": 104,
-    "issuePrice": 104,
-    "lotSize": 1200,
-    "minInvestment": 124800,
-    "issueSizeTotalCr": 40.88,
-    "freshIssueCr": 33.81,
-    "ofsCr": 7.08,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 2.05,
-    "qibSubscription": 0.0,
-    "niiSubscription": 1.39,
-    "retailSubscription": 1.9,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Diversified presence across solar EPC, product distribution, and IPP operations.",
-      "Extensive market reach supported by a growing network of 2,830 local dealers.",
-      "Solid execution pipeline backed by an active order book of 1,756 solar projects.",
-      "Strategic expansion into in-house manufacturing of solar frames and mounting structures.",
-      "Comprehensive capabilities for managing solar projects from initial design to final commissioning."
-    ],
-    "risks": [
-      "High geographic concentration with 97.41% of FY26 revenue generated solely in Gujarat.",
-      "Business viability relies heavily on continued government solar policies and subsidies.",
-      "Dependent on limited third-party component suppliers without long-term procurement contracts.",
-      "Lacks formalized and comprehensive contractual agreements with certain operational dealers.",
-      "Vulnerable to project execution delays, operational hazards, and severe weather disruptions."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 1200,
-        "amount": 124800
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 18.5,
-        "bidsReceived": 25.78,
-        "subscriptionTimes": 1.39
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 18.5,
-        "bidsReceived": 35.66,
-        "subscriptionTimes": 1.9
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 37.32,
-        "bidsReceived": 76.33,
-        "subscriptionTimes": 2.05
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Capital expenditure for the proposed manufacturing facility",
-        "amountCr": null
-      },
-      {
-        "purpose": "Funding working capital requirements",
-        "amountCr": 1750.28
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://infraxrenewable.com/pdf/ipo/Prospectus.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "karamtara-engineering",
-    "slug": "karamtara-engineering",
-    "name": "Karamtara Engineering",
-    "companyName": "Karamtara Engineering",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/downloadKTE-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 241,
-    "priceBandMax": 254,
-    "issuePrice": 254,
-    "lotSize": 59,
-    "minInvestment": 14986,
-    "issueSizeTotalCr": 875.0,
-    "freshIssueCr": 675.0,
-    "ofsCr": 200.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 62.63,
-    "qibSubscription": 159.59,
-    "niiSubscription": 48.55,
-    "retailSubscription": 13.26,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "MUFG Intime India Pvt.Ltd.",
-    "registrarWebsite": "https://linkintime.co.in",
-    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "JM Financial Ltd.",
-      "ICICI Securities Ltd.",
-      "IIFL Capital Services Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 94,
-    "brokerReviews": {
-      "subscribe": 11,
-      "mayApply": 0,
-      "neutral": 3,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Operates 13 diverse manufacturing facilities across India and Italy.",
-      "Strong market footprint with exports to over 50 countries globally.",
-      "Extensive product portfolio catering to renewable and transmission sectors.",
-      "Established relationships with marquee independent power producers.",
-      "Strategic capacity expansion plans in domestic and international markets."
-    ],
-    "risks": [
-      "Heavy reliance on manufacturing units concentrated in Maharashtra.",
-      "Significant dependence on the solar energy sector for total revenue.",
-      "Substantial revenue concentration among the top 10 customers.",
-      "Vulnerability to fluctuations in global trade policies and tariffs.",
-      "Ongoing legal disputes regarding company properties and promoters."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 100.78,
-        "pat": 9.45,
-        "netWorth": 33.28,
-        "assets": 69.38,
-        "reserves": 20.31,
-        "borrowing": 16.06,
-        "ebitda": 15.48,
-        "eps": null,
-        "ronw": null,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 89.85,
-        "pat": 7.75,
-        "netWorth": 23.83,
-        "assets": 60.83,
-        "reserves": 10.86,
-        "borrowing": 16.3,
-        "ebitda": 13.29,
-        "eps": null,
-        "ronw": null,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 74.54,
-        "pat": 5.74,
-        "netWorth": 13.85,
-        "assets": 52.37,
-        "reserves": 13.6,
-        "borrowing": 20.12,
-        "ebitda": 10.01,
-        "eps": null,
-        "ronw": null,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (min)",
-        "lots": 2,
-        "shares": 4000,
-        "amount": 216000
-      },
-      {
-        "applicationCategory": "Retail (max)",
-        "lots": 2,
-        "shares": 4000,
-        "amount": 216000
-      },
-      {
-        "applicationCategory": "HNI (min)",
-        "lots": 3,
-        "shares": 6000,
-        "amount": 324000
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 72.61,
-        "bidsReceived": 11588.2,
-        "subscriptionTimes": 159.59
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 54.46,
-        "bidsReceived": 2643.9,
-        "subscriptionTimes": 48.55
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 127.07,
-        "bidsReceived": 1685.41,
-        "subscriptionTimes": 13.26
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 254.14,
-        "bidsReceived": 15917.51,
-        "subscriptionTimes": 62.63
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Kanohar Electricals Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 36.26,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Powerica Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 24.45,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Atlanta Electricals Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 46.33,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Anawil Wire & Engineering Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.53,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Accord Transformer & Switchgear Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.41,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Avana Electrosystems Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.4,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Repayment and/or pre-payment of certain borrowings",
-        "amountCr": 60088.89
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": 7511.11
-      }
-    ],
-    "prospectusUrl": "https://karamtara.com/wp-content/uploads/2026/09/Karamtara-Engineering-Limited-RHP.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "lcc-projects",
-    "slug": "lcc-projects",
-    "name": "LCC Projects",
-    "companyName": "LCC Projects",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/04/lcc_projects_ltd_logo-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 139,
-    "priceBandMax": 146,
-    "issuePrice": 146,
-    "lotSize": 102,
-    "minInvestment": 14892,
-    "issueSizeTotalCr": 427.14,
-    "freshIssueCr": 258.0,
-    "ofsCr": 169.14,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 48.51,
-    "qibSubscription": 78.69,
-    "niiSubscription": 62.99,
-    "retailSubscription": 25.56,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Kfin Technologies Ltd.",
-    "registrarWebsite": "https://kfintech.com",
-    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Motilal Oswal Investment Advisors Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 95,
-    "brokerReviews": {
-      "subscribe": 5,
-      "mayApply": 0,
-      "neutral": 1,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Proven track record in successfully executing complex irrigation and water supply infrastructure projects.",
-      "A robust order book ensures strong future revenue visibility and growth.",
-      "Geographically diversified operational presence spanning across 12 different Indian states.",
-      "Consistent financial growth demonstrated by a strong revenue CAGR of 21.50% (FY24–FY26).",
-      "Extensive in-house fleet of construction equipment and newly added precast concrete manufacturing capabilities."
-    ],
-    "risks": [
-      "Top 10 clients generate 72.30% of our total operating revenue.",
-      "High reliance on government contracts exposes us to policy shifts.",
-      "Higher financial leverage and debt compared to listed industry peers.",
-      "High geographic revenue concentration in Gujarat and Madhya Pradesh.",
-      "High unbilled revenue levels could negatively impact our cash flows."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 3639.45,
-        "pat": 286.44,
-        "netWorth": 888.41,
-        "assets": 2447.54,
-        "reserves": 752.41,
-        "borrowing": 860.65,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 32.24,
-        "revenueGrowthYoY": 23.75,
-        "patGrowthYoY": 28.09
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 2941.01,
-        "pat": 223.63,
-        "netWorth": 604.99,
-        "assets": 1727.46,
-        "reserves": 468.99,
-        "borrowing": 649.55,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 36.96,
-        "revenueGrowthYoY": 20.05,
-        "patGrowthYoY": 83.3
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 2449.79,
-        "pat": 122.0,
-        "netWorth": 382.83,
-        "assets": 1129.99,
-        "reserves": 348.83,
-        "borrowing": 422.3,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 31.87,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 102,
-        "amount": 14892
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 58.54,
-        "bidsReceived": 4606.58,
-        "subscriptionTimes": 78.69
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 45.22,
-        "bidsReceived": 2848.57,
-        "subscriptionTimes": 62.99
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 105.51,
-        "bidsReceived": 2697.18,
-        "subscriptionTimes": 25.56
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 209.27,
-        "bidsReceived": 10152.33,
-        "subscriptionTimes": 48.51
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Annu Projects Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.33,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Technocraft Ventures Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.73,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Om Power Transmission Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 21.13,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Solarworld Energy Solutions Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 33.77,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "GK Energy Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 20.29,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Infrax Renewable Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.19,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Paluck Technologies Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 6.95,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Oneindig Technologies Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 18.53,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Leapfrog Engineering Services Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 15.19,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Safety Controls & Devices Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.3,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Srinibas Pradhan Constructions Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 9.15,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "GRE Renew Enertech Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 15.72,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "E to E Transportation Infrastructure Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 15.44,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Valplast Technologies Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.75,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Chiraharit Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 13.95,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Telge Projects Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.04,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Karbonsteel Engineering Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.47,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Purchase of equipment",
-        "amountCr": null
-      },
-      {
-        "purpose": "Prepayment and/or repayment of outstanding borrowings",
-        "amountCr": 18069.77
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://www.lccprojects.com/investor-pdf/ipo/rhp.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "manipal-payment-and-identity-solutions",
-    "slug": "manipal-payment-and-identity-solutions",
-    "name": "Manipal Payment and Identity Solutions",
-    "companyName": "Manipal Payment and Identity Solutions",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/05/manipal_payment_logo-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 322,
-    "priceBandMax": 339,
-    "issuePrice": 339,
-    "lotSize": 44,
-    "minInvestment": 14916,
-    "issueSizeTotalCr": 805.0,
-    "freshIssueCr": 320.0,
-    "ofsCr": 485.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 1.43,
-    "qibSubscription": 1.26,
-    "niiSubscription": 1.22,
-    "retailSubscription": 2.19,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "MUFG Intime India Pvt.Ltd.",
-    "registrarWebsite": "https://linkintime.co.in",
-    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Motilal Oswal Investment Advisors Ltd.",
-      "Axis Capital Ltd.",
-      "ICICI Securities Ltd.",
-      "IIFL Capital Services Ltd.",
-      "Nuvama Wealth Management Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 64,
-    "brokerReviews": {
-      "subscribe": 6,
-      "mayApply": 0,
-      "neutral": 4,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Manipal Payment and Identity Solutions serves banks, fintechs, NBFCs and government clients in India and overseas.",
-      "The company offers a wide range of payment, identity, secure printing and smart tagging solutions.",
-      "It generates revenue from both product sales and related personalisation and printing services.",
-      "The company provides RFID, QR code and IoT-based tracking and anti-counterfeiting solutions.",
-      "Its business includes high-security products such as payment cards, identity cards and secure packaging solutions."
-    ],
-    "risks": [
-      "A large share of the company’s revenue comes from its top 10 customers.",
-      "The business depends heavily on a limited number of suppliers for raw materials.",
-      "A significant portion of revenue is generated from card manufacturing and related products.",
-      "Failure to meet payment network security standards could impact its operations.",
-      "The company has reported past regulatory non-compliance related to RBI reporting requirements."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 1356.59,
-        "pat": 253.46,
-        "netWorth": 1107.34,
-        "assets": 1160.9,
-        "reserves": 747.43,
-        "borrowing": 0.42,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 22.89,
-        "revenueGrowthYoY": 6.22,
-        "patGrowthYoY": -10.19
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 1277.11,
-        "pat": 282.21,
-        "netWorth": 619.7,
-        "assets": 1409.67,
-        "reserves": 262.89,
-        "borrowing": 472.87,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 45.54,
-        "revenueGrowthYoY": 0.72,
-        "patGrowthYoY": 13.26
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 1267.97,
-        "pat": 249.17,
-        "netWorth": 405.05,
-        "assets": 1102.71,
-        "reserves": 48.25,
-        "borrowing": 449.47,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 61.52,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 44,
-        "amount": 14916
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 71.24,
-        "bidsReceived": 89.64,
-        "subscriptionTimes": 1.26
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 35.62,
-        "bidsReceived": 43.46,
-        "subscriptionTimes": 1.22
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 23.75,
-        "bidsReceived": 52.02,
-        "subscriptionTimes": 2.19
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 130.6,
-        "bidsReceived": 185.13,
-        "subscriptionTimes": 1.43
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Turtlemint Fintech Solutions Ltd.",
-        "faceValue": 10.0,
-        "peRatio": -19.66,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Pine Labs Ltd.",
-        "faceValue": 10.0,
-        "peRatio": -160.13,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Seshaasai Technologies Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 28.63,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Finbud Financial Services Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 23.4,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Purchase and setup of new and used equipment",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://mpimanipal.com/wp-content/uploads/2026/09/Red-Herring-Prospectus_compressed.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "rentomojo",
-    "slug": "rentomojo",
-    "name": "Rentomojo",
-    "companyName": "Rentomojo",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/rentomojo_logo-300x300.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 384,
-    "priceBandMax": 404,
-    "issuePrice": 404,
-    "lotSize": 37,
-    "minInvestment": 14948,
-    "issueSizeTotalCr": 1255.57,
-    "freshIssueCr": 150.0,
-    "ofsCr": 1105.57,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 72.88,
-    "qibSubscription": 177.29,
-    "niiSubscription": 67.93,
-    "retailSubscription": 15.59,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Kfin Technologies Ltd.",
-    "registrarWebsite": "https://kfintech.com",
-    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Motilal Oswal Investment Advisors Ltd.",
-      "Axis Capital Ltd.",
-      "IIFL Capital Services Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 91,
-    "brokerReviews": {
-      "subscribe": 6,
-      "mayApply": 0,
-      "neutral": 4,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Omnichannel footprint in tier-1 cities strengthens brand visibility.",
-      "Asset lifecycle management minimizes depreciation and maximizes capital returns.",
-      "Expanding the experience store and warehouse network supports rising demand.",
-      "Proven debt management capabilities ensure funding for operations.",
-      "High occupancy rates drive strong and consistent unit economics."
-    ],
-    "risks": [
-      "Inability to renew warehouse and store leases could disrupt operations.",
-      "Significant outstanding borrowings may restrict future financial flexibility.",
-      "Warehouse assets are vulnerable to fires, potentially causing massive losses.",
-      "High working capital requirements can strain short-term liquidity.",
-      "Intense competition necessitates constant capital deployment and expansion."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 394.09,
-        "pat": 104.3,
-        "netWorth": 295.81,
-        "assets": 641.12,
-        "reserves": 291.71,
-        "borrowing": 187.59,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 35.26,
-        "revenueGrowthYoY": 44.91,
-        "patGrowthYoY": 141.94
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 271.96,
-        "pat": 43.11,
-        "netWorth": 183.61,
-        "assets": 449.87,
-        "reserves": 182.94,
-        "borrowing": 154.58,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 23.48,
-        "revenueGrowthYoY": 38.9,
-        "patGrowthYoY": 92.37
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 195.8,
-        "pat": 22.41,
-        "netWorth": 139.61,
-        "assets": 366.2,
-        "reserves": 138.94,
-        "borrowing": 147.22,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 16.05,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 37,
-        "amount": 14948
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 62.06,
-        "bidsReceived": 11002.38,
-        "subscriptionTimes": 177.29
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 46.54,
-        "bidsReceived": 3161.47,
-        "subscriptionTimes": 67.93
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 108.6,
-        "bidsReceived": 1693.25,
-        "subscriptionTimes": 15.59
-      },
-      {
-        "category": "Employee",
-        "subCategory": null,
-        "sharesOffered": 0.52,
-        "bidsReceived": 10.95,
-        "subscriptionTimes": 21.03
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 217.72,
-        "bidsReceived": 15868.06,
-        "subscriptionTimes": 72.88
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Meesho Ltd.",
-        "faceValue": 10.0,
-        "peRatio": -11.63,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Urban Co.Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 59.71,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Acetech E-Commerce Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 19.56,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Repayment/prepayment of borrowings and interest",
-        "amountCr": 7046.67
-      },
-      {
-        "purpose": "Lease rental/license fee for warehouses and experience stores",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": 37.525
-      }
-    ],
-    "prospectusUrl": "https://www.axiscapital.co.in/contents/Rentomojo%20Limited%20-%20RHP-1788498517.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "steamhouse-india",
-    "slug": "steamhouse-india",
-    "name": "Steamhouse India",
-    "companyName": "Steamhouse India",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Steamhouse_logo-300x108.png",
-    "category": "mainboard",
-    "status": "listed",
-    "exchange": "BSE & NSE",
-    "priceBandMin": 77,
-    "priceBandMax": 81,
-    "issuePrice": 81,
-    "lotSize": 185,
-    "minInvestment": 14985,
-    "issueSizeTotalCr": 414.0,
-    "freshIssueCr": 353.0,
-    "ofsCr": 61.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 30.49,
-    "qibSubscription": 43.91,
-    "niiSubscription": 44.3,
-    "retailSubscription": 16.9,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Kfin Technologies Ltd.",
-    "registrarWebsite": "https://kfintech.com",
-    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Equirus Capital Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 87,
-    "brokerReviews": {
-      "subscribe": 8,
-      "mayApply": 0,
-      "neutral": 2,
-      "avoid": 1
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 1
-    },
-    "highlights": [
-      "High customer retention with long-term supply contracts spanning up to ten years.",
-      "A flexible plug-and-play solution allows customers to pay based on actual consumption.",
-      "Strategic facility locations near major industrial clusters in Gujarat reduce transmission losses.",
-      "Integration of non-fossil fuels like plastic and agro-waste to reduce environmental impact.",
-      "Consistent revenue growth driven by a high volume of repeat orders and established infrastructure."
-    ],
-    "risks": [
-      "Revenue is heavily concentrated, with the top ten customers contributing 47.87% of operations.",
-      "Profitability is substantially dependent on the price and availability of imported coal.",
-      "Geographic concentration in Gujarat makes operations highly vulnerable to local regulatory changes.",
-      "Significant reliance on related party transactions with group companies for both sales and purchases.",
-      "Past non-compliances with pollution control board approvals could result in future operational penalties."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 494.97,
-        "pat": 38.64,
-        "netWorth": 163.76,
-        "assets": 679.45,
-        "reserves": 127.57,
-        "borrowing": 281.62,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 23.6,
-        "revenueGrowthYoY": 24.2,
-        "patGrowthYoY": 24.01
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 398.53,
-        "pat": 31.16,
-        "netWorth": 131.0,
-        "assets": 543.67,
-        "reserves": 87.25,
-        "borrowing": 222.95,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 23.79,
-        "revenueGrowthYoY": 35.94,
-        "patGrowthYoY": 14.6
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 293.16,
-        "pat": 27.19,
-        "netWorth": 102.71,
-        "assets": 422.31,
-        "reserves": 58.35,
-        "borrowing": 202.71,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 26.47,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 185,
-        "amount": 14985
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 107.53,
-        "bidsReceived": 4721.24,
-        "subscriptionTimes": 43.91
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 80.65,
-        "bidsReceived": 3572.58,
-        "subscriptionTimes": 44.3
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 188.18,
-        "bidsReceived": 3181.07,
-        "subscriptionTimes": 16.9
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 376.36,
-        "bidsReceived": 11474.89,
-        "subscriptionTimes": 30.49
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Repayment or prepayment of outstanding borrowings",
-        "amountCr": 18050.99
-      },
-      {
-        "purpose": "Capacity expansion of the Ankleshwar Facility (Phase 3)",
-        "amountCr": null
-      },
-      {
-        "purpose": "Capacity expansion of the Panoli Facility (Phase 2)",
-        "amountCr": null
-      },
-      {
-        "purpose": "Manufacturing facility for generation of steam at Dahej SEZ",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://steamhouse.in/wp-content/uploads/2026/09/Red-Herring-Prospectus.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "vinod-texworld",
-    "slug": "vinod-texworld",
-    "name": "Vinod Texworld",
-    "companyName": "Vinod Texworld",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vinod_logo-300x300.png",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 94,
-    "priceBandMax": 94,
-    "issuePrice": 94,
-    "lotSize": 1200,
-    "minInvestment": 112800,
-    "issueSizeTotalCr": 42.83,
-    "freshIssueCr": 42.83,
-    "ofsCr": 0.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 1.6,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.3,
-    "retailSubscription": 2.91,
-    "openDate": "2026-09-09",
-    "closeDate": "2026-09-11",
-    "allotmentDate": "2026-09-15",
-    "refundDate": "2026-09-16",
-    "dematCreditDate": "2026-09-16",
-    "listingDate": "2026-09-17",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Established fabric processing setup with end-to-end dyeing, printing, and finishing operations.",
-      "Diversified revenue stream combining in-house manufacturing and trading of textile products.",
-      "Dedicated utility infrastructure including an Effluent Treatment Plant and captive solar energy project.",
-      "Experienced promoter leadership with deep domain knowledge in the textile sector.",
-      "Broad domestic distribution network across multiple key regional textile hubs."
-    ],
-    "risks": [
-      "Revenue concentration risk with over 50% of sales derived from top ten customers.",
-      "High dependence on single-location manufacturing operations in Ahmedabad, Gujarat.",
-      "High working capital intensity with significant reliance on short-term bank borrowings.",
-      "Absence of long-term contracts with key customers, operating primarily on purchase orders.",
-      "Outstanding corporate guarantee obligations provided on behalf of a promoter group entity."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 1200,
-        "amount": 112800
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 21.65,
-        "bidsReceived": 6.49,
-        "subscriptionTimes": 0.3
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 21.65,
-        "bidsReceived": 62.95,
-        "subscriptionTimes": 2.91
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 43.28,
-        "bidsReceived": 69.44,
-        "subscriptionTimes": 1.6
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Expansion of Existing Plant",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repayment of loan",
-        "amountCr": null
-      },
-      {
-        "purpose": "To Meet Working Capital Requirements",
-        "amountCr": null
-      },
-      {
-        "purpose": "Issue Expenses",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://novuscaps.com/uploads/company_docx/IPO_offers_docs/Prospectus_of_Vinod_Texworld_Limited.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "maharaja-speedex-india",
-    "slug": "maharaja-speedex-india",
-    "name": "Maharaja & Speedex India",
-    "companyName": "Maharaja & Speedex India",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Speedex_logo-300x300.png",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 177,
-    "priceBandMax": 186,
-    "issuePrice": 186,
-    "lotSize": 600,
-    "minInvestment": 111600,
-    "issueSizeTotalCr": 80.13,
-    "freshIssueCr": 64.1,
-    "ofsCr": 16.03,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 30.21,
-    "qibSubscription": 48.82,
-    "niiSubscription": 30.09,
-    "retailSubscription": 19.65,
-    "openDate": "2026-09-10",
-    "closeDate": "2026-09-15",
-    "allotmentDate": "2026-09-16",
-    "refundDate": "2026-09-17",
-    "dematCreditDate": "2026-09-17",
-    "listingDate": "2026-09-18",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Maashitla Securities Pvt.Ltd.",
-    "registrarWebsite": "https://maashitla.com",
-    "registrarCheckUrl": "https://maashitla.com/allotment-status/",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Choice Capital Advisors Pvt.Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 90,
-    "brokerReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Broad product portfolio of stainless-steel kitchenware and household items.",
-      "Pan-India distribution network with 101 distributors across multiple states.",
-      "Flexible dual business model with proprietary brands and third-party OEM.",
-      "Two dedicated manufacturing facilities in Haryana ensure operational control.",
-      "Steady financial growth with rising revenues and net profitability."
-    ],
-    "risks": [
-      "Reliance on a limited number of suppliers for stainless-steel raw materials.",
-      "Significant revenue concentration derived from a small group of key customers.",
-      "Third-party OEM manufacturing creates potential channel conflicts with branded products.",
-      "Operations are vulnerable to localized economic or regulatory disruptions.",
-      "Core manufacturing facilities operate from leased premises subject to renewal."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 122.74,
-        "pat": 15.34,
-        "netWorth": 26.74,
-        "assets": 81.98,
-        "reserves": 15.96,
-        "borrowing": 26.66,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 57.37,
-        "revenueGrowthYoY": 31.13,
-        "patGrowthYoY": 175.4
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 93.6,
-        "pat": 5.57,
-        "netWorth": 11.39,
-        "assets": 47.67,
-        "reserves": 13.51,
-        "borrowing": 18.04,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 48.9,
-        "revenueGrowthYoY": 52.42,
-        "patGrowthYoY": 415.74
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 61.41,
-        "pat": 1.08,
-        "netWorth": 4.97,
-        "assets": 26.94,
-        "reserves": 4.96,
-        "borrowing": 16.11,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 21.73,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 600,
-        "amount": 111600
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 8.18,
-        "bidsReceived": 399.58,
-        "subscriptionTimes": 48.82
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 8.3,
-        "bidsReceived": 249.65,
-        "subscriptionTimes": 30.09
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 14.33,
-        "bidsReceived": 281.5,
-        "subscriptionTimes": 19.65
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 30.81,
-        "bidsReceived": 930.73,
-        "subscriptionTimes": 30.21
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Clay Craft India Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.38,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Riddhi Display Equipments Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.91,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Funding capital expenditure",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repayment or prepayment of certain borrowings",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://speedexind.com/wp-content/uploads/2026/09/SPeedex-RHP.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "om-galaxy",
-    "slug": "om-galaxy",
-    "name": "Om Galaxy",
-    "companyName": "Om Galaxy",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/Omgalaxy_logo-300x300.png",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 85,
-    "priceBandMax": 90,
-    "issuePrice": 90,
-    "lotSize": 1600,
-    "minInvestment": 144000,
-    "issueSizeTotalCr": 105.0,
-    "freshIssueCr": 105.0,
-    "ofsCr": 0.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 2.0,
-    "qibSubscription": 5.37,
-    "niiSubscription": 1.05,
-    "retailSubscription": 0.62,
-    "openDate": "2026-09-10",
-    "closeDate": "2026-09-15",
-    "allotmentDate": "2026-09-16",
-    "refundDate": "2026-09-17",
-    "dematCreditDate": "2026-09-17",
-    "listingDate": "2026-09-18",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Bigshare Services Pvt.Ltd.",
-    "registrarWebsite": "https://bigshareonline.com",
-    "registrarCheckUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [
-      "Indorient Financial Services Ltd."
-    ],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": 71,
-    "brokerReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "memberReviews": {
-      "subscribe": 0,
-      "mayApply": 0,
-      "neutral": 0,
-      "avoid": 0
-    },
-    "highlights": [
-      "Manufactures precision moulds for diverse industrial sectors.",
-      "Expanding product portfolio with forward integration into B2C.",
-      "Strategic consolidation of existing units to boost efficiency.",
-      "Strong revenue base from the pipe fittings mould segment.",
-      "Internal quality controls meet strict customer specifications."
-    ],
-    "risks": [
-      "Top 10 customers contribute 73% of total revenue.",
-      "Heavy reliance on a limited number of material suppliers.",
-      "Significant revenue concentration in the pipe fittings sector.",
-      "Execution and funding risks tied to the new facility.",
-      "The new B2C cleaning products segment operates at a loss."
-    ],
-    "financials": [
-      {
-        "year": "31 Mar 2026",
-        "revenue": 124.68,
-        "pat": 16.64,
-        "netWorth": 80.9,
-        "assets": 175.31,
-        "reserves": 69.8,
-        "borrowing": 37.79,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 20.57,
-        "revenueGrowthYoY": 10.21,
-        "patGrowthYoY": 4.52
-      },
-      {
-        "year": "31 Mar 2025",
-        "revenue": 113.13,
-        "pat": 15.92,
-        "netWorth": 66.01,
-        "assets": 142.81,
-        "reserves": 62.93,
-        "borrowing": 25.13,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 24.12,
-        "revenueGrowthYoY": 7.62,
-        "patGrowthYoY": 32.23
-      },
-      {
-        "year": "31 Mar 2024",
-        "revenue": 105.12,
-        "pat": 12.04,
-        "netWorth": 49.89,
-        "assets": 117.49,
-        "reserves": 47.3,
-        "borrowing": 32.07,
-        "ebitda": null,
-        "eps": null,
-        "ronw": 24.13,
-        "revenueGrowthYoY": null,
-        "patGrowthYoY": null
-      }
-    ],
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 1600,
-        "amount": 144000
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 22.16,
-        "bidsReceived": 118.94,
-        "subscriptionTimes": 5.37
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 22.48,
-        "bidsReceived": 2357.0,
-        "subscriptionTimes": 1.05
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 38.82,
-        "bidsReceived": 24.19,
-        "subscriptionTimes": 0.62
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 83.46,
-        "bidsReceived": 166.7,
-        "subscriptionTimes": 2.0
-      }
-    ],
-    "peerComparison": [
-      {
-        "companyName": "Kwick Forensic Solutions Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.25,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Skytech Infinite Platform Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 0.0,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Merritronix Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 11.83,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Adisoft Technologies Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.82,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Highness Microelectronics Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 16.7,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Tipco Engineering India Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 8.73,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Gabion Technologies India Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.18,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Admach Systems Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 19.56,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Apollo Techno Industries Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 9.43,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "HRS Aluglaze Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 26.07,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Purple Wave Infocom Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 9.33,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Shining Tools Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 16.18,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "True Colors Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 14.66,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "L.T.Elevator Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 12.31,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Airfloa Rail Technology Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 9.57,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Tempsens Instruments (India) Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 34.05,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "MV Electrosystems Ltd.",
-        "faceValue": 10.0,
-        "peRatio": -68.88,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Indo-MIM Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 44.01,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Lohia Corp Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 23.21,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Omnitech Engineering Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 54.47,
-        "ronw": null,
-        "eps": null
-      },
-      {
-        "companyName": "Epack Prefab Technologies Ltd.",
-        "faceValue": 10.0,
-        "peRatio": 29.49,
-        "ronw": null,
-        "eps": null
-      }
-    ],
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Capex for new manufacturing unit and capacity expansion",
-        "amountCr": null
-      },
-      {
-        "purpose": "Repayment or prepayment of certain borrowings",
-        "amountCr": 1413.33
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://omgalaxymould.com/wp-content/uploads/2026/09/Project-Om_-RHP_with_RFS.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "panchatv-bharat",
-    "slug": "panchatv-bharat",
-    "name": "Panchatv Bharat",
-    "companyName": "Panchatv Bharat",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Panchtv_logo-300x300.png",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 140,
-    "priceBandMax": 140,
-    "issuePrice": 140,
-    "lotSize": 1000,
-    "minInvestment": 140000,
-    "issueSizeTotalCr": 24.58,
-    "freshIssueCr": 24.58,
-    "ofsCr": 0.0,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 1.4,
-    "qibSubscription": 0.0,
-    "niiSubscription": 0.39,
-    "retailSubscription": 2.42,
-    "openDate": "2026-09-10",
-    "closeDate": "2026-09-15",
-    "allotmentDate": "2026-09-16",
-    "refundDate": "2026-09-17",
-    "dematCreditDate": "2026-09-17",
-    "listingDate": "2026-09-18",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Asset-light model leveraging outsourced manufacturing and leased machinery.",
-      "Established a wholesale distribution network across major North Indian markets.",
-      "Promoters bring over 38 years of cumulative industry experience.",
-      "Consistent growth in revenue and restated profit after tax over recent years.",
-      "Diversified supplier base across various raw material vendors."
-    ],
-    "risks": [
-      "Absence of long-term contracts with third-party suppliers and customers.",
-      "High regional revenue concentration in Delhi and Uttar Pradesh.",
-      "Historical instances of negative cash flows from operating activities.",
-      "Unowned loom machinery and reliance on third-party facilities.",
-      "Past delays and inadvertent errors in statutory corporate filings"
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 1000,
-        "amount": 140000
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 8.34,
-        "bidsReceived": 3.22,
-        "subscriptionTimes": 0.39
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 8.34,
-        "bidsReceived": 20.18,
-        "subscriptionTimes": 2.42
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 16.68,
-        "bidsReceived": 23.43,
-        "subscriptionTimes": 1.4
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Purchase and renovation of office-cum-godown space at Delhi",
-        "amountCr": 624.41
-      },
-      {
-        "purpose": "Funding working capital requirements",
-        "amountCr": null
-      },
-      {
-        "purpose": "Issue-related expenses",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://www.panchatvlimited.com/wp-content/uploads/2026/09/Panchatv-Bharat-Limited_Prospectus_Final.pdf",
-    "drhpUrl": null
-  },
-  {
-    "id": "raksan-transformers",
-    "slug": "raksan-transformers",
-    "name": "Raksan Transformers",
-    "companyName": "Raksan Transformers",
-    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/rakshan_logo-300x300.png",
-    "category": "sme",
-    "status": "listed",
-    "exchange": "NSE Emerge",
-    "priceBandMin": 258,
-    "priceBandMax": 273,
-    "issuePrice": 273,
-    "lotSize": 400,
-    "minInvestment": 109200,
-    "issueSizeTotalCr": 150.5,
-    "freshIssueCr": 120.47,
-    "ofsCr": 30.03,
-    "faceValue": 10,
-    "gmp": 0,
-    "gmpPercent": 0.0,
-    "gmpUpdatedTime": "Live",
-    "expectedListingPrice": 0,
-    "gmpTrends": null,
-    "totalSubscription": 44.18,
-    "qibSubscription": 70.51,
-    "niiSubscription": 45.01,
-    "retailSubscription": 28.66,
-    "openDate": "2026-09-10",
-    "closeDate": "2026-09-15",
-    "allotmentDate": "2026-09-16",
-    "refundDate": "2026-09-17",
-    "dematCreditDate": "2026-09-17",
-    "listingDate": "2026-09-18",
-    "listingPrice": null,
-    "listingGainPercent": null,
-    "currentMarketPrice": null,
-    "registrarName": "Check Website",
-    "registrarWebsite": "",
-    "registrarCheckUrl": "",
-    "registrarPhone": null,
-    "registrarEmail": null,
-    "leadManagers": [],
-    "recommendation": "May Apply",
-    "rating": 3.5,
-    "reviewScore": null,
-    "brokerReviews": null,
-    "memberReviews": null,
-    "highlights": [
-      "Established in-house manufacturing operations for varied transformer capacities.",
-      "Robust order book demonstrating strong demand and future revenue visibility.",
-      "Proven track record of consistent financial performance and profitability.",
-      "Deeply rooted relationships with key government and public utility clients.",
-      "Experienced promoter and management team guiding strategic growth."
-    ],
-    "risks": [
-      "High reliance on government contracts exposes the business to policy shifts and tender delays.",
-      "Significant revenue concentration stems from a limited number of key clients.",
-      "Volatility in raw material prices can adversely impact overall profitability.",
-      "Working capital constraints and payment delays may disrupt operations and future growth plans.",
-      "Operations are heavily concentrated in a few specific states, increasing regional risks."
-    ],
-    "financials": null,
-    "lotSizes": [
-      {
-        "applicationCategory": "Retail (Min)",
-        "lots": 1,
-        "shares": 400,
-        "amount": 109200
-      }
-    ],
-    "subscriptionBreakdown": [
-      {
-        "category": "Institutional",
-        "subCategory": null,
-        "sharesOffered": 10.47,
-        "bidsReceived": 738.38,
-        "subscriptionTimes": 70.51
-      },
-      {
-        "category": "NII",
-        "subCategory": null,
-        "sharesOffered": 10.62,
-        "bidsReceived": 477.96,
-        "subscriptionTimes": 45.01
-      },
-      {
-        "category": "Retail",
-        "subCategory": null,
-        "sharesOffered": 18.34,
-        "bidsReceived": 525.46,
-        "subscriptionTimes": 28.66
-      },
-      {
-        "category": "Total",
-        "subCategory": null,
-        "sharesOffered": 39.43,
-        "bidsReceived": 1741.81,
-        "subscriptionTimes": 44.18
-      }
-    ],
-    "peerComparison": null,
-    "reservations": null,
-    "kpis": null,
-    "objectsOfIssue": [
-      {
-        "purpose": "Funding capital expenditure for a manufacturing facility",
-        "amountCr": null
-      },
-      {
-        "purpose": "Meeting working capital requirements",
-        "amountCr": 3529.05
-      },
-      {
-        "purpose": "Repayment or prepayment of certain borrowings",
-        "amountCr": null
-      },
-      {
-        "purpose": "General corporate purposes",
-        "amountCr": null
-      }
-    ],
-    "prospectusUrl": "https://hemadmin.hemsecurities.com/images/Files/offer/3088.pdf",
-    "drhpUrl": null
-  },
-  {
     "id": "veegaland-developers",
     "slug": "veegaland-developers",
     "name": "Veegaland Developers",
@@ -8141,6 +5177,65 @@
       }
     ],
     "prospectusUrl": "https://www.sebi.gov.in/filings/public-issues/aug-2026/veegaland-developers-ltd-rhp_104160.html",
+    "drhpUrl": null
+  },
+  {
+    "id": "amtech-esters",
+    "slug": "amtech-esters",
+    "name": "Amtech Esters",
+    "companyName": "Amtech Esters",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/amtech-ipo-logo-300x82.jpg",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 71,
+    "priceBandMax": 75,
+    "issuePrice": 75,
+    "lotSize": 1,
+    "minInvestment": 75,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
     "drhpUrl": null
   },
   {
@@ -8348,6 +5443,1896 @@
         "eps": null
       }
     ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "asset-reconstruction-co-india",
+    "slug": "asset-reconstruction-co-india",
+    "name": "Asset Reconstruction Co. (India)",
+    "companyName": "Asset Reconstruction Co. (India)",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/09/ARCILlogo-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 132,
+    "priceBandMax": 139,
+    "issuePrice": 139,
+    "lotSize": 1,
+    "minInvestment": 139,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "MUFG Intime India Pvt.Ltd.",
+    "registrarWebsite": "https://linkintime.co.in",
+    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "IIFL Capital Services Ltd.",
+      "IDBI Capital Markets & Securities Ltd.",
+      "JM Financial Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 82,
+    "brokerReviews": {
+      "subscribe": 7,
+      "mayApply": 0,
+      "neutral": 3,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 1,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 785.08,
+        "pat": 407.84,
+        "netWorth": 3079.39,
+        "assets": 4460.85,
+        "reserves": 2751.18,
+        "borrowing": 1205.5,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 13.24,
+        "revenueGrowthYoY": 25.94,
+        "patGrowthYoY": 14.78
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 623.4,
+        "pat": 355.32,
+        "netWorth": 2767.8,
+        "assets": 3263.82,
+        "reserves": 2439.19,
+        "borrowing": 305.93,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 12.84,
+        "revenueGrowthYoY": 8.59,
+        "patGrowthYoY": 16.37
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 574.11,
+        "pat": 305.34,
+        "netWorth": 2462.51,
+        "assets": 2795.34,
+        "reserves": 2135.2,
+        "borrowing": 149.95,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 12.4,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "OnEMI Technology Solutions Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.65,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "glass-wall-systems-india",
+    "slug": "glass-wall-systems-india",
+    "name": "Glass Wall Systems (India)",
+    "companyName": "Glass Wall Systems (India)",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Glasswall_logo-300x150.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 172,
+    "priceBandMax": 182,
+    "issuePrice": 182,
+    "lotSize": 1,
+    "minInvestment": 182,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-16",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-16",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "infrax-renewable",
+    "slug": "infrax-renewable",
+    "name": "Infrax Renewable",
+    "companyName": "Infrax Renewable",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Infrax_logo-300x196.png",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 104,
+    "priceBandMax": 104,
+    "issuePrice": 104,
+    "lotSize": 1,
+    "minInvestment": 104,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "kanohar-electricals",
+    "slug": "kanohar-electricals",
+    "name": "Kanohar Electricals",
+    "companyName": "Kanohar Electricals",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/kANOHAR_logo-300x150.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 601,
+    "priceBandMax": 632,
+    "issuePrice": 632,
+    "lotSize": 1,
+    "minInvestment": 632,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-16",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-16",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "MUFG Intime India Pvt.Ltd.",
+    "registrarWebsite": "https://linkintime.co.in",
+    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Nuvama Wealth Management Ltd.",
+      "IIFL Capital Services Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 95,
+    "brokerReviews": {
+      "subscribe": 2,
+      "mayApply": 1,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 662.86,
+        "pat": 129.73,
+        "netWorth": 372.84,
+        "assets": 613.93,
+        "reserves": 357.95,
+        "borrowing": 39.04,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 34.8,
+        "revenueGrowthYoY": 44.95,
+        "patGrowthYoY": 99.22
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 457.3,
+        "pat": 65.12,
+        "netWorth": 243.13,
+        "assets": 432.07,
+        "reserves": 239.12,
+        "borrowing": 32.27,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 26.78,
+        "revenueGrowthYoY": 62.67,
+        "patGrowthYoY": 266.67
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 281.12,
+        "pat": 17.76,
+        "netWorth": 178.12,
+        "assets": 322.86,
+        "reserves": 174.11,
+        "borrowing": 42.08,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 9.97,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Powerica Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 24.45,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Atlanta Electricals Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 46.33,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Anawil Wire & Engineering Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.53,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Accord Transformer & Switchgear Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.41,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Avana Electrosystems Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.4,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "karamtara-engineering",
+    "slug": "karamtara-engineering",
+    "name": "Karamtara Engineering",
+    "companyName": "Karamtara Engineering",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/downloadKTE-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 241,
+    "priceBandMax": 254,
+    "issuePrice": 254,
+    "lotSize": 1,
+    "minInvestment": 254,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "MUFG Intime India Pvt.Ltd.",
+    "registrarWebsite": "https://linkintime.co.in",
+    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "JM Financial Ltd.",
+      "ICICI Securities Ltd.",
+      "IIFL Capital Services Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 94,
+    "brokerReviews": {
+      "subscribe": 11,
+      "mayApply": 0,
+      "neutral": 3,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 100.78,
+        "pat": 9.45,
+        "netWorth": 33.28,
+        "assets": 69.38,
+        "reserves": 20.31,
+        "borrowing": 16.06,
+        "ebitda": 15.48,
+        "eps": null,
+        "ronw": null,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 89.85,
+        "pat": 7.75,
+        "netWorth": 23.83,
+        "assets": 60.83,
+        "reserves": 10.86,
+        "borrowing": 16.3,
+        "ebitda": 13.29,
+        "eps": null,
+        "ronw": null,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 74.54,
+        "pat": 5.74,
+        "netWorth": 13.85,
+        "assets": 52.37,
+        "reserves": 13.6,
+        "borrowing": 20.12,
+        "ebitda": 10.01,
+        "eps": null,
+        "ronw": null,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": [
+      {
+        "applicationCategory": "Retail (min)",
+        "lots": 2,
+        "shares": 4000,
+        "amount": 216000
+      },
+      {
+        "applicationCategory": "Retail (max)",
+        "lots": 2,
+        "shares": 4000,
+        "amount": 216000
+      },
+      {
+        "applicationCategory": "HNI (min)",
+        "lots": 3,
+        "shares": 6000,
+        "amount": 324000
+      }
+    ],
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Kanohar Electricals Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 36.26,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Powerica Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 24.45,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Atlanta Electricals Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 46.33,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Anawil Wire & Engineering Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.53,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Accord Transformer & Switchgear Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.41,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Avana Electrosystems Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.4,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "lcc-projects",
+    "slug": "lcc-projects",
+    "name": "LCC Projects",
+    "companyName": "LCC Projects",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/04/lcc_projects_ltd_logo-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 139,
+    "priceBandMax": 146,
+    "issuePrice": 146,
+    "lotSize": 1,
+    "minInvestment": 146,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Kfin Technologies Ltd.",
+    "registrarWebsite": "https://kfintech.com",
+    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Motilal Oswal Investment Advisors Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 95,
+    "brokerReviews": {
+      "subscribe": 5,
+      "mayApply": 0,
+      "neutral": 1,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 3639.45,
+        "pat": 286.44,
+        "netWorth": 888.41,
+        "assets": 2447.54,
+        "reserves": 752.41,
+        "borrowing": 860.65,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 32.24,
+        "revenueGrowthYoY": 23.75,
+        "patGrowthYoY": 28.09
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 2941.01,
+        "pat": 223.63,
+        "netWorth": 604.99,
+        "assets": 1727.46,
+        "reserves": 468.99,
+        "borrowing": 649.55,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 36.96,
+        "revenueGrowthYoY": 20.05,
+        "patGrowthYoY": 83.3
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 2449.79,
+        "pat": 122.0,
+        "netWorth": 382.83,
+        "assets": 1129.99,
+        "reserves": 348.83,
+        "borrowing": 422.3,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 31.87,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Annu Projects Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.33,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Technocraft Ventures Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.73,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Om Power Transmission Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 21.13,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Solarworld Energy Solutions Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 33.77,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "GK Energy Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 20.29,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Infrax Renewable Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.19,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Paluck Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 6.95,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Oneindig Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 18.53,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Leapfrog Engineering Services Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 15.19,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Safety Controls & Devices Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.3,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Srinibas Pradhan Constructions Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.15,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "GRE Renew Enertech Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 15.72,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "E to E Transportation Infrastructure Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 15.44,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Valplast Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.75,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Chiraharit Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 13.95,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Telge Projects Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.04,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Karbonsteel Engineering Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.47,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "maharaja-speedex-india",
+    "slug": "maharaja-speedex-india",
+    "name": "Maharaja & Speedex India",
+    "companyName": "Maharaja & Speedex India",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Speedex_logo-300x300.png",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 177,
+    "priceBandMax": 186,
+    "issuePrice": 186,
+    "lotSize": 1,
+    "minInvestment": 186,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-18",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-18",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Maashitla Securities Pvt.Ltd.",
+    "registrarWebsite": "https://maashitla.com",
+    "registrarCheckUrl": "https://maashitla.com/allotment-status/",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Choice Capital Advisors Pvt.Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 90,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 122.74,
+        "pat": 15.34,
+        "netWorth": 26.74,
+        "assets": 81.98,
+        "reserves": 15.96,
+        "borrowing": 26.66,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 57.37,
+        "revenueGrowthYoY": 31.13,
+        "patGrowthYoY": 175.4
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 93.6,
+        "pat": 5.57,
+        "netWorth": 11.39,
+        "assets": 47.67,
+        "reserves": 13.51,
+        "borrowing": 18.04,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 48.9,
+        "revenueGrowthYoY": 52.42,
+        "patGrowthYoY": 415.74
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 61.41,
+        "pat": 1.08,
+        "netWorth": 4.97,
+        "assets": 26.94,
+        "reserves": 4.96,
+        "borrowing": 16.11,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 21.73,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Clay Craft India Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.38,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Riddhi Display Equipments Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.91,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "manipal-payment-and-identity-solutions",
+    "slug": "manipal-payment-and-identity-solutions",
+    "name": "Manipal Payment and Identity Solutions",
+    "companyName": "Manipal Payment and Identity Solutions",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/05/manipal_payment_logo-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 322,
+    "priceBandMax": 339,
+    "issuePrice": 339,
+    "lotSize": 1,
+    "minInvestment": 339,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "MUFG Intime India Pvt.Ltd.",
+    "registrarWebsite": "https://linkintime.co.in",
+    "registrarCheckUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Motilal Oswal Investment Advisors Ltd.",
+      "Axis Capital Ltd.",
+      "ICICI Securities Ltd.",
+      "IIFL Capital Services Ltd.",
+      "Nuvama Wealth Management Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 64,
+    "brokerReviews": {
+      "subscribe": 6,
+      "mayApply": 0,
+      "neutral": 4,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 1356.59,
+        "pat": 253.46,
+        "netWorth": 1107.34,
+        "assets": 1160.9,
+        "reserves": 747.43,
+        "borrowing": 0.42,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 22.89,
+        "revenueGrowthYoY": 6.22,
+        "patGrowthYoY": -10.19
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 1277.11,
+        "pat": 282.21,
+        "netWorth": 619.7,
+        "assets": 1409.67,
+        "reserves": 262.89,
+        "borrowing": 472.87,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 45.54,
+        "revenueGrowthYoY": 0.72,
+        "patGrowthYoY": 13.26
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 1267.97,
+        "pat": 249.17,
+        "netWorth": 405.05,
+        "assets": 1102.71,
+        "reserves": 48.25,
+        "borrowing": 449.47,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 61.52,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Turtlemint Fintech Solutions Ltd.",
+        "faceValue": 10.0,
+        "peRatio": -19.66,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Pine Labs Ltd.",
+        "faceValue": 10.0,
+        "peRatio": -160.13,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Seshaasai Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 28.63,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Finbud Financial Services Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 23.4,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "om-galaxy",
+    "slug": "om-galaxy",
+    "name": "Om Galaxy",
+    "companyName": "Om Galaxy",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/Omgalaxy_logo-300x300.png",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 85,
+    "priceBandMax": 90,
+    "issuePrice": 90,
+    "lotSize": 1,
+    "minInvestment": 90,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-18",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-18",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Bigshare Services Pvt.Ltd.",
+    "registrarWebsite": "https://bigshareonline.com",
+    "registrarCheckUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Indorient Financial Services Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 71,
+    "brokerReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 124.68,
+        "pat": 16.64,
+        "netWorth": 80.9,
+        "assets": 175.31,
+        "reserves": 69.8,
+        "borrowing": 37.79,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 20.57,
+        "revenueGrowthYoY": 10.21,
+        "patGrowthYoY": 4.52
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 113.13,
+        "pat": 15.92,
+        "netWorth": 66.01,
+        "assets": 142.81,
+        "reserves": 62.93,
+        "borrowing": 25.13,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 24.12,
+        "revenueGrowthYoY": 7.62,
+        "patGrowthYoY": 32.23
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 105.12,
+        "pat": 12.04,
+        "netWorth": 49.89,
+        "assets": 117.49,
+        "reserves": 47.3,
+        "borrowing": 32.07,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 24.13,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Kwick Forensic Solutions Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.25,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Skytech Infinite Platform Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 0.0,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Merritronix Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 11.83,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Adisoft Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.82,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Highness Microelectronics Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 16.7,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Tipco Engineering India Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 8.73,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Gabion Technologies India Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.18,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Admach Systems Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 19.56,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Apollo Techno Industries Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.43,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "HRS Aluglaze Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 26.07,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Purple Wave Infocom Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.33,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Shining Tools Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 16.18,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "True Colors Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 14.66,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "L.T.Elevator Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 12.31,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Airfloa Rail Technology Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 9.57,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Tempsens Instruments (India) Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 34.05,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "MV Electrosystems Ltd.",
+        "faceValue": 10.0,
+        "peRatio": -68.88,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Indo-MIM Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 44.01,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Lohia Corp Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 23.21,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Omnitech Engineering Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 54.47,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Epack Prefab Technologies Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 29.49,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "panchatv-bharat",
+    "slug": "panchatv-bharat",
+    "name": "Panchatv Bharat",
+    "companyName": "Panchatv Bharat",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Panchtv_logo-300x300.png",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 140,
+    "priceBandMax": 140,
+    "issuePrice": 140,
+    "lotSize": 1,
+    "minInvestment": 140,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-18",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-18",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "pranav-constructions",
+    "slug": "pranav-constructions",
+    "name": "Pranav Constructions",
+    "companyName": "Pranav Constructions",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/04/pcpllogo-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 118,
+    "priceBandMax": 124,
+    "issuePrice": 124,
+    "lotSize": 1,
+    "minInvestment": 124,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-15",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-15",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "prasol-chemicals",
+    "slug": "prasol-chemicals",
+    "name": "Prasol Chemicals",
+    "companyName": "Prasol Chemicals",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/Prasol_logo-300x200.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 643,
+    "priceBandMax": 676,
+    "issuePrice": 676,
+    "lotSize": 1,
+    "minInvestment": 676,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-16",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-16",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "raksan-transformers",
+    "slug": "raksan-transformers",
+    "name": "Raksan Transformers",
+    "companyName": "Raksan Transformers",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/rakshan_logo-300x300.png",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 258,
+    "priceBandMax": 273,
+    "issuePrice": 273,
+    "lotSize": 1,
+    "minInvestment": 273,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-18",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-18",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "rentomojo",
+    "slug": "rentomojo",
+    "name": "Rentomojo",
+    "companyName": "Rentomojo",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/rentomojo_logo-300x300.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 384,
+    "priceBandMax": 404,
+    "issuePrice": 404,
+    "lotSize": 1,
+    "minInvestment": 404,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Kfin Technologies Ltd.",
+    "registrarWebsite": "https://kfintech.com",
+    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Motilal Oswal Investment Advisors Ltd.",
+      "Axis Capital Ltd.",
+      "IIFL Capital Services Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 91,
+    "brokerReviews": {
+      "subscribe": 6,
+      "mayApply": 0,
+      "neutral": 4,
+      "avoid": 0
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 0
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 394.09,
+        "pat": 104.3,
+        "netWorth": 295.81,
+        "assets": 641.12,
+        "reserves": 291.71,
+        "borrowing": 187.59,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 35.26,
+        "revenueGrowthYoY": 44.91,
+        "patGrowthYoY": 141.94
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 271.96,
+        "pat": 43.11,
+        "netWorth": 183.61,
+        "assets": 449.87,
+        "reserves": 182.94,
+        "borrowing": 154.58,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 23.48,
+        "revenueGrowthYoY": 38.9,
+        "patGrowthYoY": 92.37
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 195.8,
+        "pat": 22.41,
+        "netWorth": 139.61,
+        "assets": 366.2,
+        "reserves": 138.94,
+        "borrowing": 147.22,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 16.05,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": [
+      {
+        "companyName": "Meesho Ltd.",
+        "faceValue": 10.0,
+        "peRatio": -11.63,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Urban Co.Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 59.71,
+        "ronw": null,
+        "eps": null
+      },
+      {
+        "companyName": "Acetech E-Commerce Ltd.",
+        "faceValue": 10.0,
+        "peRatio": 19.56,
+        "ronw": null,
+        "eps": null
+      }
+    ],
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "steamhouse-india",
+    "slug": "steamhouse-india",
+    "name": "Steamhouse India",
+    "companyName": "Steamhouse India",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Steamhouse_logo-300x108.png",
+    "category": "mainboard",
+    "status": "listed",
+    "exchange": "BSE & NSE",
+    "priceBandMin": 77,
+    "priceBandMax": 81,
+    "issuePrice": 81,
+    "lotSize": 1,
+    "minInvestment": 81,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Kfin Technologies Ltd.",
+    "registrarWebsite": "https://kfintech.com",
+    "registrarCheckUrl": "https://ris.kfintech.com/ipostatus/",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [
+      "Equirus Capital Ltd."
+    ],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": 87,
+    "brokerReviews": {
+      "subscribe": 8,
+      "mayApply": 0,
+      "neutral": 2,
+      "avoid": 1
+    },
+    "memberReviews": {
+      "subscribe": 0,
+      "mayApply": 0,
+      "neutral": 0,
+      "avoid": 1
+    },
+    "highlights": [],
+    "risks": [],
+    "financials": [
+      {
+        "year": "31 Mar 2026",
+        "revenue": 494.97,
+        "pat": 38.64,
+        "netWorth": 163.76,
+        "assets": 679.45,
+        "reserves": 127.57,
+        "borrowing": 281.62,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 23.6,
+        "revenueGrowthYoY": 24.2,
+        "patGrowthYoY": 24.01
+      },
+      {
+        "year": "31 Mar 2025",
+        "revenue": 398.53,
+        "pat": 31.16,
+        "netWorth": 131.0,
+        "assets": 543.67,
+        "reserves": 87.25,
+        "borrowing": 222.95,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 23.79,
+        "revenueGrowthYoY": 35.94,
+        "patGrowthYoY": 14.6
+      },
+      {
+        "year": "31 Mar 2024",
+        "revenue": 293.16,
+        "pat": 27.19,
+        "netWorth": 102.71,
+        "assets": 422.31,
+        "reserves": 58.35,
+        "borrowing": 202.71,
+        "ebitda": null,
+        "eps": null,
+        "ronw": 26.47,
+        "revenueGrowthYoY": null,
+        "patGrowthYoY": null
+      }
+    ],
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
+    "reservations": null,
+    "kpis": null,
+    "objectsOfIssue": null,
+    "prospectusUrl": null,
+    "drhpUrl": null
+  },
+  {
+    "id": "vinod-texworld",
+    "slug": "vinod-texworld",
+    "name": "Vinod Texworld",
+    "companyName": "Vinod Texworld",
+    "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vinod_logo-300x300.png",
+    "category": "sme",
+    "status": "listed",
+    "exchange": "NSE Emerge",
+    "priceBandMin": 94,
+    "priceBandMax": 94,
+    "issuePrice": 94,
+    "lotSize": 1,
+    "minInvestment": 94,
+    "issueSizeTotalCr": 0.0,
+    "freshIssueCr": 0.0,
+    "ofsCr": 0.0,
+    "faceValue": 10,
+    "gmp": 0,
+    "gmpPercent": 0.0,
+    "gmpUpdatedTime": "Live",
+    "expectedListingPrice": 0,
+    "gmpTrends": null,
+    "totalSubscription": 0.0,
+    "qibSubscription": 0.0,
+    "niiSubscription": 0.0,
+    "retailSubscription": 0.0,
+    "openDate": "",
+    "closeDate": "2026-09-17",
+    "allotmentDate": "",
+    "refundDate": "",
+    "dematCreditDate": "",
+    "listingDate": "2026-09-17",
+    "listingPrice": null,
+    "listingGainPercent": null,
+    "currentMarketPrice": null,
+    "registrarName": "Check Website",
+    "registrarWebsite": "",
+    "registrarCheckUrl": "",
+    "registrarPhone": null,
+    "registrarEmail": null,
+    "leadManagers": [],
+    "recommendation": "May Apply",
+    "rating": 3.5,
+    "reviewScore": null,
+    "brokerReviews": null,
+    "memberReviews": null,
+    "highlights": [],
+    "risks": [],
+    "financials": null,
+    "lotSizes": null,
+    "subscriptionBreakdown": null,
+    "peerComparison": null,
     "reservations": null,
     "kpis": null,
     "objectsOfIssue": null,
