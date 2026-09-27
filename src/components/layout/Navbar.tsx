@@ -57,6 +57,7 @@ export default function Navbar({
     { 
       id: 'pre-ipo', 
       label: 'Preipo', 
+      badge: 'SOON',
       icon: <Award size={16} color="#0284c7" />, 
       href: '/pre-ipo',
       isActive: isPreIpoPage
@@ -246,6 +247,21 @@ export default function Navbar({
               >
                 {item.icon}
                 <span>{item.label}</span>
+                {(item as any).badge && (
+                  <span style={{
+                    fontSize: '0.62rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.04em',
+                    backgroundColor: '#fef3c7',
+                    color: '#b45309',
+                    padding: '1px 6px',
+                    borderRadius: '4px',
+                    border: '1px solid #fde68a',
+                    marginLeft: '2px'
+                  }}>
+                    {(item as any).badge}
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -332,7 +348,21 @@ export default function Navbar({
               }}
             >
               {item.icon}
-              <span>{item.label}</span>
+              <span style={{ flex: 1 }}>{item.label}</span>
+              {(item as any).badge && (
+                <span style={{
+                  fontSize: '0.62rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
+                  backgroundColor: '#fef3c7',
+                  color: '#b45309',
+                  padding: '1px 6px',
+                  borderRadius: '4px',
+                  border: '1px solid #fde68a'
+                }}>
+                  {(item as any).badge}
+                </span>
+              )}
             </Link>
           ))}
         </div>
