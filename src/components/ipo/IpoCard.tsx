@@ -9,8 +9,11 @@ import {
   Calendar, 
   ChevronRight, 
   Clock, 
-  Sparkles 
+  Sparkles,
+  ArrowUpRight,
+  ArrowDownRight
 } from 'lucide-react';
+import IpoLogo from './IpoLogo';
 
 interface IpoCardProps {
   ipo: IpoItem;
@@ -22,6 +25,7 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
   const minInvestment = ipo.priceBandHigh * ipo.lotSize;
   const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
+  const dailyChange = ipo.dailyGmpChange !== undefined ? ipo.dailyGmpChange : (ipo.gmpTrend === 'UP' ? 15 : ipo.gmpTrend === 'DOWN' ? -10 : 0);
 
   const getStatusBadge = () => {
     switch (ipo.status) {
@@ -84,29 +88,32 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
       {/* Header Info */}
       <div>
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.75rem' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.25rem' }}>
-              <span style={{
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                color: ipo.category === 'SME' ? '#b45309' : '#2563eb',
-                backgroundColor: ipo.category === 'SME' ? '#fffbeb' : '#eff6ff',
-                padding: '2px 7px',
-                borderRadius: '4px',
-                border: ipo.category === 'SME' ? '1px solid #fde68a' : '1px solid #bfdbfe',
-              }}>
-                {ipo.category}
-              </span>
-              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
-                {ipo.exchange}
-              </span>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+            <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={42} />
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.25rem' }}>
+                <span style={{
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  color: ipo.category === 'SME' ? '#b45309' : '#2563eb',
+                  backgroundColor: ipo.category === 'SME' ? '#fffbeb' : '#eff6ff',
+                  padding: '2px 7px',
+                  borderRadius: '4px',
+                  border: ipo.category === 'SME' ? '1px solid #fde68a' : '1px solid #bfdbfe',
+                }}>
+                  {ipo.category}
+                </span>
+                <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                  {ipo.exchange}
+                </span>
+              </div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.3' }}>
+                {ipo.name}
+              </h3>
+              <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '2px' }}>
+                {ipo.sector}
+              </p>
             </div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.3' }}>
-              {ipo.name}
-            </h3>
-            <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '2px' }}>
-              {ipo.sector}
-            </p>
           </div>
 
           <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem' }}>
@@ -156,7 +163,7 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
           </div>
         </div>
 
-        {/* Grey Market Premium (GMP) Banner */}
+        {/* Grey Market Premium (GMP) Banner with Daily Change */}
         <div style={{
           backgroundColor: ipo.gmp >= 0 ? '#ecfdf5' : '#fef2f2',
           border: ipo.gmp >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
@@ -172,8 +179,29 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
               <Flame size={13} color={ipo.gmp >= 0 ? '#059669' : '#dc2626'} />
               <span>Grey Market Premium</span>
             </div>
-            <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#059669' : '#dc2626' }}>
-              {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+              <span className="mono" style={{ fontSize: '1.25rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#059669' : '#dc2626' }}>
+                {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+              </span>
+              {dailyChange !== 0 ? (
+                <span style={{
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  color: dailyChange > 0 ? '#15803d' : '#b91c1c',
+                  backgroundColor: dailyChange > 0 ? '#dcfce7' : '#fee2e2',
+                  padding: '1px 5px',
+                  borderRadius: '3px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '2px'
+                }}>
+                  {dailyChange > 0 ? `▲ +₹${dailyChange}` : `▼ -₹${Math.abs(dailyChange)}`}
+                </span>
+              ) : (
+                <span style={{ fontSize: '0.65rem', color: '#64748b' }}>
+                  ▬ Flat
+                </span>
+              )}
             </div>
           </div>
 

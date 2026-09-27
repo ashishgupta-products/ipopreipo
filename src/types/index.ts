@@ -72,10 +72,20 @@ export interface IpoLotBracket {
   amount: number;
 }
 
+export interface IpoGmpDaily {
+  date: string; // e.g. "27 Sep 2024" or "26 Sep"
+  gmp: number; // e.g. 1560
+  dailyChange: number; // e.g. +60 or -20 or 0
+  estListingPrice: number; // priceBandHigh + gmp
+  gainPercent: number; // (gmp / priceBandHigh) * 100
+  fireRating?: number;
+}
+
 export interface IpoItem {
   id: string;
   name: string;
   symbol: string;
+  logoUrl?: string;
   category: IpoCategory;
   status: IpoStatus;
   priceBandLow: number;
@@ -86,6 +96,8 @@ export interface IpoItem {
   freshIssueCr?: number;
   ofsCr?: number;
   gmp: number; // in INR
+  dailyGmpChange?: number; // Today's change compared to yesterday (e.g. +45, -10, 0)
+  gmpDailyHistory?: IpoGmpDaily[]; // Daily historical records of GMP
   gmpUpdatedDate: string;
   gmpTrend: 'UP' | 'DOWN' | 'STABLE';
   fireRating: 1 | 2 | 3 | 4 | 5; // 1-5 🔥

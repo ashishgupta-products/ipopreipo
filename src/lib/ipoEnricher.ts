@@ -4,7 +4,8 @@ import {
   IpoPeerComparison, 
   IpoReservationQuota, 
   IpoPromoterHolding, 
-  IpoLotBracket 
+  IpoLotBracket,
+  IpoGmpDaily
 } from '../types';
 
 /**
@@ -320,3 +321,62 @@ export function getIpoAnchorDetails(ipo: IpoItem) {
     ]
   };
 }
+
+/**
+ * Returns 5-7 days of daily GMP changes / history
+ */
+export function getIpoGmpHistory(ipo: IpoItem): IpoGmpDaily[] {
+  if (ipo.gmpDailyHistory && ipo.gmpDailyHistory.length > 0) {
+    return ipo.gmpDailyHistory;
+  }
+
+  // Generate realistic daily progression leading up to current GMP
+  const currentGmp = ipo.gmp;
+  const isUp = ipo.gmpTrend === 'UP';
+  const isDown = ipo.gmpTrend === 'DOWN';
+
+  // Base deltas based on trend
+  const d5 = currentGmp;
+  let d4 = isUp ? Math.max(0, currentGmp - Math.round(currentGmp * 0.08 || 5)) : isDown ? currentGmp + Math.round(currentGmp * 0.08 || 5) : currentGmp;
+  let d3 = isUp ? Math.max(0, d4 - Math.round(currentGmp * 0.12 || 8)) : isDown ? d4 + Math.round(currentGmp * 0.1 || 8) : currentGmp;
+  let d2 = isUp ? Math.max(0, d3 - Math.round(currentGmp * 0.15 || 10)) : isDown ? d3 + Math.round(currentGmp * 0.12 || 10) : currentGmp;
+  let d1 = isUp ? Math.max(0, d2 - Math.round(currentGmp * 0.2 || 12)) : isDown ? d2 + Math.round(currentGmp * 0.15 || 12) : currentGmp;
+
+  const dates = ['5 Days Ago', '4 Days Ago', '3 Days Ago', 'Yesterday', 'Today'];
+  const values = [d1, d2, d3, d4, d5];
+
+  const history: IpoGmpDaily[] = [];
+  for (let i = 0; i < values.length; i++) {
+    const val = values[i];
+    const prev = i > 0 ? values[i - 1] : val;
+    const change = val - prev;
+    const est = ipo.priceBandHigh + val;
+    const pct = (val / (ipo.priceBandHigh || 1)) * 100;
+    history.push({
+      date: dates[i],
+      gmp: val,
+      dailyChange: change,
+      estListingPrice: est,
+      gainPercent: Math.round(pct * 10) / 10,
+      fireRating: val > 100 ? 5 : val > 50 ? 4 : val > 20 ? 3 : val > 0 ? 2 : 1
+    });
+  }
+
+  // Return descending with latest date first (Today -> Yesterday -> ...)
+  return history.reverse();
+}
+
+/**
+ * Returns latest 24h/daily GMP change in ₹
+ */
+export function getIpoDailyGmpChange(ipo: IpoItem): number {
+  if (ipo.dailyGmpChange !== undefined) {
+    return ipo.dailyGmpChange;
+  }
+  const history = getIpoGmpHistory(ipo);
+  if (history && history.length > 0) {
+    return history[0].dailyChange;
+  }
+  return ipo.gmpTrend === 'UP' ? 15 : ipo.gmpTrend === 'DOWN' ? -10 : 0;
+}
+

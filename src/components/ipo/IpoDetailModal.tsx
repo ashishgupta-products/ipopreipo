@@ -15,7 +15,8 @@ import {
   PieChart,
   Users
 } from 'lucide-react';
-import { getIpoQuota, getIpoPromoterHolding } from '../../lib/ipoEnricher';
+import { getIpoQuota, getIpoPromoterHolding, getIpoDailyGmpChange } from '../../lib/ipoEnricher';
+import IpoLogo from './IpoLogo';
 
 interface IpoDetailModalProps {
   ipo: IpoItem | null;
@@ -36,6 +37,7 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
   const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
   const estProfitPerLot = ipo.gmp * ipo.lotSize;
+  const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
 
   const timelineSteps = [
     { label: 'Issue Opens', date: ipo.timeline.biddingStarts, isCompleted: true },
@@ -76,30 +78,33 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
         </button>
 
         {/* Modal Header */}
-        <div style={{ marginBottom: '1.5rem', paddingRight: '2.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
-            <span style={{
-              fontSize: '0.7rem',
-              fontWeight: 700,
-              color: ipo.category === 'SME' ? '#b45309' : '#2563eb',
-              backgroundColor: ipo.category === 'SME' ? '#fffbeb' : '#eff6ff',
-              padding: '2px 8px',
-              borderRadius: '4px',
-              border: ipo.category === 'SME' ? '1px solid #fde68a' : '1px solid #bfdbfe',
-            }}>
-              {ipo.category} IPO
-            </span>
-            <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
-              {ipo.exchange} • {ipo.symbol}
-            </span>
-          </div>
+        <div style={{ marginBottom: '1.5rem', paddingRight: '2.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+          <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={48} />
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+              <span style={{
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                color: ipo.category === 'SME' ? '#b45309' : '#2563eb',
+                backgroundColor: ipo.category === 'SME' ? '#fffbeb' : '#eff6ff',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                border: ipo.category === 'SME' ? '1px solid #fde68a' : '1px solid #bfdbfe',
+              }}>
+                {ipo.category} IPO
+              </span>
+              <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                {ipo.exchange} • {ipo.symbol}
+              </span>
+            </div>
 
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.2' }}>
-            {ipo.name}
-          </h2>
-          <p style={{ fontSize: '0.85rem', color: '#475569', marginTop: '0.35rem', lineHeight: '1.5' }}>
-            {ipo.about}
-          </p>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.2' }}>
+              {ipo.name}
+            </h2>
+            <p style={{ fontSize: '0.85rem', color: '#475569', marginTop: '0.35rem', lineHeight: '1.5' }}>
+              {ipo.about}
+            </p>
+          </div>
         </div>
 
         {/* Key Metrics Banner */}
@@ -134,8 +139,35 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
               {ipo.gmp > 0 && <Flame size={14} color="#d97706" />}
               {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
             </div>
-            <div style={{ fontSize: '0.7rem', color: ipo.gmp >= 0 ? '#059669' : '#dc2626', fontWeight: 600 }}>
-              {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`} Est. Gain
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap', marginTop: '2px' }}>
+              <span style={{ fontSize: '0.7rem', color: ipo.gmp >= 0 ? '#059669' : '#dc2626', fontWeight: 600 }}>
+                {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+              </span>
+              {dailyChange > 0 ? (
+                <span style={{
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  color: '#15803d',
+                  backgroundColor: '#dcfce7',
+                  padding: '1px 5px',
+                  borderRadius: '3px',
+                  border: '1px solid #bbf7d0'
+                }}>
+                  ▲ +₹{dailyChange}
+                </span>
+              ) : dailyChange < 0 ? (
+                <span style={{
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  color: '#b91c1c',
+                  backgroundColor: '#fee2e2',
+                  padding: '1px 5px',
+                  borderRadius: '3px',
+                  border: '1px solid #fecaca'
+                }}>
+                  ▼ -₹{Math.abs(dailyChange)}
+                </span>
+              ) : null}
             </div>
           </div>
 

@@ -8,7 +8,9 @@ import {
   getIpoPromoterHolding,
   getIpoObjectsOfIssue,
   getIpoAnchorDetails,
-  getIpoLeadManagers
+  getIpoLeadManagers,
+  getIpoGmpHistory,
+  getIpoDailyGmpChange
 } from './ipoEnricher';
 
 export interface LiveIpoPayload {
@@ -21,6 +23,8 @@ function enrichSingleIpo(item: IpoItem): IpoItem {
   return {
     ...item,
     faceValue: item.faceValue || (item.category === 'SME' ? 10 : 10),
+    dailyGmpChange: getIpoDailyGmpChange(item),
+    gmpDailyHistory: getIpoGmpHistory(item),
     multiYearFinancials: getIpoMultiYearFinancials(item),
     peers: getIpoPeers(item),
     quotaReservation: getIpoQuota(item),

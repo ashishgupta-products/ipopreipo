@@ -6,6 +6,7 @@ import { IpoItem } from '../../types';
 import { 
   Flame, 
   TrendingUp, 
+  TrendingDown,
   Calendar, 
   ExternalLink, 
   ShieldCheck, 
@@ -15,6 +16,7 @@ import {
   Check, 
   Building2, 
   ArrowLeft, 
+  ArrowUpRight,
   DollarSign, 
   Award, 
   AlertCircle,
@@ -27,10 +29,12 @@ import {
   FileText,
   Briefcase,
   Lock,
-  PieChart
+  PieChart,
+  Activity
 } from 'lucide-react';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
+import IpoLogo from './IpoLogo';
 import { 
   getIpoLotBrackets, 
   getIpoQuota, 
@@ -39,7 +43,9 @@ import {
   getIpoPromoterHolding, 
   getIpoObjectsOfIssue, 
   getIpoAnchorDetails, 
-  getIpoLeadManagers 
+  getIpoLeadManagers,
+  getIpoGmpHistory,
+  getIpoDailyGmpChange
 } from '../../lib/ipoEnricher';
 
 interface IpoDetailViewProps {
@@ -48,7 +54,7 @@ interface IpoDetailViewProps {
 }
 
 export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) {
-  const [activeTab, setActiveTab] = useState<'overview' | 'financials' | 'bidding' | 'timeline' | 'allotment'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'gmp' | 'financials' | 'bidding' | 'timeline' | 'allotment'>('overview');
   const [copied, setCopied] = useState<boolean>(false);
 
   // Calculations
@@ -61,6 +67,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
   const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
   const estProfitPerLot = ipo.gmp * ipo.lotSize;
+  const gmpHistory = getIpoGmpHistory(ipo);
+  const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
 
   // Enriched institutional data
   const lotBrackets = getIpoLotBrackets(ipo);
@@ -211,45 +219,48 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           }} />
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <div style={{ flex: 1, minWidth: 'min(100%, 280px)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem', flexWrap: 'wrap' }}>
-                <span style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  color: ipo.category === 'SME' ? '#b45309' : '#2563eb',
-                  backgroundColor: ipo.category === 'SME' ? '#fffbeb' : '#eff6ff',
-                  padding: '3px 9px',
-                  borderRadius: '4px',
-                  border: ipo.category === 'SME' ? '1px solid #fde68a' : '1px solid #bfdbfe',
-                }}>
-                  {ipo.category} IPO
-                </span>
-                <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>
-                  {ipo.exchange} • {ipo.symbol} • Face Value ₹{ipo.faceValue || 10}
-                </span>
-                {getStatusBadge()}
-              </div>
-
-              <h1 className="text-fluid-h1" style={{ fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '0.4rem' }}>
-                {ipo.name}
-              </h1>
-
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.6', maxWidth: '750px', marginBottom: '0.8rem' }}>
-                {ipo.about}
-              </p>
-
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                {ipo.tags.map((tag) => (
-                  <span key={tag} style={{
+            <div style={{ flex: 1, minWidth: 'min(100%, 280px)', display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
+              <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={56} />
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem', flexWrap: 'wrap' }}>
+                  <span style={{
                     fontSize: '0.72rem',
-                    color: '#475569',
-                    backgroundColor: '#f1f5f9',
-                    padding: '2px 8px',
-                    borderRadius: '4px'
+                    fontWeight: 700,
+                    color: ipo.category === 'SME' ? '#b45309' : '#2563eb',
+                    backgroundColor: ipo.category === 'SME' ? '#fffbeb' : '#eff6ff',
+                    padding: '3px 9px',
+                    borderRadius: '4px',
+                    border: ipo.category === 'SME' ? '1px solid #fde68a' : '1px solid #bfdbfe',
                   }}>
-                    #{tag}
+                    {ipo.category} IPO
                   </span>
-                ))}
+                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>
+                    {ipo.exchange} • {ipo.symbol} • Face Value ₹{ipo.faceValue || 10}
+                  </span>
+                  {getStatusBadge()}
+                </div>
+
+                <h1 className="text-fluid-h1" style={{ fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '0.4rem' }}>
+                  {ipo.name}
+                </h1>
+
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.6', maxWidth: '750px', marginBottom: '0.8rem' }}>
+                  {ipo.about}
+                </p>
+
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  {ipo.tags.map((tag) => (
+                    <span key={tag} style={{
+                      fontSize: '0.72rem',
+                      color: '#475569',
+                      backgroundColor: '#f1f5f9',
+                      padding: '2px 8px',
+                      borderRadius: '4px'
+                    }}>
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -292,9 +303,77 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </span>
               </div>
 
-              <div style={{ fontSize: '0.68rem', color: '#65a30d', marginTop: '0.6rem' }}>
+              {/* 24h Daily Movement Badge */}
+              <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {dailyChange > 0 ? (
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: '#15803d',
+                    backgroundColor: '#dcfce7',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    border: '1px solid #bbf7d0',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '3px'
+                  }}>
+                    ▲ +₹{dailyChange} Today
+                  </span>
+                ) : dailyChange < 0 ? (
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: '#b91c1c',
+                    backgroundColor: '#fee2e2',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    border: '1px solid #fecaca',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '3px'
+                  }}>
+                    ▼ -₹{Math.abs(dailyChange)} Today
+                  </span>
+                ) : (
+                  <span style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    color: '#64748b',
+                    backgroundColor: '#f1f5f9',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    border: '1px solid #e2e8f0'
+                  }}>
+                    ▬ Flat Today
+                  </span>
+                )}
+              </div>
+
+              <div style={{ fontSize: '0.68rem', color: '#65a30d', marginTop: '0.45rem' }}>
                 Updated: {ipo.gmpUpdatedDate}
               </div>
+
+              <button
+                onClick={() => setActiveTab('gmp')}
+                style={{
+                  marginTop: '0.65rem',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#15803d',
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #bbf7d0',
+                  borderRadius: '4px',
+                  padding: '4px 9px',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}
+              >
+                <span>View Daily History</span>
+                <ChevronRight size={12} />
+              </button>
             </div>
           </div>
         </div>
@@ -388,6 +467,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         }}>
           {[
             { id: 'overview', label: 'Company & Issue Details', icon: <Building2 size={15} /> },
+            { id: 'gmp', label: 'Daily GMP & Market Buzz', icon: <Flame size={15} color="#d97706" /> },
             { id: 'financials', label: 'Financials & Peer Valuation', icon: <BarChart3 size={15} /> },
             { id: 'bidding', label: 'Subscription & Lot Brackets', icon: <Layers size={15} color="#d97706" /> },
             { id: 'timeline', label: 'Schedule & Milestones', icon: <Calendar size={15} /> },
@@ -566,6 +646,388 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   <strong style={{ color: '#0f172a' }}>Promoters:</strong>{' '}
                   {promoterHolding.promoters.join(', ')}
                 </div>
+              </div>
+            </div>
+
+            {/* Grey Market Premium (GMP) Day-by-Day Movement in Overview */}
+            <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
+                    <Flame size={18} color="#d97706" />
+                    <span>Grey Market Premium (GMP) Daily Movement</span>
+                  </h3>
+                  <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                    Tracking daily fluctuations in unofficial dealer quotes leading up to listing
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => setActiveTab('gmp')}
+                  className="btn-secondary"
+                  style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                >
+                  <span>Detailed GMP Analysis</span>
+                  <ArrowUpRight size={14} />
+                </button>
+              </div>
+
+              <div className="table-responsive-wrapper">
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+                  <thead>
+                    <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Session Date</th>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>GMP (₹)</th>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>Daily Movement</th>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Est. Listing Price</th>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Est. Gain (%)</th>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>Demand</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {gmpHistory.map((item, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.85rem 1rem', fontWeight: 600, color: '#0f172a' }}>
+                          {item.date}
+                        </td>
+                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 700, color: item.gmp >= 0 ? '#059669' : '#dc2626' }}>
+                          {item.gmp >= 0 ? `+₹${item.gmp}` : `-₹${Math.abs(item.gmp)}`}
+                        </td>
+                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
+                          {item.dailyChange > 0 ? (
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              color: '#15803d',
+                              backgroundColor: '#dcfce7',
+                              padding: '2px 7px',
+                              borderRadius: '4px',
+                              border: '1px solid #bbf7d0',
+                              whiteSpace: 'nowrap'
+                            }}>
+                              ▲ +₹{item.dailyChange}
+                            </span>
+                          ) : item.dailyChange < 0 ? (
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              color: '#b91c1c',
+                              backgroundColor: '#fee2e2',
+                              padding: '2px 7px',
+                              borderRadius: '4px',
+                              border: '1px solid #fecaca',
+                              whiteSpace: 'nowrap'
+                            }}>
+                              ▼ -₹{Math.abs(item.dailyChange)}
+                            </span>
+                          ) : (
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 600,
+                              color: '#64748b',
+                              backgroundColor: '#f1f5f9',
+                              padding: '2px 7px',
+                              borderRadius: '4px',
+                              border: '1px solid #e2e8f0',
+                              whiteSpace: 'nowrap'
+                            }}>
+                              ▬ Flat
+                            </span>
+                          )}
+                        </td>
+                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
+                          ₹{item.estListingPrice}
+                        </td>
+                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 700, color: item.gmp >= 0 ? '#059669' : '#dc2626' }}>
+                          {item.gainPercent >= 0 ? `+${item.gainPercent}%` : `${item.gainPercent}%`}
+                        </td>
+                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
+                          <div style={{ display: 'inline-flex', gap: '2px', color: '#d97706' }}>
+                            {Array.from({ length: item.fireRating ?? 1 }).map((_, fIdx) => (
+                              <Flame key={fIdx} size={13} fill="#d97706" />
+                            ))}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB: DAILY GMP & MARKET BUZZ */}
+        {activeTab === 'gmp' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '2.5rem' }}>
+            {/* Top 4 Core Cards */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+              gap: '1rem'
+            }}>
+              {/* Live GMP Card */}
+              <div className="glass-panel" style={{ padding: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Live GMP</span>
+                  <Flame size={15} color="#d97706" />
+                </div>
+                <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#15803d' : '#dc2626' }}>
+                  {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+                </div>
+                <div style={{ marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  {dailyChange > 0 ? (
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#15803d', backgroundColor: '#dcfce7', padding: '1px 6px', borderRadius: '3px' }}>
+                      ▲ +₹{dailyChange} Today
+                    </span>
+                  ) : dailyChange < 0 ? (
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#b91c1c', backgroundColor: '#fee2e2', padding: '1px 6px', borderRadius: '3px' }}>
+                      ▼ -₹{Math.abs(dailyChange)} Today
+                    </span>
+                  ) : (
+                    <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', backgroundColor: '#f1f5f9', padding: '1px 6px', borderRadius: '3px' }}>
+                      ▬ Flat Today
+                    </span>
+                  )}
+                  <span style={{ fontSize: '0.7rem', color: '#64748b' }}>Updated: {ipo.gmpUpdatedDate}</span>
+                </div>
+              </div>
+
+              {/* Est. Listing Price Card */}
+              <div className="glass-panel" style={{ padding: '1.25rem' }}>
+                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Est. Listing Price</span>
+                <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0f172a', marginTop: '0.2rem' }}>
+                  ₹{estListingPrice}
+                </div>
+                <div style={{ marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  <span className="mono" style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    color: ipo.gmp >= 0 ? '#15803d' : '#dc2626',
+                    backgroundColor: ipo.gmp >= 0 ? '#dcfce7' : '#fee2e2',
+                    padding: '1px 6px',
+                    borderRadius: '3px'
+                  }}>
+                    {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+                  </span>
+                  <span style={{ fontSize: '0.7rem', color: '#64748b' }}>Over Issue Price ₹{ipo.priceBandHigh}</span>
+                </div>
+              </div>
+
+              {/* Profit Per Lot */}
+              <div className="glass-panel" style={{ padding: '1.25rem' }}>
+                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Est. Profit / Retail Lot</span>
+                <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', marginTop: '0.2rem' }}>
+                  {estProfitPerLot >= 0 ? `+₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
+                </div>
+                <span style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '0.35rem', display: 'block' }}>
+                  Lot Size: {ipo.lotSize} shares (Cost: ₹{minRetailInvestment.toLocaleString('en-IN')})
+                </span>
+              </div>
+
+              {/* Kostak Rate & Sauda Estimate */}
+              <div className="glass-panel" style={{ padding: '1.25rem' }}>
+                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Kostak / Subject to Sauda</span>
+                <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#334155', marginTop: '0.25rem' }}>
+                  Kostak: ₹{Math.round(ipo.gmp * ipo.lotSize * 0.12).toLocaleString('en-IN')}
+                </div>
+                <div className="mono" style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '0.2rem' }}>
+                  Sauda: ~₹{Math.round(estProfitPerLot * 0.85).toLocaleString('en-IN')} / lot
+                </div>
+              </div>
+            </div>
+
+            {/* Daily GMP Movement & History Log Table */}
+            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                    <Activity size={20} color="#2563eb" />
+                    <span>Daily GMP Movement History (Day-by-Day Log)</span>
+                  </h3>
+                  <p style={{ fontSize: '0.82rem', color: '#64748b' }}>
+                    Track daily fluctuations, listing price trajectory, and grey market buyer interest day-over-day
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', color: '#64748b' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#16a34a' }}></span>
+                    Rising
+                  </span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#dc2626' }}></span>
+                    Falling
+                  </span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#64748b' }}></span>
+                    Unchanged
+                  </span>
+                </div>
+              </div>
+
+              <div className="table-responsive-wrapper">
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                  <thead>
+                    <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
+                      <th style={{ padding: '0.85rem 1rem', textAlign: 'left' }}>Trading Session</th>
+                      <th style={{ padding: '0.85rem 1rem', textAlign: 'right' }}>Grey Market Premium (₹)</th>
+                      <th style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>Daily Movement (24h)</th>
+                      <th style={{ padding: '0.85rem 1rem', textAlign: 'right' }}>Est. Listing Price</th>
+                      <th style={{ padding: '0.85rem 1rem', textAlign: 'right' }}>Listing Gain (%)</th>
+                      <th style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>Demand Rating</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {gmpHistory.map((item, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.95rem 1rem', fontWeight: 700, color: '#0f172a' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <Calendar size={14} color="#64748b" />
+                            <span>{item.date}</span>
+                          </div>
+                        </td>
+                        <td className="mono" style={{ padding: '0.95rem 1rem', textAlign: 'right', fontWeight: 800, fontSize: '0.95rem', color: item.gmp >= 0 ? '#059669' : '#dc2626' }}>
+                          {item.gmp >= 0 ? `+₹${item.gmp}` : `-₹${Math.abs(item.gmp)}`}
+                        </td>
+                        <td style={{ padding: '0.95rem 1rem', textAlign: 'center' }}>
+                          {item.dailyChange > 0 ? (
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              color: '#15803d',
+                              backgroundColor: '#dcfce7',
+                              padding: '3px 8px',
+                              borderRadius: '4px',
+                              border: '1px solid #bbf7d0',
+                              whiteSpace: 'nowrap'
+                            }}>
+                              ▲ +₹{item.dailyChange}
+                            </span>
+                          ) : item.dailyChange < 0 ? (
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              color: '#b91c1c',
+                              backgroundColor: '#fee2e2',
+                              padding: '3px 8px',
+                              borderRadius: '4px',
+                              border: '1px solid #fecaca',
+                              whiteSpace: 'nowrap'
+                            }}>
+                              ▼ -₹{Math.abs(item.dailyChange)}
+                            </span>
+                          ) : (
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: 600,
+                              color: '#64748b',
+                              backgroundColor: '#f1f5f9',
+                              padding: '3px 8px',
+                              borderRadius: '4px',
+                              border: '1px solid #e2e8f0',
+                              whiteSpace: 'nowrap'
+                            }}>
+                              ▬ Flat
+                            </span>
+                          )}
+                        </td>
+                        <td className="mono" style={{ padding: '0.95rem 1rem', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
+                          ₹{item.estListingPrice}
+                        </td>
+                        <td className="mono" style={{ padding: '0.95rem 1rem', textAlign: 'right' }}>
+                          <span style={{
+                            fontWeight: 700,
+                            color: item.gmp >= 0 ? '#059669' : '#dc2626',
+                            backgroundColor: item.gmp >= 0 ? '#ecfdf5' : '#fef2f2',
+                            padding: '3px 8px',
+                            borderRadius: '4px',
+                            border: item.gmp >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca'
+                          }}>
+                            {item.gainPercent >= 0 ? `+${item.gainPercent}%` : `${item.gainPercent}%`}
+                          </span>
+                        </td>
+                        <td style={{ padding: '0.95rem 1rem', textAlign: 'center' }}>
+                          <div style={{ display: 'inline-flex', gap: '3px', color: '#d97706' }}>
+                            {Array.from({ length: item.fireRating ?? 1 }).map((_, fIdx) => (
+                              <Flame key={fIdx} size={14} fill="#d97706" />
+                            ))}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Investor Quota Profit Simulation Grid */}
+            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <DollarSign size={20} color="#059669" />
+                <span>Estimated Profit Simulation Across Application Brackets</span>
+              </h3>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1rem' }}>
+                <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase' }}>
+                    Retail Investor (Min 1 Lot)
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
+                    {ipo.lotSize} shares @ ₹{ipo.priceBandHigh}
+                  </div>
+                  <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
+                    {estProfitPerLot >= 0 ? `+₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>
+                    Application Cost: ₹{minRetailInvestment.toLocaleString('en-IN')}
+                  </div>
+                </div>
+
+                <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase' }}>
+                    Retail Investor (Max {maxRetailLots} Lots)
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
+                    {maxRetailLots * ipo.lotSize} shares @ ₹{ipo.priceBandHigh}
+                  </div>
+                  <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
+                    {estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}`}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>
+                    Application Cost: ₹{maxRetailInvestment.toLocaleString('en-IN')}
+                  </div>
+                </div>
+
+                <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#d97706', textTransform: 'uppercase' }}>
+                    Small HNI (sHNI Min {sHniMinLots} Lots)
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
+                    {sHniMinLots * ipo.lotSize} shares @ ₹{ipo.priceBandHigh}
+                  </div>
+                  <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
+                    {estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}`}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>
+                    Application Cost: ₹{sHniMinInvestment.toLocaleString('en-IN')}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Grey Market Regulatory Disclaimer */}
+            <div style={{
+              backgroundColor: '#fffbeb',
+              border: '1px solid #fde68a',
+              borderRadius: 'var(--radius-md)',
+              padding: '1.25rem',
+              display: 'flex',
+              gap: '0.75rem',
+              alignItems: 'flex-start'
+            }}>
+              <AlertCircle size={20} color="#b45309" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <div style={{ fontSize: '0.82rem', color: '#92400e', lineHeight: '1.6' }}>
+                <strong style={{ color: '#78350f' }}>Important Regulatory Advisory:</strong> Grey Market Premium (GMP) is an unofficial, unregulated benchmark traded over-the-counter by informal operators and dealers before the official stock exchange listing. GMP prices fluctuate significantly based on broader market volatility, institutional subscription numbers, and anchor allocations. Neither SEBI nor the stock exchanges (NSE/BSE) recognize or endorse grey market premiums. Always evaluate fundamental DRHP/RHP metrics and audited financials before applying.
               </div>
             </div>
           </div>

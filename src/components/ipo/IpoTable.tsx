@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { IpoItem } from '../../types';
 import { Flame, ChevronRight } from 'lucide-react';
+import IpoLogo from './IpoLogo';
+import { getIpoDailyGmpChange } from '../../lib/ipoEnricher';
 
 interface IpoTableProps {
   ipos: IpoItem[];
@@ -30,7 +32,7 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
             <th style={{ padding: '0.9rem 1rem' }}>Type</th>
             <th style={{ padding: '0.9rem 1rem' }}>Price Band</th>
             <th style={{ padding: '0.9rem 1rem' }}>Issue Size</th>
-            <th style={{ padding: '0.9rem 1rem' }}>Live GMP</th>
+            <th style={{ padding: '0.9rem 1rem' }}>Live GMP & 24h Trend</th>
             <th style={{ padding: '0.9rem 1rem' }}>Est. Listing Gain</th>
             <th style={{ padding: '0.9rem 1rem' }}>Subscription</th>
             <th style={{ padding: '0.9rem 1rem' }}>Close Date</th>
@@ -40,6 +42,7 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
         <tbody>
           {ipos.map((ipo) => {
             const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
+            const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
             return (
               <tr
                 key={ipo.id}
@@ -54,13 +57,18 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
               >
                 {/* Company Name */}
                 <td style={{ padding: '1rem 1.25rem' }}>
-                  <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.92rem' }}>
-                    {ipo.name}
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: '#64748b', display: 'flex', gap: '0.5rem' }}>
-                    <span>{ipo.symbol}</span>
-                    <span>•</span>
-                    <span>{ipo.exchange}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={36} />
+                    <div>
+                      <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.92rem' }}>
+                        {ipo.name}
+                      </div>
+                      <div style={{ fontSize: '0.72rem', color: '#64748b', display: 'flex', gap: '0.5rem' }}>
+                        <span>{ipo.symbol}</span>
+                        <span>•</span>
+                        <span>{ipo.exchange}</span>
+                      </div>
+                    </div>
                   </div>
                 </td>
 
@@ -111,8 +119,49 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
                     {ipo.gmp > 0 && <Flame size={13} color="#d97706" />}
                     {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
                   </div>
-                  <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-                    {ipo.gmpUpdatedDate}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '3px' }}>
+                    {dailyChange > 0 ? (
+                      <span style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        color: '#15803d',
+                        backgroundColor: '#dcfce7',
+                        padding: '1px 5px',
+                        borderRadius: '3px',
+                        border: '1px solid #bbf7d0',
+                        whiteSpace: 'nowrap'
+                      }}>
+                        ▲ +₹{dailyChange}
+                      </span>
+                    ) : dailyChange < 0 ? (
+                      <span style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        color: '#b91c1c',
+                        backgroundColor: '#fee2e2',
+                        padding: '1px 5px',
+                        borderRadius: '3px',
+                        border: '1px solid #fecaca',
+                        whiteSpace: 'nowrap'
+                      }}>
+                        ▼ -₹{Math.abs(dailyChange)}
+                      </span>
+                    ) : (
+                      <span style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 600,
+                        color: '#64748b',
+                        backgroundColor: '#f1f5f9',
+                        padding: '1px 5px',
+                        borderRadius: '3px',
+                        whiteSpace: 'nowrap'
+                      }}>
+                        ▬ Flat
+                      </span>
+                    )}
+                    <span style={{ fontSize: '0.65rem', color: '#94a3b8' }}>
+                      {ipo.gmpUpdatedDate.split(' ')[0]}
+                    </span>
                   </div>
                 </td>
 

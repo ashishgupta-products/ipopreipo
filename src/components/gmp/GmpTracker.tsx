@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { IpoItem } from '../../types';
 import { Flame, Info, ArrowUpRight } from 'lucide-react';
+import IpoLogo from '../ipo/IpoLogo';
 
 interface GmpTrackerProps {
   ipos: IpoItem[];
@@ -49,12 +50,17 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
                 Highest Expected Listing Gain
               </span>
             </div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
-              {topGainer.name}
-            </h2>
-            <p style={{ fontSize: '0.85rem', color: '#475569', marginTop: '2px' }}>
-              Issue Price: ₹{topGainer.priceBandHigh} • Est. Listing: ₹{topGainer.priceBandHigh + topGainer.gmp} ({((topGainer.gmp / topGainer.priceBandHigh) * 100).toFixed(1)}%)
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem' }}>
+              <IpoLogo name={topGainer.name} symbol={topGainer.symbol} logoUrl={topGainer.logoUrl} size={48} />
+              <div>
+                <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.2' }}>
+                  {topGainer.name}
+                </h2>
+                <p style={{ fontSize: '0.85rem', color: '#475569', marginTop: '2px' }}>
+                  Issue Price: ₹{topGainer.priceBandHigh} • Est. Listing: ₹{topGainer.priceBandHigh + topGainer.gmp} ({((topGainer.gmp / topGainer.priceBandHigh) * 100).toFixed(1)}%)
+                </p>
+              </div>
+            </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -168,8 +174,9 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
               <th style={{ padding: '0.9rem 1.25rem' }}>IPO Name</th>
               <th style={{ padding: '0.9rem 1rem' }}>Category</th>
               <th style={{ padding: '0.9rem 1rem' }}>Price Band</th>
-              <th style={{ padding: '0.9rem 1rem' }}>Live GMP (₹)</th>
-              <th style={{ padding: '0.9rem 1rem' }}>Est. Listing Gain (%)</th>
+              <th style={{ padding: '0.9rem 1rem' }}>Live GMP</th>
+              <th style={{ padding: '0.9rem 1rem' }}>24h Movement</th>
+              <th style={{ padding: '0.9rem 1rem' }}>Est. Gain (%)</th>
               <th style={{ padding: '0.9rem 1rem' }}>Est. Listing Price</th>
               <th style={{ padding: '0.9rem 1rem' }}>Profit / Lot</th>
               <th style={{ padding: '0.9rem 1rem' }}>Demand</th>
@@ -193,13 +200,18 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
                   onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f8fafc')}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#ffffff')}
                 >
-                  {/* Name */}
+                  {/* Name + Logo */}
                   <td style={{ padding: '1rem 1.25rem' }}>
-                    <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.92rem' }}>
-                      {ipo.name}
-                    </div>
-                    <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                      Updated: {ipo.gmpUpdatedDate}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={36} />
+                      <div>
+                        <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.92rem' }}>
+                          {ipo.name}
+                        </div>
+                        <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                          Updated: {ipo.gmpUpdatedDate}
+                        </div>
+                      </div>
                     </div>
                   </td>
 
@@ -236,6 +248,59 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
                       {ipo.gmp > 0 && <Flame size={14} color="#d97706" />}
                       {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
                     </div>
+                  </td>
+
+                  {/* 24h Movement */}
+                  <td style={{ padding: '1rem' }}>
+                    {(() => {
+                      const dailyChange = ipo.dailyGmpChange ?? 0;
+                      if (dailyChange > 0) {
+                        return (
+                          <span style={{
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            color: '#15803d',
+                            backgroundColor: '#dcfce7',
+                            padding: '3px 7px',
+                            borderRadius: '4px',
+                            border: '1px solid #bbf7d0',
+                            whiteSpace: 'nowrap'
+                          }}>
+                            ▲ +₹{dailyChange}
+                          </span>
+                        );
+                      }
+                      if (dailyChange < 0) {
+                        return (
+                          <span style={{
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            color: '#b91c1c',
+                            backgroundColor: '#fee2e2',
+                            padding: '3px 7px',
+                            borderRadius: '4px',
+                            border: '1px solid #fecaca',
+                            whiteSpace: 'nowrap'
+                          }}>
+                            ▼ -₹{Math.abs(dailyChange)}
+                          </span>
+                        );
+                      }
+                      return (
+                        <span style={{
+                          fontSize: '0.75rem',
+                          fontWeight: 600,
+                          color: '#64748b',
+                          backgroundColor: '#f1f5f9',
+                          padding: '3px 7px',
+                          borderRadius: '4px',
+                          border: '1px solid #e2e8f0',
+                          whiteSpace: 'nowrap'
+                        }}>
+                          ▬ Flat
+                        </span>
+                      );
+                    })()}
                   </td>
 
                   {/* Est. Listing Gain */}
