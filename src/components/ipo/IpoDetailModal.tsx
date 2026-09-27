@@ -11,8 +11,11 @@ import {
   DollarSign, 
   Building2, 
   FileText, 
-  ShieldCheck
+  ShieldCheck,
+  PieChart,
+  Users
 } from 'lucide-react';
+import { getIpoQuota, getIpoPromoterHolding } from '../../lib/ipoEnricher';
 
 interface IpoDetailModalProps {
   ipo: IpoItem | null;
@@ -257,6 +260,29 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
                   ₹{sHniMinInvestment.toLocaleString('en-IN')}
                 </span>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quota & Promoter Holding Row */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '0.75rem', marginBottom: '1.5rem' }}>
+          <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', padding: '0.85rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
+              <PieChart size={13} color="#059669" />
+              <span>SEBI Quota Reservation</span>
+            </div>
+            <div style={{ fontSize: '0.82rem', color: '#0f172a', fontWeight: 600 }}>
+              Retail: <strong style={{ color: '#2563eb' }}>{getIpoQuota(ipo).retailPercent}%</strong> • QIB: <strong>{getIpoQuota(ipo).qibPercent}%</strong> • NII: <strong>{getIpoQuota(ipo).niiPercent}%</strong>
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', padding: '0.85rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
+              <Users size={13} color="#8b5cf6" />
+              <span>Promoter Holding</span>
+            </div>
+            <div style={{ fontSize: '0.82rem', color: '#0f172a', fontWeight: 600 }}>
+              Pre-Issue: <strong>{getIpoPromoterHolding(ipo).preIssuePercent}%</strong> → Post-Issue: <strong style={{ color: '#2563eb' }}>{getIpoPromoterHolding(ipo).postIssuePercent}%</strong>
             </div>
           </div>
         </div>

@@ -19,6 +19,59 @@ export interface IpoSubscription {
   total: number;
 }
 
+export interface IpoFinancialYear {
+  period: string; // e.g. "FY24" or "FY23"
+  assetsCr: number;
+  revenueCr: number;
+  patCr: number;
+  netWorthCr: number;
+  reservesCr?: number;
+  totalBorrowingCr: number;
+  ebitdaCr?: number;
+}
+
+export interface IpoPeerComparison {
+  name: string;
+  cmp?: number;
+  peRatio: number;
+  revenueCr: number;
+  patCr: number;
+  ronw: number;
+  eps?: number;
+}
+
+export interface IpoReservationQuota {
+  qibPercent: number; // e.g. 50%
+  niiPercent: number; // e.g. 15%
+  sHniPercent?: number; // e.g. 5% (₹2L - ₹10L)
+  bHniPercent?: number; // e.g. 10% (> ₹10L)
+  retailPercent: number; // e.g. 35%
+  employeeShares?: number;
+  employeeDiscount?: number; // e.g. ₹15/share
+}
+
+export interface IpoPromoterHolding {
+  preIssuePercent: number; // e.g. 84.5%
+  postIssuePercent: number; // e.g. 68.2%
+  promoters: string[];
+}
+
+export interface IpoAnchorDetails {
+  bidDate?: string;
+  sharesAllocated?: number;
+  anchorPortionCr?: number;
+  lockIn30DaysDate?: string;
+  lockIn90DaysDate?: string;
+  topAnchors?: string[];
+}
+
+export interface IpoLotBracket {
+  category: string;
+  lots: number;
+  shares: number;
+  amount: number;
+}
+
 export interface IpoItem {
   id: string;
   name: string;
@@ -27,6 +80,7 @@ export interface IpoItem {
   status: IpoStatus;
   priceBandLow: number;
   priceBandHigh: number;
+  faceValue?: number;
   lotSize: number;
   issueSizeCr: number;
   freshIssueCr?: number;
@@ -49,7 +103,21 @@ export interface IpoItem {
     eps: number;
     peRatio: number;
     ronw: number;
+    ebitdaMargin?: number;
+    patMargin?: number;
+    debtToEquity?: number;
   };
+  multiYearFinancials?: IpoFinancialYear[];
+  peers?: IpoPeerComparison[];
+  quotaReservation?: IpoReservationQuota;
+  promoterHolding?: IpoPromoterHolding;
+  objectsOfIssue?: string[];
+  anchorDetails?: IpoAnchorDetails;
+  leadManagers?: string[];
+  registeredOffice?: string;
+  yearIncorporated?: number;
+  rhpUrl?: string;
+  drhpUrl?: string;
   tags: string[];
 }
 

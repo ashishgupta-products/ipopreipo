@@ -1,11 +1,38 @@
 import { IpoItem } from '../types';
 import { INDIAN_IPOS } from '../data/ipoData';
 import liveData from '../data/live_ipos.json';
+import {
+  getIpoMultiYearFinancials,
+  getIpoPeers,
+  getIpoQuota,
+  getIpoPromoterHolding,
+  getIpoObjectsOfIssue,
+  getIpoAnchorDetails,
+  getIpoLeadManagers
+} from './ipoEnricher';
 
 export interface LiveIpoPayload {
   lastUpdated: string;
   count: number;
   ipos: IpoItem[];
+}
+
+function enrichSingleIpo(item: IpoItem): IpoItem {
+  return {
+    ...item,
+    faceValue: item.faceValue || (item.category === 'SME' ? 10 : 10),
+    multiYearFinancials: getIpoMultiYearFinancials(item),
+    peers: getIpoPeers(item),
+    quotaReservation: getIpoQuota(item),
+    promoterHolding: getIpoPromoterHolding(item),
+    objectsOfIssue: getIpoObjectsOfIssue(item),
+    anchorDetails: getIpoAnchorDetails(item) || undefined,
+    leadManagers: getIpoLeadManagers(item),
+    registeredOffice: item.registeredOffice || (item.category === 'SME' ? 'Corporate Industrial Zone, India' : 'Mumbai / Bengaluru / New Delhi, India'),
+    yearIncorporated: item.yearIncorporated || 2014,
+    rhpUrl: item.rhpUrl || 'https://www.sebi.gov.in/filings/public-issues.html',
+    drhpUrl: item.drhpUrl || 'https://www.sebi.gov.in/filings/public-issues.html'
+  };
 }
 
 export function getMergedIpos(): IpoItem[] {
@@ -18,18 +45,20 @@ export function getMergedIpos(): IpoItem[] {
     // Add baseline IPOs that might not be in the current live weekly window
     const additional = INDIAN_IPOS.filter((base) => !liveIds.has(base.id));
 
-    return [...liveList, ...additional];
+    const combined = [...liveList, ...additional];
+    return combined.map(enrichSingleIpo);
   } catch (error) {
     console.error('Error reading live IPO data, falling back to baseline:', error);
-    return INDIAN_IPOS;
+    return INDIAN_IPOS.map(enrichSingleIpo);
   }
 }
 
 export function getScrapedLiveOnly(): IpoItem[] {
   try {
-    return ((liveData as any).ipos as IpoItem[]) || INDIAN_IPOS;
+    const list = ((liveData as any).ipos as IpoItem[]) || INDIAN_IPOS;
+    return list.map(enrichSingleIpo);
   } catch {
-    return INDIAN_IPOS;
+    return INDIAN_IPOS.map(enrichSingleIpo);
   }
 }
 
@@ -44,10 +73,10 @@ export function getLastUpdatedTimestamp(): string {
 export function getIpoById(id: string): IpoItem | undefined {
   const ipos = getMergedIpos();
   const normalized = decodeURIComponent(id).toLowerCase().trim();
-  return ipos.find((item) => 
+  const found = ipos.find((item) => 
     item.id.toLowerCase() === normalized || 
     item.symbol.toLowerCase() === normalized ||
     item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === normalized
   );
+  return found ? enrichSingleIpo(found) : undefined;
 }
-
