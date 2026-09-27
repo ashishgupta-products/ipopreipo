@@ -54,7 +54,6 @@ interface IpoDetailViewProps {
 }
 
 export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) {
-  const [activeTab, setActiveTab] = useState<'overview' | 'gmp' | 'financials' | 'bidding' | 'timeline' | 'allotment'>('overview');
   const [copied, setCopied] = useState<boolean>(false);
 
   // Calculations
@@ -355,7 +354,12 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               <button
-                onClick={() => setActiveTab('gmp')}
+                onClick={() => {
+                  const el = document.getElementById('sec-gmp');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 style={{
                   marginTop: '0.65rem',
                   fontSize: '0.75rem',
@@ -458,54 +462,88 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="scrollable-tabs" style={{
-          borderBottom: '1px solid #e2e8f0',
-          paddingBottom: '0.5rem',
-          marginBottom: '1.75rem',
-          width: '100%'
+        {/* Quick Section Jump Bar (Table of Contents) */}
+        <div style={{
+          position: 'sticky',
+          top: '64px',
+          zIndex: 20,
+          backgroundColor: '#ffffff',
+          borderRadius: 'var(--radius-lg)',
+          border: '1px solid #e2e8f0',
+          padding: '0.65rem 1rem',
+          marginBottom: '2.5rem',
+          boxShadow: 'var(--shadow-card)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          overflowX: 'auto',
+          scrollbarWidth: 'none'
         }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', whiteSpace: 'nowrap', marginRight: '0.25rem' }}>
+            Jump To:
+          </span>
           {[
-            { id: 'overview', label: 'Company & Issue Details', icon: <Building2 size={15} /> },
-            { id: 'gmp', label: 'Daily GMP & Market Buzz', icon: <Flame size={15} color="#d97706" /> },
-            { id: 'financials', label: 'Financials & Peer Valuation', icon: <BarChart3 size={15} /> },
-            { id: 'bidding', label: 'Subscription & Lot Brackets', icon: <Layers size={15} color="#d97706" /> },
-            { id: 'timeline', label: 'Schedule & Milestones', icon: <Calendar size={15} /> },
-            { id: 'allotment', label: 'Allotment & Lead Managers', icon: <ShieldCheck size={15} color="#059669" /> },
-          ].map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  padding: '0.65rem 1rem',
-                  borderRadius: 'var(--radius-md)',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  color: isActive ? '#2563eb' : '#64748b',
-                  backgroundColor: isActive ? '#eff6ff' : 'transparent',
-                  border: isActive ? '1px solid #bfdbfe' : '1px solid transparent',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                {tab.icon}
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
+            { id: 'sec-overview', label: '1. Profile & Structure', icon: <Building2 size={14} /> },
+            { id: 'sec-gmp', label: '2. Live GMP & Daily Trend', icon: <Flame size={14} color="#d97706" /> },
+            { id: 'sec-financials', label: '3. Financials & Peers', icon: <BarChart3 size={14} color="#2563eb" /> },
+            { id: 'sec-bidding', label: '4. Subscription & Lots', icon: <Layers size={14} color="#d97706" /> },
+            { id: 'sec-timeline', label: '5. Schedule & Milestones', icon: <Calendar size={14} color="#059669" /> },
+            { id: 'sec-allotment', label: '6. Allotment & Filings', icon: <ShieldCheck size={14} color="#059669" /> },
+          ].map((sec) => (
+            <button
+              key={sec.id}
+              onClick={() => {
+                const el = document.getElementById(sec.id);
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.45rem 0.85rem',
+                borderRadius: 'var(--radius-md)',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                color: '#334155',
+                backgroundColor: '#f8fafc',
+                border: '1px solid #e2e8f0',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#eff6ff';
+                e.currentTarget.style.color = '#2563eb';
+                e.currentTarget.style.borderColor = '#bfdbfe';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#f8fafc';
+                e.currentTarget.style.color = '#334155';
+                e.currentTarget.style.borderColor = '#e2e8f0';
+              }}
+            >
+              {sec.icon}
+              <span>{sec.label}</span>
+            </button>
+          ))}
         </div>
 
-        {/* TAB 1: OVERVIEW & ISSUE DETAILS */}
-        {activeTab === 'overview' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
-            {/* Top 2 Columns: Business Profile & Issue Structure */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: '1.5rem' }}>
+        {/* SECTION 1: COMPANY PROFILE & ISSUE DETAILS */}
+        <section id="sec-overview" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+              <Building2 size={22} color="#2563eb" />
+              <span>1. Company Profile & Issue Structure</span>
+            </h2>
+            <span style={{ fontSize: '0.75rem', color: '#2563eb', backgroundColor: '#eff6ff', border: '1px solid #bfdbfe', padding: '3px 9px', borderRadius: '4px', fontWeight: 700 }}>
+              Corporate Overview & Objectives
+            </span>
+          </div>
+
+          {/* Top 2 Columns: Business Profile & Issue Structure */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: '1.5rem' }}>
               {/* About the Business */}
               <div className="glass-panel" style={{ padding: '1.5rem' }}>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -648,124 +686,26 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </div>
               </div>
             </div>
+        </section>
 
-            {/* Grey Market Premium (GMP) Day-by-Day Movement in Overview */}
-            <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <div>
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
-                    <Flame size={18} color="#d97706" />
-                    <span>Grey Market Premium (GMP) Daily Movement</span>
-                  </h3>
-                  <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
-                    Tracking daily fluctuations in unofficial dealer quotes leading up to listing
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => setActiveTab('gmp')}
-                  className="btn-secondary"
-                  style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
-                >
-                  <span>Detailed GMP Analysis</span>
-                  <ArrowUpRight size={14} />
-                </button>
-              </div>
-
-              <div className="table-responsive-wrapper">
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
-                  <thead>
-                    <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
-                      <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Session Date</th>
-                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>GMP (₹)</th>
-                      <th style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>Daily Movement</th>
-                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Est. Listing Price</th>
-                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Est. Gain (%)</th>
-                      <th style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>Demand</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {gmpHistory.map((item, idx) => (
-                      <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
-                        <td style={{ padding: '0.85rem 1rem', fontWeight: 600, color: '#0f172a' }}>
-                          {item.date}
-                        </td>
-                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 700, color: item.gmp >= 0 ? '#059669' : '#dc2626' }}>
-                          {item.gmp >= 0 ? `+₹${item.gmp}` : `-₹${Math.abs(item.gmp)}`}
-                        </td>
-                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
-                          {item.dailyChange > 0 ? (
-                            <span style={{
-                              fontSize: '0.75rem',
-                              fontWeight: 700,
-                              color: '#15803d',
-                              backgroundColor: '#dcfce7',
-                              padding: '2px 7px',
-                              borderRadius: '4px',
-                              border: '1px solid #bbf7d0',
-                              whiteSpace: 'nowrap'
-                            }}>
-                              ▲ +₹{item.dailyChange}
-                            </span>
-                          ) : item.dailyChange < 0 ? (
-                            <span style={{
-                              fontSize: '0.75rem',
-                              fontWeight: 700,
-                              color: '#b91c1c',
-                              backgroundColor: '#fee2e2',
-                              padding: '2px 7px',
-                              borderRadius: '4px',
-                              border: '1px solid #fecaca',
-                              whiteSpace: 'nowrap'
-                            }}>
-                              ▼ -₹{Math.abs(item.dailyChange)}
-                            </span>
-                          ) : (
-                            <span style={{
-                              fontSize: '0.75rem',
-                              fontWeight: 600,
-                              color: '#64748b',
-                              backgroundColor: '#f1f5f9',
-                              padding: '2px 7px',
-                              borderRadius: '4px',
-                              border: '1px solid #e2e8f0',
-                              whiteSpace: 'nowrap'
-                            }}>
-                              ▬ Flat
-                            </span>
-                          )}
-                        </td>
-                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
-                          ₹{item.estListingPrice}
-                        </td>
-                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 700, color: item.gmp >= 0 ? '#059669' : '#dc2626' }}>
-                          {item.gainPercent >= 0 ? `+${item.gainPercent}%` : `${item.gainPercent}%`}
-                        </td>
-                        <td style={{ padding: '0.85rem 1rem', textAlign: 'center' }}>
-                          <div style={{ display: 'inline-flex', gap: '2px', color: '#d97706' }}>
-                            {Array.from({ length: item.fireRating ?? 1 }).map((_, fIdx) => (
-                              <Flame key={fIdx} size={13} fill="#d97706" />
-                            ))}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+        {/* SECTION 2: GREY MARKET PREMIUM (GMP) & DAILY MOVEMENT */}
+        <section id="sec-gmp" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+              <Flame size={22} color="#d97706" />
+              <span>2. Grey Market Premium (GMP) & Daily Movement Tracker</span>
+            </h2>
+            <span style={{ fontSize: '0.75rem', color: '#166534', backgroundColor: '#dcfce7', border: '1px solid #bbf7d0', padding: '3px 9px', borderRadius: '4px', fontWeight: 700 }}>
+              Live Unofficial Sentiment
+            </span>
           </div>
-        )}
 
-        {/* TAB: DAILY GMP & MARKET BUZZ */}
-        {activeTab === 'gmp' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '2.5rem' }}>
-            {/* Top 4 Core Cards */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
-              gap: '1rem'
-            }}>
+          {/* Top 4 Core Cards */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gap: '1rem'
+          }}>
               {/* Live GMP Card */}
               <div className="glass-panel" style={{ padding: '1.25rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
@@ -1030,14 +970,22 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 <strong style={{ color: '#78350f' }}>Important Regulatory Advisory:</strong> Grey Market Premium (GMP) is an unofficial, unregulated benchmark traded over-the-counter by informal operators and dealers before the official stock exchange listing. GMP prices fluctuate significantly based on broader market volatility, institutional subscription numbers, and anchor allocations. Neither SEBI nor the stock exchanges (NSE/BSE) recognize or endorse grey market premiums. Always evaluate fundamental DRHP/RHP metrics and audited financials before applying.
               </div>
             </div>
-          </div>
-        )}
+        </section>
 
-        {/* TAB 2: FINANCIALS & PEER VALUATION */}
-        {activeTab === 'financials' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '2.5rem' }}>
-            {/* Multi-Year Track Record Table */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+        {/* SECTION 3: FINANCIALS & PEER VALUATION */}
+        <section id="sec-financials" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+              <BarChart3 size={22} color="#2563eb" />
+              <span>3. Multi-Year Financial Track Record & Peer Valuation</span>
+            </h2>
+            <span style={{ fontSize: '0.75rem', color: '#2563eb', backgroundColor: '#eff6ff', border: '1px solid #bfdbfe', padding: '3px 9px', borderRadius: '4px', fontWeight: 700 }}>
+              Audited SEBI Figures
+            </span>
+          </div>
+
+          {/* Multi-Year Track Record Table */}
+          <div className="glass-panel" style={{ padding: '1.75rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <BarChart3 size={20} color="#2563eb" />
@@ -1201,14 +1149,22 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </table>
               </div>
             </div>
-          </div>
-        )}
+        </section>
 
-        {/* TAB 3: SUBSCRIPTION & LOT BRACKETS */}
-        {activeTab === 'bidding' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '2.5rem' }}>
-            {/* Live Subscription Status Box */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+        {/* SECTION 4: SUBSCRIPTION & LOT BRACKETS */}
+        <section id="sec-bidding" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+              <Layers size={22} color="#d97706" />
+              <span>4. Subscription Status, Anchor Book & Lot Brackets</span>
+            </h2>
+            <span style={{ fontSize: '0.75rem', color: '#d97706', backgroundColor: '#fffbeb', border: '1px solid #fde68a', padding: '3px 9px', borderRadius: '4px', fontWeight: 700 }}>
+              Bidding Demand & Quotas
+            </span>
+          </div>
+
+          {/* Live Subscription Status Box */}
+          <div className="glass-panel" style={{ padding: '1.75rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Flame size={20} color="#d97706" />
@@ -1380,12 +1336,21 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </div>
               </div>
             )}
-          </div>
-        )}
+        </section>
 
-        {/* TAB 4: SCHEDULE & TIMELINE */}
-        {activeTab === 'timeline' && (
-          <div className="glass-panel" style={{ padding: '1.75rem', marginBottom: '2.5rem' }}>
+        {/* SECTION 5: SCHEDULE & TIMELINE */}
+        <section id="sec-timeline" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+              <Calendar size={22} color="#059669" />
+              <span>5. Official Schedule, Milestones & SEBI T+3 Cycle</span>
+            </h2>
+            <span style={{ fontSize: '0.75rem', color: '#059669', backgroundColor: '#ecfdf5', border: '1px solid #bbf7d0', padding: '3px 9px', borderRadius: '4px', fontWeight: 700 }}>
+              T+3 Fast Settlement
+            </span>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '1.75rem' }}>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Calendar size={20} color="#2563eb" />
               <span>Official Issue Timeline & SEBI T+3 Cycle</span>
@@ -1425,13 +1390,22 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               <strong>SEBI Mandatory T+3 Listing:</strong> Since December 2023, SEBI requires all initial public offerings in India to list on the stock exchanges within 3 working days after issue closing (T+3). ASBA mandate blocking unfreezes automatically if you do not receive an allotment.
             </div>
           </div>
-        )}
+        </section>
 
-        {/* TAB 5: ALLOTMENT & LEAD MANAGERS */}
-        {activeTab === 'allotment' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '2.5rem' }}>
-            {/* Registrar Hub */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+        {/* SECTION 6: ALLOTMENT & LEAD MANAGERS */}
+        <section id="sec-allotment" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+              <ShieldCheck size={22} color="#059669" />
+              <span>6. Allotment Verification, Lead Managers & Official Filings</span>
+            </h2>
+            <span style={{ fontSize: '0.75rem', color: '#1e40af', backgroundColor: '#dbeafe', border: '1px solid #bfdbfe', padding: '3px 9px', borderRadius: '4px', fontWeight: 700 }}>
+              Registrar Link & BRLMs
+            </span>
+          </div>
+
+          {/* Registrar Hub */}
+          <div className="glass-panel" style={{ padding: '1.75rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
                 <div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -1539,8 +1513,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </div>
               </div>
             </div>
-          </div>
-        )}
+        </section>
 
         {/* Related / Other Active IPOs */}
         <section style={{ marginTop: '2.5rem' }}>
