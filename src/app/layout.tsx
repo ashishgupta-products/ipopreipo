@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import AuthProvider from '../components/providers/AuthProvider';
 
 export const metadata: Metadata = {
   title: 'IPO & PreIPO India | Live GMP, Subscription, Allotment & Unlisted Shares',
@@ -25,7 +26,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#060911" />
       </head>
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
