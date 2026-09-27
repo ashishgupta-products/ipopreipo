@@ -9,11 +9,9 @@ import PreIpoCard from '../../components/preipo/PreIpoCard';
 import PreIpoTable from '../../components/preipo/PreIpoTable';
 import PreIpoDetailModal from '../../components/preipo/PreIpoDetailModal';
 import PreIpoInquiryModal from '../../components/preipo/PreIpoInquiryModal';
-import IpoCalculatorModal from '../../components/calculators/IpoCalculatorModal';
 
 import { INDIAN_PRE_IPOS } from '../../data/preIpoData';
-import { INDIAN_IPOS } from '../../data/ipoData';
-import { PreIpoItem, IpoItem } from '../../types';
+import { PreIpoItem } from '../../types';
 
 import { 
   Award, 
@@ -41,7 +39,6 @@ export default function PreIpoPage() {
   // Modals
   const [selectedPreIpo, setSelectedPreIpo] = useState<PreIpoItem | null>(null);
   const [tradeModal, setTradeModal] = useState<{ item: PreIpoItem; type: 'BUY' | 'SELL' } | null>(null);
-  const [calculatorOpen, setCalculatorOpen] = useState(false);
 
   // Extract unique sectors
   const sectors = useMemo(() => {
@@ -98,7 +95,6 @@ export default function PreIpoPage() {
         }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        onOpenCalculator={() => setCalculatorOpen(true)}
       />
 
       {/* Rolling Ticker */}
@@ -424,14 +420,6 @@ export default function PreIpoPage() {
           item={tradeModal.item}
           initialType={tradeModal.type}
           onClose={() => setTradeModal(null)}
-        />
-      )}
-
-      {calculatorOpen && (
-        <IpoCalculatorModal
-          initialIpo={INDIAN_IPOS[0]}
-          allIpos={INDIAN_IPOS}
-          onClose={() => setCalculatorOpen(false)}
         />
       )}
 

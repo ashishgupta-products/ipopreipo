@@ -13,7 +13,6 @@ import {
   Sparkles, 
   Share2, 
   Check, 
-  Calculator, 
   Building2, 
   ArrowLeft, 
   DollarSign, 
@@ -33,8 +32,7 @@ interface IpoDetailViewProps {
 }
 
 export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) {
-  const [activeTab, setActiveTab] = useState<'overview' | 'financials' | 'timeline' | 'allotment' | 'calculator'>('overview');
-  const [lots, setLots] = useState<number>(1);
+  const [activeTab, setActiveTab] = useState<'overview' | 'financials' | 'timeline' | 'allotment'>('overview');
   const [copied, setCopied] = useState<boolean>(false);
 
   // Calculations
@@ -47,12 +45,6 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
   const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
   const estProfitPerLot = ipo.gmp * ipo.lotSize;
-
-  // Interactive Calculator dynamic values
-  const calcTotalShares = lots * ipo.lotSize;
-  const calcTotalInvestment = lots * minRetailInvestment;
-  const calcEstProfit = lots * estProfitPerLot;
-  const calcEstTotalValue = calcTotalInvestment + calcEstProfit;
 
   const handleShare = () => {
     if (typeof window !== 'undefined') {
@@ -99,7 +91,6 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
       <Navbar 
         searchQuery="" 
         setSearchQuery={() => {}} 
-        onOpenCalculator={() => setActiveTab('calculator')} 
       />
 
       <main style={{ flex: 1, padding: '2rem 1rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
@@ -327,7 +318,6 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             { id: 'financials', label: 'Financial Health & Valuation', icon: <BarChart3 size={15} /> },
             { id: 'timeline', label: 'Important Schedule & Dates', icon: <Calendar size={15} /> },
             { id: 'allotment', label: 'Allotment Status Hub', icon: <ShieldCheck size={15} color="#059669" /> },
-            { id: 'calculator', label: 'Returns Calculator', icon: <Calculator size={15} color="#2563eb" /> },
           ].map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -563,128 +553,6 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
             <div style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: '1.5' }}>
               <strong>Note:</strong> Allotment results are finalized by the registrar around <strong>{ipo.timeline.allotmentFinalization}</strong>. If shares are allotted, they are credited to your Demat by {ipo.timeline.creditOfShares}. If not allotted, ASBA funds are unblocked within 24 hours.
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'calculator' && (
-          <div className="glass-panel" style={{ padding: '1.75rem', marginBottom: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Calculator size={20} color="#2563eb" />
-              <span>Interactive Return & Listing Gain Calculator</span>
-            </h3>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem', alignItems: 'center' }}>
-              <div>
-                <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155', display: 'block', marginBottom: '0.5rem' }}>
-                  Number of Lots to Apply:
-                </label>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <button
-                    onClick={() => setLots(Math.max(1, lots - 1))}
-                    style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid #cbd5e1',
-                      backgroundColor: '#ffffff',
-                      fontSize: '1.2rem',
-                      fontWeight: 700,
-                      cursor: 'pointer'
-                    }}
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="1"
-                    max="100"
-                    value={lots}
-                    onChange={(e) => setLots(Math.max(1, parseInt(e.target.value) || 1))}
-                    style={{
-                      width: '90px',
-                      padding: '0.5rem',
-                      textAlign: 'center',
-                      fontSize: '1.1rem',
-                      fontWeight: 700,
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid #cbd5e1'
-                    }}
-                  />
-                  <button
-                    onClick={() => setLots(lots + 1)}
-                    style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: 'var(--radius-md)',
-                      border: '1px solid #cbd5e1',
-                      backgroundColor: '#ffffff',
-                      fontSize: '1.2rem',
-                      fontWeight: 700,
-                      cursor: 'pointer'
-                    }}
-                  >
-                    +
-                  </button>
-                  <span style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                    = {calcTotalShares} Shares
-                  </span>
-                </div>
-
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  {[1, 2, 5, maxRetailLots, sHniMinLots].map((quickLot) => (
-                    <button
-                      key={quickLot}
-                      onClick={() => setLots(quickLot)}
-                      style={{
-                        padding: '0.35rem 0.75rem',
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        borderRadius: '4px',
-                        backgroundColor: lots === quickLot ? '#eff6ff' : '#f1f5f9',
-                        color: lots === quickLot ? '#2563eb' : '#475569',
-                        border: lots === quickLot ? '1px solid #bfdbfe' : '1px solid #e2e8f0',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {quickLot === 1 ? '1 Lot (Retail)' : quickLot === maxRetailLots ? `Max Retail (${quickLot}L)` : `${quickLot} Lots`}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Calculator Summary Card */}
-              <div style={{
-                backgroundColor: '#f8fafc',
-                border: '1px solid #e2e8f0',
-                borderRadius: 'var(--radius-lg)',
-                padding: '1.25rem'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#64748b' }}>Application Amount (Blocked):</span>
-                  <span className="mono" style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a' }}>
-                    ₹{calcTotalInvestment.toLocaleString('en-IN')}
-                  </span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#64748b' }}>Expected Listing Gain (GMP):</span>
-                  <span className="mono" style={{ fontSize: '1.05rem', fontWeight: 800, color: calcEstProfit >= 0 ? '#059669' : '#dc2626' }}>
-                    {calcEstProfit >= 0 ? `+₹${calcEstProfit.toLocaleString('en-IN')}` : `-₹${Math.abs(calcEstProfit).toLocaleString('en-IN')}`}
-                  </span>
-                </div>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  borderTop: '1px solid #e2e8f0',
-                  paddingTop: '0.75rem',
-                  marginTop: '0.5rem'
-                }}>
-                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a' }}>Est. Portfolio Value:</span>
-                  <span className="mono" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#2563eb' }}>
-                    ₹{calcEstTotalValue.toLocaleString('en-IN')}
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         )}

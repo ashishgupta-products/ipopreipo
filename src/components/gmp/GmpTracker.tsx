@@ -2,15 +2,14 @@
 
 import React, { useState } from 'react';
 import { IpoItem } from '../../types';
-import { Flame, Info, ArrowUpRight, Calculator } from 'lucide-react';
+import { Flame, Info, ArrowUpRight } from 'lucide-react';
 
 interface GmpTrackerProps {
   ipos: IpoItem[];
   onSelectIpo: (ipo: IpoItem) => void;
-  onOpenCalculator: (ipo: IpoItem) => void;
 }
 
-export default function GmpTracker({ ipos, onSelectIpo, onOpenCalculator }: GmpTrackerProps) {
+export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
   const [filterCategory, setFilterCategory] = useState<'ALL' | 'MAINBOARD' | 'SME'>('ALL');
   const [minBuzz, setMinBuzz] = useState<number>(0);
 
@@ -174,7 +173,6 @@ export default function GmpTracker({ ipos, onSelectIpo, onOpenCalculator }: GmpT
               <th style={{ padding: '0.9rem 1rem' }}>Est. Listing Price</th>
               <th style={{ padding: '0.9rem 1rem' }}>Profit / Lot</th>
               <th style={{ padding: '0.9rem 1rem' }}>Demand</th>
-              <th style={{ padding: '0.9rem 1.25rem', textAlign: 'right' }}>Calculator</th>
             </tr>
           </thead>
           <tbody>
@@ -281,21 +279,6 @@ export default function GmpTracker({ ipos, onSelectIpo, onOpenCalculator }: GmpT
                         <Flame key={i} size={14} fill="#d97706" />
                       ))}
                     </div>
-                  </td>
-
-                  {/* Calculator Button */}
-                  <td style={{ padding: '1rem 1.25rem', textAlign: 'right' }}>
-                    <button
-                      className="btn-secondary"
-                      style={{ padding: '0.35rem 0.7rem', fontSize: '0.75rem' }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onOpenCalculator(ipo);
-                      }}
-                    >
-                      <Calculator size={13} color="#387ed1" />
-                      <span>Calculate</span>
-                    </button>
                   </td>
                 </tr>
               );

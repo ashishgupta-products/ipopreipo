@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { 
   TrendingUp, 
   Search, 
-  Calculator, 
   ShieldCheck, 
   Layers, 
   Menu, 
@@ -22,15 +21,13 @@ interface NavbarProps {
   setActiveTab?: (tab: string) => void;
   searchQuery?: string;
   setSearchQuery?: (query: string) => void;
-  onOpenCalculator?: () => void;
 }
 
 export default function Navbar({
   activeTab,
   setActiveTab,
   searchQuery = '',
-  setSearchQuery,
-  onOpenCalculator
+  setSearchQuery
 }: NavbarProps = {}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -257,49 +254,7 @@ export default function Navbar({
           })}
         </nav>
 
-          {/* Action Button: Calculator */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          {onOpenCalculator ? (
-            <button
-              onClick={onOpenCalculator}
-              className="btn-secondary"
-              style={{
-                padding: '0.5rem 0.85rem',
-                fontSize: '0.825rem',
-                minWidth: '38px',
-                minHeight: '38px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              title="IPO Listing Gain Calculator"
-              aria-label="IPO Calculator"
-            >
-              <Calculator size={16} color="#387ed1" />
-              <span className="hide-on-mobile">IPO Calculator</span>
-            </button>
-          ) : (
-            <Link
-              href="/#market-terminal"
-              className="btn-secondary"
-              style={{
-                padding: '0.5rem 0.85rem',
-                fontSize: '0.825rem',
-                textDecoration: 'none',
-                minWidth: '38px',
-                minHeight: '38px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              title="IPO Listing Gain Calculator"
-              aria-label="IPO Calculator"
-            >
-              <Calculator size={16} color="#387ed1" />
-              <span className="hide-on-mobile">IPO Calculator</span>
-            </Link>
-          )}
-
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

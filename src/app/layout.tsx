@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'IPO & PreIPO India | Live GMP, Subscription, Allotment & Unlisted Shares',
   description: 'India\'s comprehensive portal for Mainboard & SME IPOs, real-time Grey Market Premium (GMP) tracking, live subscription status, registrar allotment checks, and institutional Pre-IPO unlisted shares.',
-  keywords: 'IPO India, Live GMP, SME IPO, Pre-IPO shares, Unlisted shares, Allotment status, Link Intime, KFintech, NSE IPO, BSE IPO, Listing Gain Calculator',
+  keywords: 'IPO India, Live GMP, SME IPO, Pre-IPO shares, Unlisted shares, Allotment status, Link Intime, KFintech, NSE IPO, BSE IPO',
   openGraph: {
     title: 'IPO & PreIPO India | Live GMP & Unlisted Shares Terminal',
     description: 'Track real-time Grey Market Premiums, SME IPO subscriptions, and invest in Pre-IPO unlisted equity.',

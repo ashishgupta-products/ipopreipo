@@ -14,7 +14,6 @@ import PreIpoDetailModal from '../components/preipo/PreIpoDetailModal';
 import PreIpoInquiryModal from '../components/preipo/PreIpoInquiryModal';
 import GmpTracker from '../components/gmp/GmpTracker';
 import AllotmentHub from '../components/allotment/AllotmentHub';
-import IpoCalculatorModal from '../components/calculators/IpoCalculatorModal';
 
 import { INDIAN_PRE_IPOS } from '../data/preIpoData';
 import { IpoItem, PreIpoItem } from '../types';
@@ -25,7 +24,6 @@ import {
   Layers, 
   Award, 
   ShieldCheck, 
-  Calculator, 
   LayoutGrid, 
   Table as TableIcon, 
   HelpCircle,
@@ -43,8 +41,6 @@ export default function Home() {
   const [selectedIpo, setSelectedIpo] = useState<IpoItem | null>(null);
   const [selectedPreIpo, setSelectedPreIpo] = useState<PreIpoItem | null>(null);
   const [tradeModal, setTradeModal] = useState<{ item: PreIpoItem; type: 'BUY' | 'SELL' } | null>(null);
-  const [calculatorOpen, setCalculatorOpen] = useState(false);
-  const [calcInitialIpo, setCalcInitialIpo] = useState<IpoItem | null>(null);
 
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
@@ -98,15 +94,6 @@ export default function Home() {
     });
   }, [searchQuery]);
 
-  const handleOpenCalculator = (ipo?: IpoItem) => {
-    if (ipo) {
-      setCalcInitialIpo(ipo);
-    } else {
-      setCalcInitialIpo(iposList[0]);
-    }
-    setCalculatorOpen(true);
-  };
-
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
       {/* Sticky Navigation */}
@@ -117,7 +104,6 @@ export default function Home() {
         }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        onOpenCalculator={() => handleOpenCalculator()}
       />
 
       {/* Rolling Ticker */}
@@ -374,7 +360,6 @@ export default function Home() {
             <GmpTracker
               ipos={iposList}
               onSelectIpo={(ipo) => setSelectedIpo(ipo)}
-              onOpenCalculator={(ipo) => handleOpenCalculator(ipo)}
             />
           </div>
         )}
@@ -507,7 +492,6 @@ export default function Home() {
         <IpoDetailModal
           ipo={selectedIpo}
           onClose={() => setSelectedIpo(null)}
-          onOpenCalculator={(ipo) => handleOpenCalculator(ipo)}
         />
       )}
 
@@ -524,14 +508,6 @@ export default function Home() {
           item={tradeModal.item}
           initialType={tradeModal.type}
           onClose={() => setTradeModal(null)}
-        />
-      )}
-
-      {calculatorOpen && (
-        <IpoCalculatorModal
-          initialIpo={calcInitialIpo}
-          allIpos={iposList}
-          onClose={() => setCalculatorOpen(false)}
         />
       )}
 

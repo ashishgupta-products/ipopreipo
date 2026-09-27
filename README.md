@@ -13,7 +13,6 @@ Built with **Next.js 16 (App Router)**, **TypeScript**, **Vanilla CSS**, and cle
 - **Subscription Tracker**: Live subscription breakdowns across QIB (Qualified Institutional Buyers), NII (Non-Institutional Investors), Retail (RII), and Employee quotas.
 - **Deep-Dive Insight Pages (`/ipo/[id]`)**: Detailed timelines (Bidding, Allotment, Refund, Listing), issue structure (Fresh Issue vs OFS), lot sizes, price bands, valuations (P/E, RONW, EPS), and registrar allotment links.
 - **Registrar Allotment Hub**: Direct quick-access portals for Link Intime, KFintech, Bigshare, Skyline, Cameo, and Purva Sharegistry.
-- **Listing Gain Calculator**: Dynamic profit projector calculating expected listing returns based on price band, lot size, and live GMP.
 
 ### 2. 🦄 Dedicated Pre-IPO Marketplace (`/pre-ipo`)
 - **Unlisted Equities Directory**: Track high-growth Indian pre-IPO companies before they list on NSE & BSE (e.g., Tata Technologies, NSE India, boAt, PharmEasy, Reliance Retail, OYO, HDB Financial Services, Hexaware).
@@ -135,8 +134,7 @@ ipopreipo/
 │   ├── components/
 │   │   ├── Navbar.tsx          # Responsive navigation (IPOs, Preipo, Payment Apps, Brokers, Credit Cards)
 │   │   ├── Footer.tsx          # SEBI disclaimer & site links
-│   │   ├── IpoCard.tsx         # IPO display card with live GMP & subscription
-│   │   └── GainCalculator.tsx  # Dynamic listing gain projector
+│   │   └── IpoCard.tsx         # IPO display card with live GMP & subscription
 │   ├── data/
 │   │   ├── ipoData.ts          # Mainboard & SME IPO dataset
 │   │   ├── preIpoData.ts       # Unlisted pre-IPO companies

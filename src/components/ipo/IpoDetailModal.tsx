@@ -11,17 +11,15 @@ import {
   DollarSign, 
   Building2, 
   FileText, 
-  Calculator,
   ShieldCheck
 } from 'lucide-react';
 
 interface IpoDetailModalProps {
   ipo: IpoItem | null;
   onClose: () => void;
-  onOpenCalculator: (ipo: IpoItem) => void;
 }
 
-export default function IpoDetailModal({ ipo, onClose, onOpenCalculator }: IpoDetailModalProps) {
+export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
   if (!ipo) return null;
 
   const minRetailInvestment = ipo.priceBandHigh * ipo.lotSize;
@@ -386,24 +384,13 @@ export default function IpoDetailModal({ ipo, onClose, onOpenCalculator }: IpoDe
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             <Link
               href={`/ipo/${ipo.id}`}
-              className="btn-secondary"
-              style={{ fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: '#2563eb', borderColor: '#bfdbfe', backgroundColor: '#eff6ff' }}
+              className="btn-primary"
+              style={{ fontSize: '0.85rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
               onClick={onClose}
             >
               <span>View Full Insights Page</span>
               <ExternalLink size={13} />
             </Link>
-
-            <button
-              className="btn-primary"
-              onClick={() => {
-                onClose();
-                onOpenCalculator(ipo);
-              }}
-            >
-              <Calculator size={16} />
-              <span>Calculate Listing Gains</span>
-            </button>
           </div>
         </div>
       </div>
