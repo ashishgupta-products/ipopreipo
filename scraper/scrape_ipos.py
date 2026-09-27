@@ -416,6 +416,159 @@ def scrape_zerodha_primary():
     print(f"\n[Zerodha Primary] Successfully scraped & enriched {len(parsed_ipos)} IPOs.")
     return parsed_ipos
 
+def load_database_url():
+    if "DATABASE_URL" in os.environ:
+        return os.environ["DATABASE_URL"]
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for env_name in [".env.local", ".env"]:
+        env_path = os.path.join(base_dir, env_name)
+        if os.path.exists(env_path):
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        k, v = line.split("=", 1)
+                        if k.strip() == "DATABASE_URL":
+                            return v.strip().strip('"').strip("'")
+    return None
+
+def sync_to_neon_db(ipos_list, last_updated):
+    db_url = load_database_url()
+    if not db_url:
+        print("[Neon DB] Notice: No DATABASE_URL set, skipping database sync.")
+        return
+    try:
+        import psycopg2
+        from psycopg2.extras import Json, execute_batch
+        print(f"[Neon DB] Connecting to Neon PostgreSQL...")
+        conn = psycopg2.connect(db_url)
+        cur = conn.cursor()
+
+        upsert_query = """
+        INSERT INTO ipos (
+            id, name, symbol, category, status,
+            price_range_min, price_range_max, issue_size_cr, lot_size, min_investment,
+            open_date, close_date, allotment_date, listing_date,
+            gmp, gmp_percent, gmp_trend, fire_rating, rating_count, subscription_total,
+            sector, tags, logo_url, face_value, daily_gmp_change,
+            gmp_daily_history, multi_year_financials, peers, quota_reservation,
+            promoter_holding, objects_of_issue, anchor_details, lead_managers,
+            registered_office, year_incorporated, rhp_url, drhp_url,
+            strengths, risks, raw_data, updated_at
+        ) VALUES (
+            %(id)s, %(name)s, %(symbol)s, %(category)s, %(status)s,
+            %(priceRangeMin)s, %(priceRangeMax)s, %(issueSizeCr)s, %(lotSize)s, %(minInvestment)s,
+            %(openDate)s, %(closeDate)s, %(allotmentDate)s, %(listingDate)s,
+            %(gmp)s, %(gmpPercent)s, %(gmpTrend)s, %(fireRating)s, %(ratingCount)s, %(subscriptionTotal)s,
+            %(sector)s, %(tags)s, %(logoUrl)s, %(faceValue)s, %(dailyGmpChange)s,
+            %(gmpDailyHistory)s, %(multiYearFinancials)s, %(peers)s, %(quotaReservation)s,
+            %(promoterHolding)s, %(objectsOfIssue)s, %(anchorDetails)s, %(leadManagers)s,
+            %(registeredOffice)s, %(yearIncorporated)s, %(rhpUrl)s, %(drhpUrl)s,
+            %(strengths)s, %(risks)s, %(rawData)s, NOW()
+        )
+        ON CONFLICT (id) DO UPDATE SET
+            name = EXCLUDED.name,
+            symbol = EXCLUDED.symbol,
+            category = EXCLUDED.category,
+            status = EXCLUDED.status,
+            price_range_min = EXCLUDED.price_range_min,
+            price_range_max = EXCLUDED.price_range_max,
+            issue_size_cr = EXCLUDED.issue_size_cr,
+            lot_size = EXCLUDED.lot_size,
+            min_investment = EXCLUDED.min_investment,
+            open_date = EXCLUDED.open_date,
+            close_date = EXCLUDED.close_date,
+            allotment_date = EXCLUDED.allotment_date,
+            listing_date = EXCLUDED.listing_date,
+            gmp = EXCLUDED.gmp,
+            gmp_percent = EXCLUDED.gmp_percent,
+            gmp_trend = EXCLUDED.gmp_trend,
+            fire_rating = EXCLUDED.fire_rating,
+            rating_count = EXCLUDED.rating_count,
+            subscription_total = EXCLUDED.subscription_total,
+            sector = EXCLUDED.sector,
+            tags = EXCLUDED.tags,
+            logo_url = EXCLUDED.logo_url,
+            face_value = EXCLUDED.face_value,
+            daily_gmp_change = EXCLUDED.daily_gmp_change,
+            gmp_daily_history = EXCLUDED.gmp_daily_history,
+            multi_year_financials = EXCLUDED.multi_year_financials,
+            peers = EXCLUDED.peers,
+            quota_reservation = EXCLUDED.quota_reservation,
+            promoter_holding = EXCLUDED.promoter_holding,
+            objects_of_issue = EXCLUDED.objects_of_issue,
+            anchor_details = EXCLUDED.anchor_details,
+            lead_managers = EXCLUDED.lead_managers,
+            registered_office = EXCLUDED.registered_office,
+            year_incorporated = EXCLUDED.year_incorporated,
+            rhp_url = EXCLUDED.rhp_url,
+            drhp_url = EXCLUDED.drhp_url,
+            strengths = EXCLUDED.strengths,
+            risks = EXCLUDED.risks,
+            raw_data = EXCLUDED.raw_data,
+            updated_at = NOW();
+        """
+
+        items_to_sync = []
+        for item in ipos_list:
+            items_to_sync.append({
+                'id': item.get('id'),
+                'name': item.get('name', ''),
+                'symbol': item.get('symbol', ''),
+                'category': item.get('category', 'MAINBOARD'),
+                'status': item.get('status', 'ONGOING'),
+                'priceRangeMin': item.get('priceRangeMin', 0),
+                'priceRangeMax': item.get('priceRangeMax', 0),
+                'issueSizeCr': item.get('issueSizeCr', 0),
+                'lotSize': item.get('lotSize', 1),
+                'minInvestment': item.get('minInvestment', 0),
+                'openDate': item.get('openDate', ''),
+                'closeDate': item.get('closeDate', ''),
+                'allotmentDate': item.get('allotmentDate', ''),
+                'listingDate': item.get('listingDate', ''),
+                'gmp': item.get('gmp', 0),
+                'gmpPercent': item.get('gmpPercent', 0),
+                'gmpTrend': item.get('gmpTrend', 'STABLE'),
+                'fireRating': item.get('fireRating', 3),
+                'ratingCount': item.get('ratingCount', 1),
+                'subscriptionTotal': item.get('subscriptionTotal', 0),
+                'sector': item.get('sector', ''),
+                'tags': Json(item.get('tags', [])),
+                'logoUrl': item.get('logoUrl', ''),
+                'faceValue': item.get('faceValue', 10),
+                'dailyGmpChange': item.get('dailyGmpChange', 0),
+                'gmpDailyHistory': Json(item.get('gmpDailyHistory', [])),
+                'multiYearFinancials': Json(item.get('multiYearFinancials', [])),
+                'peers': Json(item.get('peers', [])),
+                'quotaReservation': Json(item.get('quotaReservation', {})),
+                'promoterHolding': Json(item.get('promoterHolding', {})),
+                'objectsOfIssue': Json(item.get('objectsOfIssue', [])),
+                'anchorDetails': Json(item.get('anchorDetails')) if item.get('anchorDetails') else None,
+                'leadManagers': Json(item.get('leadManagers', [])),
+                'registeredOffice': item.get('registeredOffice', ''),
+                'yearIncorporated': item.get('yearIncorporated', 2014),
+                'rhpUrl': item.get('rhpUrl', ''),
+                'drhpUrl': item.get('drhpUrl', ''),
+                'strengths': Json(item.get('strengths', [])),
+                'risks': Json(item.get('risks', [])),
+                'rawData': Json(item)
+            })
+
+        execute_batch(cur, upsert_query, items_to_sync, page_size=100)
+
+        cur.execute("""
+        INSERT INTO market_sync_metadata (key, value, updated_at)
+        VALUES ('last_ipos_sync', %s, NOW())
+        ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW();
+        """, (Json({'lastUpdated': last_updated, 'count': len(ipos_list)}),))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        print(f"[Neon DB] Synced {len(ipos_list)} IPOs to Neon PostgreSQL successfully.")
+    except Exception as e:
+        print(f"[Neon DB] Warning: Failed to sync with Neon DB: {e}")
+
 def main():
     live_ipos = scrape_zerodha_primary()
     if not live_ipos:
@@ -433,8 +586,9 @@ def main():
     src_json_path = os.path.join(src_data_dir, 'live_ipos.json')
     public_json_path = os.path.join(public_data_dir, 'live_ipos.json')
 
+    now_iso = datetime.datetime.now().isoformat()
     payload = {
-        'lastUpdated': datetime.datetime.now().isoformat(),
+        'lastUpdated': now_iso,
         'source': 'Zerodha Primary IPO Portal (https://zerodha.com/ipo)',
         'count': len(live_ipos),
         'ipos': live_ipos
@@ -447,6 +601,9 @@ def main():
     with open(public_json_path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
     print(f"[Done] Wrote {len(live_ipos)} Zerodha IPOs to {public_json_path}")
+
+    # Sync to Neon PostgreSQL
+    sync_to_neon_db(live_ipos, now_iso)
 
 if __name__ == '__main__':
     main()
