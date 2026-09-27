@@ -415,6 +415,32 @@ export default function Navbar({
                       <span>My Profile & Demat</span>
                     </Link>
 
+                    {(session.user as any).role === 'admin' && (
+                      <Link
+                        href="/admin"
+                        onClick={() => setUserMenuOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.6rem',
+                          padding: '0.55rem 0.75rem',
+                          borderRadius: '6px',
+                          fontSize: '0.82rem',
+                          fontWeight: 700,
+                          color: '#7c3aed',
+                          backgroundColor: '#f5f3ff',
+                          border: '1px solid #ddd6fe',
+                          textDecoration: 'none',
+                          transition: 'background-color 0.15s'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ede9fe')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#f5f3ff')}
+                      >
+                        <ShieldCheck size={15} color="#7c3aed" />
+                        <span>Admin Console</span>
+                      </Link>
+                    )}
+
                     <button
                       onClick={() => signOut({ callbackUrl: '/' })}
                       style={{
@@ -619,6 +645,30 @@ export default function Navbar({
                     </div>
                   </div>
                 </div>
+
+                {(session.user as any).role === 'admin' && (
+                  <Link
+                    href="/admin"
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{
+                      padding: '0.6rem',
+                      textAlign: 'center',
+                      borderRadius: 'var(--radius-md)',
+                      backgroundColor: '#f5f3ff',
+                      color: '#7c3aed',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      border: '1px solid #ddd6fe',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.4rem'
+                    }}
+                  >
+                    <ShieldCheck size={16} />
+                    <span>Admin Console</span>
+                  </Link>
+                )}
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                   <Link

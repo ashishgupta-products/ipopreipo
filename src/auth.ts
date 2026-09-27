@@ -46,6 +46,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           phone: user.phone,
           investorCategory: user.investor_category,
           dematProvider: user.demat_provider,
+          role: user.role || 'user',
         };
       },
     }),
@@ -67,6 +68,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             (user as any).phone = dbUser.phone;
             (user as any).investorCategory = dbUser.investor_category;
             (user as any).dematProvider = dbUser.demat_provider;
+            (user as any).role = dbUser.role || 'user';
           }
         } catch (err) {
           console.error("Error upserting Google user in Neon DB:", err);
@@ -80,12 +82,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.phone = (user as any).phone;
         token.investorCategory = (user as any).investorCategory;
         token.dematProvider = (user as any).dematProvider;
+        token.role = (user as any).role || 'user';
       }
       if (trigger === "update" && session?.user) {
         token.name = session.user.name;
         token.phone = session.user.phone;
         token.investorCategory = session.user.investorCategory;
         token.dematProvider = session.user.dematProvider;
+        if (session.user.role) {
+          token.role = session.user.role;
+        }
       }
       return token;
     },
@@ -95,6 +101,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         (session.user as any).phone = token.phone as string;
         (session.user as any).investorCategory = token.investorCategory as string;
         (session.user as any).dematProvider = token.dematProvider as string;
+        (session.user as any).role = (token.role as string) || 'user';
       }
       return session;
     },
