@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="krnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#krnGrad)"/>
+  <!-- KRN Heat Exchanger cooling fins & snowflake core -->
+  <path d="M40 36h48v8H40zm0 18h48v8H40zm0 18h48v8H40zm0 18h48v8H40z" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="64" cy="64" r="18" fill="#FFFFFF"/>
+  <path d="M64 52v24M52 64h24M55 55l18 18M55 73l18-18" stroke="#0891B2" stroke-width="4" stroke-linecap="round"/>
+</svg>

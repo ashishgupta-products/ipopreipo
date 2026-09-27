@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B81"/>
+      <stop offset="100%" stop-color="#F43F5E"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#fcGrad)"/>
+  <!-- FirstCry baby rattle & heart brand mark -->
+  <path d="M64 42c-7-9-20-8-25 1-6 10 2 24 25 39 23-15 31-29 25-39-5-9-18-10-25-1z" fill="#FFFFFF"/>
+  <circle cx="64" cy="54" r="7" fill="#F43F5E"/>
+</svg>

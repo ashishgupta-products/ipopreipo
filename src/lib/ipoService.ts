@@ -10,7 +10,8 @@ import {
   getIpoAnchorDetails,
   getIpoLeadManagers,
   getIpoGmpHistory,
-  getIpoDailyGmpChange
+  getIpoDailyGmpChange,
+  getIpoLogoUrl
 } from './ipoEnricher';
 
 export interface LiveIpoPayload {
@@ -22,20 +23,23 @@ export interface LiveIpoPayload {
 function enrichSingleIpo(item: IpoItem): IpoItem {
   return {
     ...item,
+    logoUrl: item.logoUrl || getIpoLogoUrl(item.name, item.symbol),
     faceValue: item.faceValue || (item.category === 'SME' ? 10 : 10),
     dailyGmpChange: getIpoDailyGmpChange(item),
     gmpDailyHistory: getIpoGmpHistory(item),
-    multiYearFinancials: getIpoMultiYearFinancials(item),
+    multiYearFinancials: (item.multiYearFinancials && item.multiYearFinancials.length > 0) ? item.multiYearFinancials : getIpoMultiYearFinancials(item),
     peers: getIpoPeers(item),
     quotaReservation: getIpoQuota(item),
     promoterHolding: getIpoPromoterHolding(item),
-    objectsOfIssue: getIpoObjectsOfIssue(item),
+    objectsOfIssue: (item.objectsOfIssue && item.objectsOfIssue.length > 0) ? item.objectsOfIssue : getIpoObjectsOfIssue(item),
     anchorDetails: getIpoAnchorDetails(item) || undefined,
     leadManagers: getIpoLeadManagers(item),
     registeredOffice: item.registeredOffice || (item.category === 'SME' ? 'Corporate Industrial Zone, India' : 'Mumbai / Bengaluru / New Delhi, India'),
     yearIncorporated: item.yearIncorporated || 2014,
     rhpUrl: item.rhpUrl || 'https://www.sebi.gov.in/filings/public-issues.html',
-    drhpUrl: item.drhpUrl || 'https://www.sebi.gov.in/filings/public-issues.html'
+    drhpUrl: item.drhpUrl || 'https://www.sebi.gov.in/filings/public-issues.html',
+    strengths: item.strengths,
+    risks: item.risks
   };
 }
 

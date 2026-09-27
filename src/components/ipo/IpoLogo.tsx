@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { getIpoLogoUrl } from '../../lib/ipoEnricher';
 
 interface IpoLogoProps {
   name: string;
@@ -72,6 +73,9 @@ function getInitials(name: string, symbol?: string): string {
 export default function IpoLogo({ name, symbol, logoUrl, size = 40, className = '' }: IpoLogoProps) {
   const [imgError, setImgError] = useState(false);
 
+  // Automatically resolve corporate logo image if not explicitly passed
+  const resolvedLogoUrl = logoUrl || getIpoLogoUrl(name, symbol);
+
   // Check if matches known brand preset
   const nameLower = name.toLowerCase();
   let matchedPreset: { bg: string; text: string; iconSymbol?: string } | null = null;
@@ -89,7 +93,7 @@ export default function IpoLogo({ name, symbol, logoUrl, size = 40, className = 
   const fontSize = Math.max(10, Math.floor(size * 0.38));
   const borderRadius = Math.max(6, Math.floor(size * 0.24));
 
-  if (logoUrl && !imgError) {
+  if (resolvedLogoUrl && !imgError) {
     return (
       <div
         className={className}
@@ -105,16 +109,19 @@ export default function IpoLogo({ name, symbol, logoUrl, size = 40, className = 
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
-          position: 'relative'
+          boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+          position: 'relative',
+          padding: Math.max(2, Math.floor(size * 0.08)) + 'px',
+          flexShrink: 0
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={logoUrl}
+          src={resolvedLogoUrl}
           alt={`${name} logo`}
-          style={{ width: '85%', height: '85%', objectFit: 'contain' }}
+          style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
           onError={() => setImgError(true)}
+          loading="lazy"
         />
       </div>
     );

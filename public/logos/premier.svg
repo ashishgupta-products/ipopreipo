@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="premGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#premGrad)"/>
+  <!-- Premier Energies Solar Monogram -->
+  <polygon points="64,24 98,44 98,84 64,104 30,84 30,44" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+  <polygon points="64,36 88,50 88,78 64,92 40,78 40,50" fill="#F59E0B"/>
+  <circle cx="64" cy="64" r="12" fill="#FFFFFF"/>
+</svg>

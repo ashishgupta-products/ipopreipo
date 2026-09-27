@@ -130,6 +130,8 @@ export interface IpoItem {
   yearIncorporated?: number;
   rhpUrl?: string;
   drhpUrl?: string;
+  strengths?: string[];
+  risks?: string[];
   tags: string[];
 }
 
@@ -167,3 +169,5 @@ export interface RegistrarInfo {
   supportEmail: string;
   featuredIpos: string[];
 }
+
+export * from './analyst';

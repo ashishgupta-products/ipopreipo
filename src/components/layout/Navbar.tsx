@@ -32,10 +32,11 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const isPreIpoPage = pathname === '/pre-ipo';
-  const isPaymentAppsPage = pathname === '/payment-apps';
-  const isBrokersPage = pathname === '/brokers';
-  const isCreditCardsPage = pathname === '/credit-cards';
+  const isPreIpoPage = pathname === '/pre-ipo' || pathname.startsWith('/pre-ipo/');
+  const isPaymentAppsPage = pathname === '/payment-apps' || pathname.startsWith('/payment-apps/');
+  const isBrokersPage = pathname === '/brokers' || pathname.startsWith('/brokers/');
+  const isCreditCardsPage = pathname === '/credit-cards' || pathname.startsWith('/credit-cards/');
+  const isAnalystsPage = pathname.startsWith('/analysts');
   const isIposPage = pathname === '/' || pathname.startsWith('/ipo');
 
   const navItems = [
@@ -45,6 +46,13 @@ export default function Navbar({
       icon: <Layers size={16} />, 
       href: '/',
       isActive: isIposPage && (!activeTab || activeTab === 'all-ipos' || activeTab === 'live-gmp' || activeTab === 'allotment')
+    },
+    { 
+      id: 'analysts', 
+      label: 'Analysts', 
+      icon: <Award size={16} color="#d97706" />, 
+      href: '/analysts',
+      isActive: isAnalystsPage
     },
     { 
       id: 'pre-ipo', 
@@ -75,16 +83,6 @@ export default function Navbar({
       isActive: isCreditCardsPage
     },
   ];
-
-  const handleNavClick = (item: typeof navItems[0]) => {
-    if (setActiveTab) {
-      if (item.id === 'ipos') {
-        setActiveTab('all-ipos');
-      } else {
-        setActiveTab(item.id);
-      }
-    }
-  };
 
   return (
     <header style={{
@@ -232,7 +230,6 @@ export default function Navbar({
               <Link
                 key={item.id}
                 href={item.href}
-                onClick={() => handleNavClick(item)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -319,10 +316,7 @@ export default function Navbar({
             <Link
               key={item.id}
               href={item.href}
-              onClick={() => {
-                handleNavClick(item);
-                setMobileMenuOpen(false);
-              }}
+              onClick={() => setMobileMenuOpen(false)}
               style={{
                 display: 'flex',
                 alignItems: 'center',

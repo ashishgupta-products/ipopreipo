@@ -1,46 +1,54 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Navbar from '../components/layout/Navbar';
 import MarketTicker from '../components/layout/MarketTicker';
 import Footer from '../components/layout/Footer';
 import IpoCard from '../components/ipo/IpoCard';
 import IpoTable from '../components/ipo/IpoTable';
 import IpoDetailModal from '../components/ipo/IpoDetailModal';
-import PreIpoCard from '../components/preipo/PreIpoCard';
-import PreIpoTable from '../components/preipo/PreIpoTable';
-import PreIpoDetailModal from '../components/preipo/PreIpoDetailModal';
-import PreIpoInquiryModal from '../components/preipo/PreIpoInquiryModal';
-import GmpTracker from '../components/gmp/GmpTracker';
-import AllotmentHub from '../components/allotment/AllotmentHub';
-
-import { INDIAN_PRE_IPOS } from '../data/preIpoData';
-import { IpoItem, PreIpoItem } from '../types';
-import { getMergedIpos, getLastUpdatedTimestamp } from '../lib/ipoService';
+import { IpoItem } from '../types';
+import { getMergedIpos } from '../lib/ipoService';
 
 import { 
-  Flame, 
-  Layers, 
-  Award, 
-  ShieldCheck, 
   LayoutGrid, 
   Table as TableIcon, 
   HelpCircle,
-  RefreshCw
+  RefreshCw,
+  ChevronDown,
+  Filter,
+  RotateCcw
 } from 'lucide-react';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'all-ipos' | 'live-gmp' | 'pre-ipo' | 'allotment'>('all-ipos');
-  const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('ALL');
-  const [statusFilter, setStatusFilter] = useState<'ALL' | 'ONGOING' | 'UPCOMING' | 'LISTED'>('ALL');
+  const router = useRouter();
+
+  // Redirect legacy query parameters (e.g. /?tab=payment-apps -> /payment-apps)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get('tab');
+      if (tab === 'payment-apps') {
+        router.replace('/payment-apps');
+      } else if (tab === 'pre-ipo') {
+        router.replace('/pre-ipo');
+      } else if (tab === 'brokers') {
+        router.replace('/brokers');
+      } else if (tab === 'credit-cards') {
+        router.replace('/credit-cards');
+      } else if (tab === 'analysts') {
+        router.replace('/analysts');
+      }
+    }
+  }, [router]);
+  const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('MAINBOARD');
+  const [statusFilter, setStatusFilter] = useState<'ALL' | 'ONGOING' | 'UPCOMING' | 'CLOSED' | 'LISTED'>('ONGOING');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'GRID' | 'TABLE'>('GRID');
 
   // Modal states
   const [selectedIpo, setSelectedIpo] = useState<IpoItem | null>(null);
-  const [selectedPreIpo, setSelectedPreIpo] = useState<PreIpoItem | null>(null);
-  const [tradeModal, setTradeModal] = useState<{ item: PreIpoItem; type: 'BUY' | 'SELL' } | null>(null);
 
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
@@ -80,28 +88,10 @@ export default function Home() {
     });
   }, [iposList, categoryFilter, statusFilter, searchQuery]);
 
-  // Filter Pre-IPOs
-  const filteredPreIpos = useMemo(() => {
-    if (!searchQuery.trim()) return INDIAN_PRE_IPOS;
-    const q = searchQuery.toLowerCase();
-    return INDIAN_PRE_IPOS.filter((item) => {
-      return (
-        item.name.toLowerCase().includes(q) ||
-        item.symbol.toLowerCase().includes(q) ||
-        item.sector.toLowerCase().includes(q) ||
-        item.isin.toLowerCase().includes(q)
-      );
-    });
-  }, [searchQuery]);
-
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
       {/* Sticky Navigation */}
       <Navbar
-        activeTab={activeTab}
-        setActiveTab={(tab) => {
-          setActiveTab(tab as any);
-        }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
@@ -111,327 +101,276 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="container" style={{ flex: 1, paddingTop: '1.75rem' }}>
+        {/* Live Scraper Sync Control Banner */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '0.75rem',
+          backgroundColor: '#ffffff',
+          border: '1px solid #e2e8f0',
+          borderRadius: 'var(--radius-lg)',
+          padding: '0.75rem 1.25rem',
+          marginBottom: '1.25rem',
+          boxShadow: 'var(--shadow-card)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem' }}>
+            <span className="pulse-indicator"></span>
+            <span style={{ fontWeight: 700, color: '#0f172a' }}>Live Exchange Data:</span>
+            <span className="glass-badge badge-emerald" style={{ fontSize: '0.72rem' }}>
+              {iposList.length} Real IPOs Active
+            </span>
+            <span style={{ color: '#94a3b8' }}>•</span>
+            <span style={{ color: '#64748b', fontSize: '0.78rem' }}>Feed: {lastSyncTime}</span>
+          </div>
 
+          <button
+            onClick={handleSync}
+            disabled={syncing}
+            className="btn-secondary"
+            style={{ padding: '0.45rem 0.95rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
+            title="Trigger live Python web scraper"
+          >
+            <RefreshCw size={13} style={{ animation: syncing ? 'spin 1s linear infinite' : 'none' }} />
+            <span>{syncing ? 'Scraping Live GMP & IPOs...' : 'Scrape & Sync Live Data'}</span>
+          </button>
+        </div>
 
-        {/* Section Navigation Tabs */}
-        <section id="market-terminal" style={{ marginBottom: '2rem' }}>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            borderBottom: '1px solid #e2e8f0',
-            paddingBottom: '0.75rem'
-          }}>
-            {/* Primary Mode Tabs */}
-            <div className="scrollable-tabs" style={{ maxWidth: '100%' }}>
-              {[
-                { id: 'all-ipos', label: 'All IPOs', icon: <Layers size={16} />, badge: `${iposList.length}` },
-                { id: 'live-gmp', label: 'Live GMP Tracker', icon: <Flame size={16} color="#d97706" />, badge: 'HOT' },
-                { id: 'pre-ipo', label: 'Pre-IPO & Unlisted Shares', icon: <Award size={16} color="#0284c7" />, badge: `${INDIAN_PRE_IPOS.length}` },
-                { id: 'allotment', label: 'Allotment Status', icon: <ShieldCheck size={16} color="#059669" />, badge: 'Direct' },
-              ].map((tab) => {
-                const isActive = activeTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id as any)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      padding: '0.65rem 1.1rem',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.9rem',
-                      fontWeight: 700,
-                      color: isActive ? '#2563eb' : '#64748b',
-                      backgroundColor: isActive ? '#eff6ff' : '#ffffff',
-                      border: isActive ? '1px solid #bfdbfe' : '1px solid #e2e8f0',
-                      boxShadow: isActive ? '0 1px 3px rgba(37, 99, 235, 0.1)' : 'var(--shadow-sm)',
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    {tab.icon}
-                    <span>{tab.label}</span>
-                    <span style={{
-                      fontSize: '0.7rem',
-                      backgroundColor: isActive ? '#2563eb' : '#f1f5f9',
-                      color: isActive ? '#ffffff' : '#64748b',
-                      padding: '1px 6px',
-                      borderRadius: '10px'
-                    }}>
-                      {tab.badge}
-                    </span>
-                  </button>
-                );
-              })}
+        {/* Filter Dropdowns Bar & View Mode Toggle */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1rem',
+          backgroundColor: '#ffffff',
+          border: '1px solid #e2e8f0',
+          borderRadius: 'var(--radius-lg)',
+          padding: '0.85rem 1.25rem',
+          marginBottom: '1.25rem',
+          boxShadow: 'var(--shadow-sm)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: '#0f172a', fontWeight: 700, fontSize: '0.88rem' }}>
+              <Filter size={16} color="#2563eb" />
+              <span>Filters:</span>
             </div>
 
-            {/* View Mode Toggle */}
-            {(activeTab === 'all-ipos' || activeTab === 'pre-ipo') && (
-              <div style={{
-                display: 'flex',
-                backgroundColor: '#ffffff',
-                padding: '3px',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid #e2e8f0',
-                boxShadow: 'var(--shadow-sm)'
-              }}>
-                <button
-                  onClick={() => setViewMode('GRID')}
+            {/* Status Dropdown */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <label htmlFor="status-filter-select" style={{ fontSize: '0.82rem', fontWeight: 600, color: '#475569' }}>
+                Status:
+              </label>
+              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                <select
+                  id="status-filter-select"
+                  aria-label="Filter IPOs by Status"
+                  value={statusFilter}
+                  onChange={(e) => setStatusFilter(e.target.value as any)}
                   style={{
-                    padding: '0.35rem 0.65rem',
-                    borderRadius: 'var(--radius-sm)',
-                    color: viewMode === 'GRID' ? '#ffffff' : '#64748b',
-                    backgroundColor: viewMode === 'GRID' ? '#387ed1' : 'transparent',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    fontSize: '0.8rem',
-                    fontWeight: 600
+                    appearance: 'none',
+                    WebkitAppearance: 'none',
+                    backgroundColor: statusFilter === 'ONGOING' ? '#ecfdf5' : '#f8fafc',
+                    color: statusFilter === 'ONGOING' ? '#065f46' : '#1e293b',
+                    border: statusFilter === 'ONGOING' ? '1.5px solid #10b981' : '1px solid #cbd5e1',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '0.45rem 2.2rem 0.45rem 0.85rem',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    outline: 'none',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                    transition: 'all 0.15s ease'
                   }}
-                  title="Grid view"
                 >
-                  <LayoutGrid size={15} />
-                  <span>Cards</span>
-                </button>
-                <button
-                  onClick={() => setViewMode('TABLE')}
-                  style={{
-                    padding: '0.35rem 0.65rem',
-                    borderRadius: 'var(--radius-sm)',
-                    color: viewMode === 'TABLE' ? '#ffffff' : '#64748b',
-                    backgroundColor: viewMode === 'TABLE' ? '#387ed1' : 'transparent',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    fontSize: '0.8rem',
-                    fontWeight: 600
-                  }}
-                  title="Table view"
-                >
-                  <TableIcon size={15} />
-                  <span>Table</span>
-                </button>
+                  <option value="ONGOING">🟢 Open Now (Bidding Active)</option>
+                  <option value="UPCOMING">⏳ Upcoming Issues</option>
+                  <option value="CLOSED">🔒 Closed / Allotment</option>
+                  <option value="LISTED">✨ Recently Listed</option>
+                  <option value="ALL">📋 All Statuses</option>
+                </select>
+                <ChevronDown size={14} style={{ position: 'absolute', right: '10px', pointerEvents: 'none', color: statusFilter === 'ONGOING' ? '#059669' : '#64748b' }} />
               </div>
+            </div>
+
+            {/* Segment / Category Dropdown */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <label htmlFor="category-filter-select" style={{ fontSize: '0.82rem', fontWeight: 600, color: '#475569' }}>
+                Segment:
+              </label>
+              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                <select
+                  id="category-filter-select"
+                  aria-label="Filter IPOs by Segment"
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value as any)}
+                  style={{
+                    appearance: 'none',
+                    WebkitAppearance: 'none',
+                    backgroundColor: categoryFilter === 'MAINBOARD' ? '#eff6ff' : '#f8fafc',
+                    color: categoryFilter === 'MAINBOARD' ? '#1e40af' : '#1e293b',
+                    border: categoryFilter === 'MAINBOARD' ? '1.5px solid #3b82f6' : '1px solid #cbd5e1',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '0.45rem 2.2rem 0.45rem 0.85rem',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    outline: 'none',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                    transition: 'all 0.15s ease'
+                  }}
+                >
+                  <option value="MAINBOARD">🏢 Mainboard Only</option>
+                  <option value="SME">🚀 NSE & BSE SME</option>
+                  <option value="ALL">🌐 All Categories</option>
+                </select>
+                <ChevronDown size={14} style={{ position: 'absolute', right: '10px', pointerEvents: 'none', color: categoryFilter === 'MAINBOARD' ? '#2563eb' : '#64748b' }} />
+              </div>
+            </div>
+
+            {/* Reset Filters Quick Button */}
+            {(statusFilter !== 'ALL' || categoryFilter !== 'ALL') && (
+              <button
+                onClick={() => {
+                  setStatusFilter('ALL');
+                  setCategoryFilter('ALL');
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  background: '#f1f5f9',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: 'var(--radius-sm)',
+                  color: '#475569',
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  padding: '0.35rem 0.65rem',
+                  transition: 'all 0.15s ease'
+                }}
+                title="Clear filters and view all IPOs"
+              >
+                <RotateCcw size={12} />
+                <span>Reset to All</span>
+              </button>
             )}
           </div>
-        </section>
 
-        {/* Tab 1: ALL IPOS */}
-        {activeTab === 'all-ipos' && (
-          <div>
-            {/* Live Scraper Sync Control Banner */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            {/* View Mode Toggle */}
             <div style={{
               display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '0.75rem',
-              backgroundColor: '#ffffff',
-              border: '1px solid #e2e8f0',
-              borderRadius: 'var(--radius-lg)',
-              padding: '0.75rem 1.25rem',
-              marginBottom: '1.25rem',
-              boxShadow: 'var(--shadow-card)'
+              backgroundColor: '#f1f5f9',
+              padding: '3px',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid #e2e8f0'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem' }}>
-                <span className="pulse-indicator"></span>
-                <span style={{ fontWeight: 700, color: '#0f172a' }}>Live Exchange Data:</span>
-                <span className="glass-badge badge-emerald" style={{ fontSize: '0.72rem' }}>
-                  {iposList.length} Real IPOs Active
-                </span>
-                <span style={{ color: '#94a3b8' }}>•</span>
-                <span style={{ color: '#64748b', fontSize: '0.78rem' }}>Feed: {lastSyncTime}</span>
-              </div>
-
               <button
-                onClick={handleSync}
-                disabled={syncing}
-                className="btn-secondary"
-                style={{ padding: '0.45rem 0.95rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
-                title="Trigger live Python web scraper"
+                onClick={() => setViewMode('GRID')}
+                style={{
+                  padding: '0.35rem 0.65rem',
+                  borderRadius: 'var(--radius-sm)',
+                  color: viewMode === 'GRID' ? '#ffffff' : '#64748b',
+                  backgroundColor: viewMode === 'GRID' ? '#2563eb' : 'transparent',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease'
+                }}
+                title="Grid Cards view"
               >
-                <RefreshCw size={13} style={{ animation: syncing ? 'spin 1s linear infinite' : 'none' }} />
-                <span>{syncing ? 'Scraping Live GMP & IPOs...' : 'Scrape & Sync Live Data'}</span>
+                <LayoutGrid size={14} />
+                <span>Cards</span>
+              </button>
+              <button
+                onClick={() => setViewMode('TABLE')}
+                style={{
+                  padding: '0.35rem 0.65rem',
+                  borderRadius: 'var(--radius-sm)',
+                  color: viewMode === 'TABLE' ? '#ffffff' : '#64748b',
+                  backgroundColor: viewMode === 'TABLE' ? '#2563eb' : 'transparent',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease'
+                }}
+                title="Table view"
+              >
+                <TableIcon size={14} />
+                <span>Table</span>
               </button>
             </div>
 
-            {/* Filter Pills */}
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '1rem',
-              marginBottom: '1.5rem'
-            }}>
-              {/* Category selector */}
-              <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '0.8rem', color: '#64748b', alignSelf: 'center', marginRight: '4px', fontWeight: 600 }}>
-                  Segment:
-                </span>
-                {[
-                  { id: 'ALL', label: 'All Categories' },
-                  { id: 'MAINBOARD', label: 'Mainboard Only' },
-                  { id: 'SME', label: 'NSE & BSE SME' },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => setCategoryFilter(item.id as any)}
-                    style={{
-                      padding: '0.4rem 0.8rem',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      color: categoryFilter === item.id ? '#2563eb' : '#64748b',
-                      backgroundColor: categoryFilter === item.id ? '#eff6ff' : '#ffffff',
-                      border: categoryFilter === item.id ? '1px solid #bfdbfe' : '1px solid #e2e8f0',
-                      boxShadow: 'var(--shadow-sm)'
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Status selector */}
-              <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '0.8rem', color: '#64748b', alignSelf: 'center', marginRight: '4px', fontWeight: 600 }}>
-                  Status:
-                </span>
-                {[
-                  { id: 'ALL', label: 'All Status' },
-                  { id: 'ONGOING', label: '🟢 Open Now' },
-                  { id: 'UPCOMING', label: '⏳ Upcoming' },
-                  { id: 'LISTED', label: '✨ Recent' },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => setStatusFilter(item.id as any)}
-                    style={{
-                      padding: '0.4rem 0.8rem',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      color: statusFilter === item.id ? '#2563eb' : '#64748b',
-                      backgroundColor: statusFilter === item.id ? '#eff6ff' : '#ffffff',
-                      border: statusFilter === item.id ? '1px solid #bfdbfe' : '1px solid #e2e8f0',
-                      boxShadow: 'var(--shadow-sm)'
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
+            {/* Showing count indicator */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem', color: '#64748b' }}>
+              <span>Showing</span>
+              <span style={{
+                fontWeight: 800,
+                color: '#0f172a',
+                backgroundColor: '#f1f5f9',
+                padding: '2px 8px',
+                borderRadius: '6px'
+              }}>
+                {filteredIpos.length}
+              </span>
+              <span>IPOs</span>
             </div>
-
-            {/* Results count banner */}
-            <div style={{ fontSize: '0.82rem', color: '#64748b', marginBottom: '1.25rem' }}>
-              Showing <strong>{filteredIpos.length}</strong> IPOs matching your filters
-            </div>
-
-            {/* Cards View or Table View */}
-            {viewMode === 'GRID' ? (
-              <div className="responsive-card-grid" style={{ marginBottom: '2.5rem' }}>
-                {filteredIpos.map((ipo) => (
-                  <IpoCard
-                    key={ipo.id}
-                    ipo={ipo}
-                    onSelect={(selected) => setSelectedIpo(selected)}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div style={{ marginBottom: '2.5rem' }}>
-                <IpoTable
-                  ipos={filteredIpos}
-                  onSelect={(selected) => setSelectedIpo(selected)}
-                />
-              </div>
-            )}
           </div>
-        )}
+        </div>
 
-        {/* Tab 2: LIVE GMP */}
-        {activeTab === 'live-gmp' && (
+        {/* Cards View or Table View or Empty State */}
+        {filteredIpos.length === 0 ? (
+          <div style={{
+            textAlign: 'center',
+            padding: '3rem 1.5rem',
+            backgroundColor: '#ffffff',
+            border: '1px dashed #cbd5e1',
+            borderRadius: 'var(--radius-xl)',
+            marginBottom: '2.5rem'
+          }}>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</div>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.5rem' }}>
+              No IPOs Found Matching Your Filters
+            </h3>
+            <p style={{ fontSize: '0.85rem', color: '#64748b', maxWidth: '420px', margin: '0 auto 1.25rem' }}>
+              There are currently no IPO issues matching Status: <strong>{statusFilter}</strong> and Segment: <strong>{categoryFilter}</strong>.
+            </p>
+            <button
+              onClick={() => {
+                setStatusFilter('ALL');
+                setCategoryFilter('ALL');
+              }}
+              className="btn-primary"
+              style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem' }}
+            >
+              View All Active & Upcoming IPOs
+            </button>
+          </div>
+        ) : viewMode === 'GRID' ? (
+          <div className="responsive-card-grid" style={{ marginBottom: '2.5rem' }}>
+            {filteredIpos.map((ipo) => (
+              <IpoCard
+                key={ipo.id}
+                ipo={ipo}
+                onSelect={(selected) => setSelectedIpo(selected)}
+              />
+            ))}
+          </div>
+        ) : (
           <div style={{ marginBottom: '2.5rem' }}>
-            <GmpTracker
-              ipos={iposList}
-              onSelectIpo={(ipo) => setSelectedIpo(ipo)}
-            />
-          </div>
-        )}
-
-        {/* Tab 3: PRE-IPO & UNLISTED */}
-        {activeTab === 'pre-ipo' && (
-          <div>
-            {/* Pre-IPO Intro Banner */}
-            <div style={{
-              background: 'linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%)',
-              border: '1px solid #bae6fd',
-              borderRadius: 'var(--radius-xl)',
-              padding: '1.75rem',
-              marginBottom: '1.75rem',
-              boxShadow: 'var(--shadow-card)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                <Award size={18} color="#0284c7" />
-                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#0284c7', textTransform: 'uppercase' }}>
-                  Unlisted Shares & Pre-IPO Institutional Desk
-                </span>
-              </div>
-              <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.4rem' }}>
-                Invest in Market Leaders Before They List on Dalal Street
-              </h2>
-              <p style={{ fontSize: '0.85rem', color: '#475569', maxWidth: '780px', lineHeight: '1.6', marginBottom: '1rem' }}>
-                Direct Demat transfers into your Zerodha, Groww, ICICI Direct, or AngelOne account via CDSL/NSDL off-market transfers. 
-                Own shares of market leaders like <strong>National Stock Exchange (NSE)</strong>, <strong>Reliance Retail</strong>, <strong>Tata Capital</strong>, and <strong>HDB Financial</strong> today.
-              </p>
-
-              <div>
-                <Link
-                  href="/pre-ipo"
-                  className="btn-primary"
-                  style={{ backgroundColor: '#0284c7', padding: '0.55rem 1.15rem', fontSize: '0.825rem' }}
-                >
-                  <Award size={15} />
-                  <span>Open Full Pre-IPO Marketplace (Sector Filters & Sorting) →</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Pre-IPO Grid or Table */}
-            {viewMode === 'GRID' ? (
-              <div className="responsive-card-grid" style={{ marginBottom: '2.5rem' }}>
-                {filteredPreIpos.map((item) => (
-                  <PreIpoCard
-                    key={item.id}
-                    item={item}
-                    onSelect={(selected) => setSelectedPreIpo(selected)}
-                    onInquire={(targetItem, type) => setTradeModal({ item: targetItem, type })}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div style={{ marginBottom: '2.5rem' }}>
-                <PreIpoTable
-                  items={filteredPreIpos}
-                  onSelect={(selected) => setSelectedPreIpo(selected)}
-                  onInquire={(targetItem, type) => setTradeModal({ item: targetItem, type })}
-                />
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Tab 4: ALLOTMENT STATUS */}
-        {activeTab === 'allotment' && (
-          <div style={{ marginBottom: '2.5rem' }}>
-            <AllotmentHub
-              ipos={iposList}
-              onSelectIpo={(ipo) => setSelectedIpo(ipo)}
+            <IpoTable
+              ipos={filteredIpos}
+              onSelect={(selected) => setSelectedIpo(selected)}
             />
           </div>
         )}
@@ -448,7 +387,7 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
             <HelpCircle size={20} color="#387ed1" />
             <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>
-              Essential Guide for Indian IPO & Pre-IPO Investors
+              Essential Guide for Indian IPO Investors
             </h3>
           </div>
 
@@ -477,10 +416,10 @@ export default function Home() {
 
             <div>
               <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#d97706', marginBottom: '0.5rem' }}>
-                3. Pre-IPO Demat Settlement
+                3. SEBI T+3 Listing Cycle
               </h4>
               <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: '1.6' }}>
-                Unlisted shares are held securely in dematerialized form under standard ISIN numbers. Transactions settle via official depository off-market transfers directly into your personal CDSL or NSDL demat account.
+                Under SEBI guidelines, all IPOs finalize allotment on T+1, initiate unblocking/refunds and credit shares on T+2, and list on the stock exchange on T+3 business days.
               </p>
             </div>
           </div>
@@ -492,22 +431,6 @@ export default function Home() {
         <IpoDetailModal
           ipo={selectedIpo}
           onClose={() => setSelectedIpo(null)}
-        />
-      )}
-
-      {selectedPreIpo && (
-        <PreIpoDetailModal
-          item={selectedPreIpo}
-          onClose={() => setSelectedPreIpo(null)}
-          onInquire={(item, type) => setTradeModal({ item, type })}
-        />
-      )}
-
-      {tradeModal && (
-        <PreIpoInquiryModal
-          item={tradeModal.item}
-          initialType={tradeModal.type}
-          onClose={() => setTradeModal(null)}
         />
       )}
 

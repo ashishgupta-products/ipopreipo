@@ -87,12 +87,6 @@ export default function PreIpoPage() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
       {/* Sticky Navbar */}
       <Navbar
-        activeTab="pre-ipo"
-        setActiveTab={(tab) => {
-          if (tab !== 'pre-ipo') {
-            window.location.href = tab === 'all-ipos' ? '/' : `/?tab=${tab}`;
-          }
-        }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />

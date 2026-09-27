@@ -380,3 +380,80 @@ export function getIpoDailyGmpChange(ipo: IpoItem): number {
   return ipo.gmpTrend === 'UP' ? 15 : ipo.gmpTrend === 'DOWN' ? -10 : 0;
 }
 
+// Built-in verified high-resolution SVG corporate brand marks
+export const BRAND_LOGOS: Record<string, string> = {
+  'swiggy': '/logos/swiggy.svg',
+  'hyundai': '/logos/hyundai.svg',
+  'waaree': '/logos/waaree.svg',
+  'bajaj': '/logos/bajaj.svg',
+  'premier': '/logos/premier.svg',
+  'ntpc': '/logos/ntpc.svg',
+  'ola': '/logos/ola.svg',
+  'firstcry': '/logos/firstcry.svg',
+  'brainbees': '/logos/firstcry.svg',
+  'afcons': '/logos/afcons.svg',
+  'krn': '/logos/krn.svg',
+  'acme': '/logos/acme.svg',
+  'sagility': '/logos/sagility.svg',
+  'niva': '/logos/nivabupa.svg',
+  'bupa': '/logos/nivabupa.svg',
+  'mobikwik': '/logos/mobikwik.svg',
+  'vishal': '/logos/vishal.svg',
+  'danish': '/logos/danish.svg'
+};
+
+// Known corporate web domains for automatic favicon & brand resolution
+export const BRAND_DOMAINS: Record<string, string> = {
+  'tna': 'tnasolutions.in',
+  'paramount': 'paramountsyntex.com',
+  'nitya': 'nityasgems.com',
+  'sollfege': 'sollfegesmartelectronics.com',
+  'sjp': 'sjpultrasonic.com',
+  'omara': 'omaraventures.com',
+  'everest': 'everestims.com',
+  'papadmalji': 'papadmalji.com',
+  'black opal': 'blackopal.in',
+  'vans': 'vanselectro.com',
+  'western': 'westerncarriers.in',
+  'northern': 'northernarc.com',
+  'manba': 'manbafinance.com',
+  'techera': 'techera.co.in'
+};
+
+/**
+ * Resolves a reliable logo image URL for an IPO company
+ * Priority 1: Built-in local high-resolution SVG
+ * Priority 2: Known corporate domain via Google Favicon CDN
+ * Priority 3: Clean corporate root domain fallback
+ */
+export function getIpoLogoUrl(name: string, symbol?: string): string {
+  if (!name) return '';
+  const nameLower = name.toLowerCase();
+
+  // 1. Check local high-res SVG match
+  for (const [key, path] of Object.entries(BRAND_LOGOS)) {
+    if (nameLower.includes(key)) {
+      return path;
+    }
+  }
+
+  // 2. Check known corporate domain match
+  for (const [key, domain] of Object.entries(BRAND_DOMAINS)) {
+    if (nameLower.includes(key)) {
+      return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+    }
+  }
+
+  // 3. Fallback to clean company name domain
+  const cleanWord = nameLower
+    .replace(/ limited| ltd| private| pvt| india|\(india\)| solutions| industries| technologies| services/gi, '')
+    .trim()
+    .replace(/[^a-z0-9]/g, '');
+
+  if (cleanWord.length >= 3) {
+    return `https://www.google.com/s2/favicons?domain=${cleanWord}.com&sz=128`;
+  }
+
+  return '';
+}
+

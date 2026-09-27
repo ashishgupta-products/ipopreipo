@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="afcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#991B1B"/>
+      <stop offset="100%" stop-color="#7F1D1D"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#afcGrad)"/>
+  <!-- Afcons Infrastructure bridge cables & triangle tower -->
+  <polygon points="64,28 34,96 48,96 64,54 80,96 94,96" fill="#FFFFFF"/>
+  <line x1="64" y1="54" x2="34" y2="96" stroke="#EF4444" stroke-width="4"/>
+  <line x1="64" y1="54" x2="94" y2="96" stroke="#EF4444" stroke-width="4"/>
+</svg>

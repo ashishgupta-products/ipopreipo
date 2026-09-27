@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bajajGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003366"/>
+      <stop offset="100%" stop-color="#001F3F"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bajajGrad)"/>
+  <!-- Bajaj flying winged monogram B -->
+  <path d="M44 32h24c13.3 0 24 9 24 20 0 7.8-4.4 14.7-11 17.8C89.5 73.5 95 81.3 95 91c0 12.7-10.7 23-24 23H44V32zm16 14v19h9c4.4 0 8-3.6 8-8s-3.6-8-8-8h-9zm0 33v21h12c5 0 9-4 9-9.5s-4-9.5-9-9.5H60z" fill="#FFFFFF"/>
+  <path d="M30 42l10 22-10 22h8l10-22-10-22h-8z" fill="#0EA5E9"/>
+</svg>
