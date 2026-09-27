@@ -14,6 +14,7 @@ import {
 import Navbar from '../../../components/layout/Navbar';
 import Footer from '../../../components/layout/Footer';
 import { getAnalystBySlug, getAllAnalysts } from '../../../lib/analystService';
+import { getAnalystBySlugFromDb, getAllAnalystsFromDb } from '../../../lib/db';
 
 interface AnalystPageProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +22,8 @@ interface AnalystPageProps {
 
 export async function generateMetadata({ params }: AnalystPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const analyst = getAnalystBySlug(slug);
+  const dbAnalyst = await getAnalystBySlugFromDb(slug);
+  const analyst = dbAnalyst || getAnalystBySlug(slug);
   if (!analyst) {
     return { title: 'Analyst Not Found | IPO Platform' };
   }
@@ -32,13 +34,15 @@ export async function generateMetadata({ params }: AnalystPageProps): Promise<Me
 }
 
 export async function generateStaticParams() {
-  const analysts = getAllAnalysts();
+  const dbAnalysts = await getAllAnalystsFromDb();
+  const analysts = (dbAnalysts && dbAnalysts.length > 0) ? dbAnalysts : getAllAnalysts();
   return analysts.map((a) => ({ slug: a.slug }));
 }
 
 export default async function AnalystDetailPage({ params }: AnalystPageProps) {
   const { slug } = await params;
-  const analyst = getAnalystBySlug(slug);
+  const dbAnalyst = await getAnalystBySlugFromDb(slug);
+  const analyst = dbAnalyst || getAnalystBySlug(slug);
 
   if (!analyst) {
     notFound();

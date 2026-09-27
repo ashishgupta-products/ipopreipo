@@ -42,6 +42,32 @@ export default function Home() {
       }
     }
   }, [router]);
+
+  // Fetch live IPO data from Neon PostgreSQL on initial mount
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/ipos')
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data.success && data.ipos && data.ipos.length > 0) {
+          setIposList(data.ipos);
+          if (data.lastUpdated) {
+            try {
+              const dt = new Date(data.lastUpdated);
+              setLastSyncTime(`Neon DB (${dt.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })})`);
+            } catch {
+              setLastSyncTime('Neon DB Live');
+            }
+          }
+        }
+      })
+      .catch((err) => console.error('Failed to load initial data from Neon DB:', err));
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('MAINBOARD');
   const [statusFilter, setStatusFilter] = useState<'ALL' | 'ONGOING' | 'UPCOMING' | 'CLOSED' | 'LISTED'>('ONGOING');
   const [searchQuery, setSearchQuery] = useState('');
@@ -53,7 +79,7 @@ export default function Home() {
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
   const [syncing, setSyncing] = useState(false);
-  const [lastSyncTime, setLastSyncTime] = useState<string>('Live Scraped');
+  const [lastSyncTime, setLastSyncTime] = useState<string>('Neon DB Connected');
 
   const handleSync = async () => {
     setSyncing(true);
