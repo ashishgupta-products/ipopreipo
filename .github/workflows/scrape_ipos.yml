@@ -32,6 +32,8 @@ jobs:
           pip install -r scraper/requirements.txt
 
       - name: Run IPO & GMP Scraper
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           python scraper/scrape_ipos.py
 

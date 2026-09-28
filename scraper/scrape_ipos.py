@@ -613,6 +613,27 @@ def main():
     src_json_path = os.path.join(src_data_dir, 'live_ipos.json')
     public_json_path = os.path.join(public_data_dir, 'live_ipos.json')
 
+    # Safety Check: If total positive GMP count in newly scraped data is 0,
+    # but the existing live_ipos.json had positive GMPs, carry over the old GMPs
+    # so a temporary network glitch or scraping block does not zero out all GMPs!
+    new_gmp_positive = sum(1 for i in live_ipos if float(i.get('gmp', 0)) > 0)
+    if new_gmp_positive == 0 and os.path.exists(src_json_path):
+        try:
+            with open(src_json_path, 'r', encoding='utf-8') as f:
+                old_d = json.load(f)
+                old_map = {item['id']: item for item in old_d.get('ipos', [])}
+                for item in live_ipos:
+                    if item['id'] in old_map and float(old_map[item['id']].get('gmp', 0)) > 0:
+                        old_item = old_map[item['id']]
+                        item['gmp'] = old_item['gmp']
+                        if 'gmpTrend' in old_item:
+                            item['gmpTrend'] = old_item['gmpTrend']
+                        if 'fireRating' in old_item:
+                            item['fireRating'] = old_item['fireRating']
+            print("[Resilience] Preserved previous non-zero GMP data as live source returned 0 items.")
+        except Exception as e:
+            print(f"[Warning] Failed to restore previous GMPs: {e}")
+
     now_iso = datetime.datetime.now().isoformat()
     payload = {
         'lastUpdated': now_iso,
