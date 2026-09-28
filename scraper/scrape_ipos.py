@@ -227,9 +227,10 @@ def scrape_investorgain_gmp():
 
     return gmp_map
 
-def match_gmp(name: str, symbol: str, gmp_map: dict):
+def match_gmp(name: str, symbol: str, gmp_map: dict, existing_gmp: dict = None):
     """
     Fuzzy matches Zerodha company name/symbol with InvestorGain live GMP map.
+    Preserves existing non-zero GMP if live source is temporarily unavailable.
     """
     n_lower = name.lower()
     s_lower = symbol.lower()
@@ -244,6 +245,10 @@ def match_gmp(name: str, symbol: str, gmp_map: dict):
         for k, v in gmp_map.items():
             if token in k:
                 return v
+
+    # Fallback to existing known GMP if available rather than setting to 0
+    if existing_gmp and float(existing_gmp.get('gmp', 0)) > 0:
+        return existing_gmp
 
     return {'gmp': 0.0, 'trend': 'STABLE', 'fire': 2, 'subscription': 0.0}
 
@@ -266,6 +271,27 @@ def scrape_zerodha_primary():
 
     # Fetch live GMP map for enrichment
     gmp_map = scrape_investorgain_gmp()
+
+    # Load existing GMP fallback map from src/data/live_ipos.json
+    existing_gmp_map = {}
+    try:
+        curr_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(curr_dir)
+        src_json_path = os.path.join(project_root, 'src', 'data', 'live_ipos.json')
+        if os.path.exists(src_json_path):
+            with open(src_json_path, 'r', encoding='utf-8') as f:
+                old_d = json.load(f)
+                for item in old_d.get('ipos', []):
+                    if item.get('gmp') and float(item['gmp']) > 0:
+                        existing_gmp_map[item['id']] = {
+                            'gmp': float(item['gmp']),
+                            'trend': item.get('gmpTrend', 'STABLE'),
+                            'fire': item.get('fireRating', 3),
+                            'subscription': 0.0
+                        }
+        print(f"[Cache] Loaded {len(existing_gmp_map)} fallback GMP entries.")
+    except Exception as e:
+        print(f"[Warning] Could not load existing GMP cache: {e}")
 
     parsed_ipos = []
     now_str = datetime.datetime.now().strftime("%d %b, %I:%M %p")
@@ -318,15 +344,16 @@ def scrape_zerodha_primary():
         # Exchange
         exchange = 'NSE & BSE' if category == 'MAINBOARD' else 'NSE SME'
 
-        # Match live GMP
-        gmp_info = match_gmp(clean_name, clean_sym, gmp_map)
+        issue_id = slugify(clean_name)
+
+        # Match live GMP (with existing fallback)
+        gmp_info = match_gmp(clean_name, clean_sym, gmp_map, existing_gmp_map.get(issue_id))
 
         # Infer registrar
         reg_name, reg_url = infer_registrar(clean_name)
         sector = infer_sector(clean_name)
 
         # Baseline details
-        issue_id = slugify(clean_name)
         base_item = {
             'id': issue_id,
             'name': clean_name,
