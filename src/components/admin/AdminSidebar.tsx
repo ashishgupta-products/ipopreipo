@@ -121,7 +121,7 @@ export default function AdminSidebar({
           style={{
             position: 'fixed',
             inset: 0,
-            backgroundColor: 'rgba(5, 10, 24, 0.7)',
+            backgroundColor: 'rgba(15, 23, 42, 0.45)',
             backdropFilter: 'blur(4px)',
             zIndex: 9998,
             transition: 'opacity 0.25s ease'
@@ -136,28 +136,28 @@ export default function AdminSidebar({
           minWidth: isCollapsed ? '72px' : '255px',
           maxWidth: isCollapsed ? '72px' : '255px',
           height: '100vh',
-          backgroundColor: '#090d16',
-          color: '#f8fafc',
-          borderRight: '1px solid rgba(255, 255, 255, 0.08)',
+          backgroundColor: '#ffffff',
+          color: '#0f172a',
+          borderRight: '1px solid #e2e8f0',
           display: 'flex',
           flexDirection: 'column',
           flexShrink: 0,
           overflow: 'hidden',
           transition: 'width 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-          boxShadow: '4px 0 24px rgba(0, 0, 0, 0.35)',
+          boxShadow: '1px 0 4px rgba(0, 0, 0, 0.02)',
         }}
         className={`admin-sidebar ${isMobileOpen ? 'mobile-open' : ''}`}
       >
         {/* 1. TOP HEADER: Brand & Workspace */}
         <div style={{
           padding: isCollapsed ? '1rem 0.5rem' : '1rem 1.15rem',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid #f1f5f9',
           display: 'flex',
           alignItems: 'center',
           justifyContent: isCollapsed ? 'center' : 'space-between',
           gap: '0.65rem',
           flexShrink: 0,
-          backgroundColor: '#060911'
+          backgroundColor: '#ffffff'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', overflow: 'hidden' }}>
             <div style={{
@@ -165,11 +165,11 @@ export default function AdminSidebar({
               height: '36px',
               minWidth: '36px',
               borderRadius: '10px',
-              background: 'linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #06b6d4 100%)',
+              background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 16px rgba(99, 102, 241, 0.4)',
+              boxShadow: '0 2px 8px rgba(37, 99, 235, 0.3)',
               border: '1px solid rgba(255, 255, 255, 0.2)'
             }}>
               <ShieldCheck size={20} color="#ffffff" strokeWidth={2.2} />
@@ -182,7 +182,7 @@ export default function AdminSidebar({
                     fontSize: '0.95rem', 
                     fontWeight: 800, 
                     letterSpacing: '-0.02em', 
-                    color: '#ffffff',
+                    color: '#0f172a',
                     whiteSpace: 'nowrap'
                   }}>
                     IPO Terminal
@@ -190,16 +190,17 @@ export default function AdminSidebar({
                   <span style={{
                     fontSize: '0.6rem',
                     fontWeight: 800,
-                    backgroundColor: '#7c3aed',
-                    color: '#ffffff',
-                    padding: '1px 5px',
+                    backgroundColor: '#eff6ff',
+                    color: '#2563eb',
+                    padding: '1px 6px',
                     borderRadius: '999px',
+                    border: '1px solid #bfdbfe',
                     letterSpacing: '0.04em'
                   }}>
                     ADMIN
                   </span>
                 </div>
-                <span style={{ fontSize: '0.7rem', color: '#94a3b8', whiteSpace: 'nowrap' }}>
+                <span style={{ fontSize: '0.7rem', color: '#64748b', whiteSpace: 'nowrap' }}>
                   Management Suite
                 </span>
               </div>
@@ -213,9 +214,9 @@ export default function AdminSidebar({
               width: '26px',
               height: '26px',
               borderRadius: '6px',
-              backgroundColor: '#1e293b',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: '#94a3b8',
+              backgroundColor: '#f8fafc',
+              border: '1px solid #e2e8f0',
+              color: '#64748b',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -235,8 +236,8 @@ export default function AdminSidebar({
             margin: '0.65rem 0.85rem 0.25rem',
             padding: '0.4rem 0.65rem',
             borderRadius: '7px',
-            backgroundColor: 'rgba(16, 185, 129, 0.08)',
-            border: '1px solid rgba(16, 185, 129, 0.2)',
+            backgroundColor: '#f0fdf4',
+            border: '1px solid #bbf7d0',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -248,14 +249,14 @@ export default function AdminSidebar({
                 width: '7px',
                 height: '7px',
                 borderRadius: '50%',
-                backgroundColor: '#10b981',
-                boxShadow: '0 0 6px #10b981'
+                backgroundColor: '#16a34a',
+                boxShadow: '0 0 6px rgba(22, 163, 74, 0.4)'
               }}></span>
-              <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#34d399' }}>
+              <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#166534' }}>
                 Neon PostgreSQL
               </span>
             </div>
-            <span style={{ fontSize: '0.62rem', color: '#6ee7b7', backgroundColor: 'rgba(16, 185, 129, 0.16)', padding: '1px 5px', borderRadius: '3px' }}>
+            <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#15803d', backgroundColor: '#dcfce7', padding: '1px 5px', borderRadius: '3px' }}>
               Online
             </span>
           </div>
@@ -265,8 +266,8 @@ export default function AdminSidebar({
               width: '8px',
               height: '8px',
               borderRadius: '50%',
-              backgroundColor: '#10b981',
-              boxShadow: '0 0 8px #10b981'
+              backgroundColor: '#16a34a',
+              boxShadow: '0 0 6px rgba(22, 163, 74, 0.4)'
             }}></span>
           </div>
         )}
@@ -287,7 +288,7 @@ export default function AdminSidebar({
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              color: '#64748b',
+              color: '#94a3b8',
               padding: '0.4rem 0.5rem 0.15rem'
             }}>
               Navigation
@@ -308,9 +309,9 @@ export default function AdminSidebar({
                   width: '100%',
                   padding: isCollapsed ? '0.65rem 0' : '0.6rem 0.85rem',
                   borderRadius: '8px',
-                  border: isActive ? '1px solid rgba(59, 130, 246, 0.5)' : '1px solid transparent',
-                  backgroundColor: isActive ? 'rgba(37, 99, 235, 0.18)' : 'transparent',
-                  color: isActive ? '#ffffff' : '#94a3b8',
+                  border: isActive ? '1px solid #bfdbfe' : '1px solid transparent',
+                  backgroundColor: isActive ? '#eff6ff' : 'transparent',
+                  color: isActive ? '#1d4ed8' : '#475569',
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
                   position: 'relative'
@@ -319,11 +320,10 @@ export default function AdminSidebar({
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <span style={{
-                    color: isActive ? '#38bdf8' : '#94a3b8',
+                    color: isActive ? '#2563eb' : '#64748b',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    filter: isActive ? 'drop-shadow(0 0 6px rgba(56, 189, 248, 0.6))' : 'none'
                   }}>
                     {item.icon}
                   </span>
@@ -331,7 +331,7 @@ export default function AdminSidebar({
                     <span style={{
                       fontSize: '0.84rem',
                       fontWeight: isActive ? 700 : 500,
-                      color: isActive ? '#ffffff' : '#cbd5e1',
+                      color: isActive ? '#1d4ed8' : '#334155',
                       whiteSpace: 'nowrap'
                     }}>
                       {item.label}
@@ -345,8 +345,8 @@ export default function AdminSidebar({
                       <span style={{
                         fontSize: '0.7rem',
                         fontWeight: 700,
-                        backgroundColor: isActive ? 'rgba(59, 130, 246, 0.3)' : 'rgba(255, 255, 255, 0.08)',
-                        color: isActive ? '#93c5fd' : '#94a3b8',
+                        backgroundColor: isActive ? '#dbeafe' : '#f1f5f9',
+                        color: isActive ? '#1d4ed8' : '#64748b',
                         padding: '1px 7px',
                         borderRadius: '999px',
                       }}>
@@ -357,8 +357,8 @@ export default function AdminSidebar({
                       <span style={{
                         fontSize: '0.62rem',
                         fontWeight: 800,
-                        backgroundColor: isActive ? '#2563eb' : 'rgba(255, 255, 255, 0.08)',
-                        color: '#ffffff',
+                        backgroundColor: isActive ? '#2563eb' : '#f1f5f9',
+                        color: isActive ? '#ffffff' : '#64748b',
                         padding: '1px 6px',
                         borderRadius: '5px'
                       }}>
@@ -373,13 +373,13 @@ export default function AdminSidebar({
 
           {/* Quick Shortcuts */}
           {!isCollapsed ? (
-            <div style={{ marginTop: '0.65rem', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '0.65rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+            <div style={{ marginTop: '0.65rem', borderTop: '1px solid #f1f5f9', paddingTop: '0.65rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               <div style={{
                 fontSize: '0.65rem',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                color: '#64748b',
+                color: '#94a3b8',
                 padding: '0.15rem 0.5rem'
               }}>
                 Quick Actions
@@ -393,9 +393,9 @@ export default function AdminSidebar({
                   gap: '0.65rem',
                   padding: '0.55rem 0.75rem',
                   borderRadius: '7px',
-                  backgroundColor: 'rgba(37, 99, 235, 0.12)',
-                  border: '1px solid rgba(59, 130, 246, 0.25)',
-                  color: '#60a5fa',
+                  backgroundColor: '#eff6ff',
+                  border: '1px solid #bfdbfe',
+                  color: '#1d4ed8',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   textDecoration: 'none',
@@ -417,9 +417,9 @@ export default function AdminSidebar({
                   width: '100%',
                   padding: '0.55rem 0.75rem',
                   borderRadius: '7px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  color: '#e2e8f0',
+                  backgroundColor: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  color: '#334155',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   cursor: syncing ? 'not-allowed' : 'pointer',
@@ -427,7 +427,7 @@ export default function AdminSidebar({
                 }}
                 className="admin-shortcut-btn"
               >
-                <RefreshCw size={14} className={syncing ? 'animate-spin' : ''} color="#38bdf8" />
+                <RefreshCw size={14} className={syncing ? 'animate-spin' : ''} color="#2563eb" />
                 <span>{syncing ? 'Syncing...' : 'Sync Scraper Data'}</span>
               </button>
             </div>
@@ -439,9 +439,9 @@ export default function AdminSidebar({
                   width: '36px',
                   height: '36px',
                   borderRadius: '8px',
-                  backgroundColor: 'rgba(37, 99, 235, 0.15)',
-                  border: '1px solid rgba(59, 130, 246, 0.3)',
-                  color: '#60a5fa',
+                  backgroundColor: '#eff6ff',
+                  border: '1px solid #bfdbfe',
+                  color: '#2563eb',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -457,9 +457,9 @@ export default function AdminSidebar({
                   width: '36px',
                   height: '36px',
                   borderRadius: '8px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  color: '#38bdf8',
+                  backgroundColor: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  color: '#2563eb',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -476,8 +476,8 @@ export default function AdminSidebar({
         {/* 4. BOTTOM FOOTER: Public Terminal Link & Profile */}
         <div style={{
           padding: isCollapsed ? '0.75rem 0.4rem' : '0.75rem 0.95rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          backgroundColor: '#060911',
+          borderTop: '1px solid #f1f5f9',
+          backgroundColor: '#f8fafc',
           display: 'flex',
           flexDirection: 'column',
           gap: '0.6rem',
@@ -493,9 +493,9 @@ export default function AdminSidebar({
                 justifyContent: 'space-between',
                 padding: '0.45rem 0.65rem',
                 borderRadius: '6px',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                color: '#94a3b8',
+                backgroundColor: '#ffffff',
+                border: '1px solid #e2e8f0',
+                color: '#475569',
                 fontSize: '0.75rem',
                 fontWeight: 600,
                 textDecoration: 'none',
@@ -504,7 +504,7 @@ export default function AdminSidebar({
               className="admin-footer-link"
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                <Sparkles size={13} color="#f59e0b" />
+                <Sparkles size={13} color="#d97706" />
                 <span>View Public Terminal</span>
               </div>
               <ExternalLink size={12} />
@@ -524,14 +524,14 @@ export default function AdminSidebar({
                 height: '32px',
                 minWidth: '32px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)',
+                background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
                 color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 800,
                 fontSize: '0.85rem',
-                boxShadow: '0 0 8px rgba(124, 58, 237, 0.4)'
+                boxShadow: '0 2px 4px rgba(37, 99, 235, 0.25)'
               }}>
                 {userInitial}
               </div>
@@ -541,7 +541,7 @@ export default function AdminSidebar({
                   <span style={{
                     fontSize: '0.78rem',
                     fontWeight: 700,
-                    color: '#f8fafc',
+                    color: '#0f172a',
                     whiteSpace: 'nowrap',
                     textOverflow: 'ellipsis',
                     overflow: 'hidden'
@@ -567,14 +567,14 @@ export default function AdminSidebar({
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#64748b',
+                  color: '#94a3b8',
                   cursor: 'pointer',
                   padding: '5px',
                   borderRadius: '5px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  transition: 'color 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
                 className="admin-signout-btn"
                 title="Sign Out"
@@ -588,25 +588,35 @@ export default function AdminSidebar({
 
       <style jsx global>{`
         .admin-nav-item:hover {
-          background-color: rgba(255, 255, 255, 0.05) !important;
-          color: #ffffff !important;
+          background-color: #f8fafc !important;
+          color: #0f172a !important;
         }
         .admin-shortcut-btn:hover {
-          filter: brightness(1.15);
+          filter: brightness(0.97);
         }
         .admin-footer-link:hover {
-          background-color: rgba(255, 255, 255, 0.08) !important;
-          color: #ffffff !important;
+          background-color: #f1f5f9 !important;
+          color: #0f172a !important;
+          border-color: #cbd5e1 !important;
         }
         .admin-signout-btn:hover {
-          color: #ef4444 !important;
+          color: #dc2626 !important;
+          background-color: #fef2f2 !important;
+        }
+        .desktop-collapse-btn:hover {
+          background-color: #f1f5f9 !important;
+          color: #0f172a !important;
+          border-color: #cbd5e1 !important;
         }
         .admin-sidebar-scroll::-webkit-scrollbar {
           width: 4px;
         }
         .admin-sidebar-scroll::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.1);
+          background: #e2e8f0;
           border-radius: 4px;
+        }
+        .admin-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+          background: #cbd5e1;
         }
         @media (min-width: 1025px) {
           .desktop-collapse-btn {
