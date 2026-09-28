@@ -14,12 +14,23 @@ async function verifyAdmin() {
   return { user: session.user };
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   const authRes = await verifyAdmin();
   if (authRes.error) return authRes.error;
 
   try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
     const ipos = await getAllIposFromDb();
+    
+    if (id) {
+      const match = (ipos || []).find(i => i.id.toLowerCase() === id.toLowerCase());
+      if (!match) {
+        return NextResponse.json({ error: "IPO not found" }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, ipo: match });
+    }
+
     return NextResponse.json({ success: true, ipos: ipos || [] });
   } catch (err) {
     console.error("Error fetching ipos for admin:", err);

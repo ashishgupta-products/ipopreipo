@@ -632,6 +632,7 @@ export async function createIpoInDb(ipo: Partial<IpoItem>): Promise<IpoItem | nu
     const sector = ipo.sector || 'Diversified';
 
     const fullIpo: IpoItem = {
+      ...ipo,
       id,
       name,
       symbol,
@@ -649,13 +650,14 @@ export async function createIpoInDb(ipo: Partial<IpoItem>): Promise<IpoItem | nu
       exchange: ipo.exchange || 'NSE & BSE',
       registrar: ipo.registrar || 'Link Intime India Pvt Ltd',
       registrarUrl: ipo.registrarUrl || 'https://linkintime.co.in/initial_offer/public-issues.html',
-      timeline: ipo.timeline || {
+      timeline: {
         biddingStarts: 'TBA',
         biddingEnds: 'TBA',
         allotmentFinalization: 'TBA',
         refundInitiation: 'TBA',
         creditOfShares: 'TBA',
-        listingDate: 'TBA'
+        listingDate: 'TBA',
+        ...(ipo.timeline || {})
       },
       sector,
       about: ipo.about || `${name} public offering.`,
@@ -731,7 +733,11 @@ export async function updateIpoInDb(id: string, partial: Partial<IpoItem>): Prom
       timeline: {
         ...currentIpo.timeline,
         ...(partial.timeline || {})
-      }
+      },
+      subscription: partial.subscription !== undefined ? partial.subscription : currentIpo.subscription,
+      financialHighlights: partial.financialHighlights !== undefined ? { ...currentIpo.financialHighlights, ...partial.financialHighlights } : currentIpo.financialHighlights,
+      quotaReservation: partial.quotaReservation !== undefined ? { ...currentIpo.quotaReservation, ...partial.quotaReservation } : currentIpo.quotaReservation,
+      promoterHolding: partial.promoterHolding !== undefined ? { ...currentIpo.promoterHolding, ...partial.promoterHolding } : currentIpo.promoterHolding,
     };
 
     const priceBandHigh = updatedIpo.priceBandHigh || 100;

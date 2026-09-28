@@ -82,9 +82,6 @@ export default function AdminPage() {
   const [userSearch, setUserSearch] = useState('');
 
   // Modals
-  const [ipoModalOpen, setIpoModalOpen] = useState(false);
-  const [editingIpo, setEditingIpo] = useState<Partial<IpoItem> | null>(null);
-
   const [preIpoModalOpen, setPreIpoModalOpen] = useState(false);
   const [editingPreIpo, setEditingPreIpo] = useState<Partial<PreIpoRecord> | null>(null);
 
@@ -207,40 +204,6 @@ export default function AdminPage() {
     }
   };
 
-  // IPO Save (Create / Update)
-  const handleSaveIpo = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!editingIpo?.name) return;
-
-    try {
-      const isEdit = !!editingIpo.id && ipos.some(i => i.id === editingIpo.id);
-      const url = '/api/admin/ipos';
-      const method = isEdit ? 'PUT' : 'POST';
-
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editingIpo)
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        if (isEdit) {
-          setIpos(ipos.map(i => i.id === data.ipo.id ? data.ipo : i));
-        } else {
-          setIpos([data.ipo, ...ipos]);
-        }
-        setIpoModalOpen(false);
-        setEditingIpo(null);
-        setActionMessage({ type: 'success', text: `IPO "${data.ipo.name}" saved successfully!` });
-      } else {
-        const d = await res.json();
-        setActionMessage({ type: 'error', text: d.error || 'Failed to save IPO' });
-      }
-    } catch {
-      setActionMessage({ type: 'error', text: 'Error saving IPO' });
-    }
-  };
 
   // Delete IPO
   const handleDeleteIpo = async (id: string, name: string) => {
@@ -527,7 +490,7 @@ export default function AdminPage() {
         sessionUser={session?.user as any}
         syncing={syncing}
         onTriggerSync={handleTriggerSync}
-        onOpenCreateIpo={() => { setEditingIpo({}); setIpoModalOpen(true); }}
+        onOpenCreateIpo={() => router.push('/admin/ipos/new')}
         onOpenCreatePreIpo={() => { setEditingPreIpo({}); setPreIpoModalOpen(true); }}
         isCollapsed={isCollapsed}
         setIsCollapsed={setIsCollapsed}
@@ -617,8 +580,8 @@ export default function AdminPage() {
             </button>
 
             {activeTab === 'ipos' && (
-              <button
-                onClick={() => { setEditingIpo({}); setIpoModalOpen(true); }}
+              <Link
+                href="/admin/ipos/new"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -630,13 +593,13 @@ export default function AdminPage() {
                   borderRadius: '8px',
                   fontSize: '0.82rem',
                   fontWeight: 600,
-                  cursor: 'pointer',
+                  textDecoration: 'none',
                   boxShadow: '0 2px 6px rgba(37, 99, 235, 0.25)'
                 }}
               >
                 <Plus size={15} />
                 <span>Add IPO</span>
-              </button>
+              </Link>
             )}
 
             {activeTab === 'pre-ipos' && (
@@ -844,21 +807,8 @@ export default function AdminPage() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '1rem'
               }}>
-                <button
-                  onClick={() => {
-                    setEditingIpo({
-                      category: 'MAINBOARD',
-                      status: 'UPCOMING',
-                      priceBandLow: 150,
-                      priceBandHigh: 165,
-                      lotSize: 90,
-                      issueSizeCr: 800,
-                      gmp: 45,
-                      fireRating: 4,
-                      exchange: 'NSE & BSE'
-                    });
-                    setIpoModalOpen(true);
-                  }}
+                <Link
+                  href="/admin/ipos/new"
                   style={{
                     padding: '1rem',
                     borderRadius: '8px',
@@ -870,12 +820,12 @@ export default function AdminPage() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    cursor: 'pointer'
+                    textDecoration: 'none'
                   }}
                 >
                   <Plus size={18} />
                   <span>Add New IPO</span>
-                </button>
+                </Link>
 
                 <button
                   onClick={() => {
@@ -1064,21 +1014,8 @@ export default function AdminPage() {
                 </select>
               </div>
 
-              <button
-                onClick={() => {
-                  setEditingIpo({
-                    category: 'MAINBOARD',
-                    status: 'UPCOMING',
-                    priceBandLow: 100,
-                    priceBandHigh: 110,
-                    lotSize: 100,
-                    issueSizeCr: 500,
-                    gmp: 25,
-                    fireRating: 3,
-                    exchange: 'NSE & BSE'
-                  });
-                  setIpoModalOpen(true);
-                }}
+              <Link
+                href="/admin/ipos/new"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -1089,13 +1026,12 @@ export default function AdminPage() {
                   color: '#ffffff',
                   fontWeight: 600,
                   fontSize: '0.85rem',
-                  border: 'none',
-                  cursor: 'pointer'
+                  textDecoration: 'none'
                 }}
               >
                 <Plus size={16} />
                 <span>Add New IPO</span>
-              </button>
+              </Link>
             </div>
 
             {/* IPOs Table */}
@@ -1187,24 +1123,20 @@ export default function AdminPage() {
                             >
                               <ExternalLink size={14} />
                             </Link>
-                            <button
-                              onClick={() => {
-                                setEditingIpo({ ...ipo });
-                                setIpoModalOpen(true);
-                              }}
-                              title="Edit IPO"
+                            <Link
+                              href={`/admin/ipos/${ipo.id}/edit`}
+                              title="Edit IPO (Full Page Editor)"
                               style={{
                                 padding: '0.35rem',
                                 borderRadius: '6px',
                                 border: '1px solid #bfdbfe',
                                 color: '#2563eb',
                                 backgroundColor: '#eff6ff',
-                                cursor: 'pointer',
                                 display: 'flex'
                               }}
                             >
                               <Edit3 size={14} />
-                            </button>
+                            </Link>
                             <button
                               onClick={() => handleDeleteIpo(ipo.id, ipo.name)}
                               title="Delete IPO"
@@ -1590,226 +1522,7 @@ export default function AdminPage() {
       </main>
     </div>
 
-      {/* MODAL: ADD / EDIT IPO */}
-      {ipoModalOpen && editingIpo && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(15, 23, 42, 0.65)',
-          backdropFilter: 'blur(4px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 9999,
-          padding: '1rem'
-        }}>
-          <div style={{
-            backgroundColor: '#ffffff',
-            borderRadius: '16px',
-            width: '100%',
-            maxWidth: '680px',
-            maxHeight: '90vh',
-            overflowY: 'auto',
-            padding: '2rem',
-            boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
-                {editingIpo.id && ipos.some(i => i.id === editingIpo.id) ? 'Edit IPO Details' : 'Add New IPO to Database'}
-              </h3>
-              <button
-                onClick={() => { setIpoModalOpen(false); setEditingIpo(null); }}
-                style={{ background: 'none', border: 'none', fontSize: '1.25rem', cursor: 'pointer', color: '#64748b' }}
-              >
-                ✕
-              </button>
-            </div>
 
-            <form onSubmit={handleSaveIpo} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Company / IPO Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={editingIpo.name || ''}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, name: e.target.value })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Symbol *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={editingIpo.symbol || ''}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, symbol: e.target.value.toUpperCase() })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Category
-                  </label>
-                  <select
-                    value={editingIpo.category || 'MAINBOARD'}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, category: e.target.value as IpoCategory })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  >
-                    <option value="MAINBOARD">Mainboard</option>
-                    <option value="SME">SME</option>
-                  </select>
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Status
-                  </label>
-                  <select
-                    value={editingIpo.status || 'UPCOMING'}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, status: e.target.value as IpoStatus })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  >
-                    <option value="ONGOING">Ongoing</option>
-                    <option value="UPCOMING">Upcoming</option>
-                    <option value="CLOSED">Closed</option>
-                    <option value="LISTED">Listed</option>
-                  </select>
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Fire Rating (1-5 🔥)
-                  </label>
-                  <select
-                    value={editingIpo.fireRating || 3}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, fireRating: Number(e.target.value) as any })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  >
-                    <option value="1">1 🔥 Low Demand</option>
-                    <option value="2">2 🔥 Moderate</option>
-                    <option value="3">3 🔥 Good Demand</option>
-                    <option value="4">4 🔥 Very Strong</option>
-                    <option value="5">5 🔥 Blockbuster</option>
-                  </select>
-                </div>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Price Low (₹)
-                  </label>
-                  <input
-                    type="number"
-                    value={editingIpo.priceBandLow || 0}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, priceBandLow: Number(e.target.value) })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Price High (₹) *
-                  </label>
-                  <input
-                    type="number"
-                    required
-                    value={editingIpo.priceBandHigh || 0}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, priceBandHigh: Number(e.target.value) })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Lot Size
-                  </label>
-                  <input
-                    type="number"
-                    value={editingIpo.lotSize || 100}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, lotSize: Number(e.target.value) })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Live GMP (₹)
-                  </label>
-                  <input
-                    type="number"
-                    value={editingIpo.gmp || 0}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, gmp: Number(e.target.value) })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Issue Size (₹ Cr)
-                  </label>
-                  <input
-                    type="number"
-                    value={editingIpo.issueSizeCr || 0}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, issueSizeCr: Number(e.target.value) })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
-                    Sector / Industry
-                  </label>
-                  <input
-                    type="text"
-                    value={editingIpo.sector || ''}
-                    onChange={(e) => setEditingIpo({ ...editingIpo, sector: e.target.value })}
-                    style={{ width: '100%', padding: '0.55rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                  />
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1rem', borderTop: '1px solid #e2e8f0', paddingTop: '1rem' }}>
-                <button
-                  type="button"
-                  onClick={() => { setIpoModalOpen(false); setEditingIpo(null); }}
-                  style={{
-                    padding: '0.65rem 1.25rem',
-                    borderRadius: '8px',
-                    border: '1px solid #cbd5e1',
-                    backgroundColor: '#ffffff',
-                    fontWeight: 600,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  style={{
-                    padding: '0.65rem 1.5rem',
-                    borderRadius: '8px',
-                    backgroundColor: '#2563eb',
-                    color: '#ffffff',
-                    fontWeight: 600,
-                    border: 'none',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Save to Neon DB
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* MODAL: ADD / EDIT PRE-IPO */}
       {preIpoModalOpen && editingPreIpo && (
