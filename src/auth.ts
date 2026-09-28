@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs";
 import { findUserByEmail, upsertOAuthUser } from "./lib/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true,
   providers: [
     ...(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET
       ? [
@@ -108,6 +109,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   pages: {
     signIn: "/auth/signin",
+    error: "/auth/signin",
   },
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || "4f8b9e6a1d2c3e5f7a9b0c2d4e6f8a1b3c5d7e9f0a2b4c6d8e0f2a4b6c8d0e2f",
 });

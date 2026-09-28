@@ -12,6 +12,7 @@ function SignInContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
+  const urlError = searchParams.get('error');
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +20,15 @@ function SignInContent() {
   const [loading, setLoading] = useState(false);
   const [fastLoadingRole, setFastLoadingRole] = useState<string | null>(null);
   const [googleLoading, setGoogleLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(
+    urlError === 'Configuration'
+      ? 'Server configuration alert: Please verify AUTH_SECRET in your Vercel project settings.'
+      : urlError === 'CredentialsSignin'
+      ? 'Invalid email or password. Please verify your credentials.'
+      : urlError
+      ? `Authentication notice: ${urlError}`
+      : ''
+  );
 
   const executeSignIn = async (userEmail: string, userPass: string, redirectTarget?: string) => {
     setError('');
