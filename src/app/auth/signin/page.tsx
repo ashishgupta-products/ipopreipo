@@ -88,26 +88,68 @@ function SignInContent() {
       padding: '2.5rem 2rem'
     }}>
       {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
         <div style={{
-          width: '48px',
-          height: '48px',
-          borderRadius: '12px',
+          width: '44px',
+          height: '44px',
+          borderRadius: '10px',
           background: 'linear-gradient(135deg, #387ed1 0%, #00b386 100%)',
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          marginBottom: '1rem',
+          marginBottom: '0.85rem',
           boxShadow: '0 4px 12px rgba(56, 126, 209, 0.3)'
         }}>
-          <TrendingUp size={24} color="#ffffff" />
+          <TrendingUp size={22} color="#ffffff" />
         </div>
-        <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '0.35rem' }}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '0.25rem' }}>
           Welcome Back
         </h1>
-        <p style={{ fontSize: '0.88rem', color: '#64748b' }}>
-          Sign in to manage your investor profile, Demat broker & watchlists
+        <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
+          Sign in to access your IPO dashboard & Demat portfolios
         </p>
+      </div>
+
+      {/* Segmented Auth Switcher (Sign In / Sign Up) */}
+      <div style={{
+        display: 'flex',
+        backgroundColor: '#f1f5f9',
+        padding: '3px',
+        borderRadius: '9px',
+        marginBottom: '1.25rem',
+        border: '1px solid #e2e8f0'
+      }}>
+        <div style={{
+          flex: 1,
+          textAlign: 'center',
+          padding: '0.42rem 0.5rem',
+          borderRadius: '7px',
+          backgroundColor: '#ffffff',
+          color: '#0f172a',
+          fontWeight: 700,
+          fontSize: '0.84rem',
+          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+        }}>
+          Sign In
+        </div>
+        <Link
+          href="/auth/signup"
+          style={{
+            flex: 1,
+            textAlign: 'center',
+            padding: '0.42rem 0.5rem',
+            borderRadius: '7px',
+            color: '#64748b',
+            fontWeight: 600,
+            fontSize: '0.84rem',
+            textDecoration: 'none',
+            transition: 'all 0.15s ease'
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#0f172a')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
+        >
+          New User? Sign Up
+        </Link>
       </div>
 
       {/* ⚡ DEV FAST-LOGIN 1-CLICK SHORTCUTS */}
@@ -358,11 +400,46 @@ function SignInContent() {
         <span>{googleLoading ? 'Redirecting to Google...' : 'Continue with Google'}</span>
       </button>
 
-      {/* Footer Link */}
-      <div style={{ textAlign: 'center', marginTop: '1.75rem', fontSize: '0.85rem', color: '#64748b' }}>
-        <span>Don&apos;t have an account? </span>
-        <Link href="/auth/signup" style={{ color: '#2563eb', fontWeight: 700, textDecoration: 'none' }}>
-          Create an account
+      {/* New Account Sign Up Callout */}
+      <div style={{
+        marginTop: '1.75rem',
+        padding: '1rem',
+        borderRadius: '12px',
+        backgroundColor: '#f8fafc',
+        border: '1px solid #e2e8f0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '0.75rem'
+      }}>
+        <div>
+          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a' }}>
+            New to IPO & PreIPO?
+          </div>
+          <div style={{ fontSize: '0.74rem', color: '#64748b' }}>
+            Track GMPs & live allotment for free
+          </div>
+        </div>
+        <Link
+          href="/auth/signup"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            padding: '0.45rem 0.85rem',
+            backgroundColor: '#2563eb',
+            color: '#ffffff',
+            fontSize: '0.8rem',
+            fontWeight: 700,
+            borderRadius: '8px',
+            whiteSpace: 'nowrap',
+            textDecoration: 'none',
+            boxShadow: '0 2px 6px rgba(37, 99, 235, 0.25)',
+            transition: 'opacity 0.15s'
+          }}
+        >
+          <span>Sign Up</span>
+          <ArrowRight size={14} />
         </Link>
       </div>
     </div>

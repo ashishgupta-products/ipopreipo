@@ -11,15 +11,13 @@ import {
   Layers, 
   Menu, 
   X,
-  Flame,
   Award,
   Smartphone,
   CreditCard,
   User,
   LogOut,
   LogIn,
-  ChevronDown,
-  Sparkles
+  ChevronDown
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -62,43 +60,43 @@ export default function Navbar({
     { 
       id: 'ipos', 
       label: 'IPOs', 
-      icon: <Layers size={16} />, 
+      icon: <Layers size={15} />, 
       href: '/',
       isActive: isIposPage && (!activeTab || activeTab === 'all-ipos' || activeTab === 'live-gmp' || activeTab === 'allotment')
     },
     { 
       id: 'analysts', 
       label: 'Analysts', 
-      icon: <Award size={16} color="#d97706" />, 
+      icon: <Award size={15} color="#d97706" />, 
       href: '/analysts',
       isActive: isAnalystsPage
     },
     { 
       id: 'pre-ipo', 
-      label: 'Preipo', 
+      label: 'Pre-IPO', 
       badge: 'SOON',
-      icon: <Award size={16} color="#0284c7" />, 
+      icon: <Award size={15} color="#0284c7" />, 
       href: '/pre-ipo',
       isActive: isPreIpoPage
     },
     { 
       id: 'payment-apps', 
       label: 'Payment Apps', 
-      icon: <Smartphone size={16} color="#059669" />, 
+      icon: <Smartphone size={15} color="#059669" />, 
       href: '/payment-apps',
       isActive: isPaymentAppsPage
     },
     { 
       id: 'brokers', 
       label: 'Brokers', 
-      icon: <TrendingUp size={16} color="#2563eb" />, 
+      icon: <TrendingUp size={15} color="#2563eb" />, 
       href: '/brokers',
       isActive: isBrokersPage
     },
     { 
       id: 'credit-cards', 
       label: 'Credit Cards', 
-      icon: <CreditCard size={16} color="#8b5cf6" />, 
+      icon: <CreditCard size={15} color="#8b5cf6" />, 
       href: '/credit-cards',
       isActive: isCreditCardsPage
     },
@@ -109,7 +107,9 @@ export default function Navbar({
       position: 'sticky',
       top: 0,
       zIndex: 50,
-      backgroundColor: '#ffffff',
+      backgroundColor: 'rgba(255, 255, 255, 0.94)',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
       borderBottom: '1px solid #e2e8f0',
       boxShadow: '0 1px 3px rgba(0, 0, 0, 0.03)'
     }}>
@@ -117,8 +117,8 @@ export default function Navbar({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '70px',
-        gap: '1rem'
+        height: '58px',
+        gap: '0.85rem'
       }}>
         {/* Brand / Logo */}
         <Link 
@@ -126,124 +126,65 @@ export default function Navbar({
           style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: '0.75rem', 
-            cursor: 'pointer' 
+            gap: '0.6rem', 
+            cursor: 'pointer',
+            flexShrink: 0,
+            textDecoration: 'none'
           }}
         >
           <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '10px',
+            width: '32px',
+            height: '32px',
+            borderRadius: '8px',
             background: 'linear-gradient(135deg, #387ed1 0%, #00b386 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(56, 126, 209, 0.25)'
+            boxShadow: '0 2px 6px rgba(56, 126, 209, 0.25)',
+            flexShrink: 0
           }}>
-            <TrendingUp size={22} color="#ffffff" />
+            <TrendingUp size={18} color="#ffffff" />
           </div>
-          <div>
-            <div style={{ 
-              fontWeight: 800, 
-              fontSize: '1.25rem', 
-              letterSpacing: '-0.02em', 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.35rem',
-              color: '#0f172a'
+          <div style={{ 
+            fontWeight: 800, 
+            fontSize: '1.15rem', 
+            letterSpacing: '-0.02em', 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '0.3rem',
+            color: '#0f172a',
+            whiteSpace: 'nowrap'
+          }}>
+            <span>IPO</span>
+            <span style={{ color: '#387ed1' }}>&</span>
+            <span>PreIPO</span>
+            <span style={{
+              fontSize: '0.6rem',
+              backgroundColor: '#eff6ff',
+              color: '#2563eb',
+              padding: '1px 5px',
+              borderRadius: '4px',
+              fontWeight: 700,
+              border: '1px solid #bfdbfe',
+              marginLeft: '2px',
+              letterSpacing: '0.04em'
             }}>
-              <span>IPO</span>
-              <span style={{ color: '#387ed1' }}>&</span>
-              <span>PreIPO</span>
-              <span style={{
-                fontSize: '0.65rem',
-                backgroundColor: '#eff6ff',
-                color: '#2563eb',
-                padding: '2px 7px',
-                borderRadius: '4px',
-                fontWeight: 700,
-                border: '1px solid #bfdbfe',
-                marginLeft: '4px'
-              }}>
-                INDIA
-              </span>
-            </div>
-            <div 
-              className="brand-subtext hide-on-mobile-sm"
-              style={{ 
-                fontSize: '0.72rem', 
-                color: '#64748b', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '6px' 
-              }}
-            >
-              <span className="pulse-indicator"></span>
-              <span>Live NSE • BSE • SME • Unlisted Desk</span>
-            </div>
+              IN
+            </span>
           </div>
         </Link>
 
-        {/* Search Bar */}
-        <div style={{
-          flex: '1',
-          maxWidth: '360px',
-          display: 'none',
-          position: 'relative',
-        }} className="desktop-search">
-          <Search size={16} color="#94a3b8" style={{
-            position: 'absolute',
-            left: '14px',
-            top: '50%',
-            transform: 'translateY(-50%)'
-          }} />
-          <input
-            type="text"
-            placeholder={isPreIpoPage ? "Search unlisted shares (NSE, boAt, Reliance)..." : "Search IPO, SME or Pre-IPO..."}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
-            style={{
-              width: '100%',
-              backgroundColor: '#f1f5f9',
-              border: '1px solid #e2e8f0',
-              borderRadius: 'var(--radius-full)',
-              padding: '0.55rem 1rem 0.55rem 2.4rem',
-              fontSize: '0.85rem',
-              color: '#0f172a',
-              transition: 'all 0.2s'
-            }}
-            onFocus={(e) => {
-              e.target.style.borderColor = '#3b82f6';
-              e.target.style.backgroundColor = '#ffffff';
-            }}
-            onBlur={(e) => {
-              e.target.style.borderColor = '#e2e8f0';
-              e.target.style.backgroundColor = '#f1f5f9';
-            }}
-          />
-          {searchQuery && setSearchQuery && (
-            <button 
-              onClick={() => setSearchQuery('')}
-              style={{
-                position: 'absolute',
-                right: '12px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: '#94a3b8',
-                fontSize: '0.75rem'
-              }}
-            >
-              ✕
-            </button>
-          )}
-        </div>
-
-        {/* Desktop Nav Items */}
-        <nav style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.35rem',
-        }} className="desktop-nav">
+        {/* Desktop Navigation Links */}
+        <nav 
+          className="desktop-nav"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.2rem',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
+          }}
+        >
           {navItems.map((item) => {
             const active = item.isActive;
             return (
@@ -251,34 +192,35 @@ export default function Navbar({
                 key={item.id}
                 href={item.href}
                 style={{
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.45rem',
-                  padding: '0.5rem 0.85rem',
-                  borderRadius: 'var(--radius-md)',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
+                  gap: '0.4rem',
+                  padding: '0.42rem 0.65rem',
+                  borderRadius: '6px',
+                  fontSize: '0.84rem',
+                  fontWeight: active ? 700 : 500,
                   color: active ? '#2563eb' : '#475569',
                   backgroundColor: active ? '#eff6ff' : 'transparent',
                   border: active ? '1px solid #bfdbfe' : '1px solid transparent',
-                  transition: 'all 0.15s ease'
+                  transition: 'all 0.15s ease',
+                  textDecoration: 'none'
                 }}
               >
                 {item.icon}
                 <span>{item.label}</span>
-                {(item as any).badge && (
+                {item.badge && (
                   <span style={{
-                    fontSize: '0.62rem',
+                    fontSize: '0.58rem',
                     fontWeight: 800,
                     letterSpacing: '0.04em',
                     backgroundColor: '#fef3c7',
                     color: '#b45309',
-                    padding: '1px 6px',
+                    padding: '1px 5px',
                     borderRadius: '4px',
                     border: '1px solid #fde68a',
                     marginLeft: '2px'
                   }}>
-                    {(item as any).badge}
+                    {item.badge}
                   </span>
                 )}
               </Link>
@@ -286,13 +228,79 @@ export default function Navbar({
           })}
         </nav>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          {/* Desktop Auth State / Profile Menu */}
-          <div className="desktop-auth-container" style={{ position: 'relative' }} ref={userMenuRef}>
+        {/* Right Section: Compact Search + Sign In Button / User Menu */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
+          {/* Large Screen Search input (optional compact input) */}
+          {setSearchQuery && (
+            <div 
+              className="desktop-search"
+              style={{
+                position: 'relative',
+                width: '180px',
+                display: 'none'
+              }}
+            >
+              <Search size={14} color="#94a3b8" style={{
+                position: 'absolute',
+                left: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)'
+              }} />
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: '100%',
+                  backgroundColor: '#f1f5f9',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '20px',
+                  padding: '0.38rem 0.75rem 0.38rem 2rem',
+                  fontSize: '0.8rem',
+                  color: '#0f172a',
+                  outline: 'none',
+                  transition: 'all 0.2s'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#3b82f6';
+                  e.target.style.backgroundColor = '#ffffff';
+                  e.target.style.width = '220px';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = '#e2e8f0';
+                  e.target.style.backgroundColor = '#f1f5f9';
+                  e.target.style.width = '180px';
+                }}
+              />
+              {searchQuery && (
+                <button 
+                  onClick={() => setSearchQuery('')}
+                  style={{
+                    position: 'absolute',
+                    right: '10px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#94a3b8',
+                    fontSize: '0.72rem',
+                    cursor: 'pointer',
+                    background: 'none',
+                    border: 'none',
+                    padding: 0
+                  }}
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Desktop Auth State / Single "Sign In" Button */}
+          <div className="desktop-auth" style={{ position: 'relative' }} ref={userMenuRef}>
             {status === 'loading' ? (
               <div style={{
-                width: '72px',
-                height: '36px',
+                width: '68px',
+                height: '34px',
                 borderRadius: '8px',
                 backgroundColor: '#f1f5f9',
                 border: '1px solid #e2e8f0'
@@ -304,10 +312,10 @@ export default function Navbar({
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.35rem 0.65rem 0.35rem 0.4rem',
-                    borderRadius: 'var(--radius-full)',
-                    border: '1px solid #e2e8f0',
+                    gap: '0.45rem',
+                    padding: '0.3rem 0.65rem 0.3rem 0.35rem',
+                    borderRadius: '20px',
+                    border: '1px solid #cbd5e1',
                     backgroundColor: userMenuOpen ? '#eff6ff' : '#f8fafc',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease'
@@ -318,25 +326,25 @@ export default function Navbar({
                     <img 
                       src={session.user.image} 
                       alt={session.user.name || 'User'} 
-                      style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} 
+                      style={{ width: '26px', height: '26px', borderRadius: '50%', objectFit: 'cover' }} 
                     />
                   ) : (
                     <div style={{
-                      width: '28px',
-                      height: '28px',
+                      width: '26px',
+                      height: '26px',
                       borderRadius: '50%',
                       background: 'linear-gradient(135deg, #2563eb 0%, #00b386 100%)',
                       color: '#ffffff',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '0.78rem',
+                      fontSize: '0.75rem',
                       fontWeight: 700
                     }}>
                       {(session.user.name || session.user.email || 'U')[0].toUpperCase()}
                     </div>
                   )}
-                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#1e293b', maxWidth: '90px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#1e293b', maxWidth: '85px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {session.user.name?.split(' ')[0] || 'Investor'}
                   </span>
                   <ChevronDown size={14} color="#64748b" style={{ transform: userMenuOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
@@ -346,50 +354,25 @@ export default function Navbar({
                 {userMenuOpen && (
                   <div style={{
                     position: 'absolute',
-                    top: 'calc(100% + 8px)',
+                    top: 'calc(100% + 6px)',
                     right: 0,
-                    width: '240px',
+                    width: '230px',
                     backgroundColor: '#ffffff',
                     borderRadius: '12px',
                     boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
                     border: '1px solid #e2e8f0',
                     zIndex: 100,
-                    padding: '0.5rem',
+                    padding: '0.45rem',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.35rem'
+                    gap: '0.25rem'
                   }}>
-                    <div style={{ padding: '0.6rem 0.75rem', borderBottom: '1px solid #f1f5f9' }}>
-                      <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <div style={{ padding: '0.5rem 0.65rem', borderBottom: '1px solid #f1f5f9' }}>
+                      <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {session.user.name || 'Investor'}
                       </div>
                       <div style={{ fontSize: '0.72rem', color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {session.user.email}
-                      </div>
-                      <div style={{ display: 'flex', gap: '4px', marginTop: '6px' }}>
-                        <span style={{
-                          fontSize: '0.62rem',
-                          fontWeight: 700,
-                          backgroundColor: '#eff6ff',
-                          color: '#2563eb',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          border: '1px solid #bfdbfe'
-                        }}>
-                          {(session.user as any).investorCategory || 'Retail'}
-                        </span>
-                        {(session.user as any).dematProvider && (
-                          <span style={{
-                            fontSize: '0.62rem',
-                            fontWeight: 600,
-                            backgroundColor: '#f1f5f9',
-                            color: '#475569',
-                            padding: '2px 6px',
-                            borderRadius: '4px'
-                          }}>
-                            {(session.user as any).dematProvider}
-                          </span>
-                        )}
                       </div>
                     </div>
 
@@ -400,7 +383,7 @@ export default function Navbar({
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.6rem',
-                        padding: '0.55rem 0.75rem',
+                        padding: '0.5rem 0.65rem',
                         borderRadius: '6px',
                         fontSize: '0.82rem',
                         fontWeight: 600,
@@ -423,7 +406,7 @@ export default function Navbar({
                           display: 'flex',
                           alignItems: 'center',
                           gap: '0.6rem',
-                          padding: '0.55rem 0.75rem',
+                          padding: '0.5rem 0.65rem',
                           borderRadius: '6px',
                           fontSize: '0.82rem',
                           fontWeight: 700,
@@ -447,7 +430,7 @@ export default function Navbar({
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.6rem',
-                        padding: '0.55rem 0.75rem',
+                        padding: '0.5rem 0.65rem',
                         borderRadius: '6px',
                         fontSize: '0.82rem',
                         fontWeight: 600,
@@ -468,108 +451,102 @@ export default function Navbar({
                 )}
               </div>
             ) : (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Link
-                  href="/auth/signin"
-                  style={{
-                    padding: '0.45rem 0.85rem',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    color: '#334155',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid #e2e8f0',
-                    backgroundColor: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.35rem',
-                    textDecoration: 'none',
-                    transition: 'all 0.15s'
-                  }}
-                >
-                  <LogIn size={14} color="#64748b" />
-                  <span>Sign In</span>
-                </Link>
-                <Link
-                  href="/auth/signup"
-                  style={{
-                    padding: '0.45rem 0.85rem',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    color: '#ffffff',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, #387ed1 0%, #2563eb 100%)',
-                    boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.35rem',
-                    textDecoration: 'none'
-                  }}
-                >
-                  <span>Sign Up</span>
-                </Link>
-              </div>
+              /* Just Sign In Button (Sign Up is available on Sign In page) */
+              <Link
+                href="/auth/signin"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '0.4rem 0.85rem',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  color: '#0f172a',
+                  backgroundColor: '#f8fafc',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  transition: 'all 0.15s ease',
+                  whiteSpace: 'nowrap'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#94a3b8';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#f8fafc';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                }}
+              >
+                <LogIn size={14} color="#2563eb" />
+                <span>Sign In</span>
+              </Link>
             )}
           </div>
 
-          {/* Mobile hamburger button */}
+          {/* Mobile hamburger menu toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               display: 'none',
-              padding: '0.5rem',
+              padding: '0.45rem',
               color: '#0f172a',
-              minWidth: '42px',
-              minHeight: '42px',
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid #e2e8f0',
-              backgroundColor: '#f8fafc'
+              borderRadius: '8px',
+              border: '1px solid #cbd5e1',
+              backgroundColor: '#f8fafc',
+              cursor: 'pointer',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}
             className="mobile-menu-toggle"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Dropdown Drawer */}
       {mobileMenuOpen && (
         <div style={{
           backgroundColor: '#ffffff',
           borderBottom: '1px solid #e2e8f0',
-          padding: '1rem 1.25rem',
+          padding: '0.85rem 1rem',
           display: 'flex',
           flexDirection: 'column',
-          gap: '0.75rem',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-          maxHeight: 'calc(100vh - 70px)',
+          gap: '0.45rem',
+          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.06)',
+          maxHeight: 'calc(100vh - 58px)',
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch'
         }}>
           {/* Mobile Search input */}
-          <div style={{ position: 'relative', marginBottom: '0.5rem' }}>
-            <Search size={16} color="#94a3b8" style={{
-              position: 'absolute',
-              left: '12px',
-              top: '50%',
-              transform: 'translateY(-50%)'
-            }} />
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
-              style={{
-                width: '100%',
-                backgroundColor: '#f1f5f9',
-                border: '1px solid #e2e8f0',
-                borderRadius: 'var(--radius-md)',
-                padding: '0.6rem 1rem 0.6rem 2.2rem',
-                fontSize: '0.9rem',
-                color: '#0f172a'
-              }}
-            />
-          </div>
+          {setSearchQuery && (
+            <div style={{ position: 'relative', marginBottom: '0.4rem' }}>
+              <Search size={15} color="#94a3b8" style={{
+                position: 'absolute',
+                left: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)'
+              }} />
+              <input
+                type="text"
+                placeholder="Search IPOs, analysts, brokers..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: '100%',
+                  backgroundColor: '#f1f5f9',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  padding: '0.55rem 0.75rem 0.55rem 2rem',
+                  fontSize: '0.85rem',
+                  color: '#0f172a',
+                  outline: 'none'
+                }}
+              />
+            </div>
+          )}
 
           {navItems.map((item) => (
             <Link
@@ -579,123 +556,99 @@ export default function Navbar({
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.75rem',
-                padding: '0.75rem 1rem',
-                borderRadius: 'var(--radius-md)',
-                fontSize: '0.95rem',
+                gap: '0.65rem',
+                padding: '0.65rem 0.85rem',
+                borderRadius: '8px',
+                fontSize: '0.9rem',
                 fontWeight: 600,
-                color: item.isActive ? '#2563eb' : '#475569',
+                color: item.isActive ? '#2563eb' : '#334155',
                 backgroundColor: item.isActive ? '#eff6ff' : '#f8fafc',
-                border: item.isActive ? '1px solid #bfdbfe' : '1px solid transparent',
-                textAlign: 'left'
+                border: item.isActive ? '1px solid #bfdbfe' : '1px solid #f1f5f9',
+                textDecoration: 'none'
               }}
             >
               {item.icon}
               <span style={{ flex: 1 }}>{item.label}</span>
-              {(item as any).badge && (
+              {item.badge && (
                 <span style={{
-                  fontSize: '0.62rem',
+                  fontSize: '0.6rem',
                   fontWeight: 800,
-                  letterSpacing: '0.04em',
                   backgroundColor: '#fef3c7',
                   color: '#b45309',
-                  padding: '1px 6px',
+                  padding: '1px 5px',
                   borderRadius: '4px',
                   border: '1px solid #fde68a'
                 }}>
-                  {(item as any).badge}
+                  {item.badge}
                 </span>
               )}
             </Link>
           ))}
 
-          {/* Auth in Mobile Drawer */}
-          <div style={{ marginTop: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid #e2e8f0' }}>
+          {/* Mobile Auth Button (Single clean Sign In button) */}
+          <div style={{ marginTop: '0.35rem', paddingTop: '0.65rem', borderTop: '1px solid #f1f5f9' }}>
             {status === 'authenticated' && session?.user ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '0.6rem 0.8rem',
+                  gap: '0.65rem',
+                  padding: '0.5rem 0.75rem',
                   backgroundColor: '#f8fafc',
-                  borderRadius: 'var(--radius-md)',
+                  borderRadius: '8px',
                   border: '1px solid #e2e8f0'
                 }}>
                   <div style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '32px',
+                    height: '32px',
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, #2563eb 0%, #00b386 100%)',
                     color: '#ffffff',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '0.9rem',
+                    fontSize: '0.85rem',
                     fontWeight: 700
                   }}>
                     {(session.user.name || session.user.email || 'U')[0].toUpperCase()}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {session.user.name || 'Investor'}
                     </div>
-                    <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
-                      {(session.user as any).investorCategory || 'Retail'} • {(session.user as any).dematProvider || 'Demat'}
+                    <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                      {session.user.email}
                     </div>
                   </div>
                 </div>
 
-                {(session.user as any).role === 'admin' && (
-                  <Link
-                    href="/admin"
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{
-                      padding: '0.6rem',
-                      textAlign: 'center',
-                      borderRadius: 'var(--radius-md)',
-                      backgroundColor: '#f5f3ff',
-                      color: '#7c3aed',
-                      fontWeight: 700,
-                      fontSize: '0.85rem',
-                      border: '1px solid #ddd6fe',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.4rem'
-                    }}
-                  >
-                    <ShieldCheck size={16} />
-                    <span>Admin Console</span>
-                  </Link>
-                )}
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.45rem' }}>
                   <Link
                     href="/profile"
                     onClick={() => setMobileMenuOpen(false)}
                     style={{
-                      padding: '0.6rem',
+                      padding: '0.55rem',
                       textAlign: 'center',
-                      borderRadius: 'var(--radius-md)',
+                      borderRadius: '8px',
                       backgroundColor: '#eff6ff',
                       color: '#2563eb',
                       fontWeight: 600,
-                      fontSize: '0.85rem',
-                      border: '1px solid #bfdbfe'
+                      fontSize: '0.82rem',
+                      border: '1px solid #bfdbfe',
+                      textDecoration: 'none'
                     }}
                   >
-                    Profile & Demat
+                    My Profile
                   </Link>
                   <button
                     onClick={() => { setMobileMenuOpen(false); signOut({ callbackUrl: '/' }); }}
                     style={{
-                      padding: '0.6rem',
-                      borderRadius: 'var(--radius-md)',
+                      padding: '0.55rem',
+                      borderRadius: '8px',
                       backgroundColor: '#fef2f2',
                       color: '#dc2626',
                       fontWeight: 600,
-                      fontSize: '0.85rem',
+                      fontSize: '0.82rem',
                       border: '1px solid #fecaca',
                       cursor: 'pointer'
                     }}
@@ -705,63 +658,45 @@ export default function Navbar({
                 </div>
               </div>
             ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                <Link
-                  href="/auth/signin"
-                  onClick={() => setMobileMenuOpen(false)}
-                  style={{
-                    padding: '0.6rem',
-                    textAlign: 'center',
-                    borderRadius: 'var(--radius-md)',
-                    backgroundColor: '#f8fafc',
-                    color: '#334155',
-                    fontWeight: 600,
-                    fontSize: '0.88rem',
-                    border: '1px solid #cbd5e1'
-                  }}
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/auth/signup"
-                  onClick={() => setMobileMenuOpen(false)}
-                  style={{
-                    padding: '0.6rem',
-                    textAlign: 'center',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, #387ed1 0%, #2563eb 100%)',
-                    color: '#ffffff',
-                    fontWeight: 600,
-                    fontSize: '0.88rem',
-                    boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)'
-                  }}
-                >
-                  Sign Up Free
-                </Link>
-              </div>
+              <Link
+                href="/auth/signin"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.45rem',
+                  padding: '0.65rem',
+                  width: '100%',
+                  borderRadius: '8px',
+                  backgroundColor: '#0f172a',
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  fontSize: '0.88rem',
+                  textDecoration: 'none',
+                  boxShadow: '0 2px 6px rgba(15, 23, 42, 0.2)'
+                }}
+              >
+                <LogIn size={16} />
+                <span>Sign In to Account</span>
+              </Link>
             )}
           </div>
         </div>
       )}
 
       <style jsx>{`
-        @media (min-width: 1180px) {
+        @media (min-width: 1260px) {
           .desktop-search {
             display: block !important;
           }
         }
-        @media (max-width: 960px) {
+        @media (max-width: 1040px) {
           .desktop-nav {
             display: none !important;
           }
-          .desktop-auth-container {
-            display: none !important;
-          }
           .mobile-menu-toggle {
-            display: block !important;
-          }
-          .hide-on-mobile {
-            display: none;
+            display: flex !important;
           }
         }
       `}</style>

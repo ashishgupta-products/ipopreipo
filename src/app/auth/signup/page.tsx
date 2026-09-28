@@ -120,6 +120,48 @@ export default function SignUpPage() {
             </p>
           </div>
 
+          {/* Segmented Auth Switcher (Sign In / Sign Up) */}
+          <div style={{
+            display: 'flex',
+            backgroundColor: '#f1f5f9',
+            padding: '3px',
+            borderRadius: '9px',
+            marginBottom: '1.5rem',
+            border: '1px solid #e2e8f0'
+          }}>
+            <Link
+              href="/auth/signin"
+              style={{
+                flex: 1,
+                textAlign: 'center',
+                padding: '0.42rem 0.5rem',
+                borderRadius: '7px',
+                color: '#64748b',
+                fontWeight: 600,
+                fontSize: '0.84rem',
+                textDecoration: 'none',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#0f172a')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
+            >
+              Sign In
+            </Link>
+            <div style={{
+              flex: 1,
+              textAlign: 'center',
+              padding: '0.42rem 0.5rem',
+              borderRadius: '7px',
+              backgroundColor: '#ffffff',
+              color: '#0f172a',
+              fontWeight: 700,
+              fontSize: '0.84rem',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+            }}>
+              Create Account
+            </div>
+          </div>
+
           {/* Error Notice */}
           {error && (
             <div style={{
