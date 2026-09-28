@@ -477,7 +477,14 @@ export default function AdminPage() {
   };
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8fafc', position: 'relative' }}>
+    <div style={{
+      display: 'flex',
+      height: '100vh',
+      width: '100vw',
+      overflow: 'hidden',
+      backgroundColor: '#f8fafc',
+      position: 'relative'
+    }}>
       {/* Sleek Admin Sidebar */}
       <AdminSidebar
         activeTab={activeTab}
@@ -502,23 +509,25 @@ export default function AdminPage() {
       <div style={{
         flex: 1,
         minWidth: 0,
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
+        overflow: 'hidden',
         backgroundColor: '#f8fafc'
       }}>
-        {/* Sticky Top Header Bar */}
+        {/* Fixed Top Header Bar */}
         <header style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 40,
+          flexShrink: 0,
+          height: '64px',
           backgroundColor: '#ffffff',
           borderBottom: '1px solid #e2e8f0',
-          padding: '0.9rem 2rem',
+          padding: '0 2rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '1rem',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
+          boxShadow: '0 1px 3px rgba(0,0,0,0.03)',
+          zIndex: 30
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             {/* Mobile Hamburger Drawer Toggle */}
@@ -651,12 +660,14 @@ export default function AdminPage() {
 
         {/* Main Content Body */}
         <main style={{
+          flex: 1,
+          overflowY: 'auto',
+          overflowX: 'hidden',
           padding: '1.75rem 2rem',
           maxWidth: '1600px',
           width: '100%',
           margin: '0 auto',
-          boxSizing: 'border-box',
-          flex: 1
+          boxSizing: 'border-box'
         }}>
           {/* Action toast message */}
           {actionMessage && (
@@ -902,14 +913,14 @@ export default function AdminPage() {
                 </button>
               </div>
               <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+                <table style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
                   <thead>
                     <tr style={{ backgroundColor: '#f8fafc', color: '#64748b', borderBottom: '1px solid #e2e8f0' }}>
-                      <th style={{ padding: '0.75rem 1.5rem' }}>Investor</th>
-                      <th style={{ padding: '0.75rem 1rem' }}>Category</th>
-                      <th style={{ padding: '0.75rem 1rem' }}>Demat Broker</th>
-                      <th style={{ padding: '0.75rem 1rem' }}>Role</th>
-                      <th style={{ padding: '0.75rem 1rem' }}>Registered</th>
+                      <th style={{ padding: '0.75rem 1.5rem', whiteSpace: 'nowrap' }}>Investor</th>
+                      <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Category</th>
+                      <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Demat Broker</th>
+                      <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Role</th>
+                      <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Registered</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1036,16 +1047,16 @@ export default function AdminPage() {
 
             {/* IPOs Table */}
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+              <table style={{ width: '100%', minWidth: '920px', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
                 <thead>
                   <tr style={{ backgroundColor: '#f8fafc', color: '#64748b', borderBottom: '1px solid #e2e8f0' }}>
-                    <th style={{ padding: '0.75rem 1.5rem' }}>IPO Name</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Category</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Status</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Price Band</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>GMP (Est Gain)</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Rating</th>
-                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Actions</th>
+                    <th style={{ padding: '0.75rem 1.5rem', whiteSpace: 'nowrap' }}>IPO Name</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Category</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Status</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Price Band</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>GMP (Est Gain)</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Rating</th>
+                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right', whiteSpace: 'nowrap' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1210,16 +1221,16 @@ export default function AdminPage() {
             </div>
 
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+              <table style={{ width: '100%', minWidth: '860px', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
                 <thead>
                   <tr style={{ backgroundColor: '#f8fafc', color: '#64748b', borderBottom: '1px solid #e2e8f0' }}>
-                    <th style={{ padding: '0.75rem 1.5rem' }}>Company</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Sector</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Share Price</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Lot Size</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Min Investment</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Status</th>
-                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Actions</th>
+                    <th style={{ padding: '0.75rem 1.5rem', whiteSpace: 'nowrap' }}>Company</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Sector</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Share Price</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Lot Size</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Min Investment</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Status</th>
+                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right', whiteSpace: 'nowrap' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1344,15 +1355,15 @@ export default function AdminPage() {
             </div>
 
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+              <table style={{ width: '100%', minWidth: '850px', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
                 <thead>
                   <tr style={{ backgroundColor: '#f8fafc', color: '#64748b', borderBottom: '1px solid #e2e8f0' }}>
-                    <th style={{ padding: '0.75rem 1.5rem' }}>Investor</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Phone</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Bidding Quota</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Demat Broker</th>
-                    <th style={{ padding: '0.75rem 1rem' }}>Role</th>
-                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Actions</th>
+                    <th style={{ padding: '0.75rem 1.5rem', whiteSpace: 'nowrap' }}>Investor</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Phone</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Bidding Quota</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Demat Broker</th>
+                    <th style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>Role</th>
+                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right', whiteSpace: 'nowrap' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>

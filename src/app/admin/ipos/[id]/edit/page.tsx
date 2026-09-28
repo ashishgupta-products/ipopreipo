@@ -102,7 +102,7 @@ export default function EditIpoPage() {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8fafc', position: 'relative' }}>
+    <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'hidden', backgroundColor: '#f8fafc', position: 'relative' }}>
       <AdminSidebar
         activeTab="ipos"
         setActiveTab={(t) => router.push('/admin')}
@@ -118,8 +118,8 @@ export default function EditIpoPage() {
         setIsMobileOpen={setIsMobileOpen}
       />
 
-      <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-        <main style={{ padding: '2rem', maxWidth: '1500px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
+      <div style={{ flex: 1, minWidth: 0, height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', backgroundColor: '#f8fafc' }}>
+        <main style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', padding: '2rem', maxWidth: '1500px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
           <IpoEditorForm initialData={ipo} isNew={false} />
         </main>
       </div>
