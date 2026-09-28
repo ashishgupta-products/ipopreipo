@@ -23,8 +23,13 @@ import {
   Building,
   ArrowRight,
   Sliders,
-  Award
+  Award,
+  Menu,
+  X,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
+import AdminSidebar, { AdminTab } from '../../components/admin/AdminSidebar';
 import { IpoItem, IpoCategory, IpoStatus } from '../../types';
 
 interface UserRecord {
@@ -55,7 +60,9 @@ export default function AdminPage() {
   const { data: session, status, update: updateSession } = useSession();
   const router = useRouter();
 
-  const [activeTab, setActiveTab] = useState<'overview' | 'ipos' | 'pre-ipos' | 'users' | 'sync'>('overview');
+  const [activeTab, setActiveTab] = useState<AdminTab>('overview');
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   
   // Data states
   const [metrics, setMetrics] = useState<any>(null);
@@ -483,62 +490,109 @@ export default function AdminPage() {
     );
   }
 
+  const tabTitles: Record<AdminTab, { title: string; subtitle: string }> = {
+    overview: {
+      title: 'Platform Overview & Analytics',
+      subtitle: 'Real-time telemetry, market health, and core asset distribution across India.'
+    },
+    ipos: {
+      title: `Mainboard & SME IPO Registry (${ipos.length})`,
+      subtitle: 'Manage active bidding issues, GMP premiums, price bands, and SEBI filing documents.'
+    },
+    'pre-ipos': {
+      title: `Pre-IPO Unlisted Shares (${preIpos.length})`,
+      subtitle: 'Curate high-growth private equities before public exchange debut.'
+    },
+    users: {
+      title: `Investor Directory & Access Controls (${users.length})`,
+      subtitle: 'Manage registered retail investors, HNIs, demat accounts, and administrator permissions.'
+    },
+    sync: {
+      title: 'Database Pipeline & Data Synchronizer',
+      subtitle: 'Sync live market data from Zerodha and InvestorGain directly into Neon PostgreSQL.'
+    }
+  };
+
   return (
-    <div style={{ backgroundColor: '#f8fafc', minHeight: '100vh', paddingBottom: '4rem' }}>
-      {/* Admin Top Header Banner */}
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f8fafc', position: 'relative' }}>
+      {/* Sleek Admin Sidebar */}
+      <AdminSidebar
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        counts={{
+          ipos: ipos.length,
+          preIpos: preIpos.length,
+          users: users.length,
+        }}
+        sessionUser={session?.user as any}
+        syncing={syncing}
+        onTriggerSync={handleTriggerSync}
+        onOpenCreateIpo={() => { setEditingIpo({}); setIpoModalOpen(true); }}
+        onOpenCreatePreIpo={() => { setEditingPreIpo({}); setPreIpoModalOpen(true); }}
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+        isMobileOpen={isMobileOpen}
+        setIsMobileOpen={setIsMobileOpen}
+      />
+
+      {/* Main Content Area */}
       <div style={{
-        backgroundColor: '#0f172a',
-        color: '#ffffff',
-        borderBottom: '1px solid #1e293b',
-        padding: '1.25rem 0'
+        flex: 1,
+        minWidth: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#f8fafc'
       }}>
-        <div className="container" style={{
+        {/* Sticky Top Header Bar */}
+        <header style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 40,
+          backgroundColor: '#ffffff',
+          borderBottom: '1px solid #e2e8f0',
+          padding: '0.9rem 2rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '1rem'
+          gap: '1rem',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-            <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(124, 58, 237, 0.4)'
-            }}>
-              <ShieldCheck size={22} color="#ffffff" />
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {/* Mobile Hamburger Drawer Toggle */}
+            <button
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '38px',
+                height: '38px',
+                borderRadius: '8px',
+                border: '1px solid #cbd5e1',
+                backgroundColor: '#ffffff',
+                color: '#1e293b',
+                cursor: 'pointer'
+              }}
+              className="admin-mobile-toggle"
+              aria-label="Toggle Navigation Drawer"
+            >
+              <Menu size={20} />
+            </button>
+
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <h1 style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em', margin: 0 }}>
-                  Administration Control Suite
-                </h1>
-                <span style={{
-                  fontSize: '0.65rem',
-                  fontWeight: 800,
-                  backgroundColor: '#7c3aed',
-                  color: '#ffffff',
-                  padding: '2px 8px',
-                  borderRadius: '12px'
-                }}>
-                  SUPER ADMIN
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '2px' }}>
+                <span style={{ fontSize: '0.74rem', fontWeight: 600, color: '#64748b' }}>Admin Suite</span>
+                <span style={{ color: '#cbd5e1', fontSize: '0.74rem' }}>/</span>
+                <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#2563eb', textTransform: 'capitalize' }}>
+                  {activeTab.replace('-', ' ')}
                 </span>
               </div>
-              <div style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '2px' }}>
-                <span>Signed in as {session?.user?.email}</span>
-                <span>•</span>
-                <span style={{ color: '#22c55e', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#22c55e' }}></span>
-                  Neon PostgreSQL Active
-                </span>
-              </div>
+              <h1 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.02em' }}>
+                {tabTitles[activeTab]?.title}
+              </h1>
             </div>
           </div>
 
+          {/* Header Action Shortcuts */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <button
               onClick={handleTriggerSync}
@@ -548,18 +602,66 @@ export default function AdminPage() {
                 alignItems: 'center',
                 gap: '0.45rem',
                 padding: '0.55rem 0.95rem',
-                backgroundColor: '#1e293b',
+                backgroundColor: '#0f172a',
                 color: '#ffffff',
-                border: '1px solid #334155',
+                border: 'none',
                 borderRadius: '8px',
-                fontSize: '0.85rem',
+                fontSize: '0.82rem',
                 fontWeight: 600,
-                cursor: syncing ? 'not-allowed' : 'pointer'
+                cursor: syncing ? 'not-allowed' : 'pointer',
+                boxShadow: '0 2px 4px rgba(15, 23, 42, 0.15)'
               }}
             >
               <RefreshCw size={14} className={syncing ? 'animate-spin' : ''} />
               <span>{syncing ? 'Syncing...' : 'Sync Scraper'}</span>
             </button>
+
+            {activeTab === 'ipos' && (
+              <button
+                onClick={() => { setEditingIpo({}); setIpoModalOpen(true); }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  padding: '0.55rem 0.95rem',
+                  backgroundColor: '#2563eb',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 6px rgba(37, 99, 235, 0.25)'
+                }}
+              >
+                <Plus size={15} />
+                <span>Add IPO</span>
+              </button>
+            )}
+
+            {activeTab === 'pre-ipos' && (
+              <button
+                onClick={() => { setEditingPreIpo({}); setPreIpoModalOpen(true); }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  padding: '0.55rem 0.95rem',
+                  backgroundColor: '#7c3aed',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 6px rgba(124, 58, 237, 0.25)'
+                }}
+              >
+                <Plus size={15} />
+                <span>Add Pre-IPO</span>
+              </button>
+            )}
+
             <Link
               href="/"
               target="_blank"
@@ -567,105 +669,70 @@ export default function AdminPage() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.45rem',
-                padding: '0.55rem 0.95rem',
-                backgroundColor: '#2563eb',
-                color: '#ffffff',
+                padding: '0.55rem 0.85rem',
+                backgroundColor: '#ffffff',
+                color: '#334155',
+                border: '1px solid #cbd5e1',
                 borderRadius: '8px',
-                fontSize: '0.85rem',
+                fontSize: '0.82rem',
                 fontWeight: 600,
                 textDecoration: 'none'
               }}
+              title="Open public dashboard in new tab"
             >
-              <span>Live Site</span>
-              <ExternalLink size={14} />
+              <span>Public Portal</span>
+              <ExternalLink size={13} />
             </Link>
           </div>
-        </div>
-      </div>
+        </header>
 
-      {/* Main Admin Content Container */}
-      <div className="container" style={{ marginTop: '1.5rem' }}>
-        {/* Action toast message */}
-        {actionMessage && (
-          <div style={{
-            padding: '0.85rem 1.25rem',
-            borderRadius: '10px',
-            marginBottom: '1.5rem',
-            fontSize: '0.9rem',
-            fontWeight: 600,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            backgroundColor: actionMessage.type === 'success' ? '#f0fdf4' : '#fef2f2',
-            color: actionMessage.type === 'success' ? '#166534' : '#991b1b',
-            border: `1px solid ${actionMessage.type === 'success' ? '#bbf7d0' : '#fecaca'}`
-          }}>
-            <span>{actionMessage.text}</span>
-            <button onClick={() => setActionMessage(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit' }}>✕</button>
-          </div>
-        )}
-
-        {/* Sync Toast */}
-        {syncResult && (
-          <div style={{
-            padding: '0.85rem 1.25rem',
-            borderRadius: '10px',
-            marginBottom: '1.5rem',
-            fontSize: '0.9rem',
-            backgroundColor: '#eff6ff',
-            color: '#1e40af',
-            border: '1px solid #bfdbfe',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}>
-            <span>{syncResult}</span>
-            <button onClick={() => setSyncResult(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit' }}>✕</button>
-          </div>
-        )}
-
-        {/* Admin Navigation Tabs */}
-        <div style={{
-          display: 'flex',
-          gap: '0.5rem',
-          borderBottom: '1px solid #e2e8f0',
-          paddingBottom: '0.75rem',
-          marginBottom: '1.5rem',
-          overflowX: 'auto',
-          WebkitOverflowScrolling: 'touch'
+        {/* Main Content Body */}
+        <main style={{
+          padding: '1.75rem 2rem',
+          maxWidth: '1600px',
+          width: '100%',
+          margin: '0 auto',
+          boxSizing: 'border-box',
+          flex: 1
         }}>
-          {[
-            { id: 'overview', label: 'Dashboard Overview', icon: <TrendingUp size={16} /> },
-            { id: 'ipos', label: `Manage IPOs (${ipos.length})`, icon: <Layers size={16} /> },
-            { id: 'pre-ipos', label: `Pre-IPO Shares (${preIpos.length})`, icon: <Award size={16} /> },
-            { id: 'users', label: `Investors & Users (${users.length})`, icon: <Users size={16} /> },
-            { id: 'sync', label: 'Data Sync & Database', icon: <Database size={16} /> }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.65rem 1.15rem',
-                borderRadius: '8px',
-                fontSize: '0.88rem',
-                fontWeight: 600,
-                border: 'none',
-                cursor: 'pointer',
-                backgroundColor: activeTab === tab.id ? '#0f172a' : '#ffffff',
-                color: activeTab === tab.id ? '#ffffff' : '#64748b',
-                boxShadow: activeTab === tab.id ? '0 2px 4px rgba(0,0,0,0.1)' : 'none',
-                transition: 'all 0.15s ease',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              {tab.icon}
-              <span>{tab.label}</span>
-            </button>
-          ))}
-        </div>
+          {/* Action toast message */}
+          {actionMessage && (
+            <div style={{
+              padding: '0.85rem 1.25rem',
+              borderRadius: '10px',
+              marginBottom: '1.5rem',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: actionMessage.type === 'success' ? '#f0fdf4' : '#fef2f2',
+              color: actionMessage.type === 'success' ? '#166534' : '#991b1b',
+              border: `1px solid ${actionMessage.type === 'success' ? '#bbf7d0' : '#fecaca'}`
+            }}>
+              <span>{actionMessage.text}</span>
+              <button onClick={() => setActionMessage(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit' }}>✕</button>
+            </div>
+          )}
+
+          {/* Sync Toast */}
+          {syncResult && (
+            <div style={{
+              padding: '0.85rem 1.25rem',
+              borderRadius: '10px',
+              marginBottom: '1.5rem',
+              fontSize: '0.9rem',
+              backgroundColor: '#eff6ff',
+              color: '#1e40af',
+              border: '1px solid #bfdbfe',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between'
+            }}>
+              <span>{syncResult}</span>
+              <button onClick={() => setSyncResult(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit' }}>✕</button>
+            </div>
+          )}
 
         {/* TAB 1: OVERVIEW */}
         {activeTab === 'overview' && (
@@ -1520,7 +1587,8 @@ export default function AdminPage() {
             </div>
           </div>
         )}
-      </div>
+      </main>
+    </div>
 
       {/* MODAL: ADD / EDIT IPO */}
       {ipoModalOpen && editingIpo && (
