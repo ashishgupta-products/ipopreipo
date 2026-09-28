@@ -18,11 +18,12 @@ import {
   LogOut,
   Sparkles,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Smartphone
 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
-export type AdminTab = 'overview' | 'ipos' | 'pre-ipos' | 'users' | 'sync';
+export type AdminTab = 'overview' | 'ipos' | 'pre-ipos' | 'payment-apps' | 'users' | 'sync';
 
 interface AdminSidebarProps {
   activeTab: AdminTab;
@@ -30,6 +31,7 @@ interface AdminSidebarProps {
   counts: {
     ipos: number;
     preIpos: number;
+    paymentApps?: number;
     users: number;
   };
   sessionUser?: {
@@ -41,6 +43,7 @@ interface AdminSidebarProps {
   onTriggerSync: () => void;
   onOpenCreateIpo?: () => void;
   onOpenCreatePreIpo?: () => void;
+  onOpenCreatePaymentApp?: () => void;
   isCollapsed: boolean;
   setIsCollapsed: (collapsed: boolean) => void;
   isMobileOpen: boolean;
@@ -79,6 +82,12 @@ export default function AdminSidebar({
       label: 'Pre-IPO Shares', 
       icon: <Award size={18} />, 
       count: counts.preIpos 
+    },
+    { 
+      id: 'payment-apps', 
+      label: 'UPI Payment Apps', 
+      icon: <Smartphone size={18} />, 
+      count: counts.paymentApps 
     },
     { 
       id: 'users', 
