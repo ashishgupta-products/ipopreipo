@@ -37,6 +37,7 @@ import {
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import IpoLogo from './IpoLogo';
+import GmpChart from './GmpChart';
 import { 
   getIpoLotBrackets, 
   getIpoQuota, 
@@ -816,6 +817,12 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </div>
               </div>
             </div>
+
+            {/* Interactive GMP Trend Line & Area Chart */}
+            <GmpChart 
+              history={gmpHistory} 
+              issuePrice={ipo.priceBandHigh} 
+            />
 
             {/* Daily GMP Movement & History Log Table */}
             <div className="glass-panel" style={{ padding: '1.75rem' }}>

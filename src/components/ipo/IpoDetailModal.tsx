@@ -15,8 +15,9 @@ import {
   PieChart,
   Users
 } from 'lucide-react';
-import { getIpoQuota, getIpoPromoterHolding, getIpoDailyGmpChange } from '../../lib/ipoEnricher';
+import { getIpoQuota, getIpoPromoterHolding, getIpoDailyGmpChange, getIpoGmpHistory } from '../../lib/ipoEnricher';
 import IpoLogo from './IpoLogo';
+import GmpChart from './GmpChart';
 
 interface IpoDetailModalProps {
   ipo: IpoItem | null;
@@ -38,6 +39,7 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
   const estProfitPerLot = ipo.gmp * ipo.lotSize;
   const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
+  const gmpHistory = getIpoGmpHistory(ipo);
 
   const timelineSteps = [
     { label: 'Issue Opens', date: ipo.timeline.biddingStarts, isCompleted: true },
@@ -190,6 +192,26 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
               {ipo.freshIssueCr ? `Fresh ₹${ipo.freshIssueCr} Cr` : '100% OFS'}
             </div>
           </div>
+        </div>
+
+        {/* Visual GMP Trend Sparkline */}
+        <div style={{ marginBottom: '1.5rem', backgroundColor: '#f8fafc', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Flame size={15} color="#d97706" />
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0f172a' }}>
+                Grey Market Premium (GMP) Trend
+              </span>
+            </div>
+            <Link
+              href={`/ipo/${ipo.id}#sec-gmp`}
+              onClick={onClose}
+              style={{ fontSize: '0.75rem', fontWeight: 600, color: '#2563eb', textDecoration: 'none' }}
+            >
+              Full Interactive Chart →
+            </Link>
+          </div>
+          <GmpChart history={gmpHistory} issuePrice={ipo.priceBandHigh} compact={true} />
         </div>
 
         {/* Timeline Stepper */}
