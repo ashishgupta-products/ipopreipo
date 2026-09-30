@@ -69,6 +69,47 @@ const nextConfig: NextConfig = {
           {
             type: 'query',
             key: 'tab',
+            value: 'calendar',
+          },
+        ],
+        destination: '/ipo-calendar',
+        permanent: false,
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'tab',
+            value: 'ipo-calendar',
+          },
+        ],
+        destination: '/ipo-calendar',
+        permanent: false,
+      },
+      {
+        source: '/calendar',
+        destination: '/ipo-calendar',
+        permanent: true,
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'tab',
+            value: 'allotment',
+          },
+        ],
+        destination: '/allotment',
+        permanent: false,
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'tab',
             value: 'all-ipos',
           },
         ],

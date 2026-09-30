@@ -52,8 +52,9 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
         );
       case 'CLOSED':
         return (
-          <span className="glass-badge badge-amber">
-            Closed
+          <span className="glass-badge badge-amber" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#d97706' }} />
+            Closed / Allotment
           </span>
         );
     }
@@ -252,32 +253,65 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#64748b' }}>
           <Calendar size={13} />
-          <span>Close: <strong style={{ color: '#334155' }}>{ipo.timeline.biddingEnds}</strong></span>
+          {ipo.status === 'CLOSED' ? (
+            <span>Allotment: <strong style={{ color: '#6d28d9' }}>{ipo.timeline.allotmentFinalization || 'In Progress'}</strong></span>
+          ) : ipo.status === 'UPCOMING' ? (
+            <span>Opens: <strong style={{ color: '#2563eb' }}>{ipo.timeline.biddingStarts || 'TBA'}</strong></span>
+          ) : (
+            <span>Close: <strong style={{ color: '#334155' }}>{ipo.timeline.biddingEnds}</strong></span>
+          )}
         </div>
 
-        <Link 
-          href={`/ipo/${ipo.id}`}
-          onClick={(e) => e.stopPropagation()}
-          style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '0.35rem', 
-            fontSize: '0.8rem', 
-            fontWeight: 600, 
-            color: '#2563eb',
-            backgroundColor: '#eff6ff',
-            padding: '4px 10px',
-            borderRadius: '6px',
-            textDecoration: 'none',
-            border: '1px solid #bfdbfe',
-            transition: 'background-color 0.15s ease'
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#dbeafe')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#eff6ff')}
-        >
-          <span>View Insights</span>
-          <ChevronRight size={14} />
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          {ipo.status === 'CLOSED' && (
+            <a
+              href={ipo.registrarUrl || 'https://linkintime.co.in/initial_offer/public-issues.html'}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              title={`Check Allotment on ${ipo.registrar || 'Registrar'}`}
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                color: '#059669',
+                backgroundColor: '#ecfdf5',
+                padding: '4px 8px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                border: '1px solid #a7f3d0',
+                transition: 'background-color 0.15s ease'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#d1fae5')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#ecfdf5')}
+            >
+              Allotment
+            </a>
+          )}
+
+          <Link 
+            href={`/ipo/${ipo.id}`}
+            onClick={(e) => e.stopPropagation()}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.35rem', 
+              fontSize: '0.8rem', 
+              fontWeight: 600, 
+              color: '#2563eb',
+              backgroundColor: '#eff6ff',
+              padding: '4px 10px',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              border: '1px solid #bfdbfe',
+              transition: 'background-color 0.15s ease'
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#dbeafe')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#eff6ff')}
+          >
+            <span>Insights</span>
+            <ChevronRight size={14} />
+          </Link>
+        </div>
       </div>
     </div>
   );

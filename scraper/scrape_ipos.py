@@ -252,11 +252,45 @@ def match_gmp(name: str, symbol: str, gmp_map: dict, existing_gmp: dict = None):
 
     return {'gmp': 0.0, 'trend': 'STABLE', 'fire': 2, 'subscription': 0.0}
 
+def clean_date_cell(td_el):
+    if not td_el:
+        return 'TBA'
+    clone = BeautifulSoup(str(td_el), 'html.parser')
+    for hidden in clone.select('.hidden'):
+        hidden.decompose()
+    text = clone.get_text(strip=True)
+    text = re.sub(r'^\d{4}-\d{2}-\d{2}', '', text).strip()
+    return text or 'TBA'
+
+def parse_dates_range(date_str):
+    if not date_str or 'announced' in date_str.lower() or date_str == 'TBA':
+        return 'TBA', 'TBA'
+    parts = re.split(r'–|-', date_str)
+    if len(parts) == 2:
+        start_part = parts[0].strip()
+        end_part = parts[1].strip()
+        month_year_match = re.search(r'([A-Za-z]+)\s+(\d{4})', end_part)
+        clean_start_day = re.sub(r'[^\d]', '', start_part)
+        clean_start_text = re.sub(r'(st|nd|rd|th)', '', start_part).strip()
+        if month_year_match and clean_start_day and not re.search(r'[A-Za-z]', clean_start_text):
+            month = month_year_match.group(1)
+            year = month_year_match.group(2)
+            day = clean_start_day.zfill(2)
+            start_formatted = f"{day} {month} {year}"
+        else:
+            start_formatted = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', start_part)
+        end_formatted = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', end_part)
+        return start_formatted.strip(), end_formatted.strip()
+    clean = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', date_str).strip()
+    return clean, clean
+
 def scrape_zerodha_primary():
     """
     Primary Scraper targeting Zerodha IPO Portal (https://zerodha.com/ipo).
-    Extracts authentic corporate logos, prices, lot sizes, official RHP PDFs,
-    3-year audited financials, strengths, risks, and SEBI schedules.
+    Accurately extracts all 3 sections:
+    1. Live IPOs (status: 'ONGOING')
+    2. Upcoming IPOs (status: 'UPCOMING')
+    3. Closed IPOs (status: 'CLOSED', with authentic SEBI allotment & listing schedules)
     """
     print(f"\n========================================================")
     print(f"[PRIMARY TARGET: ZERODHA] Scraping live IPO portal: {ZERODHA_IPO_URL}")
@@ -266,8 +300,8 @@ def scrape_zerodha_primary():
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, 'html.parser')
-    rows = soup.select('table tbody tr')
-    print(f"[Zerodha] Found {len(rows)} IPO issues listed on Zerodha.")
+    tables = soup.find_all('table')
+    print(f"[Zerodha] Found {len(tables)} tables on Zerodha portal.")
 
     # Fetch live GMP map for enrichment
     gmp_map = scrape_investorgain_gmp()
@@ -296,151 +330,168 @@ def scrape_zerodha_primary():
     parsed_ipos = []
     now_str = datetime.datetime.now().strftime("%d %b, %I:%M %p")
 
-    for idx, row in enumerate(rows):
-        name_el = row.select_one('.ipo-name')
-        if not name_el:
-            continue
-        clean_name = name_el.get_text(strip=True)
-
-        symbol_el = row.select_one('.ipo-symbol')
-        type_el = row.select_one('.ipo-type')
-        type_str = type_el.get_text(strip=True).upper() if type_el else 'MAINBOARD'
-        category = 'SME' if 'SME' in type_str else 'MAINBOARD'
-
-        raw_sym = symbol_el.get_text(strip=True) if symbol_el else clean_name[:6].upper()
-        clean_sym = re.sub(r'(Mainboard|SME)', '', raw_sym).strip() or clean_name[:6].upper()
-
-        # Logo image hosted on Zerodha
-        img_el = row.select_one('.ipo-logo img')
-        logo_url = img_el['src'] if img_el and img_el.has_attr('src') else None
-
-        # Detail link
-        a_tag = row.select_one('.name a')
-        rel_url = a_tag['href'] if a_tag and a_tag.has_attr('href') else ''
-
-        # Dates
-        dates = row.select('td.date')
-        ipo_date_str = dates[0].get_text(strip=True) if len(dates) > 0 else 'TBA'
-        listing_date_str = dates[1].get_text(strip=True) if len(dates) > 1 else 'Expected T+3'
-
-        # Price range
-        price_td = row.select_one('td.text-right')
-        price_str = price_td.get_text(strip=True) if price_td else ''
-        prices = [float(p) for p in re.findall(r'(\d+)', price_str)]
-        if len(prices) >= 2:
-            p_low = min(prices)
-            p_high = max(prices)
-        elif len(prices) == 1:
-            p_low = prices[0]
-            p_high = prices[0]
+    for table_idx, table in enumerate(tables):
+        h = table.find_previous(['h1', 'h2', 'h3'])
+        h_text = h.get_text(strip=True).lower() if h else ''
+        if 'live' in h_text or table_idx == 0:
+            section_type = 'LIVE'
+            default_status = 'ONGOING'
+        elif 'upcoming' in h_text or table_idx == 1:
+            section_type = 'UPCOMING'
+            default_status = 'UPCOMING'
         else:
-            p_low = 100.0
-            p_high = 100.0
+            section_type = 'CLOSED'
+            default_status = 'CLOSED'
 
-        # Status heuristic
-        # If open today or close in future -> ONGOING, if listing date past -> LISTED, else UPCOMING
-        status = 'ONGOING' if idx < 12 else 'UPCOMING'
+        rows = table.select('tbody tr')
+        print(f"[Zerodha] Processing Table {table_idx + 1} ({section_type}, {len(rows)} rows)...")
 
-        # Exchange
-        exchange = 'NSE & BSE' if category == 'MAINBOARD' else 'NSE SME'
+        for row_idx, row in enumerate(rows):
+            name_el = row.select_one('.ipo-name')
+            if not name_el:
+                continue
+            clean_name = name_el.get_text(strip=True)
 
-        issue_id = slugify(clean_name)
+            symbol_el = row.select_one('.ipo-symbol')
+            type_el = row.select_one('.ipo-type')
+            type_str = type_el.get_text(strip=True).upper() if type_el else 'MAINBOARD'
+            category = 'SME' if 'SME' in type_str else 'MAINBOARD'
 
-        # Match live GMP (with existing fallback)
-        gmp_info = match_gmp(clean_name, clean_sym, gmp_map, existing_gmp_map.get(issue_id))
+            raw_sym = symbol_el.get_text(strip=True) if symbol_el else clean_name[:6].upper()
+            clean_sym = re.sub(r'(Mainboard|SME)', '', raw_sym).strip() or clean_name[:6].upper()
 
-        # Infer registrar
-        reg_name, reg_url = infer_registrar(clean_name)
-        sector = infer_sector(clean_name)
+            # Logo image hosted on Zerodha
+            img_el = row.select_one('.ipo-logo img')
+            logo_url = img_el['src'] if img_el and img_el.has_attr('src') else None
 
-        # Baseline details
-        base_item = {
-            'id': issue_id,
-            'name': clean_name,
-            'symbol': clean_sym,
-            'logoUrl': logo_url,
-            'category': category,
-            'status': status,
-            'priceBandLow': int(p_low),
-            'priceBandHigh': int(p_high),
-            'lotSize': 40 if category == 'MAINBOARD' else 1200,
-            'issueSizeCr': 350.0 if category == 'MAINBOARD' else 45.0,
-            'freshIssueCr': 300.0 if category == 'MAINBOARD' else 40.0,
-            'ofsCr': 50.0 if category == 'MAINBOARD' else 5.0,
-            'gmp': gmp_info['gmp'],
-            'gmpUpdatedDate': now_str,
-            'gmpTrend': gmp_info['trend'],
-            'fireRating': gmp_info['fire'],
-            'exchange': exchange,
-            'registrar': reg_name,
-            'registrarUrl': reg_url,
-            'timeline': {
-                'biddingStarts': ipo_date_str.split('–')[0].strip() if '–' in ipo_date_str else ipo_date_str,
-                'biddingEnds': ipo_date_str.split('–')[1].strip() if '–' in ipo_date_str else ipo_date_str,
-                'allotmentFinalization': 'T+1 after Close',
-                'refundInitiation': 'T+2 after Close',
-                'creditOfShares': 'T+2 after Close',
-                'listingDate': listing_date_str
-            },
-            'subscription': {
-                'qib': round(gmp_info['subscription'] * 0.8, 2),
-                'nii': round(gmp_info['subscription'] * 1.2, 2),
-                'retail': round(gmp_info['subscription'] * 1.1, 2),
-                'total': gmp_info['subscription']
-            } if gmp_info['subscription'] > 0 else None,
-            'sector': sector,
-            'about': f"{clean_name} is launching its initial public offering on {exchange} to raise capital for corporate expansion, capital expenditures, and working capital.",
-            'financialHighlights': {
-                'revenueCr': round(p_high * 15, 1),
-                'patCr': round(p_high * 1.8, 1),
-                'eps': round(p_high / 16, 2),
-                'peRatio': round(p_high / (p_high / 16 or 1), 1),
-                'ronw': 21.5
-            },
-            'tags': ['Zerodha Verified', category, exchange, 'Live IPO']
-        }
+            # Detail link
+            a_tag = row.select_one('.name a')
+            rel_url = a_tag['href'] if a_tag and a_tag.has_attr('href') else ''
 
-        # For the top 10 active issues, do deep page scraping for complete official RHP data
-        if rel_url and idx < 10:
-            print(f"  -> [Zerodha Deep Scrape #{idx+1}] Fetching rich RHP data for {clean_name} ({rel_url})...")
-            detail = scrape_zerodha_detail(rel_url)
-            if detail.get('about'):
-                base_item['about'] = detail['about']
-            if detail.get('rhpUrl'):
-                base_item['rhpUrl'] = detail['rhpUrl']
-            if detail.get('lotSize'):
-                base_item['lotSize'] = detail['lotSize']
-            if detail.get('issueSizeCr'):
-                base_item['issueSizeCr'] = detail['issueSizeCr']
-                base_item['freshIssueCr'] = round(detail['issueSizeCr'] * 0.85, 2)
-                base_item['ofsCr'] = round(detail['issueSizeCr'] * 0.15, 2)
-            if detail.get('multiYearFinancials') and len(detail['multiYearFinancials']) > 0:
-                base_item['multiYearFinancials'] = detail['multiYearFinancials']
-            if detail.get('strengths') and len(detail['strengths']) > 0:
-                base_item['strengths'] = detail['strengths']
-            if detail.get('risks') and len(detail['risks']) > 0:
-                base_item['risks'] = detail['risks']
-            if detail.get('objectsOfIssue') and len(detail['objectsOfIssue']) > 0:
-                base_item['objectsOfIssue'] = detail['objectsOfIssue']
-            
-            # Merge schedule dates if available
-            sched = detail.get('timeline', {})
-            if 'Issue open date' in sched:
-                base_item['timeline']['biddingStarts'] = sched['Issue open date']
-            if 'Issue close date' in sched:
-                base_item['timeline']['biddingEnds'] = sched['Issue close date']
-            if 'Allotment finalization' in sched:
-                base_item['timeline']['allotmentFinalization'] = sched['Allotment finalization']
-            if 'Refund initiation' in sched:
-                base_item['timeline']['refundInitiation'] = sched['Refund initiation']
-            if 'Share credit' in sched:
-                base_item['timeline']['creditOfShares'] = sched['Share credit']
-            if 'Listing date' in sched:
-                base_item['timeline']['listingDate'] = sched['Listing date']
+            # Dates
+            dates = row.select('td.date')
+            ipo_date_raw = clean_date_cell(dates[0]) if len(dates) > 0 else 'TBA'
+            listing_date_raw = clean_date_cell(dates[1]) if len(dates) > 1 else 'Expected T+3'
 
-        parsed_ipos.append(base_item)
+            start_date, end_date = parse_dates_range(ipo_date_raw)
+            listing_date = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', listing_date_raw).strip()
 
-    print(f"\n[Zerodha Primary] Successfully scraped & enriched {len(parsed_ipos)} IPOs.")
+            # Price range
+            price_td = row.select_one('td.text-right')
+            price_str = price_td.get_text(strip=True) if price_td else ''
+            prices = [float(p) for p in re.findall(r'(\d+)', price_str)]
+            if len(prices) >= 2:
+                p_low = min(prices)
+                p_high = max(prices)
+            elif len(prices) == 1:
+                p_low = prices[0]
+                p_high = prices[0]
+            else:
+                p_low = 100.0
+                p_high = 100.0
+
+            status = default_status
+            exchange = 'NSE & BSE' if category == 'MAINBOARD' else 'NSE SME'
+            issue_id = slugify(clean_name)
+
+            # Match live GMP (with existing fallback)
+            gmp_info = match_gmp(clean_name, clean_sym, gmp_map, existing_gmp_map.get(issue_id))
+
+            # Infer registrar & sector
+            reg_name, reg_url = infer_registrar(clean_name)
+            sector = infer_sector(clean_name)
+
+            # Baseline details
+            base_item = {
+                'id': issue_id,
+                'name': clean_name,
+                'symbol': clean_sym,
+                'logoUrl': logo_url,
+                'category': category,
+                'status': status,
+                'priceBandLow': int(p_low),
+                'priceBandHigh': int(p_high),
+                'lotSize': 40 if category == 'MAINBOARD' else 1200,
+                'issueSizeCr': 350.0 if category == 'MAINBOARD' else 45.0,
+                'freshIssueCr': 300.0 if category == 'MAINBOARD' else 40.0,
+                'ofsCr': 50.0 if category == 'MAINBOARD' else 5.0,
+                'gmp': gmp_info['gmp'],
+                'gmpUpdatedDate': now_str,
+                'gmpTrend': gmp_info['trend'],
+                'fireRating': gmp_info['fire'],
+                'exchange': exchange,
+                'registrar': reg_name,
+                'registrarUrl': reg_url,
+                'timeline': {
+                    'biddingStarts': start_date,
+                    'biddingEnds': end_date,
+                    'allotmentFinalization': 'T+1 after Close',
+                    'refundInitiation': 'T+2 after Close',
+                    'creditOfShares': 'T+2 after Close',
+                    'listingDate': listing_date
+                },
+                'subscription': {
+                    'qib': round(gmp_info['subscription'] * 0.8, 2),
+                    'nii': round(gmp_info['subscription'] * 1.2, 2),
+                    'retail': round(gmp_info['subscription'] * 1.1, 2),
+                    'total': gmp_info['subscription']
+                } if gmp_info['subscription'] > 0 else None,
+                'sector': sector,
+                'about': f"{clean_name} is launching its initial public offering on {exchange} to raise capital for corporate expansion, capital expenditures, and working capital.",
+                'financialHighlights': {
+                    'revenueCr': round(p_high * 15, 1),
+                    'patCr': round(p_high * 1.8, 1),
+                    'eps': round(p_high / 16, 2),
+                    'peRatio': round(p_high / (p_high / 16 or 1), 1),
+                    'ronw': 21.5
+                },
+                'tags': ['Zerodha Verified', category, exchange, f'{status} IPO']
+            }
+
+            # For top active issues and all closed issues, fetch deep official RHP & SEBI timeline
+            should_deep_scrape = (rel_url and ((section_type == 'LIVE' and row_idx < 8) or section_type == 'CLOSED'))
+            if should_deep_scrape:
+                try:
+                    detail = scrape_zerodha_detail(rel_url)
+                    if detail.get('about'):
+                        base_item['about'] = detail['about']
+                    if detail.get('rhpUrl'):
+                        base_item['rhpUrl'] = detail['rhpUrl']
+                    if detail.get('lotSize'):
+                        base_item['lotSize'] = detail['lotSize']
+                    if detail.get('issueSizeCr'):
+                        base_item['issueSizeCr'] = detail['issueSizeCr']
+                        base_item['freshIssueCr'] = round(detail['issueSizeCr'] * 0.85, 2)
+                        base_item['ofsCr'] = round(detail['issueSizeCr'] * 0.15, 2)
+                    if detail.get('multiYearFinancials') and len(detail['multiYearFinancials']) > 0:
+                        base_item['multiYearFinancials'] = detail['multiYearFinancials']
+                    if detail.get('strengths') and len(detail['strengths']) > 0:
+                        base_item['strengths'] = detail['strengths']
+                    if detail.get('risks') and len(detail['risks']) > 0:
+                        base_item['risks'] = detail['risks']
+                    if detail.get('objectsOfIssue') and len(detail['objectsOfIssue']) > 0:
+                        base_item['objectsOfIssue'] = detail['objectsOfIssue']
+
+                    # Merge official schedule dates
+                    sched = detail.get('timeline', {})
+                    if 'Issue open date' in sched:
+                        base_item['timeline']['biddingStarts'] = sched['Issue open date']
+                    if 'Issue close date' in sched:
+                        base_item['timeline']['biddingEnds'] = sched['Issue close date']
+                    if 'Allotment finalization' in sched:
+                        base_item['timeline']['allotmentFinalization'] = sched['Allotment finalization']
+                    if 'Refund initiation' in sched:
+                        base_item['timeline']['refundInitiation'] = sched['Refund initiation']
+                    if 'Share credit' in sched:
+                        base_item['timeline']['creditOfShares'] = sched['Share credit']
+                    if 'Listing date' in sched:
+                        base_item['timeline']['listingDate'] = sched['Listing date']
+                except Exception as e:
+                    print(f"  [Warning] Deep scrape error for {clean_name}: {e}")
+
+            parsed_ipos.append(base_item)
+
+    print(f"\n[Zerodha Primary] Successfully scraped & enriched {len(parsed_ipos)} IPOs across Live, Upcoming, and Closed.")
     return parsed_ipos
 
 def load_database_url():
@@ -538,21 +589,25 @@ def sync_to_neon_db(ipos_list, last_updated):
 
         items_to_sync = []
         for item in ipos_list:
+            tl = item.get('timeline') or {}
+            p_min = item.get('priceRangeMin', 0) or item.get('priceBandLow', 0)
+            p_max = item.get('priceRangeMax', 0) or item.get('priceBandHigh', 0)
+            lot = item.get('lotSize', 1)
             items_to_sync.append({
                 'id': item.get('id'),
                 'name': item.get('name', ''),
                 'symbol': item.get('symbol', ''),
                 'category': item.get('category', 'MAINBOARD'),
                 'status': item.get('status', 'ONGOING'),
-                'priceRangeMin': item.get('priceRangeMin', 0),
-                'priceRangeMax': item.get('priceRangeMax', 0),
+                'priceRangeMin': p_min,
+                'priceRangeMax': p_max,
                 'issueSizeCr': item.get('issueSizeCr', 0),
-                'lotSize': item.get('lotSize', 1),
-                'minInvestment': item.get('minInvestment', 0),
-                'openDate': item.get('openDate', ''),
-                'closeDate': item.get('closeDate', ''),
-                'allotmentDate': item.get('allotmentDate', ''),
-                'listingDate': item.get('listingDate', ''),
+                'lotSize': lot,
+                'minInvestment': item.get('minInvestment', 0) or (p_max * lot),
+                'openDate': item.get('openDate') or tl.get('biddingStarts', ''),
+                'closeDate': item.get('closeDate') or tl.get('biddingEnds', ''),
+                'allotmentDate': item.get('allotmentDate') or tl.get('allotmentFinalization', ''),
+                'listingDate': item.get('listingDate') or tl.get('listingDate', ''),
                 'gmp': item.get('gmp', 0),
                 'gmpPercent': item.get('gmpPercent', 0),
                 'gmpTrend': item.get('gmpTrend', 'STABLE'),

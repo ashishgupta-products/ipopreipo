@@ -17,7 +17,8 @@ import {
   User,
   LogOut,
   LogIn,
-  ChevronDown
+  ChevronDown,
+  Calendar
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -54,7 +55,9 @@ export default function Navbar({
   const isBrokersPage = pathname === '/brokers' || pathname.startsWith('/brokers/');
   const isCreditCardsPage = pathname === '/credit-cards' || pathname.startsWith('/credit-cards/');
   const isAnalystsPage = pathname.startsWith('/analysts');
-  const isIposPage = pathname === '/' || pathname.startsWith('/ipo');
+  const isCalendarPage = pathname === '/ipo-calendar';
+  const isAllotmentPage = pathname === '/allotment';
+  const isIposPage = (pathname === '/' || pathname.startsWith('/ipo')) && !isCalendarPage;
 
   const navItems = [
     { 
@@ -62,7 +65,21 @@ export default function Navbar({
       label: 'IPOs', 
       icon: <Layers size={15} />, 
       href: '/',
-      isActive: isIposPage && (!activeTab || activeTab === 'all-ipos' || activeTab === 'live-gmp' || activeTab === 'allotment')
+      isActive: isIposPage && (!activeTab || activeTab === 'all-ipos' || activeTab === 'live-gmp')
+    },
+    { 
+      id: 'calendar', 
+      label: 'Calendar', 
+      icon: <Calendar size={15} color="#2563eb" />, 
+      href: '/ipo-calendar',
+      isActive: isCalendarPage
+    },
+    { 
+      id: 'allotment', 
+      label: 'Allotment', 
+      icon: <ShieldCheck size={15} color="#059669" />, 
+      href: '/allotment',
+      isActive: isAllotmentPage
     },
     { 
       id: 'analysts', 

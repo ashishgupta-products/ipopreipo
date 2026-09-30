@@ -35,7 +35,7 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
             <th style={{ padding: '0.9rem 1rem' }}>Live GMP & 24h Trend</th>
             <th style={{ padding: '0.9rem 1rem' }}>Est. Listing Gain</th>
             <th style={{ padding: '0.9rem 1rem' }}>Subscription</th>
-            <th style={{ padding: '0.9rem 1rem' }}>Close Date</th>
+            <th style={{ padding: '0.9rem 1rem' }}>Timeline / Dates</th>
             <th style={{ padding: '0.9rem 1.25rem', textAlign: 'right' }}>Action</th>
           </tr>
         </thead>
@@ -196,24 +196,72 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
                   )}
                 </td>
 
-                {/* Close Date */}
+                {/* Timeline / Allotment Date */}
                 <td style={{ padding: '1rem', fontSize: '0.8rem', color: '#334155' }}>
-                  {ipo.timeline.biddingEnds}
+                  {ipo.status === 'CLOSED' ? (
+                    <div>
+                      <div style={{ fontWeight: 700, color: '#6d28d9', fontSize: '0.78rem' }}>
+                        Allotment: {ipo.timeline.allotmentFinalization || 'In Progress'}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                        Closed: {ipo.timeline.biddingEnds}
+                      </div>
+                    </div>
+                  ) : ipo.status === 'UPCOMING' ? (
+                    <div>
+                      <div style={{ fontWeight: 700, color: '#2563eb', fontSize: '0.78rem' }}>
+                        Opens: {ipo.timeline.biddingStarts || 'TBA'}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                        Lists: {ipo.timeline.listingDate || 'TBA'}
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.78rem' }}>
+                        Closes: {ipo.timeline.biddingEnds}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#059669', fontWeight: 600 }}>
+                        Active Bidding
+                      </div>
+                    </div>
+                  )}
                 </td>
 
                 {/* Action */}
                 <td style={{ padding: '1rem 1.25rem', textAlign: 'right' }}>
-                  <Link
-                    href={`/ipo/${ipo.id}`}
-                    className="btn-secondary"
-                    style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                  >
-                    <span>View Insights</span>
-                    <ChevronRight size={13} />
-                  </Link>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', justifyContent: 'flex-end' }}>
+                    {ipo.status === 'CLOSED' && (
+                      <a
+                        href={ipo.registrarUrl || 'https://linkintime.co.in/initial_offer/public-issues.html'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary"
+                        style={{
+                          padding: '0.35rem 0.65rem',
+                          fontSize: '0.75rem',
+                          textDecoration: 'none',
+                          color: '#059669',
+                          backgroundColor: '#ecfdf5',
+                          borderColor: '#a7f3d0'
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Allotment
+                      </a>
+                    )}
+                    <Link
+                      href={`/ipo/${ipo.id}`}
+                      className="btn-secondary"
+                      style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <span>Insights</span>
+                      <ChevronRight size={13} />
+                    </Link>
+                  </div>
                 </td>
               </tr>
             );

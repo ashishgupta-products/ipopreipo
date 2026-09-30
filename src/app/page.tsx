@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Navbar from '../components/layout/Navbar';
 import MarketTicker from '../components/layout/MarketTicker';
 import Footer from '../components/layout/Footer';
 import IpoCard from '../components/ipo/IpoCard';
 import IpoTable from '../components/ipo/IpoTable';
+import IpoCalendar from '../components/ipo/IpoCalendar';
 import IpoDetailModal from '../components/ipo/IpoDetailModal';
 import { IpoItem } from '../types';
 import { getMergedIpos } from '../lib/ipoService';
@@ -14,11 +16,14 @@ import { getMergedIpos } from '../lib/ipoService';
 import { 
   LayoutGrid, 
   Table as TableIcon, 
+  Calendar as CalendarIcon,
   HelpCircle,
   RefreshCw,
   ChevronDown,
   Filter,
-  RotateCcw
+  RotateCcw,
+  ShieldCheck,
+  ExternalLink
 } from 'lucide-react';
 
 export default function Home() {
@@ -29,6 +34,9 @@ export default function Home() {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const tab = params.get('tab');
+      const view = params.get('view');
+      const status = params.get('status');
+
       if (tab === 'payment-apps') {
         router.replace('/payment-apps');
       } else if (tab === 'pre-ipo') {
@@ -39,6 +47,14 @@ export default function Home() {
         router.replace('/credit-cards');
       } else if (tab === 'analysts') {
         router.replace('/analysts');
+      } else if (tab === 'allotment') {
+        router.replace('/allotment');
+      } else if (tab === 'calendar' || view === 'calendar') {
+        setViewMode('CALENDAR');
+      }
+
+      if (status === 'closed' || tab === 'closed') {
+        setStatusFilter('CLOSED');
       }
     }
   }, [router]);
@@ -71,7 +87,7 @@ export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('MAINBOARD');
   const [statusFilter, setStatusFilter] = useState<'ALL' | 'ONGOING' | 'UPCOMING' | 'CLOSED' | 'LISTED'>('ONGOING');
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<'GRID' | 'TABLE'>('GRID');
+  const [viewMode, setViewMode] = useState<'GRID' | 'TABLE' | 'CALENDAR'>('GRID');
 
   // Modal states
   const [selectedIpo, setSelectedIpo] = useState<IpoItem | null>(null);
@@ -335,6 +351,27 @@ export default function Home() {
                 <TableIcon size={14} />
                 <span>Table</span>
               </button>
+              <button
+                onClick={() => setViewMode('CALENDAR')}
+                style={{
+                  padding: '0.35rem 0.65rem',
+                  borderRadius: 'var(--radius-sm)',
+                  color: viewMode === 'CALENDAR' ? '#ffffff' : '#64748b',
+                  backgroundColor: viewMode === 'CALENDAR' ? '#2563eb' : 'transparent',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease'
+                }}
+                title="Interactive IPO Calendar view"
+              >
+                <CalendarIcon size={14} />
+                <span>Calendar</span>
+              </button>
             </div>
 
             {/* Showing count indicator */}
@@ -347,15 +384,70 @@ export default function Home() {
                 padding: '2px 8px',
                 borderRadius: '6px'
               }}>
-                {filteredIpos.length}
+                {viewMode === 'CALENDAR' ? iposList.length : filteredIpos.length}
               </span>
               <span>IPOs</span>
             </div>
           </div>
         </div>
 
-        {/* Cards View or Table View or Empty State */}
-        {filteredIpos.length === 0 ? (
+        {/* Closed / Allotment Gateway Ribbon */}
+        {statusFilter === 'CLOSED' && viewMode !== 'CALENDAR' && (
+          <div style={{
+            backgroundColor: '#f0fdf4',
+            border: '1px solid #a7f3d0',
+            borderRadius: 'var(--radius-lg)',
+            padding: '0.9rem 1.25rem',
+            marginBottom: '1.25rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '0.75rem',
+            boxShadow: 'var(--shadow-sm)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <ShieldCheck size={20} color="#059669" />
+              <div>
+                <div style={{ fontWeight: 700, color: '#065f46', fontSize: '0.88rem' }}>
+                  Official Registrar Allotment Status Hub
+                </div>
+                <div style={{ fontSize: '0.78rem', color: '#047857' }}>
+                  These issues have closed bidding and are currently finalizing allotment. You can check share allocation via PAN on official registrar gateways.
+                </div>
+              </div>
+            </div>
+            <Link
+              href="/allotment"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                backgroundColor: '#059669',
+                color: '#ffffff',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                padding: '0.45rem 0.95rem',
+                borderRadius: 'var(--radius-md)',
+                textDecoration: 'none',
+                transition: 'background-color 0.15s ease'
+              }}
+            >
+              <span>Check Allotment Portals</span>
+              <ExternalLink size={13} />
+            </Link>
+          </div>
+        )}
+
+        {/* Calendar View OR Cards View OR Table View OR Empty State */}
+        {viewMode === 'CALENDAR' ? (
+          <div style={{ marginBottom: '2.5rem' }}>
+            <IpoCalendar
+              ipos={iposList}
+              onSelectIpo={(selected) => setSelectedIpo(selected)}
+            />
+          </div>
+        ) : filteredIpos.length === 0 ? (
           <div style={{
             textAlign: 'center',
             padding: '3rem 1.5rem',
