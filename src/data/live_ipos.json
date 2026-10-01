@@ -1,101 +1,8 @@
 {
-  "lastUpdated": "2026-10-01T17:17:48.132211",
+  "lastUpdated": "2026-10-01T20:10:15.875065",
   "source": "Zerodha Primary IPO Portal (https://zerodha.com/ipo)",
   "count": 50,
   "ipos": [
-    {
-      "id": "green-asia-impex",
-      "name": "Green Asia Impex",
-      "symbol": "GREENASIA",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/greenasia_logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 84,
-      "priceBandHigh": 89,
-      "lotSize": 1600,
-      "issueSizeCr": 60.0,
-      "freshIssueCr": 51.0,
-      "ofsCr": 9.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "24 Sep 2026",
-        "biddingEnds": "01 Oct 2026",
-        "allotmentFinalization": "05 Oct 2026",
-        "refundInitiation": "06 Oct 2026",
-        "creditOfShares": "06 Oct 2026",
-        "listingDate": "07 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Renewable Energy & Power",
-      "about": "Green Asia Impex operates as an integrated processor and exporter of frozen seafood and agricultural commodities, catering primarily to business-to-business customers, including importers, distributors, and food processing companies in domestic and international markets. The company operates in two main business segments: shrimps and dried chillies. In the shrimp segment, the company sources raw shrimps from local aquaculture farmers and traders, processes them through grading, peeling, deveining, and freezing, and supplies processed frozen shrimp products. In the dried chillies segment, the company procures chillies from agricultural market committee traders and carries out processing activities such as cleaning, grading, and sorting before distribution. Revenue is generated through direct domestic sales within India as well as exports to overseas markets including China, Kuwait, the United States, Malaysia, and the United Kingdom. The company utilizes processing facilities situated in Andhra Pradesh to manage its production operations across both product categories.",
-      "financialHighlights": {
-        "revenueCr": 1335.0,
-        "patCr": 160.2,
-        "eps": 5.56,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://indorient.in/assets/documents/GAIL_RHP_1789799314.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 135.23,
-          "revenueCr": 318.15,
-          "patCr": 6.66,
-          "netWorthCr": 56.8,
-          "totalBorrowingCr": 24.34,
-          "reservesCr": 37.86
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 192.04,
-          "revenueCr": 339.65,
-          "patCr": 10.35,
-          "netWorthCr": 80.66,
-          "totalBorrowingCr": 34.57,
-          "reservesCr": 53.77
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 254.88,
-          "revenueCr": 388.63,
-          "patCr": 15.61,
-          "netWorthCr": 107.05,
-          "totalBorrowingCr": 45.88,
-          "reservesCr": 71.37
-        }
-      ],
-      "strengths": [
-        "Integrated processor and exporter of frozen seafood and agricultural commodities.",
-        "Established customer relationships and presence in key international markets.",
-        "Strategically located processing facilities in Andhra Pradesh with a strong sourcing network.",
-        "Consistent financial growth with improving operating margins over recent fiscal years.",
-        "Experienced promoter group and management team with deep domain expertise."
-      ],
-      "risks": [
-        "Significant revenue concentration from export sales to customers located in China.",
-        "Dependence on a limited number of large customers for a major portion of revenues.",
-        "Operations rely heavily on external borrowings to meet working capital requirements.",
-        "Absence of long-term supply contracts for raw material procurement of shrimp and chillies.",
-        "Exposure to biosecurity risks, disease outbreaks, and strict international quality standards."
-      ],
-      "objectsOfIssue": [
-        "Funding the capital expenditure (40.03 (75.39%))",
-        "General corporate purposes (13.07 (24.61%))"
-      ]
-    },
     {
       "id": "shree-tnb-polymers",
       "name": "Shree TNB Polymers",
@@ -110,7 +17,7 @@
       "freshIssueCr": 27.2,
       "ofsCr": 4.8,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -206,7 +113,7 @@
       "freshIssueCr": 41.65,
       "ofsCr": 7.35,
       "gmp": 20.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -287,287 +194,6 @@
       ]
     },
     {
-      "id": "black-opal-consultants",
-      "name": "Black Opal Consultants",
-      "symbol": "BLACKOPAL",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/blackopal_logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 185,
-      "priceBandHigh": 197,
-      "lotSize": 600,
-      "issueSizeCr": 55.0,
-      "freshIssueCr": 46.75,
-      "ofsCr": 8.25,
-      "gmp": 20.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
-      "gmpTrend": "UP",
-      "fireRating": 3,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "29 Sep 2026",
-        "biddingEnds": "01 Oct 2026",
-        "allotmentFinalization": "05 Oct 2026",
-        "refundInitiation": "06 Oct 2026",
-        "creditOfShares": "06 Oct 2026",
-        "listingDate": "07 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Black Opal Consultants operates as a financial and real estate consultancy firm providing integrated real estate solutions. The company generates revenue primarily through brokerage income from selling residential and commercial properties under exclusive sales mandates with real estate developers. Additionally, it earns revenue from loan syndication fees, advisory services, and real estate project development activities. Its core business activities include acting as a channel partner for property sales, offering real estate advisory, and facilitating property financing. The company’s operations are geographically concentrated in Uttar Pradesh and Haryana, specifically in Noida, Greater Noida, and Gurugram. It is also diversifying into real estate development, including a commercial hotel project named Veda in Ayodhya through its subsidiary entity, Aurika Developers. Furthermore, the company engages in inventory underwriting for real estate developers and is developing a digital property platform called JustHomz through its wholly owned subsidiary, Black Opal Technologies.",
-      "financialHighlights": {
-        "revenueCr": 2955.0,
-        "patCr": 354.6,
-        "eps": 12.31,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://www.blackopalgroup.in/assets/pdf/Offer_Documents/RHP_Black%20Opal%20Consultants%20Limited.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 13.14,
-          "revenueCr": 19.91,
-          "patCr": 4.32,
-          "netWorthCr": 5.52,
-          "totalBorrowingCr": 2.37,
-          "reservesCr": 3.68
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 22.44,
-          "revenueCr": 33.04,
-          "patCr": 11.48,
-          "netWorthCr": 9.42,
-          "totalBorrowingCr": 4.04,
-          "reservesCr": 6.28
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 59.62,
-          "revenueCr": 42.34,
-          "patCr": 12.2,
-          "netWorthCr": 25.04,
-          "totalBorrowingCr": 10.73,
-          "reservesCr": 16.69
-        }
-      ],
-      "strengths": [
-        "Integrated advisory, sales, and loan syndication services.",
-        "Established channel network in the Delhi-NCR market.",
-        "Strategic expansion into Ayodhya commercial real estate.",
-        "Tech-driven approach via the JustHomz digital platform.",
-        "Highly experienced promoters and management team."
-      ],
-      "risks": [
-        "High revenue reliance on a few clients lacking long-term contracts.",
-        "Operations highly concentrated in Uttar Pradesh and Haryana.",
-        "Entering real estate development without a prior track record.",
-        "IPO funds for underwriting lack a specifically identified inventory.",
-        "Pending UP RERA real estate agent registration renewal."
-      ],
-      "objectsOfIssue": [
-        "Funding for securing sales and marketing mandates (7 (15.88%))",
-        "Investment in Aurika Developers LLP for Ayodhya project development (26 (58.97%))",
-        "General Corporate Purposes (11.09 (25.15%))"
-      ]
-    },
-    {
-      "id": "papadmalji-agro-foods",
-      "name": "Papadmalji Agro Foods",
-      "symbol": "PAPADMALJI",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/papadmalji-ipo-logo-300x126.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 69,
-      "priceBandHigh": 72,
-      "lotSize": 1600,
-      "issueSizeCr": 20.0,
-      "freshIssueCr": 17.0,
-      "ofsCr": 3.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE SME",
-      "registrar": "Bigshare Services Pvt Ltd",
-      "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
-      "timeline": {
-        "biddingStarts": "29 Sep 2026",
-        "biddingEnds": "01 Oct 2026",
-        "allotmentFinalization": "05 Oct 2026",
-        "refundInitiation": "06 Oct 2026",
-        "creditOfShares": "06 Oct 2026",
-        "listingDate": "07 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Agri-Business & FMCG",
-      "about": "Papadmalji Agro Foods engages in the manufacturing of handmade papads, machine-made papads, rice papads, vrat special papads, and moongodi, along with the trading of cereal pellets. The company also carries out white-label manufacturing of handmade papads, producing goods that clients market under their respective brand names and tailored packaging. Revenue is primarily generated through product sales under its key core brands, including Vishal, Zhakaas, and Rozana, alongside direct-to-consumer sales under the Papadmalji brand. Products are distributed across multiple sales channels, such as general trade, modern trade, quick commerce, direct-to-consumer platforms, and sales to merchant exporters for selected Middle Eastern markets. Operations are based out of manufacturing units and facilities situated in Bikaner, Rajasthan. For handmade papad production, the business utilizes a decentralized operational system involving contractors and home-based women workers who perform hand rolling according to prescribed quality specifications before final inspection.",
-      "financialHighlights": {
-        "revenueCr": 1080.0,
-        "patCr": 129.6,
-        "eps": 4.5,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 20.07,
-          "revenueCr": 26.29,
-          "patCr": 2.11,
-          "netWorthCr": 8.43,
-          "totalBorrowingCr": 3.61,
-          "reservesCr": 5.62
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 25.05,
-          "revenueCr": 31.76,
-          "patCr": 4.72,
-          "netWorthCr": 10.52,
-          "totalBorrowingCr": 4.51,
-          "reservesCr": 7.01
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 33.5,
-          "revenueCr": 33.54,
-          "patCr": 5.21,
-          "netWorthCr": 14.07,
-          "totalBorrowingCr": 6.03,
-          "reservesCr": 9.38
-        }
-      ],
-      "strengths": [
-        "Established brand presence via Vishal, Zhakaas, and Rozana.",
-        "Multi-channel distribution across general and modern trade.",
-        "Scalable in-house and decentralized manufacturing model.",
-        "Diverse portfolio of papads, moongodi, and cereal pellets.",
-        "Promoters possess extensive food processing industry experience."
-      ],
-      "risks": [
-        "Revenue is heavily concentrated in the papad product segment.",
-        "Significant dependency on a limited number of top customers.",
-        "Operations and core sales are geographically concentrated in Rajasthan.",
-        "Lacks long-term supply agreements for agricultural raw materials.",
-        "Core brands face pending logo registrations and trademark oppositions."
-      ],
-      "objectsOfIssue": [
-        "Capital expenditure for setting up a new manufacturing facility at Bikaner (7.9 (42.66%))",
-        "Repayment / pre-payment of borrowings (5.8 (31.32%))",
-        "General Corporate Purposes (4.82 (26.02%))"
-      ]
-    },
-    {
-      "id": "vans-electroengineerings",
-      "name": "Vans Electroengineerings",
-      "symbol": "VANS",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vans-logo-285x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 112,
-      "priceBandHigh": 118,
-      "lotSize": 1200,
-      "issueSizeCr": 34.0,
-      "freshIssueCr": 28.9,
-      "ofsCr": 5.1,
-      "gmp": 90.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
-      "gmpTrend": "UP",
-      "fireRating": 5,
-      "exchange": "NSE SME",
-      "registrar": "Bigshare Services Pvt Ltd",
-      "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
-      "timeline": {
-        "biddingStarts": "29 Sep 2026",
-        "biddingEnds": "01 Oct 2026",
-        "allotmentFinalization": "05 Oct 2026",
-        "refundInitiation": "06 Oct 2026",
-        "creditOfShares": "06 Oct 2026",
-        "listingDate": "07 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Electricals & Power Transmission",
-      "about": "Vans Electroengineerings is engaged in manufacturing and supplying components for traction power supply and overhead equipment systems used in railway electrification infrastructure, metro systems, and renewable energy applications. The company operates a single manufacturing facility in Salem, Tamil Nadu, housing product assembly, testing infrastructure, and quality control operations. It generates revenue primarily through the sale of products to Indian Railways, supplying either directly through contracts secured via competitive bidding or indirectly through associated engineering, procurement, and construction contractors and vendors. Its key product portfolio includes double pole and single pole vacuum circuit breakers, double pole and single pole vacuum interrupters, overhead equipment, and braided flexible connectors. Operating within the electrical equipment and switchgear sector, the company manufactures products designed to meet specific technical standards and regulatory specifications prescribed by railway authorities for critical power supply and traction applications.",
-      "financialHighlights": {
-        "revenueCr": 1770.0,
-        "patCr": 212.4,
-        "eps": 7.38,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 6.57,
-          "revenueCr": 2.76,
-          "patCr": 0.02,
-          "netWorthCr": 2.76,
-          "totalBorrowingCr": 1.18,
-          "reservesCr": 1.84
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 5.34,
-          "revenueCr": 13.82,
-          "patCr": 1.73,
-          "netWorthCr": 2.24,
-          "totalBorrowingCr": 0.96,
-          "reservesCr": 1.5
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 16.85,
-          "revenueCr": 23.19,
-          "patCr": 5.39,
-          "netWorthCr": 7.08,
-          "totalBorrowingCr": 3.03,
-          "reservesCr": 4.72
-        }
-      ],
-      "strengths": [
-        "Specialized offerings in railway electrification and traction power supply systems.",
-        "Approved vendor status with RDSO and CORE for core product verticals.",
-        "In-house assembly and testing capabilities at a dedicated manufacturing facility.",
-        "Consistent revenue growth driven by Indian Railways electrification demand.",
-        "Experienced promoter team with deep industry domain expertise."
-      ],
-      "risks": [
-        "Revenue is heavily dependent on Indian Railways and its EPC contractors.",
-        "High product concentration risk from vacuum circuit breakers and interrupters.",
-        "Operations rely on a single manufacturing facility located in Salem, Tamil Nadu.",
-        "Significant working capital requirements and seasonal cash flow fluctuations.",
-        "Risk of losing or failing to renew approved vendor status with railway bodies."
-      ],
-      "objectsOfIssue": [
-        "Working Capital Requirement (25 (73.57%))",
-        "General Corporate Purposes (8.98 (26.43%))"
-      ]
-    },
-    {
       "id": "nityas-gems-and-jewellery",
       "name": "Nityas Gems and Jewellery",
       "symbol": "NITYAS",
@@ -581,7 +207,7 @@
       "freshIssueCr": 91.8,
       "ofsCr": 16.2,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -674,7 +300,7 @@
       "freshIssueCr": 151.3,
       "ofsCr": 26.7,
       "gmp": 10.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -763,12 +389,12 @@
       "status": "ONGOING",
       "priceBandLow": 296,
       "priceBandHigh": 311,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
+      "lotSize": 400,
+      "issueSizeCr": 42.0,
+      "freshIssueCr": 35.7,
+      "ofsCr": 6.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -777,14 +403,14 @@
       "timeline": {
         "biddingStarts": "30 Sep 2026",
         "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Omara Ventures India is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Omara Ventures India is a retail jeweller specializing in the curation and sale of designer diamond jewellery. The company offers a diverse product portfolio that includes bridal, festive, special occasion, and contemporary daily-wear jewellery, alongside gold jewellery and silver coins. Its core operations revolve around a design-led retail model operated through its boutique, where it provides customers with a personalized experience featuring customized jewellery discussions and private consultations. Omara Ventures generates revenue primarily through the direct retail sale of high-value solitaire and diamond pieces, which historically account for the vast majority of its product sales. By focusing on customization tailored to specific customer needs and maintaining well-established relationships with skilled artisans, the company successfully serves the premium market segment. Operating primarily out of the Chandigarh region, it emphasizes curated designs and a commitment to hallmarked assurance for retail investors.",
       "financialHighlights": {
         "revenueCr": 4665.0,
         "patCr": 559.8,
@@ -797,6 +423,57 @@
         "SME",
         "NSE SME",
         "ONGOING IPO"
+      ],
+      "rhpUrl": "https://cdn.shopify.com/s/files/1/0701/7529/3622/files/Omara_DraftProspectus.pdf?v=1790142212",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 26.44,
+          "revenueCr": 23.19,
+          "patCr": 0.31,
+          "netWorthCr": 11.1,
+          "totalBorrowingCr": 4.76,
+          "reservesCr": 7.4
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 29.46,
+          "revenueCr": 23.52,
+          "patCr": 2.73,
+          "netWorthCr": 12.37,
+          "totalBorrowingCr": 5.3,
+          "reservesCr": 8.25
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 47.25,
+          "revenueCr": 45.87,
+          "patCr": 9.37,
+          "netWorthCr": 19.84,
+          "totalBorrowingCr": 8.5,
+          "reservesCr": 13.23
+        }
+      ],
+      "strengths": [
+        "Experienced promoters and a dedicated management team guiding operations.",
+        "Diversified product portfolio featuring curated diamond and gold jewellery.",
+        "Strong focus on customization based on individual customer needs.",
+        "Well-established relationships with skilled jewellery artisans and suppliers.",
+        "Deep commitment to product quality and hallmarked jewellery assurance."
+      ],
+      "risks": [
+        "High dependence on suppliers for raw materials.",
+        "Revenue heavily concentrated in Solitaire and Diamond jewellery.",
+        "Geographically concentrated with operations primarily in Chandigarh.",
+        "High inventory levels significantly increase working capital needs.",
+        "Past delays and non-compliance in statutory and tax filings."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for Renovation and Expansion of the Jewellery Boutique (2 (4.76%))",
+        "Marketing and promotional expenses (2 (4.76%))",
+        "Working Capital Requirement (10 (23.82%))",
+        "Repayment and/or pre-payment of certain borrowings (18 (42.87%))",
+        "General Corporate Purposes (9.99 (23.79%))"
       ]
     },
     {
@@ -808,12 +485,12 @@
       "status": "ONGOING",
       "priceBandLow": 119,
       "priceBandHigh": 127,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
+      "lotSize": 1000,
+      "issueSizeCr": 82.0,
+      "freshIssueCr": 69.7,
+      "ofsCr": 12.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -822,14 +499,14 @@
       "timeline": {
         "biddingStarts": "30 Sep 2026",
         "biddingEnds": "06 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "07 Oct 2026",
+        "refundInitiation": "08 Oct 2026",
+        "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
       "subscription": null,
       "sector": "Consumer Retail & Textiles",
-      "about": "Paramount Syntex is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Paramount Syntex is engaged in the manufacturing and trading of synthetic fibers, yarns, and knitted cloth, catering to the textile industry. The company generates revenue by selling its products in domestic markets, primarily within Punjab, as well as through export sales. Its key product offerings include acrylic wool yarns, polyester yarns, nylon yarns, blended fancy yarns, and recycled acrylic fibers. Operating from its manufacturing facilities located in Ludhiana, Punjab, the company conducts in-house fiber processing, tow dyeing, hank dyeing, spinning, bulking, twisting, and packing. A notable aspect of its business model involves recycling domestic and imported waste acrylic fibers to convert them into value-added yarns. The company serves diverse end user sectors, including apparel, home textiles, hosiery, fashion knitting, and industrial textiles. Its integrated manufacturing facility enables operational efficiency and complete control over product quality and processing workflows.",
       "financialHighlights": {
         "revenueCr": 1905.0,
         "patCr": 228.6,
@@ -842,6 +519,54 @@
         "SME",
         "NSE SME",
         "ONGOING IPO"
+      ],
+      "rhpUrl": "https://paramountsyntex.com/images/Paramount_Final_DRHP_02.10.25_15.50pm.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 60.25,
+          "revenueCr": 92.94,
+          "patCr": 1.35,
+          "netWorthCr": 25.3,
+          "totalBorrowingCr": 10.84,
+          "reservesCr": 16.87
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 76.09,
+          "revenueCr": 112.72,
+          "patCr": 6.73,
+          "netWorthCr": 31.96,
+          "totalBorrowingCr": 13.7,
+          "reservesCr": 21.31
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 96.26,
+          "revenueCr": 122.51,
+          "patCr": 13.87,
+          "netWorthCr": 40.43,
+          "totalBorrowingCr": 17.33,
+          "reservesCr": 26.95
+        }
+      ],
+      "strengths": [
+        "Fully integrated in-house manufacturing setup.",
+        "Eco-friendly recycling of waste acrylic into premium yarns.",
+        "High capacity utilization averaging 70% to 83%.",
+        "Strict end-to-end control over quality and delivery.",
+        "Ample existing infrastructure for seamless expansion."
+      ],
+      "risks": [
+        "Orders for 100% of proposed machinery remain unplaced.",
+        "Project funding requirements are unappraised by any bank.",
+        "Unhedged forex exposure risks machinery cost overruns.",
+        "Machinery procurement delays could disrupt implementation.",
+        "Heavy reliance on a single manufacturing facility in Punjab."
+      ],
+      "objectsOfIssue": [
+        "Funding of capital expenditure for machinery at existing facilities (61.68(75.41%))",
+        "General Corporate Purposes (20.11 (24.59%))"
       ]
     },
     {
@@ -854,11 +579,11 @@
       "priceBandLow": 104,
       "priceBandHigh": 111,
       "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
+      "issueSizeCr": 73.0,
+      "freshIssueCr": 62.05,
+      "ofsCr": 10.95,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -867,14 +592,14 @@
       "timeline": {
         "biddingStarts": "30 Sep 2026",
         "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
       "subscription": null,
       "sector": "IT & Technology Services",
-      "about": "Dove Soft is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Dove Soft is an integrated cloud-communications solutions provider offering multi-channel communication services to businesses. The company provides enterprise clients and over-the-top platforms with transactional Short Message Service, Rich Communication Services, WhatsApp, Voice, Interactive Voice Response, automated voice call solutions, Email, and digital marketing products. It operates on a usage-based pay-per-use revenue model, generating income based on the volume of messages and voice pulses processed through its platform. The business caters to clients across diverse industry sectors, including telecom, information technology, banking, financial services, insurance, e-commerce, retail, healthcare, real estate, automobile, travel, and food and beverages. The company engages with mobile network operators on an invoice-based arrangement and collaborates with channel partners and messaging infrastructure providers to deliver its services. Its cloud platform enables organizations to manage customer interactions, streamline business operations, and enhance messaging reach efficiently across multiple digital communication channels.",
       "financialHighlights": {
         "revenueCr": 1665.0,
         "patCr": 199.8,
@@ -887,6 +612,54 @@
         "SME",
         "NSE SME",
         "ONGOING IPO"
+      ],
+      "rhpUrl": "https://dovesoft.io/images/investor/RHP.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 85.56,
+          "revenueCr": 119.79,
+          "patCr": 10.27,
+          "netWorthCr": 35.94,
+          "totalBorrowingCr": 15.4,
+          "reservesCr": 23.96
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 108.99,
+          "revenueCr": 188.26,
+          "patCr": 16.54,
+          "netWorthCr": 45.78,
+          "totalBorrowingCr": 19.62,
+          "reservesCr": 30.52
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 164.4,
+          "revenueCr": 274.74,
+          "patCr": 23.4,
+          "netWorthCr": 69.05,
+          "totalBorrowingCr": 29.59,
+          "reservesCr": 46.03
+        }
+      ],
+      "strengths": [
+        "Multi-channel cloud communications provider with a scalable platform.",
+        "Diversified client base across telecom, BFSI, retail, and e-commerce sectors.",
+        "Recurring usage-based revenue model delivering consistent revenue growth.",
+        "Strategic relationships with mobile network operators and channel partners.",
+        "Experienced promoter and key management team with domain expertise."
+      ],
+      "risks": [
+        "High customer concentration with top 10 clients contributing most revenue.",
+        "Substantial working capital requirements due to extended customer credit terms.",
+        "Dependency on direct telecom operators and third-party infrastructure providers.",
+        "Regional revenue concentration primarily in Northern and Western India.",
+        "Past instances of negative cash flows from operating activities."
+      ],
+      "objectsOfIssue": [
+        "Working Capital Requirement (46 (77.78%))",
+        "General Corporate Purposes (13.14 (22.22%))"
       ]
     },
     {
@@ -898,12 +671,12 @@
       "status": "ONGOING",
       "priceBandLow": 55,
       "priceBandHigh": 55,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
+      "lotSize": 2000,
+      "issueSizeCr": 22.0,
+      "freshIssueCr": 18.7,
+      "ofsCr": 3.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -912,14 +685,14 @@
       "timeline": {
         "biddingStarts": "30 Sep 2026",
         "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
       "subscription": null,
       "sector": "Electricals & Power Transmission",
-      "about": "Sollfege Smart Electronics is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Sollfege Smart Electronics operates as a distributor and retailer of premium electronic products, trading across three core business segments: audio solutions, video solutions, and smart living solutions. The company generates the majority of its revenue from trading activities by sourcing high-end consumer electronics from third-party global and domestic suppliers and selling them through retail showrooms and experience centres. Its audio portfolio includes high-end speakers, home theatre systems, soundbars, and wireless speakers. The video segment offers premium projectors, televisions, and video wall systems. The smart living segment encompasses home automation systems, lifestyle and wellness equipment, as well as networking, security, and surveillance products such as smart locks, video door phones, and closed-circuit television systems. Additionally, the business provides customer support and ancillary services related to product installation and system integration. The company caters to both retail consumers and commercial clients seeking premium tech offerings.",
       "financialHighlights": {
         "revenueCr": 825.0,
         "patCr": 99.0,
@@ -932,6 +705,56 @@
         "SME",
         "NSE SME",
         "ONGOING IPO"
+      ],
+      "rhpUrl": "https://cdn.shopify.com/s/files/1/0672/3328/4386/files/Prospectus_c2e29efc-72ef-4a8e-b3c7-2c5279cace83.pdf?v=1790344731",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 12.3,
+          "revenueCr": 19.84,
+          "patCr": 1.76,
+          "netWorthCr": 5.17,
+          "totalBorrowingCr": 2.21,
+          "reservesCr": 3.44
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 24.83,
+          "revenueCr": 21.28,
+          "patCr": 2.13,
+          "netWorthCr": 10.43,
+          "totalBorrowingCr": 4.47,
+          "reservesCr": 6.95
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 30.37,
+          "revenueCr": 22.22,
+          "patCr": 2.19,
+          "netWorthCr": 12.76,
+          "totalBorrowingCr": 5.47,
+          "reservesCr": 8.5
+        }
+      ],
+      "strengths": [
+        "Comprehensive product portfolio across audio, video, and smart living solutions.",
+        "Established presence with experiential retail showrooms in strategic markets.",
+        "Strong relationships with prominent global and domestic electronic brands.",
+        "Customer-centric business model featuring live product demonstrations.",
+        "Experienced promoter and key management team with deep industry knowledge."
+      ],
+      "risks": [
+        "Over 90% of revenue is heavily concentrated in West Bengal.",
+        "Entirely dependent on third-party suppliers for all products.",
+        "High revenue reliance on top five brands and key customers.",
+        "History of delayed statutory and regulatory compliance filings.",
+        "Working capital-intensive business vulnerable to inventory risks."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for launching 12 new retail showrooms (8.54 (39.21%))",
+        "Working Capital Requirement (9.67 (44.40%))",
+        "General Corporate Purposes (1.8 (8.26%))",
+        "Issue-related expenses (1.76 (8.13%))"
       ]
     },
     {
@@ -948,7 +771,7 @@
       "freshIssueCr": 40.0,
       "ofsCr": 5.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -993,7 +816,7 @@
       "freshIssueCr": 40.0,
       "ofsCr": 5.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -1038,7 +861,7 @@
       "freshIssueCr": 40.0,
       "ofsCr": 5.0,
       "gmp": 7.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE SME",
@@ -1083,7 +906,7 @@
       "freshIssueCr": 40.0,
       "ofsCr": 5.0,
       "gmp": 30.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE SME",
@@ -1128,7 +951,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1173,7 +996,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1218,7 +1041,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1263,7 +1086,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1308,7 +1131,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1353,7 +1176,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1398,7 +1221,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1443,7 +1266,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1488,7 +1311,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1533,7 +1356,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1578,7 +1401,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1623,7 +1446,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1668,7 +1491,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1713,7 +1536,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1758,7 +1581,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1790,6 +1613,380 @@
       ]
     },
     {
+      "id": "green-asia-impex",
+      "name": "Green Asia Impex",
+      "symbol": "GREENASIA",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/greenasia_logo-300x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 84,
+      "priceBandHigh": 89,
+      "lotSize": 1600,
+      "issueSizeCr": 60.0,
+      "freshIssueCr": 51.0,
+      "ofsCr": 9.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "24 Sep 2026",
+        "biddingEnds": "01 Oct 2026",
+        "allotmentFinalization": "05 Oct 2026",
+        "refundInitiation": "06 Oct 2026",
+        "creditOfShares": "06 Oct 2026",
+        "listingDate": "07 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Renewable Energy & Power",
+      "about": "Green Asia Impex operates as an integrated processor and exporter of frozen seafood and agricultural commodities, catering primarily to business-to-business customers, including importers, distributors, and food processing companies in domestic and international markets. The company operates in two main business segments: shrimps and dried chillies. In the shrimp segment, the company sources raw shrimps from local aquaculture farmers and traders, processes them through grading, peeling, deveining, and freezing, and supplies processed frozen shrimp products. In the dried chillies segment, the company procures chillies from agricultural market committee traders and carries out processing activities such as cleaning, grading, and sorting before distribution. Revenue is generated through direct domestic sales within India as well as exports to overseas markets including China, Kuwait, the United States, Malaysia, and the United Kingdom. The company utilizes processing facilities situated in Andhra Pradesh to manage its production operations across both product categories.",
+      "financialHighlights": {
+        "revenueCr": 1335.0,
+        "patCr": 160.2,
+        "eps": 5.56,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://indorient.in/assets/documents/GAIL_RHP_1789799314.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 135.23,
+          "revenueCr": 318.15,
+          "patCr": 6.66,
+          "netWorthCr": 56.8,
+          "totalBorrowingCr": 24.34,
+          "reservesCr": 37.86
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 192.04,
+          "revenueCr": 339.65,
+          "patCr": 10.35,
+          "netWorthCr": 80.66,
+          "totalBorrowingCr": 34.57,
+          "reservesCr": 53.77
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 254.88,
+          "revenueCr": 388.63,
+          "patCr": 15.61,
+          "netWorthCr": 107.05,
+          "totalBorrowingCr": 45.88,
+          "reservesCr": 71.37
+        }
+      ],
+      "strengths": [
+        "Integrated processor and exporter of frozen seafood and agricultural commodities.",
+        "Established customer relationships and presence in key international markets.",
+        "Strategically located processing facilities in Andhra Pradesh with a strong sourcing network.",
+        "Consistent financial growth with improving operating margins over recent fiscal years.",
+        "Experienced promoter group and management team with deep domain expertise."
+      ],
+      "risks": [
+        "Significant revenue concentration from export sales to customers located in China.",
+        "Dependence on a limited number of large customers for a major portion of revenues.",
+        "Operations rely heavily on external borrowings to meet working capital requirements.",
+        "Absence of long-term supply contracts for raw material procurement of shrimp and chillies.",
+        "Exposure to biosecurity risks, disease outbreaks, and strict international quality standards."
+      ],
+      "objectsOfIssue": [
+        "Funding the capital expenditure (40.03 (75.39%))",
+        "General corporate purposes (13.07 (24.61%))"
+      ]
+    },
+    {
+      "id": "black-opal-consultants",
+      "name": "Black Opal Consultants",
+      "symbol": "BLACKOPAL",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/blackopal_logo-300x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 185,
+      "priceBandHigh": 197,
+      "lotSize": 600,
+      "issueSizeCr": 55.0,
+      "freshIssueCr": 46.75,
+      "ofsCr": 8.25,
+      "gmp": 20.0,
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
+      "gmpTrend": "UP",
+      "fireRating": 3,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "29 Sep 2026",
+        "biddingEnds": "01 Oct 2026",
+        "allotmentFinalization": "05 Oct 2026",
+        "refundInitiation": "06 Oct 2026",
+        "creditOfShares": "06 Oct 2026",
+        "listingDate": "07 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Black Opal Consultants operates as a financial and real estate consultancy firm providing integrated real estate solutions. The company generates revenue primarily through brokerage income from selling residential and commercial properties under exclusive sales mandates with real estate developers. Additionally, it earns revenue from loan syndication fees, advisory services, and real estate project development activities. Its core business activities include acting as a channel partner for property sales, offering real estate advisory, and facilitating property financing. The company’s operations are geographically concentrated in Uttar Pradesh and Haryana, specifically in Noida, Greater Noida, and Gurugram. It is also diversifying into real estate development, including a commercial hotel project named Veda in Ayodhya through its subsidiary entity, Aurika Developers. Furthermore, the company engages in inventory underwriting for real estate developers and is developing a digital property platform called JustHomz through its wholly owned subsidiary, Black Opal Technologies.",
+      "financialHighlights": {
+        "revenueCr": 2955.0,
+        "patCr": 354.6,
+        "eps": 12.31,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://www.blackopalgroup.in/assets/pdf/Offer_Documents/RHP_Black%20Opal%20Consultants%20Limited.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 13.14,
+          "revenueCr": 19.91,
+          "patCr": 4.32,
+          "netWorthCr": 5.52,
+          "totalBorrowingCr": 2.37,
+          "reservesCr": 3.68
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 22.44,
+          "revenueCr": 33.04,
+          "patCr": 11.48,
+          "netWorthCr": 9.42,
+          "totalBorrowingCr": 4.04,
+          "reservesCr": 6.28
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 59.62,
+          "revenueCr": 42.34,
+          "patCr": 12.2,
+          "netWorthCr": 25.04,
+          "totalBorrowingCr": 10.73,
+          "reservesCr": 16.69
+        }
+      ],
+      "strengths": [
+        "Integrated advisory, sales, and loan syndication services.",
+        "Established channel network in the Delhi-NCR market.",
+        "Strategic expansion into Ayodhya commercial real estate.",
+        "Tech-driven approach via the JustHomz digital platform.",
+        "Highly experienced promoters and management team."
+      ],
+      "risks": [
+        "High revenue reliance on a few clients lacking long-term contracts.",
+        "Operations highly concentrated in Uttar Pradesh and Haryana.",
+        "Entering real estate development without a prior track record.",
+        "IPO funds for underwriting lack a specifically identified inventory.",
+        "Pending UP RERA real estate agent registration renewal."
+      ],
+      "objectsOfIssue": [
+        "Funding for securing sales and marketing mandates (7 (15.88%))",
+        "Investment in Aurika Developers LLP for Ayodhya project development (26 (58.97%))",
+        "General Corporate Purposes (11.09 (25.15%))"
+      ]
+    },
+    {
+      "id": "papadmalji-agro-foods",
+      "name": "Papadmalji Agro Foods",
+      "symbol": "PAPADMALJI",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/papadmalji-ipo-logo-300x126.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 69,
+      "priceBandHigh": 72,
+      "lotSize": 1600,
+      "issueSizeCr": 20.0,
+      "freshIssueCr": 17.0,
+      "ofsCr": 3.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE SME",
+      "registrar": "Bigshare Services Pvt Ltd",
+      "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
+      "timeline": {
+        "biddingStarts": "29 Sep 2026",
+        "biddingEnds": "01 Oct 2026",
+        "allotmentFinalization": "05 Oct 2026",
+        "refundInitiation": "06 Oct 2026",
+        "creditOfShares": "06 Oct 2026",
+        "listingDate": "07 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Agri-Business & FMCG",
+      "about": "Papadmalji Agro Foods engages in the manufacturing of handmade papads, machine-made papads, rice papads, vrat special papads, and moongodi, along with the trading of cereal pellets. The company also carries out white-label manufacturing of handmade papads, producing goods that clients market under their respective brand names and tailored packaging. Revenue is primarily generated through product sales under its key core brands, including Vishal, Zhakaas, and Rozana, alongside direct-to-consumer sales under the Papadmalji brand. Products are distributed across multiple sales channels, such as general trade, modern trade, quick commerce, direct-to-consumer platforms, and sales to merchant exporters for selected Middle Eastern markets. Operations are based out of manufacturing units and facilities situated in Bikaner, Rajasthan. For handmade papad production, the business utilizes a decentralized operational system involving contractors and home-based women workers who perform hand rolling according to prescribed quality specifications before final inspection.",
+      "financialHighlights": {
+        "revenueCr": 1080.0,
+        "patCr": 129.6,
+        "eps": 4.5,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 20.07,
+          "revenueCr": 26.29,
+          "patCr": 2.11,
+          "netWorthCr": 8.43,
+          "totalBorrowingCr": 3.61,
+          "reservesCr": 5.62
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 25.05,
+          "revenueCr": 31.76,
+          "patCr": 4.72,
+          "netWorthCr": 10.52,
+          "totalBorrowingCr": 4.51,
+          "reservesCr": 7.01
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 33.5,
+          "revenueCr": 33.54,
+          "patCr": 5.21,
+          "netWorthCr": 14.07,
+          "totalBorrowingCr": 6.03,
+          "reservesCr": 9.38
+        }
+      ],
+      "strengths": [
+        "Established brand presence via Vishal, Zhakaas, and Rozana.",
+        "Multi-channel distribution across general and modern trade.",
+        "Scalable in-house and decentralized manufacturing model.",
+        "Diverse portfolio of papads, moongodi, and cereal pellets.",
+        "Promoters possess extensive food processing industry experience."
+      ],
+      "risks": [
+        "Revenue is heavily concentrated in the papad product segment.",
+        "Significant dependency on a limited number of top customers.",
+        "Operations and core sales are geographically concentrated in Rajasthan.",
+        "Lacks long-term supply agreements for agricultural raw materials.",
+        "Core brands face pending logo registrations and trademark oppositions."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for setting up a new manufacturing facility at Bikaner (7.9 (42.66%))",
+        "Repayment / pre-payment of borrowings (5.8 (31.32%))",
+        "General Corporate Purposes (4.82 (26.02%))"
+      ]
+    },
+    {
+      "id": "vans-electroengineerings",
+      "name": "Vans Electroengineerings",
+      "symbol": "VANS",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vans-logo-285x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 112,
+      "priceBandHigh": 118,
+      "lotSize": 1200,
+      "issueSizeCr": 34.0,
+      "freshIssueCr": 28.9,
+      "ofsCr": 5.1,
+      "gmp": 90.0,
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
+      "gmpTrend": "UP",
+      "fireRating": 5,
+      "exchange": "NSE SME",
+      "registrar": "Bigshare Services Pvt Ltd",
+      "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
+      "timeline": {
+        "biddingStarts": "29 Sep 2026",
+        "biddingEnds": "01 Oct 2026",
+        "allotmentFinalization": "05 Oct 2026",
+        "refundInitiation": "06 Oct 2026",
+        "creditOfShares": "06 Oct 2026",
+        "listingDate": "07 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Electricals & Power Transmission",
+      "about": "Vans Electroengineerings is engaged in manufacturing and supplying components for traction power supply and overhead equipment systems used in railway electrification infrastructure, metro systems, and renewable energy applications. The company operates a single manufacturing facility in Salem, Tamil Nadu, housing product assembly, testing infrastructure, and quality control operations. It generates revenue primarily through the sale of products to Indian Railways, supplying either directly through contracts secured via competitive bidding or indirectly through associated engineering, procurement, and construction contractors and vendors. Its key product portfolio includes double pole and single pole vacuum circuit breakers, double pole and single pole vacuum interrupters, overhead equipment, and braided flexible connectors. Operating within the electrical equipment and switchgear sector, the company manufactures products designed to meet specific technical standards and regulatory specifications prescribed by railway authorities for critical power supply and traction applications.",
+      "financialHighlights": {
+        "revenueCr": 1770.0,
+        "patCr": 212.4,
+        "eps": 7.38,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 6.57,
+          "revenueCr": 2.76,
+          "patCr": 0.02,
+          "netWorthCr": 2.76,
+          "totalBorrowingCr": 1.18,
+          "reservesCr": 1.84
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 5.34,
+          "revenueCr": 13.82,
+          "patCr": 1.73,
+          "netWorthCr": 2.24,
+          "totalBorrowingCr": 0.96,
+          "reservesCr": 1.5
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 16.85,
+          "revenueCr": 23.19,
+          "patCr": 5.39,
+          "netWorthCr": 7.08,
+          "totalBorrowingCr": 3.03,
+          "reservesCr": 4.72
+        }
+      ],
+      "strengths": [
+        "Specialized offerings in railway electrification and traction power supply systems.",
+        "Approved vendor status with RDSO and CORE for core product verticals.",
+        "In-house assembly and testing capabilities at a dedicated manufacturing facility.",
+        "Consistent revenue growth driven by Indian Railways electrification demand.",
+        "Experienced promoter team with deep industry domain expertise."
+      ],
+      "risks": [
+        "Revenue is heavily dependent on Indian Railways and its EPC contractors.",
+        "High product concentration risk from vacuum circuit breakers and interrupters.",
+        "Operations rely on a single manufacturing facility located in Salem, Tamil Nadu.",
+        "Significant working capital requirements and seasonal cash flow fluctuations.",
+        "Risk of losing or failing to renew approved vendor status with railway bodies."
+      ],
+      "objectsOfIssue": [
+        "Working Capital Requirement (25 (73.57%))",
+        "General Corporate Purposes (8.98 (26.43%))"
+      ]
+    },
+    {
       "id": "shah-investors-home",
       "name": "Shah Investor's Home",
       "symbol": "SHAHINVEST",
@@ -1803,7 +2000,7 @@
       "freshIssueCr": 76.5,
       "ofsCr": 13.5,
       "gmp": 12.25,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1896,7 +2093,7 @@
       "freshIssueCr": 185.3,
       "ofsCr": 32.7,
       "gmp": 36.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -1990,7 +2187,7 @@
       "freshIssueCr": 15.3,
       "ofsCr": 2.7,
       "gmp": 1.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2083,7 +2280,7 @@
       "freshIssueCr": 11.9,
       "ofsCr": 2.1,
       "gmp": 1.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2177,7 +2374,7 @@
       "freshIssueCr": 30.6,
       "ofsCr": 5.4,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -2272,7 +2469,7 @@
       "freshIssueCr": 425.0,
       "ofsCr": 75.0,
       "gmp": 4.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2366,7 +2563,7 @@
       "freshIssueCr": 258.4,
       "ofsCr": 45.6,
       "gmp": 13.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -2460,7 +2657,7 @@
       "freshIssueCr": 469.2,
       "ofsCr": 82.8,
       "gmp": 88.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -2554,7 +2751,7 @@
       "freshIssueCr": 357.0,
       "ofsCr": 63.0,
       "gmp": 0.5,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2648,7 +2845,7 @@
       "freshIssueCr": 57.8,
       "ofsCr": 10.2,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -2743,7 +2940,7 @@
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
       "gmp": 28.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -2836,7 +3033,7 @@
       "freshIssueCr": 9.35,
       "ofsCr": 1.65,
       "gmp": 0.5,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2931,7 +3128,7 @@
       "freshIssueCr": 21.25,
       "ofsCr": 3.75,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -3025,7 +3222,7 @@
       "freshIssueCr": 344.25,
       "ofsCr": 60.75,
       "gmp": 36.5,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -3118,7 +3315,7 @@
       "freshIssueCr": 928.2,
       "ofsCr": 163.8,
       "gmp": 14.25,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -3212,7 +3409,7 @@
       "freshIssueCr": 16.15,
       "ofsCr": 2.85,
       "gmp": 38.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -3306,7 +3503,7 @@
       "freshIssueCr": 45.9,
       "ofsCr": 8.1,
       "gmp": 0.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -3401,7 +3598,7 @@
       "freshIssueCr": 1785.0,
       "ofsCr": 315.0,
       "gmp": 6.5,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -3495,7 +3692,7 @@
       "freshIssueCr": 255.0,
       "ofsCr": 45.0,
       "gmp": 6.0,
-      "gmpUpdatedDate": "01 Oct, 05:17 PM",
+      "gmpUpdatedDate": "01 Oct, 08:09 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
