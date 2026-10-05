@@ -1,481 +1,8 @@
 {
-  "lastUpdated": "2026-10-05T11:14:41.540415",
+  "lastUpdated": "2026-10-05T19:42:19.993306",
   "source": "Zerodha Primary IPO Portal (https://zerodha.com/ipo)",
   "count": 50,
   "ipos": [
-    {
-      "id": "shree-tnb-polymers",
-      "name": "Shree TNB Polymers",
-      "symbol": "SHREETNB",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Tnb_logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 50,
-      "priceBandHigh": 53,
-      "lotSize": 2000,
-      "issueSizeCr": 32.0,
-      "freshIssueCr": 27.2,
-      "ofsCr": 4.8,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "28 Sep 2026",
-        "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "06 Oct 2026",
-        "refundInitiation": "07 Oct 2026",
-        "creditOfShares": "07 Oct 2026",
-        "listingDate": "08 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Shree TNB Polymers operates in the polymer manufacturing sector, producing a range of plastic products across its three primary divisions: the Piping Division, the Solid Industrial Sheets Division, and the Corrugated/Flute Board Sheets Division. The company’s core business involves manufacturing and distributing these items under distinct brand names, specifically Noble, Tirupati, and Balaji (Wellpack). Its manufacturing operations are centralized in two facilities located in Silvassa, Dadra and Nagar Haveli. The company generates revenue through the sale of its manufactured products to various customer segments, including business houses, other manufacturing facilities, government entities, and end consumers. These sales are facilitated through direct channels as well as an established network of over 325 dealers and distributors across multiple states. Its product offerings cater to diverse industrial and consumer needs, relying on raw materials to maintain its manufacturing output.",
-      "financialHighlights": {
-        "revenueCr": 795.0,
-        "patCr": 95.4,
-        "eps": 3.31,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://www.shreetnbpolymers.in/investor-pdf/01M34R00M95SSVD0BVECEBFCCR.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 105.03,
-          "revenueCr": 207.97,
-          "patCr": 5.03,
-          "netWorthCr": 44.11,
-          "totalBorrowingCr": 18.91,
-          "reservesCr": 29.41
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 127.38,
-          "revenueCr": 175.7,
-          "patCr": 5.77,
-          "netWorthCr": 53.5,
-          "totalBorrowingCr": 22.93,
-          "reservesCr": 35.67
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 145.26,
-          "revenueCr": 198.31,
-          "patCr": 7.13,
-          "netWorthCr": 61.01,
-          "totalBorrowingCr": 26.15,
-          "reservesCr": 40.67
-        }
-      ],
-      "strengths": [
-        "Diverse product portfolio across piping, corrugated, and solid industrial sheets.",
-        "Established network of over 325 dealers across key commercial hubs.",
-        "Strategically located manufacturing facilities near major industrial areas.",
-        "Proven track record of consistent revenue generation across multiple brand divisions.",
-        "Expanding market footprint across diverse regional markets and states."
-      ],
-      "risks": [
-        "High dependence on top ten customers for significant portions of revenue.",
-        "Business operations rely on leased manufacturing facilities and warehouses.",
-        "Potential under-utilization of newly expanded manufacturing capacities.",
-        "Volatility in the supply and pricing of raw materials impacting profit margins.",
-        "Subject to strict regional regulations and potential penalties for delayed compliance."
-      ],
-      "objectsOfIssue": [
-        "Capital expenditure for purchase of machinery (15.86 (50.83%))",
-        "Capital expenditure for solar panel/roof top (2.6 (8.33%))",
-        "Construction of Pre-Engineered Building structure (1.32 (4.23%))",
-        "Repayment / Prepayment of Borrowings (5.62 (18.01%))",
-        "General Corporate Purposes (6.40 (18.60%))"
-      ]
-    },
-    {
-      "id": "everestims-technologies",
-      "name": "EverestIMS Technologies",
-      "symbol": "EIMS",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/everest_ims_logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 80,
-      "priceBandHigh": 85,
-      "lotSize": 1600,
-      "issueSizeCr": 49.0,
-      "freshIssueCr": 41.65,
-      "ofsCr": 7.35,
-      "gmp": 20.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "UP",
-      "fireRating": 4,
-      "exchange": "NSE SME",
-      "registrar": "KFin Technologies Ltd",
-      "registrarUrl": "https://kosmic.kfintech.com/ipostatus/",
-      "timeline": {
-        "biddingStarts": "29 Sep 2026",
-        "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "06 Oct 2026",
-        "refundInitiation": "07 Oct 2026",
-        "creditOfShares": "07 Oct 2026",
-        "listingDate": "08 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "IT & Technology Services",
-      "about": "EverestIMS Technologies is an information technology company providing software products and services focused on IT operations and service management. The company delivers solutions across IT service management, IT infrastructure management, network configuration and content management, artificial intelligence for IT operations, IT asset management, and operations support systems. EverestIMS Technologies offers its customers multiple consumption models, providing both software as a service (SaaS) and on-premises software solutions to meet varying operational requirements. Its business involves integrating third-party open-source databases, operating systems, queuing engines, and development tools into customer deliverables. The company derives its revenue primarily from the sale of software products, software services, and hardware products to its client base, which includes large corporate customers. Additionally, the company serves clients overseas in countries such as the United Arab Emirates and Malaysia, alongside its domestic operations.",
-      "financialHighlights": {
-        "revenueCr": 1275.0,
-        "patCr": 153.0,
-        "eps": 5.31,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://everestims.com/assets/docs/EverestIMS_Technologies/rhp/EverestIMS_RHP_21092026.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 50.47,
-          "revenueCr": 45.62,
-          "patCr": 10.83,
-          "netWorthCr": 21.2,
-          "totalBorrowingCr": 9.08,
-          "reservesCr": 14.13
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 67.82,
-          "revenueCr": 57.78,
-          "patCr": 14.08,
-          "netWorthCr": 28.48,
-          "totalBorrowingCr": 12.21,
-          "reservesCr": 18.99
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 90.27,
-          "revenueCr": 65.91,
-          "patCr": 13.14,
-          "netWorthCr": 37.91,
-          "totalBorrowingCr": 16.25,
-          "reservesCr": 25.28
-        }
-      ],
-      "strengths": [
-        "Offers multiple SaaS and on-premises software models.",
-        "Serves diverse overseas clients in the UAE and Malaysia.",
-        "Holds long-standing relationships with key corporate customers.",
-        "Adopts advanced technologies via a dedicated AI Laboratory.",
-        "Shows strong and consistent financial and revenue growth"
-      ],
-      "risks": [
-        "High revenue dependence on the top 10 corporate customers.",
-        "Absence of formal agreements with some channel partners.",
-        "Past negative cash flows from investing and financing.",
-        "Software defects may cause liability and customer loss.",
-        "Open-source integration exposes the company to IP infringement claims."
-      ],
-      "objectsOfIssue": [
-        "Purchase of IT hardware for AI Innovation Lab (5.66 (14.49%))",
-        "Working Capital Requirement (24 (61.46%))",
-        "General Corporate Purposes (9.39 (24.05%))"
-      ]
-    },
-    {
-      "id": "nityas-gems-and-jewellery",
-      "name": "Nityas Gems and Jewellery",
-      "symbol": "NITYAS",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/nityas-logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "ONGOING",
-      "priceBandLow": 70,
-      "priceBandHigh": 75,
-      "lotSize": 200,
-      "issueSizeCr": 108.0,
-      "freshIssueCr": 91.8,
-      "ofsCr": 16.2,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Sep 2026",
-        "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "06 Oct 2026",
-        "refundInitiation": "07 Oct 2026",
-        "creditOfShares": "07 Oct 2026",
-        "listingDate": "08 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Consumer Retail & Textiles",
-      "about": "Nityas Gems and Jewellery designs, manufactures, and sells lab-grown diamond-studded gold jewellery in India. The company operates through an integrated business model comprising business-to-business manufacturing and direct-to-consumer retail. Under its business-to-business vertical, it supplies customized and standardized jewellery to organized retail chains, standalone retailers, and wholesalers across multiple Indian states and select overseas markets. Its direct-to-consumer operations are conducted under the brand Ayaani through a subsidiary, featuring an online storefront alongside physical retail stores operated via company-owned and franchise models. The product portfolio includes rings, earrings, pendants, bracelets, mangalsutras, nose pins, necklaces, cufflinks, and bangles, with a strategic focus on lightweight, affordable luxury, and daily-wear jewellery segments. Manufacturing operations are conducted at a single facility in Surat, Gujarat, with an installed production capacity of 360 kilograms per annum, utilizing in-house karigars and computer-aided design capabilities for end-to-end jewellery fabrication.",
-      "financialHighlights": {
-        "revenueCr": 1125.0,
-        "patCr": 135.0,
-        "eps": 4.69,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://nityas.in/wp-content/uploads/2026/09/NityasGemsRHP.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 11.75,
-          "revenueCr": 53.66,
-          "patCr": 4.02,
-          "netWorthCr": 4.93,
-          "totalBorrowingCr": 2.11,
-          "reservesCr": 3.29
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 39.87,
-          "revenueCr": 96.85,
-          "patCr": 9.79,
-          "netWorthCr": 16.75,
-          "totalBorrowingCr": 7.18,
-          "reservesCr": 11.16
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 116.42,
-          "revenueCr": 203.33,
-          "patCr": 22.32,
-          "netWorthCr": 48.9,
-          "totalBorrowingCr": 20.96,
-          "reservesCr": 32.6
-        }
-      ],
-      "strengths": [
-        "Integrated business model spanning B2B manufacturing and D2C omnichannel retail.",
-        "Rapidly expanding customer network servicing 323 B2B clients across 18 states.",
-        "Design-led manufacturing facility in Surat supported by 122 in-house karigars.",
-        "Strong focus on high-growth, affordable lightweight lab-grown diamond jewellery.",
-        "Scalable financial performance with operating revenues compounding over 94% annually."
-      ],
-      "risks": [
-        "High customer concentration with top 10 clients driving 55.49% of FY26 revenues.",
-        "Geographic concentration with five key states contributing over 85% of total sales.",
-        "Operations are working capital intensive, requiring significant ongoing funding.",
-        "Heavy reliance on top 10 suppliers who accounted for 86.16% of FY26 purchases.",
-        "All manufacturing operations are concentrated at a single facility in Surat."
-      ],
-      "objectsOfIssue": [
-        "Working Capital Requirement (70 (64.61%))",
-        "General Corporate Purposes (38.35 (35.39%))"
-      ]
-    },
-    {
-      "id": "vishal-nirmiti",
-      "name": "Vishal Nirmiti",
-      "symbol": "VNL",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vishal-nirmiti-logo-300x134.png",
-      "category": "MAINBOARD",
-      "status": "ONGOING",
-      "priceBandLow": 208,
-      "priceBandHigh": 220,
-      "lotSize": 68,
-      "issueSizeCr": 178.0,
-      "freshIssueCr": 151.3,
-      "ofsCr": 26.7,
-      "gmp": 10.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Sep 2026",
-        "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "06 Oct 2026",
-        "refundInitiation": "07 Oct 2026",
-        "creditOfShares": "07 Oct 2026",
-        "listingDate": "08 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Vishal Nirmiti is a civil engineering, construction, and manufacturing firm operating in 2 segments. Its manufacturing arm produces pre-stressed concrete sleepers, pre-cast barriers, and steel/penstock pipes for Indian Railways and private developers. Its services arm delivers EPC solutions for railway, irrigation, and road infrastructure. The company supports regional projects through specialized manufacturing facilities across Maharashtra, Madhya Pradesh, Gujarat, and Himachal Pradesh.",
-      "financialHighlights": {
-        "revenueCr": 3300.0,
-        "patCr": 396.0,
-        "eps": 13.75,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://www.saffronadvisor.com/files/offer-documents/Red_Herring_Prospectus__1_.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 242.04,
-          "revenueCr": 247.93,
-          "patCr": 3.45,
-          "netWorthCr": 101.66,
-          "totalBorrowingCr": 43.57,
-          "reservesCr": 67.77
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 296.61,
-          "revenueCr": 324.86,
-          "patCr": 23.64,
-          "netWorthCr": 124.58,
-          "totalBorrowingCr": 53.39,
-          "reservesCr": 83.05
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 334.92,
-          "revenueCr": 344.13,
-          "patCr": 24.98,
-          "netWorthCr": 140.67,
-          "totalBorrowingCr": 60.29,
-          "reservesCr": 93.78
-        }
-      ],
-      "strengths": [
-        "Diversified across railway sleepers, steel pipes, and EPC works.",
-        "Advanced in-house pipe welding and coating manufacturing plants.",
-        "Over 95% of operational revenue generated from repeat clients.",
-        "Multi-state manufacturing footprint spanning four Indian states.",
-        "Experienced promoter group with deep infrastructure expertise."
-      ],
-      "risks": [
-        "High revenue dependence on Indian Railways and state tenders.",
-        "Top 5 clients account for over 85% of total operating revenue.",
-        "Substantial working capital needs funded by short-term loans.",
-        "Business relies on purchase orders without long-term contracts.",
-        "Indebtedness exposes the business to debt servicing and covenants."
-      ],
-      "objectsOfIssue": [
-        "Working Capital Requirement (75 (51.72%))",
-        "Repayment and/or pre-payment of certain borrowings (19 (13.10%))",
-        "General Corporate Purposes (51 (35.18%))"
-      ]
-    },
-    {
-      "id": "omara-ventures-india",
-      "name": "Omara Ventures India",
-      "symbol": "OMARA",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/omara-ventures-india-limited-logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 296,
-      "priceBandHigh": 311,
-      "lotSize": 400,
-      "issueSizeCr": 42.0,
-      "freshIssueCr": 35.7,
-      "ofsCr": 6.3,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Sep 2026",
-        "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "06 Oct 2026",
-        "refundInitiation": "07 Oct 2026",
-        "creditOfShares": "07 Oct 2026",
-        "listingDate": "08 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Omara Ventures India is a retail jeweller specializing in the curation and sale of designer diamond jewellery. The company offers a diverse product portfolio that includes bridal, festive, special occasion, and contemporary daily-wear jewellery, alongside gold jewellery and silver coins. Its core operations revolve around a design-led retail model operated through its boutique, where it provides customers with a personalized experience featuring customized jewellery discussions and private consultations. Omara Ventures generates revenue primarily through the direct retail sale of high-value solitaire and diamond pieces, which historically account for the vast majority of its product sales. By focusing on customization tailored to specific customer needs and maintaining well-established relationships with skilled artisans, the company successfully serves the premium market segment. Operating primarily out of the Chandigarh region, it emphasizes curated designs and a commitment to hallmarked assurance for retail investors.",
-      "financialHighlights": {
-        "revenueCr": 4665.0,
-        "patCr": 559.8,
-        "eps": 19.44,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://cdn.shopify.com/s/files/1/0701/7529/3622/files/Omara_DraftProspectus.pdf?v=1790142212",
-      "multiYearFinancials": [
-        {
-          "period": "March 2024",
-          "assetsCr": 26.44,
-          "revenueCr": 23.19,
-          "patCr": 0.31,
-          "netWorthCr": 11.1,
-          "totalBorrowingCr": 4.76,
-          "reservesCr": 7.4
-        },
-        {
-          "period": "March 2025",
-          "assetsCr": 29.46,
-          "revenueCr": 23.52,
-          "patCr": 2.73,
-          "netWorthCr": 12.37,
-          "totalBorrowingCr": 5.3,
-          "reservesCr": 8.25
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 47.25,
-          "revenueCr": 45.87,
-          "patCr": 9.37,
-          "netWorthCr": 19.84,
-          "totalBorrowingCr": 8.5,
-          "reservesCr": 13.23
-        }
-      ],
-      "strengths": [
-        "Experienced promoters and a dedicated management team guiding operations.",
-        "Diversified product portfolio featuring curated diamond and gold jewellery.",
-        "Strong focus on customization based on individual customer needs.",
-        "Well-established relationships with skilled jewellery artisans and suppliers.",
-        "Deep commitment to product quality and hallmarked jewellery assurance."
-      ],
-      "risks": [
-        "High dependence on suppliers for raw materials.",
-        "Revenue heavily concentrated in Solitaire and Diamond jewellery.",
-        "Geographically concentrated with operations primarily in Chandigarh.",
-        "High inventory levels significantly increase working capital needs.",
-        "Past delays and non-compliance in statutory and tax filings."
-      ],
-      "objectsOfIssue": [
-        "Capital expenditure for Renovation and Expansion of the Jewellery Boutique (2 (4.76%))",
-        "Marketing and promotional expenses (2 (4.76%))",
-        "Working Capital Requirement (10 (23.82%))",
-        "Repayment and/or pre-payment of certain borrowings (18 (42.87%))",
-        "General Corporate Purposes (9.99 (23.79%))"
-      ]
-    },
     {
       "id": "paramount-syntex",
       "name": "Paramount Syntex",
@@ -490,7 +17,7 @@
       "freshIssueCr": 69.7,
       "ofsCr": 12.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -570,12 +97,1447 @@
       ]
     },
     {
+      "id": "tna-solutions",
+      "name": "TNA Solutions",
+      "symbol": "TNA",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/tna-solutions-ltd-logo-300x124.png",
+      "category": "SME",
+      "status": "ONGOING",
+      "priceBandLow": 66,
+      "priceBandHigh": 70,
+      "lotSize": 2000,
+      "issueSizeCr": 38.0,
+      "freshIssueCr": 32.3,
+      "ofsCr": 5.7,
+      "gmp": 7.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "UP",
+      "fireRating": 3,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Sep 2026",
+        "biddingEnds": "06 Oct 2026",
+        "allotmentFinalization": "07 Oct 2026",
+        "refundInitiation": "08 Oct 2026",
+        "creditOfShares": "08 Oct 2026",
+        "listingDate": "09 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "IT & Technology Services",
+      "about": "TNA Solutions manufactures and supplies home textile products to domestic and international markets. The company operates primarily on a business-to-business model, manufacturing customized home furnishings according to client specifications for domestic and overseas brands. Its product portfolio includes sheeting products such as flat sheets, fitted sheets, and duvet sets, as well as pillow pairs, towels, and top-of-bed items like comforters, mattress protectors, and quilts. The company also operates a direct-to-consumer segment under its brand, Ambra Linens. TNA Solutions generates revenue from the sale of these home textile goods across India and export markets including the United States, United Arab Emirates, South Africa, and the United Kingdom. Operations are conducted through its manufacturing facility situated in Indore, Madhya Pradesh, which undertakes cutting, stitching, embroidery, finishing, quality inspection, and packaging, while outsourcing fabric dyeing, printing, and other wet processing to external job workers.",
+      "financialHighlights": {
+        "revenueCr": 1050.0,
+        "patCr": 126.0,
+        "eps": 4.38,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://credorapartners.com/wp-content/uploads/2026/08/RHP_TNA_24.09.2026_.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 24.33,
+          "revenueCr": 36.32,
+          "patCr": 2.69,
+          "netWorthCr": 10.22,
+          "totalBorrowingCr": 4.38,
+          "reservesCr": 6.81
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 57.47,
+          "revenueCr": 84.13,
+          "patCr": 6.66,
+          "netWorthCr": 24.14,
+          "totalBorrowingCr": 10.34,
+          "reservesCr": 16.09
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 94.21,
+          "revenueCr": 110.45,
+          "patCr": 9.58,
+          "netWorthCr": 39.57,
+          "totalBorrowingCr": 16.96,
+          "reservesCr": 26.38
+        }
+      ],
+      "strengths": [
+        "Diverse home textile product portfolio serving both B2B and B2C segments.",
+        "Established international presence with exports to over ten countries.",
+        "Expanding manufacturing capacity to effectively meet rising customer demand.",
+        "Successful launch of proprietary direct-to-consumer brand, Ambra Linens.",
+        "Consistent revenue growth driven by strong relationships with key clients."
+      ],
+      "risks": [
+        "Significant revenue concentration in the sheeting product segment.",
+        "Heavy reliance on a limited number of B2B customers for the majority of sales.",
+        "High working capital requirements have led to negative operating cash flows.",
+        "Business operations depend heavily on a single manufacturing facility in Indore.",
+        "Reliance on third-party job workers for essential fabric processing activities."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for new manufacturing unit and machinery (6.76(17.86%))",
+        "Funding of working capital requirements (20(52.83%))",
+        "General Corporate Purposes (11.1 (29.31%))"
+      ]
+    },
+    {
+      "id": "acme-india-industries",
+      "name": "Acme India Industries",
+      "symbol": "ACMERAIL",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/acme-india-logo-300x102.png",
+      "category": "SME",
+      "status": "ONGOING",
+      "priceBandLow": 186,
+      "priceBandHigh": 196,
+      "lotSize": 600,
+      "issueSizeCr": 122.0,
+      "freshIssueCr": 103.7,
+      "ofsCr": 18.3,
+      "gmp": 30.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "UP",
+      "fireRating": 3,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Sep 2026",
+        "biddingEnds": "06 Oct 2026",
+        "allotmentFinalization": "07 Oct 2026",
+        "refundInitiation": "08 Oct 2026",
+        "creditOfShares": "08 Oct 2026",
+        "listingDate": "09 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Acme India Industries operates in the Indian railway rolling stock sector, specializing in the design, manufacture, and maintenance of railway coach interiors. The company provides turnkey furnishing solutions for new railway coaches, refurbishment and conversion of existing coaches, and comprehensive lavatory upgrades. Its core business activities encompass designing and producing interior components such as wall panels, ceilings, toilet modules, wash basins, and mirror frames utilizing fibre-reinforced plastic and aluminum polymer composites. Revenue is primarily generated through turnkey contracts awarded on a competitive bidding basis by the Ministry of Railways, Indian Railways, and related public sector undertakings. Operating through multiple manufacturing units in Haryana, the company maintains internal capabilities to fabricate precision coach components and manage project execution across India. Focusing exclusively on passenger rail infrastructure, the company delivers integrated interior solutions tailored to meet functional, hygiene, and safety requirements specified by railway authorities.",
+      "financialHighlights": {
+        "revenueCr": 2940.0,
+        "patCr": 352.8,
+        "eps": 12.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://hemadmin.hemsecurities.com/images/Files/offer/3205.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 217.6,
+          "revenueCr": 215.02,
+          "patCr": 19.21,
+          "netWorthCr": 91.39,
+          "totalBorrowingCr": 39.17,
+          "reservesCr": 60.93
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 272.45,
+          "revenueCr": 213.45,
+          "patCr": 16.46,
+          "netWorthCr": 114.43,
+          "totalBorrowingCr": 49.04,
+          "reservesCr": 76.29
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 382.79,
+          "revenueCr": 267.89,
+          "patCr": 24.36,
+          "netWorthCr": 160.77,
+          "totalBorrowingCr": 68.9,
+          "reservesCr": 107.18
+        }
+      ],
+      "strengths": [
+        "In-house manufacturing reduces reliance on third-party vendors.",
+        "Proven execution of turnkey contracts for Indian Railways.",
+        "Broad portfolio of interior panels and toilet modules.",
+        "Strategic global tie-ups for advanced railway technology.",
+        "Capacity expansion via planned machinery procurement."
+      ],
+      "risks": [
+        "High working capital requirements strain liquidity.",
+        "Revenue fully dependent on Indian Railways spending.",
+        "Outstanding legal and tax proceedings against the company.",
+        "Potential delays in executing planned capital expenditure.",
+        "Strict quality inspections with risk of order cancellations."
+      ],
+      "objectsOfIssue": [
+        "Funding to meet working capital requirements (38(35.86%))",
+        "Repayment and/or pre-payment of borrowing (41(38.69%))",
+        "Funding Capital Expenditure for plant & machinery (6.27(5.92%))",
+        "General Corporate Purposes (20.71 (19.53%))"
+      ]
+    },
+    {
+      "id": "lighthouse-communities-foundation",
+      "name": "Lighthouse Communities Foundation",
+      "symbol": "LCFZCZPSSE",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/loghthouse-300x300.png",
+      "category": "MAINBOARD",
+      "status": "ONGOING",
+      "priceBandLow": 1,
+      "priceBandHigh": 1,
+      "lotSize": 1000,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Sep 2026",
+        "biddingEnds": "14 Oct 2026",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Lighthouse Communities Foundation (LCF) is a Pune-headquartered Section 8 not-for-profit organization dedicated to empowering disadvantaged urban youth aged 18–35, particularly from slum and low-income communities, to achieve sustained livelihoods and good citizenship.Operating via a Public-Private Partnership (PPP) model—leveraging government infrastructure alongside CSR and philanthropic funding—LCF delivers its flagship “Lighthouse: Centre for Skilling and Livelihood” program. The model follows a comprehensive six-stage pathway: foundational agency-building, workplace readiness (spoken English and digital literacy), personalized counselling, vocational skilling across 30+ sectors, placement support, and alumni mentoring.Additionally, LCF serves as the Indian anchor partner for the Global Opportunity Youth Network (GOYN) and runs Lighthouse Kiran for adolescent socio-emotional learning. Currently managing 51 operational centres across six Indian states, the foundation has impacted over 2.8 lakh youth since its inception.",
+      "financialHighlights": {
+        "revenueCr": 15.0,
+        "patCr": 1.8,
+        "eps": 0.06,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://www.bseindia.com/downloads/ipo/Final%20Fund%20Rasing%20Document_290920261339.pdf"
+    },
+    {
+      "id": "rkfashion-accessories",
+      "name": "R.K.Fashion Accessories",
+      "symbol": "RKFAL",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/rk_logo-300x300.png",
+      "category": "SME",
+      "status": "ONGOING",
+      "priceBandLow": 77,
+      "priceBandHigh": 82,
+      "lotSize": 1600,
+      "issueSizeCr": 35.0,
+      "freshIssueCr": 29.75,
+      "ofsCr": 5.25,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "05 Oct 2026",
+        "biddingEnds": "07 Oct 2026",
+        "allotmentFinalization": "08 Oct 2026",
+        "refundInitiation": "09 Oct 2026",
+        "creditOfShares": "09 Oct 2026",
+        "listingDate": "12 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Consumer Retail & Textiles",
+      "about": "R.K. Fashion Accessories operates as a Kolkata-based manufacturer and wholesale distributor of fashion jewellery, alongside trading in branded cosmetics. The company produces handcrafted jewellery that blends traditional designs with contemporary styles, utilizing a network of third-party contract manufacturers for its production processes. Its core business centers on distributing these products across multiple channels, including business-to-business wholesale networks, direct-to-consumer retail stores, e-commerce platforms, and a Shop-in-Shop retail model. Revenue is predominantly generated through its wholesale distribution segment, which accounts for the vast majority of its sales. The company maintains a highly concentrated market presence in eastern India, particularly in West Bengal, Odisha, Bihar, and Jharkhand. By strategically combining outsourced manufacturing with a diversified sales and distribution framework, the company caters to varied market segments within the fashion and personal care sectors.",
+      "financialHighlights": {
+        "revenueCr": 1230.0,
+        "patCr": 147.6,
+        "eps": 5.12,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://affinityglobalcap.in/wp-content/uploads/2026/10/RHP_LFINAL-1.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 16.88,
+          "revenueCr": 17.82,
+          "patCr": 2.0,
+          "netWorthCr": 7.09,
+          "totalBorrowingCr": 3.04,
+          "reservesCr": 4.73
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 23.88,
+          "revenueCr": 31.54,
+          "patCr": 6.29,
+          "netWorthCr": 10.03,
+          "totalBorrowingCr": 4.3,
+          "reservesCr": 6.69
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 28.32,
+          "revenueCr": 7.49,
+          "patCr": 1.83,
+          "netWorthCr": 11.89,
+          "totalBorrowingCr": 5.1,
+          "reservesCr": 7.93
+        }
+      ],
+      "strengths": [
+        "Multi-channel distribution network across B2B, B2C, e-commerce, and retail.",
+        "Diverse portfolio spanning handcrafted fashion jewellery and branded cosmetics.",
+        "Expanding scale through upcoming company-owned B2B and B2C showrooms.",
+        "Investing in an in-house plating facility to enhance manufacturing control.",
+        "Strong regional footprint with over 86% of revenue from eastern India."
+      ],
+      "risks": [
+        "100% reliant on third-party contract manufacturers.",
+        "Revenue is highly concentrated in Eastern India.",
+        "Changing fashion trends risk inventory obsolescence.",
+        "High inventory and extended receivables strain capital.",
+        "Lacks definitive agreements for proposed new showrooms."
+      ],
+      "objectsOfIssue": [
+        "Funding to meet working capital requirements (5.21 (14.89%))",
+        "Establish new plating facility in Baruipur, Kolkata (8.8 (25.15%))",
+        "Establish proposed new B2B showroom in Kolkata (5.37 (15.35%))",
+        "Complete interiors and furnishings of B2C stores in Kolkata (2.48 (7.09%))",
+        "Fund inventory costs for proposed new showroom and stores (5.6 (16%))",
+        "General Corporate Purposes (7.53 (21.52%))"
+      ]
+    },
+    {
+      "id": "reliance-jio",
+      "name": "Reliance Jio",
+      "symbol": "JIO",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/jio_logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Reliance Jio is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "acko",
+      "name": "Acko",
+      "symbol": "ACKO",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/acko_logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Acko is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "oyo",
+      "name": "OYO",
+      "symbol": "OYO",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2024/05/oyo-300x300.jpeg",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "OYO is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "parle-products",
+      "name": "Parle Products",
+      "symbol": "PARLE",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/parle_logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Parle Products is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "makemytrip",
+      "name": "MakeMyTrip",
+      "symbol": "MAKEMYTRIP",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/makemytrip_logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "MakeMyTrip is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "boat",
+      "name": "BOAT",
+      "symbol": "BOAT",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2024/09/boAt-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "BOAT is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "zepto",
+      "name": "Zepto",
+      "symbol": "ZEPTO",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2024/09/Zepto-IPO-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Zepto is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "eaaa-india-alternatives",
+      "name": "EAAA India Alternatives",
+      "symbol": "EAAAINDIA",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/EAAA-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "EAAA India Alternatives is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "phonepe",
+      "name": "PhonePe",
+      "symbol": "PHONEPE",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/02/imresizer-1740552773461-300x300.jpg",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "PhonePe is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "cultfit",
+      "name": "Cult.fit",
+      "symbol": "CULTFIT",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/03/cult.fitlogo-1-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Cult.fit is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "kuku-mebigo-labs",
+      "name": "KUKU (Mebigo Labs)",
+      "symbol": "KUKU",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/kuku_logo-1-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "KUKU (Mebigo Labs) is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "tata-sons",
+      "name": "Tata Sons",
+      "symbol": "TATASONS",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Tatasons_logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Tata Sons is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "upstox",
+      "name": "Upstox",
+      "symbol": "UPSTOX",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/08/Upstox_logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Upstox is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "inox-clean-energy",
+      "name": "Inox Clean Energy",
+      "symbol": "INOXCLEAN",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/inox-clean-energy-logo-300x83.png",
+      "category": "MAINBOARD",
+      "status": "UPCOMING",
+      "priceBandLow": 100,
+      "priceBandHigh": 100,
+      "lotSize": 40,
+      "issueSizeCr": 350.0,
+      "freshIssueCr": 300.0,
+      "ofsCr": 50.0,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "KFin Technologies Ltd",
+      "registrarUrl": "https://kosmic.kfintech.com/ipostatus/",
+      "timeline": {
+        "biddingStarts": "TBA",
+        "biddingEnds": "TBA",
+        "allotmentFinalization": "T+1 after Close",
+        "refundInitiation": "T+2 after Close",
+        "creditOfShares": "T+2 after Close",
+        "listingDate": "–"
+      },
+      "subscription": null,
+      "sector": "Renewable Energy & Power",
+      "about": "Inox Clean Energy is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "financialHighlights": {
+        "revenueCr": 1500.0,
+        "patCr": 180.0,
+        "eps": 6.25,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "UPCOMING IPO"
+      ]
+    },
+    {
+      "id": "shree-tnb-polymers",
+      "name": "Shree TNB Polymers",
+      "symbol": "SHREETNB",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Tnb_logo-300x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 50,
+      "priceBandHigh": 53,
+      "lotSize": 2000,
+      "issueSizeCr": 32.0,
+      "freshIssueCr": 27.2,
+      "ofsCr": 4.8,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "28 Sep 2026",
+        "biddingEnds": "05 Oct 2026",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
+        "listingDate": "08 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Shree TNB Polymers operates in the polymer manufacturing sector, producing a range of plastic products across its three primary divisions: the Piping Division, the Solid Industrial Sheets Division, and the Corrugated/Flute Board Sheets Division. The company’s core business involves manufacturing and distributing these items under distinct brand names, specifically Noble, Tirupati, and Balaji (Wellpack). Its manufacturing operations are centralized in two facilities located in Silvassa, Dadra and Nagar Haveli. The company generates revenue through the sale of its manufactured products to various customer segments, including business houses, other manufacturing facilities, government entities, and end consumers. These sales are facilitated through direct channels as well as an established network of over 325 dealers and distributors across multiple states. Its product offerings cater to diverse industrial and consumer needs, relying on raw materials to maintain its manufacturing output.",
+      "financialHighlights": {
+        "revenueCr": 795.0,
+        "patCr": 95.4,
+        "eps": 3.31,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://www.shreetnbpolymers.in/investor-pdf/01M34R00M95SSVD0BVECEBFCCR.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 105.03,
+          "revenueCr": 207.97,
+          "patCr": 5.03,
+          "netWorthCr": 44.11,
+          "totalBorrowingCr": 18.91,
+          "reservesCr": 29.41
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 127.38,
+          "revenueCr": 175.7,
+          "patCr": 5.77,
+          "netWorthCr": 53.5,
+          "totalBorrowingCr": 22.93,
+          "reservesCr": 35.67
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 145.26,
+          "revenueCr": 198.31,
+          "patCr": 7.13,
+          "netWorthCr": 61.01,
+          "totalBorrowingCr": 26.15,
+          "reservesCr": 40.67
+        }
+      ],
+      "strengths": [
+        "Diverse product portfolio across piping, corrugated, and solid industrial sheets.",
+        "Established network of over 325 dealers across key commercial hubs.",
+        "Strategically located manufacturing facilities near major industrial areas.",
+        "Proven track record of consistent revenue generation across multiple brand divisions.",
+        "Expanding market footprint across diverse regional markets and states."
+      ],
+      "risks": [
+        "High dependence on top ten customers for significant portions of revenue.",
+        "Business operations rely on leased manufacturing facilities and warehouses.",
+        "Potential under-utilization of newly expanded manufacturing capacities.",
+        "Volatility in the supply and pricing of raw materials impacting profit margins.",
+        "Subject to strict regional regulations and potential penalties for delayed compliance."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for purchase of machinery (15.86 (50.83%))",
+        "Capital expenditure for solar panel/roof top (2.6 (8.33%))",
+        "Construction of Pre-Engineered Building structure (1.32 (4.23%))",
+        "Repayment / Prepayment of Borrowings (5.62 (18.01%))",
+        "General Corporate Purposes (6.40 (18.60%))"
+      ]
+    },
+    {
+      "id": "everestims-technologies",
+      "name": "EverestIMS Technologies",
+      "symbol": "EIMS",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/everest_ims_logo-300x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 80,
+      "priceBandHigh": 85,
+      "lotSize": 1600,
+      "issueSizeCr": 49.0,
+      "freshIssueCr": 41.65,
+      "ofsCr": 7.35,
+      "gmp": 20.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "UP",
+      "fireRating": 4,
+      "exchange": "NSE SME",
+      "registrar": "KFin Technologies Ltd",
+      "registrarUrl": "https://kosmic.kfintech.com/ipostatus/",
+      "timeline": {
+        "biddingStarts": "29 Sep 2026",
+        "biddingEnds": "05 Oct 2026",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
+        "listingDate": "08 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "IT & Technology Services",
+      "about": "EverestIMS Technologies is an information technology company providing software products and services focused on IT operations and service management. The company delivers solutions across IT service management, IT infrastructure management, network configuration and content management, artificial intelligence for IT operations, IT asset management, and operations support systems. EverestIMS Technologies offers its customers multiple consumption models, providing both software as a service (SaaS) and on-premises software solutions to meet varying operational requirements. Its business involves integrating third-party open-source databases, operating systems, queuing engines, and development tools into customer deliverables. The company derives its revenue primarily from the sale of software products, software services, and hardware products to its client base, which includes large corporate customers. Additionally, the company serves clients overseas in countries such as the United Arab Emirates and Malaysia, alongside its domestic operations.",
+      "financialHighlights": {
+        "revenueCr": 1275.0,
+        "patCr": 153.0,
+        "eps": 5.31,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://everestims.com/assets/docs/EverestIMS_Technologies/rhp/EverestIMS_RHP_21092026.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 50.47,
+          "revenueCr": 45.62,
+          "patCr": 10.83,
+          "netWorthCr": 21.2,
+          "totalBorrowingCr": 9.08,
+          "reservesCr": 14.13
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 67.82,
+          "revenueCr": 57.78,
+          "patCr": 14.08,
+          "netWorthCr": 28.48,
+          "totalBorrowingCr": 12.21,
+          "reservesCr": 18.99
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 90.27,
+          "revenueCr": 65.91,
+          "patCr": 13.14,
+          "netWorthCr": 37.91,
+          "totalBorrowingCr": 16.25,
+          "reservesCr": 25.28
+        }
+      ],
+      "strengths": [
+        "Offers multiple SaaS and on-premises software models.",
+        "Serves diverse overseas clients in the UAE and Malaysia.",
+        "Holds long-standing relationships with key corporate customers.",
+        "Adopts advanced technologies via a dedicated AI Laboratory.",
+        "Shows strong and consistent financial and revenue growth"
+      ],
+      "risks": [
+        "High revenue dependence on the top 10 corporate customers.",
+        "Absence of formal agreements with some channel partners.",
+        "Past negative cash flows from investing and financing.",
+        "Software defects may cause liability and customer loss.",
+        "Open-source integration exposes the company to IP infringement claims."
+      ],
+      "objectsOfIssue": [
+        "Purchase of IT hardware for AI Innovation Lab (5.66 (14.49%))",
+        "Working Capital Requirement (24 (61.46%))",
+        "General Corporate Purposes (9.39 (24.05%))"
+      ]
+    },
+    {
+      "id": "nityas-gems-and-jewellery",
+      "name": "Nityas Gems and Jewellery",
+      "symbol": "NITYAS",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/nityas-logo-300x300.png",
+      "category": "MAINBOARD",
+      "status": "CLOSED",
+      "priceBandLow": 70,
+      "priceBandHigh": 75,
+      "lotSize": 200,
+      "issueSizeCr": 108.0,
+      "freshIssueCr": 91.8,
+      "ofsCr": 16.2,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Sep 2026",
+        "biddingEnds": "05 Oct 2026",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
+        "listingDate": "08 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Consumer Retail & Textiles",
+      "about": "Nityas Gems and Jewellery designs, manufactures, and sells lab-grown diamond-studded gold jewellery in India. The company operates through an integrated business model comprising business-to-business manufacturing and direct-to-consumer retail. Under its business-to-business vertical, it supplies customized and standardized jewellery to organized retail chains, standalone retailers, and wholesalers across multiple Indian states and select overseas markets. Its direct-to-consumer operations are conducted under the brand Ayaani through a subsidiary, featuring an online storefront alongside physical retail stores operated via company-owned and franchise models. The product portfolio includes rings, earrings, pendants, bracelets, mangalsutras, nose pins, necklaces, cufflinks, and bangles, with a strategic focus on lightweight, affordable luxury, and daily-wear jewellery segments. Manufacturing operations are conducted at a single facility in Surat, Gujarat, with an installed production capacity of 360 kilograms per annum, utilizing in-house karigars and computer-aided design capabilities for end-to-end jewellery fabrication.",
+      "financialHighlights": {
+        "revenueCr": 1125.0,
+        "patCr": 135.0,
+        "eps": 4.69,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://nityas.in/wp-content/uploads/2026/09/NityasGemsRHP.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 11.75,
+          "revenueCr": 53.66,
+          "patCr": 4.02,
+          "netWorthCr": 4.93,
+          "totalBorrowingCr": 2.11,
+          "reservesCr": 3.29
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 39.87,
+          "revenueCr": 96.85,
+          "patCr": 9.79,
+          "netWorthCr": 16.75,
+          "totalBorrowingCr": 7.18,
+          "reservesCr": 11.16
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 116.42,
+          "revenueCr": 203.33,
+          "patCr": 22.32,
+          "netWorthCr": 48.9,
+          "totalBorrowingCr": 20.96,
+          "reservesCr": 32.6
+        }
+      ],
+      "strengths": [
+        "Integrated business model spanning B2B manufacturing and D2C omnichannel retail.",
+        "Rapidly expanding customer network servicing 323 B2B clients across 18 states.",
+        "Design-led manufacturing facility in Surat supported by 122 in-house karigars.",
+        "Strong focus on high-growth, affordable lightweight lab-grown diamond jewellery.",
+        "Scalable financial performance with operating revenues compounding over 94% annually."
+      ],
+      "risks": [
+        "High customer concentration with top 10 clients driving 55.49% of FY26 revenues.",
+        "Geographic concentration with five key states contributing over 85% of total sales.",
+        "Operations are working capital intensive, requiring significant ongoing funding.",
+        "Heavy reliance on top 10 suppliers who accounted for 86.16% of FY26 purchases.",
+        "All manufacturing operations are concentrated at a single facility in Surat."
+      ],
+      "objectsOfIssue": [
+        "Working Capital Requirement (70 (64.61%))",
+        "General Corporate Purposes (38.35 (35.39%))"
+      ]
+    },
+    {
+      "id": "vishal-nirmiti",
+      "name": "Vishal Nirmiti",
+      "symbol": "VNL",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vishal-nirmiti-logo-300x134.png",
+      "category": "MAINBOARD",
+      "status": "CLOSED",
+      "priceBandLow": 208,
+      "priceBandHigh": 220,
+      "lotSize": 68,
+      "issueSizeCr": 178.0,
+      "freshIssueCr": 151.3,
+      "ofsCr": 26.7,
+      "gmp": 10.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Sep 2026",
+        "biddingEnds": "05 Oct 2026",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
+        "listingDate": "08 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Vishal Nirmiti is a civil engineering, construction, and manufacturing firm operating in 2 segments. Its manufacturing arm produces pre-stressed concrete sleepers, pre-cast barriers, and steel/penstock pipes for Indian Railways and private developers. Its services arm delivers EPC solutions for railway, irrigation, and road infrastructure. The company supports regional projects through specialized manufacturing facilities across Maharashtra, Madhya Pradesh, Gujarat, and Himachal Pradesh.",
+      "financialHighlights": {
+        "revenueCr": 3300.0,
+        "patCr": 396.0,
+        "eps": 13.75,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://www.saffronadvisor.com/files/offer-documents/Red_Herring_Prospectus__1_.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 242.04,
+          "revenueCr": 247.93,
+          "patCr": 3.45,
+          "netWorthCr": 101.66,
+          "totalBorrowingCr": 43.57,
+          "reservesCr": 67.77
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 296.61,
+          "revenueCr": 324.86,
+          "patCr": 23.64,
+          "netWorthCr": 124.58,
+          "totalBorrowingCr": 53.39,
+          "reservesCr": 83.05
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 334.92,
+          "revenueCr": 344.13,
+          "patCr": 24.98,
+          "netWorthCr": 140.67,
+          "totalBorrowingCr": 60.29,
+          "reservesCr": 93.78
+        }
+      ],
+      "strengths": [
+        "Diversified across railway sleepers, steel pipes, and EPC works.",
+        "Advanced in-house pipe welding and coating manufacturing plants.",
+        "Over 95% of operational revenue generated from repeat clients.",
+        "Multi-state manufacturing footprint spanning four Indian states.",
+        "Experienced promoter group with deep infrastructure expertise."
+      ],
+      "risks": [
+        "High revenue dependence on Indian Railways and state tenders.",
+        "Top 5 clients account for over 85% of total operating revenue.",
+        "Substantial working capital needs funded by short-term loans.",
+        "Business relies on purchase orders without long-term contracts.",
+        "Indebtedness exposes the business to debt servicing and covenants."
+      ],
+      "objectsOfIssue": [
+        "Working Capital Requirement (75 (51.72%))",
+        "Repayment and/or pre-payment of certain borrowings (19 (13.10%))",
+        "General Corporate Purposes (51 (35.18%))"
+      ]
+    },
+    {
+      "id": "omara-ventures-india",
+      "name": "Omara Ventures India",
+      "symbol": "OMARA",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/omara-ventures-india-limited-logo-300x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 296,
+      "priceBandHigh": 311,
+      "lotSize": 400,
+      "issueSizeCr": 42.0,
+      "freshIssueCr": 35.7,
+      "ofsCr": 6.3,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Sep 2026",
+        "biddingEnds": "05 Oct 2026",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
+        "listingDate": "08 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Omara Ventures India is a retail jeweller specializing in the curation and sale of designer diamond jewellery. The company offers a diverse product portfolio that includes bridal, festive, special occasion, and contemporary daily-wear jewellery, alongside gold jewellery and silver coins. Its core operations revolve around a design-led retail model operated through its boutique, where it provides customers with a personalized experience featuring customized jewellery discussions and private consultations. Omara Ventures generates revenue primarily through the direct retail sale of high-value solitaire and diamond pieces, which historically account for the vast majority of its product sales. By focusing on customization tailored to specific customer needs and maintaining well-established relationships with skilled artisans, the company successfully serves the premium market segment. Operating primarily out of the Chandigarh region, it emphasizes curated designs and a commitment to hallmarked assurance for retail investors.",
+      "financialHighlights": {
+        "revenueCr": 4665.0,
+        "patCr": 559.8,
+        "eps": 19.44,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://cdn.shopify.com/s/files/1/0701/7529/3622/files/Omara_DraftProspectus.pdf?v=1790142212",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 26.44,
+          "revenueCr": 23.19,
+          "patCr": 0.31,
+          "netWorthCr": 11.1,
+          "totalBorrowingCr": 4.76,
+          "reservesCr": 7.4
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 29.46,
+          "revenueCr": 23.52,
+          "patCr": 2.73,
+          "netWorthCr": 12.37,
+          "totalBorrowingCr": 5.3,
+          "reservesCr": 8.25
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 47.25,
+          "revenueCr": 45.87,
+          "patCr": 9.37,
+          "netWorthCr": 19.84,
+          "totalBorrowingCr": 8.5,
+          "reservesCr": 13.23
+        }
+      ],
+      "strengths": [
+        "Experienced promoters and a dedicated management team guiding operations.",
+        "Diversified product portfolio featuring curated diamond and gold jewellery.",
+        "Strong focus on customization based on individual customer needs.",
+        "Well-established relationships with skilled jewellery artisans and suppliers.",
+        "Deep commitment to product quality and hallmarked jewellery assurance."
+      ],
+      "risks": [
+        "High dependence on suppliers for raw materials.",
+        "Revenue heavily concentrated in Solitaire and Diamond jewellery.",
+        "Geographically concentrated with operations primarily in Chandigarh.",
+        "High inventory levels significantly increase working capital needs.",
+        "Past delays and non-compliance in statutory and tax filings."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for Renovation and Expansion of the Jewellery Boutique (2 (4.76%))",
+        "Marketing and promotional expenses (2 (4.76%))",
+        "Working Capital Requirement (10 (23.82%))",
+        "Repayment and/or pre-payment of certain borrowings (18 (42.87%))",
+        "General Corporate Purposes (9.99 (23.79%))"
+      ]
+    },
+    {
       "id": "dove-soft",
       "name": "Dove Soft",
       "symbol": "DSL",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/dove-soft-logo-300x300.png",
       "category": "SME",
-      "status": "ONGOING",
+      "status": "CLOSED",
       "priceBandLow": 104,
       "priceBandHigh": 111,
       "lotSize": 1200,
@@ -583,7 +1545,7 @@
       "freshIssueCr": 62.05,
       "ofsCr": 10.95,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -611,7 +1573,7 @@
         "Zerodha Verified",
         "SME",
         "NSE SME",
-        "ONGOING IPO"
+        "CLOSED IPO"
       ],
       "rhpUrl": "https://dovesoft.io/images/investor/RHP.pdf",
       "multiYearFinancials": [
@@ -668,7 +1630,7 @@
       "symbol": "SOLLFEGE",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/sollfege-smart-Electronics-logo-300x95.png",
       "category": "SME",
-      "status": "ONGOING",
+      "status": "CLOSED",
       "priceBandLow": 55,
       "priceBandHigh": 55,
       "lotSize": 2000,
@@ -676,7 +1638,7 @@
       "freshIssueCr": 18.7,
       "ofsCr": 3.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -704,7 +1666,7 @@
         "Zerodha Verified",
         "SME",
         "NSE SME",
-        "ONGOING IPO"
+        "CLOSED IPO"
       ],
       "rhpUrl": "https://cdn.shopify.com/s/files/1/0672/3328/4386/files/Prospectus_c2e29efc-72ef-4a8e-b3c7-2c5279cace83.pdf?v=1790344731",
       "multiYearFinancials": [
@@ -763,15 +1725,15 @@
       "symbol": "EVENTIONS",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/eventions-ipo-logo-300x104.png",
       "category": "SME",
-      "status": "ONGOING",
+      "status": "CLOSED",
       "priceBandLow": 112,
       "priceBandHigh": 118,
       "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
+      "issueSizeCr": 38.0,
+      "freshIssueCr": 32.3,
+      "ofsCr": 5.7,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -780,14 +1742,14 @@
       "timeline": {
         "biddingStarts": "30 Sep 2026",
         "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Eventions is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Eventions operates as an integrated event management company specializing in providing Meetings, Incentives, Conferences, and Exhibitions (MICE) solutions, corporate events, and brand activations for various institutions. The company’s core business involves the conceptualization, planning, coordination, and on-ground execution of large-format assignments across diverse domestic and international locations. It generates the vast majority of its revenue directly from the MICE segment, primarily serving domestic corporate clients on a project-to-project basis. Additionally, through its subsidiary Gantu Online Private Limited, the company is actively expanding into the business-to-consumer travel sector by offering customized Free Independent Traveller (FIT) services and curated leisure travel itineraries. To execute its projects efficiently, Eventions utilizes an asset-light operating model, relying heavily on a vetted network of third-party vendors, subcontractors, and freelance professionals for stage fabrication, logistics, and production infrastructure rather than maintaining heavy in-house physical assets.",
       "financialHighlights": {
         "revenueCr": 1770.0,
         "patCr": 212.4,
@@ -799,7 +1761,57 @@
         "Zerodha Verified",
         "SME",
         "NSE SME",
-        "ONGOING IPO"
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://eventions.in/wp-content/uploads/2026/09/Final_RHP.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 29.0,
+          "revenueCr": 87.29,
+          "patCr": 3.29,
+          "netWorthCr": 12.18,
+          "totalBorrowingCr": 5.22,
+          "reservesCr": 8.12
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 23.77,
+          "revenueCr": 88.02,
+          "patCr": 5.13,
+          "netWorthCr": 9.98,
+          "totalBorrowingCr": 4.28,
+          "reservesCr": 6.66
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 50.63,
+          "revenueCr": 100.62,
+          "patCr": 7.72,
+          "netWorthCr": 21.26,
+          "totalBorrowingCr": 9.11,
+          "reservesCr": 14.18
+        }
+      ],
+      "strengths": [
+        "Proven track record in execution of corporate events and conferences.",
+        "Experienced promoters with deep event management industry expertise.",
+        "Asset-light and highly scalable business operating model.",
+        "Capability to conceptualize and execute large-format corporate events.",
+        "Client-centric approach resulting in significant repeat business relationships."
+      ],
+      "risks": [
+        "High dependence on a limited number of clients for repeat engagements.",
+        "Significant reliance on the MICE segment for a substantial portion of revenue.",
+        "Extensive dependence on third-party vendors for event execution.",
+        "Vulnerable to macroeconomic shifts impacting corporate event budgets.",
+        "Operations face logistical and regulatory challenges across multiple locations."
+      ],
+      "objectsOfIssue": [
+        "Repayment and/or pre-payment of certain borrowings (7 (18.36%))",
+        "Investment in Subsidiary (1.40 (3.67%))",
+        "Working Capital Requirement (18.80 (49.32%))",
+        "General Corporate Purposes (10.92 (28.65%))"
       ]
     },
     {
@@ -808,15 +1820,15 @@
       "symbol": "SJP",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/sjp-ultrasonics-ipo-logo-300x185.png",
       "category": "SME",
-      "status": "ONGOING",
+      "status": "CLOSED",
       "priceBandLow": 67,
       "priceBandHigh": 67,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
+      "lotSize": 2000,
+      "issueSizeCr": 23.0,
+      "freshIssueCr": 19.55,
+      "ofsCr": 3.45,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -825,14 +1837,14 @@
       "timeline": {
         "biddingStarts": "30 Sep 2026",
         "biddingEnds": "05 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "06 Oct 2026",
+        "refundInitiation": "07 Oct 2026",
+        "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "SJP Ultrasonics is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "SJP Ultrasonics primarily operates in the industrial automation solution segment, providing solutions under three business segments: Plastic Joining Solutions, Industrial Automation, and Laser Technology Solutions. The company is a start-to-finish plastic welding solution provider offering diverse and comprehensive service offerings, including specialized plastic products across varied industry segments. It customises industrial automation solutions for an array of industries such as automotive, pharmaceuticals, electronics, energy, food and beverage, packaging, material handling, water treatment, and textiles. SJP Ultrasonics designs and manufactures special-purpose machines that involve detailed fabrication processes and engineering precision on a made-to-order basis. The company integrates technologies like programmable logic controllers, supervisory control and data acquisition, human-machine interfaces, and robotics into its automation systems. SJP Ultrasonics conducts its entire manufacturing operations from its facility in Vasai, Maharashtra, generating revenue directly from customers, particularly original equipment manufacturers, through milestone-based billing without long-term contracts.",
       "financialHighlights": {
         "revenueCr": 1005.0,
         "patCr": 120.6,
@@ -844,817 +1856,57 @@
         "Zerodha Verified",
         "SME",
         "NSE SME",
-        "ONGOING IPO"
-      ]
-    },
-    {
-      "id": "tna-solutions",
-      "name": "TNA Solutions",
-      "symbol": "TNA",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/tna-solutions-ltd-logo-300x124.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 66,
-      "priceBandHigh": 70,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
-      "gmp": 7.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "UP",
-      "fireRating": 3,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Sep 2026",
-        "biddingEnds": "06 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "09 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "IT & Technology Services",
-      "about": "TNA Solutions is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1050.0,
-        "patCr": 126.0,
-        "eps": 4.38,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ]
-    },
-    {
-      "id": "acme-india-industries",
-      "name": "Acme India Industries",
-      "symbol": "ACMERAIL",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/acme-india-logo-300x102.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 186,
-      "priceBandHigh": 196,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
-      "gmp": 30.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "UP",
-      "fireRating": 3,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Sep 2026",
-        "biddingEnds": "06 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "09 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Acme India Industries is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 2940.0,
-        "patCr": 352.8,
-        "eps": 12.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ]
-    },
-    {
-      "id": "lighthouse-communities-foundation",
-      "name": "Lighthouse Communities Foundation",
-      "symbol": "LCFZCZPSSE",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/loghthouse-300x300.png",
-      "category": "MAINBOARD",
-      "status": "ONGOING",
-      "priceBandLow": 1,
-      "priceBandHigh": 1,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Sep 2026",
-        "biddingEnds": "14 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Lighthouse Communities Foundation is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 15.0,
-        "patCr": 1.8,
-        "eps": 0.06,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "ONGOING IPO"
-      ]
-    },
-    {
-      "id": "rkfashion-accessories",
-      "name": "R.K.Fashion Accessories",
-      "symbol": "RKFAL",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/rk_logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 77,
-      "priceBandHigh": 82,
-      "lotSize": 1200,
-      "issueSizeCr": 45.0,
-      "freshIssueCr": 40.0,
-      "ofsCr": 5.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "05 Oct 2026",
-        "biddingEnds": "07 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "12 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Consumer Retail & Textiles",
-      "about": "R.K.Fashion Accessories is launching its initial public offering on NSE SME to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1230.0,
-        "patCr": 147.6,
-        "eps": 5.12,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ]
-    },
-    {
-      "id": "reliance-jio",
-      "name": "Reliance Jio",
-      "symbol": "JIO",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/jio_logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Reliance Jio is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "acko",
-      "name": "Acko",
-      "symbol": "ACKO",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/acko_logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Acko is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "oyo",
-      "name": "OYO",
-      "symbol": "OYO",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2024/05/oyo-300x300.jpeg",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "OYO is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "parle-products",
-      "name": "Parle Products",
-      "symbol": "PARLE",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/parle_logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Parle Products is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "makemytrip",
-      "name": "MakeMyTrip",
-      "symbol": "MAKEMYTRIP",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/makemytrip_logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "MakeMyTrip is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "boat",
-      "name": "BOAT",
-      "symbol": "BOAT",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2024/09/boAt-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "BOAT is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "zepto",
-      "name": "Zepto",
-      "symbol": "ZEPTO",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2024/09/Zepto-IPO-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Zepto is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "eaaa-india-alternatives",
-      "name": "EAAA India Alternatives",
-      "symbol": "EAAAINDIA",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/EAAA-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "EAAA India Alternatives is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "phonepe",
-      "name": "PhonePe",
-      "symbol": "PHONEPE",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/02/imresizer-1740552773461-300x300.jpg",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "PhonePe is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "cultfit",
-      "name": "Cult.fit",
-      "symbol": "CULTFIT",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/03/cult.fitlogo-1-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Cult.fit is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "kuku-mebigo-labs",
-      "name": "KUKU (Mebigo Labs)",
-      "symbol": "KUKU",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/kuku_logo-1-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "KUKU (Mebigo Labs) is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "tata-sons",
-      "name": "Tata Sons",
-      "symbol": "TATASONS",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Tatasons_logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Tata Sons is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "upstox",
-      "name": "Upstox",
-      "symbol": "UPSTOX",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/08/Upstox_logo-300x300.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Upstox is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
-      ]
-    },
-    {
-      "id": "inox-clean-energy",
-      "name": "Inox Clean Energy",
-      "symbol": "INOXCLEAN",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/inox-clean-energy-logo-300x83.png",
-      "category": "MAINBOARD",
-      "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
-      "exchange": "NSE & BSE",
-      "registrar": "KFin Technologies Ltd",
-      "registrarUrl": "https://kosmic.kfintech.com/ipostatus/",
-      "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
-      },
-      "subscription": null,
-      "sector": "Renewable Energy & Power",
-      "about": "Inox Clean Energy is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "MAINBOARD",
-        "NSE & BSE",
-        "UPCOMING IPO"
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://www.sjpultrasonics.in/static/files/ipo/SJP_Prospectus_24.09.2026_F.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 16.97,
+          "revenueCr": 15.22,
+          "patCr": 3.4,
+          "netWorthCr": 7.13,
+          "totalBorrowingCr": 3.05,
+          "reservesCr": 4.75
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 27.06,
+          "revenueCr": 21.15,
+          "patCr": 4.17,
+          "netWorthCr": 11.37,
+          "totalBorrowingCr": 4.87,
+          "reservesCr": 7.58
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 35.2,
+          "revenueCr": 26.63,
+          "patCr": 5.24,
+          "netWorthCr": 14.78,
+          "totalBorrowingCr": 6.34,
+          "reservesCr": 9.86
+        }
+      ],
+      "strengths": [
+        "Comprehensive end-to-end plastic welding solution provider.",
+        "Strong, long-standing customer and supplier relationships.",
+        "Specialized expertise in custom, made-to-order manufacturing.",
+        "Established in-house production facilities in Maharashtra.",
+        "Experienced leadership and management team."
+      ],
+      "risks": [
+        "High revenue dependence on two primary business segments.",
+        "Significant revenue concentration from a few large clients.",
+        "Raw material price volatility due to lack of long-term supplier contracts.",
+        "Working capital-intensive operations tied to trade receivables management.",
+        "Delays in new machinery procurement could hinder capacity expansion plans."
+      ],
+      "objectsOfIssue": [
+        "Funding capital expenditure towards the purchase of machineries (13.22 (56.37%))",
+        "Working Capital Requirement (4.92 (20.98%))",
+        "General Corporate Purposes (3.05 (13.01%))",
+        "Issue Expenses (2.26 (9.64%))"
       ]
     },
     {
@@ -1671,7 +1923,7 @@
       "freshIssueCr": 51.0,
       "ofsCr": 9.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -1764,7 +2016,7 @@
       "freshIssueCr": 46.75,
       "ofsCr": 8.25,
       "gmp": 20.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE SME",
@@ -1858,7 +2110,7 @@
       "freshIssueCr": 17.0,
       "ofsCr": 3.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -1952,7 +2204,7 @@
       "freshIssueCr": 28.9,
       "ofsCr": 5.1,
       "gmp": 90.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -2045,7 +2297,7 @@
       "freshIssueCr": 76.5,
       "ofsCr": 13.5,
       "gmp": 12.25,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -2138,7 +2390,7 @@
       "freshIssueCr": 185.3,
       "ofsCr": 32.7,
       "gmp": 36.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -2232,7 +2484,7 @@
       "freshIssueCr": 15.3,
       "ofsCr": 2.7,
       "gmp": 1.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2325,7 +2577,7 @@
       "freshIssueCr": 11.9,
       "ofsCr": 2.1,
       "gmp": 1.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2419,7 +2671,7 @@
       "freshIssueCr": 30.6,
       "ofsCr": 5.4,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -2514,7 +2766,7 @@
       "freshIssueCr": 425.0,
       "ofsCr": 75.0,
       "gmp": 4.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2608,7 +2860,7 @@
       "freshIssueCr": 258.4,
       "ofsCr": 45.6,
       "gmp": 13.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -2702,7 +2954,7 @@
       "freshIssueCr": 469.2,
       "ofsCr": 82.8,
       "gmp": 88.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -2796,7 +3048,7 @@
       "freshIssueCr": 357.0,
       "ofsCr": 63.0,
       "gmp": 0.5,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2890,7 +3142,7 @@
       "freshIssueCr": 57.8,
       "ofsCr": 10.2,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -2985,7 +3237,7 @@
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
       "gmp": 28.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -3078,7 +3330,7 @@
       "freshIssueCr": 9.35,
       "ofsCr": 1.65,
       "gmp": 0.5,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3173,7 +3425,7 @@
       "freshIssueCr": 21.25,
       "ofsCr": 3.75,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -3267,7 +3519,7 @@
       "freshIssueCr": 344.25,
       "ofsCr": 60.75,
       "gmp": 36.5,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -3360,7 +3612,7 @@
       "freshIssueCr": 928.2,
       "ofsCr": 163.8,
       "gmp": 14.25,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -3454,7 +3706,7 @@
       "freshIssueCr": 16.15,
       "ofsCr": 2.85,
       "gmp": 38.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -3548,7 +3800,7 @@
       "freshIssueCr": 45.9,
       "ofsCr": 8.1,
       "gmp": 0.0,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -3643,7 +3895,7 @@
       "freshIssueCr": 1785.0,
       "ofsCr": 315.0,
       "gmp": 6.5,
-      "gmpUpdatedDate": "05 Oct, 11:13 AM",
+      "gmpUpdatedDate": "05 Oct, 07:41 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
