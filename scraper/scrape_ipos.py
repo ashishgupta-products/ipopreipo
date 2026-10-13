@@ -256,16 +256,18 @@ def clean_date_cell(td_el):
     if not td_el:
         return 'TBA'
     clone = BeautifulSoup(str(td_el), 'html.parser')
-    for hidden in clone.select('.hidden'):
+    for hidden in clone.select('.hidden, .hide, [style*="display: none"], [style*="display:none"]'):
         hidden.decompose()
     text = clone.get_text(strip=True)
-    text = re.sub(r'^\d{4}-\d{2}-\d{2}', '', text).strip()
+    text = re.sub(r'\d{4}-\d{2}-\d{2}', '', text).strip()
     return text or 'TBA'
 
 def parse_dates_range(date_str):
     if not date_str or 'announced' in date_str.lower() or date_str == 'TBA':
         return 'TBA', 'TBA'
-    parts = re.split(r'–|-', date_str)
+    # Strip any stray ISO dates (e.g. 2026-09-24)
+    clean_raw = re.sub(r'\d{4}-\d{2}-\d{2}', '', date_str).strip()
+    parts = re.split(r'–|-', clean_raw)
     if len(parts) == 2:
         start_part = parts[0].strip()
         end_part = parts[1].strip()
@@ -281,7 +283,7 @@ def parse_dates_range(date_str):
             start_formatted = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', start_part)
         end_formatted = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', end_part)
         return start_formatted.strip(), end_formatted.strip()
-    clean = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', date_str).strip()
+    clean = re.sub(r'(\d+)(st|nd|rd|th)', r'\1', clean_raw).strip()
     return clean, clean
 
 def scrape_zerodha_primary():
@@ -355,10 +357,21 @@ def scrape_zerodha_primary():
             symbol_el = row.select_one('.ipo-symbol')
             type_el = row.select_one('.ipo-type')
             type_str = type_el.get_text(strip=True).upper() if type_el else 'MAINBOARD'
-            category = 'SME' if 'SME' in type_str else 'MAINBOARD'
-
             raw_sym = symbol_el.get_text(strip=True) if symbol_el else clean_name[:6].upper()
-            clean_sym = re.sub(r'(Mainboard|SME)', '', raw_sym).strip() or clean_name[:6].upper()
+
+            # Ignore non-equity Social Stock Exchange (SSE) & Zero Coupon Zero Principal (ZCZP) instruments
+            if (
+                'SSE' in type_str
+                or 'ZCZP' in raw_sym.upper()
+                or 'ZCZP' in clean_name.upper()
+                or 'FOUNDATION' in clean_name.upper()
+                or 'DEVELOPMENT CORPORATION' in clean_name.upper()
+            ):
+                print(f"[Zerodha] Skipping non-equity SSE/ZCZP entity: {clean_name} ({raw_sym})")
+                continue
+
+            category = 'SME' if 'SME' in type_str else 'MAINBOARD'
+            clean_sym = re.sub(r'(Mainboard|SME|SSE)', '', raw_sym).strip() or clean_name[:6].upper()
 
             # Logo image hosted on Zerodha
             img_el = row.select_one('.ipo-logo img')
@@ -521,6 +534,18 @@ def sync_to_neon_db(ipos_list, last_updated):
         print(f"[Neon DB] Connecting to Neon PostgreSQL...")
         conn = psycopg2.connect(db_url)
         cur = conn.cursor()
+
+        # Purge non-equity Social Stock Exchange (SSE/ZCZP) entries
+        cur.execute("""
+            DELETE FROM ipos 
+            WHERE symbol LIKE '%ZCZP%' 
+               OR symbol LIKE '%SSE%' 
+               OR id LIKE '%foundation%' 
+               OR name ILIKE '%foundation%' 
+               OR category = 'SSE';
+        """)
+        if cur.rowcount > 0:
+            print(f"[Neon DB] Cleaned up {cur.rowcount} non-equity SSE/ZCZP entries.")
 
         upsert_query = """
         INSERT INTO ipos (

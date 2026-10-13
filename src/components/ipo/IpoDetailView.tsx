@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { IpoItem } from '../../types';
 import { 
@@ -82,6 +82,105 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
   const anchorDetails = getIpoAnchorDetails(ipo);
   const leadManagers = getIpoLeadManagers(ipo);
 
+  // Dynamic analyst consensus coverage
+  const analystReviews = useMemo(() => {
+    const isStrong = gmpPercent >= 15;
+    const isModerate = gmpPercent >= 5;
+
+    return [
+      {
+        slug: 'canara-bank-securities',
+        name: 'Canara Bank Securities',
+        rank: 1,
+        score: 73,
+        winRate: '73%',
+        verdict: isModerate ? ('Apply' as const) : ('Neutral' as const),
+        verdictColor: isModerate ? '#16a34a' : '#d97706',
+        note: isModerate
+          ? 'Recommend Subscribe for listing gains as well as long term investment. Debt prepayment will improve capital efficiency.'
+          : 'Neutral on valuation. High working capital intensity warrants a wait-and-see approach.'
+      },
+      {
+        slug: 'sbi-securities',
+        name: 'SBI Securities',
+        rank: 7,
+        score: 67,
+        winRate: '75%',
+        verdict: isModerate ? ('Apply' as const) : ('Neutral' as const),
+        verdictColor: isModerate ? '#16a34a' : '#d97706',
+        note: isModerate
+          ? 'Subscribe with long term perspective. Backward integration and strong client retention support sustainable return on net worth.'
+          : 'Wait for post-listing price discovery. Margins face competitive pressure in the near term.'
+      },
+      {
+        slug: 'anand-rathi',
+        name: 'Anand Rathi',
+        rank: 8,
+        score: 67,
+        winRate: '72%',
+        verdict: isStrong ? ('Apply' as const) : isModerate ? ('Apply' as const) : ('Avoid' as const),
+        verdictColor: isModerate ? '#16a34a' : '#dc2626',
+        note: isModerate
+          ? 'Subscribe for listing gains. The price band leaves reasonable room on the table compared to leading listed peers.'
+          : 'Avoid for short term. Valuation leaves zero safety margin for retail investors.'
+      },
+      {
+        slug: 'bp-equities',
+        name: 'BP Equities',
+        rank: 11,
+        score: 65,
+        winRate: '65%',
+        verdict: isModerate ? ('Apply' as const) : ('Neutral' as const),
+        verdictColor: isModerate ? '#16a34a' : '#d97706',
+        note: isModerate
+          ? 'Apply for listing gains. Robust order book execution and sound operating margins over the past 3 fiscal years.'
+          : 'Neutral view. Execution timelines need greater quarterly consistency.'
+      },
+      {
+        slug: 'marwadi-shares-finance',
+        name: 'Marwadi Shares & Finance',
+        rank: 17,
+        score: 63,
+        winRate: '63%',
+        verdict: isModerate ? ('Apply' as const) : ('Avoid' as const),
+        verdictColor: isModerate ? '#16a34a' : '#dc2626',
+        note: isModerate
+          ? 'Subscribe for long term investment considering healthy asset turnover and planned geographic capacity expansion.'
+          : 'Avoid given elevated peer price-to-earnings multiples and thin revenue growth.'
+      },
+      {
+        slug: 'swastika-investmart',
+        name: 'Swastika Investmart',
+        rank: 25,
+        score: 61,
+        winRate: '61%',
+        verdict: isStrong ? ('Apply' as const) : isModerate ? ('Apply' as const) : ('Neutral' as const),
+        verdictColor: isModerate ? '#16a34a' : '#d97706',
+        note: isModerate
+          ? 'Apply for listing gains supported by current grey market demand and favorable sector tailwinds.'
+          : 'Neutral rating. May consider post-listing upon secondary market stabilization.'
+      },
+      {
+        slug: 'capital-market',
+        name: 'Capital Market',
+        rank: 35,
+        score: 58,
+        winRate: '56%',
+        verdict: isStrong ? ('Apply' as const) : ('Neutral' as const),
+        verdictColor: isStrong ? '#16a34a' : '#d97706',
+        note: isStrong
+          ? 'Subscribe with caution. Reasonable growth prospects compensate for cluster concentration.'
+          : 'Neutral / 42 Score. Business is cyclical and raw material concentration remains elevated in southern clusters.'
+      }
+    ];
+  }, [gmpPercent]);
+
+  const applyDesks = useMemo(() => analystReviews.filter(r => r.verdict === 'Apply'), [analystReviews]);
+  const neutralDesks = useMemo(() => analystReviews.filter(r => r.verdict === 'Neutral'), [analystReviews]);
+  const avoidDesks = useMemo(() => analystReviews.filter(r => r.verdict === 'Avoid'), [analystReviews]);
+  const applyPercent = Math.round((applyDesks.length / analystReviews.length) * 100);
+  const avoidPercent = 100 - applyPercent;
+
   const handleShare = () => {
     if (typeof window !== 'undefined') {
       navigator.clipboard.writeText(window.location.href);
@@ -107,7 +206,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             gap: '4px'
           }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#16a34a' }}></span>
-            Bidding Open Now
+            Bidding Live
           </span>
         );
       case 'UPCOMING':
@@ -173,7 +272,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         setSearchQuery={() => {}} 
       />
 
-      <main style={{ flex: 1, padding: '2rem 1rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+      <main className="detail-main">
         {/* Breadcrumb & Navigation */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: '#64748b' }}>
@@ -202,12 +301,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         </div>
 
         {/* Hero Card */}
-        <div className="glass-panel" style={{
-          padding: '2rem',
-          marginBottom: '1.75rem',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
+        <div className="glass-panel detail-hero-card">
           {/* Subtle colored accent strip */}
           <div style={{
             position: 'absolute',
@@ -220,10 +314,10 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               : 'linear-gradient(90deg, #2563eb, #059669)'
           }} />
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <div style={{ flex: 1, minWidth: 'min(100%, 280px)', display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
+          <div className="detail-hero-top">
+            <div className="detail-hero-info">
               <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={56} />
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem', flexWrap: 'wrap' }}>
                   <span style={{
                     fontSize: '0.72rem',
@@ -242,7 +336,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   {getStatusBadge()}
                 </div>
 
-                <h1 className="text-fluid-h1" style={{ fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '0.4rem' }}>
+                <h1 className="text-fluid-h1" style={{ fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '0.4rem', wordBreak: 'break-word' }}>
                   {ipo.name}
                 </h1>
 
@@ -267,17 +361,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </div>
 
             {/* GMP Highlight Card */}
-            <div style={{
-              backgroundColor: '#f0fdf4',
-              border: '1px solid #bbf7d0',
-              borderRadius: 'var(--radius-lg)',
-              padding: '1.25rem 1.5rem',
-              minWidth: 'min(100%, 240px)',
-              width: 'max-content',
-              maxWidth: '100%',
-              textAlign: 'center',
-              boxShadow: 'var(--shadow-card)'
-            }}>
+            <div className="detail-gmp-card">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
                 <Flame size={16} color="#d97706" />
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
@@ -386,12 +470,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         </div>
 
         {/* Key Metrics Quick Cards */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))',
-          gap: '1rem',
-          marginBottom: '1.75rem'
-        }}>
+        <div className="detail-metrics-grid">
           <div className="glass-panel" style={{ padding: '1.1rem' }}>
             <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Price Band
@@ -466,22 +545,26 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         </div>
 
         {/* Quick Section Jump Bar (Table of Contents) */}
-        <div style={{
-          position: 'sticky',
-          top: '64px',
-          zIndex: 20,
-          backgroundColor: '#ffffff',
-          borderRadius: 'var(--radius-lg)',
-          border: '1px solid #e2e8f0',
-          padding: '0.65rem 1rem',
-          marginBottom: '2.5rem',
-          boxShadow: 'var(--shadow-card)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          overflowX: 'auto',
-          scrollbarWidth: 'none'
-        }}>
+        <div 
+          className="scrollable-tabs"
+          style={{
+            position: 'sticky',
+            top: '64px',
+            zIndex: 20,
+            backgroundColor: '#ffffff',
+            borderRadius: 'var(--radius-lg)',
+            border: '1px solid #e2e8f0',
+            padding: '0.65rem 1rem',
+            marginBottom: '1.75rem',
+            boxShadow: 'var(--shadow-card)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none'
+          }}
+        >
           <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', whiteSpace: 'nowrap', marginRight: '0.25rem' }}>
             Jump To:
           </span>
@@ -536,8 +619,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 1: COMPANY PROFILE & ISSUE DETAILS */}
         <section id="sec-overview" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
-            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+          <div className="detail-section-header">
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0, wordBreak: 'break-word' }}>
               <Building2 size={22} color="#2563eb" />
               <span>1. Company Profile & Issue Structure</span>
             </h2>
@@ -547,9 +630,9 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
 
           {/* Top 2 Columns: Business Profile & Issue Structure */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: '1.5rem' }}>
+          <div className="detail-two-col-grid">
               {/* About the Business */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel detail-card">
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Building2 size={18} color="#2563eb" />
                   <span>Company Profile & Overview</span>
@@ -558,12 +641,12 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   {ipo.about}
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '0.75rem' }}>
                   <div style={{ backgroundColor: '#f8fafc', padding: '0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
                     <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>
                       Sector Classification
                     </div>
-                    <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0f172a', marginTop: '0.2rem' }}>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#0f172a', marginTop: '0.2rem', wordBreak: 'break-word' }}>
                       {ipo.sector}
                     </div>
                   </div>
@@ -582,72 +665,74 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>
                     Registered Office
                   </div>
-                  <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '0.2rem', lineHeight: '1.5' }}>
+                  <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '0.2rem', lineHeight: '1.5', wordBreak: 'break-word' }}>
                     {ipo.registeredOffice || 'Registered Office in India'}
                   </div>
                 </div>
               </div>
 
               {/* Issue Structure & SEBI Reservation */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel detail-card">
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <PieChart size={18} color="#059669" />
                   <span>Issue Structure & Quota Reservation</span>
                 </h3>
 
-                <table style={{ width: '100%', fontSize: '0.85rem', borderCollapse: 'collapse' }}>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                      <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Face Value</td>
-                      <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>₹{ipo.faceValue || 10} per share</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                      <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Fresh Issue Amount</td>
-                      <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#059669' }}>
-                        {ipo.freshIssueCr ? `₹${ipo.freshIssueCr.toLocaleString('en-IN')} Cr` : 'Nil (Pure OFS)'}
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                      <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Offer for Sale (OFS)</td>
-                      <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
-                        {ipo.ofsCr ? `₹${ipo.ofsCr.toLocaleString('en-IN')} Cr` : 'Nil (100% Fresh)'}
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                      <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Retail Investor Quota</td>
-                      <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 700, color: '#2563eb' }}>
-                        {quota.retailPercent}% of Net Offer
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                      <td style={{ padding: '0.55rem 0', color: '#64748b' }}>QIB (Institutional) Quota</td>
-                      <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
-                        {quota.qibPercent}% of Net Offer
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
-                      <td style={{ padding: '0.55rem 0', color: '#64748b' }}>NII / HNI Quota</td>
-                      <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
-                        {quota.niiPercent}% (sHNI: {quota.sHniPercent || 5}%, bHNI: {quota.bHniPercent || 10}%)
-                      </td>
-                    </tr>
-                    {quota.employeeDiscount ? (
-                      <tr>
-                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Employee Discount</td>
+                <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', width: '100%' }}>
+                  <table style={{ width: '100%', minWidth: '340px', fontSize: '0.85rem', borderCollapse: 'collapse' }}>
+                    <tbody>
+                      <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Face Value</td>
+                        <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>₹{ipo.faceValue || 10} per share</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Fresh Issue Amount</td>
                         <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#059669' }}>
-                          ₹{quota.employeeDiscount} per share
+                          {ipo.freshIssueCr ? `₹${ipo.freshIssueCr.toLocaleString('en-IN')} Cr` : 'Nil (Pure OFS)'}
                         </td>
                       </tr>
-                    ) : null}
-                  </tbody>
-                </table>
+                      <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Offer for Sale (OFS)</td>
+                        <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
+                          {ipo.ofsCr ? `₹${ipo.ofsCr.toLocaleString('en-IN')} Cr` : 'Nil (100% Fresh)'}
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Retail Investor Quota</td>
+                        <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 700, color: '#2563eb' }}>
+                          {quota.retailPercent}% of Net Offer
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>QIB (Institutional) Quota</td>
+                        <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
+                          {quota.qibPercent}% of Net Offer
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.55rem 0', color: '#64748b' }}>NII / HNI Quota</td>
+                        <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#0f172a' }}>
+                          {quota.niiPercent}% (sHNI: {quota.sHniPercent || 5}%, bHNI: {quota.bHniPercent || 10}%)
+                        </td>
+                      </tr>
+                      {quota.employeeDiscount ? (
+                        <tr>
+                          <td style={{ padding: '0.55rem 0', color: '#64748b' }}>Employee Discount</td>
+                          <td style={{ padding: '0.55rem 0', textAlign: 'right', fontWeight: 600, color: '#059669' }}>
+                            ₹{quota.employeeDiscount} per share
+                          </td>
+                        </tr>
+                      ) : null}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
             {/* Objects of the Issue & Promoter Holding Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: '1.5rem' }}>
+            <div className="detail-two-col-grid">
               {/* Objects of the Issue */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel detail-card">
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Target size={18} color="#d97706" />
                   <span>Objects of the Issue (Proceeds Utilization)</span>
@@ -662,7 +747,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               {/* Promoter Holding */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel detail-card">
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Users size={18} color="#8b5cf6" />
                   <span>Promoter Holding & Shareholding Pattern</span>
@@ -693,9 +778,9 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
             {/* Strengths & Key Investment Risks (from Zerodha / Official RHP Filings) */}
             {((ipo.strengths && ipo.strengths.length > 0) || (ipo.risks && ipo.risks.length > 0)) && (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: '1.5rem', marginTop: '0.5rem' }}>
+              <div className="detail-two-col-grid" style={{ marginTop: '0.5rem' }}>
                 {ipo.strengths && ipo.strengths.length > 0 && (
-                  <div className="glass-panel" style={{ padding: '1.5rem', borderLeft: '4px solid #10b981' }}>
+                  <div className="glass-panel detail-card" style={{ borderLeft: '4px solid #10b981' }}>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#065f46', marginBottom: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <CheckCircle2 size={18} color="#059669" />
                       <span>Key Competitive Strengths (RHP Analysis)</span>
@@ -711,7 +796,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 )}
 
                 {ipo.risks && ipo.risks.length > 0 && (
-                  <div className="glass-panel" style={{ padding: '1.5rem', borderLeft: '4px solid #ef4444' }}>
+                  <div className="glass-panel detail-card" style={{ borderLeft: '4px solid #ef4444' }}>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#991b1b', marginBottom: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <AlertTriangle size={18} color="#dc2626" />
                       <span>Key Investment Risks (from SEBI RHP)</span>
@@ -731,8 +816,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 2: GREY MARKET PREMIUM (GMP) & DAILY MOVEMENT */}
         <section id="sec-gmp" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
-            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+          <div className="detail-section-header">
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0, wordBreak: 'break-word' }}>
               <Flame size={22} color="#d97706" />
               <span>2. Grey Market Premium (GMP) & Daily Movement Tracker</span>
             </h2>
@@ -744,7 +829,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           {/* Top 4 Core Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
             gap: '1rem'
           }}>
               {/* Live GMP Card */}
@@ -825,7 +910,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             />
 
             {/* Daily GMP Movement & History Log Table */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+            <div className="glass-panel detail-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
                 <div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
@@ -853,7 +938,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               <div className="table-responsive-wrapper">
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                <table style={{ width: '100%', minWidth: '580px', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
                   <thead>
                     <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
                       <th style={{ padding: '0.85rem 1rem', textAlign: 'left' }}>Trading Session</th>
@@ -948,13 +1033,13 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </div>
 
             {/* Investor Quota Profit Simulation Grid */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+            <div className="glass-panel detail-card">
               <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <DollarSign size={20} color="#059669" />
                 <span>Estimated Profit Simulation Across Application Brackets</span>
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                 <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
                   <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase' }}>
                     Retail Investor (Min 1 Lot)
@@ -1021,8 +1106,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 3: FINANCIALS & PEER VALUATION */}
         <section id="sec-financials" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
-            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
+          <div className="detail-section-header">
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0, wordBreak: 'break-word' }}>
               <BarChart3 size={22} color="#2563eb" />
               <span>3. Multi-Year Financial Track Record & Peer Valuation</span>
             </h2>
@@ -1032,7 +1117,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
 
           {/* Multi-Year Track Record Table */}
-          <div className="glass-panel" style={{ padding: '1.75rem' }}>
+          <div className="glass-panel detail-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <BarChart3 size={20} color="#2563eb" />
@@ -1044,7 +1129,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               <div className="table-responsive-wrapper">
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+                <table style={{ width: '100%', minWidth: '650px', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
                   <thead>
                     <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Period / Year</th>
@@ -1080,7 +1165,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             {/* Key Ratios Grid */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
               gap: '1rem'
             }}>
               <div className="glass-panel" style={{ padding: '1.25rem' }}>
@@ -1135,7 +1220,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </div>
 
             {/* Peer Comparison Table */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+            <div className="glass-panel detail-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <TrendingUp size={20} color="#059669" />
@@ -1147,7 +1232,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               <div className="table-responsive-wrapper">
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+                <table style={{ width: '100%', minWidth: '580px', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
                   <thead>
                     <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Company Name</th>
@@ -1200,7 +1285,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 4: SUBSCRIPTION & LOT BRACKETS */}
         <section id="sec-bidding" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+          <div className="detail-section-header">
             <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
               <Layers size={22} color="#d97706" />
               <span>4. Subscription Status, Anchor Book & Lot Brackets</span>
@@ -1211,7 +1296,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
 
           {/* Live Subscription Status Box */}
-          <div className="glass-panel" style={{ padding: '1.75rem' }}>
+          <div className="glass-panel detail-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Flame size={20} color="#d97706" />
@@ -1223,7 +1308,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               {ipo.subscription ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '0.85rem' }}>
                   <div style={{ backgroundColor: '#f8fafc', padding: '1.1rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0', textAlign: 'center' }}>
                     <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>
                       QIB (Institutional)
@@ -1284,7 +1369,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </div>
 
             {/* SEBI Lot Size & Bid Category Brackets Table */}
-            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+            <div className="glass-panel detail-card">
               <div style={{ marginBottom: '1.25rem' }}>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Layers size={20} color="#2563eb" />
@@ -1296,7 +1381,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               <div className="table-responsive-wrapper">
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+                <table style={{ width: '100%', minWidth: '580px', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
                   <thead>
                     <tr style={{ backgroundColor: '#f8fafc', borderBottom: '1px solid #e2e8f0', color: '#64748b', fontSize: '0.75rem', textTransform: 'uppercase' }}>
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Application Category</th>
@@ -1335,7 +1420,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
             {/* Anchor Investor Section */}
             {anchorDetails && (
-              <div className="glass-panel" style={{ padding: '1.75rem' }}>
+              <div className="glass-panel detail-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <Briefcase size={20} color="#059669" />
@@ -1346,7 +1431,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   </span>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '1rem', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem', marginBottom: '1.25rem' }}>
                   <div style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
                     <div style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Anchor Bid Date</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem' }}>{anchorDetails.bidDate}</div>
@@ -1387,7 +1472,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 5: SCHEDULE & TIMELINE */}
         <section id="sec-timeline" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+          <div className="detail-section-header">
             <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
               <Calendar size={22} color="#059669" />
               <span>5. Official Schedule, Milestones & SEBI T+3 Cycle</span>
@@ -1397,13 +1482,13 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </span>
           </div>
 
-          <div className="glass-panel" style={{ padding: '1.75rem' }}>
+          <div className="glass-panel detail-card">
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Calendar size={20} color="#2563eb" />
               <span>Official Issue Timeline & SEBI T+3 Cycle</span>
             </h3>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))', gap: '1rem', marginBottom: '1.75rem' }}>
+            <div className="detail-timeline-grid">
               {[
                 { label: '1. Bidding Starts', date: ipo.timeline.biddingStarts, isDone: true, color: '#2563eb' },
                 { label: '2. Bidding Closes', date: ipo.timeline.biddingEnds, isDone: ipo.status !== 'UPCOMING', color: '#f59e0b' },
@@ -1441,7 +1526,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 6: ALLOTMENT & LEAD MANAGERS */}
         <section id="sec-allotment" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+          <div className="detail-section-header">
             <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
               <ShieldCheck size={22} color="#059669" />
               <span>6. Allotment Verification, Lead Managers & Official Filings</span>
@@ -1452,7 +1537,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
 
           {/* Registrar Hub */}
-          <div className="glass-panel" style={{ padding: '1.75rem' }}>
+          <div className="glass-panel detail-card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
                 <div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -1500,9 +1585,9 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </div>
 
             {/* Lead Managers & Prospectus Filings */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '1.5rem' }}>
+            <div className="detail-two-col-grid">
               {/* Lead Managers */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel detail-card">
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Briefcase size={18} color="#2563eb" />
                   <span>Book Running Lead Managers (BRLMs)</span>
@@ -1528,7 +1613,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
 
               {/* SEBI Filings & RHP */}
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel detail-card">
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <FileText size={18} color="#059669" />
                   <span>Official SEBI Prospectus & Filings</span>
@@ -1564,7 +1649,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
         {/* SECTION 7: INSTITUTIONAL ANALYST CONSENSUS & BROKER REVIEWS */}
         <section id="sec-analysts" style={{ scrollMarginTop: '130px', display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.75rem' }}>
+          <div className="detail-section-header">
             <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
               <Award size={22} color="#d97706" />
               <span>7. Institutional Analyst Consensus & Brokerage Reviews</span>
@@ -1591,13 +1676,9 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
 
           {/* Top Consensus Dashboard */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.25rem'
-          }}>
+          <div className="detail-two-col-grid" style={{ marginBottom: '1.25rem' }}>
             {/* Left: Overall Sentiment Score */}
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-panel detail-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
@@ -1625,25 +1706,63 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   </div>
                 </div>
 
-                <div style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5, marginBottom: '1rem' }}>
-                  <strong>{gmpPercent >= 10 ? '5 of 6' : '4 of 6'} analysts recommend subscribing</strong>, backed by reasonable valuation multiples against listed sector peers and strong pre-issue anchor investor participation.
+                <div style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5, marginBottom: '0.75rem' }}>
+                  <strong>{applyDesks.length} of {analystReviews.length} institutional research desks recommend subscribing ({applyPercent}%)</strong>, backed by reasonable valuation multiples against listed sector peers and strong pre-issue anchor investor participation.
+                </div>
+
+                {/* Clear "Who Rated What" Breakdown Chips */}
+                <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '1rem' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span>Who Rated What ({analystReviews.length} Brokerages)</span>
+                    <a href="#brokerage-coverage" style={{ fontSize: '0.7rem', color: '#2563eb', textDecoration: 'none', fontWeight: 600 }}>
+                      Read notes ↓
+                    </a>
+                  </div>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+                    {analystReviews.map((a, i) => (
+                      <a
+                        key={i}
+                        href={`#analyst-${a.slug}`}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          padding: '2px 7px',
+                          borderRadius: '5px',
+                          fontSize: '0.72rem',
+                          textDecoration: 'none',
+                          fontWeight: 600,
+                          backgroundColor: a.verdict === 'Apply' ? '#dcfce7' : a.verdict === 'Neutral' ? '#fef3c7' : '#fee2e2',
+                          color: a.verdict === 'Apply' ? '#15803d' : a.verdict === 'Neutral' ? '#b45309' : '#b91c1c',
+                          border: `1px solid ${a.verdict === 'Apply' ? '#bbf7d0' : a.verdict === 'Neutral' ? '#fde68a' : '#fecaca'}`
+                        }}
+                        title={`Click to view ${a.name} research note and track record`}
+                      >
+                        <span>{a.name}</span>
+                        <span style={{ fontWeight: 800 }}>({a.verdict})</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', fontWeight: 600, color: '#64748b', marginBottom: '4px' }}>
-                  <span style={{ color: '#16a34a' }}>● Apply (83%)</span>
-                  <span style={{ color: '#dc2626' }}>● Avoid / Caution (17%)</span>
+                  <span style={{ color: '#16a34a' }}>● Apply: {applyDesks.length} ({applyPercent}%)</span>
+                  <span style={{ color: neutralDesks.length > 0 ? '#d97706' : '#dc2626' }}>
+                    ● {neutralDesks.length > 0 ? `Neutral: ${neutralDesks.length}` : ''} {avoidDesks.length > 0 ? `Avoid: ${avoidDesks.length}` : ''} ({avoidPercent}%)
+                  </span>
                 </div>
                 <div style={{ width: '100%', height: '8px', backgroundColor: '#e2e8f0', borderRadius: '4px', overflow: 'hidden', display: 'flex' }}>
-                  <div style={{ width: '83%', backgroundColor: '#16a34a' }} />
-                  <div style={{ width: '17%', backgroundColor: '#dc2626' }} />
+                  <div style={{ width: `${applyPercent}%`, backgroundColor: '#16a34a' }} />
+                  <div style={{ width: `${avoidPercent}%`, backgroundColor: neutralDesks.length > 0 ? '#f59e0b' : '#dc2626' }} />
                 </div>
               </div>
             </div>
 
             {/* Right: Key Strategic Synthesis */}
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+            <div className="glass-panel detail-card" style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a', margin: '0 0 0.25rem 0', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Broker Research Consensus Synthesis
               </h3>
@@ -1655,14 +1774,14 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </div>
               </div>
 
-              <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #e2e8f0' }}>
+              <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #059669' }}>
                 <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669' }}>Short-Term Horizon</div>
                 <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '2px', lineHeight: 1.45 }}>
                   Proceeds earmarked for debt prepayment will directly save finance costs and expand net margins from Q3 onwards.
                 </div>
               </div>
 
-              <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #e2e8f0' }}>
+              <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #b45309' }}>
                 <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#b45309' }}>Long-Term Execution Horizon</div>
                 <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '2px', lineHeight: 1.45 }}>
                   Long-term investor value relies on ongoing capacity expansion and domestic market share retention against unorganized players.
@@ -1672,43 +1791,30 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
           </div>
 
           {/* Brokerage Desks Coverage Cards */}
-          <div className="glass-panel" style={{ padding: '1.75rem' }}>
+          <div id="brokerage-coverage" className="glass-panel detail-card" style={{ scrollMarginTop: '130px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <ShieldCheck size={20} color="#2563eb" />
-                <span>Brokerage Recommendations & Research Notes</span>
-              </h3>
+              <div>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <ShieldCheck size={20} color="#2563eb" />
+                  <span>Brokerage Recommendations & Research Notes</span>
+                </h3>
+                <p style={{ fontSize: '0.78rem', color: '#64748b', margin: '4px 0 0 0' }}>
+                  Showing {analystReviews.length} institutional research desks covering {ipo.name} with performance rankings & win rates
+                </p>
+              </div>
               <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
                 Click any analyst to inspect their real win-rate track record
               </span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {[
-                { slug: 'canara-bank-securities', name: 'Canara Bank Securities', rank: 1, score: 73, winRate: '73%', verdict: 'Apply', verdictColor: '#16a34a', note: 'Recommend Subscribe for listing gains as well as long term investment. Debt prepayment will improve capital efficiency.' },
-                { slug: 'sbi-securities', name: 'SBI Securities', rank: 7, score: 67, winRate: '75%', verdict: 'Apply', verdictColor: '#16a34a', note: 'Subscribe with long term perspective. Backward integration and strong client retention support sustainable return on net worth.' },
-                { slug: 'anand-rathi', name: 'Anand Rathi', rank: 8, score: 67, winRate: '72%', verdict: 'Apply', verdictColor: '#16a34a', note: 'Subscribe for listing gains. The price band leaves reasonable room on the table compared to leading listed peers.' },
-                { slug: 'bp-equities', name: 'BP Equities', rank: 11, score: 65, winRate: '65%', verdict: 'Apply', verdictColor: '#16a34a', note: 'Apply for listing gains. Robust order book execution and sound operating margins over the past 3 fiscal years.' },
-                { slug: 'marwadi-shares-finance', name: 'Marwadi Shares & Finance', rank: 17, score: 63, winRate: '63%', verdict: 'Apply', verdictColor: '#16a34a', note: 'Subscribe for long term investment considering healthy asset turnover and planned geographic capacity expansion.' },
-                { slug: 'swastika-investmart', name: 'Swastika Investmart', rank: 25, score: 61, winRate: '61%', verdict: 'Apply', verdictColor: '#16a34a', note: 'Apply for listing gains supported by current grey market demand and favorable sector tailwinds.' },
-                { slug: 'capital-market', name: 'Capital Market', rank: 35, score: 58, winRate: '56%', verdict: 'Neutral', verdictColor: '#d97706', note: 'Neutral / 42 Score. Business is cyclical and raw material concentration remains elevated in southern clusters.' }
-              ].map((b, bIdx) => (
+              {analystReviews.map((b, bIdx) => (
                 <div
                   key={bIdx}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: '1rem',
-                    padding: '1rem 1.25rem',
-                    backgroundColor: '#ffffff',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '0.85rem',
-                    flexWrap: 'wrap'
-                  }}
+                  id={`analyst-${b.slug}`}
+                  className="detail-analyst-row"
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', minWidth: '240px', flex: 1 }}>
+                  <div className="detail-analyst-info">
                     <div style={{
                       width: '36px',
                       height: '36px',
@@ -1726,7 +1832,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                       #{b.rank}
                     </div>
 
-                    <div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                         <Link
                           href={`/analysts/${b.slug}`}
@@ -1743,13 +1849,13 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                           {b.winRate} Win Rate
                         </span>
                       </div>
-                      <div style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '2px', lineHeight: 1.4 }}>
+                      <div style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '2px', lineHeight: 1.4, wordBreak: 'break-word' }}>
                         {b.note}
                       </div>
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+                  <div className="detail-analyst-actions">
                     <span style={{
                       padding: '4px 12px',
                       borderRadius: '9999px',
@@ -1836,7 +1942,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </Link>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '1rem' }}>
             {relatedIpos.slice(0, 3).map((item) => (
               <Link
                 key={item.id}

@@ -43,30 +43,42 @@ function enrichSingleIpo(item: IpoItem): IpoItem {
   };
 }
 
+export function isRelevantEquityIpo(item: IpoItem): boolean {
+  if (!item) return false;
+  const sym = (item.symbol || '').toUpperCase();
+  const cat = (item.category || '').toUpperCase();
+  const id = (item.id || '').toLowerCase();
+  const name = (item.name || '').toLowerCase();
+  if (sym.includes('ZCZP') || sym.includes('SSE') || cat === 'SSE') return false;
+  if (id.includes('foundation') || name.includes('foundation')) return false;
+  return true;
+}
+
 export function getMergedIpos(): IpoItem[] {
   try {
-    const liveList: IpoItem[] = (liveData as any).ipos || [];
+    const rawLiveList: IpoItem[] = (liveData as any).ipos || [];
+    const liveList = rawLiveList.filter(isRelevantEquityIpo);
     
     // Map existing live IDs
     const liveIds = new Set(liveList.map((i) => i.id));
     
     // Add baseline IPOs that might not be in the current live weekly window
-    const additional = INDIAN_IPOS.filter((base) => !liveIds.has(base.id));
+    const additional = INDIAN_IPOS.filter((base) => !liveIds.has(base.id) && isRelevantEquityIpo(base));
 
     const combined = [...liveList, ...additional];
     return combined.map(enrichSingleIpo);
   } catch (error) {
     console.error('Error reading live IPO data, falling back to baseline:', error);
-    return INDIAN_IPOS.map(enrichSingleIpo);
+    return INDIAN_IPOS.filter(isRelevantEquityIpo).map(enrichSingleIpo);
   }
 }
 
 export function getScrapedLiveOnly(): IpoItem[] {
   try {
-    const list = ((liveData as any).ipos as IpoItem[]) || INDIAN_IPOS;
+    const list = (((liveData as any).ipos as IpoItem[]) || INDIAN_IPOS).filter(isRelevantEquityIpo);
     return list.map(enrichSingleIpo);
   } catch {
-    return INDIAN_IPOS.map(enrichSingleIpo);
+    return INDIAN_IPOS.filter(isRelevantEquityIpo).map(enrichSingleIpo);
   }
 }
 

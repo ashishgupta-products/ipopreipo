@@ -42,13 +42,13 @@ export async function generateMetadata({
 
   if (!card) {
     return {
-      title: 'Credit Card Not Found | IPO & PreIPO India',
+      title: 'Credit Card Not Found | IPO & PreIPO',
       description: 'The requested credit card could not be found.',
     };
   }
 
   return {
-    title: `${card.name} Review 2026: Cashback, Fees, Lounge Access & RuPay UPI | IPO PreIPO India`,
+    title: `${card.name} Review 2026: Cashback, Fees, Lounge Access & RuPay UPI | IPO & PreIPO`,
     description: `Complete review of ${card.name} issued by ${card.bank}. Reward Rate: ${card.rewardRate}, Joining Fee: ${card.joiningFee}, Lounge Access: ${card.loungeAccess}, eligibility, and pros/cons.`,
   };
 }

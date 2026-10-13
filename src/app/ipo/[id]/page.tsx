@@ -26,7 +26,7 @@ export async function generateMetadata({
 
   if (!ipo) {
     return {
-      title: 'IPO Details Not Found | IPO & Pre-IPO India',
+      title: 'IPO Details Not Found | IPO & PreIPO',
       description: 'The requested IPO could not be located in current market listings.',
     };
   }
@@ -34,7 +34,7 @@ export async function generateMetadata({
   const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100).toFixed(1);
 
   return {
-    title: `${ipo.name} IPO GMP Today, Price Band, Review & Allotment Date | IPO PreIPO India`,
+    title: `${ipo.name} IPO GMP Today, Price Band, Review & Allotment Date | IPO & PreIPO`,
     description: `Complete insights for ${ipo.name} (${ipo.symbol}) IPO. Current GMP ₹${ipo.gmp} (+${gmpPercent}%), price band ₹${ipo.priceBandLow}-₹${ipo.priceBandHigh}, issue size ₹${ipo.issueSizeCr} Cr, registrar ${ipo.registrar}, allotment date ${ipo.timeline.allotmentFinalization}.`,
     openGraph: {
       title: `${ipo.name} IPO Live GMP: ₹${ipo.gmp} (+${gmpPercent}%) - Complete Breakdown`,

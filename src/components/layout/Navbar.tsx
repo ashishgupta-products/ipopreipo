@@ -175,19 +175,6 @@ export default function Navbar({
             <span>IPO</span>
             <span style={{ color: '#387ed1' }}>&</span>
             <span>PreIPO</span>
-            <span style={{
-              fontSize: '0.6rem',
-              backgroundColor: '#eff6ff',
-              color: '#2563eb',
-              padding: '1px 5px',
-              borderRadius: '4px',
-              fontWeight: 700,
-              border: '1px solid #bfdbfe',
-              marginLeft: '2px',
-              letterSpacing: '0.04em'
-            }}>
-              IN
-            </span>
           </div>
         </Link>
 

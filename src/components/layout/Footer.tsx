@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, ExternalLink, TrendingUp, AlertTriangle } from 'lucide-react';
+import { ShieldCheck, ExternalLink, TrendingUp } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -36,11 +36,11 @@ export default function Footer() {
                 <TrendingUp size={18} color="#ffffff" />
               </div>
               <span style={{ fontWeight: 800, fontSize: '1.15rem', color: '#0f172a' }}>
-                IPO <span style={{ color: '#387ed1' }}>&</span> PreIPO India
+                IPO <span style={{ color: '#387ed1' }}>&</span> PreIPO
               </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: '1.6', marginBottom: '1rem' }}>
-              India’s premier intelligence terminal for Mainboard & SME Initial Public Offerings (IPOs), real-time Grey Market Premiums (GMP), and Unlisted / Pre-IPO equity opportunities.
+              The premier intelligence terminal for Mainboard & SME Initial Public Offerings (IPOs), real-time Grey Market Premiums (GMP), and Unlisted / Pre-IPO equity opportunities.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', color: '#059669', fontWeight: 600 }}>
               <ShieldCheck size={16} />
@@ -141,24 +141,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Regulatory & Risk Disclaimer Box */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          border: '1px solid #e2e8f0',
-          borderRadius: 'var(--radius-md)',
-          padding: '1.25rem',
-          marginBottom: '2rem',
-          boxShadow: 'var(--shadow-sm)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
-            <AlertTriangle size={18} color="#d97706" style={{ flexShrink: 0, marginTop: '2px' }} />
-            <div style={{ fontSize: '0.78rem', color: '#475569', lineHeight: '1.6' }}>
-              <strong style={{ color: '#0f172a' }}>Important Regulatory Disclosure & Risk Warning: </strong>
-              The information provided on this platform is solely for educational, research, and informational purposes and does not constitute financial, investment, legal, or tax advice. Grey Market Premium (GMP) is an unregulated, speculative indicator determined by peer-to-peer unofficial trades and is subject to extreme volatility; it is not endorsed by SEBI, NSE, or BSE. Unlisted and Pre-IPO shares carry liquidity risk and capital loss risk. Always consult a SEBI registered investment advisor (RIA) before making any investment decisions.
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div style={{
           display: 'flex',
@@ -172,7 +154,7 @@ export default function Footer() {
           color: '#64748b'
         }}>
           <div>
-            © {new Date().getFullYear()} IPO & PreIPO India. Made with precision for Indian Investors.
+            © {new Date().getFullYear()} IPO & PreIPO. Made with precision for Investors.
           </div>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
             <span>Privacy Policy</span>

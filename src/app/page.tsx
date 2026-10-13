@@ -17,8 +17,6 @@ import {
   LayoutGrid, 
   Table as TableIcon, 
   Calendar as CalendarIcon,
-  HelpCircle,
-  RefreshCw,
   ChevronDown,
   Filter,
   RotateCcw,
@@ -67,14 +65,6 @@ export default function Home() {
       .then((data) => {
         if (isMounted && data.success && data.ipos && data.ipos.length > 0) {
           setIposList(data.ipos);
-          if (data.lastUpdated) {
-            try {
-              const dt = new Date(data.lastUpdated);
-              setLastSyncTime(`Neon DB (${dt.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })})`);
-            } catch {
-              setLastSyncTime('Neon DB Live');
-            }
-          }
         }
       })
       .catch((err) => console.error('Failed to load initial data from Neon DB:', err));
@@ -85,7 +75,7 @@ export default function Home() {
   }, []);
 
   const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('MAINBOARD');
-  const [statusFilter, setStatusFilter] = useState<'ALL' | 'ONGOING' | 'UPCOMING' | 'CLOSED' | 'LISTED'>('ONGOING');
+  const [statusFilter, setStatusFilter] = useState<'ALL' | 'LIVE' | 'ONGOING' | 'UPCOMING' | 'CLOSED' | 'LISTED'>('LIVE');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'GRID' | 'TABLE' | 'CALENDAR'>('GRID');
 
@@ -94,30 +84,54 @@ export default function Home() {
 
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
-  const [syncing, setSyncing] = useState(false);
-  const [lastSyncTime, setLastSyncTime] = useState<string>('Neon DB Connected');
 
-  const handleSync = async () => {
-    setSyncing(true);
-    try {
-      const res = await fetch('/api/ipos/sync', { method: 'POST' });
-      const data = await res.json();
-      if (data.ipos && data.ipos.length > 0) {
-        setIposList(data.ipos);
-        setLastSyncTime(new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }));
-      }
-    } catch (e) {
-      console.error('Sync failed:', e);
-    } finally {
-      setSyncing(false);
+  const isDatesAnnounced = (ipo: IpoItem) => {
+    const start = ipo.timeline?.biddingStarts?.trim();
+    if (!start) return false;
+    const sLow = start.toLowerCase();
+    if (sLow === 'tba' || sLow.includes('tba') || sLow.includes('announced') || start === '–' || start === '-') {
+      return false;
     }
+    // Reject corrupted strings where ISO date is prepended (e.g. 2026-09-2417th)
+    if (/^\d{4}-\d{2}-\d{2}/.test(start)) {
+      return false;
+    }
+
+    // Must be a CURRENT or FUTURE date, not in the past!
+    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    const now = new Date();
+    const currentMonth = now.getMonth(); // 9 for October
+
+    const parsedDate = Date.parse(start);
+    if (!isNaN(parsedDate)) {
+      const d = new Date(parsedDate);
+      now.setHours(0, 0, 0, 0);
+      return d >= now;
+    }
+
+    // Fallback: check if the month in the string has already passed this year
+    for (let i = 0; i < months.length; i++) {
+      if (sLow.includes(months[i])) {
+        if (i < currentMonth) return false;
+        break;
+      }
+    }
+
+    return true;
   };
 
   // Filter IPOs
   const filteredIpos = useMemo(() => {
-    return iposList.filter((ipo) => {
+    const list = iposList.filter((ipo) => {
       if (categoryFilter !== 'ALL' && ipo.category !== categoryFilter) return false;
-      if (statusFilter !== 'ALL' && ipo.status !== statusFilter) return false;
+
+      if (statusFilter === 'LIVE') {
+        const isLiveOrAnnounced = ipo.status === 'ONGOING' || (ipo.status === 'UPCOMING' && isDatesAnnounced(ipo));
+        if (!isLiveOrAnnounced) return false;
+      } else if (statusFilter !== 'ALL' && ipo.status !== statusFilter) {
+        return false;
+      }
+
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const matchesName = ipo.name.toLowerCase().includes(q);
@@ -127,6 +141,13 @@ export default function Home() {
         if (!matchesName && !matchesSymbol && !matchesSector && !matchesTags) return false;
       }
       return true;
+    });
+
+    // Sort: Currently open (ONGOING) first, then upcoming with announced dates, then by GMP
+    return list.sort((a, b) => {
+      if (a.status === 'ONGOING' && b.status !== 'ONGOING') return -1;
+      if (b.status === 'ONGOING' && a.status !== 'ONGOING') return 1;
+      return (b.gmp || 0) - (a.gmp || 0);
     });
   }, [iposList, categoryFilter, statusFilter, searchQuery]);
 
@@ -143,65 +164,31 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="container" style={{ flex: 1, paddingTop: '1.75rem' }}>
-        {/* Live Scraper Sync Control Banner */}
+        {/* Single-Line All-in-One Filter & View Mode Toolbar */}
         <div style={{
           display: 'flex',
-          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '0.75rem',
           backgroundColor: '#ffffff',
           border: '1px solid #e2e8f0',
           borderRadius: 'var(--radius-lg)',
-          padding: '0.75rem 1.25rem',
+          padding: '0.6rem 1rem',
           marginBottom: '1.25rem',
-          boxShadow: 'var(--shadow-card)'
+          boxShadow: 'var(--shadow-sm)',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem' }}>
-            <span className="pulse-indicator"></span>
-            <span style={{ fontWeight: 700, color: '#0f172a' }}>Live Exchange Data:</span>
-            <span className="glass-badge badge-emerald" style={{ fontSize: '0.72rem' }}>
-              {iposList.length} Real IPOs Active
-            </span>
-            <span style={{ color: '#94a3b8' }}>•</span>
-            <span style={{ color: '#64748b', fontSize: '0.78rem' }}>Feed: {lastSyncTime}</span>
-          </div>
-
-          <button
-            onClick={handleSync}
-            disabled={syncing}
-            className="btn-secondary"
-            style={{ padding: '0.45rem 0.95rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
-            title="Trigger live Python web scraper"
-          >
-            <RefreshCw size={13} style={{ animation: syncing ? 'spin 1s linear infinite' : 'none' }} />
-            <span>{syncing ? 'Scraping Live GMP & IPOs...' : 'Scrape & Sync Live Data'}</span>
-          </button>
-        </div>
-
-        {/* Filter Dropdowns Bar & View Mode Toggle */}
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '1rem',
-          backgroundColor: '#ffffff',
-          border: '1px solid #e2e8f0',
-          borderRadius: 'var(--radius-lg)',
-          padding: '0.85rem 1.25rem',
-          marginBottom: '1.25rem',
-          boxShadow: 'var(--shadow-sm)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: '#0f172a', fontWeight: 700, fontSize: '0.88rem' }}>
-              <Filter size={16} color="#2563eb" />
+          {/* Left: Filters (Status, Segment, Reset) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#0f172a', fontWeight: 700, fontSize: '0.82rem' }}>
+              <Filter size={15} color="#2563eb" />
               <span>Filters:</span>
             </div>
 
             {/* Status Dropdown */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <label htmlFor="status-filter-select" style={{ fontSize: '0.82rem', fontWeight: 600, color: '#475569' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <label htmlFor="status-filter-select" style={{ fontSize: '0.78rem', fontWeight: 600, color: '#64748b' }}>
                 Status:
               </label>
               <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
@@ -213,12 +200,12 @@ export default function Home() {
                   style={{
                     appearance: 'none',
                     WebkitAppearance: 'none',
-                    backgroundColor: statusFilter === 'ONGOING' ? '#ecfdf5' : '#f8fafc',
-                    color: statusFilter === 'ONGOING' ? '#065f46' : '#1e293b',
-                    border: statusFilter === 'ONGOING' ? '1.5px solid #10b981' : '1px solid #cbd5e1',
+                    backgroundColor: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '#ecfdf5' : '#f8fafc',
+                    color: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '#065f46' : '#1e293b',
+                    border: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '1.5px solid #10b981' : '1px solid #cbd5e1',
                     borderRadius: 'var(--radius-md)',
-                    padding: '0.45rem 2.2rem 0.45rem 0.85rem',
-                    fontSize: '0.85rem',
+                    padding: '0.35rem 1.75rem 0.35rem 0.65rem',
+                    fontSize: '0.8rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     outline: 'none',
@@ -226,19 +213,20 @@ export default function Home() {
                     transition: 'all 0.15s ease'
                   }}
                 >
-                  <option value="ONGOING">🟢 Open Now (Bidding Active)</option>
-                  <option value="UPCOMING">⏳ Upcoming Issues</option>
+                  <option value="LIVE">🟢 Live & Announced</option>
+                  <option value="ONGOING">⚡ Live Only (Active)</option>
+                  <option value="UPCOMING">⏳ Upcoming (TBA)</option>
                   <option value="CLOSED">🔒 Closed / Allotment</option>
                   <option value="LISTED">✨ Recently Listed</option>
                   <option value="ALL">📋 All Statuses</option>
                 </select>
-                <ChevronDown size={14} style={{ position: 'absolute', right: '10px', pointerEvents: 'none', color: statusFilter === 'ONGOING' ? '#059669' : '#64748b' }} />
+                <ChevronDown size={13} style={{ position: 'absolute', right: '8px', pointerEvents: 'none', color: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '#059669' : '#64748b' }} />
               </div>
             </div>
 
-            {/* Segment / Category Dropdown */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <label htmlFor="category-filter-select" style={{ fontSize: '0.82rem', fontWeight: 600, color: '#475569' }}>
+            {/* Segment Dropdown */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <label htmlFor="category-filter-select" style={{ fontSize: '0.78rem', fontWeight: 600, color: '#64748b' }}>
                 Segment:
               </label>
               <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
@@ -254,8 +242,8 @@ export default function Home() {
                     color: categoryFilter === 'MAINBOARD' ? '#1e40af' : '#1e293b',
                     border: categoryFilter === 'MAINBOARD' ? '1.5px solid #3b82f6' : '1px solid #cbd5e1',
                     borderRadius: 'var(--radius-md)',
-                    padding: '0.45rem 2.2rem 0.45rem 0.85rem',
-                    fontSize: '0.85rem',
+                    padding: '0.35rem 1.75rem 0.35rem 0.65rem',
+                    fontSize: '0.8rem',
                     fontWeight: 700,
                     cursor: 'pointer',
                     outline: 'none',
@@ -263,19 +251,19 @@ export default function Home() {
                     transition: 'all 0.15s ease'
                   }}
                 >
-                  <option value="MAINBOARD">🏢 Mainboard Only</option>
-                  <option value="SME">🚀 NSE & BSE SME</option>
-                  <option value="ALL">🌐 All Categories</option>
+                  <option value="MAINBOARD">🏢 Mainboard</option>
+                  <option value="SME">🚀 SME</option>
+                  <option value="ALL">🌐 All</option>
                 </select>
-                <ChevronDown size={14} style={{ position: 'absolute', right: '10px', pointerEvents: 'none', color: categoryFilter === 'MAINBOARD' ? '#2563eb' : '#64748b' }} />
+                <ChevronDown size={13} style={{ position: 'absolute', right: '8px', pointerEvents: 'none', color: categoryFilter === 'MAINBOARD' ? '#2563eb' : '#64748b' }} />
               </div>
             </div>
 
             {/* Reset Filters Quick Button */}
-            {(statusFilter !== 'ALL' || categoryFilter !== 'ALL') && (
+            {(statusFilter !== 'LIVE' || categoryFilter !== 'ALL') && (
               <button
                 onClick={() => {
-                  setStatusFilter('ALL');
+                  setStatusFilter('LIVE');
                   setCategoryFilter('ALL');
                 }}
                 style={{
@@ -286,33 +274,34 @@ export default function Home() {
                   border: '1px solid #e2e8f0',
                   borderRadius: 'var(--radius-sm)',
                   color: '#475569',
-                  fontSize: '0.78rem',
+                  fontSize: '0.75rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  padding: '0.35rem 0.65rem',
+                  padding: '0.3rem 0.55rem',
                   transition: 'all 0.15s ease'
                 }}
                 title="Clear filters and view all IPOs"
               >
-                <RotateCcw size={12} />
-                <span>Reset to All</span>
+                <RotateCcw size={11} />
+                <span>Reset</span>
               </button>
             )}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          {/* Right: View Mode Toggle & Count */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
             {/* View Mode Toggle */}
             <div style={{
               display: 'flex',
               backgroundColor: '#f1f5f9',
-              padding: '3px',
+              padding: '2px',
               borderRadius: 'var(--radius-md)',
               border: '1px solid #e2e8f0'
             }}>
               <button
                 onClick={() => setViewMode('GRID')}
                 style={{
-                  padding: '0.35rem 0.65rem',
+                  padding: '0.3rem 0.55rem',
                   borderRadius: 'var(--radius-sm)',
                   color: viewMode === 'GRID' ? '#ffffff' : '#64748b',
                   backgroundColor: viewMode === 'GRID' ? '#2563eb' : 'transparent',
@@ -320,20 +309,20 @@ export default function Home() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease'
                 }}
                 title="Grid Cards view"
               >
-                <LayoutGrid size={14} />
+                <LayoutGrid size={13} />
                 <span>Cards</span>
               </button>
               <button
                 onClick={() => setViewMode('TABLE')}
                 style={{
-                  padding: '0.35rem 0.65rem',
+                  padding: '0.3rem 0.55rem',
                   borderRadius: 'var(--radius-sm)',
                   color: viewMode === 'TABLE' ? '#ffffff' : '#64748b',
                   backgroundColor: viewMode === 'TABLE' ? '#2563eb' : 'transparent',
@@ -341,20 +330,20 @@ export default function Home() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease'
                 }}
                 title="Table view"
               >
-                <TableIcon size={14} />
+                <TableIcon size={13} />
                 <span>Table</span>
               </button>
               <button
                 onClick={() => setViewMode('CALENDAR')}
                 style={{
-                  padding: '0.35rem 0.65rem',
+                  padding: '0.3rem 0.55rem',
                   borderRadius: 'var(--radius-sm)',
                   color: viewMode === 'CALENDAR' ? '#ffffff' : '#64748b',
                   backgroundColor: viewMode === 'CALENDAR' ? '#2563eb' : 'transparent',
@@ -362,27 +351,27 @@ export default function Home() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease'
                 }}
                 title="Interactive IPO Calendar view"
               >
-                <CalendarIcon size={14} />
+                <CalendarIcon size={13} />
                 <span>Calendar</span>
               </button>
             </div>
 
             {/* Showing count indicator */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem', color: '#64748b' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.78rem', color: '#64748b' }}>
               <span>Showing</span>
               <span style={{
                 fontWeight: 800,
                 color: '#0f172a',
                 backgroundColor: '#f1f5f9',
-                padding: '2px 8px',
-                borderRadius: '6px'
+                padding: '1px 6px',
+                borderRadius: '5px'
               }}>
                 {viewMode === 'CALENDAR' ? iposList.length : filteredIpos.length}
               </span>
@@ -492,56 +481,6 @@ export default function Home() {
             />
           </div>
         )}
-
-        {/* Educational Section / Indian Investor Guide */}
-        <section style={{
-          backgroundColor: '#ffffff',
-          border: '1px solid #e2e8f0',
-          borderRadius: 'var(--radius-xl)',
-          padding: '2rem',
-          margin: '3rem 0',
-          boxShadow: 'var(--shadow-card)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
-            <HelpCircle size={20} color="#387ed1" />
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>
-              Essential Guide for Indian IPO Investors
-            </h3>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
-            gap: '1.5rem'
-          }}>
-            <div>
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0284c7', marginBottom: '0.5rem' }}>
-                1. UPI 2.0 ASBA Mandates
-              </h4>
-              <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: '1.6' }}>
-                Retail investors can apply for IPOs up to ₹5,00,000 using UPI ASBA on apps like BHIM, Google Pay, PhonePe, or netbanking. Funds are only blocked in your bank, not debited until allotment.
-              </p>
-            </div>
-
-            <div>
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#059669', marginBottom: '0.5rem' }}>
-                2. Mainboard vs SME IPO Differences
-              </h4>
-              <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: '1.6' }}>
-                Mainboard IPOs feature smaller lot sizes (~₹15,000) and list on the main NSE/BSE boards. SME IPOs require larger ticket sizes (~₹1.2L+), have 100% upfront margin, and trade on NSE Emerge / BSE SME platforms.
-              </p>
-            </div>
-
-            <div>
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#d97706', marginBottom: '0.5rem' }}>
-                3. SEBI T+3 Listing Cycle
-              </h4>
-              <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: '1.6' }}>
-                Under SEBI guidelines, all IPOs finalize allotment on T+1, initiate unblocking/refunds and credit shares on T+2, and list on the stock exchange on T+3 business days.
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* Modals */}

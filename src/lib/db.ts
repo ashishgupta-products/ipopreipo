@@ -16,6 +16,11 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
   try {
     const rows = await sql.query(`
       SELECT raw_data FROM ipos
+      WHERE symbol NOT LIKE '%ZCZP%'
+        AND symbol NOT LIKE '%SSE%'
+        AND id NOT LIKE '%foundation%'
+        AND name NOT ILIKE '%foundation%'
+        AND category != 'SSE'
       ORDER BY 
         CASE status 
           WHEN 'ONGOING' THEN 1 
@@ -27,7 +32,14 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
     `);
 
     if (!rows || rows.length === 0) return null;
-    return rows.map((r: any) => r.raw_data as IpoItem);
+    return rows
+      .map((r: any) => r.raw_data as IpoItem)
+      .filter((item: IpoItem) => {
+        const sym = (item?.symbol || '').toUpperCase();
+        const cat = (item?.category || '').toUpperCase();
+        const name = (item?.name || '').toLowerCase();
+        return !sym.includes('ZCZP') && !sym.includes('SSE') && cat !== 'SSE' && !name.includes('foundation');
+      });
   } catch (error) {
     console.error('Neon DB fetch error (falling back to local cache):', error);
     return null;

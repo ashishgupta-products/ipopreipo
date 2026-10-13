@@ -41,13 +41,13 @@ export async function generateMetadata({
 
   if (!broker) {
     return {
-      title: 'Broker Not Found | IPO & PreIPO India',
+      title: 'Broker Not Found | IPO & PreIPO',
       description: 'The requested stock broker could not be found.',
     };
   }
 
   return {
-    title: `${broker.name} Review 2026: Brokerage Charges, Demat AMC & IPO Application | IPO PreIPO India`,
+    title: `${broker.name} Review 2026: Brokerage Charges, Demat AMC & IPO Application | IPO & PreIPO`,
     description: `Complete review of ${broker.name}. Equity Delivery: ${broker.equityDelivery}, Intraday/F&O: ${broker.intradayFo}, Demat AMC: ${broker.amc}, IPO Mandate Success: ${broker.ipoUpiRating}, pros, cons, and full fee matrix.`,
   };
 }

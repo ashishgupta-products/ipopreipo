@@ -116,7 +116,7 @@ export default function SignUpPage() {
               Create Investor Account
             </h1>
             <p style={{ fontSize: '0.88rem', color: '#64748b' }}>
-              Join India&apos;s leading IPO tracking & Pre-IPO unlisted market terminal
+              Join the leading IPO tracking & Pre-IPO unlisted market terminal
             </p>
           </div>
 

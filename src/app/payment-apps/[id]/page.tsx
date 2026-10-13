@@ -41,13 +41,13 @@ export async function generateMetadata({
 
   if (!app) {
     return {
-      title: 'Payment App Not Found | IPO & PreIPO India',
+      title: 'Payment App Not Found | IPO & PreIPO',
       description: 'The requested UPI payment app could not be found.',
     };
   }
 
   return {
-    title: `${app.name} UPI Review 2026: IPO Mandate Approval, Limits & Charges | IPO PreIPO India`,
+    title: `${app.name} UPI Review 2026: IPO Mandate Approval, Limits & Charges | IPO & PreIPO`,
     description: `Complete guide for ${app.name} (${app.developer}). IPO mandate success rate: ${app.ipoMandateSuccess}, maximum bidding limit: ${app.upiLimit}, step-by-step ASBA authorization guide, limits, and security specs.`,
   };
 }

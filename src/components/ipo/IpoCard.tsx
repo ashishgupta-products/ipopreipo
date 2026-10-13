@@ -21,6 +21,17 @@ interface IpoCardProps {
   onCheckAllotment?: (ipo: IpoItem) => void;
 }
 
+function cleanTimelineDate(dateStr?: string): string {
+  if (!dateStr) return 'TBA';
+  let s = dateStr.trim();
+  if (s.toLowerCase().includes('tba') || s.toLowerCase().includes('announced') || s === '–' || s === '-') {
+    return 'TBA';
+  }
+  // Strip any accidental ISO date prefix (e.g. 2026-09-2417th -> 17th)
+  s = s.replace(/^\d{4}-\d{2}-\d{2}/, '').trim();
+  return s || 'TBA';
+}
+
 export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProps) {
   const minInvestment = ipo.priceBandHigh * ipo.lotSize;
   const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
@@ -33,16 +44,29 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
         return (
           <span className="glass-badge badge-emerald">
             <span className="pulse-indicator"></span>
-            Open Now
+            Live
           </span>
         );
-      case 'UPCOMING':
+      case 'UPCOMING': {
+        const rawStart = ipo.timeline?.biddingStarts;
+        const start = cleanTimelineDate(rawStart);
+        const hasAnnounced = start !== 'TBA';
+        if (hasAnnounced) {
+          const shortDate = start.replace(/\s+\d{4}$/, '').replace(/(\d+)(st|nd|rd|th)/gi, '$1');
+          return (
+            <span className="glass-badge badge-blue" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', backgroundColor: '#eff6ff', color: '#1d4ed8', border: '1px solid #bfdbfe' }}>
+              <Calendar size={11} color="#2563eb" />
+              Opens {shortDate}
+            </span>
+          );
+        }
         return (
           <span className="glass-badge badge-indigo">
             <Clock size={11} />
             Upcoming
           </span>
         );
+      }
       case 'LISTED':
         return (
           <span className="glass-badge badge-cyan">
@@ -111,20 +135,11 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', lineHeight: '1.3' }}>
                 {ipo.name}
               </h3>
-              <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '2px' }}>
-                {ipo.sector}
-              </p>
             </div>
           </div>
 
           <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem' }}>
             {getStatusBadge()}
-            {ipo.fireRating >= 4 && (
-              <span style={{ fontSize: '0.7rem', color: '#d97706', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '2px' }}>
-                <Flame size={12} fill="#d97706" />
-                {ipo.fireRating}/5 Demand
-              </span>
-            )}
           </div>
         </div>
 
@@ -256,7 +271,7 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
           {ipo.status === 'CLOSED' ? (
             <span>Allotment: <strong style={{ color: '#6d28d9' }}>{ipo.timeline.allotmentFinalization || 'In Progress'}</strong></span>
           ) : ipo.status === 'UPCOMING' ? (
-            <span>Opens: <strong style={{ color: '#2563eb' }}>{ipo.timeline.biddingStarts || 'TBA'}</strong></span>
+            <span>Opens: <strong style={{ color: '#2563eb' }}>{cleanTimelineDate(ipo.timeline.biddingStarts)}</strong></span>
           ) : (
             <span>Close: <strong style={{ color: '#334155' }}>{ipo.timeline.biddingEnds}</strong></span>
           )}
