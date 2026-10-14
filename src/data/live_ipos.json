@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14T00:58:59.795777",
+  "lastUpdated": "2026-10-14T19:12:08.798411",
   "source": "Zerodha Primary IPO Portal (https://zerodha.com/ipo)",
   "count": 47,
   "ipos": [
@@ -17,7 +17,7 @@
       "freshIssueCr": 605.2,
       "ofsCr": 106.8,
       "gmp": 91.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -31,12 +31,7 @@
         "creditOfShares": "19 Oct 2026",
         "listingDate": "21 Oct 2026"
       },
-      "subscription": {
-        "qib": 3.73,
-        "nii": 5.59,
-        "retail": 5.13,
-        "total": 4.66
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "HD Fire Protect is a manufacturer and supplier of comprehensive fire protection equipment and systems, catering to diverse sectors such as industrial, commercial, residential, and infrastructure across India and over 90 countries. The company’s core business involves designing and producing a wide range of products, including water spray nozzles, foam equipment and suppression systems, gas suppression systems, deluge valves, pre-action systems, and custom-engineered solutions. It generates revenue primarily through the sale of these manufactured goods, alongside offering contract manufacturing services for off-the-shelf standard products. The business operates through a multi-tiered sales network comprising direct customers and international distributors, relying on short-term purchase orders. Production is centralized across two manufacturing facilities in Maharashtra. A significant portion of its sales stems from export markets, demonstrating a strong global footprint. The company maintains stringent quality controls, adhering to safety certifications.",
       "financialHighlights": {
@@ -98,198 +93,6 @@
       ]
     },
     {
-      "id": "ravita-engineering-services",
-      "name": "Ravita Engineering Services",
-      "symbol": "RAVITA",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/Ravita_logo-300x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 105,
-      "priceBandHigh": 112,
-      "lotSize": 1200,
-      "issueSizeCr": 116.0,
-      "freshIssueCr": 98.6,
-      "ofsCr": 17.4,
-      "gmp": 2.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "14 Oct 2026",
-        "biddingEnds": "16 Oct 2026",
-        "allotmentFinalization": "19 Oct 2026",
-        "refundInitiation": "21 Oct 2026",
-        "creditOfShares": "21 Oct 2026",
-        "listingDate": "22 Oct 2026"
-      },
-      "subscription": null,
-      "sector": "Diversified Manufacturing",
-      "about": "Ravita Engineering Services provides engineering solutions for heating, ventilation, and air conditioning (HVAC) systems, temperature control systems, and other allied electro-mechanical equipment. The company operates across three primary business segments: offshore projects, onshore projects, and the data center industry. Its core business activities are divided into Engineering, Procurement, Installation, and Commissioning (EPIC) projects, as well as standalone Operations and Maintenance (O&M) service contracts. In certain instances, the company executes hybrid projects that combine initial EPIC work with subsequent long-term O&M services. The company procures critical hardware components and server infrastructure from third-party original equipment manufacturers to develop and deploy its solutions. Operations are primarily concentrated in western India, with significant project execution occurring in Maharashtra, Gujarat, and the territorial waters of India. Revenue is generated through competitive bidding and tender processes for both public sector undertakings and private corporate clients.",
-      "financialHighlights": {
-        "revenueCr": 1680.0,
-        "patCr": 201.6,
-        "eps": 7.0,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://www.vivro.net/uploads/team/1791441800230.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2025",
-          "assetsCr": 58.24,
-          "revenueCr": 109.3,
-          "patCr": 11.83,
-          "netWorthCr": 24.46,
-          "totalBorrowingCr": 10.48,
-          "reservesCr": 16.31
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 162.97,
-          "revenueCr": 277.82,
-          "patCr": 28.04,
-          "netWorthCr": 68.45,
-          "totalBorrowingCr": 29.33,
-          "reservesCr": 45.63
-        },
-        {
-          "period": "June 2026",
-          "assetsCr": 207.34,
-          "revenueCr": 97.45,
-          "patCr": 10.13,
-          "netWorthCr": 87.08,
-          "totalBorrowingCr": 37.32,
-          "reservesCr": 58.06
-        }
-      ],
-      "strengths": [
-        "Diverse HVAC portfolio across offshore, onshore, and data centers.",
-        "Strategic geographic presence in western India and offshore regions.",
-        "Robust order book and consistent history of profitability.",
-        "Strong client relationships driving repeat EPIC contracts.",
-        "Specialized expertise in hybrid engineering and O&M projects."
-      ],
-      "risks": [
-        "High revenue concentration from top clients poses financial risks.",
-        "The geographic concentration in Western India exposes operations to local disruptions.",
-        "Dependence on competitive bidding creates revenue uncertainty.",
-        "Reliance on contract labor and OEMs risks cost overruns and delays.",
-        "Promoter-linked entity strike-off poses regulatory and reputational risks."
-      ],
-      "objectsOfIssue": [
-        "To meet long-term working capital requirements (70 (60.32%))",
-        "Capital expenditure for purchase of heavy equipment (25.53 (22%))",
-        "General Corporate Purposes (20.52 (17.68%))"
-      ]
-    },
-    {
-      "id": "vaibhav-vyapaar",
-      "name": "Vaibhav Vyapaar",
-      "symbol": "LOANFRONT",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/vaibhav-vyapaar-logo-300x94.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 51,
-      "priceBandHigh": 54,
-      "lotSize": 2000,
-      "issueSizeCr": 42.0,
-      "freshIssueCr": 35.7,
-      "ofsCr": 6.3,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "13 Oct 2026",
-        "biddingEnds": "15 Oct 2026",
-        "allotmentFinalization": "16 Oct 2026",
-        "refundInitiation": "19 Oct 2026",
-        "creditOfShares": "19 Oct 2026",
-        "listingDate": "21 Oct 2026"
-      },
-      "subscription": {
-        "qib": 0.15,
-        "nii": 0.23,
-        "retail": 0.21,
-        "total": 0.19
-      },
-      "sector": "Diversified Manufacturing",
-      "about": "Vaibhav Vyapaar is a non-banking financial company registered with the Reserve Bank of India that primarily provides unsecured personal loans to salaried and self-employed individuals. The company operates a fully digital lending platform, extending credit both on a direct lending and co-lending basis. In addition to its core lending operations, the company generates revenue by offering its proprietary application and technology services to other non-banking financial companies. The business operates through a technology-driven model that facilitates credit access using a paperless, scalable, and customer-centric process. Through its digital lending application, LoanFront, the company offers a range of financial services, including instant personal loans and specialized salaried loans. By focusing on technology integration and digital onboarding, the company streamlines the entire loan lifecycle from customer acquisition and credit assessment to loan disbursement and collections across its target retail borrower segments.",
-      "financialHighlights": {
-        "revenueCr": 810.0,
-        "patCr": 97.2,
-        "eps": 3.38,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://getfive.in/wp-content/uploads/2026/10/Red-Heering-Prospectus_VVL.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2025",
-          "assetsCr": 55.04,
-          "revenueCr": 25.34,
-          "patCr": 1.48,
-          "netWorthCr": 23.12,
-          "totalBorrowingCr": 9.91,
-          "reservesCr": 15.41
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 84.23,
-          "revenueCr": 37.64,
-          "patCr": 1.97,
-          "netWorthCr": 35.38,
-          "totalBorrowingCr": 15.16,
-          "reservesCr": 23.58
-        },
-        {
-          "period": "June 2026",
-          "assetsCr": 96.16,
-          "revenueCr": 18.15,
-          "patCr": 3.01,
-          "netWorthCr": 40.39,
-          "totalBorrowingCr": 17.31,
-          "reservesCr": 26.92
-        }
-      ],
-      "strengths": [
-        "Deep ground-level market understanding and retail customer insights.",
-        "Fully digital lending platform supported by proprietary in-house technology.",
-        "Highly experienced leadership and professional management team.",
-        "Robust automated underwriting framework and risk management systems.",
-        "Seamless paperless customer onboarding and credit assessment process."
-      ],
-      "risks": [
-        "Business profitability is highly exposed to interest rate volatility.",
-        "Significant AUM concentration in specific Indian states and regions.",
-        "High credit risk profile associated with unsecured personal loan borrowers.",
-        "Heavy reliance on third-party software vendors for critical digital operations.",
-        "Operations are vulnerable to disruptions in digital payment systems."
-      ],
-      "objectsOfIssue": [
-        "Augment the capital base of the company (32 (78.93%))",
-        "General Corporate Purposes (10.1 (21.07%))"
-      ]
-    },
-    {
       "id": "fusion-cx",
       "name": "Fusion CX",
       "symbol": "FUSIONCX",
@@ -303,7 +106,7 @@
       "freshIssueCr": 596.7,
       "ofsCr": 105.3,
       "gmp": 32.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -384,20 +187,207 @@
       ]
     },
     {
+      "id": "vaibhav-vyapaar",
+      "name": "Vaibhav Vyapaar",
+      "symbol": "LOANFRONT",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/vaibhav-vyapaar-logo-300x94.png",
+      "category": "SME",
+      "status": "ONGOING",
+      "priceBandLow": 51,
+      "priceBandHigh": 54,
+      "lotSize": 2000,
+      "issueSizeCr": 42.0,
+      "freshIssueCr": 35.7,
+      "ofsCr": 6.3,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "13 Oct 2026",
+        "biddingEnds": "15 Oct 2026",
+        "allotmentFinalization": "16 Oct 2026",
+        "refundInitiation": "19 Oct 2026",
+        "creditOfShares": "19 Oct 2026",
+        "listingDate": "21 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Vaibhav Vyapaar is a non-banking financial company registered with the Reserve Bank of India that primarily provides unsecured personal loans to salaried and self-employed individuals. The company operates a fully digital lending platform, extending credit both on a direct lending and co-lending basis. In addition to its core lending operations, the company generates revenue by offering its proprietary application and technology services to other non-banking financial companies. The business operates through a technology-driven model that facilitates credit access using a paperless, scalable, and customer-centric process. Through its digital lending application, LoanFront, the company offers a range of financial services, including instant personal loans and specialized salaried loans. By focusing on technology integration and digital onboarding, the company streamlines the entire loan lifecycle from customer acquisition and credit assessment to loan disbursement and collections across its target retail borrower segments.",
+      "financialHighlights": {
+        "revenueCr": 810.0,
+        "patCr": 97.2,
+        "eps": 3.38,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://getfive.in/wp-content/uploads/2026/10/Red-Heering-Prospectus_VVL.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 55.04,
+          "revenueCr": 25.34,
+          "patCr": 1.48,
+          "netWorthCr": 23.12,
+          "totalBorrowingCr": 9.91,
+          "reservesCr": 15.41
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 84.23,
+          "revenueCr": 37.64,
+          "patCr": 1.97,
+          "netWorthCr": 35.38,
+          "totalBorrowingCr": 15.16,
+          "reservesCr": 23.58
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 96.16,
+          "revenueCr": 18.15,
+          "patCr": 3.01,
+          "netWorthCr": 40.39,
+          "totalBorrowingCr": 17.31,
+          "reservesCr": 26.92
+        }
+      ],
+      "strengths": [
+        "Deep ground-level market understanding and retail customer insights.",
+        "Fully digital lending platform supported by proprietary in-house technology.",
+        "Highly experienced leadership and professional management team.",
+        "Robust automated underwriting framework and risk management systems.",
+        "Seamless paperless customer onboarding and credit assessment process."
+      ],
+      "risks": [
+        "Business profitability is highly exposed to interest rate volatility.",
+        "Significant AUM concentration in specific Indian states and regions.",
+        "High credit risk profile associated with unsecured personal loan borrowers.",
+        "Heavy reliance on third-party software vendors for critical digital operations.",
+        "Operations are vulnerable to disruptions in digital payment systems."
+      ],
+      "objectsOfIssue": [
+        "Augment the capital base of the company (32 (78.93%))",
+        "General Corporate Purposes (10.1 (21.07%))"
+      ]
+    },
+    {
+      "id": "ravita-engineering-services",
+      "name": "Ravita Engineering Services",
+      "symbol": "RAVITA",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/Ravita_logo-300x300.png",
+      "category": "SME",
+      "status": "ONGOING",
+      "priceBandLow": 105,
+      "priceBandHigh": 112,
+      "lotSize": 1200,
+      "issueSizeCr": 116.0,
+      "freshIssueCr": 98.6,
+      "ofsCr": 17.4,
+      "gmp": 2.0,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "14 Oct 2026",
+        "biddingEnds": "16 Oct 2026",
+        "allotmentFinalization": "19 Oct 2026",
+        "refundInitiation": "21 Oct 2026",
+        "creditOfShares": "21 Oct 2026",
+        "listingDate": "22 Oct 2026"
+      },
+      "subscription": null,
+      "sector": "Diversified Manufacturing",
+      "about": "Ravita Engineering Services provides engineering solutions for heating, ventilation, and air conditioning (HVAC) systems, temperature control systems, and other allied electro-mechanical equipment. The company operates across three primary business segments: offshore projects, onshore projects, and the data center industry. Its core business activities are divided into Engineering, Procurement, Installation, and Commissioning (EPIC) projects, as well as standalone Operations and Maintenance (O&M) service contracts. In certain instances, the company executes hybrid projects that combine initial EPIC work with subsequent long-term O&M services. The company procures critical hardware components and server infrastructure from third-party original equipment manufacturers to develop and deploy its solutions. Operations are primarily concentrated in western India, with significant project execution occurring in Maharashtra, Gujarat, and the territorial waters of India. Revenue is generated through competitive bidding and tender processes for both public sector undertakings and private corporate clients.",
+      "financialHighlights": {
+        "revenueCr": 1680.0,
+        "patCr": 201.6,
+        "eps": 7.0,
+        "peRatio": 16.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://www.vivro.net/uploads/team/1791441800230.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 58.24,
+          "revenueCr": 109.3,
+          "patCr": 11.83,
+          "netWorthCr": 24.46,
+          "totalBorrowingCr": 10.48,
+          "reservesCr": 16.31
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 162.97,
+          "revenueCr": 277.82,
+          "patCr": 28.04,
+          "netWorthCr": 68.45,
+          "totalBorrowingCr": 29.33,
+          "reservesCr": 45.63
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 207.34,
+          "revenueCr": 97.45,
+          "patCr": 10.13,
+          "netWorthCr": 87.08,
+          "totalBorrowingCr": 37.32,
+          "reservesCr": 58.06
+        }
+      ],
+      "strengths": [
+        "Diverse HVAC portfolio across offshore, onshore, and data centers.",
+        "Strategic geographic presence in western India and offshore regions.",
+        "Robust order book and consistent history of profitability.",
+        "Strong client relationships driving repeat EPIC contracts.",
+        "Specialized expertise in hybrid engineering and O&M projects."
+      ],
+      "risks": [
+        "High revenue concentration from top clients poses financial risks.",
+        "The geographic concentration in Western India exposes operations to local disruptions.",
+        "Dependence on competitive bidding creates revenue uncertainty.",
+        "Reliance on contract labor and OEMs risks cost overruns and delays.",
+        "Promoter-linked entity strike-off poses regulatory and reputational risks."
+      ],
+      "objectsOfIssue": [
+        "To meet long-term working capital requirements (70 (60.32%))",
+        "Capital expenditure for purchase of heavy equipment (25.53 (22%))",
+        "General Corporate Purposes (20.52 (17.68%))"
+      ]
+    },
+    {
       "id": "zetwerk",
       "name": "Zetwerk",
       "symbol": "ZETWERK",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/05/zetwork-manufacturing-logo-300x91.png",
       "category": "MAINBOARD",
-      "status": "UPCOMING",
+      "status": "ONGOING",
       "priceBandLow": 143,
       "priceBandHigh": 151,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": 99,
+      "issueSizeCr": 5012.0,
+      "freshIssueCr": 4260.2,
+      "ofsCr": 751.8,
       "gmp": 22.25,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -406,14 +396,14 @@
       "timeline": {
         "biddingStarts": "15 Oct 2026",
         "biddingEnds": "19 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "21 Oct 2026",
+        "refundInitiation": "22 Oct 2026",
+        "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Zetwerk is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Founded in 2017, Zetwerk is a Bengaluru-based, technology-led platform that aggregates manufacturing capacity. Its software, Zetwerk OS, splits customer orders across 6,979 suppliers in 26 countries, alongside 26 of its own facilities. Products range from solar and wind components and power transformers to laptops, circuit boards, and heavy industrial equipment, for customers like Siemens Gamesa, Acer, NTPC, and DRDO.",
       "financialHighlights": {
         "revenueCr": 2265.0,
         "patCr": 271.8,
@@ -425,24 +415,74 @@
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
-        "UPCOMING IPO"
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://ir.zetwerk.com/wp-content/uploads/Zetwerk-RHP.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 10355.43,
+          "revenueCr": 11492.23,
+          "patCr": -370.71,
+          "netWorthCr": 4349.28,
+          "totalBorrowingCr": 1863.98,
+          "reservesCr": 2899.52
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 13384.63,
+          "revenueCr": 16100.63,
+          "patCr": -1606.17,
+          "netWorthCr": 5621.54,
+          "totalBorrowingCr": 2409.23,
+          "reservesCr": 3747.7
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 12016.09,
+          "revenueCr": 4195.7,
+          "patCr": -732.98,
+          "netWorthCr": 5046.76,
+          "totalBorrowingCr": 2162.9,
+          "reservesCr": 3364.51
+        }
+      ],
+      "strengths": [
+        "Asset-light model: about 80% of FY26 revenue came from products made by third-party suppliers.",
+        "Zetwerk’s flexible capacity helps it deliver faster, without any large capital commitments.",
+        "Strong order pipeline: a ₹13,062 crore manufacturing order book (June 30, 2026), about 1.4x FY26 manufacturing revenue.",
+        "Repeat business: 80% of FY26 manufacturing revenue came from existing customers.",
+        "Blue-chip customers: 16 of the Nifty 50 companies and 102 of India’s Fortune 500.",
+        "Diversified: spans energy (69% of manufacturing revenue), capital goods (16%) and precision electronics (15%)."
+      ],
+      "risks": [
+        "Still loss-making: losses in every period shown, and negative operating cash flow every year.",
+        "Supplier dependence: quality, capacity, or supply problems at third-party suppliers would directly hit deliveries.",
+        "Customer concentration: the top 10 customers’ share of revenue rose from 22% in FY24 to 36% in FY26.",
+        "Exposed to geopolitical and tariff risks in global markets.",
+        "Pending legal proceedings could lead to adverse outcomes."
+      ],
+      "objectsOfIssue": [
+        "Repayment/prepayment of borrowings availed by the company (1300 (45.94%))",
+        "Repayment/prepayment of certain borrowings availed by subsidiaries (860 (30.39%))",
+        "Funding strategic acquisitions and general corporate purposes. (670 (23.67%))"
       ]
     },
     {
       "id": "tonbo-imaging-india",
       "name": "Tonbo Imaging India",
-      "symbol": "TONBOIMAGING",
+      "symbol": "TONBO",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/01/tonbo-imaging-india-ltd-logo-300x114.png",
       "category": "MAINBOARD",
-      "status": "UPCOMING",
+      "status": "ONGOING",
       "priceBandLow": 665,
       "priceBandHigh": 700,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": 21,
+      "issueSizeCr": 852.0,
+      "freshIssueCr": 724.2,
+      "ofsCr": 127.8,
       "gmp": 480.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE & BSE",
@@ -451,14 +491,14 @@
       "timeline": {
         "biddingStarts": "15 Oct 2026",
         "biddingEnds": "19 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "21 Oct 2026",
+        "refundInitiation": "22 Oct 2026",
+        "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Tonbo Imaging India is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Tonbo Imaging India operates as a global defence electronics original equipment manufacturer, designing and developing advanced imaging, processing, and communication systems tailored for surveillance, reconnaissance, targeting, and control. The company’s core business involves creating full-stack electro-optics systems, ranging from core sensor technology to fully integrated autonomous platforms for battlefield applications across land, air, and sea. Revenue is primarily generated through two main operating segments: tactical systems and platform systems. Tactical offerings include lightweight, weapon-mounted, and helmet-mounted electro-optical sights that provide soldiers with observation and targeting capabilities. Platform-grade optronics feature multi-sensor gimbals and infrared payloads designed for integration into armoured vehicles, airborne platforms, and naval assets. The business supplies these highly specialized combat and situational awareness systems to global militaries, homeland security agencies, and system integrators across multiple international markets through a tender-based competitive bidding and procurement model.",
       "financialHighlights": {
         "revenueCr": 10500.0,
         "patCr": 1260.0,
@@ -470,7 +510,51 @@
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
-        "UPCOMING IPO"
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://live.jmfl.com/od/UploadedFiles/CA86AB52-0D43-437A-8D1C-6E475C6CEF01.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 726.36,
+          "revenueCr": 474.39,
+          "patCr": 72.76,
+          "netWorthCr": 305.07,
+          "totalBorrowingCr": 130.74,
+          "reservesCr": 203.38
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 782.5,
+          "revenueCr": 369.94,
+          "patCr": 50.88,
+          "netWorthCr": 328.65,
+          "totalBorrowingCr": 140.85,
+          "reservesCr": 219.1
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 782.87,
+          "revenueCr": 37.32,
+          "patCr": -17.74,
+          "netWorthCr": 328.81,
+          "totalBorrowingCr": 140.92,
+          "reservesCr": 219.2
+        }
+      ],
+      "strengths": [
+        "Owns extensive unrestricted IP in infrared imaging and target tracking.",
+        "Offers full-stack capabilities from core sensors to autonomous platforms.",
+        "Established global footprint across 24 countries with defence clients.",
+        "Led by an experienced team with 21+ years in optical defence tech.",
+        "Agile design framework enables rapid re-engineering for key components."
+      ],
+      "risks": [
+        "Vulnerable to long, unpredictable government budget and tender cycles.",
+        "Dependent on a limited global supply chain for raw materials like Germanium.",
+        "Highly dependent on short-term, non-recurring tenders from selected clients.",
+        "Uses an outsourced manufacturing model, risking third-party quality or delays.",
+        "Extended gestation cycles strain liquidity and drive high working capital needs."
       ]
     },
     {
@@ -479,15 +563,15 @@
       "symbol": "SMT",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/09/smtlogo-300x300.png",
       "category": "MAINBOARD",
-      "status": "UPCOMING",
+      "status": "ONGOING",
       "priceBandLow": 327,
       "priceBandHigh": 344,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": 43,
+      "issueSizeCr": 475.0,
+      "freshIssueCr": 403.75,
+      "ofsCr": 71.25,
       "gmp": 39.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -496,14 +580,14 @@
       "timeline": {
         "biddingStarts": "15 Oct 2026",
         "biddingEnds": "19 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "21 Oct 2026",
+        "refundInitiation": "22 Oct 2026",
+        "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
       "subscription": null,
       "sector": "IT & Technology Services",
-      "about": "Sahajanand Medical Technologies is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Sahajanand Medical Technologies develops, manufactures, and markets cardiovascular devices globally. The core business is divided into two primary segments: vascular intervention products, such as coronary stents and balloon catheters, and structural heart devices, including transcatheter aortic valves and occluders. The company generates the majority of its revenue from the sale of vascular intervention devices, with the Supraflex Cruz, a biodegradable polymer-based drug-eluting stent, acting as a major contributor to its sales. Products are distributed across India, Europe, and the rest of the world through a combination of direct, hybrid, and distributor-led models, supported by an extensive network of domestic and international distributors. Operations are backed by manufacturing facilities located in Surat, Hyderabad, and Thailand. Additionally, the business relies heavily on dedicated research and development capabilities to continually enhance existing products and introduce new cardiovascular treatments.",
       "financialHighlights": {
         "revenueCr": 5160.0,
         "patCr": 619.2,
@@ -515,16 +599,60 @@
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
-        "UPCOMING IPO"
+        "ONGOING IPO"
+      ],
+      "rhpUrl": "https://assets.ipopremium.in/images/ipo/sahajanand_medical_technologies_ltd_mainboard_rhp_1791630001.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 1094.9,
+          "revenueCr": 1035.96,
+          "patCr": 25.15,
+          "netWorthCr": 459.86,
+          "totalBorrowingCr": 197.08,
+          "reservesCr": 306.57
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 1276.43,
+          "revenueCr": 1218.73,
+          "patCr": 69.08,
+          "netWorthCr": 536.1,
+          "totalBorrowingCr": 229.76,
+          "reservesCr": 357.4
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 1309.0,
+          "revenueCr": 354.33,
+          "patCr": 15.09,
+          "netWorthCr": 549.78,
+          "totalBorrowingCr": 235.62,
+          "reservesCr": 366.52
+        }
+      ],
+      "strengths": [
+        "Strong portfolio of vascular and structural heart medical devices",
+        "Extensive domestic and international distribution network",
+        "Dedicated in-house research and development capabilities",
+        "Multiple manufacturing facilities across India and Thailand",
+        "Diversified revenue streams from sales in over 65 countries"
+      ],
+      "risks": [
+        "High dependency on revenues from the Supraflex Cruz stent",
+        "Stringent domestic and global regulatory compliance requirements",
+        "Vulnerability to foreign currency exchange rate fluctuations",
+        "Reliance on limited third-party suppliers for key raw materials",
+        "Exposure to pricing controls and healthcare reimbursement caps"
       ]
     },
     {
       "id": "bonfiglioli-transmissions",
       "name": "Bonfiglioli Transmissions",
-      "symbol": "BONFIGLIOLI",
+      "symbol": "BONFIG",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/bonfiglioli-logo-300x76.png",
       "category": "MAINBOARD",
-      "status": "UPCOMING",
+      "status": "ONGOING",
       "priceBandLow": 558,
       "priceBandHigh": 586,
       "lotSize": 40,
@@ -532,7 +660,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 173.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -560,7 +688,7 @@
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
-        "UPCOMING IPO"
+        "ONGOING IPO"
       ]
     },
     {
@@ -569,7 +697,7 @@
       "symbol": "SHELLZ",
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/shellz-india-logo-300x194.png",
       "category": "SME",
-      "status": "UPCOMING",
+      "status": "ONGOING",
       "priceBandLow": 170,
       "priceBandHigh": 179,
       "lotSize": 1200,
@@ -577,9 +705,9 @@
       "freshIssueCr": 40.0,
       "ofsCr": 5.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -605,7 +733,7 @@
         "Zerodha Verified",
         "SME",
         "NSE SME",
-        "UPCOMING IPO"
+        "ONGOING IPO"
       ]
     },
     {
@@ -615,34 +743,34 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/12/jio_logo-300x300.png",
       "category": "MAINBOARD",
       "status": "UPCOMING",
-      "priceBandLow": 100,
-      "priceBandHigh": 100,
+      "priceBandLow": 1065,
+      "priceBandHigh": 1119,
       "lotSize": 40,
       "issueSizeCr": 350.0,
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 214.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
       "timeline": {
-        "biddingStarts": "TBA",
-        "biddingEnds": "TBA",
+        "biddingStarts": "21 Oct 2026",
+        "biddingEnds": "23 Oct 2026",
         "allotmentFinalization": "T+1 after Close",
         "refundInitiation": "T+2 after Close",
         "creditOfShares": "T+2 after Close",
-        "listingDate": "–"
+        "listingDate": "27 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Reliance Jio is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
+        "revenueCr": 16785.0,
+        "patCr": 2014.2,
+        "eps": 69.94,
         "peRatio": 16.0,
         "ronw": 21.5
       },
@@ -667,7 +795,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -712,7 +840,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -757,7 +885,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -802,7 +930,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -847,7 +975,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -892,7 +1020,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -937,7 +1065,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -982,7 +1110,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1027,7 +1155,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1072,7 +1200,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1117,7 +1245,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1162,7 +1290,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1207,7 +1335,7 @@
       "freshIssueCr": 300.0,
       "ofsCr": 50.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1245,14 +1373,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/rk_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 77,
+      "priceBandLow": 7,
       "priceBandHigh": 82,
       "lotSize": 1600,
       "issueSizeCr": 35.0,
       "freshIssueCr": 29.75,
       "ofsCr": 5.25,
       "gmp": 1.5,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -1266,12 +1394,7 @@
         "creditOfShares": "09 Oct 2026",
         "listingDate": "12 Oct 2026"
       },
-      "subscription": {
-        "qib": 2.16,
-        "nii": 3.24,
-        "retail": 2.97,
-        "total": 2.7
-      },
+      "subscription": null,
       "sector": "Consumer Retail & Textiles",
       "about": "R.K. Fashion Accessories operates as a Kolkata-based manufacturer and wholesale distributor of fashion jewellery, alongside trading in branded cosmetics. The company produces handcrafted jewellery that blends traditional designs with contemporary styles, utilizing a network of third-party contract manufacturers for its production processes. Its core business centers on distributing these products across multiple channels, including business-to-business wholesale networks, direct-to-consumer retail stores, e-commerce platforms, and a Shop-in-Shop retail model. Revenue is predominantly generated through its wholesale distribution segment, which accounts for the vast majority of its sales. The company maintains a highly concentrated market presence in eastern India, particularly in West Bengal, Odisha, Bihar, and Jharkhand. By strategically combining outsourced manufacturing with a diversified sales and distribution framework, the company caters to varied market segments within the fashion and personal care sectors.",
       "financialHighlights": {
@@ -1347,16 +1470,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/paramount-syntex-logo-300x113.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 119,
+      "priceBandLow": 14,
       "priceBandHigh": 127,
       "lotSize": 1000,
       "issueSizeCr": 82.0,
       "freshIssueCr": 69.7,
       "ofsCr": 12.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Bigshare Services Pvt Ltd",
       "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
@@ -1368,12 +1491,7 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.5,
-        "nii": 2.26,
-        "retail": 2.07,
-        "total": 1.88
-      },
+      "subscription": null,
       "sector": "Consumer Retail & Textiles",
       "about": "Paramount Syntex is engaged in the manufacturing and trading of synthetic fibers, yarns, and knitted cloth, catering to the textile industry. The company generates revenue by selling its products in domestic markets, primarily within Punjab, as well as through export sales. Its key product offerings include acrylic wool yarns, polyester yarns, nylon yarns, blended fancy yarns, and recycled acrylic fibers. Operating from its manufacturing facilities located in Ludhiana, Punjab, the company conducts in-house fiber processing, tow dyeing, hank dyeing, spinning, bulking, twisting, and packing. A notable aspect of its business model involves recycling domestic and imported waste acrylic fibers to convert them into value-added yarns. The company serves diverse end user sectors, including apparel, home textiles, hosiery, fashion knitting, and industrial textiles. Its integrated manufacturing facility enables operational efficiency and complete control over product quality and processing workflows.",
       "financialHighlights": {
@@ -1445,16 +1563,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/tna-solutions-ltd-logo-300x124.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 66,
+      "priceBandLow": 16,
       "priceBandHigh": 70,
       "lotSize": 2000,
       "issueSizeCr": 38.0,
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -1466,12 +1584,7 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": {
-        "qib": 44.16,
-        "nii": 66.24,
-        "retail": 60.72,
-        "total": 55.2
-      },
+      "subscription": null,
       "sector": "IT & Technology Services",
       "about": "TNA Solutions manufactures and supplies home textile products to domestic and international markets. The company operates primarily on a business-to-business model, manufacturing customized home furnishings according to client specifications for domestic and overseas brands. Its product portfolio includes sheeting products such as flat sheets, fitted sheets, and duvet sets, as well as pillow pairs, towels, and top-of-bed items like comforters, mattress protectors, and quilts. The company also operates a direct-to-consumer segment under its brand, Ambra Linens. TNA Solutions generates revenue from the sale of these home textile goods across India and export markets including the United States, United Arab Emirates, South Africa, and the United Kingdom. Operations are conducted through its manufacturing facility situated in Indore, Madhya Pradesh, which undertakes cutting, stitching, embroidery, finishing, quality inspection, and packaging, while outsourcing fabric dyeing, printing, and other wet processing to external job workers.",
       "financialHighlights": {
@@ -1544,14 +1657,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/acme-india-logo-300x102.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 186,
+      "priceBandLow": 18,
       "priceBandHigh": 196,
       "lotSize": 600,
       "issueSizeCr": 122.0,
       "freshIssueCr": 103.7,
       "ofsCr": 18.3,
       "gmp": 43.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -1565,12 +1678,7 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": {
-        "qib": 99.38,
-        "nii": 149.08,
-        "retail": 136.65,
-        "total": 124.23
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Acme India Industries operates in the Indian railway rolling stock sector, specializing in the design, manufacture, and maintenance of railway coach interiors. The company provides turnkey furnishing solutions for new railway coaches, refurbishment and conversion of existing coaches, and comprehensive lavatory upgrades. Its core business activities encompass designing and producing interior components such as wall panels, ceilings, toilet modules, wash basins, and mirror frames utilizing fibre-reinforced plastic and aluminum polymer composites. Revenue is primarily generated through turnkey contracts awarded on a competitive bidding basis by the Ministry of Railways, Indian Railways, and related public sector undertakings. Operating through multiple manufacturing units in Haryana, the company maintains internal capabilities to fabricate precision coach components and manage project execution across India. Focusing exclusively on passenger rail infrastructure, the company delivers integrated interior solutions tailored to meet functional, hygiene, and safety requirements specified by railway authorities.",
       "financialHighlights": {
@@ -1644,14 +1752,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Tnb_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 50,
+      "priceBandLow": 8,
       "priceBandHigh": 53,
       "lotSize": 2000,
       "issueSizeCr": 32.0,
       "freshIssueCr": 27.2,
       "ofsCr": 4.8,
       "gmp": 4.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -1665,12 +1773,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.58,
-        "nii": 2.38,
-        "retail": 2.18,
-        "total": 1.98
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Shree TNB Polymers operates in the polymer manufacturing sector, producing a range of plastic products across its three primary divisions: the Piping Division, the Solid Industrial Sheets Division, and the Corrugated/Flute Board Sheets Division. The company’s core business involves manufacturing and distributing these items under distinct brand names, specifically Noble, Tirupati, and Balaji (Wellpack). Its manufacturing operations are centralized in two facilities located in Silvassa, Dadra and Nagar Haveli. The company generates revenue through the sale of its manufactured products to various customer segments, including business houses, other manufacturing facilities, government entities, and end consumers. These sales are facilitated through direct channels as well as an established network of over 325 dealers and distributors across multiple states. Its product offerings cater to diverse industrial and consumer needs, relying on raw materials to maintain its manufacturing output.",
       "financialHighlights": {
@@ -1745,14 +1848,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/everest_ims_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 80,
+      "priceBandLow": 41,
       "priceBandHigh": 85,
       "lotSize": 1600,
       "issueSizeCr": 49.0,
       "freshIssueCr": 41.65,
       "ofsCr": 7.35,
       "gmp": 50.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -1766,12 +1869,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 235.38,
-        "nii": 353.06,
-        "retail": 323.64,
-        "total": 294.22
-      },
+      "subscription": null,
       "sector": "IT & Technology Services",
       "about": "EverestIMS Technologies is an information technology company providing software products and services focused on IT operations and service management. The company delivers solutions across IT service management, IT infrastructure management, network configuration and content management, artificial intelligence for IT operations, IT asset management, and operations support systems. EverestIMS Technologies offers its customers multiple consumption models, providing both software as a service (SaaS) and on-premises software solutions to meet varying operational requirements. Its business involves integrating third-party open-source databases, operating systems, queuing engines, and development tools into customer deliverables. The company derives its revenue primarily from the sale of software products, software services, and hardware products to its client base, which includes large corporate customers. Additionally, the company serves clients overseas in countries such as the United Arab Emirates and Malaysia, alongside its domestic operations.",
       "financialHighlights": {
@@ -1844,14 +1942,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/nityas-logo-300x300.png",
       "category": "MAINBOARD",
       "status": "CLOSED",
-      "priceBandLow": 70,
+      "priceBandLow": 12,
       "priceBandHigh": 75,
       "lotSize": 200,
       "issueSizeCr": 108.0,
       "freshIssueCr": 91.8,
       "ofsCr": 16.2,
       "gmp": 1.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -1865,12 +1963,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.81,
-        "nii": 2.71,
-        "retail": 2.49,
-        "total": 2.26
-      },
+      "subscription": null,
       "sector": "Consumer Retail & Textiles",
       "about": "Nityas Gems and Jewellery designs, manufactures, and sells lab-grown diamond-studded gold jewellery in India. The company operates through an integrated business model comprising business-to-business manufacturing and direct-to-consumer retail. Under its business-to-business vertical, it supplies customized and standardized jewellery to organized retail chains, standalone retailers, and wholesalers across multiple Indian states and select overseas markets. Its direct-to-consumer operations are conducted under the brand Ayaani through a subsidiary, featuring an online storefront alongside physical retail stores operated via company-owned and franchise models. The product portfolio includes rings, earrings, pendants, bracelets, mangalsutras, nose pins, necklaces, cufflinks, and bangles, with a strategic focus on lightweight, affordable luxury, and daily-wear jewellery segments. Manufacturing operations are conducted at a single facility in Surat, Gujarat, with an installed production capacity of 360 kilograms per annum, utilizing in-house karigars and computer-aided design capabilities for end-to-end jewellery fabrication.",
       "financialHighlights": {
@@ -1942,14 +2035,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vishal-nirmiti-logo-300x134.png",
       "category": "MAINBOARD",
       "status": "CLOSED",
-      "priceBandLow": 208,
+      "priceBandLow": 7,
       "priceBandHigh": 220,
       "lotSize": 68,
       "issueSizeCr": 178.0,
       "freshIssueCr": 151.3,
       "ofsCr": 26.7,
       "gmp": 2.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -1963,12 +2056,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.43,
-        "nii": 2.15,
-        "retail": 1.97,
-        "total": 1.79
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Vishal Nirmiti is a civil engineering, construction, and manufacturing firm operating in 2 segments. Its manufacturing arm produces pre-stressed concrete sleepers, pre-cast barriers, and steel/penstock pipes for Indian Railways and private developers. Its services arm delivers EPC solutions for railway, irrigation, and road infrastructure. The company supports regional projects through specialized manufacturing facilities across Maharashtra, Madhya Pradesh, Gujarat, and Himachal Pradesh.",
       "financialHighlights": {
@@ -2041,16 +2129,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/omara-ventures-india-limited-logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 296,
+      "priceBandLow": 3,
       "priceBandHigh": 311,
       "lotSize": 400,
       "issueSizeCr": 42.0,
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2062,12 +2150,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 0.85,
-        "nii": 1.27,
-        "retail": 1.17,
-        "total": 1.06
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Omara Ventures India is a retail jeweller specializing in the curation and sale of designer diamond jewellery. The company offers a diverse product portfolio that includes bridal, festive, special occasion, and contemporary daily-wear jewellery, alongside gold jewellery and silver coins. Its core operations revolve around a design-led retail model operated through its boutique, where it provides customers with a personalized experience featuring customized jewellery discussions and private consultations. Omara Ventures generates revenue primarily through the direct retail sale of high-value solitaire and diamond pieces, which historically account for the vast majority of its product sales. By focusing on customization tailored to specific customer needs and maintaining well-established relationships with skilled artisans, the company successfully serves the premium market segment. Operating primarily out of the Chandigarh region, it emphasizes curated designs and a commitment to hallmarked assurance for retail investors.",
       "financialHighlights": {
@@ -2142,16 +2225,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/dove-soft-logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 104,
+      "priceBandLow": 6,
       "priceBandHigh": 111,
       "lotSize": 1200,
       "issueSizeCr": 73.0,
       "freshIssueCr": 62.05,
       "ofsCr": 10.95,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2163,12 +2246,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.1,
-        "nii": 1.66,
-        "retail": 1.52,
-        "total": 1.38
-      },
+      "subscription": null,
       "sector": "IT & Technology Services",
       "about": "Dove Soft is an integrated cloud-communications solutions provider offering multi-channel communication services to businesses. The company provides enterprise clients and over-the-top platforms with transactional Short Message Service, Rich Communication Services, WhatsApp, Voice, Interactive Voice Response, automated voice call solutions, Email, and digital marketing products. It operates on a usage-based pay-per-use revenue model, generating income based on the volume of messages and voice pulses processed through its platform. The business caters to clients across diverse industry sectors, including telecom, information technology, banking, financial services, insurance, e-commerce, retail, healthcare, real estate, automobile, travel, and food and beverages. The company engages with mobile network operators on an invoice-based arrangement and collaborates with channel partners and messaging infrastructure providers to deliver its services. Its cloud platform enables organizations to manage customer interactions, streamline business operations, and enhance messaging reach efficiently across multiple digital communication channels.",
       "financialHighlights": {
@@ -2241,13 +2319,13 @@
       "category": "SME",
       "status": "CLOSED",
       "priceBandLow": 55,
-      "priceBandHigh": 55,
+      "priceBandHigh": 80,
       "lotSize": 2000,
       "issueSizeCr": 22.0,
       "freshIssueCr": 18.7,
       "ofsCr": 3.3,
       "gmp": 10.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE SME",
@@ -2261,18 +2339,13 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.71,
-        "nii": 2.57,
-        "retail": 2.35,
-        "total": 2.14
-      },
+      "subscription": null,
       "sector": "Electricals & Power Transmission",
       "about": "Sollfege Smart Electronics operates as a distributor and retailer of premium electronic products, trading across three core business segments: audio solutions, video solutions, and smart living solutions. The company generates the majority of its revenue from trading activities by sourcing high-end consumer electronics from third-party global and domestic suppliers and selling them through retail showrooms and experience centres. Its audio portfolio includes high-end speakers, home theatre systems, soundbars, and wireless speakers. The video segment offers premium projectors, televisions, and video wall systems. The smart living segment encompasses home automation systems, lifestyle and wellness equipment, as well as networking, security, and surveillance products such as smart locks, video door phones, and closed-circuit television systems. Additionally, the business provides customer support and ancillary services related to product installation and system integration. The company caters to both retail consumers and commercial clients seeking premium tech offerings.",
       "financialHighlights": {
-        "revenueCr": 825.0,
-        "patCr": 99.0,
-        "eps": 3.44,
+        "revenueCr": 1200.0,
+        "patCr": 144.0,
+        "eps": 5.0,
         "peRatio": 16.0,
         "ronw": 21.5
       },
@@ -2340,16 +2413,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/eventions-ipo-logo-300x104.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 112,
+      "priceBandLow": 11,
       "priceBandHigh": 118,
       "lotSize": 1200,
       "issueSizeCr": 38.0,
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2361,12 +2434,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.91,
-        "nii": 2.87,
-        "retail": 2.63,
-        "total": 2.39
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Eventions operates as an integrated event management company specializing in providing Meetings, Incentives, Conferences, and Exhibitions (MICE) solutions, corporate events, and brand activations for various institutions. The company’s core business involves the conceptualization, planning, coordination, and on-ground execution of large-format assignments across diverse domestic and international locations. It generates the vast majority of its revenue directly from the MICE segment, primarily serving domestic corporate clients on a project-to-project basis. Additionally, through its subsidiary Gantu Online Private Limited, the company is actively expanding into the business-to-consumer travel sector by offering customized Free Independent Traveller (FIT) services and curated leisure travel itineraries. To execute its projects efficiently, Eventions utilizes an asset-light operating model, relying heavily on a vetted network of third-party vendors, subcontractors, and freelance professionals for stage fabrication, logistics, and production infrastructure rather than maintaining heavy in-house physical assets.",
       "financialHighlights": {
@@ -2440,16 +2508,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/sjp-ultrasonics-ipo-logo-300x185.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 67,
+      "priceBandLow": 9,
       "priceBandHigh": 67,
       "lotSize": 2000,
       "issueSizeCr": 23.0,
       "freshIssueCr": 19.55,
       "ofsCr": 3.45,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2461,12 +2529,7 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.46,
-        "nii": 2.18,
-        "retail": 2.0,
-        "total": 1.82
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "SJP Ultrasonics primarily operates in the industrial automation solution segment, providing solutions under three business segments: Plastic Joining Solutions, Industrial Automation, and Laser Technology Solutions. The company is a start-to-finish plastic welding solution provider offering diverse and comprehensive service offerings, including specialized plastic products across varied industry segments. It customises industrial automation solutions for an array of industries such as automotive, pharmaceuticals, electronics, energy, food and beverage, packaging, material handling, water treatment, and textiles. SJP Ultrasonics designs and manufactures special-purpose machines that involve detailed fabrication processes and engineering precision on a made-to-order basis. The company integrates technologies like programmable logic controllers, supervisory control and data acquisition, human-machine interfaces, and robotics into its automation systems. SJP Ultrasonics conducts its entire manufacturing operations from its facility in Vasai, Maharashtra, generating revenue directly from customers, particularly original equipment manufacturers, through milestone-based billing without long-term contracts.",
       "financialHighlights": {
@@ -2540,16 +2603,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/greenasia_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 84,
+      "priceBandLow": 5,
       "priceBandHigh": 89,
       "lotSize": 1600,
       "issueSizeCr": 60.0,
       "freshIssueCr": 51.0,
       "ofsCr": 9.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2561,12 +2624,7 @@
         "creditOfShares": "06 Oct 2026",
         "listingDate": "07 Oct 2026"
       },
-      "subscription": {
-        "qib": 0.83,
-        "nii": 1.25,
-        "retail": 1.14,
-        "total": 1.04
-      },
+      "subscription": null,
       "sector": "Renewable Energy & Power",
       "about": "Green Asia Impex operates as an integrated processor and exporter of frozen seafood and agricultural commodities, catering primarily to business-to-business customers, including importers, distributors, and food processing companies in domestic and international markets. The company operates in two main business segments: shrimps and dried chillies. In the shrimp segment, the company sources raw shrimps from local aquaculture farmers and traders, processes them through grading, peeling, deveining, and freezing, and supplies processed frozen shrimp products. In the dried chillies segment, the company procures chillies from agricultural market committee traders and carries out processing activities such as cleaning, grading, and sorting before distribution. Revenue is generated through direct domestic sales within India as well as exports to overseas markets including China, Kuwait, the United States, Malaysia, and the United Kingdom. The company utilizes processing facilities situated in Andhra Pradesh to manage its production operations across both product categories.",
       "financialHighlights": {
@@ -2638,16 +2696,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/blackopal_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 185,
+      "priceBandLow": 5,
       "priceBandHigh": 197,
       "lotSize": 600,
       "issueSizeCr": 55.0,
       "freshIssueCr": 46.75,
       "ofsCr": 8.25,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2659,12 +2717,7 @@
         "creditOfShares": "06 Oct 2026",
         "listingDate": "07 Oct 2026"
       },
-      "subscription": {
-        "qib": 59.04,
-        "nii": 88.56,
-        "retail": 81.18,
-        "total": 73.8
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Black Opal Consultants operates as a financial and real estate consultancy firm providing integrated real estate solutions. The company generates revenue primarily through brokerage income from selling residential and commercial properties under exclusive sales mandates with real estate developers. Additionally, it earns revenue from loan syndication fees, advisory services, and real estate project development activities. Its core business activities include acting as a channel partner for property sales, offering real estate advisory, and facilitating property financing. The company’s operations are geographically concentrated in Uttar Pradesh and Haryana, specifically in Noida, Greater Noida, and Gurugram. It is also diversifying into real estate development, including a commercial hotel project named Veda in Ayodhya through its subsidiary entity, Aurika Developers. Furthermore, the company engages in inventory underwriting for real estate developers and is developing a digital property platform called JustHomz through its wholly owned subsidiary, Black Opal Technologies.",
       "financialHighlights": {
@@ -2737,16 +2790,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/papadmalji-ipo-logo-300x126.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 69,
+      "priceBandLow": 5,
       "priceBandHigh": 72,
       "lotSize": 1600,
       "issueSizeCr": 20.0,
       "freshIssueCr": 17.0,
       "ofsCr": 3.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Bigshare Services Pvt Ltd",
       "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
@@ -2758,12 +2811,7 @@
         "creditOfShares": "06 Oct 2026",
         "listingDate": "07 Oct 2026"
       },
-      "subscription": {
-        "qib": 2.03,
-        "nii": 3.05,
-        "retail": 2.79,
-        "total": 2.54
-      },
+      "subscription": null,
       "sector": "Agri-Business & FMCG",
       "about": "Papadmalji Agro Foods engages in the manufacturing of handmade papads, machine-made papads, rice papads, vrat special papads, and moongodi, along with the trading of cereal pellets. The company also carries out white-label manufacturing of handmade papads, producing goods that clients market under their respective brand names and tailored packaging. Revenue is primarily generated through product sales under its key core brands, including Vishal, Zhakaas, and Rozana, alongside direct-to-consumer sales under the Papadmalji brand. Products are distributed across multiple sales channels, such as general trade, modern trade, quick commerce, direct-to-consumer platforms, and sales to merchant exporters for selected Middle Eastern markets. Operations are based out of manufacturing units and facilities situated in Bikaner, Rajasthan. For handmade papad production, the business utilizes a decentralized operational system involving contractors and home-based women workers who perform hand rolling according to prescribed quality specifications before final inspection.",
       "financialHighlights": {
@@ -2836,14 +2884,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/vans-logo-285x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 112,
+      "priceBandLow": 99,
       "priceBandHigh": 118,
       "lotSize": 1200,
       "issueSizeCr": 34.0,
       "freshIssueCr": 28.9,
       "ofsCr": 5.1,
       "gmp": 103.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -2857,12 +2905,7 @@
         "creditOfShares": "06 Oct 2026",
         "listingDate": "07 Oct 2026"
       },
-      "subscription": {
-        "qib": 502.98,
-        "nii": 754.48,
-        "retail": 691.6,
-        "total": 628.73
-      },
+      "subscription": null,
       "sector": "Electricals & Power Transmission",
       "about": "Vans Electroengineerings is engaged in manufacturing and supplying components for traction power supply and overhead equipment systems used in railway electrification infrastructure, metro systems, and renewable energy applications. The company operates a single manufacturing facility in Salem, Tamil Nadu, housing product assembly, testing infrastructure, and quality control operations. It generates revenue primarily through the sale of products to Indian Railways, supplying either directly through contracts secured via competitive bidding or indirectly through associated engineering, procurement, and construction contractors and vendors. Its key product portfolio includes double pole and single pole vacuum circuit breakers, double pole and single pole vacuum interrupters, overhead equipment, and braided flexible connectors. Operating within the electrical equipment and switchgear sector, the company manufactures products designed to meet specific technical standards and regulatory specifications prescribed by railway authorities for critical power supply and traction applications.",
       "financialHighlights": {
@@ -2934,14 +2977,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/ChatGPT-Image-Sep-26-2026-08_46_23-PM-300x107.png",
       "category": "MAINBOARD",
       "status": "CLOSED",
-      "priceBandLow": 159,
+      "priceBandLow": 4,
       "priceBandHigh": 167,
       "lotSize": 85,
       "issueSizeCr": 90.0,
       "freshIssueCr": 76.5,
       "ofsCr": 13.5,
       "gmp": 17.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -2955,12 +2998,7 @@
         "creditOfShares": "05 Oct 2026",
         "listingDate": "06 Oct 2026"
       },
-      "subscription": {
-        "qib": 30.5,
-        "nii": 45.74,
-        "retail": 41.93,
-        "total": 38.12
-      },
+      "subscription": null,
       "sector": "Financial Services & Capital Markets",
       "about": "Shah Investor’s Home is a financial services provider in India engaged primarily in stock broking across equity, commodity, derivatives, and currency segments. The company generates a major portion of its revenue from its broking segment, earning brokerage income based on traded value and order size. Alongside broking, it provides financial services including mutual fund distributorship, margin trading facility, and stock lending and borrowing. It also offers research services covering equity fundamentals, derivatives, commodities, and mutual funds to assist clients. The company earns revenue through brokerage fees, interest income from margin trading facilities, and fees and commission income from distributing third-party financial products. Catering mainly to retail investors, including resident and non-resident Indians, the company executes transactions through its head office, branch network, online trading platforms, and a network of authorized persons, with a primary market focus and business concentration in the state of Gujarat.",
       "financialHighlights": {
@@ -3032,14 +3070,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/SRIT_logo-300x100.png",
       "category": "MAINBOARD",
       "status": "CLOSED",
-      "priceBandLow": 123,
+      "priceBandLow": 19,
       "priceBandHigh": 130,
       "lotSize": 115,
       "issueSizeCr": 218.0,
       "freshIssueCr": 185.3,
       "ofsCr": 32.7,
       "gmp": 59.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -3053,12 +3091,7 @@
         "creditOfShares": "05 Oct 2026",
         "listingDate": "06 Oct 2026"
       },
-      "subscription": {
-        "qib": 100.13,
-        "nii": 150.19,
-        "retail": 137.68,
-        "total": 125.16
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "SRIT India is an Information Technology and Information Technology-enabled Services solutions company offering digital solutions and system automation through custom application development and integration services. The company executes large-scale, mission-critical projects primarily for central and state government bodies, alongside enterprise clients across India and international markets. Its core operations are organized into three primary verticals: electronic governance, healthcare, and telecommunications and broadband. Revenue is predominantly generated by participating in competitive bidding processes to secure tender-driven contracts from government entities, which account for a substantial majority of its business. The company’s business model involves executing turnkey projects, often partnering with third-party technology companies to deliver bundled, integrated solutions and utilizing sub-contractors for specialized tasks. Furthermore, it provides customized solutions tailored to the specific needs and regulatory environments of each industry it serves.",
       "financialHighlights": {
@@ -3131,14 +3164,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Pind_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 93,
+      "priceBandLow": 24,
       "priceBandHigh": 99,
       "lotSize": 1200,
       "issueSizeCr": 18.0,
       "freshIssueCr": 15.3,
       "ofsCr": 2.7,
       "gmp": 1.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3152,12 +3185,7 @@
         "creditOfShares": "05 Oct 2026",
         "listingDate": "06 Oct 2026"
       },
-      "subscription": {
-        "qib": 2.17,
-        "nii": 3.25,
-        "retail": 2.98,
-        "total": 2.71
-      },
+      "subscription": null,
       "sector": "Healthcare & Pharmaceuticals",
       "about": "Pind Hospitality operates in the consumer food services industry, managing food delivery services and dine-in restaurants under the recognized Pind Punjab brand. The business primarily functions on a hybrid model, generating a substantial portion of its revenue through third-party food delivery applications, which accounted for over 78% of its operations in recent years. Pind Hospitality strategically focuses on the Pune geographic market, where all its current operational revenues are concentrated. Following the acquisition of a significant stake in a related partnership firm, the business is consolidating its restaurant operations to streamline its footprint. Furthermore, Pind Hospitality is diversifying its service offerings by expanding into the hospitality and event sector. It is currently developing the Haveli Project in Lonavala, Maharashtra, a hotel-cum-banquet hall designed to cater to the destination wedding market and corporate conferences, thereby broadening its core revenue streams.",
       "financialHighlights": {
@@ -3229,14 +3257,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Shivchem_logo-300x300.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 59,
+      "priceBandLow": 5,
       "priceBandHigh": 62,
       "lotSize": 2000,
       "issueSizeCr": 14.0,
       "freshIssueCr": 11.9,
       "ofsCr": 2.1,
       "gmp": 1.5,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3250,12 +3278,7 @@
         "creditOfShares": "05 Oct 2026",
         "listingDate": "06 Oct 2026"
       },
-      "subscription": {
-        "qib": 1.76,
-        "nii": 2.64,
-        "retail": 2.42,
-        "total": 2.2
-      },
+      "subscription": null,
       "sector": "Agri-Business & FMCG",
       "about": "Shivchem Agro manufactures and distributes a wide range of agrochemicals and fertilizers designed for crop protection and yield enhancement. The company’s portfolio includes insecticides, fungicides, herbicides, plant growth regulators, rodenticides, and various fertilizers. Operating from a manufacturing facility located in Jhajjar, Haryana, the business formulates chemical solutions to address diverse farming requirements. Shivchem Agro generates its revenue primarily through the sale and distribution of these agrochemical formulations across domestic markets, including Andhra Pradesh, Assam, Haryana, Telangana, Odisha, and Bihar. The company sells its offerings through an extensive distribution network, supported by strategically leased godowns across multiple Indian states to facilitate product supply and timely delivery. Raw materials are sourced from third-party suppliers on a purchase order basis to maintain continuous production. Shivchem Agro focuses on expanding its product portfolio, optimizing manufacturing capacity, and strengthening its regional market presence to effectively serve agricultural needs.",
       "financialHighlights": {
@@ -3328,14 +3351,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/09/Acme_logo-300x100.png",
       "category": "SME",
       "status": "CLOSED",
-      "priceBandLow": 65,
+      "priceBandLow": 49,
       "priceBandHigh": 71,
       "lotSize": 1600,
       "issueSizeCr": 36.0,
       "freshIssueCr": 30.6,
       "ofsCr": 5.4,
       "gmp": 16.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -3349,12 +3372,7 @@
         "creditOfShares": "05 Oct 2026",
         "listingDate": "06 Oct 2026"
       },
-      "subscription": {
-        "qib": 18.73,
-        "nii": 28.09,
-        "retail": 25.75,
-        "total": 23.41
-      },
+      "subscription": null,
       "sector": "Diversified Manufacturing",
       "about": "Acme Universal Safezone 9 manufactures industrial safety footwear, offering durable products that adhere to industry standards, including IS 15298 and IS 1989:2020. The company generates revenue by supplying safety shoes across various sectors, relying heavily on the defence and government sectors, alongside domestic business-to-business customers through open-market procurement and government rate contracts. The core business activities involve producing safety footwear using key raw materials such as polyurethane, PVC sole compounds, genuine leather, synthetic leather, and steel toe-caps. Acme operates manufacturing facilities in Gwalior, Banthar, and Banmore, having recently consolidated its Kanpur operations into the Banthar facility to improve process efficiency. The company emphasizes manufacturing durable safety shoes through efficient processes, utilizing advanced machinery like knife cutting machines and foam pouring machines. The business maintains a diversified customer base while focusing on consistent quality and competitive pricing for retail and institutional buyers.",
       "financialHighlights": {
@@ -3428,16 +3446,16 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/06/Runwal_logo-300x300.png",
       "category": "MAINBOARD",
       "status": "CLOSED",
-      "priceBandLow": 290,
+      "priceBandLow": 1,
       "priceBandHigh": 305,
       "lotSize": 49,
       "issueSizeCr": 500.0,
       "freshIssueCr": 425.0,
       "ofsCr": 75.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -3449,12 +3467,7 @@
         "creditOfShares": "01 Oct 2026",
         "listingDate": "05 Oct 2026"
       },
-      "subscription": {
-        "qib": 2.11,
-        "nii": 3.17,
-        "retail": 2.9,
-        "total": 2.64
-      },
+      "subscription": null,
       "sector": "Infrastructure & Construction",
       "about": "Runwal Enterprises is a real estate development company primarily focused on the Mumbai market. The company specializes in the development of residential projects, which constitute the majority of its business, alongside selectively developing retail and commercial spaces within mixed-use developments. Its residential portfolio is strategically classified into three distinct segments: affordable, mid-income, and luxury. The affordable segment is concentrated in the Dombivli micro-market, while the mid-income offerings are located in Mulund, Kanjurmarg, Bandra, Chembur, and Alibaug. The luxury segment caters specifically to the South Mumbai sub-market. Runwal Enterprises generates revenue by acquiring land, securing development rights or entering into joint development agreements, and subsequently executing the design, construction, and sale of the developed units. The company relies heavily on pre-sales and a network of channel partners to market its real estate properties to prospective homebuyers and investors.",
       "financialHighlights": {
@@ -3527,14 +3540,14 @@
       "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/07/GTMTlogo-300x203.png",
       "category": "MAINBOARD",
       "status": "CLOSED",
-      "priceBandLow": 132,
+      "priceBandLow": 8,
       "priceBandHigh": 139,
       "lotSize": 107,
       "issueSizeCr": 304.0,
       "freshIssueCr": 258.4,
       "ofsCr": 45.6,
       "gmp": 9.5,
-      "gmpUpdatedDate": "14 Oct, 12:58 AM",
+      "gmpUpdatedDate": "14 Oct, 07:11 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -3548,12 +3561,7 @@
         "creditOfShares": "01 Oct 2026",
         "listingDate": "05 Oct 2026"
       },
-      "subscription": {
-        "qib": 24.34,
-        "nii": 36.5,
-        "retail": 33.46,
-        "total": 30.42
-      },
+      "subscription": null,
       "sector": "Renewable Energy & Power",
       "about": "German Green Steel and Power is a vertically integrated iron and steel manufacturer primarily operating in the western region of India. The company focuses on manufacturing thermo-mechanically treated bars, mild steel billets, and sponge iron. It serves a diversified client base comprising distributors, dealers, and direct institutional customers across sectors like real estate, roadways, and thermal plants. The company operates two manufacturing facilities located in Samakhiyali and Viramgam in Gujarat. A notable feature of its operations is the integration of captive coal-based power plants, waste heat recovery systems, and hybrid wind and solar power setups, which provide cost-effective energy for its intensive manufacturing requirements. The company generates revenue predominantly from domestic sales within Gujarat, complemented by minor international exports, positioning itself as a key supplier in the regional steel supply chain.",
       "financialHighlights": {
