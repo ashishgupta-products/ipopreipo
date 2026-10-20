@@ -33,8 +33,9 @@ function cleanTimelineDate(dateStr?: string): string {
 }
 
 export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProps) {
-  const minInvestment = ipo.priceBandHigh * ipo.lotSize;
-  const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
+  const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
+  const minInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : null;
+  const gmpPercent = ipo.priceBandHigh ? ((ipo.gmp / ipo.priceBandHigh) * 100) : 0;
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
   const dailyChange = ipo.dailyGmpChange !== undefined ? ipo.dailyGmpChange : (ipo.gmpTrend === 'UP' ? 15 : ipo.gmpTrend === 'DOWN' ? -10 : 0);
 
@@ -159,10 +160,10 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
               Price Band
             </div>
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-              ₹{ipo.priceBandLow} - ₹{ipo.priceBandHigh}
+              {ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA'}
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-              Lot: {ipo.lotSize} shares
+              {hasValidLot ? `Lot: ${ipo.lotSize} shares` : 'Lot: TBA'}
             </div>
           </div>
 
@@ -171,10 +172,10 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
               Min Investment
             </div>
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-              ₹{minInvestment.toLocaleString('en-IN')}
+              {minInvestment ? `₹${minInvestment.toLocaleString('en-IN')}` : 'TBA'}
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-              Size: ₹{ipo.issueSizeCr.toLocaleString('en-IN')} Cr
+              {ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `Size: ₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'Size: TBA'}
             </div>
           </div>
         </div>

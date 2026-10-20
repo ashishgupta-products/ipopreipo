@@ -60,15 +60,16 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
   const [copied, setCopied] = useState<boolean>(false);
 
   // Calculations
-  const minRetailInvestment = ipo.priceBandHigh * ipo.lotSize;
-  const maxRetailLots = Math.max(1, Math.floor(200000 / minRetailInvestment));
+  const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
+  const minRetailInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : 0;
+  const maxRetailLots = minRetailInvestment > 0 ? Math.max(1, Math.floor(200000 / minRetailInvestment)) : 0;
   const maxRetailInvestment = maxRetailLots * minRetailInvestment;
-  const sHniMinLots = maxRetailLots + 1;
+  const sHniMinLots = maxRetailLots > 0 ? maxRetailLots + 1 : 0;
   const sHniMinInvestment = sHniMinLots * minRetailInvestment;
 
-  const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
+  const gmpPercent = ipo.priceBandHigh ? ((ipo.gmp / ipo.priceBandHigh) * 100) : 0;
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
-  const estProfitPerLot = ipo.gmp * ipo.lotSize;
+  const estProfitPerLot = hasValidLot ? ipo.gmp * (ipo.lotSize as number) : 0;
   const gmpHistory = getIpoGmpHistory(ipo);
   const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
 
@@ -498,10 +499,10 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               Total Issue Size
             </span>
             <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem' }}>
-              ₹{ipo.issueSizeCr.toLocaleString('en-IN')} Cr
+              {ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'TBA'}
             </div>
             <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
-              {ipo.freshIssueCr ? `Fresh ₹${ipo.freshIssueCr} Cr` : 'Pure OFS'}
+              {ipo.freshIssueCr ? `Fresh ₹${ipo.freshIssueCr} Cr` : (ipo.issueSizeCr && ipo.issueSizeCr > 0 ? 'Pure OFS' : 'Pending Filing')}
             </span>
           </div>
 
@@ -887,7 +888,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   {estProfitPerLot >= 0 ? `+₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
                 </div>
                 <span style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '0.35rem', display: 'block' }}>
-                  Lot Size: {ipo.lotSize} shares (Cost: ₹{minRetailInvestment.toLocaleString('en-IN')})
+                  {hasValidLot ? `Lot Size: ${ipo.lotSize} shares (Cost: ₹${minRetailInvestment.toLocaleString('en-IN')})` : 'Lot Size: TBA'}
                 </span>
               </div>
 
@@ -895,10 +896,10 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               <div className="glass-panel" style={{ padding: '1.25rem' }}>
                 <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Kostak / Subject to Sauda</span>
                 <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#334155', marginTop: '0.25rem' }}>
-                  Kostak: ₹{Math.round(ipo.gmp * ipo.lotSize * 0.12).toLocaleString('en-IN')}
+                  Kostak: {hasValidLot ? `₹${Math.round(ipo.gmp * (ipo.lotSize || 0) * 0.12).toLocaleString('en-IN')}` : 'TBA'}
                 </div>
                 <div className="mono" style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '0.2rem' }}>
-                  Sauda: ~₹{Math.round(estProfitPerLot * 0.85).toLocaleString('en-IN')} / lot
+                  Sauda: {hasValidLot ? `~₹${Math.round(estProfitPerLot * 0.85).toLocaleString('en-IN')} / lot` : 'TBA'}
                 </div>
               </div>
             </div>
@@ -1060,13 +1061,13 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                     Retail Investor (Max {maxRetailLots} Lots)
                   </div>
                   <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
-                    {maxRetailLots * ipo.lotSize} shares @ ₹{ipo.priceBandHigh}
+                    {hasValidLot ? `${maxRetailLots * (ipo.lotSize || 0)} shares @ ₹${ipo.priceBandHigh}` : 'Awaiting Lot Announcement'}
                   </div>
                   <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
-                    {estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}`}
+                    {hasValidLot ? (estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}`) : 'TBA'}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: '#475569' }}>
-                    Application Cost: ₹{maxRetailInvestment.toLocaleString('en-IN')}
+                    Application Cost: {maxRetailInvestment > 0 ? `₹${maxRetailInvestment.toLocaleString('en-IN')}` : 'TBA'}
                   </div>
                 </div>
 
@@ -1075,13 +1076,13 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                     Small HNI (sHNI Min {sHniMinLots} Lots)
                   </div>
                   <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
-                    {sHniMinLots * ipo.lotSize} shares @ ₹{ipo.priceBandHigh}
+                    {hasValidLot ? `${sHniMinLots * (ipo.lotSize || 0)} shares @ ₹${ipo.priceBandHigh}` : 'Awaiting Lot Announcement'}
                   </div>
                   <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
-                    {estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}`}
+                    {hasValidLot ? (estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}`) : 'TBA'}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: '#475569' }}>
-                    Application Cost: ₹{sHniMinInvestment.toLocaleString('en-IN')}
+                    Application Cost: {sHniMinInvestment > 0 ? `₹${sHniMinInvestment.toLocaleString('en-IN')}` : 'TBA'}
                   </div>
                 </div>
               </div>

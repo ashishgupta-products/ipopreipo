@@ -16,6 +16,9 @@ import {
  * - Big HNI (bHNI): > ₹10,00,000 (Mainboard)
  */
 export function getIpoLotBrackets(ipo: IpoItem): IpoLotBracket[] {
+  if (!ipo.lotSize || ipo.lotSize <= 0 || !ipo.priceBandHigh || ipo.priceBandHigh <= 0) {
+    return [];
+  }
   const lotPrice = ipo.priceBandHigh * ipo.lotSize;
   const isSme = ipo.category === 'SME';
 
@@ -122,7 +125,8 @@ export function getIpoMultiYearFinancials(ipo: IpoItem): IpoFinancialYear[] {
     return ipo.multiYearFinancials;
   }
 
-  const baseRev = ipo.financialHighlights?.revenueCr || (ipo.issueSizeCr * 1.8);
+  const issueSize = ipo.issueSizeCr || 250;
+  const baseRev = ipo.financialHighlights?.revenueCr || (issueSize * 1.8);
   const basePat = ipo.financialHighlights?.patCr || (baseRev * 0.12);
 
   // Generate realistic 3-year growth trend (FY22 -> FY23 -> FY24)
@@ -263,8 +267,9 @@ export function getIpoObjectsOfIssue(ipo: IpoItem): string[] {
     return ipo.objectsOfIssue;
   }
 
-  const fresh = ipo.freshIssueCr || (ipo.issueSizeCr * 0.75);
-  const ofs = ipo.ofsCr || (ipo.issueSizeCr * 0.25);
+  const issueSize = ipo.issueSizeCr || 100;
+  const fresh = ipo.freshIssueCr || (issueSize * 0.75);
+  const ofs = ipo.ofsCr || (issueSize * 0.25);
 
   return [
     `Funding capital expenditures for capacity expansion and new facility setup (₹${(fresh * 0.45).toFixed(1)} Cr)`,
@@ -298,7 +303,7 @@ export function getIpoAnchorDetails(ipo: IpoItem) {
     return ipo.anchorDetails;
   }
 
-  if (ipo.category === 'SME' || ipo.issueSizeCr < 100) {
+  if (ipo.category === 'SME' || !ipo.issueSizeCr || ipo.issueSizeCr < 100) {
     return null; // SMEs usually don't have large anchor books
   }
 

@@ -91,8 +91,8 @@ export interface IpoItem {
   priceBandLow: number;
   priceBandHigh: number;
   faceValue?: number;
-  lotSize: number;
-  issueSizeCr: number;
+  lotSize?: number | null;
+  issueSizeCr?: number | null;
   freshIssueCr?: number;
   ofsCr?: number;
   gmp: number; // in INR

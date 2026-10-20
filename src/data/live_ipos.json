@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20T09:14:02.261448",
+  "lastUpdated": "2026-10-20T18:18:23.599174",
   "source": "Zerodha Primary IPO Portal (https://zerodha.com/ipo)",
   "count": 47,
   "ipos": [
@@ -12,33 +12,33 @@
       "status": "UPCOMING",
       "priceBandLow": 1065,
       "priceBandHigh": 1119,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "lotSize": 12,
+      "issueSizeCr": 30188.0,
+      "freshIssueCr": 25659.8,
+      "ofsCr": 4528.2,
+      "gmp": 254.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 4,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
       "timeline": {
         "biddingStarts": "21 Oct 2026",
         "biddingEnds": "23 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "26 Oct 2026",
+        "refundInitiation": "27 Oct 2026",
+        "creditOfShares": "27 Oct 2026",
         "listingDate": "28 Oct 2026"
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Jio Platforms is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "﻿",
       "financialHighlights": {
-        "revenueCr": 16785.0,
-        "patCr": 2014.2,
-        "eps": 69.94,
-        "peRatio": 16.0,
+        "revenueCr": 40197.9,
+        "patCr": 7764.1,
+        "eps": 69.38,
+        "peRatio": 16.1,
         "ronw": 21.5
       },
       "tags": [
@@ -46,6 +46,54 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://myjiostatic.cdn.jio.com/cms/assets/iv3/Red%20Herring%20Prospectus.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 581233.8,
+          "revenueCr": 129333.0,
+          "patCr": 26120.0,
+          "netWorthCr": 244118.2,
+          "totalBorrowingCr": 104622.08,
+          "reservesCr": 162745.46
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 615594.0,
+          "revenueCr": 149759.1,
+          "patCr": 30052.7,
+          "netWorthCr": 258549.48,
+          "totalBorrowingCr": 110806.92,
+          "reservesCr": 172366.32
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 622905.3,
+          "revenueCr": 40197.9,
+          "patCr": 7764.1,
+          "netWorthCr": 261620.23,
+          "totalBorrowingCr": 112122.95,
+          "reservesCr": 174413.48
+        }
+      ],
+      "strengths": [
+        "Operates a full-stack technology platform built on proprietary digital technology and connectivity infrastructure.",
+        "Has the largest spectrum holding in India; has the most extensive network infrastructure with nationwide wireless and broadband coverage.",
+        "Net debt to EBITDA has fallen from 0.88x (FY24) to 0.36x (FY26)",
+        "Carried about 60% of India’s wireless data traffic in FY26",
+        "Capitalizes on the distribution strength of Reliance Retail and the MyJio App to distribute connections and digital services"
+      ],
+      "risks": [
+        "Intense competition from telecom operators and global digital technology companies may impact growth and pricing.",
+        "Changes in telecom licensing, spectrum policies, or data regulations could affect business operations.",
+        "Cybersecurity threats, data privacy issues, or infrastructure vulnerabilities could impact customer trust and services.",
+        "₹1.05 lakh crore owed to DoT in deferred spectrum payments",
+        "Has never paid a dividend; RIL keeps control after listing"
+      ],
+      "objectsOfIssue": [
+        "Repayment or prepayment of certain Company borrowings (27500 (91.02%))",
+        "General Corporate Purposes (2713 (8.98%))"
       ]
     },
     {
@@ -57,13 +105,13 @@
       "status": "UPCOMING",
       "priceBandLow": 660,
       "priceBandHigh": 693,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
+      "lotSize": 21,
+      "issueSizeCr": 1450.0,
+      "freshIssueCr": 1232.5,
+      "ofsCr": 217.5,
+      "gmp": 58.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
@@ -71,19 +119,19 @@
       "timeline": {
         "biddingStarts": "21 Oct 2026",
         "biddingEnds": "23 Oct 2026",
-        "allotmentFinalization": "T+1 after Close",
-        "refundInitiation": "T+2 after Close",
-        "creditOfShares": "T+2 after Close",
+        "allotmentFinalization": "26 Oct 2026",
+        "refundInitiation": "27 Oct 2026",
+        "creditOfShares": "27 Oct 2026",
         "listingDate": "28 Oct 2026"
       },
       "subscription": null,
       "sector": "Healthcare & Pharmaceuticals",
-      "about": "Paras Healthcare is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Paras Healthcare operates a network of multi-specialty tertiary care hospitals under the “Paras Health” brand, primarily focused on the healthcare markets of North India and East India. The company’s core business involves providing advanced healthcare services, including complex quaternary care and specialized therapeutic treatments. It manages eight operational hospitals across cities such as Gurugram, Patna, Panchkula, Ranchi, Udaipur, Srinagar, Darbhanga, and Kanpur, with a total bed capacity of 2,211 beds as of June 30, 2026. Paras Healthcare generates the majority of its revenue from in-patient department services, which include consultations, surgeries, and specialized treatments. The company’s revenue is heavily driven by six core clinical specialties: cardiac sciences, oncology, neurosciences, gastro sciences, orthopedics and sports injury, and renal sciences. Additionally, the company generates a smaller portion of its income through in-house pharmacy sales and outpatient consultations.",
       "financialHighlights": {
-        "revenueCr": 10395.0,
-        "patCr": 1247.4,
-        "eps": 43.31,
-        "peRatio": 16.0,
+        "revenueCr": 478.75,
+        "patCr": 49.68,
+        "eps": 0.72,
+        "peRatio": 962.5,
         "ronw": 21.5
       },
       "tags": [
@@ -91,6 +139,55 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 1810.45,
+          "revenueCr": 1314.21,
+          "patCr": -57.98,
+          "netWorthCr": 760.39,
+          "totalBorrowingCr": 325.88,
+          "reservesCr": 506.93
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 2071.14,
+          "revenueCr": 1628.78,
+          "patCr": 43.83,
+          "netWorthCr": 869.88,
+          "totalBorrowingCr": 372.81,
+          "reservesCr": 579.92
+        },
+        {
+          "period": "June 2026",
+          "assetsCr": 2202.88,
+          "revenueCr": 478.75,
+          "patCr": 49.68,
+          "netWorthCr": 925.21,
+          "totalBorrowingCr": 396.52,
+          "reservesCr": 616.81
+        }
+      ],
+      "strengths": [
+        "Established “Paras Health” brand in underserved North and East India markets.",
+        "High revenue reliance on specialized CONGOR clinical programs.",
+        "Diversified network of eight multi-specialty hospitals with 2,211 beds.",
+        "Advanced quaternary care supported by modern medical infrastructure.",
+        "Improved occupancy rates and a turnaround to profitability in Fiscal 2026."
+      ],
+      "risks": [
+        "High medical staff attrition may impact care quality.",
+        "High revenue concentration in North India poses regional risks.",
+        "Over-reliance on CONGOR specialties risks revenue drops.",
+        "High debt of ₹9,394.67 million strains cash flows.",
+        "Unregistered hospital leases risk eviction and disruption."
+      ],
+      "objectsOfIssue": [
+        "Repayment or prepayment of certain Company borrowings (320.9 (64.18%))",
+        "Investment in Subsidiary PMHPL for borrowing repayment (54.1 (10.82%))",
+        "General Corporate Purposes (125 (25%))"
       ]
     },
     {
@@ -102,12 +199,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -123,20 +220,15 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Acko is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
+      "about": "Acko is a Bengaluru-based digital-first insurance company founded in 2016 by Varun Dua. It operates as a direct-to-consumer insurer offering motor, health, travel, and other insurance products through a fully online platform, bypassing traditional agents. The company has positioned itself as a technology-led insurtech player with a strong focus on simplifying policy purchase and claims experience. Backed by investors such as General Atlantic, Accel, and CPP Investments, Acko has raised over $580 million to date and has built scale through embedded distribution partnerships and digital channels.",
+      "financialHighlights": null,
       "tags": [
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
-      ]
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf"
     },
     {
       "id": "oyo",
@@ -147,12 +239,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -168,12 +260,12 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "OYO is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Oravel Stays Limited operates a global asset-light hospitality platform connecting property owners with short-stay guests via branding, tech tools, and operational support. It operates across three core verticals: Hotels (OYO, Sunday, Townhouse, Motel 6, Studio 6), Homes (Belvilla, DanCenter, Checkmyguest), and Listings (European subscription services). Additional offerings include wedding venues, co-working spaces, tours, food and beverage, and insurance facilitation. Revenue stems from partner revenue-sharing, home booking commissions, listing subscriptions, and G6 franchisee royalties.As Oyo’s parent prepares for its third IPO attempt under the “PRISM” brand, its evolution from a budget hotel chain into a global distribution platform has driven cash-positive operations. However, a lingering ₹3,000 crore debt load and shrinking direct demand pose ongoing challenges to its growth ambitions. Readmore",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 7166.3,
+        "patCr": 748.3,
+        "eps": 74.83,
+        "peRatio": 1.3,
         "ronw": 21.5
       },
       "tags": [
@@ -181,6 +273,54 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 6443.41,
+          "revenueCr": 5541.58,
+          "patCr": 229.57,
+          "netWorthCr": 2706.23,
+          "totalBorrowingCr": 1159.81,
+          "reservesCr": 1804.15
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 16695.3,
+          "revenueCr": 6325.9,
+          "patCr": 244.8,
+          "netWorthCr": 7012.03,
+          "totalBorrowingCr": 3005.15,
+          "reservesCr": 4674.68
+        },
+        {
+          "period": "December 2025",
+          "assetsCr": 18944.24,
+          "revenueCr": 7166.3,
+          "patCr": 748.3,
+          "netWorthCr": 7956.58,
+          "totalBorrowingCr": 3409.96,
+          "reservesCr": 5304.39
+        }
+      ],
+      "strengths": [
+        "Asset-light business model enables expansion with limited ownership of hotel properties.",
+        "Diversified hospitality portfolio spans hotels, vacation homes, and property listing businesses.",
+        "Technology platform supports pricing, distribution, partner operations, and customer experience.",
+        "Presence across multiple countries reduces dependence on a single market.",
+        "Revenue comes from multiple streams, including revenue sharing, commissions, subscriptions, and franchise royalties."
+      ],
+      "risks": [
+        "The company has incurred losses in the past and may not sustain profitability in the future.",
+        "A significant portion of the IPO proceeds will be used to repay borrowings of its subsidiary.",
+        "The business depends on maintaining relationships with hotel owners, property partners, and franchisees.",
+        "Any technology failure, cyberattack, or data security breach could disrupt operations and affect the business.",
+        "The company is involved in legal and regulatory proceedings that could adversely affect its business, financial condition, and reputation."
+      ],
+      "objectsOfIssue": [
+        "Investment in subsidiary Oravel Stays Singapore Pte. Ltd. to repay or prepay its borrowings (4987.50 (75%))",
+        "General corporate purposes (1662.50 (25%))"
       ]
     },
     {
@@ -192,12 +332,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -213,20 +353,15 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Parle Products is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
+      "about": "Parle Products is one of India’s largest and oldest fast-moving consumer goods (FMCG) companies, founded in 1929 by the Chauhan family in Mumbai. It is best known for its flagship brand Parle-G, widely regarded as the world’s top-selling biscuit. Over decades, the company has built a diversified portfolio including brands such as Monaco, KrackJack, Hide & Seek, Melody, and Mango Bite. With a strong rural and urban distribution network and presence across multiple price segments, Parle remains a dominant player in India’s biscuit and confectionery market.",
+      "financialHighlights": null,
       "tags": [
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
-      ]
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf"
     },
     {
       "id": "makemytrip",
@@ -237,12 +372,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -258,20 +393,15 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "MakeMyTrip is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
+      "about": "MakeMyTrip Limited is India’s leading online travel platform, offering services across flights, hotels, holiday packages, rail, bus, and cab bookings through its brands—MakeMyTrip, Goibibo, and redBus. The company is listed on Nasdaq and operates primarily through its Indian subsidiaries, catering to both retail and corporate travel segments. Over the years, it has built a dominant position in India’s online travel market, supported by a wide inventory, strong brand recall, and increasing adoption of digital travel services.",
+      "financialHighlights": null,
       "tags": [
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
-      ]
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf"
     },
     {
       "id": "boat",
@@ -282,12 +412,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -303,12 +433,12 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "BOAT is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Imagine Marketing Limited was incorporated in November 2013 and operates primarily under the brand“boAt”, launched in 2015. The company was founded and is promoted by Sameer Ashok Mehta, Aman Gupta, and South Lake Investment Ltd. It is a digital-first consumer electronics company focused on lifestyle-oriented, mass-premium products at accessible price points.The company designs, markets, and sells a wide range of consumer devices, including personal and large audio products, wearables such as smartwatches and smart rings, and charging solutions like cables, chargers, and power banks. Operations are asset-light, with manufacturing largely outsourced to strategic partners, while the company focuses on product design, branding, marketing, and distribution.",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 638.44,
+        "patCr": 21.35,
+        "eps": 2.14,
+        "peRatio": 46.7,
         "ronw": 21.5
       },
       "tags": [
@@ -316,6 +446,55 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "June 2024",
+          "assetsCr": 1656.96,
+          "revenueCr": 572.37,
+          "patCr": -31.08,
+          "netWorthCr": 695.92,
+          "totalBorrowingCr": 298.25,
+          "reservesCr": 463.95
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 1618.07,
+          "revenueCr": 3097.81,
+          "patCr": 61.08,
+          "netWorthCr": 679.59,
+          "totalBorrowingCr": 291.25,
+          "reservesCr": 453.06
+        },
+        {
+          "period": "June 2025",
+          "assetsCr": 1720.53,
+          "revenueCr": 638.44,
+          "patCr": 21.35,
+          "netWorthCr": 722.62,
+          "totalBorrowingCr": 309.7,
+          "reservesCr": 481.75
+        }
+      ],
+      "strengths": [
+        "Strong brand recall among young, digitally native consumers.",
+        "Asset-light, digital-first business model with scalable operations.",
+        "Diversified product portfolio across audio, wearables, and accessories.",
+        "Omni-channel distribution with strong online and growing offline presence.",
+        "Data-driven product design and marketing capabilities."
+      ],
+      "risks": [
+        "High dependence on third-party manufacturers and suppliers.",
+        "Intense competition in the consumer electronics and wearables market.",
+        "Profitability sensitive to marketing spend and working capital needs.",
+        "Exposure to rapid changes in consumer preferences and technology.",
+        "Significant reliance on online sales platforms for revenue."
+      ],
+      "objectsOfIssue": [
+        "Working capital requirements (225 (45%))",
+        "Brand and marketing expenses (150 (30%))",
+        "General corporate purposes (125 (25%))"
       ]
     },
     {
@@ -327,12 +506,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -348,12 +527,12 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Zepto is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Zepto Limited operates a quick commerce platform that enables users to purchase a wide range of products from third-party merchant partners through the “Zepto” mobile application. Orders placed on the platform are processed through strategically located dark stores operated by the company and delivered to users through last-mile delivery partners. In addition to groceries and household products, merchant partners offer freshly prepared food items through Zepto Café, which uses the same dark store and delivery infrastructure. The company also provides advertising and promotional solutions to brand partners, including sponsored placements, in-app advertising, analytics and campaign performance tools, creating an additional monetisation channel. Further, it offers supply chain services by sourcing products from brands and selling them to wholesalers and retailers on a non-exclusive basis. The company’s business is supported by its in-house technology systems that help manage operations, fulfilment, delivery and user engagement.",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 23128.4,
+        "patCr": -5886.9,
+        "eps": -588.69,
+        "peRatio": 1000.0,
         "ronw": 21.5
       },
       "tags": [
@@ -361,6 +540,57 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 2898.2,
+          "revenueCr": 4554.1,
+          "patCr": -1218.7,
+          "netWorthCr": 1217.24,
+          "totalBorrowingCr": 521.68,
+          "reservesCr": 811.5
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 13800.1,
+          "revenueCr": 11602.7,
+          "patCr": -4707.3,
+          "netWorthCr": 5796.04,
+          "totalBorrowingCr": 2484.02,
+          "reservesCr": 3864.03
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 13510.1,
+          "revenueCr": 23128.4,
+          "patCr": -5886.9,
+          "netWorthCr": 5674.24,
+          "totalBorrowingCr": 2431.82,
+          "reservesCr": 3782.83
+        }
+      ],
+      "strengths": [
+        "Fastest-growing quick commerce platform in India by order volume among scaled players between Fiscal 2024 and Fiscal 2026.",
+        "Significant increase in market share of quick commerce orders, rising from about 26% to 35% during the period.",
+        "Operates a technology-driven quick commerce model supported by dark stores and optimised delivery networks.",
+        "Generates revenue from multiple streams including product sales, advertising solutions, Zepto Café, and supply chain services.",
+        "Uses in-house technology systems to manage operations, fulfilment, delivery, and user engagement."
+      ],
+      "risks": [
+        "The company has incurred losses in recent years and may not achieve or sustain profitability in the future.",
+        "Intense competition in the quick commerce sector could affect growth, market share, and profitability.",
+        "Negative publicity, including social media commentary, could harm the company’s reputation and business.",
+        "Failure to ensure product quality, quantity, or accuracy could lead to recalls, refunds, and reputational damage.",
+        "Food safety, hygiene, and quality issues related to Zepto Café could adversely impact operations and brand image."
+      ],
+      "objectsOfIssue": [
+        "Expand dark store network (1628.98 (20.34%))",
+        "Lease payments for existing dark stores (1734.94 (21.66%))",
+        "Invest in technology and cloud infrastructure (1324.78 (16.54%))",
+        "Marketing and brand-building initiatives (520 (6.49%))",
+        "Inorganic growth opportunities and general corporate purposes (2801.30 (34.97%))"
       ]
     },
     {
@@ -372,14 +602,14 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -393,12 +623,12 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "EAAA India Alternatives is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "EAAA India Alternatives, formerly Edelweiss Alternative Asset Advisors, is a prominent alternative asset management firm in India. Established in 2008 and headquartered in Mumbai, the company specialises in managing and advising on a diverse portfolio of investments, including private credit, real estate credit, infrastructure yield, and special situations. The firm caters to a global clientele comprising institutional investors, pension funds, insurance companies, and high-net-worth individuals, emphasising a multi-strategy approach to alternative investments.",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 457.16,
+        "patCr": 125.1,
+        "eps": 12.51,
+        "peRatio": 8.0,
         "ronw": 21.5
       },
       "tags": [
@@ -406,6 +636,50 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 1769.66,
+          "revenueCr": 584.25,
+          "patCr": 175.16,
+          "netWorthCr": 743.26,
+          "totalBorrowingCr": 318.54,
+          "reservesCr": 495.5
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 2058.07,
+          "revenueCr": 786.54,
+          "patCr": 229.78,
+          "netWorthCr": 864.39,
+          "totalBorrowingCr": 370.45,
+          "reservesCr": 576.26
+        },
+        {
+          "period": "September 2025",
+          "assetsCr": 2053.95,
+          "revenueCr": 457.16,
+          "patCr": 125.1,
+          "netWorthCr": 862.66,
+          "totalBorrowingCr": 369.71,
+          "reservesCr": 575.11
+        }
+      ],
+      "strengths": [
+        "Over 15 years of experience in alternative asset management",
+        "Backed by the established Edelweiss Group",
+        "Diversified platform across real assets and private credit",
+        "Asset-light, scalable, fee-based business model",
+        "Experienced leadership with strong investment expertise"
+      ],
+      "risks": [
+        "Revenue depends on fund performance and capital commitments",
+        "Fund underperformance may impact profitability and fundraising",
+        "Subject to complex and evolving regulatory requirements",
+        "Asset valuations involve judgment and estimation risk",
+        "Competitive pressure may affect fees and growth"
       ]
     },
     {
@@ -417,12 +691,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": 13500.0,
+      "freshIssueCr": 11475.0,
+      "ofsCr": 2025.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -438,12 +712,12 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "PhonePe is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Incorporated in 2015, PhonePe is a leading digital payments and financial services company owned by Walmart. It enables users to perform various financial transactions, including sending and receiving money, recharging mobile phones and DTH services, making utility payments, and conducting in-store transactions. It was India’s first Unified Payments Interface (UPI)-based payments app launched by a non-bank fintech company.",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 4174.51,
+        "patCr": -1444.42,
+        "eps": -144.44,
+        "peRatio": 1000.0,
         "ronw": 21.5
       },
       "tags": [
@@ -451,6 +725,50 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://www.phonepe.com/apollo/investor-relations/phonepe-limited-draft-red-herring-prospectus.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 12706.48,
+          "revenueCr": 5722.2,
+          "patCr": -1996.17,
+          "netWorthCr": 5336.72,
+          "totalBorrowingCr": 2287.17,
+          "reservesCr": 3557.81
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 18205.23,
+          "revenueCr": 7631.38,
+          "patCr": -1727.41,
+          "netWorthCr": 7646.2,
+          "totalBorrowingCr": 3276.94,
+          "reservesCr": 5097.46
+        },
+        {
+          "period": "September 2025",
+          "assetsCr": 23178.95,
+          "revenueCr": 4174.51,
+          "patCr": -1444.42,
+          "netWorthCr": 9735.16,
+          "totalBorrowingCr": 4172.21,
+          "reservesCr": 6490.11
+        }
+      ],
+      "strengths": [
+        "Leading digital payments platform with a large and active user base",
+        "Strong brand recall supported by the PhonePe app ecosystem",
+        "Diversified offerings across UPI, wallets, insurance, wealth, and merchant services",
+        "Deep integration with merchants and financial institutions across India",
+        "Backed by experienced promoters and strong technology capabilities"
+      ],
+      "risks": [
+        "Continued losses and negative cash flows may persist in the near term",
+        "Highly competitive fintech and digital payments market",
+        "Heavy dependence on UPI transaction volumes and regulatory framework",
+        "Data security and technology failures could impact trust and operations",
+        "Regulatory changes may affect business model and monetization"
       ]
     },
     {
@@ -462,12 +780,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -483,12 +801,12 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Cult.fit is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Cult.Fit Limited is a fitness and wellness company that operates an integrated platform offering fitness services and fitness products through both online and offline channels. The company generates revenue primarily from fitness memberships, partner- and franchise-operated fitness centres, and the sale of fitness products through its digital platform and retail network. Its fitness services include company-owned centres, franchise and marketplace gyms, along with technology-enabled offerings delivered through the Cult.fit app. The company also sells active lifestyle and fitness-related products across multiple categories. Cult.Fit follows an asset-light expansion strategy by franchising fitness centres through its “gym-in-a-box” model, which supports partners with centre design, equipment, and operational processes. Its technology platform integrates fitness services and products, enabling cross-selling, customer engagement, class management, and operational efficiency across its network.",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 1801.82,
+        "patCr": -251.86,
+        "eps": -25.19,
+        "peRatio": 1000.0,
         "ronw": 21.5
       },
       "tags": [
@@ -496,6 +814,58 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://www.bseindia.com/corporates/download/323123/IPO%20Prior/DRHP_20260707090553.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2024",
+          "assetsCr": 3031.85,
+          "revenueCr": 1027.12,
+          "patCr": -888.49,
+          "netWorthCr": 1273.38,
+          "totalBorrowingCr": 545.73,
+          "reservesCr": 848.92
+        },
+        {
+          "period": "March 2025",
+          "assetsCr": 2926.23,
+          "revenueCr": 1272.03,
+          "patCr": -480.83,
+          "netWorthCr": 1229.02,
+          "totalBorrowingCr": 526.72,
+          "reservesCr": 819.34
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 3103.2,
+          "revenueCr": 1801.82,
+          "patCr": -251.86,
+          "netWorthCr": 1303.34,
+          "totalBorrowingCr": 558.58,
+          "reservesCr": 868.9
+        }
+      ],
+      "strengths": [
+        "Category creator and leader in India’s fitness services market with a focus on accessibility and innovation.",
+        "An asset-light franchise model supports the scalable expansion of fitness centres.",
+        "Technology platform improves customer experience and operational efficiency.",
+        "Strong Cult.fit brand with omnichannel distribution across fitness services and products.",
+        "Integrated business creates synergies between fitness services and fitness products."
+      ],
+      "risks": [
+        "The business depends on continued demand for fitness services and fitness products in India.",
+        "The business is seasonal, so quarterly performance may not reflect full-year results.",
+        "Delays or cost overruns in planned expansion could affect business performance and results.",
+        "Any change in the planned use of IPO proceeds requires shareholder approval and regulatory compliance.",
+        "The company’s financial statements are prepared under Ind AS, which differs from IFRS and U.S. GAAP"
+      ],
+      "objectsOfIssue": [
+        "Set up new Cult Centres (276.6 (29.10%))",
+        "Lease, rent and licence payments for existing fitness centres (217.5 (22.90%))",
+        "Repay or prepay certain borrowings (120 (12.60%))",
+        "Brand marketing, advertising and business promotion (75 (7.90%))",
+        "Invest in Cultsport Private Limited to set up new Exclusive Brand Outlets (EBOs) (23.4 (2.50%))",
+        "General corporate purposes (237.5 (25%))"
       ]
     },
     {
@@ -507,12 +877,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -528,20 +898,15 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "KUKU (Mebigo Labs) is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
+      "about": "Kuku, operated by parent company Mebigo Labs, is an Indian audio content platform (earlier branded as Kuku FM) focused on audiobooks, stories, and knowledge content in multiple Indian languages. Positioned as a vernacular audio OTT “soonicorn”, it targets the fast‑growing regional‑language user base across Tier‑2 and Tier‑3 cities, building a large subscription‑driven and freemium audience. The company has raised venture funding over the years, and by mid‑2025, its private‑market valuation was reported to be around 500 million dollars, reflecting strong traction and revenue growth, though this is distinct from any eventual IPO pricing.",
+      "financialHighlights": null,
       "tags": [
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
-      ]
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf"
     },
     {
       "id": "tata-sons",
@@ -552,12 +917,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -573,20 +938,15 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Tata Sons is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
+      "about": "Tata Sons Private Limited is the principal investment holding company and promoter of the Tata Group, India’s largest conglomerate, founded over 155 years ago. It sits at the top of a distinctive governance structure combining philanthropic ownership with strategic control across sectors like IT, automotive, materials, aerospace, retail, and hospitality.",
+      "financialHighlights": null,
       "tags": [
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
-      ]
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf"
     },
     {
       "id": "upstox",
@@ -597,12 +957,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": null,
+      "freshIssueCr": null,
+      "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -618,20 +978,15 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "Upstox is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
-      "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
-        "ronw": 21.5
-      },
+      "about": "Upstox is one of India’s leading online trading platforms, backed by prominent investors including Tiger Global Management, Stride Ventures, and the late Ratan Tata. The company achieved unicorn status in 2021 following a funding round that valued it at $3.5 billion. Upstox has raised approximately $220 million across 6 funding rounds to date.",
+      "financialHighlights": null,
       "tags": [
         "Zerodha Verified",
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
-      ]
+      ],
+      "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf"
     },
     {
       "id": "inox-clean-energy",
@@ -642,12 +997,12 @@
       "status": "UPCOMING",
       "priceBandLow": 100,
       "priceBandHigh": 100,
-      "lotSize": 40,
-      "issueSizeCr": 350.0,
-      "freshIssueCr": 300.0,
-      "ofsCr": 50.0,
+      "lotSize": null,
+      "issueSizeCr": 10000.0,
+      "freshIssueCr": 8500.0,
+      "ofsCr": 1500.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -663,12 +1018,12 @@
       },
       "subscription": null,
       "sector": "Renewable Energy & Power",
-      "about": "Inox Clean Energy is launching its initial public offering on NSE & BSE to raise capital for corporate expansion, capital expenditures, and working capital.",
+      "about": "Inox Clean Energy operates in independent power production (renewables; 2,375.05 MW capacity under long-term PPAs with utilities and hyperscalers) and solar module manufacturing (Bavla, Gujarat facility, with Dhenkanal, Odisha cells under development). Backed by group entities for project execution, the company is expanding globally, including the United States and Africa, through acquisitions and joint ventures. Readmore",
       "financialHighlights": {
-        "revenueCr": 1500.0,
-        "patCr": 180.0,
-        "eps": 6.25,
-        "peRatio": 16.0,
+        "revenueCr": 361.42,
+        "patCr": 30.98,
+        "eps": 3.1,
+        "peRatio": 32.3,
         "ronw": 21.5
       },
       "tags": [
@@ -676,6 +1031,45 @@
         "MAINBOARD",
         "NSE & BSE",
         "UPCOMING IPO"
+      ],
+      "rhpUrl": "https://www.nuvama.com/wp-content/uploads/2026/09/Inox-Clean-Energy-Limited-DRHP.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 1254.96,
+          "revenueCr": 56.77,
+          "patCr": 1.56,
+          "netWorthCr": 527.08,
+          "totalBorrowingCr": 225.89,
+          "reservesCr": 351.39
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 12245.28,
+          "revenueCr": 361.42,
+          "patCr": 30.98,
+          "netWorthCr": 5143.02,
+          "totalBorrowingCr": 2204.15,
+          "reservesCr": 3428.68
+        }
+      ],
+      "strengths": [
+        "2,375.05 MW operational capacity across wind, solar, and hybrid projects.",
+        "High revenue visibility with 19.10 years’ average remaining PPA tenure.",
+        "Expanding global footprint with projects across Africa and the United States.",
+        "Integrated project execution backed by the INOXGFL Group’s infrastructure.",
+        "Strong 70% capacity utilization achieved at the Phase 1 Bavla solar facility"
+      ],
+      "risks": [
+        "Limited operating history in solar generation and large-scale manufacturing.",
+        "High revenue concentration with top off-takers driving over 82% of sales.",
+        "Heavy reliance on the INOXGFL Group for project execution and components.",
+        "Lack of long-term raw material supply agreements exposes it to price volatility.",
+        "History of negative cash flows from operating and investing activities."
+      ],
+      "objectsOfIssue": [
+        "Repayment / Prepayment of secured borrowings (6000 (75%))",
+        "General corporate purposes (2000 (25%))"
       ]
     },
     {
@@ -691,10 +1085,10 @@
       "issueSizeCr": 5012.0,
       "freshIssueCr": 4260.2,
       "ofsCr": 751.8,
-      "gmp": 22.25,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 2.5,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
-      "fireRating": 3,
+      "fireRating": 1,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -706,14 +1100,19 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 2.48,
+        "nii": 3.72,
+        "retail": 3.41,
+        "total": 3.1
+      },
       "sector": "Diversified Manufacturing",
       "about": "Founded in 2017, Zetwerk is a Bengaluru-based, technology-led platform that aggregates manufacturing capacity. Its software, Zetwerk OS, splits customer orders across 6,979 suppliers in 26 countries, alongside 26 of its own facilities. Products range from solar and wind components and power transformers to laptops, circuit boards, and heavy industrial equipment, for customers like Siemens Gamesa, Acer, NTPC, and DRDO.",
       "financialHighlights": {
-        "revenueCr": 2265.0,
-        "patCr": 271.8,
-        "eps": 9.44,
-        "peRatio": 16.0,
+        "revenueCr": 4195.7,
+        "patCr": -732.98,
+        "eps": -48.54,
+        "peRatio": 1510.0,
         "ronw": 21.5
       },
       "tags": [
@@ -786,8 +1185,8 @@
       "issueSizeCr": 852.0,
       "freshIssueCr": 724.2,
       "ofsCr": 127.8,
-      "gmp": 480.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 515.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE & BSE",
@@ -801,14 +1200,19 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 106.25,
+        "nii": 159.37,
+        "retail": 146.09,
+        "total": 132.81
+      },
       "sector": "Diversified Manufacturing",
       "about": "Tonbo Imaging India operates as a global defence electronics original equipment manufacturer, designing and developing advanced imaging, processing, and communication systems tailored for surveillance, reconnaissance, targeting, and control. The company’s core business involves creating full-stack electro-optics systems, ranging from core sensor technology to fully integrated autonomous platforms for battlefield applications across land, air, and sea. Revenue is primarily generated through two main operating segments: tactical systems and platform systems. Tactical offerings include lightweight, weapon-mounted, and helmet-mounted electro-optical sights that provide soldiers with observation and targeting capabilities. Platform-grade optronics feature multi-sensor gimbals and infrared payloads designed for integration into armoured vehicles, airborne platforms, and naval assets. The business supplies these highly specialized combat and situational awareness systems to global militaries, homeland security agencies, and system integrators across multiple international markets through a tender-based competitive bidding and procurement model.",
       "financialHighlights": {
-        "revenueCr": 10500.0,
-        "patCr": 1260.0,
-        "eps": 43.75,
-        "peRatio": 16.0,
+        "revenueCr": 37.32,
+        "patCr": -17.74,
+        "eps": -0.25,
+        "peRatio": 7000.0,
         "ronw": 21.5
       },
       "tags": [
@@ -875,10 +1279,10 @@
       "issueSizeCr": 475.0,
       "freshIssueCr": 403.75,
       "ofsCr": 71.25,
-      "gmp": 39.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 25.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
-      "fireRating": 3,
+      "fireRating": 2,
       "exchange": "NSE & BSE",
       "registrar": "KFin Technologies Ltd",
       "registrarUrl": "https://kosmic.kfintech.com/ipostatus/",
@@ -890,14 +1294,19 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 11.37,
+        "nii": 17.05,
+        "retail": 15.63,
+        "total": 14.21
+      },
       "sector": "IT & Technology Services",
       "about": "Sahajanand Medical Technologies develops, manufactures, and markets cardiovascular devices globally. The core business is divided into two primary segments: vascular intervention products, such as coronary stents and balloon catheters, and structural heart devices, including transcatheter aortic valves and occluders. The company generates the majority of its revenue from the sale of vascular intervention devices, with the Supraflex Cruz, a biodegradable polymer-based drug-eluting stent, acting as a major contributor to its sales. Products are distributed across India, Europe, and the rest of the world through a combination of direct, hybrid, and distributor-led models, supported by an extensive network of domestic and international distributors. Operations are backed by manufacturing facilities located in Surat, Hyderabad, and Thailand. Additionally, the business relies heavily on dedicated research and development capabilities to continually enhance existing products and introduce new cardiovascular treatments.",
       "financialHighlights": {
-        "revenueCr": 5160.0,
-        "patCr": 619.2,
-        "eps": 21.5,
-        "peRatio": 16.0,
+        "revenueCr": 354.33,
+        "patCr": 15.09,
+        "eps": 0.44,
+        "peRatio": 781.8,
         "ronw": 21.5
       },
       "tags": [
@@ -964,8 +1373,8 @@
       "issueSizeCr": 2534.0,
       "freshIssueCr": 2153.9,
       "ofsCr": 380.1,
-      "gmp": 173.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 130.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -979,14 +1388,19 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 36.84,
+        "nii": 55.26,
+        "retail": 50.66,
+        "total": 46.05
+      },
       "sector": "Diversified Manufacturing",
       "about": "Bonfiglioli Transmissions manufactures gearboxes, gear motors, and drive systems for original equipment manufacturers operating across the industry and automation, off-highway mobility, and wind industries. The company produces specific products such as yaw and pitch drives for the wind sector and low- to medium-duty gear motors for industry and automation customers. It operates three separate manufacturing facilities located in Thirumudivakkam, Mannur, and Talegaon to support its production needs. A major portion of its revenue is generated by co-engineering custom products directly with its customers. Furthermore, the business operates under a license agreement with its corporate promoter, granting it the right to manufacture and sell products utilizing the promoter’s proprietary technology, designs, and trademarks. The company distributes its products domestically and exports them to international markets including the United States, Italy, Germany, and China.",
       "financialHighlights": {
-        "revenueCr": 8790.0,
-        "patCr": 1054.8,
-        "eps": 36.62,
-        "peRatio": 16.0,
+        "revenueCr": 1139.17,
+        "patCr": 148.58,
+        "eps": 2.54,
+        "peRatio": 230.7,
         "ronw": 21.5
       },
       "tags": [
@@ -1053,10 +1467,10 @@
       "issueSizeCr": 60.0,
       "freshIssueCr": 51.0,
       "ofsCr": 9.0,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmp": 46.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 4,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -1068,14 +1482,19 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 46.83,
+        "nii": 70.25,
+        "retail": 64.39,
+        "total": 58.54
+      },
       "sector": "Diversified Manufacturing",
       "about": "Shellz India is a manufacturer of confectionery products operating primarily in the mass-market segment with price points below ₹10. The company caters to price-sensitive consumers across Tier II and Tier III cities, maintaining a significant geographic focus on the North Indian market, which contributes the majority of its sales. Its core product portfolio comprises baked treats, choco delights, jellies, panned and sugar candies, alongside food and bakery ingredients. The business generates revenue mainly through the sale of these products under its primary brands, Hugs and Tosca. To reach consumers, the company relies on a distribution network of super stockists who supply local distributors, wholesalers, and retail outlets. Shellz India conducts manufacturing operations from its Delhi facility, while working to consolidate production capacity at a new facility in Sonipat, Haryana. Furthermore, it has undertaken backward integration by producing packaging materials in-house for captive consumption.",
       "financialHighlights": {
-        "revenueCr": 2685.0,
-        "patCr": 322.2,
-        "eps": 11.19,
-        "peRatio": 16.0,
+        "revenueCr": 47.43,
+        "patCr": 4.08,
+        "eps": 0.23,
+        "peRatio": 778.3,
         "ronw": 21.5
       },
       "tags": [
@@ -1147,10 +1566,10 @@
       "issueSizeCr": 702.0,
       "freshIssueCr": 596.7,
       "ofsCr": 105.3,
-      "gmp": 32.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 20.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
-      "fireRating": 3,
+      "fireRating": 2,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -1162,14 +1581,19 @@
         "creditOfShares": "21 Oct 2026",
         "listingDate": "22 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 3.74,
+        "nii": 5.62,
+        "retail": 5.15,
+        "total": 4.68
+      },
       "sector": "Diversified Manufacturing",
       "about": "Fusion CX is an information technology-enabled customer experience solutions and business process outsourcing provider delivering multi-channel engagement, technical support, back-office processing, and digital customer care services to clients across global markets. The company operates through an international network of delivery centers, providing multi-language support across key operational verticals including telecommunications, utilities, high technology, travel, financial services, retail, and healthcare. Fusion CX generates revenue primarily through fees charged for customer experience management, process automation, and technology-driven operations structured under service contracts with enterprise clients. The company integrates proprietary software applications, artificial intelligence platforms, and a global workforce to deliver integrated omnichannel customer interaction and workflow execution solutions. Fusion CX focuses on serving large international corporations with a significant operational presence in North America, Europe, and Asia-Pacific regions.",
       "financialHighlights": {
-        "revenueCr": 4335.0,
-        "patCr": 520.2,
-        "eps": 18.06,
-        "peRatio": 16.0,
+        "revenueCr": 503.85,
+        "patCr": 55.7,
+        "eps": 1.93,
+        "peRatio": 149.7,
         "ronw": 21.5
       },
       "tags": [
@@ -1242,7 +1666,7 @@
       "freshIssueCr": 98.6,
       "ofsCr": 17.4,
       "gmp": 2.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -1256,14 +1680,19 @@
         "creditOfShares": "21 Oct 2026",
         "listingDate": "22 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 5.69,
+        "nii": 8.53,
+        "retail": 7.82,
+        "total": 7.11
+      },
       "sector": "Diversified Manufacturing",
       "about": "Ravita Engineering Services provides engineering solutions for heating, ventilation, and air conditioning (HVAC) systems, temperature control systems, and other allied electro-mechanical equipment. The company operates across three primary business segments: offshore projects, onshore projects, and the data center industry. Its core business activities are divided into Engineering, Procurement, Installation, and Commissioning (EPIC) projects, as well as standalone Operations and Maintenance (O&M) service contracts. In certain instances, the company executes hybrid projects that combine initial EPIC work with subsequent long-term O&M services. The company procures critical hardware components and server infrastructure from third-party original equipment manufacturers to develop and deploy its solutions. Operations are primarily concentrated in western India, with significant project execution occurring in Maharashtra, Gujarat, and the territorial waters of India. Revenue is generated through competitive bidding and tender processes for both public sector undertakings and private corporate clients.",
       "financialHighlights": {
-        "revenueCr": 1680.0,
-        "patCr": 201.6,
-        "eps": 7.0,
-        "peRatio": 16.0,
+        "revenueCr": 97.45,
+        "patCr": 10.13,
+        "eps": 0.9,
+        "peRatio": 124.4,
         "ronw": 21.5
       },
       "tags": [
@@ -1335,8 +1764,8 @@
       "issueSizeCr": 712.0,
       "freshIssueCr": 605.2,
       "ofsCr": 106.8,
-      "gmp": 91.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 61.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -1350,14 +1779,19 @@
         "creditOfShares": "19 Oct 2026",
         "listingDate": "21 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 105.38,
+        "nii": 158.08,
+        "retail": 144.9,
+        "total": 131.73
+      },
       "sector": "Diversified Manufacturing",
       "about": "HD Fire Protect is a manufacturer and supplier of comprehensive fire protection equipment and systems, catering to diverse sectors such as industrial, commercial, residential, and infrastructure across India and over 90 countries. The company’s core business involves designing and producing a wide range of products, including water spray nozzles, foam equipment and suppression systems, gas suppression systems, deluge valves, pre-action systems, and custom-engineered solutions. It generates revenue primarily through the sale of these manufactured goods, alongside offering contract manufacturing services for off-the-shelf standard products. The business operates through a multi-tiered sales network comprising direct customers and international distributors, relying on short-term purchase orders. Production is centralized across two manufacturing facilities in Maharashtra. A significant portion of its sales stems from export markets, demonstrating a strong global footprint. The company maintains stringent quality controls, adhering to safety certifications.",
       "financialHighlights": {
-        "revenueCr": 4065.0,
-        "patCr": 487.8,
-        "eps": 16.94,
-        "peRatio": 16.0,
+        "revenueCr": 114.07,
+        "patCr": 23.87,
+        "eps": 0.88,
+        "peRatio": 308.0,
         "ronw": 21.5
       },
       "tags": [
@@ -1424,9 +1858,9 @@
       "issueSizeCr": 42.0,
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
+      "gmp": 3.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
@@ -1439,14 +1873,19 @@
         "creditOfShares": "19 Oct 2026",
         "listingDate": "21 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 2.58,
+        "nii": 3.88,
+        "retail": 3.55,
+        "total": 3.23
+      },
       "sector": "Diversified Manufacturing",
       "about": "Vaibhav Vyapaar is a non-banking financial company registered with the Reserve Bank of India that primarily provides unsecured personal loans to salaried and self-employed individuals. The company operates a fully digital lending platform, extending credit both on a direct lending and co-lending basis. In addition to its core lending operations, the company generates revenue by offering its proprietary application and technology services to other non-banking financial companies. The business operates through a technology-driven model that facilitates credit access using a paperless, scalable, and customer-centric process. Through its digital lending application, LoanFront, the company offers a range of financial services, including instant personal loans and specialized salaried loans. By focusing on technology integration and digital onboarding, the company streamlines the entire loan lifecycle from customer acquisition and credit assessment to loan disbursement and collections across its target retail borrower segments.",
       "financialHighlights": {
-        "revenueCr": 810.0,
-        "patCr": 97.2,
-        "eps": 3.38,
-        "peRatio": 16.0,
+        "revenueCr": 18.15,
+        "patCr": 3.01,
+        "eps": 0.56,
+        "peRatio": 96.4,
         "ronw": 21.5
       },
       "tags": [
@@ -1518,7 +1957,7 @@
       "freshIssueCr": 29.75,
       "ofsCr": 5.25,
       "gmp": 1.5,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -1532,14 +1971,19 @@
         "creditOfShares": "09 Oct 2026",
         "listingDate": "12 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 2.16,
+        "nii": 3.24,
+        "retail": 2.97,
+        "total": 2.7
+      },
       "sector": "Consumer Retail & Textiles",
       "about": "R.K. Fashion Accessories operates as a Kolkata-based manufacturer and wholesale distributor of fashion jewellery, alongside trading in branded cosmetics. The company produces handcrafted jewellery that blends traditional designs with contemporary styles, utilizing a network of third-party contract manufacturers for its production processes. Its core business centers on distributing these products across multiple channels, including business-to-business wholesale networks, direct-to-consumer retail stores, e-commerce platforms, and a Shop-in-Shop retail model. Revenue is predominantly generated through its wholesale distribution segment, which accounts for the vast majority of its sales. The company maintains a highly concentrated market presence in eastern India, particularly in West Bengal, Odisha, Bihar, and Jharkhand. By strategically combining outsourced manufacturing with a diversified sales and distribution framework, the company caters to varied market segments within the fashion and personal care sectors.",
       "financialHighlights": {
-        "revenueCr": 1230.0,
-        "patCr": 147.6,
-        "eps": 5.12,
-        "peRatio": 16.0,
+        "revenueCr": 7.49,
+        "patCr": 1.83,
+        "eps": 0.22,
+        "peRatio": 372.7,
         "ronw": 21.5
       },
       "tags": [
@@ -1615,9 +2059,9 @@
       "freshIssueCr": 69.7,
       "ofsCr": 12.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Bigshare Services Pvt Ltd",
       "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
@@ -1629,14 +2073,19 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.5,
+        "nii": 2.26,
+        "retail": 2.07,
+        "total": 1.88
+      },
       "sector": "Consumer Retail & Textiles",
       "about": "Paramount Syntex is engaged in the manufacturing and trading of synthetic fibers, yarns, and knitted cloth, catering to the textile industry. The company generates revenue by selling its products in domestic markets, primarily within Punjab, as well as through export sales. Its key product offerings include acrylic wool yarns, polyester yarns, nylon yarns, blended fancy yarns, and recycled acrylic fibers. Operating from its manufacturing facilities located in Ludhiana, Punjab, the company conducts in-house fiber processing, tow dyeing, hank dyeing, spinning, bulking, twisting, and packing. A notable aspect of its business model involves recycling domestic and imported waste acrylic fibers to convert them into value-added yarns. The company serves diverse end user sectors, including apparel, home textiles, hosiery, fashion knitting, and industrial textiles. Its integrated manufacturing facility enables operational efficiency and complete control over product quality and processing workflows.",
       "financialHighlights": {
-        "revenueCr": 1905.0,
-        "patCr": 228.6,
-        "eps": 7.94,
-        "peRatio": 16.0,
+        "revenueCr": 122.51,
+        "patCr": 13.87,
+        "eps": 1.09,
+        "peRatio": 116.5,
         "ronw": 21.5
       },
       "tags": [
@@ -1708,9 +2157,9 @@
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -1722,14 +2171,19 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 44.16,
+        "nii": 66.24,
+        "retail": 60.72,
+        "total": 55.2
+      },
       "sector": "IT & Technology Services",
       "about": "TNA Solutions manufactures and supplies home textile products to domestic and international markets. The company operates primarily on a business-to-business model, manufacturing customized home furnishings according to client specifications for domestic and overseas brands. Its product portfolio includes sheeting products such as flat sheets, fitted sheets, and duvet sets, as well as pillow pairs, towels, and top-of-bed items like comforters, mattress protectors, and quilts. The company also operates a direct-to-consumer segment under its brand, Ambra Linens. TNA Solutions generates revenue from the sale of these home textile goods across India and export markets including the United States, United Arab Emirates, South Africa, and the United Kingdom. Operations are conducted through its manufacturing facility situated in Indore, Madhya Pradesh, which undertakes cutting, stitching, embroidery, finishing, quality inspection, and packaging, while outsourcing fabric dyeing, printing, and other wet processing to external job workers.",
       "financialHighlights": {
-        "revenueCr": 1050.0,
-        "patCr": 126.0,
-        "eps": 4.38,
-        "peRatio": 16.0,
+        "revenueCr": 110.45,
+        "patCr": 9.58,
+        "eps": 1.37,
+        "peRatio": 51.1,
         "ronw": 21.5
       },
       "tags": [
@@ -1802,7 +2256,7 @@
       "freshIssueCr": 103.7,
       "ofsCr": 18.3,
       "gmp": 43.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -1816,14 +2270,19 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 99.38,
+        "nii": 149.08,
+        "retail": 136.65,
+        "total": 124.23
+      },
       "sector": "Diversified Manufacturing",
       "about": "Acme India Industries operates in the Indian railway rolling stock sector, specializing in the design, manufacture, and maintenance of railway coach interiors. The company provides turnkey furnishing solutions for new railway coaches, refurbishment and conversion of existing coaches, and comprehensive lavatory upgrades. Its core business activities encompass designing and producing interior components such as wall panels, ceilings, toilet modules, wash basins, and mirror frames utilizing fibre-reinforced plastic and aluminum polymer composites. Revenue is primarily generated through turnkey contracts awarded on a competitive bidding basis by the Ministry of Railways, Indian Railways, and related public sector undertakings. Operating through multiple manufacturing units in Haryana, the company maintains internal capabilities to fabricate precision coach components and manage project execution across India. Focusing exclusively on passenger rail infrastructure, the company delivers integrated interior solutions tailored to meet functional, hygiene, and safety requirements specified by railway authorities.",
       "financialHighlights": {
-        "revenueCr": 2940.0,
-        "patCr": 352.8,
-        "eps": 12.25,
-        "peRatio": 16.0,
+        "revenueCr": 267.89,
+        "patCr": 24.36,
+        "eps": 1.24,
+        "peRatio": 158.1,
         "ronw": 21.5
       },
       "tags": [
@@ -1897,7 +2356,7 @@
       "freshIssueCr": 27.2,
       "ofsCr": 4.8,
       "gmp": 4.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -1911,14 +2370,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.58,
+        "nii": 2.38,
+        "retail": 2.18,
+        "total": 1.98
+      },
       "sector": "Diversified Manufacturing",
       "about": "Shree TNB Polymers operates in the polymer manufacturing sector, producing a range of plastic products across its three primary divisions: the Piping Division, the Solid Industrial Sheets Division, and the Corrugated/Flute Board Sheets Division. The company’s core business involves manufacturing and distributing these items under distinct brand names, specifically Noble, Tirupati, and Balaji (Wellpack). Its manufacturing operations are centralized in two facilities located in Silvassa, Dadra and Nagar Haveli. The company generates revenue through the sale of its manufactured products to various customer segments, including business houses, other manufacturing facilities, government entities, and end consumers. These sales are facilitated through direct channels as well as an established network of over 325 dealers and distributors across multiple states. Its product offerings cater to diverse industrial and consumer needs, relying on raw materials to maintain its manufacturing output.",
       "financialHighlights": {
-        "revenueCr": 795.0,
-        "patCr": 95.4,
-        "eps": 3.31,
-        "peRatio": 16.0,
+        "revenueCr": 198.31,
+        "patCr": 7.13,
+        "eps": 1.35,
+        "peRatio": 39.3,
         "ronw": 21.5
       },
       "tags": [
@@ -1993,7 +2457,7 @@
       "freshIssueCr": 41.65,
       "ofsCr": 7.35,
       "gmp": 50.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -2007,14 +2471,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 235.38,
+        "nii": 353.06,
+        "retail": 323.64,
+        "total": 294.22
+      },
       "sector": "IT & Technology Services",
       "about": "EverestIMS Technologies is an information technology company providing software products and services focused on IT operations and service management. The company delivers solutions across IT service management, IT infrastructure management, network configuration and content management, artificial intelligence for IT operations, IT asset management, and operations support systems. EverestIMS Technologies offers its customers multiple consumption models, providing both software as a service (SaaS) and on-premises software solutions to meet varying operational requirements. Its business involves integrating third-party open-source databases, operating systems, queuing engines, and development tools into customer deliverables. The company derives its revenue primarily from the sale of software products, software services, and hardware products to its client base, which includes large corporate customers. Additionally, the company serves clients overseas in countries such as the United Arab Emirates and Malaysia, alongside its domestic operations.",
       "financialHighlights": {
-        "revenueCr": 1275.0,
-        "patCr": 153.0,
-        "eps": 5.31,
-        "peRatio": 16.0,
+        "revenueCr": 65.91,
+        "patCr": 13.14,
+        "eps": 1.55,
+        "peRatio": 54.8,
         "ronw": 21.5
       },
       "tags": [
@@ -2087,7 +2556,7 @@
       "freshIssueCr": 91.8,
       "ofsCr": 16.2,
       "gmp": 1.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2101,14 +2570,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.81,
+        "nii": 2.71,
+        "retail": 2.49,
+        "total": 2.26
+      },
       "sector": "Consumer Retail & Textiles",
       "about": "Nityas Gems and Jewellery designs, manufactures, and sells lab-grown diamond-studded gold jewellery in India. The company operates through an integrated business model comprising business-to-business manufacturing and direct-to-consumer retail. Under its business-to-business vertical, it supplies customized and standardized jewellery to organized retail chains, standalone retailers, and wholesalers across multiple Indian states and select overseas markets. Its direct-to-consumer operations are conducted under the brand Ayaani through a subsidiary, featuring an online storefront alongside physical retail stores operated via company-owned and franchise models. The product portfolio includes rings, earrings, pendants, bracelets, mangalsutras, nose pins, necklaces, cufflinks, and bangles, with a strategic focus on lightweight, affordable luxury, and daily-wear jewellery segments. Manufacturing operations are conducted at a single facility in Surat, Gujarat, with an installed production capacity of 360 kilograms per annum, utilizing in-house karigars and computer-aided design capabilities for end-to-end jewellery fabrication.",
       "financialHighlights": {
-        "revenueCr": 1125.0,
-        "patCr": 135.0,
-        "eps": 4.69,
-        "peRatio": 16.0,
+        "revenueCr": 203.33,
+        "patCr": 22.32,
+        "eps": 2.98,
+        "peRatio": 25.2,
         "ronw": 21.5
       },
       "tags": [
@@ -2180,7 +2654,7 @@
       "freshIssueCr": 151.3,
       "ofsCr": 26.7,
       "gmp": 2.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2194,14 +2668,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.43,
+        "nii": 2.15,
+        "retail": 1.97,
+        "total": 1.79
+      },
       "sector": "Diversified Manufacturing",
       "about": "Vishal Nirmiti is a civil engineering, construction, and manufacturing firm operating in 2 segments. Its manufacturing arm produces pre-stressed concrete sleepers, pre-cast barriers, and steel/penstock pipes for Indian Railways and private developers. Its services arm delivers EPC solutions for railway, irrigation, and road infrastructure. The company supports regional projects through specialized manufacturing facilities across Maharashtra, Madhya Pradesh, Gujarat, and Himachal Pradesh.",
       "financialHighlights": {
-        "revenueCr": 3300.0,
-        "patCr": 396.0,
-        "eps": 13.75,
-        "peRatio": 16.0,
+        "revenueCr": 344.13,
+        "patCr": 24.98,
+        "eps": 1.14,
+        "peRatio": 193.0,
         "ronw": 21.5
       },
       "tags": [
@@ -2274,9 +2753,9 @@
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2288,14 +2767,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 0.85,
+        "nii": 1.27,
+        "retail": 1.17,
+        "total": 1.06
+      },
       "sector": "Diversified Manufacturing",
       "about": "Omara Ventures India is a retail jeweller specializing in the curation and sale of designer diamond jewellery. The company offers a diverse product portfolio that includes bridal, festive, special occasion, and contemporary daily-wear jewellery, alongside gold jewellery and silver coins. Its core operations revolve around a design-led retail model operated through its boutique, where it provides customers with a personalized experience featuring customized jewellery discussions and private consultations. Omara Ventures generates revenue primarily through the direct retail sale of high-value solitaire and diamond pieces, which historically account for the vast majority of its product sales. By focusing on customization tailored to specific customer needs and maintaining well-established relationships with skilled artisans, the company successfully serves the premium market segment. Operating primarily out of the Chandigarh region, it emphasizes curated designs and a commitment to hallmarked assurance for retail investors.",
       "financialHighlights": {
-        "revenueCr": 4665.0,
-        "patCr": 559.8,
-        "eps": 19.44,
-        "peRatio": 16.0,
+        "revenueCr": 45.87,
+        "patCr": 9.37,
+        "eps": 0.3,
+        "peRatio": 1036.7,
         "ronw": 21.5
       },
       "tags": [
@@ -2370,9 +2854,9 @@
       "freshIssueCr": 62.05,
       "ofsCr": 10.95,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2384,14 +2868,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.1,
+        "nii": 1.66,
+        "retail": 1.52,
+        "total": 1.38
+      },
       "sector": "IT & Technology Services",
       "about": "Dove Soft is an integrated cloud-communications solutions provider offering multi-channel communication services to businesses. The company provides enterprise clients and over-the-top platforms with transactional Short Message Service, Rich Communication Services, WhatsApp, Voice, Interactive Voice Response, automated voice call solutions, Email, and digital marketing products. It operates on a usage-based pay-per-use revenue model, generating income based on the volume of messages and voice pulses processed through its platform. The business caters to clients across diverse industry sectors, including telecom, information technology, banking, financial services, insurance, e-commerce, retail, healthcare, real estate, automobile, travel, and food and beverages. The company engages with mobile network operators on an invoice-based arrangement and collaborates with channel partners and messaging infrastructure providers to deliver its services. Its cloud platform enables organizations to manage customer interactions, streamline business operations, and enhance messaging reach efficiently across multiple digital communication channels.",
       "financialHighlights": {
-        "revenueCr": 1665.0,
-        "patCr": 199.8,
-        "eps": 6.94,
-        "peRatio": 16.0,
+        "revenueCr": 274.74,
+        "patCr": 23.4,
+        "eps": 2.11,
+        "peRatio": 52.6,
         "ronw": 21.5
       },
       "tags": [
@@ -2463,7 +2952,7 @@
       "freshIssueCr": 18.7,
       "ofsCr": 3.3,
       "gmp": 10.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE SME",
@@ -2477,14 +2966,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.71,
+        "nii": 2.57,
+        "retail": 2.35,
+        "total": 2.14
+      },
       "sector": "Electricals & Power Transmission",
       "about": "Sollfege Smart Electronics operates as a distributor and retailer of premium electronic products, trading across three core business segments: audio solutions, video solutions, and smart living solutions. The company generates the majority of its revenue from trading activities by sourcing high-end consumer electronics from third-party global and domestic suppliers and selling them through retail showrooms and experience centres. Its audio portfolio includes high-end speakers, home theatre systems, soundbars, and wireless speakers. The video segment offers premium projectors, televisions, and video wall systems. The smart living segment encompasses home automation systems, lifestyle and wellness equipment, as well as networking, security, and surveillance products such as smart locks, video door phones, and closed-circuit television systems. Additionally, the business provides customer support and ancillary services related to product installation and system integration. The company caters to both retail consumers and commercial clients seeking premium tech offerings.",
       "financialHighlights": {
-        "revenueCr": 1200.0,
-        "patCr": 144.0,
-        "eps": 5.0,
-        "peRatio": 16.0,
+        "revenueCr": 22.22,
+        "patCr": 2.19,
+        "eps": 0.27,
+        "peRatio": 296.3,
         "ronw": 21.5
       },
       "tags": [
@@ -2558,9 +3052,9 @@
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2572,14 +3066,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.91,
+        "nii": 2.87,
+        "retail": 2.63,
+        "total": 2.39
+      },
       "sector": "Diversified Manufacturing",
       "about": "Eventions operates as an integrated event management company specializing in providing Meetings, Incentives, Conferences, and Exhibitions (MICE) solutions, corporate events, and brand activations for various institutions. The company’s core business involves the conceptualization, planning, coordination, and on-ground execution of large-format assignments across diverse domestic and international locations. It generates the vast majority of its revenue directly from the MICE segment, primarily serving domestic corporate clients on a project-to-project basis. Additionally, through its subsidiary Gantu Online Private Limited, the company is actively expanding into the business-to-consumer travel sector by offering customized Free Independent Traveller (FIT) services and curated leisure travel itineraries. To execute its projects efficiently, Eventions utilizes an asset-light operating model, relying heavily on a vetted network of third-party vendors, subcontractors, and freelance professionals for stage fabrication, logistics, and production infrastructure rather than maintaining heavy in-house physical assets.",
       "financialHighlights": {
-        "revenueCr": 1770.0,
-        "patCr": 212.4,
-        "eps": 7.38,
-        "peRatio": 16.0,
+        "revenueCr": 100.62,
+        "patCr": 7.72,
+        "eps": 0.65,
+        "peRatio": 181.5,
         "ronw": 21.5
       },
       "tags": [
@@ -2653,9 +3152,9 @@
       "freshIssueCr": 19.55,
       "ofsCr": 3.45,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2667,14 +3166,19 @@
         "creditOfShares": "07 Oct 2026",
         "listingDate": "08 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.46,
+        "nii": 2.18,
+        "retail": 2.0,
+        "total": 1.82
+      },
       "sector": "Diversified Manufacturing",
       "about": "SJP Ultrasonics primarily operates in the industrial automation solution segment, providing solutions under three business segments: Plastic Joining Solutions, Industrial Automation, and Laser Technology Solutions. The company is a start-to-finish plastic welding solution provider offering diverse and comprehensive service offerings, including specialized plastic products across varied industry segments. It customises industrial automation solutions for an array of industries such as automotive, pharmaceuticals, electronics, energy, food and beverage, packaging, material handling, water treatment, and textiles. SJP Ultrasonics designs and manufactures special-purpose machines that involve detailed fabrication processes and engineering precision on a made-to-order basis. The company integrates technologies like programmable logic controllers, supervisory control and data acquisition, human-machine interfaces, and robotics into its automation systems. SJP Ultrasonics conducts its entire manufacturing operations from its facility in Vasai, Maharashtra, generating revenue directly from customers, particularly original equipment manufacturers, through milestone-based billing without long-term contracts.",
       "financialHighlights": {
-        "revenueCr": 1005.0,
-        "patCr": 120.6,
-        "eps": 4.19,
-        "peRatio": 16.0,
+        "revenueCr": 26.63,
+        "patCr": 5.24,
+        "eps": 0.78,
+        "peRatio": 85.9,
         "ronw": 21.5
       },
       "tags": [
@@ -2748,7 +3252,7 @@
       "freshIssueCr": 51.0,
       "ofsCr": 9.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -2766,10 +3270,10 @@
       "sector": "Renewable Energy & Power",
       "about": "Green Asia Impex operates as an integrated processor and exporter of frozen seafood and agricultural commodities, catering primarily to business-to-business customers, including importers, distributors, and food processing companies in domestic and international markets. The company operates in two main business segments: shrimps and dried chillies. In the shrimp segment, the company sources raw shrimps from local aquaculture farmers and traders, processes them through grading, peeling, deveining, and freezing, and supplies processed frozen shrimp products. In the dried chillies segment, the company procures chillies from agricultural market committee traders and carries out processing activities such as cleaning, grading, and sorting before distribution. Revenue is generated through direct domestic sales within India as well as exports to overseas markets including China, Kuwait, the United States, Malaysia, and the United Kingdom. The company utilizes processing facilities situated in Andhra Pradesh to manage its production operations across both product categories.",
       "financialHighlights": {
-        "revenueCr": 1335.0,
-        "patCr": 160.2,
-        "eps": 5.56,
-        "peRatio": 16.0,
+        "revenueCr": 388.63,
+        "patCr": 15.61,
+        "eps": 1.75,
+        "peRatio": 50.9,
         "ronw": 21.5
       },
       "tags": [
@@ -2841,9 +3345,9 @@
       "freshIssueCr": 46.75,
       "ofsCr": 8.25,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "STABLE",
-      "fireRating": 2,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2855,14 +3359,19 @@
         "creditOfShares": "06 Oct 2026",
         "listingDate": "07 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 59.04,
+        "nii": 88.56,
+        "retail": 81.18,
+        "total": 73.8
+      },
       "sector": "Diversified Manufacturing",
       "about": "Black Opal Consultants operates as a financial and real estate consultancy firm providing integrated real estate solutions. The company generates revenue primarily through brokerage income from selling residential and commercial properties under exclusive sales mandates with real estate developers. Additionally, it earns revenue from loan syndication fees, advisory services, and real estate project development activities. Its core business activities include acting as a channel partner for property sales, offering real estate advisory, and facilitating property financing. The company’s operations are geographically concentrated in Uttar Pradesh and Haryana, specifically in Noida, Greater Noida, and Gurugram. It is also diversifying into real estate development, including a commercial hotel project named Veda in Ayodhya through its subsidiary entity, Aurika Developers. Furthermore, the company engages in inventory underwriting for real estate developers and is developing a digital property platform called JustHomz through its wholly owned subsidiary, Black Opal Technologies.",
       "financialHighlights": {
-        "revenueCr": 2955.0,
-        "patCr": 354.6,
-        "eps": 12.31,
-        "peRatio": 16.0,
+        "revenueCr": 42.34,
+        "patCr": 12.2,
+        "eps": 0.62,
+        "peRatio": 317.7,
         "ronw": 21.5
       },
       "tags": [
@@ -2935,7 +3444,7 @@
       "freshIssueCr": 17.0,
       "ofsCr": 3.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -2953,10 +3462,10 @@
       "sector": "Agri-Business & FMCG",
       "about": "Papadmalji Agro Foods engages in the manufacturing of handmade papads, machine-made papads, rice papads, vrat special papads, and moongodi, along with the trading of cereal pellets. The company also carries out white-label manufacturing of handmade papads, producing goods that clients market under their respective brand names and tailored packaging. Revenue is primarily generated through product sales under its key core brands, including Vishal, Zhakaas, and Rozana, alongside direct-to-consumer sales under the Papadmalji brand. Products are distributed across multiple sales channels, such as general trade, modern trade, quick commerce, direct-to-consumer platforms, and sales to merchant exporters for selected Middle Eastern markets. Operations are based out of manufacturing units and facilities situated in Bikaner, Rajasthan. For handmade papad production, the business utilizes a decentralized operational system involving contractors and home-based women workers who perform hand rolling according to prescribed quality specifications before final inspection.",
       "financialHighlights": {
-        "revenueCr": 1080.0,
-        "patCr": 129.6,
-        "eps": 4.5,
-        "peRatio": 16.0,
+        "revenueCr": 33.54,
+        "patCr": 5.21,
+        "eps": 0.72,
+        "peRatio": 100.0,
         "ronw": 21.5
       },
       "tags": [
@@ -3029,7 +3538,7 @@
       "freshIssueCr": 28.9,
       "ofsCr": 5.1,
       "gmp": 103.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -3043,14 +3552,19 @@
         "creditOfShares": "06 Oct 2026",
         "listingDate": "07 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 502.98,
+        "nii": 754.48,
+        "retail": 691.6,
+        "total": 628.73
+      },
       "sector": "Electricals & Power Transmission",
       "about": "Vans Electroengineerings is engaged in manufacturing and supplying components for traction power supply and overhead equipment systems used in railway electrification infrastructure, metro systems, and renewable energy applications. The company operates a single manufacturing facility in Salem, Tamil Nadu, housing product assembly, testing infrastructure, and quality control operations. It generates revenue primarily through the sale of products to Indian Railways, supplying either directly through contracts secured via competitive bidding or indirectly through associated engineering, procurement, and construction contractors and vendors. Its key product portfolio includes double pole and single pole vacuum circuit breakers, double pole and single pole vacuum interrupters, overhead equipment, and braided flexible connectors. Operating within the electrical equipment and switchgear sector, the company manufactures products designed to meet specific technical standards and regulatory specifications prescribed by railway authorities for critical power supply and traction applications.",
       "financialHighlights": {
-        "revenueCr": 1770.0,
-        "patCr": 212.4,
-        "eps": 7.38,
-        "peRatio": 16.0,
+        "revenueCr": 23.19,
+        "patCr": 5.39,
+        "eps": 0.46,
+        "peRatio": 256.5,
         "ronw": 21.5
       },
       "tags": [
@@ -3122,7 +3636,7 @@
       "freshIssueCr": 76.5,
       "ofsCr": 13.5,
       "gmp": 17.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -3140,10 +3654,10 @@
       "sector": "Financial Services & Capital Markets",
       "about": "Shah Investor’s Home is a financial services provider in India engaged primarily in stock broking across equity, commodity, derivatives, and currency segments. The company generates a major portion of its revenue from its broking segment, earning brokerage income based on traded value and order size. Alongside broking, it provides financial services including mutual fund distributorship, margin trading facility, and stock lending and borrowing. It also offers research services covering equity fundamentals, derivatives, commodities, and mutual funds to assist clients. The company earns revenue through brokerage fees, interest income from margin trading facilities, and fees and commission income from distributing third-party financial products. Catering mainly to retail investors, including resident and non-resident Indians, the company executes transactions through its head office, branch network, online trading platforms, and a network of authorized persons, with a primary market focus and business concentration in the state of Gujarat.",
       "financialHighlights": {
-        "revenueCr": 2505.0,
-        "patCr": 300.6,
-        "eps": 10.44,
-        "peRatio": 16.0,
+        "revenueCr": 72.4,
+        "patCr": 13.11,
+        "eps": 0.79,
+        "peRatio": 211.4,
         "ronw": 21.5
       },
       "tags": [
@@ -3215,7 +3729,7 @@
       "freshIssueCr": 185.3,
       "ofsCr": 32.7,
       "gmp": 59.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -3233,10 +3747,10 @@
       "sector": "Diversified Manufacturing",
       "about": "SRIT India is an Information Technology and Information Technology-enabled Services solutions company offering digital solutions and system automation through custom application development and integration services. The company executes large-scale, mission-critical projects primarily for central and state government bodies, alongside enterprise clients across India and international markets. Its core operations are organized into three primary verticals: electronic governance, healthcare, and telecommunications and broadband. Revenue is predominantly generated by participating in competitive bidding processes to secure tender-driven contracts from government entities, which account for a substantial majority of its business. The company’s business model involves executing turnkey projects, often partnering with third-party technology companies to deliver bundled, integrated solutions and utilizing sub-contractors for specialized tasks. Furthermore, it provides customized solutions tailored to the specific needs and regulatory environments of each industry it serves.",
       "financialHighlights": {
-        "revenueCr": 1950.0,
-        "patCr": 234.0,
-        "eps": 8.12,
-        "peRatio": 16.0,
+        "revenueCr": 462.54,
+        "patCr": 43.29,
+        "eps": 3.33,
+        "peRatio": 39.0,
         "ronw": 21.5
       },
       "tags": [
@@ -3309,7 +3823,7 @@
       "freshIssueCr": 15.3,
       "ofsCr": 2.7,
       "gmp": 1.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3327,10 +3841,10 @@
       "sector": "Healthcare & Pharmaceuticals",
       "about": "Pind Hospitality operates in the consumer food services industry, managing food delivery services and dine-in restaurants under the recognized Pind Punjab brand. The business primarily functions on a hybrid model, generating a substantial portion of its revenue through third-party food delivery applications, which accounted for over 78% of its operations in recent years. Pind Hospitality strategically focuses on the Pune geographic market, where all its current operational revenues are concentrated. Following the acquisition of a significant stake in a related partnership firm, the business is consolidating its restaurant operations to streamline its footprint. Furthermore, Pind Hospitality is diversifying its service offerings by expanding into the hospitality and event sector. It is currently developing the Haveli Project in Lonavala, Maharashtra, a hotel-cum-banquet hall designed to cater to the destination wedding market and corporate conferences, thereby broadening its core revenue streams.",
       "financialHighlights": {
-        "revenueCr": 1485.0,
-        "patCr": 178.2,
-        "eps": 6.19,
-        "peRatio": 16.0,
+        "revenueCr": 24.91,
+        "patCr": 2.27,
+        "eps": 0.23,
+        "peRatio": 430.4,
         "ronw": 21.5
       },
       "tags": [
@@ -3401,10 +3915,10 @@
       "issueSizeCr": 14.0,
       "freshIssueCr": 11.9,
       "ofsCr": 2.1,
-      "gmp": 1.5,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
+      "gmpTrend": "STABLE",
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Bigshare Services Pvt Ltd",
       "registrarUrl": "https://www.bigshareonline.com/ipo_Allotment.html",
@@ -3420,10 +3934,10 @@
       "sector": "Agri-Business & FMCG",
       "about": "Shivchem Agro manufactures and distributes a wide range of agrochemicals and fertilizers designed for crop protection and yield enhancement. The company’s portfolio includes insecticides, fungicides, herbicides, plant growth regulators, rodenticides, and various fertilizers. Operating from a manufacturing facility located in Jhajjar, Haryana, the business formulates chemical solutions to address diverse farming requirements. Shivchem Agro generates its revenue primarily through the sale and distribution of these agrochemical formulations across domestic markets, including Andhra Pradesh, Assam, Haryana, Telangana, Odisha, and Bihar. The company sells its offerings through an extensive distribution network, supported by strategically leased godowns across multiple Indian states to facilitate product supply and timely delivery. Raw materials are sourced from third-party suppliers on a purchase order basis to maintain continuous production. Shivchem Agro focuses on expanding its product portfolio, optimizing manufacturing capacity, and strengthening its regional market presence to effectively serve agricultural needs.",
       "financialHighlights": {
-        "revenueCr": 930.0,
-        "patCr": 111.6,
-        "eps": 3.88,
-        "peRatio": 16.0,
+        "revenueCr": 33.84,
+        "patCr": 3.25,
+        "eps": 0.52,
+        "peRatio": 119.2,
         "ronw": 21.5
       },
       "tags": [
@@ -3495,8 +4009,8 @@
       "issueSizeCr": 36.0,
       "freshIssueCr": 30.6,
       "ofsCr": 5.4,
-      "gmp": 16.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmp": 43.0,
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -3510,14 +4024,19 @@
         "creditOfShares": "05 Oct 2026",
         "listingDate": "06 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 99.38,
+        "nii": 149.08,
+        "retail": 136.65,
+        "total": 124.23
+      },
       "sector": "Diversified Manufacturing",
       "about": "Acme Universal Safezone 9 manufactures industrial safety footwear, offering durable products that adhere to industry standards, including IS 15298 and IS 1989:2020. The company generates revenue by supplying safety shoes across various sectors, relying heavily on the defence and government sectors, alongside domestic business-to-business customers through open-market procurement and government rate contracts. The core business activities involve producing safety footwear using key raw materials such as polyurethane, PVC sole compounds, genuine leather, synthetic leather, and steel toe-caps. Acme operates manufacturing facilities in Gwalior, Banthar, and Banmore, having recently consolidated its Kanpur operations into the Banthar facility to improve process efficiency. The company emphasizes manufacturing durable safety shoes through efficient processes, utilizing advanced machinery like knife cutting machines and foam pouring machines. The business maintains a diversified customer base while focusing on consistent quality and competitive pricing for retail and institutional buyers.",
       "financialHighlights": {
-        "revenueCr": 1065.0,
-        "patCr": 127.8,
-        "eps": 4.44,
-        "peRatio": 16.0,
+        "revenueCr": 211.16,
+        "patCr": 5.86,
+        "eps": 0.83,
+        "peRatio": 85.5,
         "ronw": 21.5
       },
       "tags": [
@@ -3591,7 +4110,7 @@
       "freshIssueCr": 425.0,
       "ofsCr": 75.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "20 Oct, 09:13 AM",
+      "gmpUpdatedDate": "20 Oct, 06:17 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -3609,10 +4128,10 @@
       "sector": "Infrastructure & Construction",
       "about": "Runwal Enterprises is a real estate development company primarily focused on the Mumbai market. The company specializes in the development of residential projects, which constitute the majority of its business, alongside selectively developing retail and commercial spaces within mixed-use developments. Its residential portfolio is strategically classified into three distinct segments: affordable, mid-income, and luxury. The affordable segment is concentrated in the Dombivli micro-market, while the mid-income offerings are located in Mulund, Kanjurmarg, Bandra, Chembur, and Alibaug. The luxury segment caters specifically to the South Mumbai sub-market. Runwal Enterprises generates revenue by acquiring land, securing development rights or entering into joint development agreements, and subsequently executing the design, construction, and sale of the developed units. The company relies heavily on pre-sales and a network of channel partners to market its real estate properties to prospective homebuyers and investors.",
       "financialHighlights": {
-        "revenueCr": 4575.0,
-        "patCr": 549.0,
-        "eps": 19.06,
-        "peRatio": 16.0,
+        "revenueCr": 1850.79,
+        "patCr": 185.76,
+        "eps": 6.09,
+        "peRatio": 50.1,
         "ronw": 21.5
       },
       "tags": [

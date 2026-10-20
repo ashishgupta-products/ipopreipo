@@ -27,17 +27,18 @@ interface IpoDetailModalProps {
 export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
   if (!ipo) return null;
 
-  const minRetailInvestment = ipo.priceBandHigh * ipo.lotSize;
-  const maxRetailLots = Math.floor(200000 / minRetailInvestment);
-  const maxRetailShares = maxRetailLots * ipo.lotSize;
-  const maxRetailInvestment = maxRetailShares * ipo.priceBandHigh;
+  const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
+  const minRetailInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : 0;
+  const maxRetailLots = minRetailInvestment > 0 ? Math.max(1, Math.floor(200000 / minRetailInvestment)) : 0;
+  const maxRetailShares = maxRetailLots * (ipo.lotSize || 0);
+  const maxRetailInvestment = maxRetailShares * (ipo.priceBandHigh || 0);
 
-  const sHniMinLots = maxRetailLots + 1;
-  const sHniMinInvestment = sHniMinLots * ipo.lotSize * ipo.priceBandHigh;
+  const sHniMinLots = maxRetailLots > 0 ? maxRetailLots + 1 : 0;
+  const sHniMinInvestment = sHniMinLots * (ipo.lotSize || 0) * (ipo.priceBandHigh || 0);
 
-  const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
+  const gmpPercent = ipo.priceBandHigh ? ((ipo.gmp / ipo.priceBandHigh) * 100) : 0;
   const estListingPrice = ipo.priceBandHigh + ipo.gmp;
-  const estProfitPerLot = ipo.gmp * ipo.lotSize;
+  const estProfitPerLot = hasValidLot ? ipo.gmp * (ipo.lotSize as number) : 0;
   const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
   const gmpHistory = getIpoGmpHistory(ipo);
 
@@ -123,9 +124,11 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
           <div>
             <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Price Band</div>
             <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>
-              ₹{ipo.priceBandLow} - ₹{ipo.priceBandHigh}
+              {ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA'}
             </div>
-            <div style={{ fontSize: '0.7rem', color: '#64748b' }}>Lot: {ipo.lotSize} Shares</div>
+            <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+              {hasValidLot ? `Lot: ${ipo.lotSize} Shares` : 'Lot: TBA'}
+            </div>
           </div>
 
           <div>
@@ -186,10 +189,10 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
           <div>
             <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Issue Size</div>
             <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#334155' }}>
-              ₹{ipo.issueSizeCr.toLocaleString('en-IN')} Cr
+              {ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'TBA'}
             </div>
             <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-              {ipo.freshIssueCr ? `Fresh ₹${ipo.freshIssueCr} Cr` : '100% OFS'}
+              {ipo.freshIssueCr ? `Fresh ₹${ipo.freshIssueCr} Cr` : (ipo.issueSizeCr && ipo.issueSizeCr > 0 ? '100% OFS' : 'Pending Filing')}
             </div>
           </div>
         </div>
@@ -277,9 +280,11 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
             }}>
               <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Retail (Minimum)</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: '0.25rem' }}>
-                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>1 Lot ({ipo.lotSize} shares)</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
+                  {hasValidLot ? `1 Lot (${ipo.lotSize} shares)` : 'Awaiting Lot Announcement'}
+                </span>
                 <span className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#059669' }}>
-                  ₹{minRetailInvestment.toLocaleString('en-IN')}
+                  {minRetailInvestment > 0 ? `₹${minRetailInvestment.toLocaleString('en-IN')}` : 'TBA'}
                 </span>
               </div>
             </div>
@@ -293,9 +298,11 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
             }}>
               <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Retail (Max ≤ ₹2 Lakh)</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: '0.25rem' }}>
-                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>{maxRetailLots} Lots ({maxRetailShares} sh)</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
+                  {hasValidLot ? `${maxRetailLots} Lots (${maxRetailShares} sh)` : 'Awaiting Lot Announcement'}
+                </span>
                 <span className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-                  ₹{maxRetailInvestment.toLocaleString('en-IN')}
+                  {maxRetailInvestment > 0 ? `₹${maxRetailInvestment.toLocaleString('en-IN')}` : 'TBA'}
                 </span>
               </div>
             </div>
@@ -309,9 +316,11 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
             }}>
               <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Small HNI (sHNI &gt; ₹2L)</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: '0.25rem' }}>
-                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>{sHniMinLots} Lots ({sHniMinLots * ipo.lotSize} sh)</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
+                  {hasValidLot ? `${sHniMinLots} Lots (${sHniMinLots * (ipo.lotSize || 0)} sh)` : 'Awaiting Lot Announcement'}
+                </span>
                 <span className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#2563eb' }}>
-                  ₹{sHniMinInvestment.toLocaleString('en-IN')}
+                  {sHniMinInvestment > 0 ? `₹${sHniMinInvestment.toLocaleString('en-IN')}` : 'TBA'}
                 </span>
               </div>
             </div>

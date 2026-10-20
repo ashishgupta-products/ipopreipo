@@ -90,20 +90,20 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
                 {/* Price Band */}
                 <td style={{ padding: '1rem' }}>
                   <div className="mono" style={{ fontWeight: 600, color: '#0f172a' }}>
-                    ₹{ipo.priceBandLow} - ₹{ipo.priceBandHigh}
+                    {ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA'}
                   </div>
                   <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                    Lot: {ipo.lotSize} sh
+                    {ipo.lotSize && ipo.lotSize > 0 ? `Lot: ${ipo.lotSize} sh` : 'Lot: TBA'}
                   </div>
                 </td>
 
                 {/* Issue Size */}
                 <td style={{ padding: '1rem' }}>
                   <div className="mono" style={{ fontWeight: 600, color: '#334155' }}>
-                    ₹{ipo.issueSizeCr.toLocaleString('en-IN')} Cr
+                    {ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'TBA'}
                   </div>
                   <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                    {ipo.freshIssueCr && ipo.freshIssueCr > 0 ? `Fresh ₹${ipo.freshIssueCr} Cr` : 'Pure OFS'}
+                    {ipo.freshIssueCr && ipo.freshIssueCr > 0 ? `Fresh ₹${ipo.freshIssueCr} Cr` : (ipo.issueSizeCr && ipo.issueSizeCr > 0 ? 'Pure OFS' : 'Pending Filing')}
                   </div>
                 </td>
 

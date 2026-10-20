@@ -69,10 +69,10 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
                 Estimated Profit / Lot
               </div>
               <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: '#059669' }}>
-                ₹{(topGainer.gmp * topGainer.lotSize).toLocaleString('en-IN')}
+                {topGainer.lotSize ? `₹${(topGainer.gmp * topGainer.lotSize).toLocaleString('en-IN')}` : 'TBA'}
               </div>
               <div style={{ fontSize: '0.72rem', color: '#64748b' }}>
-                Lot: {topGainer.lotSize} shares
+                {topGainer.lotSize ? `Lot: ${topGainer.lotSize} shares` : 'Lot: TBA'}
               </div>
             </div>
 
@@ -186,7 +186,7 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
             {filtered.map((ipo) => {
               const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
               const estPrice = ipo.priceBandHigh + ipo.gmp;
-              const profitPerLot = ipo.gmp * ipo.lotSize;
+              const profitPerLot = ipo.lotSize ? ipo.gmp * ipo.lotSize : null;
 
               return (
                 <tr
@@ -328,12 +328,12 @@ export default function GmpTracker({ ipos, onSelectIpo }: GmpTrackerProps) {
                   <td style={{ padding: '1rem' }}>
                     <span className="mono" style={{
                       fontWeight: 700,
-                      color: profitPerLot >= 0 ? '#059669' : '#dc2626'
+                      color: (profitPerLot !== null && profitPerLot >= 0) ? '#059669' : (profitPerLot !== null ? '#dc2626' : '#64748b')
                     }}>
-                      {profitPerLot >= 0 ? `+₹${profitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(profitPerLot).toLocaleString('en-IN')}`}
+                      {profitPerLot !== null ? (profitPerLot >= 0 ? `+₹${profitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(profitPerLot).toLocaleString('en-IN')}`) : 'TBA'}
                     </span>
                     <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-                      ({ipo.lotSize} sh)
+                      {ipo.lotSize ? `(${ipo.lotSize} sh)` : '(TBA)'}
                     </div>
                   </td>
 

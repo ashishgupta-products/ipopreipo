@@ -166,7 +166,7 @@ export default function AllotmentHub({ ipos, onSelectIpo }: AllotmentHubProps) {
                       {ipo.name}
                     </div>
                     <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                      Issue: ₹{ipo.issueSizeCr.toLocaleString('en-IN')} Cr
+                      Issue: {ipo.issueSizeCr ? `₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'TBA'}
                     </div>
                   </td>
 

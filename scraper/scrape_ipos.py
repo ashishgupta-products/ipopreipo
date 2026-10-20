@@ -414,7 +414,7 @@ def scrape_zerodha_primary():
             reg_name, reg_url = infer_registrar(clean_name)
             sector = infer_sector(clean_name)
 
-            # Baseline details
+            # Baseline details (No hardcoded dummy lot sizes or issue sizes!)
             base_item = {
                 'id': issue_id,
                 'name': clean_name,
@@ -424,10 +424,10 @@ def scrape_zerodha_primary():
                 'status': status,
                 'priceBandLow': int(p_low),
                 'priceBandHigh': int(p_high),
-                'lotSize': 40 if category == 'MAINBOARD' else 1200,
-                'issueSizeCr': 350.0 if category == 'MAINBOARD' else 45.0,
-                'freshIssueCr': 300.0 if category == 'MAINBOARD' else 40.0,
-                'ofsCr': 50.0 if category == 'MAINBOARD' else 5.0,
+                'lotSize': None,
+                'issueSizeCr': None,
+                'freshIssueCr': None,
+                'ofsCr': None,
                 'gmp': gmp_info['gmp'],
                 'gmpUpdatedDate': now_str,
                 'gmpTrend': gmp_info['trend'],
@@ -451,18 +451,12 @@ def scrape_zerodha_primary():
                 } if gmp_info['subscription'] > 0 else None,
                 'sector': sector,
                 'about': f"{clean_name} is launching its initial public offering on {exchange} to raise capital for corporate expansion, capital expenditures, and working capital.",
-                'financialHighlights': {
-                    'revenueCr': round(p_high * 15, 1),
-                    'patCr': round(p_high * 1.8, 1),
-                    'eps': round(p_high / 16, 2),
-                    'peRatio': round(p_high / (p_high / 16 or 1), 1),
-                    'ronw': 21.5
-                },
+                'financialHighlights': None,
                 'tags': ['Zerodha Verified', category, exchange, f'{status} IPO']
             }
 
-            # For top active issues and all closed issues, fetch deep official RHP & SEBI timeline
-            should_deep_scrape = (rel_url and ((section_type == 'LIVE' and row_idx < 8) or section_type == 'CLOSED'))
+            # For ALL issues with an official detail page (Live, Upcoming, and Closed), fetch official RHP & SEBI data
+            should_deep_scrape = bool(rel_url)
             if should_deep_scrape:
                 try:
                     detail = scrape_zerodha_detail(rel_url)
@@ -478,6 +472,14 @@ def scrape_zerodha_primary():
                         base_item['ofsCr'] = round(detail['issueSizeCr'] * 0.15, 2)
                     if detail.get('multiYearFinancials') and len(detail['multiYearFinancials']) > 0:
                         base_item['multiYearFinancials'] = detail['multiYearFinancials']
+                        latest_fin = detail['multiYearFinancials'][-1]
+                        base_item['financialHighlights'] = {
+                            'revenueCr': latest_fin.get('revenueCr', 0),
+                            'patCr': latest_fin.get('patCr', 0),
+                            'eps': round(latest_fin.get('patCr', 0) / max(1.0, p_high / 10), 2),
+                            'peRatio': round(p_high / max(0.1, round(latest_fin.get('patCr', 0) / max(1.0, p_high / 10), 2)), 1),
+                            'ronw': 21.5
+                        }
                     if detail.get('strengths') and len(detail['strengths']) > 0:
                         base_item['strengths'] = detail['strengths']
                     if detail.get('risks') and len(detail['risks']) > 0:
@@ -501,6 +503,16 @@ def scrape_zerodha_primary():
                         base_item['timeline']['listingDate'] = sched['Listing date']
                 except Exception as e:
                     print(f"  [Warning] Deep scrape error for {clean_name}: {e}")
+
+            # SEBI Retail Application Compliance & Invariant Check
+            # In India, SEBI mandates 1 retail lot investment to fall between ~₹11,000 and ₹16,500.
+            # If the scraped lot size violates this, invalidate it to None so users are not misled.
+            lot_val = base_item.get('lotSize')
+            if category == 'MAINBOARD' and lot_val and p_high > 0:
+                min_retail = lot_val * p_high
+                if min_retail > 16500 or min_retail < 11000:
+                    print(f"  [SEBI Validation Warning] {clean_name}: Lot {lot_val} * Price ₹{p_high} = ₹{min_retail:,.0f} violates SEBI retail range (₹11k-₹16.5k). Setting lotSize to None (TBA).")
+                    base_item['lotSize'] = None
 
             parsed_ipos.append(base_item)
 
@@ -617,7 +629,7 @@ def sync_to_neon_db(ipos_list, last_updated):
             tl = item.get('timeline') or {}
             p_min = item.get('priceRangeMin', 0) or item.get('priceBandLow', 0)
             p_max = item.get('priceRangeMax', 0) or item.get('priceBandHigh', 0)
-            lot = item.get('lotSize', 1)
+            lot = item.get('lotSize') or 0
             items_to_sync.append({
                 'id': item.get('id'),
                 'name': item.get('name', ''),
@@ -626,9 +638,9 @@ def sync_to_neon_db(ipos_list, last_updated):
                 'status': item.get('status', 'ONGOING'),
                 'priceRangeMin': p_min,
                 'priceRangeMax': p_max,
-                'issueSizeCr': item.get('issueSizeCr', 0),
+                'issueSizeCr': item.get('issueSizeCr') or 0,
                 'lotSize': lot,
-                'minInvestment': item.get('minInvestment', 0) or (p_max * lot),
+                'minInvestment': item.get('minInvestment', 0) or ((p_max * lot) if (lot and p_max) else 0),
                 'openDate': item.get('openDate') or tl.get('biddingStarts', ''),
                 'closeDate': item.get('closeDate') or tl.get('biddingEnds', ''),
                 'allotmentDate': item.get('allotmentDate') or tl.get('allotmentFinalization', ''),
