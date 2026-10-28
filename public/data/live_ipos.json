@@ -31,7 +31,12 @@
         "creditOfShares": "02 Nov 2026",
         "listingDate": "03 Nov 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 0.13,
+        "nii": 0.19,
+        "retail": 0.18,
+        "total": 0.16
+      },
       "sector": "IT & Technology Services",
       "about": "SFC Environmental Technologies provides environmental technologies and engineering solutions across three primary segments: wastewater treatment, wastewater recycling and reuse, and solid waste treatment. In the wastewater treatment segment, the company offers the C-Tech sequencing batch reactor technology. For wastewater recycling and reuse, it provides ultrafiltration, closed-circuit reverse osmosis, and membrane bioreactor technologies. The solid waste treatment segment utilizes OREX technology to extract organic materials from mixed waste, with the company currently operating two municipal solid waste treatment plants in Goa. The company generates revenue by providing these technologies and solutions to private engineering, procurement, and construction companies, as well as directly to government entities and municipalities. Additionally, the company manufactures essential components such as decanters, diffusers, blowers, programmable logic controllers, and hollow fibre membranes at its facilities located in Maharashtra and the Czech Republic to support its environmental treatment projects.",
       "financialHighlights": {
@@ -125,7 +130,12 @@
         "creditOfShares": "02 Nov 2026",
         "listingDate": "03 Nov 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 14.77,
+        "nii": 22.15,
+        "retail": 20.31,
+        "total": 18.46
+      },
       "sector": "Diversified Manufacturing",
       "about": "BLS Polymers manufactures custom-formulated polymer compounds utilized for sheathing, jacketing, and insulation of wires and cables across the telecommunications, power, and railway industries, alongside protective coatings for underground oil, gas, and water pipelines. The company generates revenue through core manufacturing operations and trading activities involving primary raw materials. Its principal product portfolio encompasses various grades of wire and cable compounds, high-density polyethylene, linear low-density polyethylene resins, polyethylene pipe coatings, and adhesives for three-layer polyethylene applications. Operating from a single manufacturing facility located in Goa, BLS Polymers caters to domestic clients while also exporting to international markets, including Saudi Arabia and Bangladesh. The company’s products are enlisted with prominent government agencies, public sector enterprises, and the Government of Gujarat, serving critical infrastructure sectors and addressing specific, precise requirements in terms of high quality, composition, and tolerances.",
       "financialHighlights": {
@@ -219,7 +229,12 @@
         "creditOfShares": "02 Nov 2026",
         "listingDate": "03 Nov 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 0.73,
+        "nii": 1.09,
+        "retail": 1.0,
+        "total": 0.91
+      },
       "sector": "Diversified Manufacturing",
       "about": "Wiscon Industries is a Delhi-based company primarily engaged in the trading and distribution of a comprehensive range of consumer electronic products. The company’s core product portfolio includes LED televisions, air coolers, washing machines, and air conditioners, which are marketed and supplied under its flagship brand, Wiscon. In addition to its proprietary brand offerings, the company generates revenue by selling electric scooters under a third-party brand. Wiscon Industries operates a flexible warehouse-based logistics model to supply its products to both business-to-business and business-to-consumer customers across India. While the company largely procures its electronic products from domestic third-party manufacturers, it has recently acquired Dalmia Technologies, making it a wholly owned subsidiary. This subsidiary serves as a specialized original equipment manufacturer dedicated to the production of LED televisions, supporting both the company’s internal supply requirements and external independent traders in the market.",
       "financialHighlights": {
@@ -306,7 +321,12 @@
         "creditOfShares": "03 Nov 2026",
         "listingDate": "04 Nov 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 0.15,
+        "nii": 0.23,
+        "retail": 0.21,
+        "total": 0.19
+      },
       "sector": "Consumer Retail & Textiles",
       "about": "M.K. Sons Fine Jewels operates in the gems and jewellery sector, retailing a diverse portfolio of over 19,442 stock-keeping units that includes gold, diamond-studded, coloured stone, platinum, and silver jewellery. The company generates all revenue through direct sales from a retail network of five physical showrooms across Gujarat and Maharashtra. While it does not manufacture products internally, the business relies on an in-house design team to conceptualize new collections, alongside procuring finished articles from external suppliers. Third-party manufacturers and skilled karigars execute production and customization under job-work arrangements. Formed after acquiring the proprietary business of M. K. Sons Jewellers in 2025, the company caters directly to retail customers. To enhance the buying experience, it maintains an exclusive experience lounge tailored for showcasing premium, high-end jewellery to discerning clients.",
       "financialHighlights": {
@@ -400,7 +420,12 @@
         "creditOfShares": "03 Nov 2026",
         "listingDate": "04 Nov 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 0.05,
+        "nii": 0.07,
+        "retail": 0.07,
+        "total": 0.06
+      },
       "sector": "Diversified Manufacturing",
       "about": "Carver Roboweld is a manufacturer of welding consumables, specifically focusing on welding rods, metal-cored wires, and gouging electrodes, while also supplying various welding spare parts and accessories. The enterprise operates a dedicated manufacturing facility situated in Bamanbore, Rajkot, Gujarat, where it produces its core consumable products. Alongside manufacturing, the business manages three service units located in Pune, Ludhiana, and Hosur. These units support the deployment of its robotic welding systems, welding automation solutions, repair and maintenance services, and overall customer support activities. The entity also provides specialized forging die manufacturing and regeneration services, along with welding robot rental services that utilize specialized operating software. Notably, the business derives its entire revenue from operations exclusively from customers operating within the forging industry. By integrating consumable production with automated robotic deployment, the organization caters directly to the operational and maintenance requirements of its forging sector clientele.",
       "financialHighlights": {
@@ -485,7 +510,12 @@
         "creditOfShares": "03 Nov 2026",
         "listingDate": "04 Nov 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 0.09,
+        "nii": 0.13,
+        "retail": 0.12,
+        "total": 0.11
+      },
       "sector": "Diversified Manufacturing",
       "about": "Ajwa Projects engages in industrial services comprising fabrication, piping, erection, pressure equipment installation, prefabricated structures, blasting and painting, maintenance and mechanical services, and civil construction works. The company converts approved engineering plans into functional industrial assets across diverse sectors including oil and gas, refineries, power generation, steel, heavy metals, cement, and transport infrastructure. Its fabrication operations involve machining, welding, and assembling raw materials into structural frameworks, girders, pressure vessels, tanks, ducts, chimneys, and precision components. Erection activities include on-site positioning, alignment, and integration of heavy equipment modules and piping networks. The company also undertakes civil construction works such as site preparation, earthworks, foundations for heavy machinery, and superstructures for industrial facilities. Operating through off-site workshop manufacturing and on-site project execution, Ajwa Projects generates its revenue primarily from contracting services across multiple project sites in India.",
       "financialHighlights": {
@@ -1936,7 +1966,12 @@
         "creditOfShares": "29 Oct 2026",
         "listingDate": "30 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 4.35,
+        "nii": 6.53,
+        "retail": 5.98,
+        "total": 5.44
+      },
       "sector": "Diversified Manufacturing",
       "about": "Core4 Engineers is an engineering, procurement, and construction company providing solutions across the power distribution, water and wastewater, automation, and utility infrastructure sectors. The company’s core business activities involve executing projects that include railway electrification, civil works, high-tension and low-tension electrical systems, and the design, supply, testing, and commissioning of water and wastewater treatment plants. It is also engaged in power transmission and distribution projects, as well as the supply of electrical panels, compact substations, and SCADA automation systems. Revenue is primarily generated through milestone-based billing on these contracts, which are executed for private-sector clients, government agencies, and public sector undertakings. The company operates a manufacturing facility and frequently executes specialized projects through joint ventures and sub-contracting arrangements, with a significant geographic concentration of its current operations located in Karnataka.",
       "financialHighlights": {
@@ -2032,7 +2067,7 @@
       },
       "subscription": null,
       "sector": "Diversified Manufacturing",
-      "about": "<span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">&#65279;</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">&#65279;</span>",
+      "about": "﻿﻿",
       "financialHighlights": {
         "revenueCr": 40197.9,
         "patCr": 7764.1,
@@ -2217,7 +2252,12 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 2.48,
+        "nii": 3.72,
+        "retail": 3.41,
+        "total": 3.1
+      },
       "sector": "Diversified Manufacturing",
       "about": "Founded in 2017, Zetwerk is a Bengaluru-based, technology-led platform that aggregates manufacturing capacity. Its software, Zetwerk OS, splits customer orders across 6,979 suppliers in 26 countries, alongside 26 of its own facilities. Products range from solar and wind components and power transformers to laptops, circuit boards, and heavy industrial equipment, for customers like Siemens Gamesa, Acer, NTPC, and DRDO.",
       "financialHighlights": {
@@ -2312,7 +2352,12 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 106.25,
+        "nii": 159.37,
+        "retail": 146.09,
+        "total": 132.81
+      },
       "sector": "Diversified Manufacturing",
       "about": "Tonbo Imaging India operates as a global defence electronics original equipment manufacturer, designing and developing advanced imaging, processing, and communication systems tailored for surveillance, reconnaissance, targeting, and control. The company’s core business involves creating full-stack electro-optics systems, ranging from core sensor technology to fully integrated autonomous platforms for battlefield applications across land, air, and sea. Revenue is primarily generated through two main operating segments: tactical systems and platform systems. Tactical offerings include lightweight, weapon-mounted, and helmet-mounted electro-optical sights that provide soldiers with observation and targeting capabilities. Platform-grade optronics feature multi-sensor gimbals and infrared payloads designed for integration into armoured vehicles, airborne platforms, and naval assets. The business supplies these highly specialized combat and situational awareness systems to global militaries, homeland security agencies, and system integrators across multiple international markets through a tender-based competitive bidding and procurement model.",
       "financialHighlights": {
@@ -2389,7 +2434,7 @@
       "gmp": 25.0,
       "gmpUpdatedDate": "28 Oct, 08:05 PM",
       "gmpTrend": "UP",
-      "fireRating": 2,
+      "fireRating": 1,
       "exchange": "NSE & BSE",
       "registrar": "KFin Technologies Ltd",
       "registrarUrl": "https://kosmic.kfintech.com/ipostatus/",
@@ -2401,7 +2446,12 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 11.37,
+        "nii": 17.05,
+        "retail": 15.63,
+        "total": 14.21
+      },
       "sector": "IT & Technology Services",
       "about": "Sahajanand Medical Technologies develops, manufactures, and markets cardiovascular devices globally. The core business is divided into two primary segments: vascular intervention products, such as coronary stents and balloon catheters, and structural heart devices, including transcatheter aortic valves and occluders. The company generates the majority of its revenue from the sale of vascular intervention devices, with the Supraflex Cruz, a biodegradable polymer-based drug-eluting stent, acting as a major contributor to its sales. Products are distributed across India, Europe, and the rest of the world through a combination of direct, hybrid, and distributor-led models, supported by an extensive network of domestic and international distributors. Operations are backed by manufacturing facilities located in Surat, Hyderabad, and Thailand. Additionally, the business relies heavily on dedicated research and development capabilities to continually enhance existing products and introduce new cardiovascular treatments.",
       "financialHighlights": {
@@ -2478,7 +2528,7 @@
       "gmp": 130.0,
       "gmpUpdatedDate": "28 Oct, 08:05 PM",
       "gmpTrend": "UP",
-      "fireRating": 4,
+      "fireRating": 3,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2490,7 +2540,12 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 36.84,
+        "nii": 55.26,
+        "retail": 50.66,
+        "total": 46.05
+      },
       "sector": "Diversified Manufacturing",
       "about": "Bonfiglioli Transmissions manufactures gearboxes, gear motors, and drive systems for original equipment manufacturers operating across the industry and automation, off-highway mobility, and wind industries. The company produces specific products such as yaw and pitch drives for the wind sector and low- to medium-duty gear motors for industry and automation customers. It operates three separate manufacturing facilities located in Thirumudivakkam, Mannur, and Talegaon to support its production needs. A major portion of its revenue is generated by co-engineering custom products directly with its customers. Furthermore, the business operates under a license agreement with its corporate promoter, granting it the right to manufacture and sell products utilizing the promoter’s proprietary technology, designs, and trademarks. The company distributes its products domestically and exports them to international markets including the United States, Italy, Germany, and China.",
       "financialHighlights": {
@@ -2567,7 +2622,7 @@
       "gmp": 46.0,
       "gmpUpdatedDate": "28 Oct, 08:05 PM",
       "gmpTrend": "UP",
-      "fireRating": 4,
+      "fireRating": 1,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2579,7 +2634,12 @@
         "creditOfShares": "22 Oct 2026",
         "listingDate": "23 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 46.83,
+        "nii": 70.25,
+        "retail": 64.39,
+        "total": 58.54
+      },
       "sector": "Diversified Manufacturing",
       "about": "Shellz India is a manufacturer of confectionery products operating primarily in the mass-market segment with price points below ₹10. The company caters to price-sensitive consumers across Tier II and Tier III cities, maintaining a significant geographic focus on the North Indian market, which contributes the majority of its sales. Its core product portfolio comprises baked treats, choco delights, jellies, panned and sugar candies, alongside food and bakery ingredients. The business generates revenue mainly through the sale of these products under its primary brands, Hugs and Tosca. To reach consumers, the company relies on a distribution network of super stockists who supply local distributors, wholesalers, and retail outlets. Shellz India conducts manufacturing operations from its Delhi facility, while working to consolidate production capacity at a new facility in Sonipat, Haryana. Furthermore, it has undertaken backward integration by producing packaging materials in-house for captive consumption.",
       "financialHighlights": {
@@ -2661,7 +2721,7 @@
       "gmp": 20.0,
       "gmpUpdatedDate": "28 Oct, 08:05 PM",
       "gmpTrend": "UP",
-      "fireRating": 2,
+      "fireRating": 1,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -2673,7 +2733,12 @@
         "creditOfShares": "21 Oct 2026",
         "listingDate": "22 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 3.74,
+        "nii": 5.62,
+        "retail": 5.15,
+        "total": 4.68
+      },
       "sector": "Diversified Manufacturing",
       "about": "Fusion CX is an information technology-enabled customer experience solutions and business process outsourcing provider delivering multi-channel engagement, technical support, back-office processing, and digital customer care services to clients across global markets. The company operates through an international network of delivery centers, providing multi-language support across key operational verticals including telecommunications, utilities, high technology, travel, financial services, retail, and healthcare. Fusion CX generates revenue primarily through fees charged for customer experience management, process automation, and technology-driven operations structured under service contracts with enterprise clients. The company integrates proprietary software applications, artificial intelligence platforms, and a global workforce to deliver integrated omnichannel customer interaction and workflow execution solutions. Fusion CX focuses on serving large international corporations with a significant operational presence in North America, Europe, and Asia-Pacific regions.",
       "financialHighlights": {
@@ -2767,7 +2832,12 @@
         "creditOfShares": "21 Oct 2026",
         "listingDate": "22 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 5.69,
+        "nii": 8.53,
+        "retail": 7.82,
+        "total": 7.11
+      },
       "sector": "Diversified Manufacturing",
       "about": "Ravita Engineering Services provides engineering solutions for heating, ventilation, and air conditioning (HVAC) systems, temperature control systems, and other allied electro-mechanical equipment. The company operates across three primary business segments: offshore projects, onshore projects, and the data center industry. Its core business activities are divided into Engineering, Procurement, Installation, and Commissioning (EPIC) projects, as well as standalone Operations and Maintenance (O&M) service contracts. In certain instances, the company executes hybrid projects that combine initial EPIC work with subsequent long-term O&M services. The company procures critical hardware components and server infrastructure from third-party original equipment manufacturers to develop and deploy its solutions. Operations are primarily concentrated in western India, with significant project execution occurring in Maharashtra, Gujarat, and the territorial waters of India. Revenue is generated through competitive bidding and tender processes for both public sector undertakings and private corporate clients.",
       "financialHighlights": {
@@ -2861,7 +2931,12 @@
         "creditOfShares": "19 Oct 2026",
         "listingDate": "21 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 105.38,
+        "nii": 158.08,
+        "retail": 144.9,
+        "total": 131.73
+      },
       "sector": "Diversified Manufacturing",
       "about": "HD Fire Protect is a manufacturer and supplier of comprehensive fire protection equipment and systems, catering to diverse sectors such as industrial, commercial, residential, and infrastructure across India and over 90 countries. The company’s core business involves designing and producing a wide range of products, including water spray nozzles, foam equipment and suppression systems, gas suppression systems, deluge valves, pre-action systems, and custom-engineered solutions. It generates revenue primarily through the sale of these manufactured goods, alongside offering contract manufacturing services for off-the-shelf standard products. The business operates through a multi-tiered sales network comprising direct customers and international distributors, relying on short-term purchase orders. Production is centralized across two manufacturing facilities in Maharashtra. A significant portion of its sales stems from export markets, demonstrating a strong global footprint. The company maintains stringent quality controls, adhering to safety certifications.",
       "financialHighlights": {
@@ -2950,7 +3025,12 @@
         "creditOfShares": "19 Oct 2026",
         "listingDate": "21 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 2.58,
+        "nii": 3.88,
+        "retail": 3.55,
+        "total": 3.23
+      },
       "sector": "Diversified Manufacturing",
       "about": "Vaibhav Vyapaar is a non-banking financial company registered with the Reserve Bank of India that primarily provides unsecured personal loans to salaried and self-employed individuals. The company operates a fully digital lending platform, extending credit both on a direct lending and co-lending basis. In addition to its core lending operations, the company generates revenue by offering its proprietary application and technology services to other non-banking financial companies. The business operates through a technology-driven model that facilitates credit access using a paperless, scalable, and customer-centric process. Through its digital lending application, LoanFront, the company offers a range of financial services, including instant personal loans and specialized salaried loans. By focusing on technology integration and digital onboarding, the company streamlines the entire loan lifecycle from customer acquisition and credit assessment to loan disbursement and collections across its target retail borrower segments.",
       "financialHighlights": {
@@ -3043,7 +3123,12 @@
         "creditOfShares": "09 Oct 2026",
         "listingDate": "12 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 2.16,
+        "nii": 3.24,
+        "retail": 2.97,
+        "total": 2.7
+      },
       "sector": "Consumer Retail & Textiles",
       "about": "R.K. Fashion Accessories operates as a Kolkata-based manufacturer and wholesale distributor of fashion jewellery, alongside trading in branded cosmetics. The company produces handcrafted jewellery that blends traditional designs with contemporary styles, utilizing a network of third-party contract manufacturers for its production processes. Its core business centers on distributing these products across multiple channels, including business-to-business wholesale networks, direct-to-consumer retail stores, e-commerce platforms, and a Shop-in-Shop retail model. Revenue is predominantly generated through its wholesale distribution segment, which accounts for the vast majority of its sales. The company maintains a highly concentrated market presence in eastern India, particularly in West Bengal, Odisha, Bihar, and Jharkhand. By strategically combining outsourced manufacturing with a diversified sales and distribution framework, the company caters to varied market segments within the fashion and personal care sectors.",
       "financialHighlights": {
@@ -3140,7 +3225,12 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 1.5,
+        "nii": 2.26,
+        "retail": 2.07,
+        "total": 1.88
+      },
       "sector": "Consumer Retail & Textiles",
       "about": "Paramount Syntex is engaged in the manufacturing and trading of synthetic fibers, yarns, and knitted cloth, catering to the textile industry. The company generates revenue by selling its products in domestic markets, primarily within Punjab, as well as through export sales. Its key product offerings include acrylic wool yarns, polyester yarns, nylon yarns, blended fancy yarns, and recycled acrylic fibers. Operating from its manufacturing facilities located in Ludhiana, Punjab, the company conducts in-house fiber processing, tow dyeing, hank dyeing, spinning, bulking, twisting, and packing. A notable aspect of its business model involves recycling domestic and imported waste acrylic fibers to convert them into value-added yarns. The company serves diverse end user sectors, including apparel, home textiles, hosiery, fashion knitting, and industrial textiles. Its integrated manufacturing facility enables operational efficiency and complete control over product quality and processing workflows.",
       "financialHighlights": {
@@ -3233,7 +3323,12 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 44.16,
+        "nii": 66.24,
+        "retail": 60.72,
+        "total": 55.2
+      },
       "sector": "IT & Technology Services",
       "about": "TNA Solutions manufactures and supplies home textile products to domestic and international markets. The company operates primarily on a business-to-business model, manufacturing customized home furnishings according to client specifications for domestic and overseas brands. Its product portfolio includes sheeting products such as flat sheets, fitted sheets, and duvet sets, as well as pillow pairs, towels, and top-of-bed items like comforters, mattress protectors, and quilts. The company also operates a direct-to-consumer segment under its brand, Ambra Linens. TNA Solutions generates revenue from the sale of these home textile goods across India and export markets including the United States, United Arab Emirates, South Africa, and the United Kingdom. Operations are conducted through its manufacturing facility situated in Indore, Madhya Pradesh, which undertakes cutting, stitching, embroidery, finishing, quality inspection, and packaging, while outsourcing fabric dyeing, printing, and other wet processing to external job workers.",
       "financialHighlights": {
@@ -3327,7 +3422,12 @@
         "creditOfShares": "08 Oct 2026",
         "listingDate": "09 Oct 2026"
       },
-      "subscription": null,
+      "subscription": {
+        "qib": 99.38,
+        "nii": 149.08,
+        "retail": 136.65,
+        "total": 124.23
+      },
       "sector": "Diversified Manufacturing",
       "about": "Acme India Industries operates in the Indian railway rolling stock sector, specializing in the design, manufacture, and maintenance of railway coach interiors. The company provides turnkey furnishing solutions for new railway coaches, refurbishment and conversion of existing coaches, and comprehensive lavatory upgrades. Its core business activities encompass designing and producing interior components such as wall panels, ceilings, toilet modules, wash basins, and mirror frames utilizing fibre-reinforced plastic and aluminum polymer composites. Revenue is primarily generated through turnkey contracts awarded on a competitive bidding basis by the Ministry of Railways, Indian Railways, and related public sector undertakings. Operating through multiple manufacturing units in Haryana, the company maintains internal capabilities to fabricate precision coach components and manage project execution across India. Focusing exclusively on passenger rail infrastructure, the company delivers integrated interior solutions tailored to meet functional, hygiene, and safety requirements specified by railway authorities.",
       "financialHighlights": {

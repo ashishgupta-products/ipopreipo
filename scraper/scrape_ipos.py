@@ -176,77 +176,166 @@ def scrape_zerodha_detail(rel_url: str):
 
     return data
 
-def scrape_investorgain_gmp():
+IPOWATCH_GMP_URL = 'https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/'
+
+def normalize_company_name(text: str) -> str:
     """
-    Scrapes live Grey Market Premium (GMP) & fire ratings from InvestorGain
-    to enrich Zerodha's primary filings data with real-time grey market sentiment.
+    Cleans company names from raw text by:
+    - Normalizing '&' to 'and'
+    - Stripping email protection tags and parenthesized percentages
+    - Stripping trailing status suffixes (IPO, BSE SME, NSE SME, SME, Open, Upcoming, Closed, Listed, Allotted, U, O, C, L)
+    - Stripping common corporate designations (Ltd, Limited, Pvt, Private, Technologies, etc.)
+    - Removing non-alphanumeric characters
     """
-    print(f"[InvestorGain] Fetching live GMP and demand sentiment from {INVESTORGAIN_URL}...")
+    s = text.replace('&', ' and ')
+    s = re.sub(r'\[email&#160;protected\].*$', '', s)
+    s = re.sub(r'\(.*?\)', '', s)
+    s = re.sub(r'(BSE SME|NSE SME|IPO|SME|Open|Upcoming|Closed|Listed|Allotted|[UOCL])+$', '', s, flags=re.IGNORECASE)
+    s = re.sub(r'\b(ltd|limited|pvt|private|technologies|solutions|industries|india)\b', '', s, flags=re.IGNORECASE)
+    s = re.sub(r'[^a-zA-Z0-9\s]', ' ', s)
+    return re.sub(r'\s+', ' ', s).strip().lower()
+
+def scrape_live_gmp_multisource():
+    """
+    Multi-source live GMP scraper:
+    1. Primary: IPOWatch (https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/)
+    2. Secondary: InvestorGain (https://www.investorgain.com/report/live-ipo-gmp/331/)
+    Cross-verifies and merges both sources to eliminate 0-GMP blindspots when IPOs transition from upcoming to live.
+    """
+    print(f"[GMP Multi-Source] Scraping live GMP from IPOWatch & InvestorGain...")
     gmp_map = {}
+
+    # 1. Scrape IPOWatch
+    try:
+        resp = requests.get(IPOWATCH_GMP_URL, headers=HEADERS, timeout=10)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, 'html.parser')
+            table = soup.find('table')
+            if table:
+                rows = table.find('tbody').find_all('tr') if table.find('tbody') else table.find_all('tr')[1:]
+                for row in rows:
+                    tds = row.find_all('td')
+                    if len(tds) < 3:
+                        continue
+                    raw_name = tds[0].get_text(strip=True)
+                    clean_key = normalize_company_name(raw_name)
+                    if not clean_key:
+                        continue
+
+                    gmp_raw = tds[1].get_text(strip=True)
+                    gmp_m = re.search(r'₹([0-9\.]+)', gmp_raw)
+                    gmp_val = float(gmp_m.group(1)) if gmp_m else 0.0
+
+                    trend_raw = tds[2].get_text(strip=True) if len(tds) > 2 else ''
+                    trend = 'UP' if ('🟢' in trend_raw or '↑' in trend_raw) else 'DOWN' if ('🔴' in trend_raw or '↓' in trend_raw) else 'STABLE'
+
+                    gmp_map[clean_key] = {
+                        'gmp': gmp_val,
+                        'trend': trend,
+                        'fire': 3 if gmp_val > 50 else (2 if gmp_val > 0 else 1),
+                        'subscription': 0.0,
+                        'source': 'IPOWatch'
+                    }
+                print(f"[IPOWatch] Extracted live GMP for {len(gmp_map)} issues.")
+    except Exception as e:
+        print(f"[IPOWatch] Fetch failed: {e}")
+
+    # 2. Scrape InvestorGain to enrich and cross-verify
     try:
         resp = requests.get(INVESTORGAIN_URL, headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(resp.text, 'lxml')
-        table = soup.find('table')
-        if not table:
-            return gmp_map
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, 'html.parser')
+            table = soup.find('table')
+            if table:
+                rows = table.find('tbody').find_all('tr') if table.find('tbody') else table.find_all('tr')[1:]
+                for row in rows:
+                    tds = row.find_all('td')
+                    if len(tds) < 5:
+                        continue
 
-        rows = table.find('tbody').find_all('tr') if table.find('tbody') else table.find_all('tr')[1:]
-        for row in rows:
-            tds = row.find_all('td')
-            if len(tds) < 5:
-                continue
+                    raw_name = tds[0].get_text(strip=True)
+                    clean_key = normalize_company_name(raw_name)
+                    if not clean_key:
+                        continue
 
-            name_cell = tds[0]
-            raw_name = name_cell.get_text(strip=True)
-            clean_name = re.sub(r'(BSE SME|NSE SME|IPO|[UOCL])$', '', raw_name).strip().lower()
+                    gmp_raw = tds[1].get_text(strip=True)
+                    gmp_match = re.search(r'₹([0-9\.\-]+)', gmp_raw)
+                    gmp_val = float(gmp_match.group(1)) if (gmp_match and gmp_match.group(1) != '--') else 0.0
 
-            gmp_raw = tds[1].get_text(strip=True)
-            gmp_match = re.search(r'₹([0-9\.\-]+)', gmp_raw)
-            gmp_val = float(gmp_match.group(1)) if (gmp_match and gmp_match.group(1) != '--') else 0.0
+                    trend = 'UP' if '↑' in gmp_raw else 'DOWN' if '↓' in gmp_raw else 'STABLE'
 
-            trend = 'UP' if '↑' in gmp_raw else 'DOWN' if '↓' in gmp_raw else 'STABLE'
+                    rating_cell = tds[2].get_text(strip=True)
+                    fire_rating = max(1, min(5, rating_cell.count('🔥') or 2))
 
-            rating_cell = tds[2].get_text(strip=True)
-            fire_rating = max(1, min(5, rating_cell.count('🔥') or 2))
+                    sub_raw = tds[3].get_text(strip=True).replace('x', '').replace('-', '0').strip()
+                    try:
+                        sub_val = float(sub_raw)
+                    except ValueError:
+                        sub_val = 0.0
 
-            sub_raw = tds[3].get_text(strip=True).replace('x', '').replace('-', '0').strip()
-            try:
-                sub_val = float(sub_raw)
-            except ValueError:
-                sub_val = 0.0
-
-            gmp_map[clean_name] = {
-                'gmp': gmp_val,
-                'trend': trend,
-                'fire': fire_rating,
-                'subscription': sub_val
-            }
-        print(f"[InvestorGain] Successfully extracted live GMP for {len(gmp_map)} issues.")
+                    # Merge logic: if key not present, or if InvestorGain has non-zero GMP or subscription
+                    if clean_key not in gmp_map:
+                        gmp_map[clean_key] = {
+                            'gmp': gmp_val,
+                            'trend': trend,
+                            'fire': fire_rating,
+                            'subscription': sub_val,
+                            'source': 'InvestorGain'
+                        }
+                    else:
+                        # Update with subscription and fire rating from InvestorGain
+                        if sub_val > 0:
+                            gmp_map[clean_key]['subscription'] = sub_val
+                        if fire_rating > 1:
+                            gmp_map[clean_key]['fire'] = fire_rating
+                        if gmp_val > 0 and gmp_map[clean_key]['gmp'] == 0:
+                            gmp_map[clean_key]['gmp'] = gmp_val
+                            gmp_map[clean_key]['trend'] = trend
+                print(f"[InvestorGain] Enriched GMP map (total {len(gmp_map)} issues across sources).")
     except Exception as e:
-        print(f"[InvestorGain] GMP fetch failed: {e}")
+        print(f"[InvestorGain] Fetch failed: {e}")
 
     return gmp_map
 
 def match_gmp(name: str, symbol: str, gmp_map: dict, existing_gmp: dict = None):
     """
-    Fuzzy matches Zerodha company name/symbol with InvestorGain live GMP map.
-    Preserves existing non-zero GMP if live source is temporarily unavailable.
+    Robust multi-strategy fuzzy matching:
+    1. Exact normalized name match
+    2. Substring containment (both directions)
+    3. Multi-word token set matching (matches 2+ core tokens)
+    4. Symbol match
+    5. Fallback to existing known GMP if available
     """
-    n_lower = name.lower()
+    clean_n = normalize_company_name(name)
     s_lower = symbol.lower()
 
-    for k, v in gmp_map.items():
-        if k in n_lower or n_lower in k or s_lower in k:
-            return v
-    
-    # Keyword token match
-    tokens = [w for w in re.split(r'\s+', n_lower) if len(w) >= 4 and w not in ['india', 'limited', 'steels', 'enterprises', 'power']]
-    for token in tokens:
-        for k, v in gmp_map.items():
-            if token in k:
-                return v
+    # 1. Exact normalized match
+    if clean_n in gmp_map:
+        return gmp_map[clean_n]
 
-    # Fallback to existing known GMP if available rather than setting to 0
+    # 2. Substring match
+    for k, v in gmp_map.items():
+        if k in clean_n or clean_n in k or (s_lower and s_lower in k):
+            return v
+
+    # 3. Token set matching
+    tokens = [w for w in clean_n.split() if len(w) >= 3 and w not in ['and', 'for', 'the', 'sons', 'fine']]
+    if tokens:
+        best_match = None
+        max_overlap = 0
+        for k, v in gmp_map.items():
+            k_tokens = set(k.split())
+            overlap = sum(1 for t in tokens if t in k_tokens)
+            if overlap >= 2 and overlap > max_overlap:
+                max_overlap = overlap
+                best_match = v
+            elif overlap == 1 and len(tokens) == 1 and overlap > max_overlap:
+                max_overlap = overlap
+                best_match = v
+        if best_match:
+            return best_match
+
+    # 4. Fallback to existing known non-zero GMP
     if existing_gmp and float(existing_gmp.get('gmp', 0)) > 0:
         return existing_gmp
 
@@ -305,8 +394,8 @@ def scrape_zerodha_primary():
     tables = soup.find_all('table')
     print(f"[Zerodha] Found {len(tables)} tables on Zerodha portal.")
 
-    # Fetch live GMP map for enrichment
-    gmp_map = scrape_investorgain_gmp()
+    # Fetch live GMP map for enrichment from multiple sources (IPOWatch + InvestorGain)
+    gmp_map = scrape_live_gmp_multisource()
 
     # Load existing GMP fallback map from src/data/live_ipos.json
     existing_gmp_map = {}
