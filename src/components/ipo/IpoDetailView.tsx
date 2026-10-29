@@ -83,10 +83,27 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
   const anchorDetails = getIpoAnchorDetails(ipo);
   const leadManagers = getIpoLeadManagers(ipo);
 
+  // Concise lead summary for Hero to avoid verbatim repetition with Section 1
+  const leadSummary = useMemo(() => {
+    if (!ipo.about) return '';
+    const firstSentenceMatch = ipo.about.match(/^(.+?[.!?])(?:\s+|$)/);
+    const firstSentence = firstSentenceMatch ? firstSentenceMatch[1] : ipo.about;
+    if (firstSentence.length >= 60 && firstSentence.length <= 260) {
+      return firstSentence;
+    }
+    if (ipo.about.length > 220) {
+      const trimmed = ipo.about.slice(0, 220);
+      const lastSpace = trimmed.lastIndexOf(' ');
+      return (lastSpace > 120 ? trimmed.slice(0, lastSpace) : trimmed) + '...';
+    }
+    return ipo.about;
+  }, [ipo.about]);
+
   // Dynamic analyst consensus coverage
   const analystReviews = useMemo(() => {
     const isStrong = gmpPercent >= 15;
     const isModerate = gmpPercent >= 5;
+    const sectorName = ipo.sector || 'its target sector';
 
     return [
       {
@@ -98,8 +115,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isModerate ? ('Apply' as const) : ('Neutral' as const),
         verdictColor: isModerate ? '#16a34a' : '#d97706',
         note: isModerate
-          ? 'Recommend Subscribe for listing gains as well as long term investment. Debt prepayment will improve capital efficiency.'
-          : 'Neutral on valuation. High working capital intensity warrants a wait-and-see approach.'
+          ? `Recommend Subscribe for ${ipo.name}. Favorable risk-reward ratio given the ${gmpPercent >= 10 ? 'healthy grey market demand' : 'fair pricing'} and steady operational scale.`
+          : `Neutral stance on ${ipo.name}. Recommend waiting for post-listing secondary market stabilization before initiating fresh positions.`
       },
       {
         slug: 'sbi-securities',
@@ -110,8 +127,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isModerate ? ('Apply' as const) : ('Neutral' as const),
         verdictColor: isModerate ? '#16a34a' : '#d97706',
         note: isModerate
-          ? 'Subscribe with long term perspective. Backward integration and strong client retention support sustainable return on net worth.'
-          : 'Wait for post-listing price discovery. Margins face competitive pressure in the near term.'
+          ? `Subscribe with long-term perspective. Solid market positioning in ${sectorName} and disciplined capital allocation support sustainable return on net worth.`
+          : `Wait for post-listing price discovery. Margins and working capital requirements warrant cautious evaluation.`
       },
       {
         slug: 'anand-rathi',
@@ -122,8 +139,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isStrong ? ('Apply' as const) : isModerate ? ('Apply' as const) : ('Avoid' as const),
         verdictColor: isModerate ? '#16a34a' : '#dc2626',
         note: isModerate
-          ? 'Subscribe for listing gains. The price band leaves reasonable room on the table compared to leading listed peers.'
-          : 'Avoid for short term. Valuation leaves zero safety margin for retail investors.'
+          ? `Subscribe for listing gains. The price band leaves reasonable room on the table compared to leading listed peers in ${sectorName}.`
+          : `Avoid for short term. Current valuation leaves limited safety margin for retail investors.`
       },
       {
         slug: 'bp-equities',
@@ -134,8 +151,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isModerate ? ('Apply' as const) : ('Neutral' as const),
         verdictColor: isModerate ? '#16a34a' : '#d97706',
         note: isModerate
-          ? 'Apply for listing gains. Robust order book execution and sound operating margins over the past 3 fiscal years.'
-          : 'Neutral view. Execution timelines need greater quarterly consistency.'
+          ? `Apply for listing gains. Robust business execution and sound operating margins over recent fiscal periods.`
+          : `Neutral view. Near-term execution timelines need greater consistency against peer benchmarks.`
       },
       {
         slug: 'marwadi-shares-finance',
@@ -146,8 +163,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isModerate ? ('Apply' as const) : ('Avoid' as const),
         verdictColor: isModerate ? '#16a34a' : '#dc2626',
         note: isModerate
-          ? 'Subscribe for long term investment considering healthy asset turnover and planned geographic capacity expansion.'
-          : 'Avoid given elevated peer price-to-earnings multiples and thin revenue growth.'
+          ? `Subscribe for long term investment considering healthy asset turnover and ongoing capacity expansion.`
+          : `Avoid given elevated peer price-to-earnings multiples and thin revenue growth.`
       },
       {
         slug: 'swastika-investmart',
@@ -158,8 +175,8 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isStrong ? ('Apply' as const) : isModerate ? ('Apply' as const) : ('Neutral' as const),
         verdictColor: isModerate ? '#16a34a' : '#d97706',
         note: isModerate
-          ? 'Apply for listing gains supported by current grey market demand and favorable sector tailwinds.'
-          : 'Neutral rating. May consider post-listing upon secondary market stabilization.'
+          ? `Apply for listing gains supported by current grey market demand (${gmpPercent >= 0 ? '+' : ''}${gmpPercent.toFixed(1)}%) and favorable market sentiment.`
+          : `Neutral rating. May consider post-listing upon secondary market price stabilization.`
       },
       {
         slug: 'capital-market',
@@ -170,11 +187,11 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
         verdict: isStrong ? ('Apply' as const) : ('Neutral' as const),
         verdictColor: isStrong ? '#16a34a' : '#d97706',
         note: isStrong
-          ? 'Subscribe with caution. Reasonable growth prospects compensate for cluster concentration.'
-          : 'Neutral / 42 Score. Business is cyclical and raw material concentration remains elevated in southern clusters.'
+          ? `Subscribe with caution. Reasonable growth prospects compensate for sector concentration risks.`
+          : `Neutral stance. Business is subject to sector cyclicality and raw material price volatility.`
       }
     ];
-  }, [gmpPercent]);
+  }, [ipo.name, ipo.sector, gmpPercent]);
 
   const applyDesks = useMemo(() => analystReviews.filter(r => r.verdict === 'Apply'), [analystReviews]);
   const neutralDesks = useMemo(() => analystReviews.filter(r => r.verdict === 'Neutral'), [analystReviews]);
@@ -342,7 +359,27 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                 </h1>
 
                 <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.6', maxWidth: '750px', marginBottom: '0.8rem' }}>
-                  {ipo.about}
+                  {leadSummary}
+                  {ipo.about && ipo.about.length > leadSummary.length && (
+                    <button
+                      onClick={() => {
+                        const el = document.getElementById('sec-overview');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: '#2563eb',
+                        fontWeight: 600,
+                        fontSize: '0.85rem',
+                        cursor: 'pointer',
+                        padding: '0 0 0 6px',
+                        textDecoration: 'underline'
+                      }}
+                    >
+                      Read full corporate overview ↓
+                    </button>
+                  )}
                 </p>
 
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -518,30 +555,26 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
           <div className="glass-panel" style={{ padding: '1.1rem' }}>
             <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Promoter Holding
+              Listing Date
             </span>
             <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem' }}>
-              {promoterHolding.preIssuePercent}% → {promoterHolding.postIssuePercent}%
+              {ipo.timeline.listingDate || 'TBA'}
             </div>
-            <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Pre → Post Issue</span>
+            <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 600 }}>
+              {ipo.status === 'LISTED' ? 'Trading on Exchange' : 'Expected Listing'}
+            </span>
           </div>
 
           <div className="glass-panel" style={{ padding: '1.1rem' }}>
             <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Registrar
+              Allotment Date
             </span>
-            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {ipo.registrar.split(' ')[0]} {ipo.registrar.split(' ')[1] || ''}
+            <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem' }}>
+              {ipo.timeline.allotmentFinalization || 'TBA'}
             </div>
-            <a 
-              href={ipo.registrarUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ fontSize: '0.72rem', color: '#2563eb', display: 'flex', alignItems: 'center', gap: '3px', textDecoration: 'none' }}
-            >
-              <span>Check Portal</span>
-              <ExternalLink size={10} />
-            </a>
+            <span style={{ fontSize: '0.72rem', color: '#64748b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block' }}>
+              Registrar: {ipo.registrar ? ipo.registrar.split(' ')[0] : 'SEBI'}
+            </span>
           </div>
         </div>
 
@@ -827,85 +860,63 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
             </span>
           </div>
 
-          {/* Top 4 Core Cards */}
+          {/* Top 4 Differentiated GMP Intelligence Cards */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
             gap: '1rem'
           }}>
-              {/* Live GMP Card */}
-              <div className="glass-panel" style={{ padding: '1.25rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
-                  <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Live GMP</span>
-                  <Flame size={15} color="#d97706" />
-                </div>
-                <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#15803d' : '#dc2626' }}>
-                  {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
-                </div>
-                <div style={{ marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                  {dailyChange > 0 ? (
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#15803d', backgroundColor: '#dcfce7', padding: '1px 6px', borderRadius: '3px' }}>
-                      ▲ +₹{dailyChange} Today
-                    </span>
-                  ) : dailyChange < 0 ? (
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#b91c1c', backgroundColor: '#fee2e2', padding: '1px 6px', borderRadius: '3px' }}>
-                      ▼ -₹{Math.abs(dailyChange)} Today
-                    </span>
-                  ) : (
-                    <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#64748b', backgroundColor: '#f1f5f9', padding: '1px 6px', borderRadius: '3px' }}>
-                      ▬ Flat Today
-                    </span>
-                  )}
-                  <span style={{ fontSize: '0.7rem', color: '#64748b' }}>Updated: {ipo.gmpUpdatedDate}</span>
-                </div>
+            {/* 1. Demand & Fire Rating */}
+            <div className="glass-panel" style={{ padding: '1.25rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Grey Market Sentiment</span>
+                <Flame size={15} color="#d97706" />
               </div>
-
-              {/* Est. Listing Price Card */}
-              <div className="glass-panel" style={{ padding: '1.25rem' }}>
-                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Est. Listing Price</span>
-                <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0f172a', marginTop: '0.2rem' }}>
-                  ₹{estListingPrice}
-                </div>
-                <div style={{ marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                  <span className="mono" style={{
-                    fontSize: '0.72rem',
-                    fontWeight: 700,
-                    color: ipo.gmp >= 0 ? '#15803d' : '#dc2626',
-                    backgroundColor: ipo.gmp >= 0 ? '#dcfce7' : '#fee2e2',
-                    padding: '1px 6px',
-                    borderRadius: '3px'
-                  }}>
-                    {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
-                  </span>
-                  <span style={{ fontSize: '0.7rem', color: '#64748b' }}>Over Issue Price ₹{ipo.priceBandHigh}</span>
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '3px', margin: '0.35rem 0' }}>
+                {Array.from({ length: Math.max(1, Math.min(5, ipo.fireRating || (ipo.gmp > 100 ? 5 : ipo.gmp > 50 ? 4 : ipo.gmp > 20 ? 3 : 2))) }).map((_, fIdx) => (
+                  <Flame key={fIdx} size={18} fill="#d97706" color="#d97706" />
+                ))}
               </div>
-
-              {/* Profit Per Lot */}
-              <div className="glass-panel" style={{ padding: '1.25rem' }}>
-                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Est. Profit / Retail Lot</span>
-                <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', marginTop: '0.2rem' }}>
-                  {estProfitPerLot >= 0 ? `+₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
-                </div>
-                <span style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '0.35rem', display: 'block' }}>
-                  {hasValidLot ? `Lot Size: ${ipo.lotSize} shares (Cost: ₹${minRetailInvestment.toLocaleString('en-IN')})` : 'Lot Size: TBA'}
-                </span>
-              </div>
-
-              {/* Kostak Rate & Sauda Estimate */}
-              <div className="glass-panel" style={{ padding: '1.25rem' }}>
-                <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Kostak / Subject to Sauda</span>
-                <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#334155', marginTop: '0.25rem' }}>
-                  Kostak: {hasValidLot ? `₹${Math.round(ipo.gmp * (ipo.lotSize || 0) * 0.12).toLocaleString('en-IN')}` : 'TBA'}
-                </div>
-                <div className="mono" style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '0.2rem' }}>
-                  Sauda: {hasValidLot ? `~₹${Math.round(estProfitPerLot * 0.85).toLocaleString('en-IN')} / lot` : 'TBA'}
-                </div>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: gmpPercent >= 15 ? '#15803d' : gmpPercent > 0 ? '#d97706' : '#dc2626' }}>
+                {gmpPercent >= 20 ? 'High Buyer Demand' : gmpPercent >= 10 ? 'Moderate Demand' : gmpPercent > 0 ? 'Cautious / Mild Interest' : 'Discount / Subdued'}
               </div>
             </div>
 
-            {/* Interactive GMP Trend Line & Area Chart */}
-            <GmpChart 
+            {/* 2. Listing Premium Buffer */}
+            <div className="glass-panel" style={{ padding: '1.25rem' }}>
+              <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Listing Premium Buffer</span>
+              <div className="mono" style={{ fontSize: '1.8rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#15803d' : '#dc2626', marginTop: '0.2rem' }}>
+                {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+              </div>
+              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                Expected over cap price (₹{ipo.priceBandHigh})
+              </span>
+            </div>
+
+            {/* 3. Kostak Application Rate */}
+            <div className="glass-panel" style={{ padding: '1.25rem' }}>
+              <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Kostak Rate (Unallotted)</span>
+              <div className="mono" style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', marginTop: '0.2rem' }}>
+                {hasValidLot ? `₹${Math.round(ipo.gmp * (ipo.lotSize || 0) * 0.12).toLocaleString('en-IN')}` : 'TBA'}
+              </div>
+              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                Fixed OTC sale rate per application
+              </span>
+            </div>
+
+            {/* 4. Subject to Sauda */}
+            <div className="glass-panel" style={{ padding: '1.25rem' }}>
+              <span style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Subject to Sauda</span>
+              <div className="mono" style={{ fontSize: '1.6rem', fontWeight: 800, color: '#2563eb', marginTop: '0.2rem' }}>
+                {hasValidLot ? `~₹${Math.round(estProfitPerLot * 0.85).toLocaleString('en-IN')}` : 'TBA'}
+              </div>
+              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                Guaranteed gain upon confirmed allotment
+              </span>
+            </div>
+          </div>
+
+          <GmpChart 
               history={gmpHistory} 
               issuePrice={ipo.priceBandHigh} 
             />
@@ -1030,61 +1041,6 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                     ))}
                   </tbody>
                 </table>
-              </div>
-            </div>
-
-            {/* Investor Quota Profit Simulation Grid */}
-            <div className="glass-panel detail-card">
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <DollarSign size={20} color="#059669" />
-                <span>Estimated Profit Simulation Across Application Brackets</span>
-              </h3>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
-                <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase' }}>
-                    Retail Investor (Min 1 Lot)
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
-                    {ipo.lotSize} shares @ ₹{ipo.priceBandHigh}
-                  </div>
-                  <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
-                    {estProfitPerLot >= 0 ? `+₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>
-                    Application Cost: ₹{minRetailInvestment.toLocaleString('en-IN')}
-                  </div>
-                </div>
-
-                <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase' }}>
-                    Retail Investor (Max {maxRetailLots} Lots)
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
-                    {hasValidLot ? `${maxRetailLots * (ipo.lotSize || 0)} shares @ ₹${ipo.priceBandHigh}` : 'Awaiting Lot Announcement'}
-                  </div>
-                  <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
-                    {hasValidLot ? (estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * maxRetailLots).toLocaleString('en-IN')}`) : 'TBA'}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>
-                    Application Cost: {maxRetailInvestment > 0 ? `₹${maxRetailInvestment.toLocaleString('en-IN')}` : 'TBA'}
-                  </div>
-                </div>
-
-                <div style={{ backgroundColor: '#f8fafc', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#d97706', textTransform: 'uppercase' }}>
-                    Small HNI (sHNI Min {sHniMinLots} Lots)
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.25rem' }}>
-                    {hasValidLot ? `${sHniMinLots * (ipo.lotSize || 0)} shares @ ₹${ipo.priceBandHigh}` : 'Awaiting Lot Announcement'}
-                  </div>
-                  <div className="mono" style={{ fontSize: '1.4rem', fontWeight: 800, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626', margin: '0.5rem 0' }}>
-                    {hasValidLot ? (estProfitPerLot >= 0 ? `+₹${(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot * sHniMinLots).toLocaleString('en-IN')}`) : 'TBA'}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#475569' }}>
-                    Application Cost: {sHniMinInvestment > 0 ? `₹${sHniMinInvestment.toLocaleString('en-IN')}` : 'TBA'}
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -1389,6 +1345,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Lots to Apply</th>
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Total Shares</th>
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Total Amount Blocked</th>
+                      <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Est. Listing Gain</th>
                       <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>Allotment Basis</th>
                     </tr>
                   </thead>
@@ -1406,6 +1363,9 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                         </td>
                         <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 800, color: '#2563eb' }}>
                           ₹{bracket.amount.toLocaleString('en-IN')}
+                        </td>
+                        <td className="mono" style={{ padding: '0.85rem 1rem', textAlign: 'right', fontWeight: 700, color: estProfitPerLot >= 0 ? '#059669' : '#dc2626' }}>
+                          {hasValidLot ? (estProfitPerLot >= 0 ? `+₹${(bracket.lots * estProfitPerLot).toLocaleString('en-IN')}` : `-₹${Math.abs(bracket.lots * estProfitPerLot).toLocaleString('en-IN')}`) : 'TBA'}
                         </td>
                         <td style={{ padding: '0.85rem 1rem', fontSize: '0.78rem', color: '#64748b' }}>
                           {bracket.category.includes('Retail') 
@@ -1769,29 +1729,35 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </h3>
 
               <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #e2e8f0' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb' }}>Valuation & Listing Return</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb' }}>Valuation & Pricing Analysis</div>
                 <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '2px', lineHeight: 1.45 }}>
-                  The issue is priced at roughly {peers?.[0]?.peRatio || '22.5'}x FY24 P/E, which sits at a fair discount to the peer median, leaving room for listing gains.
+                  {ipo.financialHighlights?.peRatio
+                    ? `The issue is priced at ${ipo.financialHighlights.peRatio.toFixed(1)}x P/E multiples, ${peers?.[0]?.peRatio ? `benchmarked against sector peer ${peers[0].name} trading at ${peers[0].peRatio.toFixed(1)}x.` : 'leaving reasonable safety room on the table for listing gains.'}`
+                    : `Priced in the band of ₹${ipo.priceBandLow}-₹${ipo.priceBandHigh}, reflecting current market demand in ${ipo.sector || 'the sector'} with listing premium currently indicated at ${gmpPercent >= 0 ? '+' : ''}${gmpPercent.toFixed(1)}%.`}
                 </div>
               </div>
 
               <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #059669' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669' }}>Short-Term Horizon</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#059669' }}>Issue Proceeds & Capital Allocation</div>
                 <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '2px', lineHeight: 1.45 }}>
-                  Proceeds earmarked for debt prepayment will directly save finance costs and expand net margins from Q3 onwards.
+                  {ipo.freshIssueCr && ipo.freshIssueCr > 0
+                    ? `Fresh capital infusion of ₹${ipo.freshIssueCr.toLocaleString('en-IN')} Cr is earmarked for business expansion, capital expenditure, and working capital to support operational growth.`
+                    : ipo.ofsCr && (!ipo.freshIssueCr || ipo.freshIssueCr === 0)
+                    ? `Pure Offer for Sale (OFS) of ₹${ipo.ofsCr.toLocaleString('en-IN')} Cr provides partial liquidity to selling shareholders, with proceeds not accruing to the company's balance sheet.`
+                    : `Proceeds will support business expansion, strategic investments, and general corporate objectives in line with SEBI filings.`}
                 </div>
               </div>
 
               <div style={{ backgroundColor: '#f8fafc', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: '1px solid #b45309' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#b45309' }}>Long-Term Execution Horizon</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#b45309' }}>Long-Term Horizon & Execution</div>
                 <div style={{ fontSize: '0.82rem', color: '#334155', marginTop: '2px', lineHeight: 1.45 }}>
-                  Long-term investor value relies on ongoing capacity expansion and domestic market share retention against unorganized players.
+                  {ipo.category === 'SME'
+                    ? `As an SME platform listing, liquidity and long-term re-rating rely on sustaining order book traction and demonstrating multi-year ROE consistency.`
+                    : `Long-term investor value relies on sustained revenue momentum in ${ipo.sector || 'core segments'}, market share consolidation, and resilient operating margins.`}
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Brokerage Desks Coverage Cards */}
+          </div>{/* Brokerage Desks Coverage Cards */}
           <div id="brokerage-coverage" className="glass-panel detail-card" style={{ scrollMarginTop: '130px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
               <div>
