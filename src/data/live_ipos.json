@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-03T11:41:15.969491",
+  "lastUpdated": "2026-11-03T20:48:15.679167",
   "source": "Zerodha Primary IPO Portal (https://zerodha.com/ipo)",
   "count": 47,
   "ipos": [
@@ -17,7 +17,7 @@
       "freshIssueCr": 19.55,
       "ofsCr": 3.45,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -32,10 +32,10 @@
         "listingDate": "11 Nov 2026"
       },
       "subscription": {
-        "qib": 0.92,
-        "nii": 1.38,
-        "retail": 1.26,
-        "total": 1.15
+        "qib": 1.06,
+        "nii": 1.6,
+        "retail": 1.46,
+        "total": 1.33
       },
       "sector": "Diversified Manufacturing",
       "about": "Antala Industries manufactures, processes, prints, laminates, and supplies industrial and commercial packaging products. The company specializes in the production of BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags, and PP woven fabric rolls. It operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating, and lamination, rotogravure printing, roll-to-roll multicolour printing, stitching, and finishing infrastructure to execute all production processes entirely in-house. The company generates revenue by providing customized packaging solutions to clients across sectors including food processing, fertilizers, chemicals, cement, and agricultural seeds. Its offerings provide durability, tensile strength, moisture resistance, and high-quality printability to enable safe bulk storage, transit, and product branding. In addition to customized printed bags with varying closures, sizes, and ply configurations, the company supplies intermediate rolls to other converters and manufactures multi-colour packaging tailored to client specifications.",
@@ -103,408 +103,6 @@
       ]
     },
     {
-      "id": "maxwell-engineering-solutions",
-      "name": "Maxwell Engineering Solutions",
-      "symbol": "MAXENGS",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/maxwell-engineering-logo-300x71.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 150,
-      "priceBandHigh": 158,
-      "lotSize": 800,
-      "issueSizeCr": 58.0,
-      "freshIssueCr": 49.3,
-      "ofsCr": 8.7,
-      "gmp": 80.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
-      "gmpTrend": "UP",
-      "fireRating": 5,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Oct 2026",
-        "biddingEnds": "03 Nov 2026",
-        "allotmentFinalization": "04 Nov 2026",
-        "refundInitiation": "05 Nov 2026",
-        "creditOfShares": "05 Nov 2026",
-        "listingDate": "06 Nov 2026"
-      },
-      "subscription": {
-        "qib": 317.15,
-        "nii": 475.73,
-        "retail": 436.08,
-        "total": 396.44
-      },
-      "sector": "IT & Technology Services",
-      "about": "Maxwell Engineering Solutions is a precision engineering company engaged in the business of manufacturing, trading, and servicing critical components for underwater pelletizing systems. The company manufactures pelletizing die plates, pelletizing blades and knives, blade holders or cutter hubs, tapped driving bushes, and related spare items. It generates revenue primarily through the sale of these manufactured precision components, selective trading of complementary spare items, and provision of services including used die plate refurbishment and repair, intermediary marketing support, and management consulting. Serving diverse applications across polymer compounding, masterbatches, engineering plastics, cable compounds, specialty polymers, and plastics recycling industries, the company operates an owned manufacturing facility in Vadodara equipped with modern CNC and VMC machinery and testing systems. Additionally, it undertakes customized manufacturing to customer specifications and supplies products on a white-label basis, serving customers across India and over twenty international markets.",
-      "financialHighlights": {
-        "revenueCr": 12.25,
-        "patCr": 3.05,
-        "eps": 0.19,
-        "peRatio": 831.6,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://maxwells.in/wp-content/uploads/2026/10/RHP_Maxwell_V5_Combined.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2025",
-          "assetsCr": 25.31,
-          "revenueCr": 22.59,
-          "patCr": 9.18,
-          "netWorthCr": 10.63,
-          "totalBorrowingCr": 4.56,
-          "reservesCr": 7.09
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 47.55,
-          "revenueCr": 30.76,
-          "patCr": 11.86,
-          "netWorthCr": 19.97,
-          "totalBorrowingCr": 8.56,
-          "reservesCr": 13.31
-        },
-        {
-          "period": "July 2026",
-          "assetsCr": 51.79,
-          "revenueCr": 12.25,
-          "patCr": 3.05,
-          "netWorthCr": 21.75,
-          "totalBorrowingCr": 9.32,
-          "reservesCr": 14.5
-        }
-      ],
-      "strengths": [
-        "Experienced promoters with over 22 years of industry leadership.",
-        "Diversified global customer reach spanning over 20 countries.",
-        "High customer retention through customized engineering and quality service.",
-        "Robust modern manufacturing facility equipped with advanced CNC and VMC machinery.",
-        "In-house R&D capabilities developing specialized, large-format die plates."
-      ],
-      "risks": [
-        "High supplier concentration with top ten suppliers driving most purchases.",
-        "Absence of long-term supply agreements exposes the business to cost volatility.",
-        "Susceptibility to raw material price fluctuations and supply disruptions.",
-        "Substantial dependence on export markets exposes operations to global risks.",
-        "Capital expenditure execution delays could result in cost and time overruns."
-      ],
-      "objectsOfIssue": [
-        "Purchase of new machineries, lab equipment, and other utilities (18 (31.23%))",
-        "Construction of new office building and manufacturing facility (6.5 (11.28%))",
-        "Repayment or pre-payment of certain borrowings (4.3 (7.46%))",
-        "Funding working capital requirements (14 (24.29%))",
-        "General corporate purposes (14.84 (25.74%))"
-      ]
-    },
-    {
-      "id": "vectras-enprocon",
-      "name": "Vectras Enprocon",
-      "symbol": "VECTRAS",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/vectras-enprocon-logo-300x106.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 99,
-      "priceBandHigh": 105,
-      "lotSize": 1200,
-      "issueSizeCr": 53.0,
-      "freshIssueCr": 45.05,
-      "ofsCr": 7.95,
-      "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Oct 2026",
-        "biddingEnds": "03 Nov 2026",
-        "allotmentFinalization": "04 Nov 2026",
-        "refundInitiation": "05 Nov 2026",
-        "creditOfShares": "05 Nov 2026",
-        "listingDate": "06 Nov 2026"
-      },
-      "subscription": {
-        "qib": 1.88,
-        "nii": 2.82,
-        "retail": 2.59,
-        "total": 2.35
-      },
-      "sector": "Diversified Manufacturing",
-      "about": "Vectras Enprocon is an engineering, procurement, and construction company operating in the midstream and downstream segments of the oil and gas industry. The company specializes in laying cross-country and spur pipeline networks and executing combined station works along with construction of associated facilities. It delivers comprehensive solutions spanning design, engineering, procurement, civil and mechanical works, testing, and commissioning for oil and gas stations, terminals, and city gas distribution systems. Revenue is generated from the execution of infrastructure contracts awarded through competitive bidding from public sector undertakings and private sector entities, as well as operations and maintenance services. The company possesses technical capabilities in building piping infrastructure in combined stations with diameters up to 48 inches and laying pipelines up to 30 inches across multiple Indian states. Its operations encompass projects for city gas stations, receiving terminals, and allied industrial utilities.",
-      "financialHighlights": {
-        "revenueCr": 72.2,
-        "patCr": 9.1,
-        "eps": 0.87,
-        "peRatio": 120.7,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://vectrasgroup.com/wp-content/uploads/2026/10/RHP_VEL_26102026_Clean.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2025",
-          "assetsCr": 46.5,
-          "revenueCr": 80.53,
-          "patCr": 10.17,
-          "netWorthCr": 19.53,
-          "totalBorrowingCr": 8.37,
-          "reservesCr": 13.02
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 74.94,
-          "revenueCr": 119.9,
-          "patCr": 15.43,
-          "netWorthCr": 31.47,
-          "totalBorrowingCr": 13.49,
-          "reservesCr": 20.98
-        },
-        {
-          "period": "September 2026",
-          "assetsCr": 90.91,
-          "revenueCr": 72.2,
-          "patCr": 9.1,
-          "netWorthCr": 38.18,
-          "totalBorrowingCr": 16.36,
-          "reservesCr": 25.45
-        }
-      ],
-      "strengths": [
-        "Comprehensive in-house EPC capabilities spanning design, procurement, civil, and mechanical execution.",
-        "Proven technical track record in laying pipelines up to 30 inches and station piping up to 48 inches.",
-        "Established client relationships with major public sector undertakings and private energy players.",
-        "Strong multi-state operational footprint across key Indian energy corridors and markets.",
-        "Diversified presence across cross-country pipelines, city gas distribution, and terminal works."
-      ],
-      "risks": [
-        "Significant working capital requirements for raw material procurement, execution, and receivables.",
-        "High customer concentration with top 10 clients contributing over 90% of operational revenue.",
-        "Geographic concentration risks with substantial revenue derived from Gujarat and Maharashtra.",
-        "Past delays in statutory filings and deposit of statutory dues with regulatory authorities.",
-        "Dependence on a limited number of suppliers for key materials exposing business to supply disruption."
-      ],
-      "objectsOfIssue": [
-        "Repayment and/or pre-payment of certain borrowings (14 (32.87%))",
-        "Funding long-term working capital requirement of our Company (20 (46.96%))",
-        "General corporate purposes (8.59 (20.17%))"
-      ]
-    },
-    {
-      "id": "hgs-india",
-      "name": "HGS (India)",
-      "symbol": "HGSINDIALT",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/hgs-logo-247x300.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 114,
-      "priceBandHigh": 120,
-      "lotSize": 1200,
-      "issueSizeCr": 35.0,
-      "freshIssueCr": 29.75,
-      "ofsCr": 5.25,
-      "gmp": 25.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
-      "gmpTrend": "UP",
-      "fireRating": 4,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Oct 2026",
-        "biddingEnds": "03 Nov 2026",
-        "allotmentFinalization": "04 Nov 2026",
-        "refundInitiation": "05 Nov 2026",
-        "creditOfShares": "05 Nov 2026",
-        "listingDate": "06 Nov 2026"
-      },
-      "subscription": {
-        "qib": 127.58,
-        "nii": 191.38,
-        "retail": 175.43,
-        "total": 159.48
-      },
-      "sector": "Diversified Manufacturing",
-      "about": "HGS India manufactures geophones, seismic cables, and geophysical connectors for the energy and geoscience sector. The company’s products are used in seismic data acquisition to detect, record, and transmit ground vibration signals for subsurface geological analysis. Revenue is generated from selling geophone strings and harnesses, seismic cables, and geophysical instruments and accessories to global and domestic clients across diverse end-user industries. These industries include oil and gas exploration, vibration monitoring, earthquake seismology, geophysical seabed surveys, mine exploration, and defense research. The company operates a primary manufacturing facility in Manesar, Gurugram, equipped with precision geophone element assembly, cable extrusion, injection moulding, and automated testing capabilities. HGS India utilizes a dual-hub operating model, combining production in India with international customer engagement and marketing through its wholly owned subsidiary located in the Netherlands to serve multinational customers across global markets.",
-      "financialHighlights": {
-        "revenueCr": 3.79,
-        "patCr": 1.11,
-        "eps": 0.09,
-        "peRatio": 1200.0,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://www.hgsindia.com/uploads/pdfs/ipomeetings/RHP.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2025",
-          "assetsCr": 104.04,
-          "revenueCr": 53.45,
-          "patCr": 10.51,
-          "netWorthCr": 43.7,
-          "totalBorrowingCr": 18.73,
-          "reservesCr": 29.13
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 110.12,
-          "revenueCr": 48.91,
-          "patCr": 11.64,
-          "netWorthCr": 46.25,
-          "totalBorrowingCr": 19.82,
-          "reservesCr": 30.83
-        },
-        {
-          "period": "April 2026",
-          "assetsCr": 111.9,
-          "revenueCr": 3.79,
-          "patCr": 1.11,
-          "netWorthCr": 47.0,
-          "totalBorrowingCr": 20.14,
-          "reservesCr": 31.33
-        }
-      ],
-      "strengths": [
-        "Offers a comprehensive product portfolio across geophones, cables, and connectors.",
-        "Serves diverse end-user segments including oil & gas, seismology, and civil monitoring.",
-        "Decades of precision engineering expertise with advanced in-house manufacturing.",
-        "Dual-hub operating model combining Indian manufacturing and European marketing.",
-        "Long-term relationships with key domestic and international customers."
-      ],
-      "risks": [
-        "High customer concentration with top 10 clients generating over 72% of FY26 revenues.",
-        "Absence of long-term customer contracts exposes business to sudden order cancellations.",
-        "Significant exposure to international markets and global trade regulations.",
-        "Dependence on exploration and capital expenditure cycles in the oil and gas sector.",
-        "Geographic concentration with manufacturing operations situated at a single site in Manesar."
-      ],
-      "objectsOfIssue": [
-        "Capital expenditure for replacement of plant and machinery at Manesar facility (15.05 (53.91%))",
-        "Capital expenditure for backward integration to set up in-house gold plating facility (1.05 (3.76%))",
-        "Capital expenditure for infrastructural development of building on 2nd floor at Manesar (3.26 (11.69%))",
-        "General corporate purposes (8.55 (30.64%))"
-      ]
-    },
-    {
-      "id": "johnsoncab-electricals",
-      "name": "Johnsoncab Electricals",
-      "symbol": "JOHNSONCAB",
-      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/johnson_logo-300x200.png",
-      "category": "SME",
-      "status": "ONGOING",
-      "priceBandLow": 190,
-      "priceBandHigh": 200,
-      "lotSize": 600,
-      "issueSizeCr": 56.0,
-      "freshIssueCr": 47.6,
-      "ofsCr": 8.4,
-      "gmp": 9.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
-      "gmpTrend": "UP",
-      "fireRating": 1,
-      "exchange": "NSE SME",
-      "registrar": "Link Intime India Pvt Ltd",
-      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
-      "timeline": {
-        "biddingStarts": "30 Oct 2026",
-        "biddingEnds": "03 Nov 2026",
-        "allotmentFinalization": "04 Nov 2026",
-        "refundInitiation": "05 Nov 2026",
-        "creditOfShares": "05 Nov 2026",
-        "listingDate": "06 Nov 2026"
-      },
-      "subscription": {
-        "qib": 7.86,
-        "nii": 11.8,
-        "retail": 10.81,
-        "total": 9.83
-      },
-      "sector": "Electricals & Power Transmission",
-      "about": "Johnsoncab Electricals manufactures low-voltage wires and cables up to 1.1 kV for power infrastructure, renewable energy, railways, and industrial applications. The company generates revenue by producing and supplying control cables, power cables, industrial single- and multicore control cables, building wires, and special-purpose cables such as solar, submersible flat, and welding cables under the JOHNSON CABLES brand name. With two manufacturing facilities located in Mehsana, Gujarat, possessing an installed capacity of 79,950 kilometers, the company is equipped for wire drawing, annealing, bunching, insulation, extrusion, testing, and packaging. It serves government entities and private-sector clients through direct customer engagements, vendor approvals, and participation in competitive tenders. In addition, the company holds an Indian patent for three-core double-insulated flat cables for submersible pumps, enhancing its product differentiation in specialized electrical application segments across key domestic infrastructure markets.",
-      "financialHighlights": {
-        "revenueCr": 113.33,
-        "patCr": 8.63,
-        "eps": 0.43,
-        "peRatio": 465.1,
-        "ronw": 21.5
-      },
-      "tags": [
-        "Zerodha Verified",
-        "SME",
-        "NSE SME",
-        "ONGOING IPO"
-      ],
-      "rhpUrl": "https://iskadvisors.com/wp-content/uploads/2026/10/RHP-final.pdf",
-      "multiYearFinancials": [
-        {
-          "period": "March 2025",
-          "assetsCr": 64.28,
-          "revenueCr": 140.0,
-          "patCr": 5.46,
-          "netWorthCr": 27.0,
-          "totalBorrowingCr": 11.57,
-          "reservesCr": 18.0
-        },
-        {
-          "period": "March 2026",
-          "assetsCr": 126.64,
-          "revenueCr": 211.34,
-          "patCr": 13.42,
-          "netWorthCr": 53.19,
-          "totalBorrowingCr": 22.8,
-          "reservesCr": 35.46
-        },
-        {
-          "period": "August 2026",
-          "assetsCr": 132.07,
-          "revenueCr": 113.33,
-          "patCr": 8.63,
-          "netWorthCr": 55.47,
-          "totalBorrowingCr": 23.77,
-          "reservesCr": 36.98
-        }
-      ],
-      "strengths": [
-        "Scalable business model with consistent multi-year operational revenue growth.",
-        "Continuous capital expenditure in manufacturing plants to expand capacity.",
-        "Diversified customer base across government tenders and private entities.",
-        "Integrated manufacturing infrastructure supporting end-to-end cable production.",
-        "Broad product portfolio with specialized patent-backed submersible cable solutions."
-      ],
-      "risks": [
-        "Lack of long-term supply contracts exposes operations to raw material price volatility.",
-        "Substantial working capital needs may strain operational liquidity if unfulfilled.",
-        "High dependence on timely execution of ongoing capacity expansion projects.",
-        "Manufacturing processes involve high-heat operations vulnerable to workplace disruptions.",
-        "Outstanding borrowing levels expose profitability to prevailing interest rate hikes."
-      ],
-      "objectsOfIssue": [
-        "Construction of additional factory shed for expansion (8.46 (15.10%))",
-        "Purchase of additional plant and machinery to increase capacity (9.38 (16.74%))",
-        "Purchase of new machinery to manufacture paper-insulated conductors (7.33 (13.09%))",
-        "Purchase and setup of rooftop solar power plant (3.23 (5.77%))",
-        "Funding working capital requirements (14 (24.99%))",
-        "Issue expenses and general corporate purposes (8.55 (30.64%))"
-      ]
-    },
-    {
       "id": "vedant-poly-fabs",
       "name": "Vedant Poly Fabs",
       "symbol": "VPFL",
@@ -517,8 +115,8 @@
       "issueSizeCr": 57.0,
       "freshIssueCr": 48.45,
       "ofsCr": 8.55,
-      "gmp": 15.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmp": 11.0,
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE SME",
@@ -533,10 +131,10 @@
         "listingDate": "09 Nov 2026"
       },
       "subscription": {
-        "qib": 0.57,
-        "nii": 0.85,
-        "retail": 0.78,
-        "total": 0.71
+        "qib": 0.71,
+        "nii": 1.07,
+        "retail": 0.98,
+        "total": 0.89
       },
       "sector": "Diversified Manufacturing",
       "about": "Vedant Poly Fabs is engaged in the manufacturing of polypropylene (PP) and high-density polyethylene (HDPE) woven fabrics, woven sacks, bags, and flexible intermediate bulk containers. The company produces unlaminated and laminated fabrics, liner-inserted bags, and customized industrial packaging solutions designed for secure storage and transportation. It caters to several key end-user industries including agriculture, agrochemicals, fertilizers, industrial chemicals, cement, food grains, and sugar. The company generates revenue primarily from the domestic sale and direct supply of finished polymer-based packaging materials, woven fabrics, and industrial bags. Operating integrated extrusion, circular weaving, lamination, cutting, and stitching infrastructure, it processes polymer granules into durable packaging products tailored to specific customer dimensions, tensile strength, and multi-color printing specifications. Its facility enables continuous production, quality monitoring, and high-volume order fulfillment across standard and heavy-duty industrial applications to meet the operational requirements of institutional and commercial clients.",
@@ -618,7 +216,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -658,7 +256,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -751,7 +349,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -791,7 +389,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -831,7 +429,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -925,7 +523,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1021,7 +619,7 @@
       "freshIssueCr": 11475.0,
       "ofsCr": 2025.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1110,7 +708,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1207,7 +805,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1247,7 +845,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1287,7 +885,7 @@
       "freshIssueCr": null,
       "ofsCr": null,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1327,7 +925,7 @@
       "freshIssueCr": 8500.0,
       "ofsCr": 1500.0,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1398,6 +996,408 @@
       ]
     },
     {
+      "id": "maxwell-engineering-solutions",
+      "name": "Maxwell Engineering Solutions",
+      "symbol": "MAXENGS",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/maxwell-engineering-logo-300x71.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 150,
+      "priceBandHigh": 158,
+      "lotSize": 800,
+      "issueSizeCr": 58.0,
+      "freshIssueCr": 49.3,
+      "ofsCr": 8.7,
+      "gmp": 80.0,
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
+      "gmpTrend": "UP",
+      "fireRating": 5,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Oct 2026",
+        "biddingEnds": "03 Nov 2026",
+        "allotmentFinalization": "04 Nov 2026",
+        "refundInitiation": "05 Nov 2026",
+        "creditOfShares": "05 Nov 2026",
+        "listingDate": "06 Nov 2026"
+      },
+      "subscription": {
+        "qib": 429.44,
+        "nii": 644.16,
+        "retail": 590.48,
+        "total": 536.8
+      },
+      "sector": "IT & Technology Services",
+      "about": "Maxwell Engineering Solutions is a precision engineering company engaged in the business of manufacturing, trading, and servicing critical components for underwater pelletizing systems. The company manufactures pelletizing die plates, pelletizing blades and knives, blade holders or cutter hubs, tapped driving bushes, and related spare items. It generates revenue primarily through the sale of these manufactured precision components, selective trading of complementary spare items, and provision of services including used die plate refurbishment and repair, intermediary marketing support, and management consulting. Serving diverse applications across polymer compounding, masterbatches, engineering plastics, cable compounds, specialty polymers, and plastics recycling industries, the company operates an owned manufacturing facility in Vadodara equipped with modern CNC and VMC machinery and testing systems. Additionally, it undertakes customized manufacturing to customer specifications and supplies products on a white-label basis, serving customers across India and over twenty international markets.",
+      "financialHighlights": {
+        "revenueCr": 12.25,
+        "patCr": 3.05,
+        "eps": 0.19,
+        "peRatio": 831.6,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://maxwells.in/wp-content/uploads/2026/10/RHP_Maxwell_V5_Combined.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 25.31,
+          "revenueCr": 22.59,
+          "patCr": 9.18,
+          "netWorthCr": 10.63,
+          "totalBorrowingCr": 4.56,
+          "reservesCr": 7.09
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 47.55,
+          "revenueCr": 30.76,
+          "patCr": 11.86,
+          "netWorthCr": 19.97,
+          "totalBorrowingCr": 8.56,
+          "reservesCr": 13.31
+        },
+        {
+          "period": "July 2026",
+          "assetsCr": 51.79,
+          "revenueCr": 12.25,
+          "patCr": 3.05,
+          "netWorthCr": 21.75,
+          "totalBorrowingCr": 9.32,
+          "reservesCr": 14.5
+        }
+      ],
+      "strengths": [
+        "Experienced promoters with over 22 years of industry leadership.",
+        "Diversified global customer reach spanning over 20 countries.",
+        "High customer retention through customized engineering and quality service.",
+        "Robust modern manufacturing facility equipped with advanced CNC and VMC machinery.",
+        "In-house R&D capabilities developing specialized, large-format die plates."
+      ],
+      "risks": [
+        "High supplier concentration with top ten suppliers driving most purchases.",
+        "Absence of long-term supply agreements exposes the business to cost volatility.",
+        "Susceptibility to raw material price fluctuations and supply disruptions.",
+        "Substantial dependence on export markets exposes operations to global risks.",
+        "Capital expenditure execution delays could result in cost and time overruns."
+      ],
+      "objectsOfIssue": [
+        "Purchase of new machineries, lab equipment, and other utilities (18 (31.23%))",
+        "Construction of new office building and manufacturing facility (6.5 (11.28%))",
+        "Repayment or pre-payment of certain borrowings (4.3 (7.46%))",
+        "Funding working capital requirements (14 (24.29%))",
+        "General corporate purposes (14.84 (25.74%))"
+      ]
+    },
+    {
+      "id": "vectras-enprocon",
+      "name": "Vectras Enprocon",
+      "symbol": "VECTRAS",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/vectras-enprocon-logo-300x106.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 99,
+      "priceBandHigh": 105,
+      "lotSize": 1200,
+      "issueSizeCr": 53.0,
+      "freshIssueCr": 45.05,
+      "ofsCr": 7.95,
+      "gmp": 0.0,
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Oct 2026",
+        "biddingEnds": "03 Nov 2026",
+        "allotmentFinalization": "04 Nov 2026",
+        "refundInitiation": "05 Nov 2026",
+        "creditOfShares": "05 Nov 2026",
+        "listingDate": "06 Nov 2026"
+      },
+      "subscription": {
+        "qib": 3.36,
+        "nii": 5.04,
+        "retail": 4.62,
+        "total": 4.2
+      },
+      "sector": "Diversified Manufacturing",
+      "about": "Vectras Enprocon is an engineering, procurement, and construction company operating in the midstream and downstream segments of the oil and gas industry. The company specializes in laying cross-country and spur pipeline networks and executing combined station works along with construction of associated facilities. It delivers comprehensive solutions spanning design, engineering, procurement, civil and mechanical works, testing, and commissioning for oil and gas stations, terminals, and city gas distribution systems. Revenue is generated from the execution of infrastructure contracts awarded through competitive bidding from public sector undertakings and private sector entities, as well as operations and maintenance services. The company possesses technical capabilities in building piping infrastructure in combined stations with diameters up to 48 inches and laying pipelines up to 30 inches across multiple Indian states. Its operations encompass projects for city gas stations, receiving terminals, and allied industrial utilities.",
+      "financialHighlights": {
+        "revenueCr": 72.2,
+        "patCr": 9.1,
+        "eps": 0.87,
+        "peRatio": 120.7,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://vectrasgroup.com/wp-content/uploads/2026/10/RHP_VEL_26102026_Clean.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 46.5,
+          "revenueCr": 80.53,
+          "patCr": 10.17,
+          "netWorthCr": 19.53,
+          "totalBorrowingCr": 8.37,
+          "reservesCr": 13.02
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 74.94,
+          "revenueCr": 119.9,
+          "patCr": 15.43,
+          "netWorthCr": 31.47,
+          "totalBorrowingCr": 13.49,
+          "reservesCr": 20.98
+        },
+        {
+          "period": "September 2026",
+          "assetsCr": 90.91,
+          "revenueCr": 72.2,
+          "patCr": 9.1,
+          "netWorthCr": 38.18,
+          "totalBorrowingCr": 16.36,
+          "reservesCr": 25.45
+        }
+      ],
+      "strengths": [
+        "Comprehensive in-house EPC capabilities spanning design, procurement, civil, and mechanical execution.",
+        "Proven technical track record in laying pipelines up to 30 inches and station piping up to 48 inches.",
+        "Established client relationships with major public sector undertakings and private energy players.",
+        "Strong multi-state operational footprint across key Indian energy corridors and markets.",
+        "Diversified presence across cross-country pipelines, city gas distribution, and terminal works."
+      ],
+      "risks": [
+        "Significant working capital requirements for raw material procurement, execution, and receivables.",
+        "High customer concentration with top 10 clients contributing over 90% of operational revenue.",
+        "Geographic concentration risks with substantial revenue derived from Gujarat and Maharashtra.",
+        "Past delays in statutory filings and deposit of statutory dues with regulatory authorities.",
+        "Dependence on a limited number of suppliers for key materials exposing business to supply disruption."
+      ],
+      "objectsOfIssue": [
+        "Repayment and/or pre-payment of certain borrowings (14 (32.87%))",
+        "Funding long-term working capital requirement of our Company (20 (46.96%))",
+        "General corporate purposes (8.59 (20.17%))"
+      ]
+    },
+    {
+      "id": "hgs-india",
+      "name": "HGS (India)",
+      "symbol": "HGSINDIALT",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/hgs-logo-247x300.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 114,
+      "priceBandHigh": 120,
+      "lotSize": 1200,
+      "issueSizeCr": 35.0,
+      "freshIssueCr": 29.75,
+      "ofsCr": 5.25,
+      "gmp": 25.0,
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
+      "gmpTrend": "UP",
+      "fireRating": 4,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Oct 2026",
+        "biddingEnds": "03 Nov 2026",
+        "allotmentFinalization": "04 Nov 2026",
+        "refundInitiation": "05 Nov 2026",
+        "creditOfShares": "05 Nov 2026",
+        "listingDate": "06 Nov 2026"
+      },
+      "subscription": {
+        "qib": 198.86,
+        "nii": 298.3,
+        "retail": 273.44,
+        "total": 248.58
+      },
+      "sector": "Diversified Manufacturing",
+      "about": "HGS India manufactures geophones, seismic cables, and geophysical connectors for the energy and geoscience sector. The company’s products are used in seismic data acquisition to detect, record, and transmit ground vibration signals for subsurface geological analysis. Revenue is generated from selling geophone strings and harnesses, seismic cables, and geophysical instruments and accessories to global and domestic clients across diverse end-user industries. These industries include oil and gas exploration, vibration monitoring, earthquake seismology, geophysical seabed surveys, mine exploration, and defense research. The company operates a primary manufacturing facility in Manesar, Gurugram, equipped with precision geophone element assembly, cable extrusion, injection moulding, and automated testing capabilities. HGS India utilizes a dual-hub operating model, combining production in India with international customer engagement and marketing through its wholly owned subsidiary located in the Netherlands to serve multinational customers across global markets.",
+      "financialHighlights": {
+        "revenueCr": 3.79,
+        "patCr": 1.11,
+        "eps": 0.09,
+        "peRatio": 1200.0,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://www.hgsindia.com/uploads/pdfs/ipomeetings/RHP.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 104.04,
+          "revenueCr": 53.45,
+          "patCr": 10.51,
+          "netWorthCr": 43.7,
+          "totalBorrowingCr": 18.73,
+          "reservesCr": 29.13
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 110.12,
+          "revenueCr": 48.91,
+          "patCr": 11.64,
+          "netWorthCr": 46.25,
+          "totalBorrowingCr": 19.82,
+          "reservesCr": 30.83
+        },
+        {
+          "period": "April 2026",
+          "assetsCr": 111.9,
+          "revenueCr": 3.79,
+          "patCr": 1.11,
+          "netWorthCr": 47.0,
+          "totalBorrowingCr": 20.14,
+          "reservesCr": 31.33
+        }
+      ],
+      "strengths": [
+        "Offers a comprehensive product portfolio across geophones, cables, and connectors.",
+        "Serves diverse end-user segments including oil & gas, seismology, and civil monitoring.",
+        "Decades of precision engineering expertise with advanced in-house manufacturing.",
+        "Dual-hub operating model combining Indian manufacturing and European marketing.",
+        "Long-term relationships with key domestic and international customers."
+      ],
+      "risks": [
+        "High customer concentration with top 10 clients generating over 72% of FY26 revenues.",
+        "Absence of long-term customer contracts exposes business to sudden order cancellations.",
+        "Significant exposure to international markets and global trade regulations.",
+        "Dependence on exploration and capital expenditure cycles in the oil and gas sector.",
+        "Geographic concentration with manufacturing operations situated at a single site in Manesar."
+      ],
+      "objectsOfIssue": [
+        "Capital expenditure for replacement of plant and machinery at Manesar facility (15.05 (53.91%))",
+        "Capital expenditure for backward integration to set up in-house gold plating facility (1.05 (3.76%))",
+        "Capital expenditure for infrastructural development of building on 2nd floor at Manesar (3.26 (11.69%))",
+        "General corporate purposes (8.55 (30.64%))"
+      ]
+    },
+    {
+      "id": "johnsoncab-electricals",
+      "name": "Johnsoncab Electricals",
+      "symbol": "JOHNSONCAB",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2026/10/johnson_logo-300x200.png",
+      "category": "SME",
+      "status": "CLOSED",
+      "priceBandLow": 190,
+      "priceBandHigh": 200,
+      "lotSize": 600,
+      "issueSizeCr": 56.0,
+      "freshIssueCr": 47.6,
+      "ofsCr": 8.4,
+      "gmp": 8.0,
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
+      "gmpTrend": "UP",
+      "fireRating": 1,
+      "exchange": "NSE SME",
+      "registrar": "Link Intime India Pvt Ltd",
+      "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
+      "timeline": {
+        "biddingStarts": "30 Oct 2026",
+        "biddingEnds": "03 Nov 2026",
+        "allotmentFinalization": "04 Nov 2026",
+        "refundInitiation": "05 Nov 2026",
+        "creditOfShares": "05 Nov 2026",
+        "listingDate": "06 Nov 2026"
+      },
+      "subscription": {
+        "qib": 19.06,
+        "nii": 28.58,
+        "retail": 26.2,
+        "total": 23.82
+      },
+      "sector": "Electricals & Power Transmission",
+      "about": "Johnsoncab Electricals manufactures low-voltage wires and cables up to 1.1 kV for power infrastructure, renewable energy, railways, and industrial applications. The company generates revenue by producing and supplying control cables, power cables, industrial single- and multicore control cables, building wires, and special-purpose cables such as solar, submersible flat, and welding cables under the JOHNSON CABLES brand name. With two manufacturing facilities located in Mehsana, Gujarat, possessing an installed capacity of 79,950 kilometers, the company is equipped for wire drawing, annealing, bunching, insulation, extrusion, testing, and packaging. It serves government entities and private-sector clients through direct customer engagements, vendor approvals, and participation in competitive tenders. In addition, the company holds an Indian patent for three-core double-insulated flat cables for submersible pumps, enhancing its product differentiation in specialized electrical application segments across key domestic infrastructure markets.",
+      "financialHighlights": {
+        "revenueCr": 113.33,
+        "patCr": 8.63,
+        "eps": 0.43,
+        "peRatio": 465.1,
+        "ronw": 21.5
+      },
+      "tags": [
+        "Zerodha Verified",
+        "SME",
+        "NSE SME",
+        "CLOSED IPO"
+      ],
+      "rhpUrl": "https://iskadvisors.com/wp-content/uploads/2026/10/RHP-final.pdf",
+      "multiYearFinancials": [
+        {
+          "period": "March 2025",
+          "assetsCr": 64.28,
+          "revenueCr": 140.0,
+          "patCr": 5.46,
+          "netWorthCr": 27.0,
+          "totalBorrowingCr": 11.57,
+          "reservesCr": 18.0
+        },
+        {
+          "period": "March 2026",
+          "assetsCr": 126.64,
+          "revenueCr": 211.34,
+          "patCr": 13.42,
+          "netWorthCr": 53.19,
+          "totalBorrowingCr": 22.8,
+          "reservesCr": 35.46
+        },
+        {
+          "period": "August 2026",
+          "assetsCr": 132.07,
+          "revenueCr": 113.33,
+          "patCr": 8.63,
+          "netWorthCr": 55.47,
+          "totalBorrowingCr": 23.77,
+          "reservesCr": 36.98
+        }
+      ],
+      "strengths": [
+        "Scalable business model with consistent multi-year operational revenue growth.",
+        "Continuous capital expenditure in manufacturing plants to expand capacity.",
+        "Diversified customer base across government tenders and private entities.",
+        "Integrated manufacturing infrastructure supporting end-to-end cable production.",
+        "Broad product portfolio with specialized patent-backed submersible cable solutions."
+      ],
+      "risks": [
+        "Lack of long-term supply contracts exposes operations to raw material price volatility.",
+        "Substantial working capital needs may strain operational liquidity if unfulfilled.",
+        "High dependence on timely execution of ongoing capacity expansion projects.",
+        "Manufacturing processes involve high-heat operations vulnerable to workplace disruptions.",
+        "Outstanding borrowing levels expose profitability to prevailing interest rate hikes."
+      ],
+      "objectsOfIssue": [
+        "Construction of additional factory shed for expansion (8.46 (15.10%))",
+        "Purchase of additional plant and machinery to increase capacity (9.38 (16.74%))",
+        "Purchase of new machinery to manufacture paper-insulated conductors (7.33 (13.09%))",
+        "Purchase and setup of rooftop solar power plant (3.23 (5.77%))",
+        "Funding working capital requirements (14 (24.99%))",
+        "Issue expenses and general corporate purposes (8.55 (30.64%))"
+      ]
+    },
+    {
       "id": "bombay-coated-special-steels",
       "name": "Bombay Coated & Special Steels",
       "symbol": "BCSSL",
@@ -1411,9 +1411,9 @@
       "freshIssueCr": 156.4,
       "ofsCr": 27.6,
       "gmp": 9.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
-      "fireRating": 3,
+      "fireRating": 2,
       "exchange": "NSE & BSE",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -1510,7 +1510,7 @@
       "freshIssueCr": 233.75,
       "ofsCr": 41.25,
       "gmp": 7.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1608,10 +1608,10 @@
       "issueSizeCr": 28.0,
       "freshIssueCr": 23.8,
       "ofsCr": 4.2,
-      "gmp": 3.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmp": 4.0,
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
-      "fireRating": 1,
+      "fireRating": 2,
       "exchange": "NSE SME",
       "registrar": "Link Intime India Pvt Ltd",
       "registrarUrl": "https://linkintime.co.in/initial_offer/public-issues.html",
@@ -1699,7 +1699,7 @@
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
       "gmp": 1.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -1800,7 +1800,7 @@
       "freshIssueCr": 567.8,
       "ofsCr": 100.2,
       "gmp": 15.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "DOWN",
       "fireRating": 2,
       "exchange": "NSE & BSE",
@@ -1894,7 +1894,7 @@
       "freshIssueCr": 216.75,
       "ofsCr": 38.25,
       "gmp": 70.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -1988,7 +1988,7 @@
       "freshIssueCr": 93.5,
       "ofsCr": 16.5,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2080,7 +2080,7 @@
       "freshIssueCr": 1020.0,
       "ofsCr": 180.0,
       "gmp": 54.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2174,7 +2174,7 @@
       "freshIssueCr": 46.75,
       "ofsCr": 8.25,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2273,7 +2273,7 @@
       "freshIssueCr": 25659.8,
       "ofsCr": 4528.2,
       "gmp": 250.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -2371,7 +2371,7 @@
       "freshIssueCr": 1232.5,
       "ofsCr": 217.5,
       "gmp": 13.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2470,7 +2470,7 @@
       "freshIssueCr": 4260.2,
       "ofsCr": 751.8,
       "gmp": 1.2,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2570,7 +2570,7 @@
       "freshIssueCr": 724.2,
       "ofsCr": 127.8,
       "gmp": 452.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE & BSE",
@@ -2664,7 +2664,7 @@
       "freshIssueCr": 403.75,
       "ofsCr": 71.25,
       "gmp": 17.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -2758,7 +2758,7 @@
       "freshIssueCr": 2153.9,
       "ofsCr": 380.1,
       "gmp": 66.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 3,
       "exchange": "NSE & BSE",
@@ -2852,7 +2852,7 @@
       "freshIssueCr": 51.0,
       "ofsCr": 9.0,
       "gmp": 7.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -2951,7 +2951,7 @@
       "freshIssueCr": 596.7,
       "ofsCr": 105.3,
       "gmp": 13.5,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -3050,7 +3050,7 @@
       "freshIssueCr": 98.6,
       "ofsCr": 17.4,
       "gmp": 1.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3149,7 +3149,7 @@
       "freshIssueCr": 605.2,
       "ofsCr": 106.8,
       "gmp": 70.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE & BSE",
@@ -3243,7 +3243,7 @@
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
       "gmp": 3.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -3341,7 +3341,7 @@
       "freshIssueCr": 29.75,
       "ofsCr": 5.25,
       "gmp": 1.5,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3443,7 +3443,7 @@
       "freshIssueCr": 69.7,
       "ofsCr": 12.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3541,7 +3541,7 @@
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE SME",
@@ -3640,7 +3640,7 @@
       "freshIssueCr": 103.7,
       "ofsCr": 18.3,
       "gmp": 43.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 4,
       "exchange": "NSE SME",
@@ -3740,7 +3740,7 @@
       "freshIssueCr": 27.2,
       "ofsCr": 4.8,
       "gmp": 4.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 2,
       "exchange": "NSE SME",
@@ -3836,7 +3836,7 @@
       "freshIssueCr": 41.65,
       "ofsCr": 7.35,
       "gmp": 50.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 5,
       "exchange": "NSE SME",
@@ -3930,7 +3930,7 @@
       "freshIssueCr": 91.8,
       "ofsCr": 16.2,
       "gmp": 1.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -4023,7 +4023,7 @@
       "freshIssueCr": 151.3,
       "ofsCr": 26.7,
       "gmp": 2.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "UP",
       "fireRating": 1,
       "exchange": "NSE & BSE",
@@ -4117,7 +4117,7 @@
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
       "gmp": 0.0,
-      "gmpUpdatedDate": "03 Nov, 11:40 AM",
+      "gmpUpdatedDate": "03 Nov, 08:47 PM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
       "exchange": "NSE SME",
