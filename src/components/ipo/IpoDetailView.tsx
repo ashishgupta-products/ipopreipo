@@ -398,81 +398,134 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               </div>
             </div>
 
-            {/* GMP Highlight Card */}
+            {/* GMP or Official Listing Performance Card */}
             <div className="detail-gmp-card">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
-                <Flame size={16} color="#d97706" />
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                  Live Grey Market Premium
-                </span>
-              </div>
+              {ipo.listingPrice ? (
+                <>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
+                    <Sparkles size={16} color="#15803d" />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      Official Listing Price
+                    </span>
+                  </div>
 
-              <div className="mono" style={{ fontSize: '2.1rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#15803d' : '#dc2626', lineHeight: '1.2' }}>
-                {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
-              </div>
+                  <div className="mono" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.2' }}>
+                    ₹{ipo.listingPrice}
+                  </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
-                <span className="mono" style={{
-                  fontSize: '0.85rem',
-                  fontWeight: 700,
-                  color: ipo.gmp >= 0 ? '#15803d' : '#dc2626',
-                  backgroundColor: ipo.gmp >= 0 ? '#dcfce7' : '#fee2e2',
-                  padding: '2px 7px',
-                  borderRadius: '4px'
-                }}>
-                  {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
-                </span>
-                <span style={{ fontSize: '0.75rem', color: '#166534' }}>
-                  Est. ₹{estListingPrice}
-                </span>
-              </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
+                    <span className="mono" style={{
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: (ipo.listingGainPercent ?? 0) >= 0 ? '#15803d' : '#dc2626',
+                      backgroundColor: (ipo.listingGainPercent ?? 0) >= 0 ? '#dcfce7' : '#fee2e2',
+                      padding: '2px 7px',
+                      borderRadius: '4px'
+                    }}>
+                      {(ipo.listingGainPercent ?? 0) >= 0 ? `+${(ipo.listingGainPercent ?? 0).toFixed(1)}%` : `${(ipo.listingGainPercent ?? 0).toFixed(1)}%`}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: '#166534' }}>
+                      Issue: ₹{ipo.priceBandHigh}
+                    </span>
+                  </div>
 
-              {/* 24h Daily Movement Badge */}
-              <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {dailyChange > 0 ? (
-                  <span style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    color: '#15803d',
-                    backgroundColor: '#dcfce7',
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    border: '1px solid #bbf7d0',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '3px'
-                  }}>
-                    ▲ +₹{dailyChange} Today
-                  </span>
-                ) : dailyChange < 0 ? (
-                  <span style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    color: '#b91c1c',
-                    backgroundColor: '#fee2e2',
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    border: '1px solid #fecaca',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '3px'
-                  }}>
-                    ▼ -₹{Math.abs(dailyChange)} Today
-                  </span>
-                ) : (
-                  <span style={{
-                    fontSize: '0.72rem',
-                    fontWeight: 600,
-                    color: '#64748b',
-                    backgroundColor: '#f1f5f9',
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    border: '1px solid #e2e8f0'
-                  }}>
-                    ▬ Flat Today
-                  </span>
-                )}
-              </div>
+                  {ipo.listingDayClose ? (
+                    <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <span style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        color: '#0f172a',
+                        backgroundColor: '#f1f5f9',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        border: '1px solid #e2e8f0'
+                      }}>
+                        Day 1 Close: ₹{ipo.listingDayClose}
+                      </span>
+                    </div>
+                  ) : null}
+
+                  <div style={{ fontSize: '0.68rem', color: '#65a30d', marginTop: '0.45rem' }}>
+                    Listed: {ipo.timeline.listingDate || 'On Exchange'}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
+                    <Flame size={16} color="#d97706" />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      Live Grey Market Premium
+                    </span>
+                  </div>
+
+                  <div className="mono" style={{ fontSize: '2.1rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#15803d' : '#dc2626', lineHeight: '1.2' }}>
+                    {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
+                    <span className="mono" style={{
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: ipo.gmp >= 0 ? '#15803d' : '#dc2626',
+                      backgroundColor: ipo.gmp >= 0 ? '#dcfce7' : '#fee2e2',
+                      padding: '2px 7px',
+                      borderRadius: '4px'
+                    }}>
+                      {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: '#166534' }}>
+                      Est. ₹{estListingPrice}
+                    </span>
+                  </div>
+
+                  {/* 24h Daily Movement Badge */}
+                  <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {dailyChange > 0 ? (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        color: '#15803d',
+                        backgroundColor: '#dcfce7',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        border: '1px solid #bbf7d0',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '3px'
+                      }}>
+                        ▲ +₹{dailyChange} Today
+                      </span>
+                    ) : dailyChange < 0 ? (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        color: '#b91c1c',
+                        backgroundColor: '#fee2e2',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        border: '1px solid #fecaca',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '3px'
+                      }}>
+                        ▼ -₹{Math.abs(dailyChange)} Today
+                      </span>
+                    ) : (
+                      <span style={{
+                        fontSize: '0.72rem',
+                        fontWeight: 600,
+                        color: '#64748b',
+                        backgroundColor: '#f1f5f9',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        border: '1px solid #e2e8f0'
+                      }}>
+                        ▬ Flat Today
+                      </span>
+                    )}
+                  </div>
+                </>
+              )}
 
               <div style={{ fontSize: '0.68rem', color: '#65a30d', marginTop: '0.45rem' }}>
                 Updated: {ipo.gmpUpdatedDate}

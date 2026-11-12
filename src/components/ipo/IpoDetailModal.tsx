@@ -13,7 +13,8 @@ import {
   FileText, 
   ShieldCheck,
   PieChart,
-  Users
+  Users,
+  Sparkles
 } from 'lucide-react';
 import { getIpoQuota, getIpoPromoterHolding, getIpoDailyGmpChange, getIpoGmpHistory } from '../../lib/ipoEnricher';
 import IpoLogo from './IpoLogo';
@@ -132,58 +133,96 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
           </div>
 
           <div>
-            <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Live GMP</div>
-            <div className="mono" style={{ 
-              fontSize: '1.1rem', 
-              fontWeight: 800, 
-              color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}>
-              {ipo.gmp > 0 && <Flame size={14} color="#d97706" />}
-              {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+            <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
+              {ipo.listingPrice ? 'Listing Price' : 'Live GMP'}
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap', marginTop: '2px' }}>
-              <span style={{ fontSize: '0.7rem', color: ipo.gmp >= 0 ? '#059669' : '#dc2626', fontWeight: 600 }}>
-                {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
-              </span>
-              {dailyChange > 0 ? (
-                <span style={{
-                  fontSize: '0.65rem',
-                  fontWeight: 700,
-                  color: '#15803d',
-                  backgroundColor: '#dcfce7',
-                  padding: '1px 5px',
-                  borderRadius: '3px',
-                  border: '1px solid #bbf7d0'
+            {ipo.listingPrice ? (
+              <div>
+                <div className="mono" style={{ 
+                  fontSize: '1.1rem', 
+                  fontWeight: 800, 
+                  color: '#0f172a',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px'
                 }}>
-                  ▲ +₹{dailyChange}
-                </span>
-              ) : dailyChange < 0 ? (
-                <span style={{
-                  fontSize: '0.65rem',
-                  fontWeight: 700,
-                  color: '#b91c1c',
-                  backgroundColor: '#fee2e2',
-                  padding: '1px 5px',
-                  borderRadius: '3px',
-                  border: '1px solid #fecaca'
+                  <Sparkles size={14} color="#2563eb" />
+                  ₹{ipo.listingPrice}
+                </div>
+                <div style={{ fontSize: '0.7rem', color: (ipo.listingGainPercent ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700, marginTop: '2px' }}>
+                  {(ipo.listingGainPercent ?? 0) >= 0 ? `+${(ipo.listingGainPercent ?? 0).toFixed(1)}%` : `${(ipo.listingGainPercent ?? 0).toFixed(1)}%`}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="mono" style={{ 
+                  fontSize: '1.1rem', 
+                  fontWeight: 800, 
+                  color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px'
                 }}>
-                  ▼ -₹{Math.abs(dailyChange)}
-                </span>
-              ) : null}
-            </div>
+                  {ipo.gmp > 0 && <Flame size={14} color="#d97706" />}
+                  {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap', marginTop: '2px' }}>
+                  <span style={{ fontSize: '0.7rem', color: ipo.gmp >= 0 ? '#059669' : '#dc2626', fontWeight: 600 }}>
+                    {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+                  </span>
+                  {dailyChange > 0 ? (
+                    <span style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      color: '#15803d',
+                      backgroundColor: '#dcfce7',
+                      padding: '1px 5px',
+                      borderRadius: '3px',
+                      border: '1px solid #bbf7d0'
+                    }}>
+                      ▲ +₹{dailyChange}
+                    </span>
+                  ) : dailyChange < 0 ? (
+                    <span style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      color: '#b91c1c',
+                      backgroundColor: '#fee2e2',
+                      padding: '1px 5px',
+                      borderRadius: '3px',
+                      border: '1px solid #fecaca'
+                    }}>
+                      ▼ -₹{Math.abs(dailyChange)}
+                    </span>
+                  ) : null}
+                </div>
+              </div>
+            )}
           </div>
 
           <div>
-            <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Profit / Lot</div>
-            <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>
-              {estProfitPerLot >= 0 ? `₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
+            <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
+              {ipo.listingPrice ? 'Day 1 Close' : 'Profit / Lot'}
             </div>
-            <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-              Est. Price: ₹{estListingPrice}
-            </div>
+            {ipo.listingPrice ? (
+              <div>
+                <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>
+                  {ipo.listingDayClose ? `₹${ipo.listingDayClose}` : '—'}
+                </div>
+                <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                  Issue: ₹{ipo.priceBandHigh}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>
+                  {estProfitPerLot >= 0 ? `₹${estProfitPerLot.toLocaleString('en-IN')}` : `-₹${Math.abs(estProfitPerLot).toLocaleString('en-IN')}`}
+                </div>
+                <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                  Est. Price: ₹{estListingPrice}
+                </div>
+              </div>
+            )}
           </div>
 
           <div>

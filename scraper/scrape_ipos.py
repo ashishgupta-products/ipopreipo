@@ -13,6 +13,7 @@ HEADERS = {
 
 ZERODHA_IPO_URL = 'https://zerodha.com/ipo'
 INVESTORGAIN_URL = 'https://www.investorgain.com/report/live-ipo-gmp/331/'
+INVESTORGAIN_PERFORMANCE_URL = 'https://www.investorgain.com/report/ipo-gmp-performance-tracker/377/all/'
 
 def slugify(text: str) -> str:
     text = re.sub(r'[^a-zA-Z0-9\s-]', '', text).strip().lower()
@@ -297,6 +298,96 @@ def scrape_live_gmp_multisource():
 
     return gmp_map
 
+
+def scrape_listing_performance():
+    """
+    Scrapes official listing day performance tracker from InvestorGain.
+    Captures:
+    - Official Listing Price
+    - Realized Listing Gain Percentage
+    - Day 1 Closing Price
+    - Listing Date
+    """
+    print(f"[Listing Tracker] Scraping official listing performance from InvestorGain...")
+    listing_map = {}
+    try:
+        resp = requests.get(INVESTORGAIN_PERFORMANCE_URL, headers=HEADERS, timeout=12)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, 'html.parser')
+            table = soup.find('table')
+            if table:
+                rows = table.find('tbody').find_all('tr') if table.find('tbody') else table.find_all('tr')[1:]
+                for row in rows:
+                    tds = row.find_all('td')
+                    if len(tds) < 10:
+                        continue
+                    raw_name = tds[0].get_text(strip=True)
+                    clean_name = normalize_company_name(raw_name)
+                    sym_cell = tds[1].get_text(strip=True).split(',')[0].strip().upper()
+                    date_val = tds[2].get_text(strip=True)
+                    issue_raw = tds[6].get_text(strip=True)
+                    list_raw = tds[8].get_text(strip=True)
+                    close_raw = tds[9].get_text(strip=True)
+
+                    list_m = re.search(r'₹([0-9\.]+)', list_raw)
+                    gain_m = re.search(r'\(([0-9\.\-]+)%\)', list_raw)
+                    close_m = re.search(r'₹([0-9\.]+)', close_raw)
+                    issue_m = re.search(r'₹([0-9\.]+)', issue_raw)
+
+                    if list_m:
+                        item = {
+                            'name': raw_name,
+                            'symbol': sym_cell,
+                            'listingDate': date_val,
+                            'issuePrice': float(issue_m.group(1)) if issue_m else None,
+                            'listingPrice': float(list_m.group(1)),
+                            'listingGainPercent': float(gain_m.group(1)) if gain_m else 0.0,
+                            'listingDayClose': float(close_m.group(1)) if close_m else None
+                        }
+                        if clean_name:
+                            listing_map[clean_name] = item
+                        if sym_cell and not sym_cell.isdigit():
+                            listing_map[sym_cell.lower()] = item
+                print(f"[Listing Tracker] Extracted listing performance for {len(listing_map)} mappings.")
+    except Exception as e:
+        print(f"[Listing Tracker] Fetch failed: {e}")
+    return listing_map
+
+def match_listing_performance(name: str, symbol: str, listing_map: dict):
+    if not listing_map:
+        return None
+    clean_n = normalize_company_name(name)
+    s_lower = symbol.lower().strip()
+
+    # 1. Exact symbol match (non-digit ticker)
+    if s_lower and not s_lower.isdigit() and s_lower in listing_map:
+        return listing_map[s_lower]
+
+    # 2. Exact clean name match
+    if clean_n in listing_map:
+        return listing_map[clean_n]
+
+    # 3. Substring match (min 5 chars to avoid over-matching short words)
+    for k, v in listing_map.items():
+        if len(k) >= 5 and (k in clean_n or clean_n in k):
+            return v
+
+    # 4. Token set overlap (match 2+ distinct tokens)
+    tokens = [w for w in clean_n.split() if len(w) >= 3 and w not in ['and', 'for', 'the', 'sons', 'fine', 'group', 'india']]
+    if len(tokens) >= 2:
+        best_match = None
+        max_overlap = 0
+        for k, v in listing_map.items():
+            k_tokens = set(k.split())
+            overlap = sum(1 for t in tokens if t in k_tokens)
+            if overlap >= 2 and overlap > max_overlap:
+                max_overlap = overlap
+                best_match = v
+        if best_match:
+            return best_match
+
+    return None
+
 def match_gmp(name: str, symbol: str, gmp_map: dict, existing_gmp: dict = None):
     """
     Robust multi-strategy fuzzy matching:
@@ -396,6 +487,7 @@ def scrape_zerodha_primary():
 
     # Fetch live GMP map for enrichment from multiple sources (IPOWatch + InvestorGain)
     gmp_map = scrape_live_gmp_multisource()
+    listing_map = scrape_listing_performance()
 
     # Load existing GMP fallback map from src/data/live_ipos.json
     existing_gmp_map = {}
@@ -602,6 +694,18 @@ def scrape_zerodha_primary():
                 if min_retail > 16500 or min_retail < 11000:
                     print(f"  [SEBI Validation Warning] {clean_name}: Lot {lot_val} * Price ₹{p_high} = ₹{min_retail:,.0f} violates SEBI retail range (₹11k-₹16.5k). Setting lotSize to None (TBA).")
                     base_item['lotSize'] = None
+
+            # Match official listing performance if listed
+            listing_info = match_listing_performance(clean_name, clean_sym, listing_map)
+            if listing_info:
+                base_item['listingPrice'] = listing_info['listingPrice']
+                base_item['listingGainPercent'] = listing_info['listingGainPercent']
+                base_item['listingDayClose'] = listing_info['listingDayClose']
+                if listing_info.get('listingDate') and listing_info['listingDate'] != 'TBA':
+                    base_item['timeline']['listingDate'] = listing_info['listingDate']
+                if listing_info['listingPrice'] > 0:
+                    base_item['status'] = 'LISTED'
+                    base_item['tags'] = [t for t in base_item['tags'] if 'IPO' not in t or t == f'{category} IPO'] + ['LISTED IPO']
 
             parsed_ipos.append(base_item)
 

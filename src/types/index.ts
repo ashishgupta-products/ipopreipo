@@ -107,6 +107,8 @@ export interface IpoItem {
   timeline: IpoTimeline;
   subscription?: IpoSubscription;
   listingPrice?: number;
+  listingGainPercent?: number;
+  listingDayClose?: number;
   sector: string;
   about: string;
   financialHighlights?: {
