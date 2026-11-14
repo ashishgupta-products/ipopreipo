@@ -1,6 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 import { IpoItem } from '../types';
 import { IpoAnalyst } from '../types/analyst';
+import { getEffectiveIpoStatus } from './ipoService';
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
@@ -23,6 +24,7 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
       ORDER BY 
         CASE status 
           WHEN 'ONGOING' THEN 1 
+          WHEN 'LIVE' THEN 1
           WHEN 'UPCOMING' THEN 2 
           WHEN 'CLOSED' THEN 3 
           ELSE 4 
@@ -32,7 +34,13 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
 
     if (!rows || rows.length === 0) return null;
     return rows
-      .map((r: any) => r.raw_data as IpoItem)
+      .map((r: any) => {
+        const item = r.raw_data as IpoItem;
+        return {
+          ...item,
+          status: getEffectiveIpoStatus(item),
+        };
+      })
       .filter((item: IpoItem) => {
         const sym = (item?.symbol || '').toUpperCase();
         const cat = (item?.category || '').toUpperCase();
@@ -42,6 +50,35 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
   } catch (error) {
     console.error('Neon DB fetch error (falling back to local cache):', error);
     return null;
+  }
+}
+
+/**
+ * Normalizes all IPO statuses in Neon PostgreSQL database to reflect their real SEBI/listing lifecycle
+ */
+export async function syncIpoStatusesInDb(): Promise<number> {
+  if (!sql) return 0;
+  try {
+    const rows = await sql.query(`SELECT id, status, raw_data FROM ipos;`);
+    if (!rows || rows.length === 0) return 0;
+
+    let updatedCount = 0;
+    for (const r of rows) {
+      const item = r.raw_data as IpoItem;
+      const effective = getEffectiveIpoStatus(item);
+      if (r.status !== effective || item.status !== effective) {
+        item.status = effective;
+        await sql.query(
+          `UPDATE ipos SET status = $1, raw_data = $2, updated_at = NOW() WHERE id = $3;`,
+          [effective, JSON.stringify(item), r.id]
+        );
+        updatedCount++;
+      }
+    }
+    return updatedCount;
+  } catch (err) {
+    console.error('Error syncing IPO statuses in DB:', err);
+    return 0;
   }
 }
 

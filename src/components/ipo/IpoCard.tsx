@@ -40,27 +40,20 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
   const dailyChange = ipo.dailyGmpChange !== undefined ? ipo.dailyGmpChange : (ipo.gmpTrend === 'UP' ? 15 : ipo.gmpTrend === 'DOWN' ? -10 : 0);
 
   const getStatusBadge = () => {
-    switch (ipo.status) {
-      case 'ONGOING':
-        return (
-          <span className="glass-badge badge-emerald">
-            <span className="pulse-indicator"></span>
-            Live
-          </span>
-        );
-      case 'UPCOMING': {
-        const rawStart = ipo.timeline?.biddingStarts;
-        const start = cleanTimelineDate(rawStart);
-        const hasAnnounced = start !== 'TBA';
-        if (hasAnnounced) {
-          const shortDate = start.replace(/\s+\d{4}$/, '').replace(/(\d+)(st|nd|rd|th)/gi, '$1');
-          return (
-            <span className="glass-badge badge-blue" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', backgroundColor: '#eff6ff', color: '#1d4ed8', border: '1px solid #bfdbfe' }}>
-              <Calendar size={11} color="#2563eb" />
-              Opens {shortDate}
-            </span>
-          );
-        }
+    // 1. If listed or has official listing price, always show Listed
+    if (ipo.status === 'LISTED' || (ipo.listingPrice && ipo.listingPrice > 0)) {
+      return (
+        <span className="glass-badge badge-cyan">
+          <Sparkles size={11} />
+          Listed
+        </span>
+      );
+    }
+
+    // 2. If status is ONGOING or LIVE
+    if (ipo.status === 'ONGOING' || (ipo.status as string) === 'LIVE') {
+      const rawStart = cleanTimelineDate(ipo.timeline?.biddingStarts);
+      if (rawStart === 'TBA') {
         return (
           <span className="glass-badge badge-indigo">
             <Clock size={11} />
@@ -68,21 +61,47 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
           </span>
         );
       }
-      case 'LISTED':
-        return (
-          <span className="glass-badge badge-cyan">
-            <Sparkles size={11} />
-            Listed
-          </span>
-        );
-      case 'CLOSED':
-        return (
-          <span className="glass-badge badge-amber" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#d97706' }} />
-            Closed / Allotment
-          </span>
-        );
+      return (
+        <span className="glass-badge badge-emerald">
+          <span className="pulse-indicator"></span>
+          Live
+        </span>
+      );
     }
+
+    // 3. If UPCOMING
+    if (ipo.status === 'UPCOMING') {
+      const rawStart = ipo.timeline?.biddingStarts;
+      const start = cleanTimelineDate(rawStart);
+      const hasAnnounced = start !== 'TBA';
+      if (hasAnnounced) {
+        const shortDate = start.replace(/\s+\d{4}$/, '').replace(/(\d+)(st|nd|rd|th)/gi, '$1');
+        return (
+          <span className="glass-badge badge-blue" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', backgroundColor: '#eff6ff', color: '#1d4ed8', border: '1px solid #bfdbfe' }}>
+            <Calendar size={11} color="#2563eb" />
+            Opens {shortDate}
+          </span>
+        );
+      }
+      return (
+        <span className="glass-badge badge-indigo">
+          <Clock size={11} />
+          Upcoming
+        </span>
+      );
+    }
+
+    // 4. If CLOSED
+    if (ipo.status === 'CLOSED') {
+      return (
+        <span className="glass-badge badge-amber" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+          <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#d97706' }} />
+          Closed / Allotment
+        </span>
+      );
+    }
+
+    return null;
   };
 
   return (

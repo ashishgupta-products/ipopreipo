@@ -11,7 +11,7 @@ import IpoTable from '../components/ipo/IpoTable';
 import IpoCalendar from '../components/ipo/IpoCalendar';
 import IpoDetailModal from '../components/ipo/IpoDetailModal';
 import { IpoItem } from '../types';
-import { getMergedIpos } from '../lib/ipoService';
+import { getMergedIpos, getEffectiveIpoStatus } from '../lib/ipoService';
 
 import { 
   LayoutGrid, 
@@ -79,18 +79,35 @@ export default function Home() {
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
 
+  // Count IPOs per status category for dynamic option badges & intelligent default selection
+  const statusCounts = useMemo(() => {
+    const counts = { LIVE: 0, UPCOMING: 0, LISTED: 0 };
+    iposList.forEach((ipo) => {
+      if (categoryFilter !== 'ALL' && ipo.category !== categoryFilter) return;
+      const s = getEffectiveIpoStatus(ipo);
+      counts[s]++;
+    });
+    return counts;
+  }, [iposList, categoryFilter]);
+
+  // If initial load has 0 LIVE IPOs and no explicit ?status URL parameter was passed, default to UPCOMING
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const statusParam = params.get('status');
+      if (!statusParam && statusCounts.LIVE === 0 && statusCounts.UPCOMING > 0) {
+        setStatusFilter('UPCOMING');
+      }
+    }
+  }, [statusCounts.LIVE, statusCounts.UPCOMING]);
+
   // Filter IPOs
   const filteredIpos = useMemo(() => {
     const list = iposList.filter((ipo) => {
       if (categoryFilter !== 'ALL' && ipo.category !== categoryFilter) return false;
 
-      if (statusFilter === 'LIVE') {
-        if (ipo.status !== 'ONGOING' && (ipo.status as string) !== 'LIVE') return false;
-      } else if (statusFilter === 'UPCOMING') {
-        if (ipo.status !== 'UPCOMING' && ipo.status !== 'CLOSED') return false;
-      } else if (statusFilter === 'LISTED') {
-        if (ipo.status !== 'LISTED') return false;
-      }
+      const effectiveStatus = getEffectiveIpoStatus(ipo);
+      if (statusFilter !== effectiveStatus) return false;
 
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
@@ -103,13 +120,15 @@ export default function Home() {
       return true;
     });
 
-    // Sort: For listed sort by realized listing gain, for live/upcoming sort by ongoing status then GMP
+    // Sort: For listed sort by realized listing gain, for live/upcoming sort by live status then GMP
     return list.sort((a, b) => {
       if (statusFilter === 'LISTED') {
         return (b.listingGainPercent ?? b.gmp ?? 0) - (a.listingGainPercent ?? a.gmp ?? 0);
       }
-      if (a.status === 'ONGOING' && b.status !== 'ONGOING') return -1;
-      if (b.status === 'ONGOING' && a.status !== 'ONGOING') return 1;
+      const isALive = getEffectiveIpoStatus(a) === 'LIVE';
+      const isBLive = getEffectiveIpoStatus(b) === 'LIVE';
+      if (isALive && !isBLive) return -1;
+      if (isBLive && !isALive) return 1;
       return (b.gmp || 0) - (a.gmp || 0);
     });
   }, [iposList, categoryFilter, statusFilter, searchQuery]);
@@ -191,9 +210,9 @@ export default function Home() {
                     transition: 'all 0.15s ease'
                   }}
                 >
-                  <option value="LIVE">🟢 Live</option>
-                  <option value="UPCOMING">⏳ Upcoming</option>
-                  <option value="LISTED">✨ Listed</option>
+                  <option value="LIVE">🟢 Live ({statusCounts.LIVE})</option>
+                  <option value="UPCOMING">⏳ Upcoming ({statusCounts.UPCOMING})</option>
+                  <option value="LISTED">✨ Listed ({statusCounts.LISTED})</option>
                 </select>
                 <ChevronDown
                   size={13}
@@ -385,23 +404,61 @@ export default function Home() {
             borderRadius: 'var(--radius-xl)',
             marginBottom: '2.5rem'
           }}>
-            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</div>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>
+              {statusFilter === 'LIVE' ? '🟢' : '🔍'}
+            </div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.5rem' }}>
-              No IPOs Found Matching Your Filters
+              {statusFilter === 'LIVE'
+                ? 'No IPOs Open for Bidding Today'
+                : 'No IPOs Found Matching Your Filters'}
             </h3>
-            <p style={{ fontSize: '0.85rem', color: '#64748b', maxWidth: '420px', margin: '0 auto 1.25rem' }}>
-              There are currently no IPO issues matching Status: <strong>{statusFilter}</strong> and Segment: <strong>{categoryFilter}</strong>.
+            <p style={{ fontSize: '0.85rem', color: '#64748b', maxWidth: '460px', margin: '0 auto 1.25rem', lineHeight: '1.5' }}>
+              {statusFilter === 'LIVE'
+                ? 'There are currently no active public issues accepting bids today. IPO bidding windows typically operate Monday to Friday between 10:00 AM and 5:00 PM IST.'
+                : `There are currently no IPO issues matching Status: ${statusFilter} and Segment: ${categoryFilter}.`}
             </p>
-            <button
-              onClick={() => {
-                setStatusFilter('LIVE');
-                setCategoryFilter('ALL');
-              }}
-              className="btn-primary"
-              style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem' }}
-            >
-              Reset Filters to Live IPOs
-            </button>
+            <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              {statusFilter === 'LIVE' ? (
+                <>
+                  {statusCounts.UPCOMING > 0 && (
+                    <button
+                      onClick={() => setStatusFilter('UPCOMING')}
+                      className="btn-primary"
+                      style={{ fontSize: '0.85rem', padding: '0.5rem 1.15rem' }}
+                    >
+                      View Upcoming IPOs ({statusCounts.UPCOMING})
+                    </button>
+                  )}
+                  {statusCounts.LISTED > 0 && (
+                    <button
+                      onClick={() => setStatusFilter('LISTED')}
+                      className="btn-secondary"
+                      style={{
+                        fontSize: '0.85rem',
+                        padding: '0.5rem 1.15rem',
+                        backgroundColor: '#f5f3ff',
+                        color: '#6d28d9',
+                        borderColor: '#ddd6fe'
+                      }}
+                    >
+                      View Listed IPOs ({statusCounts.LISTED})
+                    </button>
+                  )}
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    setStatusFilter(statusCounts.UPCOMING > 0 ? 'UPCOMING' : 'LISTED');
+                    setCategoryFilter('ALL');
+                    setSearchQuery('');
+                  }}
+                  className="btn-primary"
+                  style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem' }}
+                >
+                  Reset Filters
+                </button>
+              )}
+            </div>
           </div>
         ) : viewMode === 'GRID' ? (
           <div className="responsive-card-grid" style={{ marginBottom: '2.5rem' }}>

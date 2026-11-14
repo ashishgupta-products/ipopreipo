@@ -1,6 +1,6 @@
 export type IpoCategory = 'MAINBOARD' | 'SME';
 
-export type IpoStatus = 'UPCOMING' | 'ONGOING' | 'CLOSED' | 'LISTED';
+export type IpoStatus = 'UPCOMING' | 'ONGOING' | 'CLOSED' | 'LISTED' | 'LIVE';
 
 export interface IpoTimeline {
   biddingStarts: string; // e.g. "2026-10-02"

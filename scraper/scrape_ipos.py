@@ -707,6 +707,21 @@ def scrape_zerodha_primary():
                     base_item['status'] = 'LISTED'
                     base_item['tags'] = [t for t in base_item['tags'] if 'IPO' not in t or t == f'{category} IPO'] + ['LISTED IPO']
 
+            # Additional status normalization
+            if base_item['status'] == 'ONGOING':
+                # An issue cannot be live ongoing if its dates are unannounced TBA
+                b_start = base_item.get('timeline', {}).get('biddingStarts', '')
+                b_end = base_item.get('timeline', {}).get('biddingEnds', '')
+                if not b_start or b_start == 'TBA' or not b_end or b_end == 'TBA' or 'announced' in str(b_start).lower():
+                    base_item['status'] = 'UPCOMING'
+                    base_item['tags'] = [t for t in base_item['tags'] if t != 'ONGOING IPO'] + ['UPCOMING IPO']
+
+            if base_item['status'] == 'CLOSED':
+                # If listing date passed or listing price recorded, tag as LISTED
+                if base_item.get('listingPrice') or (listing_date and listing_date != 'TBA' and listing_date != '–'):
+                    base_item['status'] = 'LISTED'
+                    base_item['tags'] = [t for t in base_item['tags'] if t != 'CLOSED IPO'] + ['LISTED IPO']
+
             parsed_ipos.append(base_item)
 
     print(f"\n[Zerodha Primary] Successfully scraped & enriched {len(parsed_ipos)} IPOs across Live, Upcoming, and Closed.")

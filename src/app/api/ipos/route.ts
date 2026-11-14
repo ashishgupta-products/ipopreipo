@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAllIposFromDb, getLastSyncFromDb } from '../../../lib/db';
-import { getMergedIpos, getLastUpdatedTimestamp } from '../../../lib/ipoService';
+import { getMergedIpos, getLastUpdatedTimestamp, getEffectiveIpoStatus } from '../../../lib/ipoService';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,12 +10,17 @@ export async function GET() {
     const dbIpos = await getAllIposFromDb();
     if (dbIpos && dbIpos.length > 0) {
       const dbLastUpdated = await getLastSyncFromDb();
+      const normalizedIpos = dbIpos.map((ipo) => ({
+        ...ipo,
+        status: getEffectiveIpoStatus(ipo),
+      }));
+
       return NextResponse.json({
         success: true,
         source: 'neon-postgresql',
-        count: dbIpos.length,
+        count: normalizedIpos.length,
         lastUpdated: dbLastUpdated || getLastUpdatedTimestamp(),
-        ipos: dbIpos,
+        ipos: normalizedIpos,
       });
     }
 

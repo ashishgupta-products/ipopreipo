@@ -20,9 +20,85 @@ export interface LiveIpoPayload {
   ipos: IpoItem[];
 }
 
+export type EffectiveIpoStatus = 'LIVE' | 'UPCOMING' | 'LISTED';
+
+/**
+ * Determines the true operational status of an IPO based on realized market data and SEBI timeline.
+ * - 'LISTED': Official listing price is recorded, listing gain realized, or listing date has passed.
+ * - 'LIVE': Bidding is actively open today (now >= biddingStarts && now <= biddingEnds).
+ * - 'UPCOMING': Bidding dates are TBA, issue is scheduled in the future, or closed issue awaiting upcoming listing.
+ */
+export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
+  if (!ipo) return 'UPCOMING';
+
+  // 1. Definite LISTED conditions
+  if (
+    ipo.status === 'LISTED' ||
+    (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0) ||
+    typeof ipo.listingGainPercent === 'number' ||
+    typeof ipo.listingDayClose === 'number'
+  ) {
+    return 'LISTED';
+  }
+
+  // Check if official listing date has passed
+  const listDateStr = ipo.timeline?.listingDate;
+  if (listDateStr && listDateStr !== 'TBA' && listDateStr !== '–' && listDateStr !== '-') {
+    const listD = new Date(listDateStr);
+    if (!isNaN(listD.getTime()) && listD <= new Date()) {
+      return 'LISTED';
+    }
+  }
+
+  // In scraped Zerodha data, 'CLOSED' denotes issues that concluded bidding and completed their listing cycle
+  if (ipo.status === 'CLOSED') {
+    return 'LISTED';
+  }
+
+  // 2. LIVE verification (actively open for subscription today)
+  const bStartStr = ipo.timeline?.biddingStarts;
+  const bEndStr = ipo.timeline?.biddingEnds;
+
+  const isBiddingAnnounced =
+    Boolean(bStartStr && bEndStr) &&
+    bStartStr !== 'TBA' &&
+    bEndStr !== 'TBA' &&
+    !bStartStr!.toLowerCase().includes('announced') &&
+    !bEndStr!.toLowerCase().includes('announced') &&
+    bStartStr !== '–' &&
+    bEndStr !== '–';
+
+  if (isBiddingAnnounced) {
+    const start = new Date(bStartStr!);
+    const end = new Date(bEndStr!);
+    if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
+      end.setHours(23, 59, 59, 999);
+      const now = new Date();
+      if (now >= start && now <= end) {
+        return 'LIVE';
+      }
+      if (now > end) {
+        // If bidding ended, check if listing date is already past
+        if (listDateStr && listDateStr !== 'TBA' && listDateStr !== '–') {
+          const listD = new Date(listDateStr);
+          if (!isNaN(listD.getTime()) && listD <= now) {
+            return 'LISTED';
+          }
+        }
+        return 'UPCOMING';
+      }
+    }
+  }
+
+  // If status is marked ONGOING but bidding dates are TBA (e.g. Zerodha table 0 drafts), it's UPCOMING
+  return 'UPCOMING';
+}
+
 function enrichSingleIpo(item: IpoItem): IpoItem {
+  const effectiveStatus = getEffectiveIpoStatus(item);
   return {
     ...item,
+    status: effectiveStatus,
     logoUrl: item.logoUrl || getIpoLogoUrl(item.name, item.symbol),
     faceValue: item.faceValue || (item.category === 'SME' ? 10 : 10),
     dailyGmpChange: getIpoDailyGmpChange(item),

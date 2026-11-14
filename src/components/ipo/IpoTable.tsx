@@ -237,7 +237,16 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
 
                 {/* Timeline / Allotment Date */}
                 <td style={{ padding: '1rem', fontSize: '0.8rem', color: '#334155' }}>
-                  {ipo.status === 'CLOSED' ? (
+                  {ipo.status === 'LISTED' || (ipo.listingPrice && ipo.listingPrice > 0) ? (
+                    <div>
+                      <div style={{ fontWeight: 700, color: '#7c3aed', fontSize: '0.78rem' }}>
+                        Listed: {ipo.timeline.listingDate || 'Completed'}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#059669', fontWeight: 600 }}>
+                        Traded on {ipo.exchange}
+                      </div>
+                    </div>
+                  ) : ipo.status === 'CLOSED' ? (
                     <div>
                       <div style={{ fontWeight: 700, color: '#6d28d9', fontSize: '0.78rem' }}>
                         Allotment: {ipo.timeline.allotmentFinalization || 'In Progress'}

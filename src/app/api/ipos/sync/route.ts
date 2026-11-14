@@ -3,7 +3,7 @@ import { exec } from 'child_process';
 import path from 'path';
 import util from 'util';
 import { getMergedIpos, getLastUpdatedTimestamp } from '../../../../lib/ipoService';
-import { getAllIposFromDb, getLastSyncFromDb } from '../../../../lib/db';
+import { getAllIposFromDb, getLastSyncFromDb, syncIpoStatusesInDb } from '../../../../lib/db';
 
 const execPromise = util.promisify(exec);
 
@@ -15,12 +15,18 @@ export async function POST() {
     const scraperScript = path.join(projectRoot, 'scraper', 'scrape_ipos.py');
 
     console.log(`Executing live scraper: python "${scraperScript}"...`);
-    const { stdout, stderr } = await execPromise(`python "${scraperScript}"`, {
-      timeout: 30000,
-      env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
-    });
+    try {
+      const { stdout } = await execPromise(`python "${scraperScript}"`, {
+        timeout: 30000,
+        env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
+      });
+      console.log('Scraper finished:', stdout);
+    } catch (scrapeErr) {
+      console.warn('Scraper background run warning (continuing sync):', scrapeErr);
+    }
 
-    console.log('Scraper finished:', stdout);
+    // Synchronize and normalize statuses in Neon DB
+    await syncIpoStatusesInDb();
 
     const dbIpos = await getAllIposFromDb();
     const dbLastUpdated = await getLastSyncFromDb();
