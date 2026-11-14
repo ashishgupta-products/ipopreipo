@@ -3,12 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { IpoItem, StockQuote } from '../../types';
-import { 
-  Flame, 
-  TrendingUp, 
-  Calendar, 
-  ChevronRight, 
-  Clock, 
+import {
+  Flame,
+  TrendingUp,
+  Calendar,
+  ChevronRight,
+  Clock,
   Sparkles,
   ArrowUpRight,
   ArrowDownRight
@@ -115,7 +115,7 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
   };
 
   return (
-    <div 
+    <div
       className="glass-panel"
       style={{
         padding: '1.4rem',
@@ -135,8 +135,8 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
         left: 0,
         right: 0,
         height: '3px',
-        background: ipo.category === 'SME' 
-          ? 'linear-gradient(90deg, #f59e0b, #d97706)' 
+        background: ipo.category === 'SME'
+          ? 'linear-gradient(90deg, #f59e0b, #d97706)'
           : 'linear-gradient(90deg, #387ed1, #00b386)'
       }} />
 
@@ -189,8 +189,8 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
               {isListed ? 'Issue Price' : 'Price Band'}
             </div>
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-              {isListed && ipo.priceBandHigh 
-                ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`) 
+              {isListed && ipo.priceBandHigh
+                ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`)
                 : (ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA')}
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
@@ -203,7 +203,7 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
               {isListed ? 'Issue Size' : 'Min Investment'}
             </div>
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-              {isListed 
+              {isListed
                 ? (ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : '₹100 Cr+')
                 : (minInvestment ? `₹${minInvestment.toLocaleString('en-IN')}` : 'TBA')}
             </div>
@@ -409,15 +409,15 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
             </a>
           )}
 
-          <Link 
+          <Link
             href={`/ipo/${ipo.id}`}
             onClick={(e) => e.stopPropagation()}
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.35rem', 
-              fontSize: '0.8rem', 
-              fontWeight: 600, 
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              fontSize: '0.8rem',
+              fontWeight: 600,
               color: '#2563eb',
               backgroundColor: '#eff6ff',
               padding: '4px 10px',
