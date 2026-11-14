@@ -4,7 +4,6 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Navbar from '../components/layout/Navbar';
-import MarketTicker from '../components/layout/MarketTicker';
 import Footer from '../components/layout/Footer';
 import IpoTable from '../components/ipo/IpoTable';
 import IpoCalendar from '../components/ipo/IpoCalendar';
@@ -163,9 +162,6 @@ export default function Home() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-
-      {/* Rolling Ticker */}
-      <MarketTicker />
 
       {/* Main Content */}
       <main className="container" style={{ flex: 1, paddingTop: '1.75rem' }}>

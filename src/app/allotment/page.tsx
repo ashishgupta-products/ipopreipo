@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/layout/Navbar';
-import MarketTicker from '../../components/layout/MarketTicker';
 import Footer from '../../components/layout/Footer';
 import AllotmentHub from '../../components/allotment/AllotmentHub';
 import IpoDetailModal from '../../components/ipo/IpoDetailModal';
@@ -34,7 +33,6 @@ export default function AllotmentPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <MarketTicker />
 
       <main className="container" style={{ flex: 1, paddingTop: '1.75rem', paddingBottom: '3rem' }}>
         <AllotmentHub 
