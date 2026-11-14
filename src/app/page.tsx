@@ -19,9 +19,7 @@ import {
   Calendar as CalendarIcon,
   ChevronDown,
   Filter,
-  RotateCcw,
-  ShieldCheck,
-  ExternalLink
+  RotateCcw
 } from 'lucide-react';
 
 export default function Home() {
@@ -51,8 +49,12 @@ export default function Home() {
         setViewMode('CALENDAR');
       }
 
-      if (status === 'closed' || tab === 'closed') {
-        setStatusFilter('CLOSED');
+      if (status === 'upcoming') {
+        setStatusFilter('UPCOMING');
+      } else if (status === 'listed') {
+        setStatusFilter('LISTED');
+      } else if (status === 'live' || status === 'ongoing') {
+        setStatusFilter('LIVE');
       }
     }
   }, [router]);
@@ -74,8 +76,8 @@ export default function Home() {
     };
   }, []);
 
-  const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('MAINBOARD');
-  const [statusFilter, setStatusFilter] = useState<'ALL' | 'LIVE' | 'ONGOING' | 'UPCOMING' | 'CLOSED' | 'LISTED'>('LIVE');
+  const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('ALL');
+  const [statusFilter, setStatusFilter] = useState<'LIVE' | 'UPCOMING' | 'LISTED'>('LIVE');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'GRID' | 'TABLE' | 'CALENDAR'>('GRID');
 
@@ -85,51 +87,17 @@ export default function Home() {
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
 
-  const isDatesAnnounced = (ipo: IpoItem) => {
-    const start = ipo.timeline?.biddingStarts?.trim();
-    if (!start) return false;
-    const sLow = start.toLowerCase();
-    if (sLow === 'tba' || sLow.includes('tba') || sLow.includes('announced') || start === '–' || start === '-') {
-      return false;
-    }
-    // Reject corrupted strings where ISO date is prepended (e.g. 2026-09-2417th)
-    if (/^\d{4}-\d{2}-\d{2}/.test(start)) {
-      return false;
-    }
-
-    // Must be a CURRENT or FUTURE date, not in the past!
-    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-    const now = new Date();
-    const currentMonth = now.getMonth(); // 9 for October
-
-    const parsedDate = Date.parse(start);
-    if (!isNaN(parsedDate)) {
-      const d = new Date(parsedDate);
-      now.setHours(0, 0, 0, 0);
-      return d >= now;
-    }
-
-    // Fallback: check if the month in the string has already passed this year
-    for (let i = 0; i < months.length; i++) {
-      if (sLow.includes(months[i])) {
-        if (i < currentMonth) return false;
-        break;
-      }
-    }
-
-    return true;
-  };
-
   // Filter IPOs
   const filteredIpos = useMemo(() => {
     const list = iposList.filter((ipo) => {
       if (categoryFilter !== 'ALL' && ipo.category !== categoryFilter) return false;
 
       if (statusFilter === 'LIVE') {
-        const isLiveOrAnnounced = ipo.status === 'ONGOING' || (ipo.status === 'UPCOMING' && isDatesAnnounced(ipo));
-        if (!isLiveOrAnnounced) return false;
-      } else if (statusFilter !== 'ALL' && ipo.status !== statusFilter) {
-        return false;
+        if (ipo.status !== 'ONGOING' && (ipo.status as string) !== 'LIVE') return false;
+      } else if (statusFilter === 'UPCOMING') {
+        if (ipo.status !== 'UPCOMING' && ipo.status !== 'CLOSED') return false;
+      } else if (statusFilter === 'LISTED') {
+        if (ipo.status !== 'LISTED') return false;
       }
 
       if (searchQuery.trim()) {
@@ -143,8 +111,11 @@ export default function Home() {
       return true;
     });
 
-    // Sort: Currently open (ONGOING) first, then upcoming with announced dates, then by GMP
+    // Sort: For listed sort by realized listing gain, for live/upcoming sort by ongoing status then GMP
     return list.sort((a, b) => {
+      if (statusFilter === 'LISTED') {
+        return (b.listingGainPercent ?? b.gmp ?? 0) - (a.listingGainPercent ?? a.gmp ?? 0);
+      }
       if (a.status === 'ONGOING' && b.status !== 'ONGOING') return -1;
       if (b.status === 'ONGOING' && a.status !== 'ONGOING') return 1;
       return (b.gmp || 0) - (a.gmp || 0);
@@ -196,13 +167,28 @@ export default function Home() {
                   id="status-filter-select"
                   aria-label="Filter IPOs by Status"
                   value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value as any)}
+                  onChange={(e) => setStatusFilter(e.target.value as 'LIVE' | 'UPCOMING' | 'LISTED')}
                   style={{
                     appearance: 'none',
                     WebkitAppearance: 'none',
-                    backgroundColor: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '#ecfdf5' : '#f8fafc',
-                    color: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '#065f46' : '#1e293b',
-                    border: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '1.5px solid #10b981' : '1px solid #cbd5e1',
+                    backgroundColor:
+                      statusFilter === 'LIVE'
+                        ? '#ecfdf5'
+                        : statusFilter === 'UPCOMING'
+                        ? '#fffbeb'
+                        : '#f5f3ff',
+                    color:
+                      statusFilter === 'LIVE'
+                        ? '#065f46'
+                        : statusFilter === 'UPCOMING'
+                        ? '#92400e'
+                        : '#5b21b6',
+                    border:
+                      statusFilter === 'LIVE'
+                        ? '1.5px solid #10b981'
+                        : statusFilter === 'UPCOMING'
+                        ? '1.5px solid #f59e0b'
+                        : '1.5px solid #8b5cf6',
                     borderRadius: 'var(--radius-md)',
                     padding: '0.35rem 1.75rem 0.35rem 0.65rem',
                     fontSize: '0.8rem',
@@ -213,14 +199,24 @@ export default function Home() {
                     transition: 'all 0.15s ease'
                   }}
                 >
-                  <option value="LIVE">🟢 Live & Announced</option>
-                  <option value="ONGOING">⚡ Live Only (Active)</option>
-                  <option value="UPCOMING">⏳ Upcoming (TBA)</option>
-                  <option value="CLOSED">🔒 Closed / Allotment</option>
-                  <option value="LISTED">✨ Recently Listed</option>
-                  <option value="ALL">📋 All Statuses</option>
+                  <option value="LIVE">🟢 Live</option>
+                  <option value="UPCOMING">⏳ Upcoming</option>
+                  <option value="LISTED">✨ Listed</option>
                 </select>
-                <ChevronDown size={13} style={{ position: 'absolute', right: '8px', pointerEvents: 'none', color: (statusFilter === 'LIVE' || statusFilter === 'ONGOING') ? '#059669' : '#64748b' }} />
+                <ChevronDown
+                  size={13}
+                  style={{
+                    position: 'absolute',
+                    right: '8px',
+                    pointerEvents: 'none',
+                    color:
+                      statusFilter === 'LIVE'
+                        ? '#059669'
+                        : statusFilter === 'UPCOMING'
+                        ? '#d97706'
+                        : '#7c3aed'
+                  }}
+                />
               </div>
             </div>
 
@@ -380,54 +376,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Closed / Allotment Gateway Ribbon */}
-        {statusFilter === 'CLOSED' && viewMode !== 'CALENDAR' && (
-          <div style={{
-            backgroundColor: '#f0fdf4',
-            border: '1px solid #a7f3d0',
-            borderRadius: 'var(--radius-lg)',
-            padding: '0.9rem 1.25rem',
-            marginBottom: '1.25rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '0.75rem',
-            boxShadow: 'var(--shadow-sm)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <ShieldCheck size={20} color="#059669" />
-              <div>
-                <div style={{ fontWeight: 700, color: '#065f46', fontSize: '0.88rem' }}>
-                  Official Registrar Allotment Status Hub
-                </div>
-                <div style={{ fontSize: '0.78rem', color: '#047857' }}>
-                  These issues have closed bidding and are currently finalizing allotment. You can check share allocation via PAN on official registrar gateways.
-                </div>
-              </div>
-            </div>
-            <Link
-              href="/allotment"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                backgroundColor: '#059669',
-                color: '#ffffff',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                padding: '0.45rem 0.95rem',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                transition: 'background-color 0.15s ease'
-              }}
-            >
-              <span>Check Allotment Portals</span>
-              <ExternalLink size={13} />
-            </Link>
-          </div>
-        )}
-
         {/* Calendar View OR Cards View OR Table View OR Empty State */}
         {viewMode === 'CALENDAR' ? (
           <div style={{ marginBottom: '2.5rem' }}>
@@ -454,13 +402,13 @@ export default function Home() {
             </p>
             <button
               onClick={() => {
-                setStatusFilter('ALL');
+                setStatusFilter('LIVE');
                 setCategoryFilter('ALL');
               }}
               className="btn-primary"
               style={{ fontSize: '0.85rem', padding: '0.5rem 1.2rem' }}
             >
-              View All Active & Upcoming IPOs
+              Reset Filters to Live IPOs
             </button>
           </div>
         ) : viewMode === 'GRID' ? (
