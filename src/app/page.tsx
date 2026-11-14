@@ -54,7 +54,7 @@ export default function Home() {
   // Fetch live IPO data from Neon PostgreSQL on initial mount
   useEffect(() => {
     let isMounted = true;
-    fetch('/api/ipos')
+    fetch('/api/ipos', { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => {
         if (isMounted && data.success && data.ipos && data.ipos.length > 0) {

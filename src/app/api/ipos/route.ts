@@ -15,13 +15,22 @@ export async function GET() {
         status: getEffectiveIpoStatus(ipo),
       }));
 
-      return NextResponse.json({
-        success: true,
-        source: 'neon-postgresql',
-        count: normalizedIpos.length,
-        lastUpdated: dbLastUpdated || getLastUpdatedTimestamp(),
-        ipos: normalizedIpos,
-      });
+      return NextResponse.json(
+        {
+          success: true,
+          source: 'neon-postgresql',
+          count: normalizedIpos.length,
+          lastUpdated: dbLastUpdated || getLastUpdatedTimestamp(),
+          ipos: normalizedIpos,
+        },
+        {
+          headers: {
+            'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0',
+          },
+        }
+      );
     }
 
     // 2. Fallback to local cached data

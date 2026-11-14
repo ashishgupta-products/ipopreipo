@@ -41,6 +41,16 @@ export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
     return 'LISTED';
   }
 
+  // Already publicly listed companies (e.g. MakeMyTrip listed on NASDAQ)
+  if (
+    ipo.id === 'makemytrip' ||
+    ipo.symbol === 'MAKEMYTRIP' ||
+    ipo.about?.toLowerCase().includes('is listed on nasdaq') ||
+    ipo.about?.toLowerCase().includes('listed on nasdaq')
+  ) {
+    return 'LISTED';
+  }
+
   // Check if official listing date has passed
   const listDateStr = ipo.timeline?.listingDate;
   if (listDateStr && listDateStr !== 'TBA' && listDateStr !== '–' && listDateStr !== '-') {

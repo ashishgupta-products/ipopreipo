@@ -36,12 +36,19 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
     return rows
       .map((r: any) => {
         const item = r.raw_data as IpoItem;
+        const effectiveStatus = getEffectiveIpoStatus(item);
+        const cleanedTags = (item.tags || []).map(t => {
+          if (effectiveStatus !== 'LIVE' && t === 'Live IPO') return `${effectiveStatus} IPO`;
+          return t;
+        });
         return {
           ...item,
-          status: getEffectiveIpoStatus(item),
+          status: effectiveStatus,
+          tags: cleanedTags,
         };
       })
       .filter((item: IpoItem) => {
+        if (item.id === 'reliance-jio') return false;
         const sym = (item?.symbol || '').toUpperCase();
         const cat = (item?.category || '').toUpperCase();
         const name = (item?.name || '').toLowerCase();
@@ -59,6 +66,10 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
 export async function syncIpoStatusesInDb(): Promise<number> {
   if (!sql) return 0;
   try {
+    try {
+      await sql.query(`DELETE FROM ipos WHERE id = 'reliance-jio';`);
+    } catch {}
+
     const rows = await sql.query(`SELECT id, status, raw_data FROM ipos;`);
     if (!rows || rows.length === 0) return 0;
 
@@ -66,8 +77,13 @@ export async function syncIpoStatusesInDb(): Promise<number> {
     for (const r of rows) {
       const item = r.raw_data as IpoItem;
       const effective = getEffectiveIpoStatus(item);
+      const cleanedTags = (item.tags || []).map(t => {
+        if (effective !== 'LIVE' && t === 'Live IPO') return `${effective} IPO`;
+        return t;
+      });
       if (r.status !== effective || item.status !== effective) {
         item.status = effective;
+        item.tags = cleanedTags;
         await sql.query(
           `UPDATE ipos SET status = $1, raw_data = $2, updated_at = NOW() WHERE id = $3;`,
           [effective, JSON.stringify(item), r.id]
