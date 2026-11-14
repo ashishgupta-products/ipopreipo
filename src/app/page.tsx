@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import Navbar from '../components/layout/Navbar';
 import MarketTicker from '../components/layout/MarketTicker';
 import Footer from '../components/layout/Footer';
-import IpoCard from '../components/ipo/IpoCard';
 import IpoTable from '../components/ipo/IpoTable';
 import IpoCalendar from '../components/ipo/IpoCalendar';
 import IpoDetailModal from '../components/ipo/IpoDetailModal';
@@ -14,7 +13,6 @@ import { IpoItem, StockQuote } from '../types';
 import { getMergedIpos, getEffectiveIpoStatus, parseListingDateTimestamp } from '../lib/ipoService';
 
 import { 
-  LayoutGrid, 
   Table as TableIcon, 
   Calendar as CalendarIcon,
   ChevronDown,
@@ -71,7 +69,7 @@ export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState<'ALL' | 'MAINBOARD' | 'SME'>('ALL');
   const [statusFilter, setStatusFilter] = useState<'LIVE' | 'UPCOMING' | 'LISTED'>('LIVE');
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<'GRID' | 'TABLE' | 'CALENDAR'>('GRID');
+  const [viewMode, setViewMode] = useState<'TABLE' | 'CALENDAR'>('TABLE');
 
   // Modal states
   const [selectedIpo, setSelectedIpo] = useState<IpoItem | null>(null);
@@ -331,37 +329,16 @@ export default function Home() {
               border: '1px solid #e2e8f0'
             }}>
               <button
-                onClick={() => setViewMode('GRID')}
-                style={{
-                  padding: '0.3rem 0.55rem',
-                  borderRadius: 'var(--radius-sm)',
-                  color: viewMode === 'GRID' ? '#ffffff' : '#64748b',
-                  backgroundColor: viewMode === 'GRID' ? '#2563eb' : 'transparent',
-                  border: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  fontSize: '0.78rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
-                title="Grid Cards view"
-              >
-                <LayoutGrid size={13} />
-                <span>Cards</span>
-              </button>
-              <button
                 onClick={() => setViewMode('TABLE')}
                 style={{
-                  padding: '0.3rem 0.55rem',
+                  padding: '0.3rem 0.65rem',
                   borderRadius: 'var(--radius-sm)',
                   color: viewMode === 'TABLE' ? '#ffffff' : '#64748b',
                   backgroundColor: viewMode === 'TABLE' ? '#2563eb' : 'transparent',
                   border: 'none',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '4px',
+                  gap: '5px',
                   fontSize: '0.78rem',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -369,20 +346,20 @@ export default function Home() {
                 }}
                 title="Table view"
               >
-                <TableIcon size={13} />
+                <TableIcon size={14} />
                 <span>Table</span>
               </button>
               <button
                 onClick={() => setViewMode('CALENDAR')}
                 style={{
-                  padding: '0.3rem 0.55rem',
+                  padding: '0.3rem 0.65rem',
                   borderRadius: 'var(--radius-sm)',
                   color: viewMode === 'CALENDAR' ? '#ffffff' : '#64748b',
                   backgroundColor: viewMode === 'CALENDAR' ? '#2563eb' : 'transparent',
                   border: 'none',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '4px',
+                  gap: '5px',
                   fontSize: '0.78rem',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -390,7 +367,7 @@ export default function Home() {
                 }}
                 title="Interactive IPO Calendar view"
               >
-                <CalendarIcon size={13} />
+                <CalendarIcon size={14} />
                 <span>Calendar</span>
               </button>
             </div>
@@ -484,17 +461,6 @@ export default function Home() {
                 </button>
               )}
             </div>
-          </div>
-        ) : viewMode === 'GRID' ? (
-          <div className="responsive-card-grid" style={{ marginBottom: '2.5rem' }}>
-            {filteredIpos.map((ipo) => (
-              <IpoCard
-                key={ipo.id}
-                ipo={ipo}
-                quote={quotesMap[ipo.symbol] || quotesMap[ipo.id]}
-                onSelect={(selected) => setSelectedIpo(selected)}
-              />
-            ))}
           </div>
         ) : (
           <div style={{ marginBottom: '2.5rem' }}>
