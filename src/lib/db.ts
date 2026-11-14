@@ -1,7 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 import { IpoItem } from '../types';
 import { IpoAnalyst } from '../types/analyst';
-import { getEffectiveIpoStatus } from './ipoService';
+import { getEffectiveIpoStatus, CANONICAL_IPO_IDS } from './ipoService';
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
@@ -33,27 +33,44 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
     `);
 
     if (!rows || rows.length === 0) return null;
-    return rows
+    const rawItems = rows
       .map((r: any) => {
         const item = r.raw_data as IpoItem;
-        const effectiveStatus = getEffectiveIpoStatus(item);
+        const canonicalId = CANONICAL_IPO_IDS[item.id] || item.id;
+        const effectiveStatus = getEffectiveIpoStatus({ ...item, id: canonicalId });
         const cleanedTags = (item.tags || []).map(t => {
           if (effectiveStatus !== 'LIVE' && t === 'Live IPO') return `${effectiveStatus} IPO`;
           return t;
         });
         return {
           ...item,
+          id: canonicalId,
           status: effectiveStatus,
           tags: cleanedTags,
         };
       })
       .filter((item: IpoItem) => {
-        if (item.id === 'reliance-jio') return false;
         const sym = (item?.symbol || '').toUpperCase();
         const cat = (item?.category || '').toUpperCase();
         const name = (item?.name || '').toLowerCase();
         return !sym.includes('ZCZP') && !sym.includes('SSE') && cat !== 'SSE' && !name.includes('foundation');
       });
+
+    // Deduplicate by canonical identity, prioritizing verified LISTED entries
+    const dedupedMap = new Map<string, IpoItem>();
+    for (const item of rawItems) {
+      const existing = dedupedMap.get(item.id);
+      if (!existing) {
+        dedupedMap.set(item.id, item);
+      } else {
+        if (existing.status !== 'LISTED' && item.status === 'LISTED') {
+          dedupedMap.set(item.id, item);
+        } else if (existing.status === 'LISTED') {
+          dedupedMap.set(item.id, { ...item, ...existing, status: 'LISTED' });
+        }
+      }
+    }
+    return Array.from(dedupedMap.values());
   } catch (error) {
     console.error('Neon DB fetch error (falling back to local cache):', error);
     return null;

@@ -23,15 +23,54 @@ export interface LiveIpoPayload {
 export type EffectiveIpoStatus = 'LIVE' | 'UPCOMING' | 'LISTED';
 
 /**
+ * Canonical Entity Mapping to prevent duplicate ghost rows across scrapers and databases
+ */
+export const CANONICAL_IPO_IDS: Record<string, string> = {
+  'reliance-jio': 'jio-platforms',
+  'jio': 'jio-platforms',
+  'jio-platforms': 'jio-platforms',
+  'makemytrip': 'makemytrip',
+  'nse': 'nse',
+  'national-stock-exchange': 'nse',
+  'bse': 'bse',
+  'bse-limited': 'bse',
+};
+
+/**
+ * Master Registry of Publicly Listed Securities (Domestic & International)
+ * Guarantees that already listed corporations can NEVER be classified as 'UPCOMING'
+ */
+export const KNOWN_LISTED_ENTITIES = new Set([
+  'nse',
+  'bse',
+  'makemytrip',
+  'jio-platforms',
+  'reliance-jio',
+  'swiggy',
+  'zomato',
+  'paytm',
+  'nykaa',
+  'ola-electric',
+  'hyundai',
+  'bajaj-housing-finance'
+]);
+
+/**
  * Determines the true operational status of an IPO based on realized market data and SEBI timeline.
- * - 'LISTED': Official listing price is recorded, listing gain realized, or listing date has passed.
+ * - 'LISTED': Official listing price is recorded, listing gain realized, or entity is verified listed.
  * - 'LIVE': Bidding is actively open today (now >= biddingStarts && now <= biddingEnds).
- * - 'UPCOMING': Bidding dates are TBA, issue is scheduled in the future, or closed issue awaiting upcoming listing.
+ * - 'UPCOMING': Verified unlisted pre-IPO entity with active SEBI draft / awaiting bidding.
  */
 export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
   if (!ipo) return 'UPCOMING';
 
-  // 1. Definite LISTED conditions
+  const lowerId = (ipo.id || '').toLowerCase().trim();
+  const lowerName = (ipo.name || '').toLowerCase().trim();
+  const upperSym = (ipo.symbol || '').toUpperCase().trim();
+  const lowerAbout = (ipo.about || '').toLowerCase();
+  const canonicalId = CANONICAL_IPO_IDS[lowerId] || lowerId;
+
+  // 1. Definite LISTED conditions from market execution data
   if (
     ipo.status === 'LISTED' ||
     (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0) ||
@@ -41,15 +80,23 @@ export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
     return 'LISTED';
   }
 
-  // Already publicly listed companies (e.g. MakeMyTrip, NSE, etc.)
+  // 2. Master Listed Securities Registry & Dual-Listing Verification Gate
   if (
-    ipo.id === 'makemytrip' ||
-    ipo.symbol === 'MAKEMYTRIP' ||
-    ipo.id === 'nse' ||
-    ipo.symbol === 'NSE' ||
-    ipo.name?.toUpperCase() === 'NSE' ||
-    ipo.about?.toLowerCase().includes('is listed on nasdaq') ||
-    ipo.about?.toLowerCase().includes('listed on nasdaq')
+    KNOWN_LISTED_ENTITIES.has(canonicalId) ||
+    KNOWN_LISTED_ENTITIES.has(lowerId) ||
+    upperSym === 'NSE' ||
+    upperSym === 'BSE' ||
+    upperSym === 'MMYT' ||
+    upperSym === 'JIO' ||
+    lowerName === 'nse' ||
+    lowerName === 'national stock exchange' ||
+    lowerName.includes('jio platforms') ||
+    lowerAbout.includes('is listed on nasdaq') ||
+    lowerAbout.includes('listed on nasdaq') ||
+    lowerAbout.includes('is listed on bse') ||
+    lowerAbout.includes('listed on bse') ||
+    lowerAbout.includes('is listed on nse') ||
+    lowerAbout.includes('listed on nse')
   ) {
     return 'LISTED';
   }
@@ -68,7 +115,7 @@ export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
     return 'LISTED';
   }
 
-  // 2. LIVE verification (actively open for subscription today)
+  // 3. LIVE verification (actively open for subscription today)
   const bStartStr = ipo.timeline?.biddingStarts;
   const bEndStr = ipo.timeline?.biddingEnds;
 
@@ -148,14 +195,38 @@ export function getMergedIpos(): IpoItem[] {
     const rawLiveList: IpoItem[] = (liveData as any).ipos || [];
     const liveList = rawLiveList.filter(isRelevantEquityIpo);
     
-    // Map existing live IDs
-    const liveIds = new Set(liveList.map((i) => i.id));
+    // Map existing live IDs using canonical identities
+    const liveIds = new Set(liveList.map((i) => CANONICAL_IPO_IDS[i.id] || i.id));
     
     // Add baseline IPOs that might not be in the current live weekly window
-    const additional = INDIAN_IPOS.filter((base) => !liveIds.has(base.id) && isRelevantEquityIpo(base));
+    const additional = INDIAN_IPOS.filter((base) => {
+      const cId = CANONICAL_IPO_IDS[base.id] || base.id;
+      return !liveIds.has(cId) && isRelevantEquityIpo(base);
+    });
 
     const combined = [...liveList, ...additional];
-    return combined.map(enrichSingleIpo);
+
+    // Canonical Entity Deduplication Pipeline:
+    // Deduplicates rows, resolving conflicting statuses in favor of market-realized 'LISTED'
+    const dedupedMap = new Map<string, IpoItem>();
+    for (const raw of combined) {
+      const canonicalId = CANONICAL_IPO_IDS[raw.id] || raw.id;
+      const itemWithCanonicalId = { ...raw, id: canonicalId };
+      const enriched = enrichSingleIpo(itemWithCanonicalId);
+
+      const existing = dedupedMap.get(canonicalId);
+      if (!existing) {
+        dedupedMap.set(canonicalId, enriched);
+      } else {
+        if (existing.status !== 'LISTED' && enriched.status === 'LISTED') {
+          dedupedMap.set(canonicalId, enriched);
+        } else if (existing.status === 'LISTED') {
+          dedupedMap.set(canonicalId, { ...enriched, ...existing, status: 'LISTED' });
+        }
+      }
+    }
+
+    return Array.from(dedupedMap.values());
   } catch (error) {
     console.error('Error reading live IPO data, falling back to baseline:', error);
     return INDIAN_IPOS.filter(isRelevantEquityIpo).map(enrichSingleIpo);
@@ -165,7 +236,17 @@ export function getMergedIpos(): IpoItem[] {
 export function getScrapedLiveOnly(): IpoItem[] {
   try {
     const list = (((liveData as any).ipos as IpoItem[]) || INDIAN_IPOS).filter(isRelevantEquityIpo);
-    return list.map(enrichSingleIpo);
+    const dedupedMap = new Map<string, IpoItem>();
+    for (const raw of list) {
+      const canonicalId = CANONICAL_IPO_IDS[raw.id] || raw.id;
+      const item = { ...raw, id: canonicalId };
+      const enriched = enrichSingleIpo(item);
+      const existing = dedupedMap.get(canonicalId);
+      if (!existing || (existing.status !== 'LISTED' && enriched.status === 'LISTED')) {
+        dedupedMap.set(canonicalId, enriched);
+      }
+    }
+    return Array.from(dedupedMap.values());
   } catch {
     return INDIAN_IPOS.filter(isRelevantEquityIpo).map(enrichSingleIpo);
   }

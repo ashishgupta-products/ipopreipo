@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "node scripts/validate_ipos.mjs",
+    "validate:ipos": "node scripts/validate_ipos.mjs",
     "scrape": "python scraper/scrape_ipos.py"
   },
   "dependencies": {

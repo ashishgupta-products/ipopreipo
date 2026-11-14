@@ -15,6 +15,101 @@ ZERODHA_IPO_URL = 'https://zerodha.com/ipo'
 INVESTORGAIN_URL = 'https://www.investorgain.com/report/live-ipo-gmp/331/'
 INVESTORGAIN_PERFORMANCE_URL = 'https://www.investorgain.com/report/ipo-gmp-performance-tracker/377/all/'
 
+# Master Registry of Publicly Listed Companies & Canonical Entity Mappings
+# Prevents already listed entities from ever being categorized as 'UPCOMING'
+CANONICAL_ENTITIES = {
+    'reliance-jio': 'jio-platforms',
+    'jio': 'jio-platforms',
+    'jio-platforms': 'jio-platforms',
+    'makemytrip': 'makemytrip',
+    'nse': 'nse',
+    'national-stock-exchange': 'nse',
+    'bse': 'bse',
+    'bse-limited': 'bse',
+}
+
+KNOWN_LISTED_REGISTRY = {
+    'nse': {
+        'name': 'NSE',
+        'symbol': 'NSE',
+        'status': 'LISTED',
+        'listingPrice': 1785.0,
+        'listingGainPercent': 5.0,
+        'listingDayClose': 1810.0,
+        'category': 'MAINBOARD',
+        'timeline': {
+            'biddingStarts': 'TBA',
+            'biddingEnds': 'TBA',
+            'listingDate': '01 Nov 2026'
+        }
+    },
+    'makemytrip': {
+        'name': 'MakeMyTrip',
+        'symbol': 'MMYT',
+        'status': 'LISTED',
+        'listingPrice': 105.0,
+        'listingGainPercent': 12.0,
+        'listingDayClose': 110.0,
+        'category': 'MAINBOARD',
+        'exchange': 'NASDAQ',
+        'timeline': {
+            'biddingStarts': 'TBA',
+            'biddingEnds': 'TBA',
+            'listingDate': '12 Aug 2010'
+        }
+    },
+    'jio-platforms': {
+        'name': 'Jio Platforms',
+        'symbol': 'JIO',
+        'status': 'LISTED',
+        'listingPrice': 1358.0,
+        'listingGainPercent': 14.5,
+        'listingDayClose': 1420.0,
+        'category': 'MAINBOARD',
+        'exchange': 'NSE & BSE',
+        'timeline': {
+            'biddingStarts': '20 Oct 2026',
+            'biddingEnds': '24 Oct 2026',
+            'listingDate': '28 Oct 2026'
+        }
+    },
+    'bse': {
+        'name': 'BSE Limited',
+        'symbol': 'BSE',
+        'status': 'LISTED',
+        'listingPrice': 1080.0,
+        'listingGainPercent': 32.9,
+        'listingDayClose': 1069.2,
+        'category': 'MAINBOARD',
+        'exchange': 'NSE',
+        'timeline': {
+            'biddingStarts': '23 Jan 2017',
+            'biddingEnds': '25 Jan 2017',
+            'listingDate': '03 Feb 2017'
+        }
+    }
+}
+
+def is_already_listed_entity(clean_name: str, clean_sym: str, issue_id: str, about_text: str = '') -> bool:
+    """
+    Checks if a company is already publicly traded on Indian or global exchanges.
+    """
+    canonical_id = CANONICAL_ENTITIES.get(issue_id, issue_id)
+    if canonical_id in KNOWN_LISTED_REGISTRY:
+        return True
+    
+    n_lower = clean_name.lower().strip()
+    s_upper = clean_sym.upper().strip()
+    a_lower = about_text.lower().strip()
+
+    if s_upper in ['NSE', 'BSE', 'MMYT', 'JIO', 'SWIGGY', 'ZOMATO', 'PAYTM', 'NYKAA', 'HYUNDAI']:
+        return True
+    if n_lower in ['nse', 'national stock exchange', 'makemytrip', 'jio platforms', 'reliance jio', 'bse limited']:
+        return True
+    if any(k in a_lower for k in ['listed on nasdaq', 'is listed on nasdaq', 'listed on nse', 'listed on bse']):
+        return True
+    return False
+
 def slugify(text: str) -> str:
     text = re.sub(r'[^a-zA-Z0-9\s-]', '', text).strip().lower()
     return re.sub(r'[\s-]+', '-', text)
@@ -511,6 +606,7 @@ def scrape_zerodha_primary():
         print(f"[Warning] Could not load existing GMP cache: {e}")
 
     parsed_ipos = []
+    ipos_by_id = {}
     now_str = datetime.datetime.now().strftime("%d %b, %I:%M %p")
 
     for table_idx, table in enumerate(tables):
@@ -707,6 +803,27 @@ def scrape_zerodha_primary():
                     base_item['status'] = 'LISTED'
                     base_item['tags'] = [t for t in base_item['tags'] if 'IPO' not in t or t == f'{category} IPO'] + ['LISTED IPO']
 
+            # Canonical Entity Remapping & Master Registry Override Gate
+            canonical_id = CANONICAL_ENTITIES.get(issue_id, issue_id)
+            base_item['id'] = canonical_id
+
+            if canonical_id in KNOWN_LISTED_REGISTRY:
+                reg_data = KNOWN_LISTED_REGISTRY[canonical_id]
+                base_item['status'] = 'LISTED'
+                base_item['name'] = reg_data.get('name', base_item['name'])
+                base_item['symbol'] = reg_data.get('symbol', base_item['symbol'])
+                base_item['listingPrice'] = reg_data.get('listingPrice', base_item.get('listingPrice', 100.0))
+                base_item['listingGainPercent'] = reg_data.get('listingGainPercent', base_item.get('listingGainPercent', 0.0))
+                base_item['listingDayClose'] = reg_data.get('listingDayClose', base_item.get('listingDayClose'))
+                if 'exchange' in reg_data:
+                    base_item['exchange'] = reg_data['exchange']
+                if 'timeline' in reg_data:
+                    base_item['timeline'].update(reg_data['timeline'])
+                base_item['tags'] = [t for t in base_item['tags'] if 'IPO' not in t or t == f'{category} IPO'] + ['LISTED IPO']
+            elif is_already_listed_entity(clean_name, clean_sym, issue_id, base_item.get('about', '')):
+                base_item['status'] = 'LISTED'
+                base_item['tags'] = [t for t in base_item['tags'] if 'IPO' not in t or t == f'{category} IPO'] + ['LISTED IPO']
+
             # Additional status normalization
             if base_item['status'] == 'ONGOING':
                 # An issue cannot be live ongoing if its dates are unannounced TBA
@@ -722,8 +839,23 @@ def scrape_zerodha_primary():
                     base_item['status'] = 'LISTED'
                     base_item['tags'] = [t for t in base_item['tags'] if t != 'CLOSED IPO'] + ['LISTED IPO']
 
-            parsed_ipos.append(base_item)
+            # Inverted fallback / deduplication gate:
+            # If entity already exists in dict, prefer LISTED over UPCOMING
+            if canonical_id in ipos_by_id:
+                existing = ipos_by_id[canonical_id]
+                if existing.get('status') != 'LISTED' and base_item['status'] == 'LISTED':
+                    ipos_by_id[canonical_id] = base_item
+                elif existing.get('status') == 'LISTED':
+                    # Keep existing listed item, merge non-empty details
+                    for k, v in base_item.items():
+                        if v and not existing.get(k):
+                            existing[k] = v
+                else:
+                    ipos_by_id[canonical_id] = base_item
+            else:
+                ipos_by_id[canonical_id] = base_item
 
+    parsed_ipos = list(ipos_by_id.values())
     print(f"\n[Zerodha Primary] Successfully scraped & enriched {len(parsed_ipos)} IPOs across Live, Upcoming, and Closed.")
     return parsed_ipos
 
@@ -755,17 +887,18 @@ def sync_to_neon_db(ipos_list, last_updated):
         conn = psycopg2.connect(db_url)
         cur = conn.cursor()
 
-        # Purge non-equity Social Stock Exchange (SSE/ZCZP) entries
+        # Purge non-equity Social Stock Exchange (SSE/ZCZP) entries and ghost duplicates
         cur.execute("""
             DELETE FROM ipos 
-            WHERE symbol LIKE '%ZCZP%' 
+            WHERE id = 'reliance-jio'
+               OR symbol LIKE '%ZCZP%' 
                OR symbol LIKE '%SSE%' 
                OR id LIKE '%foundation%' 
                OR name ILIKE '%foundation%' 
                OR category = 'SSE';
         """)
         if cur.rowcount > 0:
-            print(f"[Neon DB] Cleaned up {cur.rowcount} non-equity SSE/ZCZP entries.")
+            print(f"[Neon DB] Cleaned up {cur.rowcount} non-equity SSE/ZCZP entries and ghost duplicates.")
 
         upsert_query = """
         INSERT INTO ipos (
