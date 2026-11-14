@@ -59,6 +59,10 @@ interface IpoDetailViewProps {
 export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) {
   const [copied, setCopied] = useState<boolean>(false);
 
+  const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0);
+  const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
+  const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : undefined);
+
   // Calculations
   const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
   const minRetailInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : 0;
@@ -400,7 +404,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
 
             {/* GMP or Official Listing Performance Card */}
             <div className="detail-gmp-card">
-              {ipo.listingPrice ? (
+              {isListed && listingPrice ? (
                 <>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginBottom: '0.35rem' }}>
                     <Sparkles size={16} color="#15803d" />
@@ -410,22 +414,22 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                   </div>
 
                   <div className="mono" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', lineHeight: '1.2' }}>
-                    ₹{ipo.listingPrice}
+                    ₹{listingPrice}
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
                     <span className="mono" style={{
                       fontSize: '0.85rem',
                       fontWeight: 700,
-                      color: (ipo.listingGainPercent ?? 0) >= 0 ? '#15803d' : '#dc2626',
-                      backgroundColor: (ipo.listingGainPercent ?? 0) >= 0 ? '#dcfce7' : '#fee2e2',
+                      color: (listingGain ?? 0) >= 0 ? '#15803d' : '#dc2626',
+                      backgroundColor: (listingGain ?? 0) >= 0 ? '#dcfce7' : '#fee2e2',
                       padding: '2px 7px',
                       borderRadius: '4px'
                     }}>
-                      {(ipo.listingGainPercent ?? 0) >= 0 ? `+${(ipo.listingGainPercent ?? 0).toFixed(1)}%` : `${(ipo.listingGainPercent ?? 0).toFixed(1)}%`}
+                      {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
                     </span>
                     <span style={{ fontSize: '0.75rem', color: '#166534' }}>
-                      Issue: ₹{ipo.priceBandHigh}
+                      Issue: ₹{ipo.priceBandHigh || ipo.priceBandLow}
                     </span>
                   </div>
 

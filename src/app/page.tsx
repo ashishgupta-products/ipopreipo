@@ -474,6 +474,7 @@ export default function Home() {
           <div style={{ marginBottom: '2.5rem' }}>
             <IpoTable
               ipos={filteredIpos}
+              statusFilter={statusFilter}
               onSelect={(selected) => setSelectedIpo(selected)}
             />
           </div>

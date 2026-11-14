@@ -33,15 +33,19 @@ function cleanTimelineDate(dateStr?: string): string {
 }
 
 export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProps) {
+  const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0);
+  const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
+  const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : 0);
+
   const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
   const minInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : null;
   const gmpPercent = ipo.priceBandHigh ? ((ipo.gmp / ipo.priceBandHigh) * 100) : 0;
-  const estListingPrice = ipo.priceBandHigh + ipo.gmp;
+  const estListingPrice = listingPrice ?? (ipo.priceBandHigh + ipo.gmp);
   const dailyChange = ipo.dailyGmpChange !== undefined ? ipo.dailyGmpChange : (ipo.gmpTrend === 'UP' ? 15 : ipo.gmpTrend === 'DOWN' ? -10 : 0);
 
   const getStatusBadge = () => {
     // 1. If listed or has official listing price, always show Listed
-    if (ipo.status === 'LISTED' || (ipo.listingPrice && ipo.listingPrice > 0)) {
+    if (isListed) {
       return (
         <span className="glass-badge badge-cyan">
           <Sparkles size={11} />
@@ -176,10 +180,12 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
         }}>
           <div>
             <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-              Price Band
+              {isListed ? 'Issue Price' : 'Price Band'}
             </div>
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-              {ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA'}
+              {isListed && ipo.priceBandHigh 
+                ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`) 
+                : (ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA')}
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
               {hasValidLot ? `Lot: ${ipo.lotSize} shares` : 'Lot: TBA'}
@@ -188,22 +194,26 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
 
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontSize: '0.68rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-              Min Investment
+              {isListed ? 'Issue Size' : 'Min Investment'}
             </div>
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
-              {minInvestment ? `₹${minInvestment.toLocaleString('en-IN')}` : 'TBA'}
+              {isListed 
+                ? (ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : '₹100 Cr+')
+                : (minInvestment ? `₹${minInvestment.toLocaleString('en-IN')}` : 'TBA')}
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-              {ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `Size: ₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'Size: TBA'}
+              {isListed
+                ? (ipo.timeline?.listingDate ? `Listed: ${ipo.timeline.listingDate}` : 'Exchange Listed')
+                : (ipo.issueSizeCr && ipo.issueSizeCr > 0 ? `Size: ₹${ipo.issueSizeCr.toLocaleString('en-IN')} Cr` : 'Size: TBA')}
             </div>
           </div>
         </div>
 
         {/* Listing Price Banner (if listed) or Grey Market Premium (GMP) Banner */}
-        {ipo.listingPrice ? (
+        {isListed && listingPrice ? (
           <div style={{
-            backgroundColor: (ipo.listingGainPercent ?? 0) >= 0 ? '#ecfdf5' : '#fef2f2',
-            border: (ipo.listingGainPercent ?? 0) >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
+            backgroundColor: (listingGain ?? 0) >= 0 ? '#ecfdf5' : '#fef2f2',
+            border: (listingGain ?? 0) >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
             padding: '0.75rem 1rem',
             display: 'flex',
@@ -212,33 +222,33 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
             marginBottom: '0.75rem'
           }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: (ipo.listingGainPercent ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700 }}>
-                <Sparkles size={13} color={(ipo.listingGainPercent ?? 0) >= 0 ? '#059669' : '#dc2626'} />
-                <span>Listed on Exchange</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700 }}>
+                <Sparkles size={13} color={(listingGain ?? 0) >= 0 ? '#059669' : '#dc2626'} />
+                <span>Official Listing Price</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginTop: '2px' }}>
-                <span className="mono" style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a' }}>
-                  ₹{ipo.listingPrice}
+                <span className="mono" style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a' }}>
+                  ₹{listingPrice}
                 </span>
-                <span style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                  Issue: ₹{ipo.priceBandHigh}
+                <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                  Issue: ₹{ipo.priceBandHigh || ipo.priceBandLow}
                 </span>
               </div>
             </div>
 
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
+              <div style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600 }}>
                 Listing Gain
               </div>
               <div className="mono" style={{
-                fontSize: '0.95rem',
-                fontWeight: 700,
-                color: (ipo.listingGainPercent ?? 0) >= 0 ? '#059669' : '#dc2626',
+                fontSize: '1.05rem',
+                fontWeight: 800,
+                color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626',
               }}>
-                {(ipo.listingGainPercent ?? 0) >= 0 ? `+${(ipo.listingGainPercent ?? 0).toFixed(1)}%` : `${(ipo.listingGainPercent ?? 0).toFixed(1)}%`}
+                {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
               </div>
               <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-                {ipo.listingDayClose ? `Day Close: ₹${ipo.listingDayClose}` : (ipo.priceBandHigh ? `${ipo.listingPrice >= ipo.priceBandHigh ? '+' : '-'}₹${Math.abs(Math.round((ipo.listingPrice - ipo.priceBandHigh) * 10) / 10)}` : '')}
+                {ipo.listingDayClose ? `Day Close: ₹${ipo.listingDayClose}` : (ipo.priceBandHigh ? `${listingPrice >= ipo.priceBandHigh ? '+' : '-'}₹${Math.abs(Math.round((listingPrice - ipo.priceBandHigh) * 10) / 10)} / sh` : '')}
               </div>
             </div>
           </div>

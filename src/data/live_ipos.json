@@ -1,7 +1,7 @@
 {
   "lastUpdated": "2026-11-15T00:57:29.915447",
   "source": "Zerodha Primary IPO Portal (https://zerodha.com/ipo)",
-  "count": 46,
+  "count": 47,
   "ipos": [
     {
       "id": "casagrand-premier-builder",
@@ -16,7 +16,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -38,7 +38,7 @@
         "revenueCr": 192.94,
         "patCr": -32.51,
         "eps": -3.25,
-        "peRatio": 1000.0,
+        "peRatio": 1000,
         "ronw": 21.5
       },
       "tags": [
@@ -110,7 +110,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 27.0,
+      "gmp": 27,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 2,
@@ -204,7 +204,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -230,7 +230,7 @@
         "LISTED IPO"
       ],
       "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
-      "listingPrice": 200.0,
+      "listingPrice": 200,
       "listingGainPercent": 1.52,
       "listingDayClose": 206.3
     },
@@ -247,7 +247,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -340,7 +340,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -380,7 +380,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -406,9 +406,9 @@
         "LISTED IPO"
       ],
       "rhpUrl": "https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf",
-      "listingPrice": 105.0,
-      "listingGainPercent": 12.0,
-      "listingDayClose": 110.0
+      "listingPrice": 105,
+      "listingGainPercent": 12,
+      "listingDayClose": 110
     },
     {
       "id": "boat",
@@ -423,7 +423,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -517,7 +517,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -539,7 +539,7 @@
         "revenueCr": 23128.4,
         "patCr": -5886.9,
         "eps": -588.69,
-        "peRatio": 1000.0,
+        "peRatio": 1000,
         "ronw": 21.5
       },
       "tags": [
@@ -610,10 +610,10 @@
       "priceBandLow": 100,
       "priceBandHigh": 100,
       "lotSize": null,
-      "issueSizeCr": 13500.0,
-      "freshIssueCr": 11475.0,
-      "ofsCr": 2025.0,
-      "gmp": 0.0,
+      "issueSizeCr": 13500,
+      "freshIssueCr": 11475,
+      "ofsCr": 2025,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -635,7 +635,7 @@
         "revenueCr": 4174.51,
         "patCr": -1444.42,
         "eps": -144.44,
-        "peRatio": 1000.0,
+        "peRatio": 1000,
         "ronw": 21.5
       },
       "tags": [
@@ -702,7 +702,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -724,7 +724,7 @@
         "revenueCr": 1801.82,
         "patCr": -251.86,
         "eps": -25.19,
-        "peRatio": 1000.0,
+        "peRatio": 1000,
         "ronw": 21.5
       },
       "tags": [
@@ -799,7 +799,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -839,7 +839,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -879,7 +879,7 @@
       "issueSizeCr": null,
       "freshIssueCr": null,
       "ofsCr": null,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -916,10 +916,10 @@
       "priceBandLow": 100,
       "priceBandHigh": 100,
       "lotSize": null,
-      "issueSizeCr": 10000.0,
-      "freshIssueCr": 8500.0,
-      "ofsCr": 1500.0,
-      "gmp": 0.0,
+      "issueSizeCr": 10000,
+      "freshIssueCr": 8500,
+      "ofsCr": 1500,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -1000,10 +1000,10 @@
       "priceBandLow": 100,
       "priceBandHigh": 100,
       "lotSize": null,
-      "issueSizeCr": 7600.0,
-      "freshIssueCr": 6460.0,
-      "ofsCr": 1140.0,
-      "gmp": 0.0,
+      "issueSizeCr": 7600,
+      "freshIssueCr": 6460,
+      "ofsCr": 1140,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -1093,10 +1093,10 @@
       "priceBandLow": 62,
       "priceBandHigh": 66,
       "lotSize": 2000,
-      "issueSizeCr": 23.0,
+      "issueSizeCr": 23,
       "freshIssueCr": 19.55,
       "ofsCr": 3.45,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -1182,7 +1182,7 @@
         "General corporate purposes (6.76 (28.98%))"
       ],
       "listingPrice": 52.8,
-      "listingGainPercent": -20.0,
+      "listingGainPercent": -20,
       "listingDayClose": 50.16
     },
     {
@@ -1195,10 +1195,10 @@
       "priceBandLow": 88,
       "priceBandHigh": 94,
       "lotSize": 1200,
-      "issueSizeCr": 57.0,
+      "issueSizeCr": 57,
       "freshIssueCr": 48.45,
       "ofsCr": 8.55,
-      "gmp": 1.0,
+      "gmp": 1,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -1284,8 +1284,8 @@
         "Capital expenditure for purchase and installation of plant and machinery (6.51 (12.76%))",
         "Issue expenses and general corporate purposes (11.89 (23.31%))"
       ],
-      "listingPrice": 94.0,
-      "listingGainPercent": 0.0,
+      "listingPrice": 94,
+      "listingGainPercent": 0,
       "listingDayClose": 89.3
     },
     {
@@ -1298,10 +1298,10 @@
       "priceBandLow": 150,
       "priceBandHigh": 158,
       "lotSize": 800,
-      "issueSizeCr": 58.0,
+      "issueSizeCr": 58,
       "freshIssueCr": 49.3,
       "ofsCr": 8.7,
-      "gmp": 105.0,
+      "gmp": 105,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 5,
@@ -1389,7 +1389,7 @@
         "General corporate purposes (14.84 (25.74%))"
       ],
       "listingPrice": 300.2,
-      "listingGainPercent": 90.0,
+      "listingGainPercent": 90,
       "listingDayClose": 315.2
     },
     {
@@ -1402,10 +1402,10 @@
       "priceBandLow": 99,
       "priceBandHigh": 105,
       "lotSize": 1200,
-      "issueSizeCr": 53.0,
+      "issueSizeCr": 53,
       "freshIssueCr": 45.05,
       "ofsCr": 7.95,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -1490,7 +1490,7 @@
         "Funding long-term working capital requirement of our Company (20 (46.96%))",
         "General corporate purposes (8.59 (20.17%))"
       ],
-      "listingPrice": 106.0,
+      "listingPrice": 106,
       "listingGainPercent": 0.95,
       "listingDayClose": 107.5
     },
@@ -1504,10 +1504,10 @@
       "priceBandLow": 114,
       "priceBandHigh": 120,
       "lotSize": 1200,
-      "issueSizeCr": 35.0,
+      "issueSizeCr": 35,
       "freshIssueCr": 29.75,
       "ofsCr": 5.25,
-      "gmp": 27.0,
+      "gmp": 27,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 4,
@@ -1534,7 +1534,7 @@
         "revenueCr": 3.79,
         "patCr": 1.11,
         "eps": 0.09,
-        "peRatio": 1200.0,
+        "peRatio": 1200,
         "ronw": 21.5
       },
       "tags": [
@@ -1568,7 +1568,7 @@
           "assetsCr": 111.9,
           "revenueCr": 3.79,
           "patCr": 1.11,
-          "netWorthCr": 47.0,
+          "netWorthCr": 47,
           "totalBorrowingCr": 20.14,
           "reservesCr": 31.33
         }
@@ -1593,9 +1593,9 @@
         "Capital expenditure for infrastructural development of building on 2nd floor at Manesar (3.26 (11.69%))",
         "General corporate purposes (8.55 (30.64%))"
       ],
-      "listingPrice": 160.0,
+      "listingPrice": 160,
       "listingGainPercent": 33.33,
-      "listingDayClose": 168.0
+      "listingDayClose": 168
     },
     {
       "id": "johnsoncab-electricals",
@@ -1607,10 +1607,10 @@
       "priceBandLow": 190,
       "priceBandHigh": 200,
       "lotSize": 600,
-      "issueSizeCr": 56.0,
+      "issueSizeCr": 56,
       "freshIssueCr": 47.6,
       "ofsCr": 8.4,
-      "gmp": 8.0,
+      "gmp": 8,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -1651,11 +1651,11 @@
         {
           "period": "March 2025",
           "assetsCr": 64.28,
-          "revenueCr": 140.0,
+          "revenueCr": 140,
           "patCr": 5.46,
-          "netWorthCr": 27.0,
+          "netWorthCr": 27,
           "totalBorrowingCr": 11.57,
-          "reservesCr": 18.0
+          "reservesCr": 18
         },
         {
           "period": "March 2026",
@@ -1712,10 +1712,10 @@
       "priceBandLow": 78,
       "priceBandHigh": 82,
       "lotSize": 182,
-      "issueSizeCr": 184.0,
+      "issueSizeCr": 184,
       "freshIssueCr": 156.4,
       "ofsCr": 27.6,
-      "gmp": 8.0,
+      "gmp": 8,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 2,
@@ -1800,7 +1800,7 @@
         "Financing capital equipment acquisition under lease (15.77 (8.61%))",
         "General corporate purposes (42.29 (23.11%))"
       ],
-      "listingPrice": 91.0,
+      "listingPrice": 91,
       "listingGainPercent": 10.98,
       "listingDayClose": 94.81
     },
@@ -1814,10 +1814,10 @@
       "priceBandLow": 153,
       "priceBandHigh": 162,
       "lotSize": 91,
-      "issueSizeCr": 275.0,
+      "issueSizeCr": 275,
       "freshIssueCr": 233.75,
       "ofsCr": 41.25,
-      "gmp": 11.0,
+      "gmp": 11,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 2,
@@ -1902,7 +1902,7 @@
         "Repay or pre-pay certain borrowings availed by the Company (30 (13.62%))",
         "General corporate purposes (37.48 (17.01%))"
       ],
-      "listingPrice": 171.0,
+      "listingPrice": 171,
       "listingGainPercent": 5.56,
       "listingDayClose": 162.2
     },
@@ -1916,10 +1916,10 @@
       "priceBandLow": 76,
       "priceBandHigh": 80,
       "lotSize": 1600,
-      "issueSizeCr": 28.0,
+      "issueSizeCr": 28,
       "freshIssueCr": 23.8,
       "ofsCr": 4.2,
-      "gmp": 4.0,
+      "gmp": 4,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 2,
@@ -1995,7 +1995,7 @@
         "Repay or pre-pay certain borrowings availed by the Company (8.60 (30.40%))",
         "General corporate purposes (7.70 (27.22%))"
       ],
-      "listingPrice": 90.0,
+      "listingPrice": 90,
       "listingGainPercent": 12.5,
       "listingDayClose": 94.5
     },
@@ -2009,10 +2009,10 @@
       "priceBandLow": 203,
       "priceBandHigh": 203,
       "lotSize": 600,
-      "issueSizeCr": 38.0,
+      "issueSizeCr": 38,
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
-      "gmp": 1.0,
+      "gmp": 1,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -2039,7 +2039,7 @@
         "revenueCr": 12.44,
         "patCr": 1.56,
         "eps": 0.08,
-        "peRatio": 2030.0,
+        "peRatio": 2030,
         "ronw": 21.5
       },
       "tags": [
@@ -2099,8 +2099,8 @@
         "General corporate purposes (4.43 (14.55%))",
         "Issue-related expenses (4.57 (15%))"
       ],
-      "listingPrice": 203.0,
-      "listingGainPercent": 0.0,
+      "listingPrice": 203,
+      "listingGainPercent": 0,
       "listingDayClose": 192.85
     },
     {
@@ -2113,7 +2113,7 @@
       "priceBandLow": 313,
       "priceBandHigh": 330,
       "lotSize": 45,
-      "issueSizeCr": 668.0,
+      "issueSizeCr": 668,
       "freshIssueCr": 567.8,
       "ofsCr": 100.2,
       "gmp": 15.5,
@@ -2143,7 +2143,7 @@
         "revenueCr": 137.9,
         "patCr": 1.48,
         "eps": 0.04,
-        "peRatio": 3300.0,
+        "peRatio": 3300,
         "ronw": 21.5
       },
       "tags": [
@@ -2215,10 +2215,10 @@
       "priceBandLow": 142,
       "priceBandHigh": 150,
       "lotSize": 100,
-      "issueSizeCr": 255.0,
+      "issueSizeCr": 255,
       "freshIssueCr": 216.75,
       "ofsCr": 38.25,
-      "gmp": 69.0,
+      "gmp": 69,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 4,
@@ -2303,7 +2303,7 @@
         "Funding working capital requirements (89.5 (35.10%))",
         "General corporate purposes (87.94 (34.48%))"
       ],
-      "listingPrice": 248.0,
+      "listingPrice": 248,
       "listingGainPercent": 65.33,
       "listingDayClose": 269.3
     },
@@ -2317,10 +2317,10 @@
       "priceBandLow": 194,
       "priceBandHigh": 204,
       "lotSize": 600,
-      "issueSizeCr": 110.0,
+      "issueSizeCr": 110,
       "freshIssueCr": 93.5,
       "ofsCr": 16.5,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -2398,8 +2398,8 @@
         "To fund marketing and promotional activities (5.23 (5.94%))",
         "General corporate purposes (15.74 (17.88%))"
       ],
-      "listingPrice": 204.0,
-      "listingGainPercent": 0.0,
+      "listingPrice": 204,
+      "listingGainPercent": 0,
       "listingDayClose": 203.55
     },
     {
@@ -2412,10 +2412,10 @@
       "priceBandLow": 1585,
       "priceBandHigh": 1665,
       "lotSize": 9,
-      "issueSizeCr": 1200.0,
-      "freshIssueCr": 1020.0,
-      "ofsCr": 180.0,
-      "gmp": 54.0,
+      "issueSizeCr": 1200,
+      "freshIssueCr": 1020,
+      "ofsCr": 180,
+      "gmp": 54,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -2509,10 +2509,10 @@
       "priceBandLow": 88,
       "priceBandHigh": 93,
       "lotSize": 1200,
-      "issueSizeCr": 55.0,
+      "issueSizeCr": 55,
       "freshIssueCr": 46.75,
       "ofsCr": 8.25,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -2598,7 +2598,7 @@
         "General Corporate Purposes (10.22 (18.64%))"
       ],
       "listingPrice": 74.4,
-      "listingGainPercent": -20.0,
+      "listingGainPercent": -20,
       "listingDayClose": 78.12
     },
     {
@@ -2611,10 +2611,10 @@
       "priceBandLow": 27,
       "priceBandHigh": 1119,
       "lotSize": 12,
-      "issueSizeCr": 30188.0,
+      "issueSizeCr": 30188,
       "freshIssueCr": 25659.8,
       "ofsCr": 4528.2,
-      "gmp": 250.0,
+      "gmp": 250,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 4,
@@ -2655,15 +2655,15 @@
         {
           "period": "March 2025",
           "assetsCr": 581233.8,
-          "revenueCr": 129333.0,
-          "patCr": 26120.0,
+          "revenueCr": 129333,
+          "patCr": 26120,
           "netWorthCr": 244118.2,
           "totalBorrowingCr": 104622.08,
           "reservesCr": 162745.46
         },
         {
           "period": "March 2026",
-          "assetsCr": 615594.0,
+          "assetsCr": 615594,
           "revenueCr": 149759.1,
           "patCr": 30052.7,
           "netWorthCr": 258549.48,
@@ -2698,9 +2698,9 @@
         "Repayment or prepayment of certain Company borrowings (27500 (91.10%))",
         "General Corporate Purposes (2688 (8.90%))"
       ],
-      "listingPrice": 1358.0,
+      "listingPrice": 1358,
       "listingGainPercent": 14.5,
-      "listingDayClose": 1420.0
+      "listingDayClose": 1420
     },
     {
       "id": "paras-healthcare",
@@ -2712,10 +2712,10 @@
       "priceBandLow": 6,
       "priceBandHigh": 693,
       "lotSize": 21,
-      "issueSizeCr": 1450.0,
+      "issueSizeCr": 1450,
       "freshIssueCr": 1232.5,
       "ofsCr": 217.5,
-      "gmp": 13.0,
+      "gmp": 13,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -2800,7 +2800,7 @@
         "Investment in Subsidiary PMHPL for borrowing repayment (54.1 (10.82%))",
         "General Corporate Purposes (125 (25%))"
       ],
-      "listingPrice": 720.0,
+      "listingPrice": 720,
       "listingGainPercent": 3.9,
       "listingDayClose": 737.15
     },
@@ -2814,7 +2814,7 @@
       "priceBandLow": 8,
       "priceBandHigh": 151,
       "lotSize": 99,
-      "issueSizeCr": 5012.0,
+      "issueSizeCr": 5012,
       "freshIssueCr": 4260.2,
       "ofsCr": 751.8,
       "gmp": 1.2,
@@ -2844,7 +2844,7 @@
         "revenueCr": 4195.7,
         "patCr": -732.98,
         "eps": -48.54,
-        "peRatio": 1510.0,
+        "peRatio": 1510,
         "ronw": 21.5
       },
       "tags": [
@@ -2917,10 +2917,10 @@
       "priceBandLow": 62,
       "priceBandHigh": 700,
       "lotSize": 21,
-      "issueSizeCr": 852.0,
+      "issueSizeCr": 852,
       "freshIssueCr": 724.2,
       "ofsCr": 127.8,
-      "gmp": 452.0,
+      "gmp": 452,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 5,
@@ -2947,7 +2947,7 @@
         "revenueCr": 37.32,
         "patCr": -17.74,
         "eps": -0.25,
-        "peRatio": 7000.0,
+        "peRatio": 7000,
         "ronw": 21.5
       },
       "tags": [
@@ -3000,7 +3000,7 @@
         "Uses an outsourced manufacturing model, risking third-party quality or delays.",
         "Extended gestation cycles strain liquidity and drive high working capital needs."
       ],
-      "listingPrice": 1160.0,
+      "listingPrice": 1160,
       "listingGainPercent": 65.71,
       "listingDayClose": 1133.8
     },
@@ -3014,10 +3014,10 @@
       "priceBandLow": 10,
       "priceBandHigh": 344,
       "lotSize": 43,
-      "issueSizeCr": 475.0,
+      "issueSizeCr": 475,
       "freshIssueCr": 403.75,
       "ofsCr": 71.25,
-      "gmp": 17.0,
+      "gmp": 17,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -3075,7 +3075,7 @@
         },
         {
           "period": "June 2026",
-          "assetsCr": 1309.0,
+          "assetsCr": 1309,
           "revenueCr": 354.33,
           "patCr": 15.09,
           "netWorthCr": 549.78,
@@ -3111,10 +3111,10 @@
       "priceBandLow": 2,
       "priceBandHigh": 586,
       "lotSize": 25,
-      "issueSizeCr": 2534.0,
+      "issueSizeCr": 2534,
       "freshIssueCr": 2153.9,
       "ofsCr": 380.1,
-      "gmp": 66.0,
+      "gmp": 66,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 3,
@@ -3194,8 +3194,8 @@
         "Revenue is concentrated among a few key OEM customers.",
         "Long co-engineering cycles risk commercial failure or delays."
       ],
-      "listingPrice": 586.0,
-      "listingGainPercent": 0.0,
+      "listingPrice": 586,
+      "listingGainPercent": 0,
       "listingDayClose": 576.35
     },
     {
@@ -3208,10 +3208,10 @@
       "priceBandLow": 5,
       "priceBandHigh": 179,
       "lotSize": 800,
-      "issueSizeCr": 60.0,
-      "freshIssueCr": 51.0,
-      "ofsCr": 9.0,
-      "gmp": 7.0,
+      "issueSizeCr": 60,
+      "freshIssueCr": 51,
+      "ofsCr": 9,
+      "gmp": 7,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -3296,8 +3296,8 @@
         "Funding incremental working capital requirements (23 (38.35%))",
         "General Corporate Purposes (14.97 (24.97%))"
       ],
-      "listingPrice": 179.0,
-      "listingGainPercent": 0.0,
+      "listingPrice": 179,
+      "listingGainPercent": 0,
       "listingDayClose": 170.05
     },
     {
@@ -3310,7 +3310,7 @@
       "priceBandLow": 275,
       "priceBandHigh": 289,
       "lotSize": 51,
-      "issueSizeCr": 702.0,
+      "issueSizeCr": 702,
       "freshIssueCr": 596.7,
       "ofsCr": 105.3,
       "gmp": 13.5,
@@ -3371,7 +3371,7 @@
           "patCr": 55.7,
           "netWorthCr": 574.5,
           "totalBorrowingCr": 246.21,
-          "reservesCr": 383.0
+          "reservesCr": 383
         }
       ],
       "strengths": [
@@ -3393,7 +3393,7 @@
         "Upgrading IT tools for Arya and MindVoice (61.15 (12.23%))",
         "General Corporate Purposes (163.15 (32.63%))"
       ],
-      "listingPrice": 305.0,
+      "listingPrice": 305,
       "listingGainPercent": 5.54,
       "listingDayClose": 289.75
     },
@@ -3407,10 +3407,10 @@
       "priceBandLow": 2,
       "priceBandHigh": 112,
       "lotSize": 1200,
-      "issueSizeCr": 116.0,
+      "issueSizeCr": 116,
       "freshIssueCr": 98.6,
       "ofsCr": 17.4,
-      "gmp": 1.0,
+      "gmp": 1,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 1,
@@ -3490,8 +3490,8 @@
         "Capital expenditure for purchase of heavy equipment (25.53 (22%))",
         "General Corporate Purposes (20.52 (17.68%))"
       ],
-      "listingPrice": 112.0,
-      "listingGainPercent": 0.0,
+      "listingPrice": 112,
+      "listingGainPercent": 0,
       "listingDayClose": 113.7
     },
     {
@@ -3504,10 +3504,10 @@
       "priceBandLow": 13,
       "priceBandHigh": 271,
       "lotSize": 55,
-      "issueSizeCr": 712.0,
+      "issueSizeCr": 712,
       "freshIssueCr": 605.2,
       "ofsCr": 106.8,
-      "gmp": 70.0,
+      "gmp": 70,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 4,
@@ -3529,7 +3529,7 @@
         "revenueCr": 114.07,
         "patCr": 23.87,
         "eps": 0.88,
-        "peRatio": 308.0,
+        "peRatio": 308,
         "ronw": 21.5
       },
       "tags": [
@@ -3582,7 +3582,7 @@
         "Revenue volatility from lack of long-term customer contracts.",
         "High dependence on keeping international safety certifications active."
       ],
-      "listingPrice": 335.0,
+      "listingPrice": 335,
       "listingGainPercent": 23.62,
       "listingDayClose": 307.2
     },
@@ -3596,10 +3596,10 @@
       "priceBandLow": 2,
       "priceBandHigh": 54,
       "lotSize": 2000,
-      "issueSizeCr": 42.0,
+      "issueSizeCr": 42,
       "freshIssueCr": 35.7,
       "ofsCr": 6.3,
-      "gmp": 3.0,
+      "gmp": 3,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 2,
@@ -3692,7 +3692,7 @@
       "priceBandLow": 7,
       "priceBandHigh": 82,
       "lotSize": 1600,
-      "issueSizeCr": 35.0,
+      "issueSizeCr": 35,
       "freshIssueCr": 29.75,
       "ofsCr": 5.25,
       "gmp": 1.5,
@@ -3732,7 +3732,7 @@
           "period": "March 2025",
           "assetsCr": 16.88,
           "revenueCr": 17.82,
-          "patCr": 2.0,
+          "patCr": 2,
           "netWorthCr": 7.09,
           "totalBorrowingCr": 3.04,
           "reservesCr": 4.73
@@ -3778,9 +3778,9 @@
         "Fund inventory costs for proposed new showroom and stores (5.6 (16%))",
         "General Corporate Purposes (7.53 (21.52%))"
       ],
-      "listingPrice": 80.0,
+      "listingPrice": 80,
       "listingGainPercent": -2.44,
-      "listingDayClose": 76.0
+      "listingDayClose": 76
     },
     {
       "id": "paramount-syntex",
@@ -3792,10 +3792,10 @@
       "priceBandLow": 14,
       "priceBandHigh": 127,
       "lotSize": 1000,
-      "issueSizeCr": 82.0,
+      "issueSizeCr": 82,
       "freshIssueCr": 69.7,
       "ofsCr": 12.3,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -3874,7 +3874,7 @@
         "Funding of capital expenditure for machinery at existing facilities (61.68(75.41%))",
         "General Corporate Purposes (20.11 (24.59%))"
       ],
-      "listingPrice": 115.0,
+      "listingPrice": 115,
       "listingGainPercent": -9.45,
       "listingDayClose": 109.25
     },
@@ -3888,10 +3888,10 @@
       "priceBandLow": 16,
       "priceBandHigh": 70,
       "lotSize": 2000,
-      "issueSizeCr": 38.0,
+      "issueSizeCr": 38,
       "freshIssueCr": 32.3,
       "ofsCr": 5.7,
-      "gmp": 0.0,
+      "gmp": 0,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "STABLE",
       "fireRating": 2,
@@ -3971,8 +3971,8 @@
         "Funding of working capital requirements (20(52.83%))",
         "General Corporate Purposes (11.1 (29.31%))"
       ],
-      "listingPrice": 56.0,
-      "listingGainPercent": -20.0,
+      "listingPrice": 56,
+      "listingGainPercent": -20,
       "listingDayClose": 58.8
     },
     {
@@ -3985,10 +3985,10 @@
       "priceBandLow": 18,
       "priceBandHigh": 196,
       "lotSize": 600,
-      "issueSizeCr": 122.0,
+      "issueSizeCr": 122,
       "freshIssueCr": 103.7,
       "ofsCr": 18.3,
-      "gmp": 43.0,
+      "gmp": 43,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 4,
@@ -4069,7 +4069,7 @@
         "Funding Capital Expenditure for plant & machinery (6.27(5.92%))",
         "General Corporate Purposes (20.71 (19.53%))"
       ],
-      "listingPrice": 221.0,
+      "listingPrice": 221,
       "listingGainPercent": 12.76,
       "listingDayClose": 232.05
     },
@@ -4083,10 +4083,10 @@
       "priceBandLow": 8,
       "priceBandHigh": 53,
       "lotSize": 2000,
-      "issueSizeCr": 32.0,
+      "issueSizeCr": 32,
       "freshIssueCr": 27.2,
       "ofsCr": 4.8,
-      "gmp": 4.0,
+      "gmp": 4,
       "gmpUpdatedDate": "15 Nov, 12:56 AM",
       "gmpTrend": "UP",
       "fireRating": 2,
@@ -4168,9 +4168,35 @@
         "Repayment / Prepayment of Borrowings (5.62 (18.01%))",
         "General Corporate Purposes (6.40 (18.60%))"
       ],
-      "listingPrice": 60.0,
+      "listingPrice": 60,
       "listingGainPercent": 13.21,
-      "listingDayClose": 57.0
+      "listingDayClose": 57
+    },
+    {
+      "id": "nse",
+      "name": "NSE",
+      "symbol": "NSE",
+      "logoUrl": "https://zerodha.com/z-connect/wp-content/uploads/2025/04/nselogo-300x166.png",
+      "category": "MAINBOARD",
+      "status": "LISTED",
+      "priceBandLow": 1700,
+      "priceBandHigh": 1785,
+      "lotSize": 40,
+      "issueSizeCr": 350,
+      "listingPrice": 1785,
+      "listingGainPercent": 5,
+      "listingDayClose": 1810,
+      "exchange": "NSE & BSE",
+      "registrar": "Link Intime India Pvt Ltd",
+      "timeline": {
+        "listingDate": "01 Nov 2026"
+      },
+      "tags": [
+        "Zerodha Verified",
+        "MAINBOARD",
+        "NSE & BSE",
+        "LISTED IPO"
+      ]
     }
   ]
 }

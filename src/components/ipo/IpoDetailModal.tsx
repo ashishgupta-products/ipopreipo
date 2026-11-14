@@ -28,6 +28,10 @@ interface IpoDetailModalProps {
 export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
   if (!ipo) return null;
 
+  const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0);
+  const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
+  const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : undefined);
+
   const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
   const minRetailInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : 0;
   const maxRetailLots = minRetailInvestment > 0 ? Math.max(1, Math.floor(200000 / minRetailInvestment)) : 0;
@@ -38,7 +42,7 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
   const sHniMinInvestment = sHniMinLots * (ipo.lotSize || 0) * (ipo.priceBandHigh || 0);
 
   const gmpPercent = ipo.priceBandHigh ? ((ipo.gmp / ipo.priceBandHigh) * 100) : 0;
-  const estListingPrice = ipo.priceBandHigh + ipo.gmp;
+  const estListingPrice = listingPrice ?? (ipo.priceBandHigh + ipo.gmp);
   const estProfitPerLot = hasValidLot ? ipo.gmp * (ipo.lotSize as number) : 0;
   const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
   const gmpHistory = getIpoGmpHistory(ipo);
@@ -134,23 +138,26 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
 
           <div>
             <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-              {ipo.listingPrice ? 'Listing Price' : 'Live GMP'}
+              {isListed ? 'Listing Price' : 'Live GMP'}
             </div>
-            {ipo.listingPrice ? (
+            {isListed && listingPrice ? (
               <div>
                 <div className="mono" style={{ 
-                  fontSize: '1.1rem', 
+                  fontSize: '1.2rem', 
                   fontWeight: 800, 
                   color: '#0f172a',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px'
                 }}>
-                  <Sparkles size={14} color="#2563eb" />
-                  ₹{ipo.listingPrice}
+                  <Sparkles size={15} color="#2563eb" />
+                  ₹{listingPrice}
                 </div>
-                <div style={{ fontSize: '0.7rem', color: (ipo.listingGainPercent ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700, marginTop: '2px' }}>
-                  {(ipo.listingGainPercent ?? 0) >= 0 ? `+${(ipo.listingGainPercent ?? 0).toFixed(1)}%` : `${(ipo.listingGainPercent ?? 0).toFixed(1)}%`}
+                <div style={{ fontSize: '0.7rem', color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700, marginTop: '2px' }}>
+                  {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
+                  <span style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 500, marginLeft: '5px' }}>
+                    (Issue: ₹{ipo.priceBandHigh || ipo.priceBandLow})
+                  </span>
                 </div>
               </div>
             ) : (
@@ -202,15 +209,15 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
 
           <div>
             <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-              {ipo.listingPrice ? 'Day 1 Close' : 'Profit / Lot'}
+              {isListed ? 'Day 1 Close' : 'Profit / Lot'}
             </div>
-            {ipo.listingPrice ? (
+            {isListed ? (
               <div>
                 <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>
-                  {ipo.listingDayClose ? `₹${ipo.listingDayClose}` : '—'}
+                  {ipo.listingDayClose ? `₹${ipo.listingDayClose}` : (listingPrice ? `₹${listingPrice}` : '—')}
                 </div>
                 <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                  Issue: ₹{ipo.priceBandHigh}
+                  {listingPrice && ipo.priceBandHigh ? `Gain: ${listingPrice >= ipo.priceBandHigh ? '+' : '-'}₹${Math.abs(Math.round((listingPrice - ipo.priceBandHigh) * 10) / 10)} / sh` : 'Official Close'}
                 </div>
               </div>
             ) : (

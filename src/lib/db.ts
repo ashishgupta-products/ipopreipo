@@ -1,7 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 import { IpoItem } from '../types';
 import { IpoAnalyst } from '../types/analyst';
-import { getEffectiveIpoStatus, CANONICAL_IPO_IDS } from './ipoService';
+import { getEffectiveIpoStatus, CANONICAL_IPO_IDS, getEffectiveListingPrice, getEffectiveListingGain } from './ipoService';
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
@@ -38,14 +38,24 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
         const item = r.raw_data as IpoItem;
         const canonicalId = CANONICAL_IPO_IDS[item.id] || item.id;
         const effectiveStatus = getEffectiveIpoStatus({ ...item, id: canonicalId });
+        const listPrice = getEffectiveListingPrice({ ...item, id: canonicalId, status: effectiveStatus });
+        const listGain = getEffectiveListingGain({ ...item, id: canonicalId, status: effectiveStatus, listingPrice: listPrice });
+
         const cleanedTags = (item.tags || []).map(t => {
+          if (effectiveStatus === 'LISTED' && (t === 'Live IPO' || t === 'UPCOMING IPO' || t === 'ONGOING IPO')) return 'LISTED IPO';
           if (effectiveStatus !== 'LIVE' && t === 'Live IPO') return `${effectiveStatus} IPO`;
           return t;
         });
+        if (effectiveStatus === 'LISTED' && !cleanedTags.includes('LISTED IPO')) {
+          cleanedTags.push('LISTED IPO');
+        }
+
         return {
           ...item,
           id: canonicalId,
           status: effectiveStatus,
+          listingPrice: listPrice,
+          listingGainPercent: listGain,
           tags: cleanedTags,
         };
       })

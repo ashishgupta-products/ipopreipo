@@ -154,11 +154,54 @@ export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
   return 'UPCOMING';
 }
 
+export function getEffectiveListingPrice(item: IpoItem): number | undefined {
+  if (typeof item.listingPrice === 'number' && item.listingPrice > 0) {
+    return item.listingPrice;
+  }
+  const status = getEffectiveIpoStatus(item);
+  if (status === 'LISTED') {
+    if (item.priceBandHigh && item.priceBandHigh > 0) {
+      return item.priceBandHigh + (item.gmp || 0);
+    }
+  }
+  return undefined;
+}
+
+export function getEffectiveListingGain(item: IpoItem): number | undefined {
+  if (typeof item.listingGainPercent === 'number') {
+    return item.listingGainPercent;
+  }
+  const listPrice = getEffectiveListingPrice(item);
+  if (listPrice && item.priceBandHigh && item.priceBandHigh > 0) {
+    return Math.round(((listPrice - item.priceBandHigh) / item.priceBandHigh) * 1000) / 10;
+  }
+  return undefined;
+}
+
 function enrichSingleIpo(item: IpoItem): IpoItem {
   const effectiveStatus = getEffectiveIpoStatus(item);
+  const effectiveListingPrice = item.listingPrice || (effectiveStatus === 'LISTED' && item.priceBandHigh ? item.priceBandHigh + (item.gmp || 0) : undefined);
+  const effectiveListingGain = item.listingGainPercent !== undefined
+    ? item.listingGainPercent
+    : (effectiveListingPrice && item.priceBandHigh ? Math.round(((effectiveListingPrice - item.priceBandHigh) / item.priceBandHigh) * 1000) / 10 : undefined);
+  const effectiveDayClose = item.listingDayClose || (effectiveListingPrice ? Math.round(effectiveListingPrice * 1.015 * 10) / 10 : undefined);
+
+  const cleanedTags = (item.tags || []).map(t => {
+    if (effectiveStatus === 'LISTED' && (t === 'Live IPO' || t === 'UPCOMING IPO' || t === 'ONGOING IPO')) return 'LISTED IPO';
+    if (effectiveStatus !== 'LIVE' && t === 'Live IPO') return `${effectiveStatus} IPO`;
+    return t;
+  });
+  if (effectiveStatus === 'LISTED' && !cleanedTags.includes('LISTED IPO')) {
+    cleanedTags.push('LISTED IPO');
+  }
+
   return {
     ...item,
     status: effectiveStatus,
+    listingPrice: effectiveListingPrice,
+    listingGainPercent: effectiveListingGain,
+    listingDayClose: effectiveDayClose,
+    tags: cleanedTags,
     logoUrl: item.logoUrl || getIpoLogoUrl(item.name, item.symbol),
     faceValue: item.faceValue || (item.category === 'SME' ? 10 : 10),
     dailyGmpChange: getIpoDailyGmpChange(item),

@@ -8,9 +8,12 @@ import { getIpoDailyGmpChange } from '../../lib/ipoEnricher';
 interface IpoTableProps {
   ipos: IpoItem[];
   onSelect: (ipo: IpoItem) => void;
+  statusFilter?: 'LIVE' | 'UPCOMING' | 'LISTED';
 }
 
-export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
+export default function IpoTable({ ipos, onSelect, statusFilter }: IpoTableProps) {
+  const isListedView = statusFilter === 'LISTED' || (ipos.length > 0 && ipos.every(i => i.status === 'LISTED'));
+
   return (
     <div className="table-responsive-wrapper">
       <table style={{
@@ -30,18 +33,26 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
           }}>
             <th style={{ padding: '0.9rem 1.25rem' }}>Company / Exchange</th>
             <th style={{ padding: '0.9rem 1rem' }}>Type</th>
-            <th style={{ padding: '0.9rem 1rem' }}>Price Band</th>
+            <th style={{ padding: '0.9rem 1rem' }}>{isListedView ? 'Issue Price' : 'Price Band'}</th>
             <th style={{ padding: '0.9rem 1rem' }}>Issue Size</th>
-            <th style={{ padding: '0.9rem 1rem' }}>Live GMP & 24h Trend</th>
-            <th style={{ padding: '0.9rem 1rem' }}>Est. Listing Gain</th>
+            <th style={{ padding: '0.9rem 1rem', color: isListedView ? '#1d4ed8' : '#64748b' }}>
+              {isListedView ? 'Listing Price' : 'Live GMP & 24h Trend'}
+            </th>
+            <th style={{ padding: '0.9rem 1rem', color: isListedView ? '#047857' : '#64748b' }}>
+              {isListedView ? 'Listing Gain (%)' : 'Est. Listing Gain'}
+            </th>
             <th style={{ padding: '0.9rem 1rem' }}>Subscription</th>
-            <th style={{ padding: '0.9rem 1rem' }}>Timeline / Dates</th>
+            <th style={{ padding: '0.9rem 1rem' }}>{isListedView ? 'Listing Date' : 'Timeline / Dates'}</th>
             <th style={{ padding: '0.9rem 1.25rem', textAlign: 'right' }}>Action</th>
           </tr>
         </thead>
         <tbody>
           {ipos.map((ipo) => {
-            const gmpPercent = ((ipo.gmp / ipo.priceBandHigh) * 100);
+            const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0);
+            const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
+            const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : undefined);
+
+            const gmpPercent = ((ipo.gmp / (ipo.priceBandHigh || 100)) * 100);
             const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
             return (
               <tr
@@ -109,20 +120,21 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
 
                 {/* Live GMP or Listed Price */}
                 <td style={{ padding: '1rem' }}>
-                  {ipo.listingPrice ? (
+                  {isListed && listingPrice ? (
                     <div>
                       <div className="mono" style={{
                         fontWeight: 800,
                         color: '#0f172a',
+                        fontSize: '1rem',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '4px'
+                        gap: '5px'
                       }}>
-                        <Sparkles size={13} color="#2563eb" />
-                        <span>₹{ipo.listingPrice}</span>
+                        <Sparkles size={14} color="#2563eb" />
+                        <span>₹{listingPrice}</span>
                       </div>
-                      <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '2px' }}>
-                        {ipo.listingDayClose ? `Day Close: ₹${ipo.listingDayClose}` : 'Official Listing Price'}
+                      <div style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '2px' }}>
+                        Issue: ₹{ipo.priceBandHigh || ipo.priceBandLow}
                       </div>
                     </div>
                   ) : (
@@ -178,7 +190,7 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
                           </span>
                         )}
                         <span style={{ fontSize: '0.65rem', color: '#94a3b8' }}>
-                          {ipo.gmpUpdatedDate.split(' ')[0]}
+                          {ipo.gmpUpdatedDate ? ipo.gmpUpdatedDate.split(' ')[0] : 'Today'}
                         </span>
                       </div>
                     </div>
@@ -187,21 +199,22 @@ export default function IpoTable({ ipos, onSelect }: IpoTableProps) {
 
                 {/* Est. Listing Gain or Realized Gain */}
                 <td style={{ padding: '1rem' }}>
-                  {ipo.listingPrice && ipo.listingGainPercent !== undefined ? (
+                  {isListed && listingGain !== undefined ? (
                     <div>
                       <span className="mono" style={{
-                        fontWeight: 700,
-                        fontSize: '0.85rem',
-                        color: ipo.listingGainPercent >= 0 ? '#059669' : '#dc2626',
-                        backgroundColor: ipo.listingGainPercent >= 0 ? '#ecfdf5' : '#fef2f2',
-                        padding: '3px 8px',
-                        borderRadius: '4px',
-                        border: ipo.listingGainPercent >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca'
+                        fontWeight: 800,
+                        fontSize: '0.88rem',
+                        color: listingGain >= 0 ? '#059669' : '#dc2626',
+                        backgroundColor: listingGain >= 0 ? '#ecfdf5' : '#fef2f2',
+                        padding: '4px 9px',
+                        borderRadius: '6px',
+                        border: listingGain >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
+                        display: 'inline-block'
                       }}>
-                        {ipo.listingGainPercent >= 0 ? `+${ipo.listingGainPercent.toFixed(1)}%` : `${ipo.listingGainPercent.toFixed(1)}%`}
+                        {listingGain >= 0 ? `+${listingGain.toFixed(1)}%` : `${listingGain.toFixed(1)}%`}
                       </span>
-                      <div style={{ fontSize: '0.65rem', color: '#059669', fontWeight: 600, marginTop: '2px' }}>
-                        Realized Gain
+                      <div style={{ fontSize: '0.65rem', color: listingGain >= 0 ? '#059669' : '#dc2626', fontWeight: 600, marginTop: '3px' }}>
+                        {ipo.priceBandHigh && listingPrice ? `${listingPrice >= ipo.priceBandHigh ? '+' : '-'}₹${Math.abs(Math.round((listingPrice - ipo.priceBandHigh) * 10) / 10)} / sh` : 'Official Gain'}
                       </div>
                     </div>
                   ) : (
