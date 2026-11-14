@@ -105,6 +105,7 @@ export interface IpoItem {
   registrar: string;
   registrarUrl: string;
   timeline: IpoTimeline;
+  listingDate?: string;
   subscription?: IpoSubscription;
   listingPrice?: number;
   listingGainPercent?: number;

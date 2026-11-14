@@ -11,7 +11,7 @@ import IpoTable from '../components/ipo/IpoTable';
 import IpoCalendar from '../components/ipo/IpoCalendar';
 import IpoDetailModal from '../components/ipo/IpoDetailModal';
 import { IpoItem, StockQuote } from '../types';
-import { getMergedIpos, getEffectiveIpoStatus } from '../lib/ipoService';
+import { getMergedIpos, getEffectiveIpoStatus, parseListingDateTimestamp } from '../lib/ipoService';
 
 import { 
   LayoutGrid, 
@@ -142,9 +142,12 @@ export default function Home() {
       return true;
     });
 
-    // Sort: For listed sort by realized listing gain, for live/upcoming sort by live status then GMP
+    // Sort: For listed sort by official listing date descending (newest listed first), then gain
     return list.sort((a, b) => {
       if (statusFilter === 'LISTED') {
+        const dateA = parseListingDateTimestamp(a.timeline?.listingDate || a.listingDate);
+        const dateB = parseListingDateTimestamp(b.timeline?.listingDate || b.listingDate);
+        if (dateB !== dateA) return dateB - dateA;
         return (b.listingGainPercent ?? b.gmp ?? 0) - (a.listingGainPercent ?? a.gmp ?? 0);
       }
       const isALive = getEffectiveIpoStatus(a) === 'LIVE';

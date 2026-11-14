@@ -222,6 +222,26 @@ function enrichSingleIpo(item: IpoItem): IpoItem {
   };
 }
 
+/**
+ * Safely parses heterogeneous Indian financial date formats into timestamps for chronological sorting:
+ * Handles: "23-Oct-26", "28 Oct 2026", "6-Nov-26", "07 Oct 2026", "12 Aug 2010", etc.
+ */
+export function parseListingDateTimestamp(dateStr?: string): number {
+  if (!dateStr) return 0;
+  const s = dateStr.trim();
+  if (s === 'TBA' || s === '–' || s === '-' || s.toLowerCase().includes('announced') || s.toLowerCase().includes('tba')) {
+    return 0;
+  }
+  let clean = s.replace(/-/g, ' ').trim();
+  // Normalize 2-digit years e.g. "26" -> "2026"
+  clean = clean.replace(/\b(\d{1,2})\s+([A-Za-z]+)\s+(\d{2})\b/, '$1 $2 20$3');
+  // Strip ordinal suffixes: "23rd" -> "23"
+  clean = clean.replace(/(\d+)(st|nd|rd|th)/gi, '$1');
+  const d = new Date(clean);
+  const time = d.getTime();
+  return isNaN(time) ? 0 : time;
+}
+
 export function isRelevantEquityIpo(item: IpoItem): boolean {
   if (!item) return false;
   const sym = (item.symbol || '').toUpperCase();

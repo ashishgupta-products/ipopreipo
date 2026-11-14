@@ -371,8 +371,10 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
         justifyContent: 'space-between'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#64748b' }}>
-          <Calendar size={13} />
-          {ipo.status === 'CLOSED' ? (
+          <Calendar size={13} color={isListed ? '#16a34a' : '#64748b'} />
+          {isListed ? (
+            <span>Listed on: <strong style={{ color: '#166534', fontWeight: 700 }}>{ipo.timeline?.listingDate || 'Completed'}</strong></span>
+          ) : ipo.status === 'CLOSED' ? (
             <span>Allotment: <strong style={{ color: '#6d28d9' }}>{ipo.timeline.allotmentFinalization || 'In Progress'}</strong></span>
           ) : ipo.status === 'UPCOMING' ? (
             <span>Opens: <strong style={{ color: '#2563eb' }}>{cleanTimelineDate(ipo.timeline.biddingStarts)}</strong></span>
