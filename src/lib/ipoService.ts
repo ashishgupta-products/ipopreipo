@@ -110,7 +110,7 @@ export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
     }
   }
 
-  // In scraped Zerodha data, 'CLOSED' denotes issues that concluded bidding and completed their listing cycle
+  // In scraped market data, 'CLOSED' denotes issues that concluded bidding and completed their listing cycle
   if (ipo.status === 'CLOSED') {
     return 'LISTED';
   }
@@ -150,7 +150,7 @@ export function getEffectiveIpoStatus(ipo: IpoItem): EffectiveIpoStatus {
     }
   }
 
-  // If status is marked ONGOING but bidding dates are TBA (e.g. Zerodha table 0 drafts), it's UPCOMING
+  // If status is marked ONGOING but bidding dates are TBA, it's UPCOMING
   return 'UPCOMING';
 }
 
