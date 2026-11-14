@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { IpoItem } from '../../types';
+import { IpoItem, StockQuote } from '../../types';
 import { 
   Flame, 
   TrendingUp, 
@@ -19,6 +19,7 @@ interface IpoCardProps {
   ipo: IpoItem;
   onSelect: (ipo: IpoItem) => void;
   onCheckAllotment?: (ipo: IpoItem) => void;
+  quote?: StockQuote;
 }
 
 function cleanTimelineDate(dateStr?: string): string {
@@ -32,10 +33,15 @@ function cleanTimelineDate(dateStr?: string): string {
   return s || 'TBA';
 }
 
-export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProps) {
+export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoCardProps) {
   const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0);
   const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
   const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : 0);
+
+  const cmp = quote?.currentPrice ?? listingPrice;
+  const cmpChange = quote?.change;
+  const cmpChangePercent = quote?.changePercent;
+  const totalReturn = (cmp && ipo.priceBandHigh) ? ((cmp - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : listingGain;
 
   const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
   const minInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : null;
@@ -209,11 +215,11 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
           </div>
         </div>
 
-        {/* Listing Price Banner (if listed) or Grey Market Premium (GMP) Banner */}
+        {/* Listing Price & Live Current Market Price (CMP) Banner */}
         {isListed && listingPrice ? (
           <div style={{
-            backgroundColor: (listingGain ?? 0) >= 0 ? '#ecfdf5' : '#fef2f2',
-            border: (listingGain ?? 0) >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
+            backgroundColor: (totalReturn ?? 0) >= 0 ? '#f0fdf4' : '#fef2f2',
+            border: (totalReturn ?? 0) >= 0 ? '1px solid #bbf7d0' : '1px solid #fecaca',
             borderRadius: 'var(--radius-md)',
             padding: '0.75rem 1rem',
             display: 'flex',
@@ -222,34 +228,58 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment }: IpoCardProp
             marginBottom: '0.75rem'
           }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700 }}>
-                <Sparkles size={13} color={(listingGain ?? 0) >= 0 ? '#059669' : '#dc2626'} />
-                <span>Official Listing Price</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#166534', fontWeight: 700 }}>
+                <span className="pulse-indicator" style={{ width: '6px', height: '6px', backgroundColor: '#16a34a' }}></span>
+                <span>Current Market Price</span>
+                {quote ? (
+                  <span style={{ fontSize: '0.62rem', backgroundColor: '#dcfce7', color: '#15803d', padding: '1px 5px', borderRadius: '3px', fontWeight: 700 }}>
+                    Live
+                  </span>
+                ) : null}
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginTop: '2px' }}>
                 <span className="mono" style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0f172a' }}>
-                  ₹{listingPrice}
+                  ₹{cmp}
                 </span>
                 <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
-                  Issue: ₹{ipo.priceBandHigh || ipo.priceBandLow}
+                  Listed at: ₹{listingPrice}
                 </span>
               </div>
             </div>
 
             <div style={{ textAlign: 'right' }}>
               <div style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600 }}>
-                Listing Gain
+                {quote ? "Today's Change" : "Listing Gain"}
               </div>
-              <div className="mono" style={{
-                fontSize: '1.05rem',
-                fontWeight: 800,
-                color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626',
-              }}>
-                {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
-              </div>
-              <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
-                {ipo.listingDayClose ? `Day Close: ₹${ipo.listingDayClose}` : (ipo.priceBandHigh ? `${listingPrice >= ipo.priceBandHigh ? '+' : '-'}₹${Math.abs(Math.round((listingPrice - ipo.priceBandHigh) * 10) / 10)} / sh` : '')}
-              </div>
+              {quote && cmpChange !== undefined ? (
+                <div>
+                  <div className="mono" style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 800,
+                    color: cmpChange >= 0 ? '#15803d' : '#dc2626'
+                  }}>
+                    {cmpChange >= 0 ? `+₹${cmpChange}` : `-₹${Math.abs(cmpChange)}`} ({cmpChangePercent ? (cmpChangePercent >= 0 ? `+${cmpChangePercent.toFixed(1)}%` : `${cmpChangePercent.toFixed(1)}%`) : ''})
+                  </div>
+                  <div style={{ fontSize: '0.65rem', color: '#64748b' }}>
+                    Total Gain: <strong style={{ color: (totalReturn ?? 0) >= 0 ? '#15803d' : '#dc2626' }}>
+                      {(totalReturn ?? 0) >= 0 ? `+${(totalReturn ?? 0).toFixed(1)}%` : `${(totalReturn ?? 0).toFixed(1)}%`}
+                    </strong>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="mono" style={{
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626',
+                  }}>
+                    {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
+                  </div>
+                  <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
+                    {ipo.listingDayClose ? `Day Close: ₹${ipo.listingDayClose}` : `Issue: ₹${ipo.priceBandHigh || ipo.priceBandLow}`}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ) : (

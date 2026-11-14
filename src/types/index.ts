@@ -109,6 +109,10 @@ export interface IpoItem {
   listingPrice?: number;
   listingGainPercent?: number;
   listingDayClose?: number;
+  currentPrice?: number;
+  currentPriceChange?: number;
+  currentPriceChangePercent?: number;
+  currentPriceUpdated?: string;
   sector: string;
   about: string;
   financialHighlights?: {
@@ -144,6 +148,18 @@ export interface RegistrarInfo {
   supportPhone: string;
   supportEmail: string;
   featuredIpos: string[];
+}
+
+export interface StockQuote {
+  symbol: string;
+  currentPrice: number;
+  previousClose?: number;
+  change?: number;
+  changePercent?: number;
+  dayHigh?: number;
+  dayLow?: number;
+  currency?: string;
+  lastUpdated?: string;
 }
 
 export * from './analyst';

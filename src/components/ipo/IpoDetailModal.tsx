@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { IpoItem } from '../../types';
+import { IpoItem, StockQuote } from '../../types';
 import { 
   X, 
   Flame, 
@@ -23,14 +23,20 @@ import GmpChart from './GmpChart';
 interface IpoDetailModalProps {
   ipo: IpoItem | null;
   onClose: () => void;
+  quote?: StockQuote;
 }
 
-export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
+export default function IpoDetailModal({ ipo, onClose, quote }: IpoDetailModalProps) {
   if (!ipo) return null;
 
   const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0);
   const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
   const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : undefined);
+
+  const cmp = quote?.currentPrice ?? listingPrice;
+  const cmpChange = quote?.change;
+  const cmpChangePercent = quote?.changePercent;
+  const totalReturn = (cmp && ipo.priceBandHigh) ? ((cmp - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : listingGain;
 
   const hasValidLot = Boolean(ipo.lotSize && ipo.lotSize > 0);
   const minRetailInvestment = hasValidLot && ipo.priceBandHigh ? ipo.priceBandHigh * (ipo.lotSize as number) : 0;
@@ -138,25 +144,25 @@ export default function IpoDetailModal({ ipo, onClose }: IpoDetailModalProps) {
 
           <div>
             <div style={{ fontSize: '0.7rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-              {isListed ? 'Listing Price' : 'Live GMP'}
+              {isListed ? 'Current Price (CMP)' : 'Live GMP'}
             </div>
             {isListed && listingPrice ? (
               <div>
                 <div className="mono" style={{ 
-                  fontSize: '1.2rem', 
+                  fontSize: '1.25rem', 
                   fontWeight: 800, 
                   color: '#0f172a',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '4px'
+                  gap: '5px'
                 }}>
-                  <Sparkles size={15} color="#2563eb" />
-                  ₹{listingPrice}
+                  <span className="pulse-indicator" style={{ width: '6px', height: '6px', backgroundColor: '#16a34a' }}></span>
+                  ₹{cmp}
                 </div>
-                <div style={{ fontSize: '0.7rem', color: (listingGain ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700, marginTop: '2px' }}>
-                  {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
+                <div style={{ fontSize: '0.7rem', color: (totalReturn ?? 0) >= 0 ? '#059669' : '#dc2626', fontWeight: 700, marginTop: '2px' }}>
+                  {(totalReturn ?? 0) >= 0 ? `+${(totalReturn ?? 0).toFixed(1)}%` : `${(totalReturn ?? 0).toFixed(1)}%`}
                   <span style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 500, marginLeft: '5px' }}>
-                    (Issue: ₹{ipo.priceBandHigh || ipo.priceBandLow})
+                    (Listed: ₹{listingPrice})
                   </span>
                 </div>
               </div>

@@ -10,7 +10,7 @@ import IpoCard from '../components/ipo/IpoCard';
 import IpoTable from '../components/ipo/IpoTable';
 import IpoCalendar from '../components/ipo/IpoCalendar';
 import IpoDetailModal from '../components/ipo/IpoDetailModal';
-import { IpoItem } from '../types';
+import { IpoItem, StockQuote } from '../types';
 import { getMergedIpos, getEffectiveIpoStatus } from '../lib/ipoService';
 
 import { 
@@ -78,6 +78,28 @@ export default function Home() {
 
   // Live Scraped IPO Data State
   const [iposList, setIposList] = useState<IpoItem[]>(getMergedIpos());
+  const [quotesMap, setQuotesMap] = useState<Record<string, StockQuote>>({});
+
+  // Fetch free live market quotes for listed companies from Yahoo Finance
+  useEffect(() => {
+    if (statusFilter !== 'LISTED') return;
+    const listedSymbols = iposList
+      .filter((i) => getEffectiveIpoStatus(i) === 'LISTED')
+      .map((i) => i.symbol)
+      .filter(Boolean);
+
+    if (listedSymbols.length === 0) return;
+
+    const uniqueSymbols = Array.from(new Set(listedSymbols)).slice(0, 35);
+    fetch(`/api/stocks/quote?symbols=${encodeURIComponent(uniqueSymbols.join(','))}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.quotes) {
+          setQuotesMap((prev) => ({ ...prev, ...data.quotes }));
+        }
+      })
+      .catch((err) => console.error('Error fetching live quotes:', err));
+  }, [statusFilter, iposList]);
 
   // Count IPOs per status category for dynamic option badges & intelligent default selection
   const statusCounts = useMemo(() => {
@@ -466,6 +488,7 @@ export default function Home() {
               <IpoCard
                 key={ipo.id}
                 ipo={ipo}
+                quote={quotesMap[ipo.symbol] || quotesMap[ipo.id]}
                 onSelect={(selected) => setSelectedIpo(selected)}
               />
             ))}
@@ -475,6 +498,7 @@ export default function Home() {
             <IpoTable
               ipos={filteredIpos}
               statusFilter={statusFilter}
+              quotes={quotesMap}
               onSelect={(selected) => setSelectedIpo(selected)}
             />
           </div>
@@ -485,6 +509,7 @@ export default function Home() {
       {selectedIpo && (
         <IpoDetailModal
           ipo={selectedIpo}
+          quote={quotesMap[selectedIpo.symbol] || quotesMap[selectedIpo.id]}
           onClose={() => setSelectedIpo(null)}
         />
       )}
