@@ -4,12 +4,12 @@ import AuthProvider from '../components/providers/AuthProvider';
 import DevAuthHelper from '../components/dev/DevAuthHelper';
 
 export const metadata: Metadata = {
-  title: 'IPO & PreIPO | Live GMP, Subscription, Allotment & Unlisted Shares',
-  description: 'Comprehensive portal for Mainboard & SME IPOs, real-time Grey Market Premium (GMP) tracking, live subscription status, registrar allotment checks, and institutional Pre-IPO unlisted shares.',
-  keywords: 'IPO, Live GMP, SME IPO, Pre-IPO shares, Unlisted shares, Allotment status, Link Intime, KFintech, NSE IPO, BSE IPO',
+  title: 'IPO Market Terminal | Live GMP, Subscription & Allotment Status',
+  description: 'Comprehensive portal for Mainboard & SME IPOs, real-time Grey Market Premium (GMP) tracking, live subscription status, and official registrar allotment checks.',
+  keywords: 'IPO, Live GMP, SME IPO, Allotment status, Link Intime, KFintech, Bigshare, NSE IPO, BSE IPO',
   openGraph: {
-    title: 'IPO & PreIPO | Live GMP & Unlisted Shares Terminal',
-    description: 'Track real-time Grey Market Premiums, SME IPO subscriptions, and invest in Pre-IPO unlisted equity.',
+    title: 'IPO Market Terminal | Live GMP & Subscription Tracking',
+    description: 'Track real-time Grey Market Premiums, Mainboard & SME IPO subscriptions, and official registrar allotment results.',
     type: 'website',
   },
 };

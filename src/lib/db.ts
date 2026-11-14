@@ -1,7 +1,6 @@
 import { neon } from '@neondatabase/serverless';
 import { IpoItem } from '../types';
 import { IpoAnalyst } from '../types/analyst';
-import { PaymentAppItem, getAllPaymentApps, getPaymentAppById } from '../data/paymentAppsData';
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
@@ -397,7 +396,6 @@ export async function getAdminMetrics() {
     return {
       users: { total: 0, retail: 0, sHni: 0, bHni: 0, admins: 0 },
       ipos: { total: 0, ongoing: 0, upcoming: 0, closed: 0, listed: 0 },
-      preIpos: { total: 0 },
       analysts: { total: 0 },
       lastSync: null,
       dbStatus: 'Disconnected'
@@ -427,22 +425,12 @@ export async function getAdminMetrics() {
       FROM ipos;
     `);
 
-    // 3. Pre-IPOs metrics
-    const preIpoStats = await sql.query(`
-      SELECT COUNT(*) as total FROM pre_ipos;
-    `);
-
-    // 4. Analysts metrics
+    // 3. Analysts metrics
     const analystStats = await sql.query(`
       SELECT COUNT(*) as total FROM analysts;
     `);
 
-    // 5. Payment Apps metrics
-    const paymentAppStats = await sql.query(`
-      SELECT COUNT(*) as total FROM payment_apps;
-    `);
-
-    // 6. Last sync
+    // 4. Last sync
     const lastSync = await getLastSyncFromDb();
 
     return {
@@ -460,12 +448,6 @@ export async function getAdminMetrics() {
         closed: parseInt(ipoStats[0]?.closed || '0', 10),
         listed: parseInt(ipoStats[0]?.listed || '0', 10),
       },
-      preIpos: {
-        total: parseInt(preIpoStats[0]?.total || '0', 10),
-      },
-      paymentApps: {
-        total: parseInt(paymentAppStats[0]?.total || '0', 10),
-      },
       analysts: {
         total: parseInt(analystStats[0]?.total || '0', 10),
       },
@@ -477,157 +459,10 @@ export async function getAdminMetrics() {
     return {
       users: { total: 0, retail: 0, sHni: 0, bHni: 0, admins: 0 },
       ipos: { total: 0, ongoing: 0, upcoming: 0, closed: 0, listed: 0 },
-      preIpos: { total: 0 },
-      paymentApps: { total: 0 },
       analysts: { total: 0 },
       lastSync: null,
       dbStatus: 'Error'
     };
-  }
-}
-
-/* =========================================================================
- * PRE-IPO MANAGEMENT APIs
- * ========================================================================= */
-
-export interface DbPreIpo {
-  id: string;
-  company_name: string;
-  symbol: string | null;
-  sector: string | null;
-  price_per_share: number;
-  lot_size: number;
-  min_investment: number;
-  status: string;
-  description: string | null;
-  logo_url: string | null;
-  financials?: any;
-  raw_data?: any;
-  created_at?: string;
-  updated_at?: string;
-}
-
-export async function getAllPreIposFromDb(): Promise<DbPreIpo[]> {
-  if (!sql) return [];
-  try {
-    const rows = await sql.query(`
-      SELECT id, company_name, symbol, sector, price_per_share, lot_size, min_investment, status, description, logo_url, created_at, updated_at
-      FROM pre_ipos
-      ORDER BY price_per_share DESC;
-    `);
-    return (rows || []) as DbPreIpo[];
-  } catch (err) {
-    console.error('Error fetching pre_ipos from Neon DB:', err);
-    return [];
-  }
-}
-
-export async function createPreIpoInDb(data: {
-  id?: string;
-  companyName: string;
-  symbol?: string;
-  sector?: string;
-  pricePerShare: number;
-  lotSize?: number;
-  status?: string;
-  description?: string;
-  logoUrl?: string;
-}): Promise<DbPreIpo | null> {
-  if (!sql) return null;
-  try {
-    const id = data.id || data.companyName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    const lotSize = data.lotSize || 50;
-    const minInvestment = Number(data.pricePerShare) * lotSize;
-
-    const rows = await sql.query(`
-      INSERT INTO pre_ipos (id, company_name, symbol, sector, price_per_share, lot_size, min_investment, status, description, logo_url, updated_at)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
-      RETURNING id, company_name, symbol, sector, price_per_share, lot_size, min_investment, status, description, logo_url, created_at;
-    `, [
-      id,
-      data.companyName.trim(),
-      data.symbol?.trim() || null,
-      data.sector?.trim() || 'Unlisted Equities',
-      data.pricePerShare,
-      lotSize,
-      minInvestment,
-      data.status || 'AVAILABLE',
-      data.description?.trim() || null,
-      data.logoUrl?.trim() || null
-    ]);
-
-    if (rows && rows.length > 0) return rows[0] as DbPreIpo;
-    return null;
-  } catch (err) {
-    console.error('Error creating pre-IPO in Neon DB:', err);
-    throw err;
-  }
-}
-
-export async function updatePreIpoInDb(id: string, data: Partial<{
-  companyName: string;
-  symbol: string;
-  sector: string;
-  pricePerShare: number;
-  lotSize: number;
-  status: string;
-  description: string;
-  logoUrl: string;
-}>): Promise<DbPreIpo | null> {
-  if (!sql) return null;
-  try {
-    const existing = await sql.query(`SELECT * FROM pre_ipos WHERE id = $1 LIMIT 1;`, [id]);
-    if (!existing || existing.length === 0) return null;
-    const curr = existing[0];
-
-    const price = data.pricePerShare !== undefined ? data.pricePerShare : curr.price_per_share;
-    const lot = data.lotSize !== undefined ? data.lotSize : curr.lot_size;
-    const minInv = Number(price) * Number(lot);
-
-    const rows = await sql.query(`
-      UPDATE pre_ipos
-      SET 
-        company_name = COALESCE($2, company_name),
-        symbol = COALESCE($3, symbol),
-        sector = COALESCE($4, sector),
-        price_per_share = COALESCE($5, price_per_share),
-        lot_size = COALESCE($6, lot_size),
-        min_investment = $7,
-        status = COALESCE($8, status),
-        description = COALESCE($9, description),
-        logo_url = COALESCE($10, logo_url),
-        updated_at = NOW()
-      WHERE id = $1
-      RETURNING id, company_name, symbol, sector, price_per_share, lot_size, min_investment, status, description, logo_url, updated_at;
-    `, [
-      id,
-      data.companyName?.trim() || null,
-      data.symbol?.trim() || null,
-      data.sector?.trim() || null,
-      data.pricePerShare !== undefined ? data.pricePerShare : null,
-      data.lotSize !== undefined ? data.lotSize : null,
-      minInv,
-      data.status || null,
-      data.description !== undefined ? data.description : null,
-      data.logoUrl !== undefined ? data.logoUrl : null
-    ]);
-
-    if (rows && rows.length > 0) return rows[0] as DbPreIpo;
-    return null;
-  } catch (err) {
-    console.error('Error updating pre-IPO in Neon DB:', err);
-    throw err;
-  }
-}
-
-export async function deletePreIpoFromDb(id: string): Promise<boolean> {
-  if (!sql) return false;
-  try {
-    await sql.query(`DELETE FROM pre_ipos WHERE id = $1;`, [id]);
-    return true;
-  } catch (err) {
-    console.error('Error deleting pre-IPO:', err);
-    throw err;
   }
 }
 
@@ -826,245 +661,6 @@ export async function deleteIpoFromDb(id: string): Promise<boolean> {
     return true;
   } catch (err) {
     console.error('Error deleting IPO from Neon DB:', err);
-    throw err;
-  }
-}
-
-/* =========================================================================
- * PAYMENT APPS MANAGEMENT APIs
- * ========================================================================= */
-
-export async function getAllPaymentAppsFromDb(): Promise<PaymentAppItem[]> {
-  if (!sql) return getAllPaymentApps();
-  try {
-    const rows = await sql.query(`
-      SELECT raw_data FROM payment_apps
-      ORDER BY rating DESC, name ASC;
-    `);
-
-    if (!rows || rows.length === 0) return getAllPaymentApps();
-    return rows.map((r: any) => r.raw_data as PaymentAppItem);
-  } catch (err) {
-    console.error('Error fetching payment apps from Neon DB:', err);
-    return getAllPaymentApps();
-  }
-}
-
-export async function getPaymentAppByIdFromDb(idOrName: string): Promise<PaymentAppItem | null> {
-  if (!sql) return getPaymentAppById(idOrName) || null;
-  try {
-    const normalized = decodeURIComponent(idOrName).toLowerCase().trim();
-    const rows = await sql.query(
-      `SELECT raw_data FROM payment_apps WHERE LOWER(id) = $1 LIMIT 1;`,
-      [normalized]
-    );
-
-    if (rows && rows.length > 0) {
-      return rows[0].raw_data as PaymentAppItem;
-    }
-    return getPaymentAppById(idOrName) || null;
-  } catch (err) {
-    console.error(`Error fetching payment app ${idOrName}:`, err);
-    return getPaymentAppById(idOrName) || null;
-  }
-}
-
-export async function createPaymentAppInDb(data: Partial<PaymentAppItem>): Promise<PaymentAppItem | null> {
-  if (!sql) return null;
-  try {
-    const id = data.id || data.name?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || `app-${Date.now()}`;
-    const name = data.name || 'New Payment App';
-    const developer = data.developer || 'Fintech Provider';
-    const marketShare = data.marketShare || 'Growing';
-    const rating = Number(data.rating || 4.5);
-    const ipoMandateSuccess = data.ipoMandateSuccess || '99.0%';
-    const upiLimit = data.upiLimit || '₹5,00,000 for IPOs / ₹1,00,000 P2P';
-    const rupayCcSupport = data.rupayCcSupport !== undefined ? Boolean(data.rupayCcSupport) : true;
-    const upiLiteSupport = data.upiLiteSupport !== undefined ? Boolean(data.upiLiteSupport) : true;
-    const highlights = data.highlights || ['UPI 2.0 IPO ASBA Support', 'High Mandate Approval Rate'];
-    const bestFor = data.bestFor || 'IPO mandate approvals & daily retail payments';
-    const link = data.link || 'https://npci.org.in';
-    const about = data.about || `${name} is an authorized UPI application in India.`;
-    const pros = data.pros || ['Instant mandate notifications', 'High transaction success rate'];
-    const cons = data.cons || [];
-    const upiLimitsBreakdown = data.upiLimitsBreakdown || {
-      p2pDaily: '₹1,00,000',
-      p2mDaily: '₹2,00,000',
-      ipoDaily: '₹5,00,000',
-      perTransaction: '₹1,00,000 P2P / ₹5,00,000 IPO'
-    };
-    const ipoMandateSteps = data.ipoMandateSteps || [
-      `Enter your ${name} UPI ID during the IPO application.`,
-      `Open ${name} and tap the pending IPO mandate notification.`,
-      'Verify the IPO company name, lot size, and amount.',
-      'Enter your UPI PIN to approve the ASBA bank block.'
-    ];
-    const securityFeatures = data.securityFeatures || [
-      'NPCI certified 2-factor authentication',
-      'Device binding and SIM verification protocol'
-    ];
-    const headquarters = data.headquarters || 'India';
-
-    const fullApp: PaymentAppItem = {
-      id,
-      name,
-      developer,
-      marketShare,
-      rating,
-      ipoMandateSuccess,
-      upiLimit,
-      rupayCcSupport,
-      upiLiteSupport,
-      highlights,
-      bestFor,
-      link,
-      about,
-      pros,
-      cons,
-      upiLimitsBreakdown,
-      ipoMandateSteps,
-      securityFeatures,
-      headquarters
-    };
-
-    await sql.query(`
-      INSERT INTO payment_apps (
-        id, name, developer, market_share, rating, ipo_mandate_success,
-        upi_limit, rupay_cc_support, upi_lite_support, highlights,
-        best_for, link, about, pros, cons, upi_limits_breakdown,
-        ipo_mandate_steps, security_features, headquarters, raw_data, updated_at
-      ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, NOW()
-      )
-      ON CONFLICT (id) DO UPDATE SET
-        name = EXCLUDED.name,
-        developer = EXCLUDED.developer,
-        market_share = EXCLUDED.market_share,
-        rating = EXCLUDED.rating,
-        ipo_mandate_success = EXCLUDED.ipo_mandate_success,
-        upi_limit = EXCLUDED.upi_limit,
-        rupay_cc_support = EXCLUDED.rupay_cc_support,
-        upi_lite_support = EXCLUDED.upi_lite_support,
-        highlights = EXCLUDED.highlights,
-        best_for = EXCLUDED.best_for,
-        link = EXCLUDED.link,
-        about = EXCLUDED.about,
-        pros = EXCLUDED.pros,
-        cons = EXCLUDED.cons,
-        upi_limits_breakdown = EXCLUDED.upi_limits_breakdown,
-        ipo_mandate_steps = EXCLUDED.ipo_mandate_steps,
-        security_features = EXCLUDED.security_features,
-        headquarters = EXCLUDED.headquarters,
-        raw_data = EXCLUDED.raw_data,
-        updated_at = NOW();
-    `, [
-      id,
-      name,
-      developer,
-      marketShare,
-      rating,
-      ipoMandateSuccess,
-      upiLimit,
-      rupayCcSupport,
-      upiLiteSupport,
-      JSON.stringify(highlights),
-      bestFor,
-      link,
-      about,
-      JSON.stringify(pros),
-      JSON.stringify(cons),
-      JSON.stringify(upiLimitsBreakdown),
-      JSON.stringify(ipoMandateSteps),
-      JSON.stringify(securityFeatures),
-      headquarters,
-      JSON.stringify(fullApp)
-    ]);
-
-    return fullApp;
-  } catch (err) {
-    console.error('Error creating payment app in Neon DB:', err);
-    throw err;
-  }
-}
-
-export async function updatePaymentAppInDb(id: string, partial: Partial<PaymentAppItem>): Promise<PaymentAppItem | null> {
-  if (!sql) return null;
-  try {
-    const existing = await sql.query(`SELECT raw_data FROM payment_apps WHERE LOWER(id) = LOWER($1) LIMIT 1;`, [id]);
-    if (!existing || existing.length === 0) return null;
-    const currentApp = existing[0].raw_data as PaymentAppItem;
-
-    const updatedApp: PaymentAppItem = {
-      ...currentApp,
-      ...partial,
-      id: currentApp.id, // preserve id
-      rating: partial.rating !== undefined ? Number(partial.rating) : currentApp.rating,
-      rupayCcSupport: partial.rupayCcSupport !== undefined ? Boolean(partial.rupayCcSupport) : currentApp.rupayCcSupport,
-      upiLiteSupport: partial.upiLiteSupport !== undefined ? Boolean(partial.upiLiteSupport) : currentApp.upiLiteSupport,
-      upiLimitsBreakdown: partial.upiLimitsBreakdown !== undefined ? { ...currentApp.upiLimitsBreakdown, ...partial.upiLimitsBreakdown } : currentApp.upiLimitsBreakdown,
-    };
-
-    await sql.query(`
-      UPDATE payment_apps
-      SET
-        name = $2,
-        developer = $3,
-        market_share = $4,
-        rating = $5,
-        ipo_mandate_success = $6,
-        upi_limit = $7,
-        rupay_cc_support = $8,
-        upi_lite_support = $9,
-        highlights = $10,
-        best_for = $11,
-        link = $12,
-        about = $13,
-        pros = $14,
-        cons = $15,
-        upi_limits_breakdown = $16,
-        ipo_mandate_steps = $17,
-        security_features = $18,
-        headquarters = $19,
-        raw_data = $20,
-        updated_at = NOW()
-      WHERE LOWER(id) = LOWER($1);
-    `, [
-      id,
-      updatedApp.name,
-      updatedApp.developer,
-      updatedApp.marketShare,
-      updatedApp.rating,
-      updatedApp.ipoMandateSuccess,
-      updatedApp.upiLimit,
-      updatedApp.rupayCcSupport,
-      updatedApp.upiLiteSupport,
-      JSON.stringify(updatedApp.highlights || []),
-      updatedApp.bestFor,
-      updatedApp.link,
-      updatedApp.about,
-      JSON.stringify(updatedApp.pros || []),
-      JSON.stringify(updatedApp.cons || []),
-      JSON.stringify(updatedApp.upiLimitsBreakdown || {}),
-      JSON.stringify(updatedApp.ipoMandateSteps || []),
-      JSON.stringify(updatedApp.securityFeatures || []),
-      updatedApp.headquarters,
-      JSON.stringify(updatedApp)
-    ]);
-
-    return updatedApp;
-  } catch (err) {
-    console.error('Error updating payment app in Neon DB:', err);
-    throw err;
-  }
-}
-
-export async function deletePaymentAppFromDb(id: string): Promise<boolean> {
-  if (!sql) return false;
-  try {
-    await sql.query(`DELETE FROM payment_apps WHERE LOWER(id) = LOWER($1);`, [id]);
-    return true;
-  } catch (err) {
-    console.error('Error deleting payment app from Neon DB:', err);
     throw err;
   }
 }

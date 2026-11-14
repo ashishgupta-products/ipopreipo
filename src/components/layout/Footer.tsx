@@ -36,11 +36,11 @@ export default function Footer() {
                 <TrendingUp size={18} color="#ffffff" />
               </div>
               <span style={{ fontWeight: 800, fontSize: '1.15rem', color: '#0f172a' }}>
-                IPO <span style={{ color: '#387ed1' }}>&</span> PreIPO
+                IPO <span style={{ color: '#387ed1' }}>Market</span>
               </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: '1.6', marginBottom: '1rem' }}>
-              The premier intelligence terminal for Mainboard & SME Initial Public Offerings (IPOs), real-time Grey Market Premiums (GMP), and Unlisted / Pre-IPO equity opportunities.
+              The premier intelligence terminal for Mainboard & SME Initial Public Offerings (IPOs) and real-time Grey Market Premiums (GMP).
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', color: '#059669', fontWeight: 600 }}>
               <ShieldCheck size={16} />
@@ -118,23 +118,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pre-ipo" style={{ color: '#475569', textDecoration: 'none' }}>
-                  Preipo & Unlisted Shares
+                <Link href="/ipo-calendar" style={{ color: '#475569', textDecoration: 'none' }}>
+                  IPO Calendar & Schedule
                 </Link>
               </li>
               <li>
-                <Link href="/payment-apps" style={{ color: '#475569', textDecoration: 'none' }}>
-                  Payment Apps (UPI 2.0 ASBA)
+                <Link href="/allotment" style={{ color: '#475569', textDecoration: 'none' }}>
+                  Registrar Allotment Hub
                 </Link>
               </li>
               <li>
-                <Link href="/brokers" style={{ color: '#475569', textDecoration: 'none' }}>
-                  Stock Brokers Comparison
-                </Link>
-              </li>
-              <li>
-                <Link href="/credit-cards" style={{ color: '#475569', textDecoration: 'none' }}>
-                  Credit Cards & RuPay UPI
+                <Link href="/analysts" style={{ color: '#475569', textDecoration: 'none' }}>
+                  Analyst Views & Ratings
                 </Link>
               </li>
             </ul>
@@ -154,7 +149,7 @@ export default function Footer() {
           color: '#64748b'
         }}>
           <div>
-            © {new Date().getFullYear()} IPO & PreIPO. Made with precision for Investors.
+            © {new Date().getFullYear()} IPO Market Terminal. Made with precision for Investors.
           </div>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
             <span>Privacy Policy</span>

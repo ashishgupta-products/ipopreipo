@@ -12,8 +12,6 @@ import {
   Menu, 
   X,
   Award,
-  Smartphone,
-  CreditCard,
   User,
   LogOut,
   LogIn,
@@ -50,16 +48,19 @@ export default function Navbar({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const isPreIpoPage = pathname === '/pre-ipo' || pathname.startsWith('/pre-ipo/');
-  const isPaymentAppsPage = pathname === '/payment-apps' || pathname.startsWith('/payment-apps/');
-  const isBrokersPage = pathname === '/brokers' || pathname.startsWith('/brokers/');
-  const isCreditCardsPage = pathname === '/credit-cards' || pathname.startsWith('/credit-cards/');
   const isAnalystsPage = pathname.startsWith('/analysts');
   const isCalendarPage = pathname === '/ipo-calendar';
   const isAllotmentPage = pathname === '/allotment';
   const isIposPage = (pathname === '/' || pathname.startsWith('/ipo')) && !isCalendarPage;
 
-  const navItems = [
+  const navItems: {
+    id: string;
+    label: string;
+    icon: React.ReactNode;
+    href: string;
+    isActive: boolean;
+    badge?: string;
+  }[] = [
     { 
       id: 'ipos', 
       label: 'IPOs', 
@@ -87,35 +88,6 @@ export default function Navbar({
       icon: <Award size={15} color="#d97706" />, 
       href: '/analysts',
       isActive: isAnalystsPage
-    },
-    { 
-      id: 'pre-ipo', 
-      label: 'Pre-IPO', 
-      badge: 'SOON',
-      icon: <Award size={15} color="#0284c7" />, 
-      href: '/pre-ipo',
-      isActive: isPreIpoPage
-    },
-    { 
-      id: 'payment-apps', 
-      label: 'Payment Apps', 
-      icon: <Smartphone size={15} color="#059669" />, 
-      href: '/payment-apps',
-      isActive: isPaymentAppsPage
-    },
-    { 
-      id: 'brokers', 
-      label: 'Brokers', 
-      icon: <TrendingUp size={15} color="#2563eb" />, 
-      href: '/brokers',
-      isActive: isBrokersPage
-    },
-    { 
-      id: 'credit-cards', 
-      label: 'Credit Cards', 
-      icon: <CreditCard size={15} color="#8b5cf6" />, 
-      href: '/credit-cards',
-      isActive: isCreditCardsPage
     },
   ];
 
@@ -173,8 +145,7 @@ export default function Navbar({
             whiteSpace: 'nowrap'
           }}>
             <span>IPO</span>
-            <span style={{ color: '#387ed1' }}>&</span>
-            <span>PreIPO</span>
+            <span style={{ color: '#387ed1' }}>Market</span>
           </div>
         </Link>
 
@@ -535,7 +506,7 @@ export default function Navbar({
               }} />
               <input
                 type="text"
-                placeholder="Search IPOs, analysts, brokers..."
+                placeholder="Search IPOs, analysts..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{

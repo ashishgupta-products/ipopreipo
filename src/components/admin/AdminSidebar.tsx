@@ -18,20 +18,17 @@ import {
   LogOut,
   Sparkles,
   Zap,
-  CheckCircle2,
-  Smartphone
+  CheckCircle2
 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
-export type AdminTab = 'overview' | 'ipos' | 'pre-ipos' | 'payment-apps' | 'users' | 'sync';
+export type AdminTab = 'overview' | 'ipos' | 'users' | 'sync';
 
 interface AdminSidebarProps {
   activeTab: AdminTab;
   setActiveTab: (tab: AdminTab) => void;
   counts: {
     ipos: number;
-    preIpos: number;
-    paymentApps?: number;
     users: number;
   };
   sessionUser?: {
@@ -42,8 +39,6 @@ interface AdminSidebarProps {
   syncing: boolean;
   onTriggerSync: () => void;
   onOpenCreateIpo?: () => void;
-  onOpenCreatePreIpo?: () => void;
-  onOpenCreatePaymentApp?: () => void;
   isCollapsed: boolean;
   setIsCollapsed: (collapsed: boolean) => void;
   isMobileOpen: boolean;
@@ -76,18 +71,6 @@ export default function AdminSidebar({
       label: 'Mainboard & SME IPOs', 
       icon: <Layers size={18} />, 
       count: counts.ipos 
-    },
-    { 
-      id: 'pre-ipos', 
-      label: 'Pre-IPO Shares', 
-      icon: <Award size={18} />, 
-      count: counts.preIpos 
-    },
-    { 
-      id: 'payment-apps', 
-      label: 'UPI Payment Apps', 
-      icon: <Smartphone size={18} />, 
-      count: counts.paymentApps 
     },
     { 
       id: 'users', 
@@ -555,7 +538,7 @@ export default function AdminSidebar({
                     textOverflow: 'ellipsis',
                     overflow: 'hidden'
                   }}>
-                    {sessionUser?.email || 'admin@ipopreipo.com'}
+                    {sessionUser?.email || 'admin@ipomarket.com'}
                   </span>
                 </div>
               )}

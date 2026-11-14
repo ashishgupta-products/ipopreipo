@@ -106,12 +106,11 @@ export default function EditIpoPage() {
       <AdminSidebar
         activeTab="ipos"
         setActiveTab={(t) => router.push('/admin')}
-        counts={{ ipos: 0, preIpos: 0, users: 0 }}
+        counts={{ ipos: 0, users: 0 }}
         sessionUser={session?.user as any}
         syncing={false}
         onTriggerSync={() => {}}
         onOpenCreateIpo={() => router.push('/admin/ipos/new')}
-        onOpenCreatePreIpo={() => router.push('/admin')}
         isCollapsed={isCollapsed}
         setIsCollapsed={setIsCollapsed}
         isMobileOpen={isMobileOpen}

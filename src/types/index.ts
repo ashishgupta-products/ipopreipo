@@ -137,32 +137,6 @@ export interface IpoItem {
   tags: string[];
 }
 
-export interface PreIpoItem {
-  id: string;
-  name: string;
-  symbol: string;
-  sector: string;
-  sharePrice: number;
-  change1YPercent: number;
-  lotSize: number;
-  minInvestment: number;
-  valuationCr: number;
-  peRatio?: number;
-  faceValue: number;
-  isin: string;
-  expectedIpoTimeline: string;
-  about: string;
-  financials: {
-    revenueCr: number;
-    ebitdaCr: number;
-    patCr: number;
-    yoyGrowth: number;
-  };
-  investors: string[];
-  status: 'HOT' | 'STEADY' | 'NEW';
-  promoters: string;
-}
-
 export interface RegistrarInfo {
   name: string;
   code: string;

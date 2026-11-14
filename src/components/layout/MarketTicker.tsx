@@ -10,7 +10,7 @@ interface TickerItem {
   value: string;
   sub: string;
   isPositive: boolean;
-  type: 'INDEX' | 'GMP' | 'PREIPO';
+  type: 'INDEX' | 'GMP';
 }
 
 const TICKER_ITEMS: TickerItem[] = [
@@ -20,10 +20,8 @@ const TICKER_ITEMS: TickerItem[] = [
   { id: '4', name: 'NTPC GREEN', label: 'Live GMP', value: '₹14', sub: '+13.0% Est.', isPositive: true, type: 'GMP' },
   { id: '5', name: 'DANISH POWER', label: 'SME GMP', value: '₹310', sub: '+81.6% 🔥', isPositive: true, type: 'GMP' },
   { id: '6', name: 'SWIGGY', label: 'Live GMP', value: '₹25', sub: '+6.4% Est.', isPositive: true, type: 'GMP' },
-  { id: '7', name: 'NSE INDIA', label: 'Pre-IPO', value: '₹6,850', sub: '+114.5% 1Y', isPositive: true, type: 'PREIPO' },
-  { id: '8', name: 'TATA CAPITAL', label: 'Pre-IPO', value: '₹980', sub: '+88.4% 1Y', isPositive: true, type: 'PREIPO' },
-  { id: '9', name: 'RELIANCE RETAIL', label: 'Pre-IPO', value: '₹2,850', sub: '+32.8% 1Y', isPositive: true, type: 'PREIPO' },
-  { id: '10', name: 'HDB FINANCIAL', label: 'Pre-IPO', value: '₹1,150', sub: '+44.2% 1Y', isPositive: true, type: 'PREIPO' },
+  { id: '7', name: 'BAJAJ HOUSING', label: 'Listing Gain', value: '₹165', sub: '+135.7% Gain', isPositive: true, type: 'GMP' },
+  { id: '8', name: 'PREMIER ENERGIES', label: 'Listing Gain', value: '₹990', sub: '+120.0% Gain', isPositive: true, type: 'GMP' },
 ];
 
 export default function MarketTicker() {

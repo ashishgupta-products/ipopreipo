@@ -33,15 +33,7 @@ export default function Home() {
       const view = params.get('view');
       const status = params.get('status');
 
-      if (tab === 'payment-apps') {
-        router.replace('/payment-apps');
-      } else if (tab === 'pre-ipo') {
-        router.replace('/pre-ipo');
-      } else if (tab === 'brokers') {
-        router.replace('/brokers');
-      } else if (tab === 'credit-cards') {
-        router.replace('/credit-cards');
-      } else if (tab === 'analysts') {
+      if (tab === 'analysts') {
         router.replace('/analysts');
       } else if (tab === 'allotment') {
         router.replace('/allotment');
