@@ -353,7 +353,7 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
                     {ipo.category} IPO
                   </span>
                   <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>
-                    {ipo.exchange} • {ipo.symbol} • Face Value ₹{ipo.faceValue || 10}
+                    {ipo.exchange}{ipo.symbol && !ipo.symbol.toUpperCase().includes('TEMP') && ipo.symbol !== 'PH123' && ipo.symbol !== 'SYMBOL' ? ` • ${ipo.symbol}` : ''} • Face Value ₹{ipo.faceValue || 10}
                   </span>
                   {getStatusBadge()}
                 </div>
@@ -571,7 +571,9 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               Price Band
             </span>
             <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem' }}>
-              ₹{ipo.priceBandLow} - ₹{ipo.priceBandHigh}
+              {ipo.priceBandLow && ipo.priceBandHigh && !(ipo.status === 'UPCOMING' && ipo.priceBandLow === 100 && ipo.priceBandHigh === 100 && !ipo.lotSize)
+                ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`)
+                : 'TBA'}
             </div>
             <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Per Equity Share</span>
           </div>
@@ -581,10 +583,10 @@ export default function IpoDetailView({ ipo, relatedIpos }: IpoDetailViewProps) 
               Lot Size
             </span>
             <div className="mono" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginTop: '0.25rem' }}>
-              {ipo.lotSize} Shares
+              {ipo.lotSize && ipo.lotSize > 0 ? `${ipo.lotSize} Shares` : 'TBA'}
             </div>
-            <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 600 }}>
-              ₹{minRetailInvestment.toLocaleString('en-IN')} (1 Lot)
+            <span style={{ fontSize: '0.72rem', color: minRetailInvestment > 0 ? '#059669' : '#64748b', fontWeight: 600 }}>
+              {minRetailInvestment > 0 ? `₹${minRetailInvestment.toLocaleString('en-IN')} (1 Lot)` : 'Awaiting Lot Definition'}
             </span>
           </div>
 

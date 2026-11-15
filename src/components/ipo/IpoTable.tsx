@@ -121,9 +121,13 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                           gap: '0.35rem',
                           marginTop: '1px'
                         }}>
-                          <span className="mono" style={{ fontWeight: 600, color: '#475569' }}>{ipo.symbol}</span>
-                          <span>•</span>
-                          <span>{ipo.exchange}</span>
+                          {ipo.symbol && !ipo.symbol.toUpperCase().includes('TEMP') && ipo.symbol !== 'PH123' && ipo.symbol !== 'SYMBOL' && (
+                            <>
+                              <span className="mono" style={{ fontWeight: 600, color: '#475569' }}>{ipo.symbol}</span>
+                              <span>•</span>
+                            </>
+                          )}
+                          <span>{ipo.exchange || 'NSE & BSE'}</span>
                           {ipo.category === 'SME' ? (
                             <span style={{
                               fontSize: '0.62rem',
@@ -161,8 +165,10 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                 <td style={{ padding: '0.55rem 0.85rem', textAlign: 'right' }}>
                   <div className="mono" style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.86rem' }}>
                     {isListedView
-                      ? (ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : '₹100')
-                      : (ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA')}
+                      ? (ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : '—')
+                      : (ipo.priceBandLow && ipo.priceBandHigh && !(ipo.status === 'UPCOMING' && ipo.priceBandLow === 100 && ipo.priceBandHigh === 100 && !ipo.lotSize)
+                        ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`)
+                        : 'TBA')}
                   </div>
                   {!isListedView && (
                     <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '1px' }}>
@@ -228,77 +234,87 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
 
                     {/* 4. Live GMP & 24h Trend */}
                     <td style={{ padding: '0.55rem 0.85rem', textAlign: 'right' }}>
-                      <div className="mono" style={{
-                        fontWeight: 800,
-                        color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-end',
-                        gap: '3px',
-                        fontSize: '0.86rem'
-                      }}>
-                        {ipo.gmp > 0 && <Flame size={12} color="#d97706" />}
-                        {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.3rem', marginTop: '2px' }}>
-                        {dailyChange > 0 ? (
-                          <span style={{
-                            fontSize: '0.62rem',
-                            fontWeight: 700,
-                            color: '#15803d',
-                            backgroundColor: '#dcfce7',
-                            padding: '0px 4px',
-                            borderRadius: '3px'
+                      {ipo.gmp && ipo.gmp > 0 ? (
+                        <>
+                          <div className="mono" style={{
+                            fontWeight: 800,
+                            color: '#059669',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-end',
+                            gap: '3px',
+                            fontSize: '0.86rem'
                           }}>
-                            ▲ +₹{dailyChange}
-                          </span>
-                        ) : dailyChange < 0 ? (
-                          <span style={{
-                            fontSize: '0.62rem',
-                            fontWeight: 700,
-                            color: '#b91c1c',
-                            backgroundColor: '#fee2e2',
-                            padding: '0px 4px',
-                            borderRadius: '3px'
-                          }}>
-                            ▼ -₹{Math.abs(dailyChange)}
-                          </span>
-                        ) : (
-                          <span style={{
-                            fontSize: '0.62rem',
-                            fontWeight: 600,
-                            color: '#64748b',
-                            backgroundColor: '#f1f5f9',
-                            padding: '0px 4px',
-                            borderRadius: '3px'
-                          }}>
-                            Flat
-                          </span>
-                        )}
-                      </div>
+                            <Flame size={12} color="#d97706" />
+                            +₹{ipo.gmp}
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.3rem', marginTop: '2px' }}>
+                            {dailyChange > 0 ? (
+                              <span style={{
+                                fontSize: '0.62rem',
+                                fontWeight: 700,
+                                color: '#15803d',
+                                backgroundColor: '#dcfce7',
+                                padding: '0px 4px',
+                                borderRadius: '3px'
+                              }}>
+                                ▲ +₹{dailyChange}
+                              </span>
+                            ) : dailyChange < 0 ? (
+                              <span style={{
+                                fontSize: '0.62rem',
+                                fontWeight: 700,
+                                color: '#b91c1c',
+                                backgroundColor: '#fee2e2',
+                                padding: '0px 4px',
+                                borderRadius: '3px'
+                              }}>
+                                ▼ -₹{Math.abs(dailyChange)}
+                              </span>
+                            ) : (
+                              <span style={{
+                                fontSize: '0.62rem',
+                                fontWeight: 600,
+                                color: '#64748b',
+                                backgroundColor: '#f1f5f9',
+                                padding: '0px 4px',
+                                borderRadius: '3px'
+                              }}>
+                                Flat
+                              </span>
+                            )}
+                          </div>
+                        </>
+                      ) : (
+                        <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>—</span>
+                      )}
                     </td>
 
                     {/* 5. Est. Listing Gain */}
                     <td style={{ padding: '0.55rem 0.85rem', textAlign: 'right' }}>
-                      <span className="mono" style={{
-                        fontWeight: 700,
-                        fontSize: '0.78rem',
-                        color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
-                        backgroundColor: ipo.gmp >= 0 ? '#ecfdf5' : '#fef2f2',
-                        padding: '2px 6px',
-                        borderRadius: '4px',
-                        border: ipo.gmp >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
-                        display: 'inline-block'
-                      }}>
-                        {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
-                      </span>
+                      {ipo.gmp && ipo.gmp > 0 && gmpPercent > 0 ? (
+                        <span className="mono" style={{
+                          fontWeight: 700,
+                          fontSize: '0.78rem',
+                          color: '#059669',
+                          backgroundColor: '#ecfdf5',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          border: '1px solid #a7f3d0',
+                          display: 'inline-block'
+                        }}>
+                          +{gmpPercent.toFixed(1)}%
+                        </span>
+                      ) : (
+                        <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>—</span>
+                      )}
                     </td>
                   </>
                 )}
 
                 {/* 6. Subscription */}
                 <td style={{ padding: '0.55rem 0.85rem', textAlign: 'right' }}>
-                  {ipo.subscription ? (
+                  {ipo.status !== 'UPCOMING' && ipo.subscription && ipo.subscription.total > 0 ? (
                     <div>
                       <div className="mono" style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.85rem' }}>
                         {ipo.subscription.total}x
@@ -560,9 +576,13 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                     {ipo.name}
                   </div>
                   <div style={{ fontSize: '0.7rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1px' }}>
-                    <span className="mono" style={{ fontWeight: 600 }}>{ipo.symbol}</span>
-                    <span>•</span>
-                    <span>{ipo.exchange}</span>
+                    {ipo.symbol && !ipo.symbol.toUpperCase().includes('TEMP') && ipo.symbol !== 'PH123' && ipo.symbol !== 'SYMBOL' && (
+                      <>
+                        <span className="mono" style={{ fontWeight: 600 }}>{ipo.symbol}</span>
+                        <span>•</span>
+                      </>
+                    )}
+                    <span>{ipo.exchange || 'NSE & BSE'}</span>
                     {ipo.category === 'SME' ? (
                       <span style={{
                         fontSize: '0.62rem',
@@ -619,7 +639,9 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
               <div>
                 <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Price Band</div>
                 <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginTop: '1px' }}>
-                  {ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : 'TBA'}
+                  {ipo.priceBandLow && ipo.priceBandHigh && !(ipo.status === 'UPCOMING' && ipo.priceBandLow === 100 && ipo.priceBandHigh === 100 && !ipo.lotSize)
+                    ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`)
+                    : 'TBA'}
                 </div>
                 {ipo.lotSize && ipo.lotSize > 0 && (
                   <div style={{ fontSize: '0.64rem', color: '#64748b' }}>
@@ -640,10 +662,10 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                 <div className="mono" style={{
                   fontSize: '0.84rem',
                   fontWeight: 800,
-                  color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
+                  color: (ipo.gmp && ipo.gmp > 0) ? '#059669' : '#94a3b8',
                   marginTop: '1px'
                 }}>
-                  {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+                  {ipo.gmp && ipo.gmp > 0 ? `+₹${ipo.gmp}` : '—'}
                 </div>
               </div>
 
@@ -652,10 +674,10 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                 <div className="mono" style={{
                   fontSize: '0.84rem',
                   fontWeight: 800,
-                  color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
+                  color: (ipo.gmp && ipo.gmp > 0 && gmpPercent > 0) ? '#059669' : '#94a3b8',
                   marginTop: '1px'
                 }}>
-                  {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+                  {ipo.gmp && ipo.gmp > 0 && gmpPercent > 0 ? `+${gmpPercent.toFixed(1)}%` : '—'}
                 </div>
               </div>
             </div>

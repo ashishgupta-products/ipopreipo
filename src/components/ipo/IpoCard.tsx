@@ -191,7 +191,9 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
             <div className="mono" style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
               {isListed && ipo.priceBandHigh
                 ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`)
-                : (ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA')}
+                : (ipo.priceBandLow && ipo.priceBandHigh && !(ipo.status === 'UPCOMING' && ipo.priceBandLow === 100 && ipo.priceBandHigh === 100 && !ipo.lotSize)
+                    ? (ipo.priceBandLow === ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}`)
+                    : 'TBA')}
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
               {hasValidLot ? `Lot: ${ipo.lotSize} shares` : 'Lot: TBA'}
@@ -282,10 +284,10 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
               )}
             </div>
           </div>
-        ) : (
+        ) : (ipo.gmp && ipo.gmp > 0) ? (
           <div style={{
-            backgroundColor: ipo.gmp >= 0 ? '#ecfdf5' : '#fef2f2',
-            border: ipo.gmp >= 0 ? '1px solid #a7f3d0' : '1px solid #fecaca',
+            backgroundColor: '#ecfdf5',
+            border: '1px solid #a7f3d0',
             borderRadius: 'var(--radius-md)',
             padding: '0.75rem 1rem',
             display: 'flex',
@@ -294,13 +296,13 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
             marginBottom: '0.75rem'
           }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: ipo.gmp >= 0 ? '#059669' : '#dc2626', fontWeight: 700 }}>
-                <Flame size={13} color={ipo.gmp >= 0 ? '#059669' : '#dc2626'} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
+                <Flame size={13} color="#059669" />
                 <span>Grey Market Premium</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                <span className="mono" style={{ fontSize: '1.25rem', fontWeight: 800, color: ipo.gmp >= 0 ? '#059669' : '#dc2626' }}>
-                  {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+                <span className="mono" style={{ fontSize: '1.25rem', fontWeight: 800, color: '#059669' }}>
+                  +₹{ipo.gmp}
                 </span>
                 {dailyChange !== 0 ? (
                   <span style={{
@@ -331,19 +333,35 @@ export default function IpoCard({ ipo, onSelect, onCheckAllotment, quote }: IpoC
               <div className="mono" style={{
                 fontSize: '0.95rem',
                 fontWeight: 700,
-                color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
+                color: '#059669',
               }}>
-                {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+                +{gmpPercent.toFixed(1)}%
               </div>
               <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
                 Est: ₹{estListingPrice}
               </div>
             </div>
           </div>
+        ) : (
+          <div style={{
+            backgroundColor: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: 'var(--radius-md)',
+            padding: '0.6rem 0.85rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '0.75rem',
+            fontSize: '0.75rem',
+            color: '#64748b'
+          }}>
+            <span>Grey Market Trading</span>
+            <span style={{ fontWeight: 600, color: '#475569' }}>Awaiting RHP / Quotes</span>
+          </div>
         )}
 
-        {/* Subscription Progress */}
-        {ipo.subscription && (
+        {/* Subscription Progress (Live / Closed only) */}
+        {ipo.status !== 'UPCOMING' && ipo.subscription && ipo.subscription.total > 0 && (
           <div style={{ marginBottom: '0.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b', marginBottom: '0.25rem' }}>
               <span>Total Subscribed: <strong style={{ color: '#0f172a' }}>{ipo.subscription.total}x</strong></span>

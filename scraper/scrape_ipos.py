@@ -583,8 +583,10 @@ def scrape_groww_primary(session: requests.Session, gmp_map: dict, listing_map: 
             return None
 
         search_id = item_data.get('searchId', '')
-        raw_sym = item_data.get('symbol') or clean_name[:6].upper()
-        clean_sym = re.sub(r'(Mainboard|SME|SSE)', '', raw_sym).strip() or clean_name[:6].upper()
+        raw_sym = item_data.get('symbol') or ''
+        clean_sym = re.sub(r'(Mainboard|SME|SSE)', '', raw_sym).strip()
+        if 'TEMP' in clean_sym.upper() or clean_sym.upper() in ['PH123', 'SYMBOL', 'TEMPSYMBOL']:
+            clean_sym = ''
 
         if (
             'SSE' in clean_sym
@@ -611,9 +613,17 @@ def scrape_groww_primary(session: requests.Session, gmp_map: dict, listing_map: 
         issue_id = slugify(clean_name)
         canonical_id = CANONICAL_ENTITIES.get(issue_id, issue_id)
 
-        p_val = float(item_data.get('issuePrice', 100)) if item_data.get('issuePrice') is not None else 100.0
-        p_low = p_val
-        p_high = p_val
+        # Handle Price Band safely without injecting dummy 100 values into unannounced upcoming IPOs
+        if item_data.get('minPrice') is not None and item_data.get('maxPrice') is not None:
+            p_low = int(float(item_data['minPrice']))
+            p_high = int(float(item_data['maxPrice']))
+        elif item_data.get('issuePrice') is not None and float(item_data.get('issuePrice')) > 0:
+            p_val = float(item_data['issuePrice'])
+            p_low = int(p_val)
+            p_high = int(p_val)
+        else:
+            p_low = None
+            p_high = None
 
         listing_price = float(item_data.get('listingPrice')) if item_data.get('listingPrice') is not None else None
         listing_gain = float(item_data.get('listingReturn')) if item_data.get('listingReturn') is not None else None
@@ -640,6 +650,17 @@ def scrape_groww_primary(session: requests.Session, gmp_map: dict, listing_map: 
         sector = infer_sector(clean_name)
         overall_sub = float(item_data.get('overallSubscription', 0)) if item_data.get('overallSubscription') else gmp_info['subscription']
 
+        # UPCOMING IPOs cannot have subscription numbers before bidding starts
+        if status == 'UPCOMING':
+            sub_obj = None
+        else:
+            sub_obj = {
+                'qib': round(overall_sub * 0.8, 2),
+                'nii': round(overall_sub * 1.2, 2),
+                'retail': round(overall_sub * 1.1, 2),
+                'total': overall_sub
+            } if overall_sub > 0 else None
+
         base_item = {
             'id': canonical_id,
             'name': clean_name,
@@ -647,13 +668,13 @@ def scrape_groww_primary(session: requests.Session, gmp_map: dict, listing_map: 
             'logoUrl': item_data.get('logoUrl'),
             'category': category,
             'status': status,
-            'priceBandLow': int(p_low),
-            'priceBandHigh': int(p_high),
+            'priceBandLow': p_low,
+            'priceBandHigh': p_high,
             'lotSize': None,
             'issueSizeCr': None,
             'freshIssueCr': None,
             'ofsCr': None,
-            'gmp': gmp_info['gmp'],
+            'gmp': gmp_info['gmp'] if status != 'UPCOMING' or start_date != 'TBA' else 0.0,
             'gmpUpdatedDate': now_str,
             'gmpTrend': gmp_info['trend'],
             'fireRating': gmp_info['fire'],
@@ -670,12 +691,7 @@ def scrape_groww_primary(session: requests.Session, gmp_map: dict, listing_map: 
             },
             'listingPrice': listing_price,
             'listingGainPercent': listing_gain,
-            'subscription': {
-                'qib': round(overall_sub * 0.8, 2),
-                'nii': round(overall_sub * 1.2, 2),
-                'retail': round(overall_sub * 1.1, 2),
-                'total': overall_sub
-            } if overall_sub > 0 else None,
+            'subscription': sub_obj,
             'sector': sector,
             'about': f"{clean_name} initial public offering on {exchange}.",
             'financialHighlights': None,
