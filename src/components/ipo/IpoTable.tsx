@@ -179,10 +179,10 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                       <div style={{
                         fontSize: '0.66rem',
                         color: (listingGain ?? 0) >= 0 ? '#15803d' : '#b91c1c',
-                        fontWeight: 600,
+                        fontWeight: 700,
                         marginTop: '1px'
                       }}>
-                        Day 1: {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
+                        {(listingGain ?? 0) >= 0 ? `+${(listingGain ?? 0).toFixed(1)}%` : `${(listingGain ?? 0).toFixed(1)}%`}
                       </div>
                     </td>
 
@@ -200,20 +200,16 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                         <span className="pulse-indicator" style={{ width: '5px', height: '5px', backgroundColor: '#16a34a' }}></span>
                         <span>₹{cmp ?? '—'}</span>
                       </div>
-                      {quote && cmpChange !== undefined ? (
-                        <div style={{
-                          fontSize: '0.66rem',
-                          color: cmpChange >= 0 ? '#15803d' : '#b91c1c',
-                          fontWeight: 700,
-                          marginTop: '1px'
-                        }}>
-                          {cmpChange >= 0 ? `▲ +₹${cmpChange}` : `▼ -₹${Math.abs(cmpChange)}`} ({cmpChangePercent ? (cmpChangePercent >= 0 ? `+${cmpChangePercent.toFixed(1)}%` : `${cmpChangePercent.toFixed(1)}%`) : ''})
-                        </div>
-                      ) : (
-                        <div style={{ fontSize: '0.66rem', color: '#94a3b8', marginTop: '1px' }}>
-                          Live Quote
-                        </div>
-                      )}
+                      <div style={{
+                        fontSize: '0.66rem',
+                        color: (cmpChangePercent ?? 0) >= 0 ? '#15803d' : '#b91c1c',
+                        fontWeight: 700,
+                        marginTop: '1px'
+                      }}>
+                        {cmpChangePercent !== undefined && cmpChangePercent !== null
+                          ? `${cmpChangePercent >= 0 ? '+' : ''}${cmpChangePercent.toFixed(1)}%`
+                          : (quote ? '0.0%' : '—')}
+                      </div>
                     </td>
                   </>
                 ) : (
