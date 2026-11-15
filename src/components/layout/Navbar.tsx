@@ -41,8 +41,42 @@ export default function Navbar({
   const [iposDropdownOpen, setIposDropdownOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const iposDropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const router = useRouter();
+
+  const handleDropdownMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIposDropdownOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIposDropdownOpen(false);
+    }, 220); // Grace period prevents dropdown disappearing when moving cursor down
+  };
+
+  const handleDropdownToggle = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIposDropdownOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const [internalQuery, setInternalQuery] = useState(searchQuery || '');
 
@@ -185,11 +219,11 @@ export default function Navbar({
                   key="ipos-dropdown"
                   ref={iposDropdownRef}
                   style={{ position: 'relative' }}
-                  onMouseEnter={() => setIposDropdownOpen(true)}
-                  onMouseLeave={() => setIposDropdownOpen(false)}
+                  onMouseEnter={handleDropdownMouseEnter}
+                  onMouseLeave={handleDropdownMouseLeave}
                 >
                   <button
-                    onClick={() => setIposDropdownOpen((prev) => !prev)}
+                    onClick={handleDropdownToggle}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -221,163 +255,333 @@ export default function Navbar({
                     <div
                       style={{
                         position: 'absolute',
-                        top: 'calc(100% + 4px)',
+                        top: '100%',
                         left: 0,
-                        backgroundColor: '#ffffff',
-                        border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
-                        minWidth: '230px',
-                        padding: '6px',
-                        zIndex: 60,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '2px'
+                        paddingTop: '6px',
+                        zIndex: 60
                       }}
+                      onMouseEnter={handleDropdownMouseEnter}
+                      onMouseLeave={handleDropdownMouseLeave}
                     >
-                      <Link
-                        href="/mainboard-ipo"
-                        onClick={() => setIposDropdownOpen(false)}
+                      <div
                         style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
-                          padding: '0.55rem 0.65rem',
-                          borderRadius: '6px',
-                          textDecoration: 'none',
-                          color: isMainboardPage ? '#2563eb' : '#0f172a',
-                          backgroundColor: isMainboardPage ? '#eff6ff' : 'transparent',
-                          transition: 'background-color 0.15s ease'
+                          backgroundColor: '#ffffff',
+                          border: '1px solid #e2e8f0',
+                          borderRadius: '12px',
+                          boxShadow: '0 12px 30px -5px rgba(0, 0, 0, 0.12), 0 8px 12px -6px rgba(0, 0, 0, 0.05)',
+                          width: '490px',
+                          padding: '8px',
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(2, 1fr)',
+                          gap: '6px'
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isMainboardPage ? '#eff6ff' : '#f8fafc')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isMainboardPage ? '#eff6ff' : 'transparent')}
                       >
-                        <Building2 size={16} color="#2563eb" />
-                        <div>
-                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Mainboard IPO</div>
-                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>NSE & BSE Mainboard issues</div>
-                        </div>
-                      </Link>
+                        {/* 1. Mainboard IPO */}
+                        <Link
+                          href="/mainboard-ipo"
+                          onClick={() => setIposDropdownOpen(false)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.65rem',
+                            padding: '0.6rem 0.7rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            color: isMainboardPage ? '#2563eb' : '#0f172a',
+                            backgroundColor: isMainboardPage ? '#eff6ff' : 'transparent',
+                            border: isMainboardPage ? '1px solid #bfdbfe' : '1px solid transparent',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isMainboardPage) {
+                              e.currentTarget.style.backgroundColor = '#f8fafc';
+                              e.currentTarget.style.borderColor = '#e2e8f0';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isMainboardPage) {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                              e.currentTarget.style.borderColor = 'transparent';
+                            }
+                          }}
+                        >
+                          <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '8px',
+                            backgroundColor: isMainboardPage ? '#dbeafe' : '#eff6ff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}>
+                            <Building2 size={16} color="#2563eb" />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isMainboardPage ? '#2563eb' : '#0f172a' }}>
+                              Mainboard IPO
+                            </div>
+                            <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                              NSE & BSE Mainboard
+                            </div>
+                          </div>
+                        </Link>
 
-                      <Link
-                        href="/sme-ipo"
-                        onClick={() => setIposDropdownOpen(false)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
-                          padding: '0.55rem 0.65rem',
-                          borderRadius: '6px',
-                          textDecoration: 'none',
-                          color: isSmePage ? '#b45309' : '#0f172a',
-                          backgroundColor: isSmePage ? '#fffbeb' : 'transparent',
-                          transition: 'background-color 0.15s ease'
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isSmePage ? '#fffbeb' : '#f8fafc')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isSmePage ? '#fffbeb' : 'transparent')}
-                      >
-                        <Rocket size={16} color="#b45309" />
-                        <div>
-                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>SME IPO</div>
-                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>NSE Emerge & BSE SME</div>
-                        </div>
-                      </Link>
+                        {/* 2. IPO Calendar */}
+                        <Link
+                          href="/ipo-calendar"
+                          onClick={() => setIposDropdownOpen(false)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.65rem',
+                            padding: '0.6rem 0.7rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            color: isCalendarPage ? '#2563eb' : '#0f172a',
+                            backgroundColor: isCalendarPage ? '#eff6ff' : 'transparent',
+                            border: isCalendarPage ? '1px solid #bfdbfe' : '1px solid transparent',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isCalendarPage) {
+                              e.currentTarget.style.backgroundColor = '#f8fafc';
+                              e.currentTarget.style.borderColor = '#e2e8f0';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isCalendarPage) {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                              e.currentTarget.style.borderColor = 'transparent';
+                            }
+                          }}
+                        >
+                          <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '8px',
+                            backgroundColor: isCalendarPage ? '#dbeafe' : '#eff6ff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}>
+                            <Calendar size={16} color="#2563eb" />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isCalendarPage ? '#2563eb' : '#0f172a' }}>
+                              IPO Calendar
+                            </div>
+                            <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                              Bidding & listing dates
+                            </div>
+                          </div>
+                        </Link>
 
-                      <Link
-                        href="/ipo-performance"
-                        onClick={() => setIposDropdownOpen(false)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
-                          padding: '0.55rem 0.65rem',
-                          borderRadius: '6px',
-                          textDecoration: 'none',
-                          color: isPerformancePage ? '#059669' : '#0f172a',
-                          backgroundColor: isPerformancePage ? '#ecfdf5' : 'transparent',
-                          transition: 'background-color 0.15s ease'
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isPerformancePage ? '#ecfdf5' : '#f8fafc')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isPerformancePage ? '#ecfdf5' : 'transparent')}
-                      >
-                        <Trophy size={16} color="#059669" />
-                        <div>
-                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>IPO Performance</div>
-                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Listing gains & returns</div>
-                        </div>
-                      </Link>
+                        {/* 3. SME IPO */}
+                        <Link
+                          href="/sme-ipo"
+                          onClick={() => setIposDropdownOpen(false)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.65rem',
+                            padding: '0.6rem 0.7rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            color: isSmePage ? '#b45309' : '#0f172a',
+                            backgroundColor: isSmePage ? '#fffbeb' : 'transparent',
+                            border: isSmePage ? '1px solid #fde68a' : '1px solid transparent',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isSmePage) {
+                              e.currentTarget.style.backgroundColor = '#fffbeb';
+                              e.currentTarget.style.borderColor = '#fde68a';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isSmePage) {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                              e.currentTarget.style.borderColor = 'transparent';
+                            }
+                          }}
+                        >
+                          <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '8px',
+                            backgroundColor: isSmePage ? '#fef3c7' : '#fffbeb',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}>
+                            <Rocket size={16} color="#b45309" />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isSmePage ? '#b45309' : '#0f172a' }}>
+                              SME IPO
+                            </div>
+                            <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                              NSE Emerge & BSE SME
+                            </div>
+                          </div>
+                        </Link>
 
-                      <Link
-                        href="/ipo-calendar"
-                        onClick={() => setIposDropdownOpen(false)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
-                          padding: '0.55rem 0.65rem',
-                          borderRadius: '6px',
-                          textDecoration: 'none',
-                          color: isCalendarPage ? '#2563eb' : '#0f172a',
-                          backgroundColor: isCalendarPage ? '#eff6ff' : 'transparent',
-                          transition: 'background-color 0.15s ease'
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isCalendarPage ? '#eff6ff' : '#f8fafc')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isCalendarPage ? '#eff6ff' : 'transparent')}
-                      >
-                        <Calendar size={16} color="#2563eb" />
-                        <div>
-                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>IPO Calendar</div>
-                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Bidding & listing timetable</div>
-                        </div>
-                      </Link>
+                        {/* 4. Allotment */}
+                        <Link
+                          href="/allotment"
+                          onClick={() => setIposDropdownOpen(false)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.65rem',
+                            padding: '0.6rem 0.7rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            color: isAllotmentPage ? '#059669' : '#0f172a',
+                            backgroundColor: isAllotmentPage ? '#ecfdf5' : 'transparent',
+                            border: isAllotmentPage ? '1px solid #a7f3d0' : '1px solid transparent',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isAllotmentPage) {
+                              e.currentTarget.style.backgroundColor = '#ecfdf5';
+                              e.currentTarget.style.borderColor = '#a7f3d0';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isAllotmentPage) {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                              e.currentTarget.style.borderColor = 'transparent';
+                            }
+                          }}
+                        >
+                          <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '8px',
+                            backgroundColor: isAllotmentPage ? '#d1fae5' : '#ecfdf5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}>
+                            <ShieldCheck size={16} color="#059669" />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isAllotmentPage ? '#059669' : '#0f172a' }}>
+                              Allotment
+                            </div>
+                            <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                              Check registrar & PAN
+                            </div>
+                          </div>
+                        </Link>
 
-                      <Link
-                        href="/allotment"
-                        onClick={() => setIposDropdownOpen(false)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
-                          padding: '0.55rem 0.65rem',
-                          borderRadius: '6px',
-                          textDecoration: 'none',
-                          color: isAllotmentPage ? '#059669' : '#0f172a',
-                          backgroundColor: isAllotmentPage ? '#ecfdf5' : 'transparent',
-                          transition: 'background-color 0.15s ease'
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isAllotmentPage ? '#ecfdf5' : '#f8fafc')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isAllotmentPage ? '#ecfdf5' : 'transparent')}
-                      >
-                        <ShieldCheck size={16} color="#059669" />
-                        <div>
-                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Allotment</div>
-                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Check registrar & PAN status</div>
-                        </div>
-                      </Link>
+                        {/* 5. IPO Performance */}
+                        <Link
+                          href="/ipo-performance"
+                          onClick={() => setIposDropdownOpen(false)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.65rem',
+                            padding: '0.6rem 0.7rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            color: isPerformancePage ? '#059669' : '#0f172a',
+                            backgroundColor: isPerformancePage ? '#ecfdf5' : 'transparent',
+                            border: isPerformancePage ? '1px solid #a7f3d0' : '1px solid transparent',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isPerformancePage) {
+                              e.currentTarget.style.backgroundColor = '#ecfdf5';
+                              e.currentTarget.style.borderColor = '#a7f3d0';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isPerformancePage) {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                              e.currentTarget.style.borderColor = 'transparent';
+                            }
+                          }}
+                        >
+                          <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '8px',
+                            backgroundColor: isPerformancePage ? '#d1fae5' : '#ecfdf5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}>
+                            <Trophy size={16} color="#059669" />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isPerformancePage ? '#059669' : '#0f172a' }}>
+                              IPO Performance
+                            </div>
+                            <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                              Listing gains & returns
+                            </div>
+                          </div>
+                        </Link>
 
-                      <Link
-                        href="/analysts"
-                        onClick={() => setIposDropdownOpen(false)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.65rem',
-                          padding: '0.55rem 0.65rem',
-                          borderRadius: '6px',
-                          textDecoration: 'none',
-                          color: isAnalystsPage ? '#d97706' : '#0f172a',
-                          backgroundColor: isAnalystsPage ? '#fffbeb' : 'transparent',
-                          transition: 'background-color 0.15s ease'
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isAnalystsPage ? '#fffbeb' : '#f8fafc')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isAnalystsPage ? '#fffbeb' : 'transparent')}
-                      >
-                        <Award size={16} color="#d97706" />
-                        <div>
-                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Analysts</div>
-                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>SEBI research desks & ratings</div>
-                        </div>
-                      </Link>
+                        {/* 6. Analysts */}
+                        <Link
+                          href="/analysts"
+                          onClick={() => setIposDropdownOpen(false)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.65rem',
+                            padding: '0.6rem 0.7rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            color: isAnalystsPage ? '#d97706' : '#0f172a',
+                            backgroundColor: isAnalystsPage ? '#fffbeb' : 'transparent',
+                            border: isAnalystsPage ? '1px solid #fde68a' : '1px solid transparent',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isAnalystsPage) {
+                              e.currentTarget.style.backgroundColor = '#fffbeb';
+                              e.currentTarget.style.borderColor = '#fde68a';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isAnalystsPage) {
+                              e.currentTarget.style.backgroundColor = 'transparent';
+                              e.currentTarget.style.borderColor = 'transparent';
+                            }
+                          }}
+                        >
+                          <div style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '8px',
+                            backgroundColor: isAnalystsPage ? '#fef3c7' : '#fffbeb',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0
+                          }}>
+                            <Award size={16} color="#d97706" />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: isAnalystsPage ? '#d97706' : '#0f172a' }}>
+                              Analysts
+                            </div>
+                            <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                              SEBI desk recommendations
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1041,13 +1245,16 @@ export default function Navbar({
           .navbar-searchbox {
             display: none !important;
           }
-        }
-        @media (max-width: 1040px) {
           .desktop-nav {
             display: none !important;
           }
           .mobile-menu-toggle {
             display: flex !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .mobile-menu-toggle {
+            display: none !important;
           }
         }
       `}</style>
