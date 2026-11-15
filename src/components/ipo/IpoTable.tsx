@@ -43,7 +43,6 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
               <>
                 <th style={{ padding: '0.65rem 0.85rem', textAlign: 'right', color: '#1d4ed8' }}>Listing Price</th>
                 <th style={{ padding: '0.65rem 0.85rem', textAlign: 'right', color: '#15803d' }}>Current Price (CMP)</th>
-                <th style={{ padding: '0.65rem 0.85rem', textAlign: 'right', color: '#047857' }}>Total Return</th>
               </>
             ) : (
               <>
@@ -69,7 +68,6 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
             const cmp = quote?.currentPrice ?? listingPrice;
             const cmpChange = quote?.change;
             const cmpChangePercent = quote?.changePercent;
-            const totalReturn = (cmp && ipo.priceBandHigh) ? ((cmp - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : listingGain;
 
             const gmpPercent = ((ipo.gmp / (ipo.priceBandHigh || 100)) * 100);
             const dailyChange = ipo.dailyGmpChange ?? getIpoDailyGmpChange(ipo);
@@ -202,22 +200,6 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                           Live Quote
                         </div>
                       )}
-                    </td>
-
-                    {/* 5. Total Return */}
-                    <td style={{ padding: '0.55rem 0.85rem', textAlign: 'right' }}>
-                      <span className="mono" style={{
-                        fontWeight: 800,
-                        fontSize: '0.78rem',
-                        color: (totalReturn ?? 0) >= 0 ? '#15803d' : '#dc2626',
-                        backgroundColor: (totalReturn ?? 0) >= 0 ? '#dcfce7' : '#fee2e2',
-                        padding: '2px 6px',
-                        borderRadius: '4px',
-                        border: (totalReturn ?? 0) >= 0 ? '1px solid #bbf7d0' : '1px solid #fecaca',
-                        display: 'inline-block'
-                      }}>
-                        {(totalReturn ?? 0) >= 0 ? `+${(totalReturn ?? 0).toFixed(1)}%` : `${(totalReturn ?? 0).toFixed(1)}%`}
-                      </span>
                     </td>
                   </>
                 ) : (
