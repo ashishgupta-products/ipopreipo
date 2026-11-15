@@ -100,45 +100,72 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                       }}>
                         {ipo.name}
                       </div>
-                      <div style={{
-                        fontSize: '0.68rem',
-                        color: '#64748b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.35rem',
-                        marginTop: '1px'
-                      }}>
-                        <span className="mono" style={{ fontWeight: 600, color: '#475569' }}>{ipo.symbol}</span>
-                        <span>•</span>
-                        <span>{ipo.exchange}</span>
-                        {ipo.category === 'SME' ? (
-                          <span style={{
-                            fontSize: '0.62rem',
-                            fontWeight: 700,
-                            color: '#b45309',
-                            backgroundColor: '#fffbeb',
-                            padding: '0px 4px',
-                            borderRadius: '3px',
-                            border: '1px solid #fde68a',
-                            lineHeight: '1.2'
-                          }}>
-                            SME
-                          </span>
-                        ) : (
-                          <span style={{
-                            fontSize: '0.62rem',
-                            fontWeight: 600,
-                            color: '#2563eb',
-                            backgroundColor: '#eff6ff',
-                            padding: '0px 4px',
-                            borderRadius: '3px',
-                            border: '1px solid #bfdbfe',
-                            lineHeight: '1.2'
-                          }}>
-                            MAIN
-                          </span>
-                        )}
-                      </div>
+                      {isListed ? (
+                        <div style={{
+                          fontSize: '0.68rem',
+                          color: '#64748b',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          marginTop: '1px'
+                        }}>
+                          <span>Listed on {ipo.timeline?.listingDate || ipo.listingDate || 'Completed'}</span>
+                          {ipo.category === 'SME' && (
+                            <span style={{
+                              fontSize: '0.62rem',
+                              fontWeight: 700,
+                              color: '#b45309',
+                              backgroundColor: '#fffbeb',
+                              padding: '0px 4px',
+                              borderRadius: '3px',
+                              border: '1px solid #fde68a',
+                              lineHeight: '1.2'
+                            }}>
+                              SME
+                            </span>
+                          )}
+                        </div>
+                      ) : (
+                        <div style={{
+                          fontSize: '0.68rem',
+                          color: '#64748b',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          marginTop: '1px'
+                        }}>
+                          <span className="mono" style={{ fontWeight: 600, color: '#475569' }}>{ipo.symbol}</span>
+                          <span>•</span>
+                          <span>{ipo.exchange}</span>
+                          {ipo.category === 'SME' ? (
+                            <span style={{
+                              fontSize: '0.62rem',
+                              fontWeight: 700,
+                              color: '#b45309',
+                              backgroundColor: '#fffbeb',
+                              padding: '0px 4px',
+                              borderRadius: '3px',
+                              border: '1px solid #fde68a',
+                              lineHeight: '1.2'
+                            }}>
+                              SME
+                            </span>
+                          ) : (
+                            <span style={{
+                              fontSize: '0.62rem',
+                              fontWeight: 600,
+                              color: '#2563eb',
+                              backgroundColor: '#eff6ff',
+                              padding: '0px 4px',
+                              borderRadius: '3px',
+                              border: '1px solid #bfdbfe',
+                              lineHeight: '1.2'
+                            }}>
+                              MAIN
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </td>
