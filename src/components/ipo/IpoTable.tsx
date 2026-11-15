@@ -52,9 +52,11 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
               </>
             )}
             <th style={{ padding: '0.65rem 0.85rem', textAlign: 'right' }}>Subscription</th>
-            <th style={{ padding: '0.65rem 0.85rem', textAlign: 'center' }}>
-              {isListedView ? 'Listing Date' : 'Timeline'}
-            </th>
+            {!isListedView && (
+              <th style={{ padding: '0.65rem 0.85rem', textAlign: 'center' }}>
+                Timeline
+              </th>
+            )}
             <th style={{ padding: '0.65rem 0.85rem', textAlign: 'right' }}>Action</th>
           </tr>
         </thead>
@@ -104,26 +106,9 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                         <div style={{
                           fontSize: '0.68rem',
                           color: '#64748b',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.35rem',
                           marginTop: '1px'
                         }}>
-                          <span>Listed on {ipo.timeline?.listingDate || ipo.listingDate || 'Completed'}</span>
-                          {ipo.category === 'SME' && (
-                            <span style={{
-                              fontSize: '0.62rem',
-                              fontWeight: 700,
-                              color: '#b45309',
-                              backgroundColor: '#fffbeb',
-                              padding: '0px 4px',
-                              borderRadius: '3px',
-                              border: '1px solid #fde68a',
-                              lineHeight: '1.2'
-                            }}>
-                              SME
-                            </span>
-                          )}
+                          Listed on {ipo.timeline?.listingDate || ipo.listingDate || 'Completed'}
                         </div>
                       ) : (
                         <div style={{
@@ -177,9 +162,11 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                       ? (ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : '₹100')
                       : (ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandLow} - ₹${ipo.priceBandHigh}` : 'TBA')}
                   </div>
-                  <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '1px' }}>
-                    {ipo.lotSize && ipo.lotSize > 0 ? `Lot: ${ipo.lotSize}` : 'Lot: TBA'}
-                  </div>
+                  {!isListedView && (
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '1px' }}>
+                      {ipo.lotSize && ipo.lotSize > 0 ? `Lot: ${ipo.lotSize}` : 'Lot: TBA'}
+                    </div>
+                  )}
                 </td>
 
                 {isListedView ? (
@@ -318,55 +305,50 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
                       <div className="mono" style={{ fontWeight: 700, color: '#0f172a', fontSize: '0.85rem' }}>
                         {ipo.subscription.total}x
                       </div>
-                      <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
-                        Ret: {ipo.subscription.retail}x
-                      </div>
+                      {!isListedView && (
+                        <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                          Ret: {ipo.subscription.retail}x
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>—</span>
                   )}
                 </td>
 
-                {/* 7. Dates */}
-                <td style={{ padding: '0.55rem 0.85rem', textAlign: 'center' }}>
-                  {isListed ? (
-                    <div>
-                      <div style={{ fontWeight: 700, color: '#166534', fontSize: '0.78rem' }}>
-                        {ipo.timeline?.listingDate || 'Completed'}
+                {/* 7. Dates (Live & Upcoming only) */}
+                {!isListedView && (
+                  <td style={{ padding: '0.55rem 0.85rem', textAlign: 'center' }}>
+                    {ipo.status === 'CLOSED' ? (
+                      <div>
+                        <div style={{ fontWeight: 700, color: '#6d28d9', fontSize: '0.78rem' }}>
+                          Allot: {ipo.timeline?.allotmentFinalization || 'In Progress'}
+                        </div>
+                        <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                          Close: {ipo.timeline?.biddingEnds || 'Closed'}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
-                        Listed
+                    ) : ipo.status === 'UPCOMING' ? (
+                      <div>
+                        <div style={{ fontWeight: 700, color: '#2563eb', fontSize: '0.78rem' }}>
+                          {ipo.timeline?.biddingStarts || 'TBA'}
+                        </div>
+                        <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
+                          Opens
+                        </div>
                       </div>
-                    </div>
-                  ) : ipo.status === 'CLOSED' ? (
-                    <div>
-                      <div style={{ fontWeight: 700, color: '#6d28d9', fontSize: '0.78rem' }}>
-                        Allot: {ipo.timeline?.allotmentFinalization || 'In Progress'}
+                    ) : (
+                      <div>
+                        <div style={{ fontWeight: 700, color: '#059669', fontSize: '0.78rem' }}>
+                          {ipo.timeline?.biddingEnds || 'Live'}
+                        </div>
+                        <div style={{ fontSize: '0.66rem', color: '#059669', fontWeight: 600, marginTop: '1px' }}>
+                          Closes
+                        </div>
                       </div>
-                      <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
-                        Close: {ipo.timeline?.biddingEnds || 'Closed'}
-                      </div>
-                    </div>
-                  ) : ipo.status === 'UPCOMING' ? (
-                    <div>
-                      <div style={{ fontWeight: 700, color: '#2563eb', fontSize: '0.78rem' }}>
-                        {ipo.timeline?.biddingStarts || 'TBA'}
-                      </div>
-                      <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '1px' }}>
-                        Opens
-                      </div>
-                    </div>
-                  ) : (
-                    <div>
-                      <div style={{ fontWeight: 700, color: '#059669', fontSize: '0.78rem' }}>
-                        {ipo.timeline?.biddingEnds || 'Live'}
-                      </div>
-                      <div style={{ fontSize: '0.66rem', color: '#059669', fontWeight: 600, marginTop: '1px' }}>
-                        Closes
-                      </div>
-                    </div>
-                  )}
-                </td>
+                    )}
+                  </td>
+                )}
 
                 {/* 8. Action */}
                 <td style={{ padding: '0.55rem 0.85rem', textAlign: 'right' }}>
