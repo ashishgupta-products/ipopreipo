@@ -19,7 +19,8 @@ import {
   Calendar,
   Building2,
   Rocket,
-  Trophy
+  Trophy,
+  Sparkles
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -124,7 +125,9 @@ export default function Navbar({
   const isMainboardPage = pathname === '/mainboard-ipo';
   const isSmePage = pathname === '/sme-ipo';
   const isPerformancePage = pathname === '/ipo-performance';
-  const isIposPage = pathname === '/' || pathname.startsWith('/ipo') || isMainboardPage || isSmePage || isPerformancePage || isCalendarPage || isAllotmentPage || isAnalystsPage;
+  const isPreIpoPage = pathname.startsWith('/pre-ipo') || pathname.startsWith('/preipo');
+  const isSelectPage = pathname.startsWith('/select');
+  const isIposPage = (pathname === '/' || pathname.startsWith('/ipo') || isMainboardPage || isSmePage || isPerformancePage || isCalendarPage || isAllotmentPage || isAnalystsPage) && !isPreIpoPage && !isSelectPage;
 
   const navItems: {
     id: string;
@@ -141,6 +144,20 @@ export default function Navbar({
       href: '/',
       isActive: isIposPage
     },
+    {
+      id: 'pre-ipo',
+      label: 'Pre-IPO',
+      icon: <Sparkles size={15} />,
+      href: '/pre-ipo',
+      isActive: isPreIpoPage
+    },
+    {
+      id: 'select',
+      label: 'Select',
+      icon: <Award size={15} />,
+      href: '/select',
+      isActive: isSelectPage
+    }
   ];
 
   return (
@@ -606,6 +623,18 @@ export default function Navbar({
                   border: active ? '1px solid #bfdbfe' : '1px solid transparent',
                   transition: 'all 0.15s ease',
                   textDecoration: 'none'
+                }}
+                onMouseEnter={(e) => {
+                  if (!active) {
+                    e.currentTarget.style.backgroundColor = '#f1f5f9';
+                    e.currentTarget.style.color = '#0f172a';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!active) {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = '#475569';
+                  }
                 }}
               >
                 {item.icon}
