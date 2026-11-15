@@ -16,7 +16,10 @@ import {
   LogOut,
   LogIn,
   ChevronDown,
-  Calendar
+  Calendar,
+  Building2,
+  Rocket,
+  Trophy
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -35,7 +38,9 @@ export default function Navbar({
   const { data: session, status } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [iposDropdownOpen, setIposDropdownOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const iposDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -43,15 +48,27 @@ export default function Navbar({
       if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
         setUserMenuOpen(false);
       }
+      if (iposDropdownRef.current && !iposDropdownRef.current.contains(event.target as Node)) {
+        setIposDropdownOpen(false);
+      }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    setIposDropdownOpen(false);
+    setUserMenuOpen(false);
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   const isAnalystsPage = pathname.startsWith('/analysts');
   const isCalendarPage = pathname === '/ipo-calendar';
   const isAllotmentPage = pathname === '/allotment';
-  const isIposPage = (pathname === '/' || pathname.startsWith('/ipo')) && !isCalendarPage;
+  const isMainboardPage = pathname === '/mainboard-ipo';
+  const isSmePage = pathname === '/sme-ipo';
+  const isPerformancePage = pathname === '/ipo-performance';
+  const isIposPage = (pathname === '/' || pathname.startsWith('/ipo') || isMainboardPage || isSmePage || isPerformancePage) && !isCalendarPage;
 
   const navItems: {
     id: string;
@@ -161,6 +178,139 @@ export default function Navbar({
           }}
         >
           {navItems.map((item) => {
+            if (item.id === 'ipos') {
+              return (
+                <div
+                  key="ipos-dropdown"
+                  ref={iposDropdownRef}
+                  style={{ position: 'relative' }}
+                  onMouseEnter={() => setIposDropdownOpen(true)}
+                  onMouseLeave={() => setIposDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => setIposDropdownOpen((prev) => !prev)}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      padding: '0.42rem 0.65rem',
+                      borderRadius: '6px',
+                      fontSize: '0.84rem',
+                      fontWeight: isIposPage ? 700 : 500,
+                      color: isIposPage ? '#2563eb' : '#475569',
+                      backgroundColor: isIposPage ? '#eff6ff' : 'transparent',
+                      border: isIposPage ? '1px solid #bfdbfe' : '1px solid transparent',
+                      transition: 'all 0.15s ease',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {item.icon}
+                    <span>{item.label}</span>
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        transform: iposDropdownOpen ? 'rotate(180deg)' : 'none',
+                        transition: 'transform 0.15s ease',
+                        color: isIposPage ? '#2563eb' : '#64748b'
+                      }}
+                    />
+                  </button>
+
+                  {iposDropdownOpen && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: 'calc(100% + 4px)',
+                        left: 0,
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        borderRadius: '8px',
+                        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
+                        minWidth: '230px',
+                        padding: '6px',
+                        zIndex: 60,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '2px'
+                      }}
+                    >
+                      <Link
+                        href="/mainboard-ipo"
+                        onClick={() => setIposDropdownOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.65rem',
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          textDecoration: 'none',
+                          color: isMainboardPage ? '#2563eb' : '#0f172a',
+                          backgroundColor: isMainboardPage ? '#eff6ff' : 'transparent',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isMainboardPage ? '#eff6ff' : '#f8fafc')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isMainboardPage ? '#eff6ff' : 'transparent')}
+                      >
+                        <Building2 size={16} color="#2563eb" />
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Mainboard IPO</div>
+                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>NSE & BSE Mainboard issues</div>
+                        </div>
+                      </Link>
+
+                      <Link
+                        href="/sme-ipo"
+                        onClick={() => setIposDropdownOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.65rem',
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          textDecoration: 'none',
+                          color: isSmePage ? '#b45309' : '#0f172a',
+                          backgroundColor: isSmePage ? '#fffbeb' : 'transparent',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isSmePage ? '#fffbeb' : '#f8fafc')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isSmePage ? '#fffbeb' : 'transparent')}
+                      >
+                        <Rocket size={16} color="#b45309" />
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>SME IPO</div>
+                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>NSE Emerge & BSE SME</div>
+                        </div>
+                      </Link>
+
+                      <Link
+                        href="/ipo-performance"
+                        onClick={() => setIposDropdownOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.65rem',
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          textDecoration: 'none',
+                          color: isPerformancePage ? '#059669' : '#0f172a',
+                          backgroundColor: isPerformancePage ? '#ecfdf5' : 'transparent',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isPerformancePage ? '#ecfdf5' : '#f8fafc')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isPerformancePage ? '#ecfdf5' : 'transparent')}
+                      >
+                        <Trophy size={16} color="#059669" />
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>IPO Performance</div>
+                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Listing gains & returns</div>
+                        </div>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             const active = item.isActive;
             return (
               <Link
@@ -523,42 +673,130 @@ export default function Navbar({
             </div>
           )}
 
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                padding: '0.65rem 0.85rem',
-                borderRadius: '8px',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                color: item.isActive ? '#2563eb' : '#334155',
-                backgroundColor: item.isActive ? '#eff6ff' : '#f8fafc',
-                border: item.isActive ? '1px solid #bfdbfe' : '1px solid #f1f5f9',
-                textDecoration: 'none'
-              }}
-            >
-              {item.icon}
-              <span style={{ flex: 1 }}>{item.label}</span>
-              {item.badge && (
-                <span style={{
-                  fontSize: '0.6rem',
-                  fontWeight: 800,
-                  backgroundColor: '#fef3c7',
-                  color: '#b45309',
-                  padding: '1px 5px',
-                  borderRadius: '4px',
-                  border: '1px solid #fde68a'
-                }}>
-                  {item.badge}
-                </span>
-              )}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            if (item.id === 'ipos') {
+              return (
+                <div key={item.id} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.65rem',
+                      padding: '0.55rem 0.85rem',
+                      borderRadius: '8px',
+                      fontSize: '0.88rem',
+                      fontWeight: 700,
+                      color: isIposPage ? '#2563eb' : '#334155',
+                      backgroundColor: isIposPage ? '#eff6ff' : '#f8fafc',
+                      border: isIposPage ? '1px solid #bfdbfe' : '1px solid #f1f5f9'
+                    }}
+                  >
+                    {item.icon}
+                    <span style={{ flex: 1 }}>{item.label}</span>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', paddingLeft: '0.75rem', marginTop: '2px' }}>
+                    <Link
+                      href="/mainboard-ipo"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        padding: '0.45rem 0.75rem',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: isMainboardPage ? 700 : 600,
+                        color: isMainboardPage ? '#2563eb' : '#475569',
+                        backgroundColor: isMainboardPage ? '#eff6ff' : '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Building2 size={14} color="#2563eb" />
+                      <span>Mainboard IPO</span>
+                    </Link>
+                    <Link
+                      href="/sme-ipo"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        padding: '0.45rem 0.75rem',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: isSmePage ? 700 : 600,
+                        color: isSmePage ? '#b45309' : '#475569',
+                        backgroundColor: isSmePage ? '#fffbeb' : '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Rocket size={14} color="#b45309" />
+                      <span>SME IPO</span>
+                    </Link>
+                    <Link
+                      href="/ipo-performance"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        padding: '0.45rem 0.75rem',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: isPerformancePage ? 700 : 600,
+                        color: isPerformancePage ? '#059669' : '#475569',
+                        backgroundColor: isPerformancePage ? '#ecfdf5' : '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Trophy size={14} color="#059669" />
+                      <span>IPO Performance</span>
+                    </Link>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.65rem',
+                  padding: '0.65rem 0.85rem',
+                  borderRadius: '8px',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  color: item.isActive ? '#2563eb' : '#334155',
+                  backgroundColor: item.isActive ? '#eff6ff' : '#f8fafc',
+                  border: item.isActive ? '1px solid #bfdbfe' : '1px solid #f1f5f9',
+                  textDecoration: 'none'
+                }}
+              >
+                {item.icon}
+                <span style={{ flex: 1 }}>{item.label}</span>
+                {item.badge && (
+                  <span style={{
+                    fontSize: '0.6rem',
+                    fontWeight: 800,
+                    backgroundColor: '#fef3c7',
+                    color: '#b45309',
+                    padding: '1px 5px',
+                    borderRadius: '4px',
+                    border: '1px solid #fde68a'
+                  }}>
+                    {item.badge}
+                  </span>
+                )}
+              </Link>
+            );
+          })}
 
           {/* Mobile Auth Button (Single clean Sign In button) */}
           <div style={{ marginTop: '0.35rem', paddingTop: '0.65rem', borderTop: '1px solid #f1f5f9' }}>
