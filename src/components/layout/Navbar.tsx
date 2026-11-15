@@ -90,7 +90,7 @@ export default function Navbar({
   const isMainboardPage = pathname === '/mainboard-ipo';
   const isSmePage = pathname === '/sme-ipo';
   const isPerformancePage = pathname === '/ipo-performance';
-  const isIposPage = (pathname === '/' || pathname.startsWith('/ipo') || isMainboardPage || isSmePage || isPerformancePage) && !isCalendarPage;
+  const isIposPage = pathname === '/' || pathname.startsWith('/ipo') || isMainboardPage || isSmePage || isPerformancePage || isCalendarPage || isAllotmentPage || isAnalystsPage;
 
   const navItems: {
     id: string;
@@ -105,28 +105,7 @@ export default function Navbar({
       label: 'IPOs', 
       icon: <Layers size={15} />, 
       href: '/',
-      isActive: isIposPage && (!activeTab || activeTab === 'all-ipos' || activeTab === 'live-gmp')
-    },
-    { 
-      id: 'calendar', 
-      label: 'Calendar', 
-      icon: <Calendar size={15} color="#2563eb" />, 
-      href: '/ipo-calendar',
-      isActive: isCalendarPage
-    },
-    { 
-      id: 'allotment', 
-      label: 'Allotment', 
-      icon: <ShieldCheck size={15} color="#059669" />, 
-      href: '/allotment',
-      isActive: isAllotmentPage
-    },
-    { 
-      id: 'analysts', 
-      label: 'Analysts', 
-      icon: <Award size={15} color="#d97706" />, 
-      href: '/analysts',
-      isActive: isAnalystsPage
+      isActive: isIposPage
     },
   ];
 
@@ -325,6 +304,30 @@ export default function Navbar({
                         <div>
                           <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>IPO Performance</div>
                           <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Listing gains & returns</div>
+                        </div>
+                      </Link>
+
+                      <Link
+                        href="/ipo-calendar"
+                        onClick={() => setIposDropdownOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.65rem',
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          textDecoration: 'none',
+                          color: isCalendarPage ? '#2563eb' : '#0f172a',
+                          backgroundColor: isCalendarPage ? '#eff6ff' : 'transparent',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isCalendarPage ? '#eff6ff' : '#f8fafc')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isCalendarPage ? '#eff6ff' : 'transparent')}
+                      >
+                        <Calendar size={16} color="#2563eb" />
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>IPO Calendar</div>
+                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Bidding & listing timetable</div>
                         </div>
                       </Link>
 
@@ -829,6 +832,26 @@ export default function Navbar({
                     >
                       <Trophy size={14} color="#059669" />
                       <span>IPO Performance</span>
+                    </Link>
+                    <Link
+                      href="/ipo-calendar"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        padding: '0.45rem 0.75rem',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: isCalendarPage ? 700 : 600,
+                        color: isCalendarPage ? '#2563eb' : '#475569',
+                        backgroundColor: isCalendarPage ? '#eff6ff' : '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Calendar size={14} color="#2563eb" />
+                      <span>IPO Calendar</span>
                     </Link>
                     <Link
                       href="/allotment"
