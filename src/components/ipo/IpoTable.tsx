@@ -16,7 +16,9 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
   const isListedView = statusFilter === 'LISTED' || (ipos.length > 0 && ipos.every(i => i.status === 'LISTED'));
 
   return (
-    <div className="table-responsive-wrapper">
+    <>
+      {/* Desktop Table View (screens > 768px) */}
+      <div className="ipo-desktop-table table-responsive-wrapper">
       <table style={{
         width: '100%',
         borderCollapse: 'collapse',
@@ -399,5 +401,324 @@ export default function IpoTable({ ipos, onSelect, statusFilter, quotes = {} }: 
         </tbody>
       </table>
     </div>
+
+    {/* Mobile Cards View (screens <= 768px) */}
+    <div className="ipo-mobile-cards">
+      {ipos.map((ipo) => {
+        const isListed = ipo.status === 'LISTED' || (typeof ipo.listingPrice === 'number' && ipo.listingPrice > 0) || isListedView;
+        const listingPrice = ipo.listingPrice ?? (isListed && ipo.priceBandHigh ? ipo.priceBandHigh + (ipo.gmp || 0) : undefined);
+        const listingGain = ipo.listingGainPercent ?? (isListed && ipo.priceBandHigh && listingPrice ? ((listingPrice - ipo.priceBandHigh) / ipo.priceBandHigh) * 100 : undefined);
+        const quote = quotes[ipo.symbol] || quotes[ipo.id];
+        const cmp = quote?.currentPrice ?? listingPrice;
+        const cmpChange = quote?.change;
+        const cmpChangePercent = quote?.changePercent;
+        const gmpPercent = ((ipo.gmp / (ipo.priceBandHigh || 100)) * 100);
+
+        if (isListedView || isListed) {
+          return (
+            <div
+              key={`mobile-${ipo.id}`}
+              onClick={() => onSelect(ipo)}
+              style={{
+                backgroundColor: '#ffffff',
+                border: '1px solid #e2e8f0',
+                borderRadius: '12px',
+                padding: '0.85rem 1rem',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.65rem',
+                cursor: 'pointer'
+              }}
+            >
+              {/* Header: Logo, Company Name, Listed on [Date] */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', minWidth: 0 }}>
+                  <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={34} />
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{
+                      fontWeight: 700,
+                      fontSize: '0.92rem',
+                      color: '#0f172a',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}>
+                      {ipo.name}
+                    </div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '1px' }}>
+                      Listed on {ipo.timeline?.listingDate || ipo.listingDate || 'Completed'}
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  href={`/ipo/${ipo.id}`}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    padding: '0.25rem 0.6rem',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    color: '#2563eb',
+                    backgroundColor: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '2px',
+                    flexShrink: 0
+                  }}
+                >
+                  <span>Details</span>
+                  <ChevronRight size={12} />
+                </Link>
+              </div>
+
+              {/* Metrics 4-Column Bar */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '0.35rem',
+                backgroundColor: '#f8fafc',
+                borderRadius: '8px',
+                padding: '0.55rem 0.65rem',
+                border: '1px solid #f1f5f9'
+              }}>
+                <div>
+                  <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Issue</div>
+                  <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginTop: '1px' }}>
+                    ₹{ipo.priceBandHigh || ipo.priceBandLow || 100}
+                  </div>
+                </div>
+
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Listing</div>
+                  <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#1e3a8a', marginTop: '1px' }}>
+                    ₹{listingPrice ?? '—'}
+                  </div>
+                  {listingGain !== undefined && (
+                    <div style={{ fontSize: '0.64rem', color: listingGain >= 0 ? '#15803d' : '#b91c1c', fontWeight: 700 }}>
+                      {listingGain >= 0 ? `+${listingGain.toFixed(1)}%` : `${listingGain.toFixed(1)}%`}
+                    </div>
+                  )}
+                </div>
+
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>CMP</div>
+                  <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 800, color: '#0f172a', marginTop: '1px' }}>
+                    ₹{cmp ?? '—'}
+                  </div>
+                  <div style={{ fontSize: '0.64rem', color: (cmpChangePercent ?? 0) >= 0 ? '#15803d' : '#b91c1c', fontWeight: 700 }}>
+                    {cmpChangePercent !== undefined && cmpChangePercent !== null
+                      ? `${cmpChangePercent >= 0 ? '+' : ''}${cmpChangePercent.toFixed(1)}%`
+                      : (quote ? '0.0%' : '—')}
+                  </div>
+                </div>
+
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Sub</div>
+                  <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginTop: '1px' }}>
+                    {ipo.subscription ? `${ipo.subscription.total}x` : '—'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        // Live / Upcoming Mobile Card
+        return (
+          <div
+            key={`mobile-${ipo.id}`}
+            onClick={() => onSelect(ipo)}
+            style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              padding: '0.85rem 1rem',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.65rem',
+              cursor: 'pointer'
+            }}
+          >
+            {/* Header: Logo, Company Name, Symbol • Exchange • SME/MAIN */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', minWidth: 0 }}>
+                <IpoLogo name={ipo.name} symbol={ipo.symbol} logoUrl={ipo.logoUrl} size={34} />
+                <div style={{ minWidth: 0 }}>
+                  <div style={{
+                    fontWeight: 700,
+                    fontSize: '0.92rem',
+                    color: '#0f172a',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}>
+                    {ipo.name}
+                  </div>
+                  <div style={{ fontSize: '0.7rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1px' }}>
+                    <span className="mono" style={{ fontWeight: 600 }}>{ipo.symbol}</span>
+                    <span>•</span>
+                    <span>{ipo.exchange}</span>
+                    {ipo.category === 'SME' ? (
+                      <span style={{
+                        fontSize: '0.62rem',
+                        fontWeight: 700,
+                        color: '#b45309',
+                        backgroundColor: '#fffbeb',
+                        padding: '0px 4px',
+                        borderRadius: '3px',
+                        border: '1px solid #fde68a'
+                      }}>
+                        SME
+                      </span>
+                    ) : (
+                      <span style={{
+                        fontSize: '0.62rem',
+                        fontWeight: 600,
+                        color: '#2563eb',
+                        backgroundColor: '#eff6ff',
+                        padding: '0px 4px',
+                        borderRadius: '3px',
+                        border: '1px solid #bfdbfe'
+                      }}>
+                        MAIN
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <span style={{
+                fontSize: '0.68rem',
+                fontWeight: 700,
+                padding: '2px 8px',
+                borderRadius: '4px',
+                backgroundColor: ipo.status === 'LIVE' ? '#ecfdf5' : '#eff6ff',
+                color: ipo.status === 'LIVE' ? '#059669' : '#2563eb',
+                border: ipo.status === 'LIVE' ? '1px solid #a7f3d0' : '1px solid #bfdbfe',
+                flexShrink: 0
+              }}>
+                {ipo.status === 'LIVE' ? '🟢 Live' : ipo.status === 'CLOSED' ? 'Closed' : '🔵 Upcoming'}
+              </span>
+            </div>
+
+            {/* Metrics 4-Column Bar */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '0.35rem',
+              backgroundColor: '#f8fafc',
+              borderRadius: '8px',
+              padding: '0.55rem 0.65rem',
+              border: '1px solid #f1f5f9'
+            }}>
+              <div>
+                <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Price Band</div>
+                <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginTop: '1px' }}>
+                  {ipo.priceBandLow && ipo.priceBandHigh ? `₹${ipo.priceBandHigh}` : 'TBA'}
+                </div>
+                {ipo.lotSize && ipo.lotSize > 0 && (
+                  <div style={{ fontSize: '0.64rem', color: '#64748b' }}>
+                    Lot: {ipo.lotSize}
+                  </div>
+                )}
+              </div>
+
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Size</div>
+                <div className="mono" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#334155', marginTop: '1px' }}>
+                  {ipo.issueSizeCr ? `₹${ipo.issueSizeCr} Cr` : 'TBA'}
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Live GMP</div>
+                <div className="mono" style={{
+                  fontSize: '0.84rem',
+                  fontWeight: 800,
+                  color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
+                  marginTop: '1px'
+                }}>
+                  {ipo.gmp >= 0 ? `+₹${ipo.gmp}` : `-₹${Math.abs(ipo.gmp)}`}
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '0.64rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Est Gain</div>
+                <div className="mono" style={{
+                  fontSize: '0.84rem',
+                  fontWeight: 800,
+                  color: ipo.gmp >= 0 ? '#059669' : '#dc2626',
+                  marginTop: '1px'
+                }}>
+                  {gmpPercent >= 0 ? `+${gmpPercent.toFixed(1)}%` : `${gmpPercent.toFixed(1)}%`}
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row: Timeline & Actions */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b' }}>
+              <div>
+                {ipo.status === 'LIVE' ? (
+                  <span>Closes: <strong style={{ color: '#059669' }}>{ipo.timeline?.biddingEnds}</strong></span>
+                ) : ipo.status === 'UPCOMING' ? (
+                  <span>Opens: <strong style={{ color: '#2563eb' }}>{ipo.timeline?.biddingStarts || 'TBA'}</strong></span>
+                ) : (
+                  <span>Closed: <strong>{ipo.timeline?.biddingEnds}</strong></span>
+                )}
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                {ipo.status === 'CLOSED' && ipo.registrarUrl && (
+                  <a
+                    href={ipo.registrarUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      padding: '0.2rem 0.5rem',
+                      fontSize: '0.7rem',
+                      fontWeight: 600,
+                      color: '#059669',
+                      backgroundColor: '#ecfdf5',
+                      border: '1px solid #a7f3d0',
+                      borderRadius: '4px',
+                      textDecoration: 'none'
+                    }}
+                  >
+                    Allotment
+                  </a>
+                )}
+                <Link
+                  href={`/ipo/${ipo.id}`}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    padding: '0.2rem 0.55rem',
+                    fontSize: '0.7rem',
+                    fontWeight: 600,
+                    color: '#2563eb',
+                    backgroundColor: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '2px'
+                  }}
+                >
+                  <span>Details</span>
+                  <ChevronRight size={11} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </>
   );
 }
