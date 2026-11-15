@@ -43,7 +43,7 @@ export default function PreIpoPage() {
             marginBottom: '0.5rem',
             letterSpacing: '-0.02em'
           }}>
-            Pre-IPO
+            Preipo (Unlisted)
           </h1>
 
           <div style={{

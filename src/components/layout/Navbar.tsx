@@ -146,11 +146,10 @@ export default function Navbar({
     },
     {
       id: 'pre-ipo',
-      label: 'Pre-IPO',
+      label: 'Preipo(Unlisted)',
       icon: <Sparkles size={15} />,
       href: '/pre-ipo',
-      isActive: isPreIpoPage,
-      badge: 'SOON'
+      isActive: isPreIpoPage
     },
     {
       id: 'select',
