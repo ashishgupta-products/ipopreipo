@@ -66,17 +66,23 @@ export async function getAllIposFromDb(): Promise<IpoItem[] | null> {
         return !sym.includes('ZCZP') && !sym.includes('SSE') && cat !== 'SSE' && !name.includes('foundation');
       });
 
-    // Deduplicate by canonical identity, prioritizing verified LISTED entries
+    // Deduplicate by canonical identity and normalized entity name, prioritizing verified LISTED entries
     const dedupedMap = new Map<string, IpoItem>();
+    const seenNames = new Map<string, string>(); // normKey -> id
     for (const item of rawItems) {
-      const existing = dedupedMap.get(item.id);
+      const normKey = (item.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const existingId = seenNames.get(normKey);
+      const targetKey = existingId || item.id;
+      const existing = dedupedMap.get(targetKey);
+
       if (!existing) {
-        dedupedMap.set(item.id, item);
+        dedupedMap.set(targetKey, item);
+        if (normKey) seenNames.set(normKey, targetKey);
       } else {
         if (existing.status !== 'LISTED' && item.status === 'LISTED') {
-          dedupedMap.set(item.id, item);
+          dedupedMap.set(targetKey, item);
         } else if (existing.status === 'LISTED') {
-          dedupedMap.set(item.id, { ...item, ...existing, status: 'LISTED' });
+          dedupedMap.set(targetKey, { ...item, ...existing, status: 'LISTED' });
         }
       }
     }

@@ -269,22 +269,26 @@ export function getMergedIpos(): IpoItem[] {
 
     const combined = [...liveList, ...additional];
 
-    // Canonical Entity Deduplication Pipeline:
+    // Canonical Entity & Name Deduplication Pipeline:
     // Deduplicates rows, resolving conflicting statuses in favor of market-realized 'LISTED'
     const dedupedMap = new Map<string, IpoItem>();
+    const seenNames = new Map<string, string>(); // normKey -> canonicalId
     for (const raw of combined) {
       const canonicalId = CANONICAL_IPO_IDS[raw.id] || raw.id;
       const itemWithCanonicalId = { ...raw, id: canonicalId };
       const enriched = enrichSingleIpo(itemWithCanonicalId);
+      const normKey = (enriched.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
-      const existing = dedupedMap.get(canonicalId);
+      const existingKey = seenNames.get(normKey) || canonicalId;
+      const existing = dedupedMap.get(existingKey);
       if (!existing) {
-        dedupedMap.set(canonicalId, enriched);
+        dedupedMap.set(existingKey, enriched);
+        if (normKey) seenNames.set(normKey, existingKey);
       } else {
         if (existing.status !== 'LISTED' && enriched.status === 'LISTED') {
-          dedupedMap.set(canonicalId, enriched);
+          dedupedMap.set(existingKey, enriched);
         } else if (existing.status === 'LISTED') {
-          dedupedMap.set(canonicalId, { ...enriched, ...existing, status: 'LISTED' });
+          dedupedMap.set(existingKey, { ...enriched, ...existing, status: 'LISTED' });
         }
       }
     }
@@ -300,13 +304,18 @@ export function getScrapedLiveOnly(): IpoItem[] {
   try {
     const list = (((liveData as any).ipos as IpoItem[]) || INDIAN_IPOS).filter(isRelevantEquityIpo);
     const dedupedMap = new Map<string, IpoItem>();
+    const seenNames = new Map<string, string>();
     for (const raw of list) {
       const canonicalId = CANONICAL_IPO_IDS[raw.id] || raw.id;
       const item = { ...raw, id: canonicalId };
       const enriched = enrichSingleIpo(item);
-      const existing = dedupedMap.get(canonicalId);
+      const normKey = (enriched.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      const existingKey = seenNames.get(normKey) || canonicalId;
+      const existing = dedupedMap.get(existingKey);
       if (!existing || (existing.status !== 'LISTED' && enriched.status === 'LISTED')) {
-        dedupedMap.set(canonicalId, enriched);
+        dedupedMap.set(existingKey, enriched);
+        if (normKey) seenNames.set(normKey, existingKey);
       }
     }
     return Array.from(dedupedMap.values());

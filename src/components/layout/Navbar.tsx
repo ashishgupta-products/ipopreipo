@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { 
   TrendingUp, 
@@ -42,6 +42,28 @@ export default function Navbar({
   const userMenuRef = useRef<HTMLDivElement>(null);
   const iposDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
+
+  const [internalQuery, setInternalQuery] = useState(searchQuery || '');
+
+  useEffect(() => {
+    setInternalQuery(searchQuery || '');
+  }, [searchQuery]);
+
+  const handleSearchChange = (val: string) => {
+    setInternalQuery(val);
+    if (setSearchQuery) {
+      setSearchQuery(val);
+    }
+  };
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      if (!setSearchQuery || (pathname !== '/' && !pathname.startsWith('/mainboard') && !pathname.startsWith('/sme') && !pathname.startsWith('/ipo-performance'))) {
+        router.push(`/?q=${encodeURIComponent(internalQuery)}`);
+      }
+    }
+  };
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -402,71 +424,77 @@ export default function Navbar({
         </nav>
 
         {/* Right Section: Compact Search + Sign In Button / User Menu */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
-          {/* Large Screen Search input (optional compact input) */}
-          {setSearchQuery && (
-            <div 
-              className="desktop-search"
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0 }}>
+          {/* Always-visible Navbar Searchbox on Desktop & Tablet */}
+          <div 
+            className="navbar-searchbox"
+            style={{
+              position: 'relative',
+              width: '210px',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            <Search size={14} color="#94a3b8" style={{
+              position: 'absolute',
+              left: '11px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              pointerEvents: 'none'
+            }} />
+            <input
+              type="text"
+              placeholder="Search IPOs..."
+              value={internalQuery}
+              onChange={(e) => handleSearchChange(e.target.value)}
+              onKeyDown={handleSearchKeyDown}
               style={{
-                position: 'relative',
-                width: '180px',
-                display: 'none'
+                width: '100%',
+                backgroundColor: '#f1f5f9',
+                border: '1px solid #e2e8f0',
+                borderRadius: '8px',
+                padding: '0.42rem 1.85rem 0.42rem 2.05rem',
+                fontSize: '0.82rem',
+                color: '#0f172a',
+                outline: 'none',
+                transition: 'all 0.2s ease',
+                fontWeight: 500
               }}
-            >
-              <Search size={14} color="#94a3b8" style={{
-                position: 'absolute',
-                left: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)'
-              }} />
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#2563eb';
+                e.target.style.backgroundColor = '#ffffff';
+                e.target.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.1)';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#e2e8f0';
+                e.target.style.backgroundColor = '#f1f5f9';
+                e.target.style.boxShadow = 'none';
+              }}
+            />
+            {internalQuery && (
+              <button 
+                type="button"
+                onClick={() => handleSearchChange('')}
                 style={{
-                  width: '100%',
-                  backgroundColor: '#f1f5f9',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '20px',
-                  padding: '0.38rem 0.75rem 0.38rem 2rem',
-                  fontSize: '0.8rem',
-                  color: '#0f172a',
-                  outline: 'none',
-                  transition: 'all 0.2s'
+                  position: 'absolute',
+                  right: '8px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  color: '#94a3b8',
+                  fontSize: '0.72rem',
+                  cursor: 'pointer',
+                  background: 'none',
+                  border: 'none',
+                  padding: '2px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#3b82f6';
-                  e.target.style.backgroundColor = '#ffffff';
-                  e.target.style.width = '220px';
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = '#e2e8f0';
-                  e.target.style.backgroundColor = '#f1f5f9';
-                  e.target.style.width = '180px';
-                }}
-              />
-              {searchQuery && (
-                <button 
-                  onClick={() => setSearchQuery('')}
-                  style={{
-                    position: 'absolute',
-                    right: '10px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    color: '#94a3b8',
-                    fontSize: '0.72rem',
-                    cursor: 'pointer',
-                    background: 'none',
-                    border: 'none',
-                    padding: 0
-                  }}
-                >
-                  ✕
-                </button>
-              )}
-            </div>
-          )}
+                title="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </div>
 
           {/* Desktop Auth State / Single "Sign In" Button */}
           <div className="desktop-auth" style={{ position: 'relative' }} ref={userMenuRef}>
@@ -694,32 +722,31 @@ export default function Navbar({
           WebkitOverflowScrolling: 'touch'
         }}>
           {/* Mobile Search input */}
-          {setSearchQuery && (
-            <div style={{ position: 'relative', marginBottom: '0.4rem' }}>
-              <Search size={15} color="#94a3b8" style={{
-                position: 'absolute',
-                left: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)'
-              }} />
-              <input
-                type="text"
-                placeholder="Search IPOs, analysts..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: '100%',
-                  backgroundColor: '#f1f5f9',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '8px',
-                  padding: '0.55rem 0.75rem 0.55rem 2rem',
-                  fontSize: '0.85rem',
-                  color: '#0f172a',
-                  outline: 'none'
-                }}
-              />
-            </div>
-          )}
+          <div style={{ position: 'relative', marginBottom: '0.4rem' }}>
+            <Search size={15} color="#94a3b8" style={{
+              position: 'absolute',
+              left: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)'
+            }} />
+            <input
+              type="text"
+              placeholder="Search IPOs..."
+              value={internalQuery}
+              onChange={(e) => handleSearchChange(e.target.value)}
+              onKeyDown={handleSearchKeyDown}
+              style={{
+                width: '100%',
+                backgroundColor: '#f1f5f9',
+                border: '1px solid #e2e8f0',
+                borderRadius: '8px',
+                padding: '0.55rem 0.75rem 0.55rem 2rem',
+                fontSize: '0.85rem',
+                color: '#0f172a',
+                outline: 'none'
+              }}
+            />
+          </div>
 
           {navItems.map((item) => {
             if (item.id === 'ipos') {
@@ -987,9 +1014,9 @@ export default function Navbar({
       )}
 
       <style jsx>{`
-        @media (min-width: 1260px) {
-          .desktop-search {
-            display: block !important;
+        @media (max-width: 768px) {
+          .navbar-searchbox {
+            display: none !important;
           }
         }
         @media (max-width: 1040px) {

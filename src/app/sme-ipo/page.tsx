@@ -73,7 +73,18 @@ export default function SmeIpoPage() {
       return true;
     });
 
-    return list.sort((a, b) => {
+    // Invariant deduplication: guarantee zero duplicate entries
+    const seenNames = new Set<string>();
+    const uniqueList: IpoItem[] = [];
+    for (const item of list) {
+      const normKey = (item.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!seenNames.has(normKey)) {
+        seenNames.add(normKey);
+        uniqueList.push(item);
+      }
+    }
+
+    return uniqueList.sort((a, b) => {
       if (statusFilter === 'LISTED') {
         const dateA = parseListingDateTimestamp(a.timeline?.listingDate || a.listingDate);
         const dateB = parseListingDateTimestamp(b.timeline?.listingDate || b.listingDate);

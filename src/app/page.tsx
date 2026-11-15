@@ -28,6 +28,11 @@ export default function Home() {
       const tab = params.get('tab');
       const view = params.get('view');
       const status = params.get('status');
+      const q = params.get('q');
+
+      if (q) {
+        setSearchQuery(q);
+      }
 
       if (tab === 'analysts') {
         router.replace('/analysts');
@@ -138,8 +143,19 @@ export default function Home() {
       return true;
     });
 
+    // Invariant deduplication: guarantee no identical company variants (e.g. "M.K. Sons" vs "M. K. Sons")
+    const seenNames = new Set<string>();
+    const uniqueList: IpoItem[] = [];
+    for (const item of list) {
+      const normKey = (item.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!seenNames.has(normKey)) {
+        seenNames.add(normKey);
+        uniqueList.push(item);
+      }
+    }
+
     // Sort: For listed sort by official listing date descending (newest listed first), then gain
-    return list.sort((a, b) => {
+    return uniqueList.sort((a, b) => {
       if (statusFilter === 'LISTED') {
         const dateA = parseListingDateTimestamp(a.timeline?.listingDate || a.listingDate);
         const dateB = parseListingDateTimestamp(b.timeline?.listingDate || b.listingDate);
