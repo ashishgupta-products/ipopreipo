@@ -18,7 +18,10 @@ import {
   SlidersHorizontal,
   ExternalLink,
   Layers,
-  Sparkles
+  Sparkles,
+  TrendingUp,
+  Table as TableIcon,
+  LayoutGrid
 } from 'lucide-react';
 
 interface ProductItem {
@@ -269,6 +272,7 @@ const SELECT_PRODUCTS: ProductItem[] = [
 export default function SelectPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [viewMode, setViewMode] = useState<'table' | 'card'>('table');
 
   const categories = ['All', 'Brokers', 'Credit Cards', 'Bank Accounts', 'Payment Apps'];
 
@@ -281,6 +285,21 @@ export default function SelectPage() {
       p.highlights.some((h) => h.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
+
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Brokers':
+        return <TrendingUp size={17} />;
+      case 'Credit Cards':
+        return <CreditCard size={17} />;
+      case 'Bank Accounts':
+        return <Building2 size={17} />;
+      case 'Payment Apps':
+        return <Smartphone size={17} />;
+      default:
+        return <Award size={17} />;
+    }
+  };
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
@@ -413,7 +432,7 @@ export default function SelectPage() {
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '1rem',
-          marginBottom: '1.5rem'
+          marginBottom: '1.25rem'
         }}>
           {/* Category Tabs */}
           <div style={{
@@ -466,139 +485,530 @@ export default function SelectPage() {
           </div>
         </div>
 
-        {/* Product Comparison Cards */}
+        {/* Results Counter & View Mode Switcher */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-          gap: '1.25rem',
-          marginBottom: '3rem'
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginBottom: '1rem',
+          flexWrap: 'wrap',
+          gap: '0.75rem'
         }}>
+          <div style={{ fontSize: '0.84rem', color: '#64748b' }}>
+            Showing <strong style={{ color: '#0f172a' }}>{filteredProducts.length}</strong> products in <strong style={{ color: '#2563eb' }}>{selectedCategory}</strong>
+          </div>
+
+          {/* Desktop Table / Card switcher */}
+          <div 
+            className="select-view-toggle"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '8px',
+              padding: '2px',
+              gap: '2px'
+            }}
+          >
+            <button
+              onClick={() => setViewMode('table')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                padding: '0.35rem 0.75rem',
+                borderRadius: '6px',
+                fontSize: '0.78rem',
+                fontWeight: viewMode === 'table' ? 700 : 500,
+                border: 'none',
+                cursor: 'pointer',
+                backgroundColor: viewMode === 'table' ? '#eff6ff' : 'transparent',
+                color: viewMode === 'table' ? '#2563eb' : '#64748b',
+                transition: 'all 0.15s ease'
+              }}
+              title="Table View"
+            >
+              <TableIcon size={13} />
+              <span>Table</span>
+            </button>
+            <button
+              onClick={() => setViewMode('card')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                padding: '0.35rem 0.75rem',
+                borderRadius: '6px',
+                fontSize: '0.78rem',
+                fontWeight: viewMode === 'card' ? 700 : 500,
+                border: 'none',
+                cursor: 'pointer',
+                backgroundColor: viewMode === 'card' ? '#eff6ff' : 'transparent',
+                color: viewMode === 'card' ? '#2563eb' : '#64748b',
+                transition: 'all 0.15s ease'
+              }}
+              title="Card Grid View"
+            >
+              <LayoutGrid size={13} />
+              <span>Cards</span>
+            </button>
+          </div>
+        </div>
+
+        {/* 1. TABLE VIEW (Cards in table format) */}
+        {viewMode === 'table' && (
+          <div className="select-desktop-table" style={{
+            backgroundColor: '#ffffff',
+            borderRadius: '14px',
+            border: '1px solid #e2e8f0',
+            overflow: 'hidden',
+            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.03)',
+            marginBottom: '3rem'
+          }}>
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                textAlign: 'left',
+                fontSize: '0.82rem'
+              }}>
+                <thead>
+                  <tr style={{
+                    backgroundColor: '#f8fafc',
+                    borderBottom: '2px solid #e2e8f0',
+                    color: '#475569',
+                    fontSize: '0.73rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em'
+                  }}>
+                    <th style={{ padding: '0.85rem 1rem' }}>Product / Platform</th>
+                    <th style={{ padding: '0.85rem 0.85rem' }}>Category</th>
+                    <th style={{ padding: '0.85rem 0.85rem' }}>Rating</th>
+                    <th style={{ padding: '0.85rem 0.85rem' }}>Charges &amp; Fees</th>
+                    <th style={{ padding: '0.85rem 1rem' }}>Key Highlights</th>
+                    <th style={{ padding: '0.85rem 0.85rem' }}>Best For</th>
+                    <th style={{ padding: '0.85rem 1rem', textAlign: 'right' }}>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredProducts.map((product) => (
+                    <tr
+                      key={`table-${product.id}`}
+                      style={{
+                        borderBottom: '1px solid #f1f5f9',
+                        transition: 'background-color 0.12s ease'
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f8fafc')}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#ffffff')}
+                    >
+                      {/* Product Name, Icon & Tagline */}
+                      <td style={{ padding: '0.85rem 1rem', verticalAlign: 'top', minWidth: '220px' }}>
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                          <div style={{
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '8px',
+                            backgroundColor: `${product.badgeColor || '#2563eb'}12`,
+                            color: product.badgeColor || '#2563eb',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            marginTop: '2px'
+                          }}>
+                            {getCategoryIcon(product.category)}
+                          </div>
+                          <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                              <span style={{ fontWeight: 800, fontSize: '0.92rem', color: '#0f172a' }}>
+                                {product.name}
+                              </span>
+                              {product.badge && (
+                                <span style={{
+                                  fontSize: '0.6rem',
+                                  fontWeight: 800,
+                                  padding: '1px 5px',
+                                  borderRadius: '4px',
+                                  backgroundColor: `${product.badgeColor || '#2563eb'}15`,
+                                  color: product.badgeColor || '#2563eb',
+                                  border: `1px solid ${product.badgeColor || '#2563eb'}30`,
+                                  whiteSpace: 'nowrap'
+                                }}>
+                                  {product.badge}
+                                </span>
+                              )}
+                            </div>
+                            <div style={{ fontSize: '0.74rem', color: '#64748b', marginTop: '3px', lineHeight: 1.4 }}>
+                              {product.tagline}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Category Pill */}
+                      <td style={{ padding: '0.85rem 0.85rem', verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                        <span style={{
+                          fontSize: '0.72rem',
+                          fontWeight: 600,
+                          padding: '3px 8px',
+                          borderRadius: '6px',
+                          backgroundColor: '#f1f5f9',
+                          color: '#475569',
+                          border: '1px solid #e2e8f0'
+                        }}>
+                          {product.category}
+                        </span>
+                      </td>
+
+                      {/* Rating */}
+                      <td style={{ padding: '0.85rem 0.85rem', verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+                          <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                          <span style={{ fontWeight: 800, color: '#0f172a', fontSize: '0.86rem' }}>{product.rating}</span>
+                        </div>
+                        <div style={{ fontSize: '0.68rem', color: '#94a3b8', marginTop: '2px' }}>
+                          {product.ratingCount}
+                        </div>
+                      </td>
+
+                      {/* Charges & Fees */}
+                      <td style={{ padding: '0.85rem 0.85rem', verticalAlign: 'top', minWidth: '140px' }}>
+                        <div style={{ fontWeight: 800, color: '#0f172a', fontSize: '0.82rem' }}>
+                          {product.fee}
+                        </div>
+                        {product.amcFee && (
+                          <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>
+                            AMC: {product.amcFee}
+                          </div>
+                        )}
+                      </td>
+
+                      {/* Highlights */}
+                      <td style={{ padding: '0.85rem 1rem', verticalAlign: 'top', minWidth: '260px' }}>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                          {product.highlights.slice(0, 3).map((h, i) => (
+                            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '5px', fontSize: '0.75rem', color: '#334155', lineHeight: 1.35 }}>
+                              <Check size={12} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </td>
+
+                      {/* Best For */}
+                      <td style={{ padding: '0.85rem 0.85rem', verticalAlign: 'top', minWidth: '150px' }}>
+                        <div style={{
+                          fontSize: '0.74rem',
+                          color: '#475569',
+                          lineHeight: 1.4,
+                          backgroundColor: '#f8fafc',
+                          padding: '4px 8px',
+                          borderRadius: '6px',
+                          border: '1px solid #f1f5f9'
+                        }}>
+                          {product.bestFor}
+                        </div>
+                      </td>
+
+                      {/* Action CTA */}
+                      <td style={{ padding: '0.85rem 1rem', verticalAlign: 'top', textAlign: 'right', whiteSpace: 'nowrap' }}>
+                        <a
+                          href={product.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            backgroundColor: '#0f172a',
+                            color: '#ffffff',
+                            padding: '0.45rem 0.85rem',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            textDecoration: 'none',
+                            transition: 'background-color 0.15s ease'
+                          }}
+                        >
+                          <span>Explore</span>
+                          <ExternalLink size={11} />
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* 2. CARD VIEW (Rendered when toggled to card or as fallback) */}
+        {viewMode === 'card' && (
+          <div 
+            className="select-card-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+              gap: '1.25rem',
+              marginBottom: '3rem'
+            }}
+          >
+            {filteredProducts.map((product) => (
+              <div
+                key={`grid-${product.id}`}
+                style={{
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '12px',
+                  padding: '1.35rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)',
+                  transition: 'transform 0.15s ease, box-shadow 0.15s ease'
+                }}
+              >
+                <div>
+                  {/* Header */}
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
+                          {product.name}
+                        </h3>
+                        {product.badge && (
+                          <span style={{
+                            fontSize: '0.62rem',
+                            fontWeight: 800,
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            backgroundColor: `${product.badgeColor || '#2563eb'}15`,
+                            color: product.badgeColor || '#2563eb',
+                            border: `1px solid ${product.badgeColor || '#2563eb'}40`
+                          }}>
+                            {product.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '3px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '2px', color: '#f59e0b' }}>
+                          <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                          <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#0f172a' }}>{product.rating}</span>
+                        </div>
+                        <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>({product.ratingCount})</span>
+                        <span style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>•</span>
+                        <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>{product.category}</span>
+                      </div>
+                    </div>
+
+                    <div style={{
+                      textAlign: 'right',
+                      backgroundColor: '#f8fafc',
+                      padding: '4px 8px',
+                      borderRadius: '6px',
+                      border: '1px solid #e2e8f0'
+                    }}>
+                      <div style={{ fontSize: '0.66rem', color: '#64748b' }}>Charges</div>
+                      <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0f172a' }}>{product.fee}</div>
+                    </div>
+                  </div>
+
+                  <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.45, marginBottom: '1rem' }}>
+                    {product.tagline}
+                  </p>
+
+                  {/* Highlights List */}
+                  <div style={{
+                    backgroundColor: '#f8fafc',
+                    border: '1px solid #f1f5f9',
+                    borderRadius: '8px',
+                    padding: '0.85rem',
+                    marginBottom: '1rem'
+                  }}>
+                    <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '0.45rem', letterSpacing: '0.04em' }}>
+                      Key Advantages
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                      {product.highlights.map((h, i) => (
+                        <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '0.78rem', color: '#334155' }}>
+                          <Check size={13} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div style={{ fontSize: '0.76rem', color: '#64748b', marginBottom: '0.5rem' }}>
+                    <strong style={{ color: '#0f172a' }}>Best Suited For:</strong> {product.bestFor}
+                  </div>
+                </div>
+
+                {/* Action Link */}
+                <div style={{
+                  marginTop: '1rem',
+                  paddingTop: '0.75rem',
+                  borderTop: '1px solid #f1f5f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
+                }}>
+                  <a
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: '#0f172a',
+                      color: '#ffffff',
+                      padding: '0.45rem 1rem',
+                      borderRadius: '6px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
+                  >
+                    <span>Explore Details</span>
+                    <ExternalLink size={12} />
+                  </a>
+
+                  {product.amcFee && (
+                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                      AMC: <strong style={{ color: '#0f172a' }}>{product.amcFee}</strong>
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* 3. MOBILE CARDS VIEW (Clean responsive card layout for small screens <= 768px) */}
+        <div className="select-mobile-cards" style={{ display: 'none', flexDirection: 'column', gap: '0.85rem', marginBottom: '3rem' }}>
           {filteredProducts.map((product) => (
             <div
-              key={product.id}
+              key={`mobile-${product.id}`}
               style={{
                 backgroundColor: '#ffffff',
                 border: '1px solid #e2e8f0',
                 borderRadius: '12px',
-                padding: '1.35rem',
+                padding: '1.1rem',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)',
-                transition: 'transform 0.15s ease, box-shadow 0.15s ease'
+                gap: '0.75rem'
               }}
             >
-              <div>
-                {/* Header */}
-                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              {/* Header */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    backgroundColor: `${product.badgeColor || '#2563eb'}15`,
+                    color: product.badgeColor || '#2563eb',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    {getCategoryIcon(product.category)}
+                  </div>
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                      <span style={{ fontWeight: 800, fontSize: '0.95rem', color: '#0f172a' }}>
                         {product.name}
-                      </h3>
+                      </span>
                       {product.badge && (
                         <span style={{
-                          fontSize: '0.62rem',
+                          fontSize: '0.6rem',
                           fontWeight: 800,
-                          padding: '2px 6px',
+                          padding: '1px 5px',
                           borderRadius: '4px',
                           backgroundColor: `${product.badgeColor || '#2563eb'}15`,
                           color: product.badgeColor || '#2563eb',
-                          border: `1px solid ${product.badgeColor || '#2563eb'}40`
+                          border: `1px solid ${product.badgeColor || '#2563eb'}30`
                         }}>
                           {product.badge}
                         </span>
                       )}
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '3px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '2px', color: '#f59e0b' }}>
-                        <Star size={13} fill="#f59e0b" color="#f59e0b" />
-                        <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#0f172a' }}>{product.rating}</span>
-                      </div>
-                      <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>({product.ratingCount})</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '2px' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#64748b' }}>{product.category}</span>
                       <span style={{ fontSize: '0.72rem', color: '#cbd5e1' }}>•</span>
-                      <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>{product.category}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '2px', color: '#f59e0b' }}>
+                        <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0f172a' }}>{product.rating}</span>
+                      </div>
                     </div>
                   </div>
-
-                  <div style={{
-                    textAlign: 'right',
-                    backgroundColor: '#f8fafc',
-                    padding: '4px 8px',
-                    borderRadius: '6px',
-                    border: '1px solid #e2e8f0'
-                  }}>
-                    <div style={{ fontSize: '0.66rem', color: '#64748b' }}>Charges</div>
-                    <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0f172a' }}>{product.fee}</div>
-                  </div>
                 </div>
 
-                <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.45, marginBottom: '1rem' }}>
-                  {product.tagline}
-                </p>
-
-                {/* Highlights List */}
-                <div style={{
-                  backgroundColor: '#f8fafc',
-                  border: '1px solid #f1f5f9',
-                  borderRadius: '8px',
-                  padding: '0.85rem',
-                  marginBottom: '1rem'
-                }}>
-                  <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '0.45rem', letterSpacing: '0.04em' }}>
-                    Key Advantages
-                  </div>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                    {product.highlights.map((h, i) => (
-                      <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '0.78rem', color: '#334155' }}>
-                        <Check size={13} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div style={{ fontSize: '0.76rem', color: '#64748b', marginBottom: '0.5rem' }}>
-                  <strong style={{ color: '#0f172a' }}>Best Suited For:</strong> {product.bestFor}
-                </div>
-              </div>
-
-              {/* Action Link */}
-              <div style={{
-                marginTop: '1rem',
-                paddingTop: '0.75rem',
-                borderTop: '1px solid #f1f5f9',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between'
-              }}>
                 <a
                   href={product.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    backgroundColor: '#0f172a',
-                    color: '#ffffff',
-                    padding: '0.45rem 1rem',
+                    backgroundColor: '#eff6ff',
+                    color: '#2563eb',
+                    border: '1px solid #bfdbfe',
+                    padding: '0.35rem 0.75rem',
                     borderRadius: '6px',
-                    fontSize: '0.78rem',
+                    fontSize: '0.75rem',
                     fontWeight: 700,
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '4px'
+                    gap: '3px',
+                    flexShrink: 0
                   }}
                 >
-                  <span>Explore Details</span>
-                  <ExternalLink size={12} />
+                  <span>Explore</span>
+                  <ExternalLink size={11} />
                 </a>
-
-                {product.amcFee && (
-                  <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
-                    AMC: <strong style={{ color: '#0f172a' }}>{product.amcFee}</strong>
-                  </span>
-                )}
               </div>
+
+              {/* Tagline */}
+              <div style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.4 }}>
+                {product.tagline}
+              </div>
+
+              {/* Fee & Best For Grid */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '0.5rem',
+                backgroundColor: '#f8fafc',
+                border: '1px solid #f1f5f9',
+                borderRadius: '8px',
+                padding: '0.65rem'
+              }}>
+                <div>
+                  <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Fees / Charges</div>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#0f172a', marginTop: '1px' }}>
+                    {product.fee}
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Annual AMC</div>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#2563eb', marginTop: '1px' }}>
+                    {product.amcFee || 'N/A'}
+                  </div>
+                </div>
+              </div>
+
+              {/* Top 2 Highlights */}
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                {product.highlights.slice(0, 2).map((h, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '5px', fontSize: '0.75rem', color: '#334155' }}>
+                    <Check size={12} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -720,6 +1130,25 @@ export default function SelectPage() {
       </main>
 
       <Footer />
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .select-desktop-table {
+            display: none !important;
+          }
+          .select-mobile-cards {
+            display: flex !important;
+          }
+          .select-view-toggle {
+            display: none !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .select-mobile-cards {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
