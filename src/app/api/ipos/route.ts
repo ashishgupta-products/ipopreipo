@@ -15,13 +15,24 @@ export async function GET() {
         status: getEffectiveIpoStatus(ipo),
       }));
 
+      // Invariant Deduplication Guard: Guarantee zero double entries across scrapers/databases
+      const seenNames = new Set<string>();
+      const dedupedIpos: typeof normalizedIpos = [];
+      for (const ipo of normalizedIpos) {
+        const normKey = (ipo.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (!seenNames.has(normKey)) {
+          seenNames.add(normKey);
+          dedupedIpos.push(ipo);
+        }
+      }
+
       return NextResponse.json(
         {
           success: true,
           source: 'neon-postgresql',
-          count: normalizedIpos.length,
+          count: dedupedIpos.length,
           lastUpdated: dbLastUpdated || getLastUpdatedTimestamp(),
-          ipos: normalizedIpos,
+          ipos: dedupedIpos,
         },
         {
           headers: {

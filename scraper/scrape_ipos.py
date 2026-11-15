@@ -953,6 +953,13 @@ def sync_to_neon_db(ipos_list, last_updated):
 
         execute_batch(cur, upsert_query, items_to_sync, page_size=100)
 
+        # Prune stale records not present in the current primary dataset (e.g. from deprecated scrapers)
+        valid_ids = [item.get('id') for item in ipos_list if item.get('id')]
+        if valid_ids:
+            cur.execute("DELETE FROM ipos WHERE id NOT IN %s;", (tuple(valid_ids),))
+            if cur.rowcount > 0:
+                print(f"[Neon DB] Pruned {cur.rowcount} obsolete/duplicate records not in primary dataset.")
+
         cur.execute("""
         INSERT INTO market_sync_metadata (key, value, updated_at)
         VALUES ('last_ipos_sync', %s, NOW())

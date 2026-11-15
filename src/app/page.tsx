@@ -13,7 +13,6 @@ import { getMergedIpos, getEffectiveIpoStatus, parseListingDateTimestamp } from 
 
 import { 
   Table as TableIcon, 
-  Calendar as CalendarIcon,
   ChevronDown,
   Filter,
   RotateCcw
@@ -35,7 +34,7 @@ export default function Home() {
       } else if (tab === 'allotment') {
         router.replace('/allotment');
       } else if (tab === 'calendar' || view === 'calendar') {
-        setViewMode('CALENDAR');
+        router.replace('/ipo-calendar');
       }
 
       if (status === 'upcoming') {
@@ -344,27 +343,6 @@ export default function Home() {
               >
                 <TableIcon size={14} />
                 <span>Table</span>
-              </button>
-              <button
-                onClick={() => setViewMode('CALENDAR')}
-                style={{
-                  padding: '0.3rem 0.65rem',
-                  borderRadius: 'var(--radius-sm)',
-                  color: viewMode === 'CALENDAR' ? '#ffffff' : '#64748b',
-                  backgroundColor: viewMode === 'CALENDAR' ? '#2563eb' : 'transparent',
-                  border: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  fontSize: '0.78rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
-                title="Interactive IPO Calendar view"
-              >
-                <CalendarIcon size={14} />
-                <span>Calendar</span>
               </button>
             </div>
 

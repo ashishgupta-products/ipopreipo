@@ -186,6 +186,16 @@ async function validateApiIfRunning() {
       throw new Error(`[FAIL] Live API returned Jio as ${jio[0].status}, expected LISTED`);
     }
 
+    const seenNames = new Map();
+    for (const item of list) {
+      const key = (item.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (seenNames.has(key)) {
+        throw new Error(`[FAIL] Duplicate entity in Live API: '${item.name}' matches '${seenNames.get(key)}'`);
+      }
+      seenNames.set(key, item.name);
+    }
+    console.log(`[PASS] Zero entity duplication verified across all ${list.length} Live API records.`);
+
     console.log(`[PASS] Live API assertions passed! UPCOMING: ${upcoming.length}, LISTED: ${list.filter(i => i.status === 'LISTED').length}`);
   } catch (err) {
     if (err.message && err.message.startsWith('[FAIL]')) {
