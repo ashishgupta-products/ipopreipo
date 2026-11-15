@@ -149,7 +149,8 @@ export default function Navbar({
       label: 'Pre-IPO',
       icon: <Sparkles size={15} />,
       href: '/pre-ipo',
-      isActive: isPreIpoPage
+      isActive: isPreIpoPage,
+      badge: 'SOON'
     },
     {
       id: 'select',
