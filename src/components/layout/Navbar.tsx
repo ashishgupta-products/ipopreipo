@@ -305,6 +305,54 @@ export default function Navbar({
                           <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Listing gains & returns</div>
                         </div>
                       </Link>
+
+                      <Link
+                        href="/allotment"
+                        onClick={() => setIposDropdownOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.65rem',
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          textDecoration: 'none',
+                          color: isAllotmentPage ? '#059669' : '#0f172a',
+                          backgroundColor: isAllotmentPage ? '#ecfdf5' : 'transparent',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isAllotmentPage ? '#ecfdf5' : '#f8fafc')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isAllotmentPage ? '#ecfdf5' : 'transparent')}
+                      >
+                        <ShieldCheck size={16} color="#059669" />
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Allotment</div>
+                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Check registrar & PAN status</div>
+                        </div>
+                      </Link>
+
+                      <Link
+                        href="/analysts"
+                        onClick={() => setIposDropdownOpen(false)}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.65rem',
+                          padding: '0.55rem 0.65rem',
+                          borderRadius: '6px',
+                          textDecoration: 'none',
+                          color: isAnalystsPage ? '#d97706' : '#0f172a',
+                          backgroundColor: isAnalystsPage ? '#fffbeb' : 'transparent',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isAnalystsPage ? '#fffbeb' : '#f8fafc')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isAnalystsPage ? '#fffbeb' : 'transparent')}
+                      >
+                        <Award size={16} color="#d97706" />
+                        <div>
+                          <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Analysts</div>
+                          <div style={{ fontSize: '0.68rem', color: '#64748b' }}>SEBI research desks & ratings</div>
+                        </div>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -754,6 +802,46 @@ export default function Navbar({
                     >
                       <Trophy size={14} color="#059669" />
                       <span>IPO Performance</span>
+                    </Link>
+                    <Link
+                      href="/allotment"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        padding: '0.45rem 0.75rem',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: isAllotmentPage ? 700 : 600,
+                        color: isAllotmentPage ? '#059669' : '#475569',
+                        backgroundColor: isAllotmentPage ? '#ecfdf5' : '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <ShieldCheck size={14} color="#059669" />
+                      <span>Allotment</span>
+                    </Link>
+                    <Link
+                      href="/analysts"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        padding: '0.45rem 0.75rem',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: isAnalystsPage ? 700 : 600,
+                        color: isAnalystsPage ? '#d97706' : '#475569',
+                        backgroundColor: isAnalystsPage ? '#fffbeb' : '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Award size={14} color="#d97706" />
+                      <span>Analysts</span>
                     </Link>
                   </div>
                 </div>
