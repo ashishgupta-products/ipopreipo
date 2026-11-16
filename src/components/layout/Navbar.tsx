@@ -205,16 +205,15 @@ export default function Navbar({
           </div>
           <div style={{ 
             fontWeight: 800, 
-            fontSize: '1.15rem', 
-            letterSpacing: '-0.02em', 
+            fontSize: '1.2rem', 
+            letterSpacing: '-0.025em', 
             display: 'flex', 
             alignItems: 'center', 
-            gap: '0.3rem',
             color: '#0f172a',
             whiteSpace: 'nowrap'
           }}>
-            <span>IPO</span>
-            <span style={{ color: '#387ed1' }}>Market</span>
+            <span>ipo</span>
+            <span style={{ color: '#387ed1' }}>preipo</span>
           </div>
         </Link>
 

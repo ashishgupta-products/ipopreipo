@@ -35,8 +35,8 @@ export default function Footer() {
               }}>
                 <TrendingUp size={18} color="#ffffff" />
               </div>
-              <span style={{ fontWeight: 800, fontSize: '1.15rem', color: '#0f172a' }}>
-                IPO <span style={{ color: '#387ed1' }}>Market</span>
+              <span style={{ fontWeight: 800, fontSize: '1.18rem', color: '#0f172a', letterSpacing: '-0.025em' }}>
+                ipo<span style={{ color: '#387ed1' }}>preipo</span>
               </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: '1.6', marginBottom: '1rem' }}>
@@ -149,7 +149,7 @@ export default function Footer() {
           color: '#64748b'
         }}>
           <div>
-            © {new Date().getFullYear()} IPO Market Terminal. Made with precision for Investors.
+            © {new Date().getFullYear()} ipopreipo. Made with precision for Investors.
           </div>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
             <span>Privacy Policy</span>
